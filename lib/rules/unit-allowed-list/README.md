@@ -123,9 +123,7 @@ For example, with `["px", "em"]`.
 Given:
 
 ```json
-{
-  "ignoreFunctions": ["/^hsl/", "calc"]
-}
+["/^hsl/", "calc"]
 ```
 
 The following patterns are _not_ considered problems:
