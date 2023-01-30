@@ -173,7 +173,7 @@
     "@types/write-file-atomic": "^4.0.0",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
-    "deepmerge": "^4.2.2",
+    "deepmerge": "^4.3.0",
     "eslint": "^8.33.0",
     "eslint-config-stylelint": "^17.1.0",
     "husky": "^8.0.3",
