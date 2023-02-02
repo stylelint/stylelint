@@ -103,6 +103,7 @@ declare namespace stylelint {
 		reportNeedlessDisables?: DisableSettings;
 		reportInvalidScopeDisables?: DisableSettings;
 		reportDescriptionlessDisables?: DisableSettings;
+		configurationComment?: string;
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
 	};
@@ -192,6 +193,7 @@ declare namespace stylelint {
 	 * A rule context.
 	 */
 	type RuleContext = {
+		configurationComment?: string | undefined;
 		fix?: boolean | undefined;
 		newline?: string | undefined;
 	};

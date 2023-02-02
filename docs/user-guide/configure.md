@@ -413,6 +413,18 @@ For example:
 
 [More info](options.md#ignoredisables).
 
+### `configurationComment`
+
+You can set the `configurationComment` to change the prefix of stylelint commands used in `stylelint-disable` comments. This can be useful if you expect to have multiple instances of stylelint with different configurations running.
+
+For example, to have stylelint disable rules with `/* stylelint-special-rules-disable */` instead of the default `/* stylelint-disable */`:
+
+```json
+{
+  "configurationComment": "stylelint-special-rules"
+}
+```
+
 ## `ignoreFiles`
 
 You can provide a glob or array of globs to ignore specific files.
