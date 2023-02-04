@@ -36,36 +36,19 @@ a { top: var(--foo); }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+### `ignoreProperties: { "property": ["/regex/", /regex/, "non-regex"]|"/regex/"|/regex/|"non-regex" }`
 
-Ignore the specified properties.
-
-Given:
-
-```json
-["top", "/^margin-/"]
-```
-
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css
-a { top: unknown; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { margin-top: unknown; }
-```
-
-### `ignoreValues: ["/regex/", /regex/, "non-regex"]`
-
-Ignore the specified values.
+Ignore the specified properties. Keys in the object indicate property names. If a string in the object is surrounded with `"/"`, it is interpreted as a regular expression. For example, `"/.+/"` matches any strings.
 
 Given:
 
 ```json
-["unknown", "/^--foo/"]
+{
+  "top": ["unknown"],
+  "/^margin-/": "/^--foo/",
+  "padding": "/.+/",
+  "/.+/": "--unknown-value"
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -80,26 +63,14 @@ a { top: unknown; }
 a { margin-top: --foo-bar; }
 ```
 
-### `ignoreValues: ["/regex/", /regex/, "non-regex"]`
-
-Ignore the specified values.
-
-Given:
-
-```json
-["unknown", "/^--foo/"]
-```
-
-The following patterns are _not_ considered problems:
-
 <!-- prettier-ignore -->
 ```css
-a { top: unknown; }
+a { padding: invalid; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { margin-top: --foo-bar; }
+a { width: --unknown-value; }
 ```
 
 ### `propertiesSyntax: { property: syntax }`
