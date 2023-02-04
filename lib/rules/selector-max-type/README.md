@@ -77,7 +77,7 @@ div a .foo:not(span) {}
 
 ## Optional secondary options
 
-### `ignore: ["child", "compounded", "descendant", "next-sibling"]`
+### `ignore: ["child", "compounded", "custom-elements", "descendant", "next-sibling"]`
 
 #### `"child"`
 
@@ -113,6 +113,19 @@ div span a.foo {}
 <!-- prettier-ignore -->
 ```css
 div span a#bar {}
+```
+
+#### `"custom-elements"`
+
+Discount custom elements.
+
+For example, with `2`:
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+div a foo-bar {}
 ```
 
 #### `"descendant"`
