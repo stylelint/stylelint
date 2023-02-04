@@ -1,6 +1,6 @@
 # declaration-property-value-no-unknown
 
-Disallow unknown values for property within declarations.
+Disallow unknown values for properties within declarations.
 
 <!-- prettier-ignore -->
 ```css
@@ -9,6 +9,17 @@ a { top: unknown; }
  * property and value pairs like these */
 ```
 
+This is an experimental rule with some false negatives that will be patched in minor releases.
+
+It sometimes overlaps with:
+
+- [`color-no-invalid-hex`](../color-no-invalid-hex/README.md)
+- [`function-no-unknown`](../function-no-unknown/README.md)
+- [`string-no-newline`](../string-no-newline/README.md)
+- [`unit-no-unknown`](../unit-no-unknown/README.md)
+
+If duplicate problems are flagged, you can turn off the corresponding rule.
+
 This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
 
 ## Options
@@ -16,6 +27,11 @@ This rule considers values for properties defined within the CSS specifications 
 ### `true`
 
 The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: red; }
+```
 
 <!-- prettier-ignore -->
 ```css
@@ -38,7 +54,7 @@ a { top: var(--foo); }
 
 ### `ignoreProperties: { "property": ["/regex/", /regex/, "non-regex"]|"/regex/"|/regex/|"non-regex" }`
 
-Ignore the specified properties. Keys in the object indicate property names. If a string in the object is surrounded with `"/"`, it is interpreted as a regular expression. For example, `"/.+/"` matches any strings.
+Ignore the specified property and value pairs. Keys in the object indicate property names. If a string in the object is surrounded with `"/"`, it's interpreted as a regular expression. For example, `"/.+/"` matches any strings.
 
 Given:
 
