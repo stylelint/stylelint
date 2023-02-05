@@ -446,11 +446,6 @@ declare module 'stylelint' {
 			| 'text-emphasis'
 			| 'transition';
 
-		export type OrderedLonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
-			ShorthandProperties,
-			ReadonlyArray<string>
-		>;
-
 		export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
 			ShorthandProperties,
 			ReadonlySet<string>
