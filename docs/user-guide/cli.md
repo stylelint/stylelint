@@ -60,6 +60,12 @@ Specify a custom syntax to use on your code. [More info](options.md#customsyntax
 
 Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`. [More info](options.md#disabledefaultignores).
 
+### `--ext`
+
+Allows you to specify which file extensions Stylelint uses when searching for target files in the directories set in the [input](#usage-examples).
+
+Note that [extensions](./configure.md#extensions) will take precedence if both are provided.
+
 ### `--fix`
 
 Automatically fix, where possible, problems reported by rules. [More info](options.md#fix).
@@ -144,6 +150,12 @@ Linting all `.css`, `.scss`, and `.sass` files:
 
 ```shell
 stylelint "**/*.{css,scss,sass}"
+```
+
+or
+
+```shell
+stylelint . --ext .css,.scss,.sass
 ```
 
 ### Example C - stdin

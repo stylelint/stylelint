@@ -139,6 +139,12 @@ CLI flags: `--disable-default-ignores, --di`
 
 Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`.
 
+## `extensions`
+
+CLI flags: `--ext`
+
+Specify supported file extensions. By default, Stylelint sets it to `['css']`.
+
 ## `globbyOptions`
 
 CLI flags: `--globby-options, --go`

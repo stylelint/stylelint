@@ -46,6 +46,7 @@ declare module 'stylelint' {
 	 */
 	export type Config = {
 		extends?: ConfigExtends;
+		extensions?: string[];
 		plugins?: ConfigPlugins;
 		pluginFunctions?: {
 			[pluginName: string]: Rule;
@@ -251,6 +252,7 @@ declare module 'stylelint' {
 		 * current working directory.
 		 */
 		cwd?: string;
+		extensions?: string[];
 		ignoreDisables?: boolean;
 		ignorePath?: string | string[];
 		ignorePattern?: string[];

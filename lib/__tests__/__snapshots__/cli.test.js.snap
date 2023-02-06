@@ -78,7 +78,7 @@ exports[`CLI --help 1`] = `
       changed ones the next time you run stylelint. By default, the cache
       is stored in "./.stylelintcache". To adjust this, use --cache-location.
 
-    --cache-location              [default: '.stylelintcache']
+    --cache-location              [default: ".stylelintcache"]
 
       Path to a file or directory to be used for the cache location.
       Default is "./.stylelintcache". If a directory is specified, a cache
@@ -97,6 +97,13 @@ exports[`CLI --help 1`] = `
       your files changes even if their contents have not. For example, this can happen
       during git operations like "git clone" because git does not track file modification
       time.
+
+    --ext                         [default: ".css"]
+
+      Specify supported file extensions.
+
+      Only applies to directories.
+      i.e. glob patterns and/or file names are ignored
 
     --formatter, -f               [default: "string"]
 

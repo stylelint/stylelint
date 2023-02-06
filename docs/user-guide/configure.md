@@ -218,7 +218,17 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
 - a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
-You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
+You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#configs).
+
+## `extensions`
+
+Allows you to specify which file extensions Stylelint uses when searching for target files in the directories set in the [input](./cli.md#usage-examples).
+
+```json
+{
+  "extensions": ["css", "scss", "less"]
+}
+```
 
 ## `plugins`
 

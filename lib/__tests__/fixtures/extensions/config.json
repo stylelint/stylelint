@@ -1,0 +1,6 @@
+{
+	"extensions": ["css"],
+	"rules": {
+		"color-named": "never"
+	}
+}
