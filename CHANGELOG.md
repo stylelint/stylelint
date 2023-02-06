@@ -1,5 +1,25 @@
 # Changelog
 
+## 15.0.0
+
+- Removed: `syntax` option ([#6420](https://github.com/stylelint/stylelint/pull/6420)) ([@fpetrakov](https://github.com/fpetrakov)). (BREAKING)
+- Removed: Node.js 12 support ([#6477](https://github.com/stylelint/stylelint/pull/6477)) ([@ybiquitous](https://github.com/ybiquitous)). (BREAKING)
+- Removed: support for processors ([#6479](https://github.com/stylelint/stylelint/pull/6479)) ([@ybiquitous](https://github.com/ybiquitous)). (BREAKING)
+- Changed: `extends` in `overrides` to merge to be consistent with `plugins` behaviour ([#6380](https://github.com/stylelint/stylelint/pull/6380)) ([@jasikpark](https://github.com/jasikpark)). (BREAKING)
+- Changed: type definitions to reorganize ([#6510](https://github.com/stylelint/stylelint/pull/6510)) ([@ybiquitous](https://github.com/ybiquitous)). (BREAKING)
+- Changed: type names to be more consistent ([#6503](https://github.com/stylelint/stylelint/pull/6503)) ([@ybiquitous](https://github.com/ybiquitous)). (BREAKING)
+- Deprecated: stylistic rules handled by Prettier ([#6504](https://github.com/stylelint/stylelint/pull/6504)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `function-url-quotes` autofix ([#6558](https://github.com/stylelint/stylelint/pull/6558)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: `ignoreFunctions: []` to `unit-disallowed-list` ([#6592](https://github.com/stylelint/stylelint/pull/6592)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: `media-feature-name-unit-allowed-list` rule ([#6550](https://github.com/stylelint/stylelint/pull/6550)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: deprecated rule warnings ([#6561](https://github.com/stylelint/stylelint/pull/6561)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: message arguments to `declaration-property-unit-allowed-list` ([#6570](https://github.com/stylelint/stylelint/pull/6570)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `at-rule-no-unknown` false positives for `@scroll-timeline` ([#6554](https://github.com/stylelint/stylelint/pull/6554)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `function-no-unknown` false positives for interpolation and backticks in CSS-in-JS ([#6565](https://github.com/stylelint/stylelint/pull/6565)) ([@hudochenkov](https://github.com/hudochenkov)).
+- Fixed: `overrides.files` in config to allow basename glob patterns ([#6547](https://github.com/stylelint/stylelint/pull/6547)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `property-no-unknown` false negatives for newer custom syntaxes ([#6553](https://github.com/stylelint/stylelint/pull/6553)) ([@43081j](https://github.com/43081j)).
+- Fixed: `selector-attribute-quotes` false positives for "never" ([#6571](https://github.com/stylelint/stylelint/pull/6571)) ([@mattxwang](https://github.com/mattxwang)).
+
 ## 14.16.1
 
 - Fixed: `customSyntax` resolution with `configBasedir` ([#6536](https://github.com/stylelint/stylelint/pull/6536)) ([@ybiquitous](https://github.com/ybiquitous)).
