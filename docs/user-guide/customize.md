@@ -17,37 +17,40 @@ There's a lot you can do. For example, if you only want to allow:
 
 You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list) and [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list) rules:
 
-```json
+```diff json
 {
-  "rules": {
-    "declaration-property-unit-allowed-list": {
-      "/^border/": ["px"],
-      "/^padding|^gap/": ["rem"]
-    },
-    "unit-allowed-list": ["%", "deg", "px", "rem", "ms"]
-  }
+  "extends": ["stylelint-config-standard"],
++ "rules": {
++   "declaration-property-unit-allowed-list": {
++     "/^border/": ["px"],
++     "/^padding|^gap/": ["rem"]
++   },
++   "unit-allowed-list": ["%", "deg", "px", "rem", "ms"]
++ }
 }
 ```
 
 Or you can enforce the `hsl()` color notation using the [`color-named`](../../lib/rules/color-named), [`color-no-hex`](../../lib/rules/color-no-hex),[`function-disallowed-list`](../../lib/rules/function-disallowed-list) rules:
 
-```json
+```diff json
 {
-  "rules": {
-    "color-named": "never",
-    "color-no-hex": true,
-    "function-disallowed-list": ["rgb", "hwb", "lch"]
-  }
+  "extends": ["stylelint-config-standard"],
++ "rules": {
++   "color-named": "never",
++   "color-no-hex": true,
++   "function-disallowed-list": ["rgb", "hwb", "lch"]
++ }
 }
 ```
 
 Or you can limit the number of ID selectors using the [`selector-max-id`](../../lib/rules/selector-max-id/README.md) rule:
 
-```json
+```diff json
 {
-  "rules": {
-    "selector-max-id": 0
-  }
+  "extends": ["stylelint-config-standard"],
++ "rules": {
++   "selector-max-id": 0
++ }
 }
 ```
 
@@ -61,24 +64,24 @@ Custom rules are typically written by communities to support methodologies, tool
 
 You can add custom rules to your config by extending a shared config that includes them or by using a plugin directly. For example, you can order your properties by extending the [recess order config](https://www.npmjs.com/package/stylelint-config-recess-order), which includes the [order plugin](https://www.npmjs.com/package/stylelint-order):
 
-```json
+```diff json
 {
   "extends": [
     "stylelint-config-standard"
-    "stylelint-config-recess-order"
++   "stylelint-config-recess-order"
   ]
 }
 ```
 
 Or you can use [the plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to alphabetize your properties:
 
-```json
+```diff json
 {
   "extends": ["stylelint-config-standard"],
-  "plugins": ["stylelint-order"],
-  "rules": {
-    "order/properties-alphabetical-order": true
-  }
++ "plugins": ["stylelint-order"],
++ "rules": {
++   "order/properties-alphabetical-order": true
++ }
 }
 ```
 
@@ -92,12 +95,12 @@ We recommend you craft a config that strictly enforces your conventions and then
 
 You can use the [`report*`](./configure.md#report) properties in your config to ensure your comments aren't useless and descriptionless:
 
-```json
+```diff json
 {
   "extends": ["stylelint-config-standard"],
-  "reportDescriptionlessDisables": true,
-  "reportInvalidScopeDisables": true,
-  "reportNeedlessDisables": true
++ "reportDescriptionlessDisables": true,
++ "reportInvalidScopeDisables": true,
++ "reportNeedlessDisables": true
 }
 ```
 

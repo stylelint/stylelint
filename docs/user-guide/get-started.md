@@ -1,6 +1,6 @@
 # Getting started
 
-You can quickly get started with Stylelint by extending a shared config.
+You can quickly get started by extending a shared config.
 
 ## Linting CSS
 
