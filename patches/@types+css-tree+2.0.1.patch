@@ -1,0 +1,23 @@
+diff --git a/node_modules/@types/css-tree/index.d.ts b/node_modules/@types/css-tree/index.d.ts
+index 2e4ed18..7f096c6 100755
+--- a/node_modules/@types/css-tree/index.d.ts
++++ b/node_modules/@types/css-tree/index.d.ts
+@@ -830,3 +830,18 @@ export const url: {
+     decode(input: string): string;
+     encode(input: string): string;
+ };
++
++type MatchResult = {
++    error?: {
++        mismatchLength: number;
++        mismatchOffset: number;
++        name: string;
++        rawMessage: string;
++    };
++};
++
++declare class Lexer {
++    matchProperty(propertyName: string, value: string): MatchResult;
++}
++
++export function fork(extension: Record<string, Record<string, string>>): { lexer: Lexer };
