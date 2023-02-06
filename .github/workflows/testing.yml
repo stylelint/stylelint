@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - v15 # TODO: We can remove this line after shipping v15.
   pull_request:
     branches:
       - '**'
