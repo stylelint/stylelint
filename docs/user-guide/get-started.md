@@ -1,13 +1,12 @@
 # Getting started
 
-You can lint:
+You can quickly get started by extending a shared config.
 
-- CSS files by using our standard config
-- everything else by using extensions written by the community
+## Linting CSS
 
-## Linting CSS files
+You can extend our [standard config](https://www.npmjs.com/package/stylelint-config-standard) to lint CSS.
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and its [standard configuration](https://www.npmjs.com/package/stylelint-config-standard):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the config:
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard
@@ -27,29 +26,23 @@ npm install --save-dev stylelint stylelint-config-standard
 npx stylelint "**/*.css"
 ```
 
-_You should include quotation marks around file globs._
+_Include quotation marks around the file globs._
 
-If you use a pretty printer alongside Stylelint, you should turn off any conflicting rules. For example, you can use [Prettier's shared config](https://www.npmjs.com/package/stylelint-config-prettier) to do that:
+Once you're up and running, you can [customize](./customize.md) Stylelint.
 
-```shell
-npm install --save-dev stylelint-config-prettier
-```
+## Linting CSS-like languages and CSS within containers
 
-```json
-{
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"]
-}
-```
+You can extend a community config to lint:
 
-## Linting everything else
+- CSS-like languages, e.g. SCSS, Sass and Less
+- CSS within containers, e.g. in HTML, CSS-in-JS and Vue SFCs
 
-You'll need to use a [custom syntax](usage/options.md#customsyntax) written by the community.
+For example, to lint SCSS you can extend the [SCSS community config](https://www.npmjs.com/package/stylelint-config-standard-scss). It includes the:
 
-### Using a community shared config
+- [SCSS syntax](https://www.npmjs.com/package/postcss-scss) - a custom syntax to parse SCSS
+- [SCSS plugin](https://www.npmjs.com/package/stylelint-scss) - a set of custom rules for SCSS
 
-We recommend [extending](../user-guide/configure.md#extends) a shared config that includes the appropriate syntax for your preferred language or library. For example, you can extend the [stylelint-config-standard-scss](https://www.npmjs.com/package/stylelint-config-standard-scss) shared config to lint [SCSS](https://sass-lang.com/).
-
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the shared config:
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the config:
 
 ```console
 npm install --save-dev stylelint stylelint-config-standard-scss
@@ -69,33 +62,15 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 npx stylelint "**/*.scss"
 ```
 
-_You should include quotation marks around file globs._
-
-This config includes the [postcss-scss syntax](https://www.npmjs.com/package/postcss-scss), configures the [built-in rules](../user-guide/rules.md) for SCSS, and includes the [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
-
-If you use Prettier alongside Stylelint, you should use their [shared config for SCSS](https://www.npmjs.com/package/stylelint-config-prettier-scss):
-
-```json
-{
-  "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-prettier-scss"
-  ]
-}
-```
-
-Other shared configs include:
-
-- [stylelint-config-html](https://www.npmjs.com/package/stylelint-config-html)
-- [stylelint-config-recommended-vue](https://www.npmjs.com/package/stylelint-config-recommended-vue)
+You'll find more community configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
 
 ### Using a custom syntax directly
 
-If a shared config isn't available for your preferred language or library, then you can install the appropriate custom syntax yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customsyntax) to configure it.
+If a shared config isn't available for your preferred language or container, you can install the appropriate custom syntax and use the [`customSyntax` option](../user-guide/options.md#customsyntax) yourself.
 
-For example, to lint the CSS inside of [Lit elements](https://lit.dev/).
+For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint, its [standard configuration](https://www.npmjs.com/package/stylelint-config-standard) and the [postcss-lit](https://www.npmjs.com/package/postcss-lit):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard postcss-lit
@@ -110,60 +85,34 @@ npm install --save-dev stylelint stylelint-config-standard postcss-lit
 }
 ```
 
-Other PostCSS syntaxes known to be compatible with Stylelint include:
+3\. Run Stylelint on all the JavaScript files in your project:
 
-- [postcss-markdown](https://www.npmjs.com/package/postcss-markdown)
-- [postcss-less](https://www.npmjs.com/package/postcss-less)
-- [postcss-sass](https://www.npmjs.com/package/postcss-sass)
-- [sugarss](https://www.npmjs.com/package/sugarss)
-- [@linaria/postcss-linaria](https://www.npmjs.com/package/@linaria/postcss-linaria)
+```shell
+npx stylelint "**/*.js"
+```
 
-### Using more than one custom syntax
+You'll find more custom syntaxes in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#custom-syntaxes).
 
-You can use the [`overrides`](configure.md#overrides) property. For example, to lint CSS files and the CSS within Lit Elements you can update your configuration object to include:
+#### Using more than one custom syntax
+
+If you want to lint more than one language or container, you can use the [`overrides`](configure.md#overrides) property.
+
+For example, to lint CSS files and the CSS within Lit Elements you can update your configuration to:
 
 ```json
 {
   "extends": ["stylelint-config-standard"],
   "overrides": [
     {
-      "files": ["**/*.{js}"],
+      "files": ["*.js"],
       "customSyntax": "postcss-lit"
     }
   ]
 }
 ```
 
-You can then use Stylelint to lint both CSS and JavaScript files:
+And then run Stylelint on both your CSS and JavaScript files:
 
 ```console
 npx stylelint "**/*.{css,js}"
 ```
-
-More [configs](https://github.com/stylelint/awesome-stylelint#configs) are listed in [awesome stylelint](https://github.com/stylelint/awesome-stylelint).
-
-## Customize
-
-You can further customize Stylelint to your specific needs.
-
-### Your configuration
-
-You can adapt your:
-
-- [rules](configure.md#rules)
-- [plugins](configure.md#plugins)
-
-We recommend you add [more of the rules that enforce conventions](rules.md#enforce-non-stylistic-conventions) to your configuration, e.g. [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md) and [`selector-max-id`](../../lib/rules/selector-max-id/README.md). These are powerful rules that you can use to enforce non-stylistic consistency in your code.
-
-You can add plugins written by the community to lint more things. For example, you may want to use the [stylelint-csstree-validator plugin](https://www.npmjs.com/package/stylelint-csstree-validator) to validate property and value pairs.
-
-You'll find more [plugins](https://github.com/stylelint/awesome-stylelint#plugins) listed in [awesome stylelint](https://github.com/stylelint/awesome-stylelint).
-
-### Your usage
-
-You don't have to use the [Command Line Interface](usage/cli.md); you can also use the:
-
-- [Node API](usage/node-api.md)
-- [PostCSS plugin](usage/postcss-plugin.md)
-
-There are also integrations for [editors](integrations/editor.md), [task-runners](integrations/task-runner.md) and [others](integrations/other.md) too. Our [official extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) is a popular choice that lets you see problems inline in your editor.

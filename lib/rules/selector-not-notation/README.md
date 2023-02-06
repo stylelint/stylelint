@@ -16,7 +16,7 @@ Use:
 - `"complex"` to author modern Selectors Level 4 CSS
 - `"simple"` for backwards compatibility with older browsers
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) option can automatically fix most of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) option can automatically fix most of the problems reported by this rule.
 
 ## Options
 

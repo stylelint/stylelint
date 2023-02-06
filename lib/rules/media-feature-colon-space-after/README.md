@@ -1,5 +1,7 @@
 # media-feature-colon-space-after
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Require a single space or disallow whitespace after the colon in media features.
 
 <!-- prettier-ignore -->
@@ -9,7 +11,7 @@ Require a single space or disallow whitespace after the colon in media features.
  * The space after this colon */
 ```
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

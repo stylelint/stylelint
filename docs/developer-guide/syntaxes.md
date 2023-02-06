@@ -1,20 +1,10 @@
 # Writing custom syntaxes
 
-Custom syntaxes are [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) written by the community to support other styling languages and CSS-in-JS libraries using the [`customSyntax` option](../user-guide/usage/options.md#customsyntax).
+Custom syntaxes are [PostCSS](https://github.com/postcss/postcss) syntaxes written by the community to support other styling languages, e.g. SCSS, and containers, e.g. HTML, using the [`customSyntax` option](../user-guide/options.md#customsyntax).
 
-To write one, familiarize yourself with PostCSS's [how to write custom syntax](https://github.com/postcss/postcss/blob/main/docs/syntax.md) guide.
+To write one, familiarize yourself with PostCSS's [how to write custom syntax](https://github.com/postcss/postcss/blob/main/docs/syntax.md) guide. You can use one of the existing custom syntaxes from [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme) for reference.
 
-Existing syntaxes that you can use for reference include:
-
-- [postcss-scss](https://www.npmjs.com/package/postcss-scss)
-- [postcss-less](https://www.npmjs.com/package/postcss-less)
-- [postcss-html](https://www.npmjs.com/package/postcss-html)
-- [postcss-lit](https://www.npmjs.com/package/postcss-lit)
-- [@linaria/postcss-linaria](https://www.npmjs.com/package/@linaria/postcss-linaria)
-
-The latter three use `Document` nodes, [introduced in PostCSS 8.3](https://github.com/postcss/postcss/releases/tag/8.3.0) to support files with multiple roots.
-
-After publishing your custom syntax, we recommend creating a shared-config that:
+After publishing your custom syntax, we recommend creating a shared config that:
 
 - extends the [standard config](https://github.com/stylelint/stylelint-config-standard)
 - bundles your custom syntax

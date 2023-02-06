@@ -1,5 +1,7 @@
 # unit-case
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Specify lowercase or uppercase for units.
 
 <!-- prettier-ignore -->
@@ -9,7 +11,7 @@ Specify lowercase or uppercase for units.
  *     These units */
 ```
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix most of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
 ## Options
 

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v15 # TODO: We can remove this line after shipping v15.
   pull_request:
     branches:
       - '**'
@@ -25,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [12, 14, 16, 18]
+        node: [14, 16, 18]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
@@ -46,14 +47,14 @@ jobs:
 
       - name: Test
         run: npm run jest
-        if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == 16)"
+        if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == 18)"
 
       - name: Test with coverage
         run: npm run jest -- --coverage
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
+        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 18
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
+        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 18
         with:
           files: ./.coverage/lcov.info

@@ -2,12 +2,14 @@
 
 You can ignore:
 
-- within files
+- parts of a file
 - files entirely
 
-## Within files
+## Parts of a file
 
-You can temporarily turn off rules using special comments in your CSS. For example, you can either turn all the rules off:
+You can temporarily turn off rules using special comments in your CSS.
+
+For example, you can either turn all the rules off:
 
 <!-- prettier-ignore -->
 ```css

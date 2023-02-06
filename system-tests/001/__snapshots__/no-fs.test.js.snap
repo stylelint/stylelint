@@ -1,390 +1,880 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`no-fs - valid sanitize.css and their config 1`] = `
-Object {
+{
   "cwd": "",
   "errored": false,
-  "output": Array [
-    Object {
-      "deprecations": Array [],
+  "output": [
+    {
+      "deprecations": [
+        {
+          "text": "The "at-rule-name-case" rule is deprecated.",
+        },
+        {
+          "text": "The "at-rule-name-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "at-rule-semicolon-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-empty-line-before" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-newline-before" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "block-opening-brace-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-opening-brace-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-opening-brace-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "color-hex-case" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-bang-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-bang-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-trailing-semicolon" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-colon-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-colon-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-colon-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "function-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "function-comma-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "function-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "function-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "function-parentheses-newline-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "function-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "function-whitespace-after" rule is deprecated.",
+        },
+        {
+          "text": "The "max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-colon-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-colon-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-name-case" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-range-operator-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-range-operator-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "media-query-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-query-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-query-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "no-eol-whitespace" rule is deprecated.",
+        },
+        {
+          "text": "The "no-extra-semicolons" rule is deprecated.",
+        },
+        {
+          "text": "The "no-missing-end-of-source-newline" rule is deprecated.",
+        },
+        {
+          "text": "The "number-leading-zero" rule is deprecated.",
+        },
+        {
+          "text": "The "number-no-trailing-zeros" rule is deprecated.",
+        },
+        {
+          "text": "The "property-case" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-attribute-brackets-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-attribute-operator-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-attribute-operator-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-combinator-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-combinator-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-descendant-combinator-no-non-space" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-pseudo-class-case" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-pseudo-class-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-pseudo-element-case" rule is deprecated.",
+        },
+        {
+          "text": "The "unit-case" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "indentation" rule is deprecated.",
+        },
+      ],
       "errored": false,
-      "invalidOptionWarnings": Array [],
-      "parseErrors": Array [],
-      "warnings": Array [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "warnings": [],
     },
   ],
-  "reportedDisables": Array [],
-  "results": Array [
-    Object {
-      "deprecations": Array [],
+  "reportedDisables": [],
+  "results": [
+    {
+      "deprecations": [
+        {
+          "reference": undefined,
+          "text": "The "at-rule-name-case" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "at-rule-name-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "at-rule-semicolon-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-empty-line-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-newline-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-opening-brace-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-opening-brace-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-opening-brace-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "color-hex-case" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-bang-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-bang-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-semicolon-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-semicolon-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-semicolon-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-trailing-semicolon" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-colon-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-colon-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-colon-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-comma-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-comma-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-parentheses-newline-inside" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-whitespace-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "max-empty-lines" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-colon-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-colon-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-name-case" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-range-operator-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-range-operator-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-query-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-query-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-query-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "no-eol-whitespace" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "no-extra-semicolons" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "no-missing-end-of-source-newline" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "number-leading-zero" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "number-no-trailing-zeros" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "property-case" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-attribute-brackets-space-inside" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-attribute-operator-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-attribute-operator-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-combinator-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-combinator-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-descendant-combinator-no-non-space" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-pseudo-class-case" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-pseudo-class-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-pseudo-element-case" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "unit-case" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "indentation" rule is deprecated.",
+        },
+      ],
       "errored": false,
       "ignored": undefined,
-      "invalidOptionWarnings": Array [],
-      "parseErrors": Array [],
-      "warnings": Array [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "warnings": [],
     },
   ],
-  "ruleMetadata": Object {
-    "at-rule-empty-line-before": Object {
+  "ruleMetadata": {
+    "at-rule-empty-line-before": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-empty-line-before",
     },
-    "at-rule-name-case": Object {
+    "at-rule-name-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-name-case",
     },
-    "at-rule-name-space-after": Object {
+    "at-rule-name-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-name-space-after",
     },
-    "at-rule-no-unknown": Object {
+    "at-rule-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/at-rule-no-unknown",
     },
-    "at-rule-semicolon-newline-after": Object {
+    "at-rule-semicolon-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-semicolon-newline-after",
     },
-    "block-closing-brace-empty-line-before": Object {
+    "block-closing-brace-empty-line-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-empty-line-before",
     },
-    "block-closing-brace-newline-after": Object {
+    "block-closing-brace-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-newline-after",
     },
-    "block-closing-brace-newline-before": Object {
+    "block-closing-brace-newline-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-newline-before",
     },
-    "block-closing-brace-space-before": Object {
+    "block-closing-brace-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-space-before",
     },
-    "block-no-empty": Object {
+    "block-no-empty": {
       "url": "https://stylelint.io/user-guide/rules/block-no-empty",
     },
-    "block-opening-brace-newline-after": Object {
+    "block-opening-brace-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-opening-brace-newline-after",
     },
-    "block-opening-brace-space-after": Object {
+    "block-opening-brace-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-opening-brace-space-after",
     },
-    "block-opening-brace-space-before": Object {
+    "block-opening-brace-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-opening-brace-space-before",
     },
-    "color-hex-case": Object {
+    "color-hex-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/color-hex-case",
     },
-    "color-hex-length": Object {
+    "color-hex-length": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/color-hex-length",
     },
-    "color-no-invalid-hex": Object {
+    "color-no-invalid-hex": {
       "url": "https://stylelint.io/user-guide/rules/color-no-invalid-hex",
     },
-    "comment-empty-line-before": Object {
+    "comment-empty-line-before": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/comment-empty-line-before",
     },
-    "comment-no-empty": Object {
+    "comment-no-empty": {
       "url": "https://stylelint.io/user-guide/rules/comment-no-empty",
     },
-    "comment-whitespace-inside": Object {
+    "comment-whitespace-inside": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/comment-whitespace-inside",
     },
-    "custom-property-empty-line-before": Object {
+    "custom-property-empty-line-before": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/custom-property-empty-line-before",
     },
-    "declaration-bang-space-after": Object {
+    "declaration-bang-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-bang-space-after",
     },
-    "declaration-bang-space-before": Object {
+    "declaration-bang-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-bang-space-before",
     },
-    "declaration-block-no-duplicate-properties": Object {
+    "declaration-block-no-duplicate-properties": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-no-duplicate-properties",
     },
-    "declaration-block-no-shorthand-property-overrides": Object {
+    "declaration-block-no-shorthand-property-overrides": {
       "url": "https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides",
     },
-    "declaration-block-semicolon-newline-after": Object {
+    "declaration-block-semicolon-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-newline-after",
     },
-    "declaration-block-semicolon-space-after": Object {
+    "declaration-block-semicolon-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-after",
     },
-    "declaration-block-semicolon-space-before": Object {
+    "declaration-block-semicolon-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-before",
     },
-    "declaration-block-single-line-max-declarations": Object {
+    "declaration-block-single-line-max-declarations": {
       "url": "https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations",
     },
-    "declaration-block-trailing-semicolon": Object {
+    "declaration-block-trailing-semicolon": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-trailing-semicolon",
     },
-    "declaration-colon-newline-after": Object {
+    "declaration-colon-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-colon-newline-after",
     },
-    "declaration-colon-space-after": Object {
+    "declaration-colon-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-colon-space-after",
     },
-    "declaration-colon-space-before": Object {
+    "declaration-colon-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-colon-space-before",
     },
-    "declaration-empty-line-before": Object {
+    "declaration-empty-line-before": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-empty-line-before",
     },
-    "font-family-no-duplicate-names": Object {
+    "font-family-no-duplicate-names": {
       "url": "https://stylelint.io/user-guide/rules/font-family-no-duplicate-names",
     },
-    "font-family-no-missing-generic-family-keyword": Object {
+    "font-family-no-missing-generic-family-keyword": {
       "url": "https://stylelint.io/user-guide/rules/font-family-no-missing-generic-family-keyword",
     },
-    "function-calc-no-unspaced-operator": Object {
+    "function-calc-no-unspaced-operator": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-calc-no-unspaced-operator",
     },
-    "function-comma-newline-after": Object {
+    "function-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-comma-newline-after",
     },
-    "function-comma-space-after": Object {
+    "function-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-comma-space-after",
     },
-    "function-comma-space-before": Object {
+    "function-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-comma-space-before",
     },
-    "function-linear-gradient-no-nonstandard-direction": Object {
+    "function-linear-gradient-no-nonstandard-direction": {
       "url": "https://stylelint.io/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
     },
-    "function-max-empty-lines": Object {
+    "function-max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-max-empty-lines",
     },
-    "function-name-case": Object {
+    "function-name-case": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-name-case",
     },
-    "function-parentheses-newline-inside": Object {
+    "function-parentheses-newline-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-parentheses-newline-inside",
     },
-    "function-parentheses-space-inside": Object {
+    "function-parentheses-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-parentheses-space-inside",
     },
-    "function-whitespace-after": Object {
+    "function-whitespace-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-whitespace-after",
     },
-    "indentation": Object {
+    "indentation": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/indentation",
     },
-    "keyframe-declaration-no-important": Object {
+    "keyframe-declaration-no-important": {
       "url": "https://stylelint.io/user-guide/rules/keyframe-declaration-no-important",
     },
-    "length-zero-no-unit": Object {
+    "length-zero-no-unit": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/length-zero-no-unit",
     },
-    "max-empty-lines": Object {
+    "max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/max-empty-lines",
     },
-    "media-feature-colon-space-after": Object {
+    "media-feature-colon-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-colon-space-after",
     },
-    "media-feature-colon-space-before": Object {
+    "media-feature-colon-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-colon-space-before",
     },
-    "media-feature-name-case": Object {
+    "media-feature-name-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-case",
     },
-    "media-feature-name-no-unknown": Object {
+    "media-feature-name-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-unknown",
     },
-    "media-feature-parentheses-space-inside": Object {
+    "media-feature-parentheses-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-parentheses-space-inside",
     },
-    "media-feature-range-operator-space-after": Object {
+    "media-feature-range-operator-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-range-operator-space-after",
     },
-    "media-feature-range-operator-space-before": Object {
+    "media-feature-range-operator-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-range-operator-space-before",
     },
-    "media-query-list-comma-newline-after": Object {
+    "media-query-list-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-newline-after",
     },
-    "media-query-list-comma-space-after": Object {
+    "media-query-list-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-space-after",
     },
-    "media-query-list-comma-space-before": Object {
+    "media-query-list-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-space-before",
     },
-    "no-duplicate-at-import-rules": Object {
+    "no-duplicate-at-import-rules": {
       "url": "https://stylelint.io/user-guide/rules/no-duplicate-at-import-rules",
     },
-    "no-duplicate-selectors": Object {
+    "no-duplicate-selectors": {
       "url": "https://stylelint.io/user-guide/rules/no-duplicate-selectors",
     },
-    "no-empty-source": Object {
+    "no-empty-source": {
       "url": "https://stylelint.io/user-guide/rules/no-empty-source",
     },
-    "no-eol-whitespace": Object {
+    "no-eol-whitespace": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/no-eol-whitespace",
     },
-    "no-extra-semicolons": Object {
+    "no-extra-semicolons": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/no-extra-semicolons",
     },
-    "no-invalid-double-slash-comments": Object {
+    "no-invalid-double-slash-comments": {
       "url": "https://stylelint.io/user-guide/rules/no-invalid-double-slash-comments",
     },
-    "no-missing-end-of-source-newline": Object {
+    "no-missing-end-of-source-newline": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/no-missing-end-of-source-newline",
     },
-    "number-leading-zero": Object {
+    "number-leading-zero": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/number-leading-zero",
     },
-    "number-no-trailing-zeros": Object {
+    "number-no-trailing-zeros": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/number-no-trailing-zeros",
     },
-    "property-case": Object {
+    "property-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/property-case",
     },
-    "property-no-unknown": Object {
+    "property-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/property-no-unknown",
     },
-    "rule-empty-line-before": Object {
+    "rule-empty-line-before": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/rule-empty-line-before",
     },
-    "selector-attribute-brackets-space-inside": Object {
+    "selector-attribute-brackets-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-attribute-brackets-space-inside",
     },
-    "selector-attribute-operator-space-after": Object {
+    "selector-attribute-operator-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-attribute-operator-space-after",
     },
-    "selector-attribute-operator-space-before": Object {
+    "selector-attribute-operator-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-attribute-operator-space-before",
     },
-    "selector-combinator-space-after": Object {
+    "selector-combinator-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-combinator-space-after",
     },
-    "selector-combinator-space-before": Object {
+    "selector-combinator-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-combinator-space-before",
     },
-    "selector-descendant-combinator-no-non-space": Object {
+    "selector-descendant-combinator-no-non-space": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-descendant-combinator-no-non-space",
     },
-    "selector-list-comma-newline-after": Object {
+    "selector-list-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-newline-after",
     },
-    "selector-list-comma-space-before": Object {
+    "selector-list-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-space-before",
     },
-    "selector-max-empty-lines": Object {
+    "selector-max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-max-empty-lines",
     },
-    "selector-pseudo-class-case": Object {
+    "selector-pseudo-class-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-case",
     },
-    "selector-pseudo-class-no-unknown": Object {
+    "selector-pseudo-class-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown",
     },
-    "selector-pseudo-class-parentheses-space-inside": Object {
+    "selector-pseudo-class-parentheses-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-parentheses-space-inside",
     },
-    "selector-pseudo-element-case": Object {
+    "selector-pseudo-element-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-case",
     },
-    "selector-pseudo-element-colon-notation": Object {
+    "selector-pseudo-element-colon-notation": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-colon-notation",
     },
-    "selector-pseudo-element-no-unknown": Object {
+    "selector-pseudo-element-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-no-unknown",
     },
-    "selector-type-case": Object {
+    "selector-type-case": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-type-case",
     },
-    "selector-type-no-unknown": Object {
+    "selector-type-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/selector-type-no-unknown",
     },
-    "string-no-newline": Object {
+    "string-no-newline": {
       "url": "https://stylelint.io/user-guide/rules/string-no-newline",
     },
-    "unit-case": Object {
+    "unit-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/unit-case",
     },
-    "unit-no-unknown": Object {
+    "unit-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/unit-no-unknown",
     },
-    "value-keyword-case": Object {
+    "value-keyword-case": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-keyword-case",
     },
-    "value-list-comma-newline-after": Object {
+    "value-list-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-newline-after",
     },
-    "value-list-comma-space-after": Object {
+    "value-list-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-after",
     },
-    "value-list-comma-space-before": Object {
+    "value-list-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-before",
     },
-    "value-list-max-empty-lines": Object {
+    "value-list-max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-max-empty-lines",
     },

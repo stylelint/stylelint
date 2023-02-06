@@ -25,7 +25,7 @@
    4. Commit these changes.
    5. Push these changes.
    6. If necessary, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
-   7. If necessary, login using the Stylelint Heroku account: `heroku login`
+   7. If necessary, log in using the Stylelint Heroku account: `heroku login`
    8. If necessary, set up a remote: `heroku git:remote -a stylelint-demo`
    9. Push the code: `git push heroku main`
    10. Confirm the deployment of the update to [stylelint.io/demo](https://stylelint.io/demo).
