@@ -17,7 +17,7 @@ index 2e4ed18..7f096c6 100755
 +};
 +
 +declare class Lexer {
-+    matchProperty(propertyName: string, value: string): MatchResult;
++    matchProperty(propertyName: string, value: CssNode | string): MatchResult;
 +}
 +
 +export function fork(extension: Record<string, Record<string, string>>): { lexer: Lexer };
