@@ -1179,7 +1179,7 @@ Changes:
 
 ## 7.0.0
 
-- Removed: `--extract` and `extractStyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configure.md#processors) processors.
+- Removed: `--extract` and `extractStyleTagsFromHtml` options. Instead, build and use processors.
 - Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 - Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 - Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.

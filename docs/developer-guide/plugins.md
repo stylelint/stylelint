@@ -1,8 +1,8 @@
 # Writing plugins
 
-Plugins are rules and sets of rules built by the community. They might support a particular methodology or toolset, or apply to non-standard constructs and features, or be for specific use cases.
+Plugins are custom rules and sets of custom rules. They might support a particular methodology or toolset, apply to non-standard constructs and features, or be for specific use cases.
 
-We recommend your plugin adheres to [Stylelint's conventions](rules.md) for:
+We recommend your custom rules adhere to our [rule conventions](rules.md) for:
 
 - names
 - options
@@ -210,7 +210,7 @@ it("doesn't warn for fileless sources", async () => {
 });
 ```
 
-Alternatively, if you don't want to use Jest you'll find more tools in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#tools).
+Alternatively, if you don't want to use Jest you'll find more testing tool in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
 
 ## `stylelint.utils`
 
@@ -288,7 +288,7 @@ All of the rule functions are available at `stylelint.rules`. This allows you to
 
 A typical use-case is to build in more complex conditionals that the rule's options allow for. For example, maybe your codebase uses special comment directives to customize rule options for specific stylesheets. You could build a plugin that checks those directives and then runs the appropriate rules with the right options (or doesn't run them at all).
 
-All rules share a common signature. They are a function that accepts two arguments: a primary option and a secondary options object. And that functions returns a function that has the signature of a PostCSS plugin, expecting a PostCSS root and result as its arguments.
+All rules share a common signature. They are a function that accepts two arguments: a primary option and a secondary options object. And that function returns a function that has the signature of a PostCSS plugin, expecting a PostCSS root and result as its arguments.
 
 Here's an example of a plugin that runs `declaration-no-important` only if there is a special directive `@@check-declaration-no-important` somewhere in the stylesheet:
 
@@ -317,18 +317,18 @@ In addition to the standard parsers mentioned in the ["Working on rules"](rules.
 
 - [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 
-Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
+Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it into an external module.
 
 ## Peer dependencies
 
 You should express, within the `peerDependencies` key (and **not** within the `dependencies` key) of your plugin's `package.json`, what version(s) of Stylelint your plugin can be used with. This is to ensure that different versions of Stylelint are not unexpectedly installed.
 
-For example, to express that your plugin can be used with Stylelint versions 7 and 8:
+For example, to express that your plugin can be used with Stylelint versions 14 and 15:
 
 ```json
 {
   "peerDependencies": {
-    "stylelint": "^7.0.0 || ^8.0.0"
+    "stylelint": "^14.0.0 || ^15.0.0"
   }
 }
 ```

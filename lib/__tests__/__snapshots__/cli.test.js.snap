@@ -2,7 +2,7 @@
 
 exports[`CLI --help 1`] = `
 "
-  A mighty, modern CSS linter.
+  A mighty CSS linter that helps you avoid errors and enforce conventions.
 
   Usage: stylelint [input] [options]
 
@@ -29,8 +29,8 @@ exports[`CLI --help 1`] = `
 
     --config-basedir
 
-      An absolute path to the directory that relative paths defining \\"extends\\",
-      \\"plugins\\", and \\"customSyntax\\" are *relative to*. Only necessary if these
+      An absolute path to the directory that relative paths defining "extends",
+      "plugins", and "customSyntax" are *relative to*. Only necessary if these
       values are relative paths.
 
     --print-config
@@ -76,31 +76,31 @@ exports[`CLI --help 1`] = `
 
       Store the info about processed files in order to only operate on the
       changed ones the next time you run stylelint. By default, the cache
-      is stored in \\"./.stylelintcache\\". To adjust this, use --cache-location.
+      is stored in "./.stylelintcache". To adjust this, use --cache-location.
 
     --cache-location              [default: '.stylelintcache']
 
       Path to a file or directory to be used for the cache location.
-      Default is \\"./.stylelintcache\\". If a directory is specified, a cache
+      Default is "./.stylelintcache". If a directory is specified, a cache
       file will be created inside the specified folder, with a name derived
       from a hash of the current working directory.
 
-      If the directory for the cache does not exist, make sure you add a trailing \\"/\\"
-      on *nix systems or \\"\\\\\\" on Windows. Otherwise the path will be assumed to be a file.
+      If the directory for the cache does not exist, make sure you add a trailing "/"
+      on *nix systems or "\\" on Windows. Otherwise the path will be assumed to be a file.
 
-    --cache-strategy              [default: \\"metadata\\"]
+    --cache-strategy              [default: "metadata"]
 
       Strategy for the cache to use for detecting changed files. Can be either
-      \\"metadata\\" or \\"content\\".
+      "metadata" or "content".
 
-      The \\"content\\" strategy can be useful in cases where the modification time of
+      The "content" strategy can be useful in cases where the modification time of
       your files changes even if their contents have not. For example, this can happen
-      during git operations like \\"git clone\\" because git does not track file modification
+      during git operations like "git clone" because git does not track file modification
       time.
 
-    --formatter, -f               [default: \\"string\\"]
+    --formatter, -f               [default: "string"]
 
-      The output formatter: \\"compact\\", \\"github\\", \\"json\\", \\"string\\", \\"tap\\", \\"unix\\" or \\"verbose\\".
+      The output formatter: "compact", "github", "json", "string", "tap", "unix" or "verbose".
 
     --custom-formatter
 
@@ -109,8 +109,8 @@ exports[`CLI --help 1`] = `
 
     --quiet, -q
 
-      Only register problems for rules with an \\"error\\"-level severity (ignore
-      \\"warning\\"-level).
+      Only register problems for rules with an "error"-level severity (ignore
+      "warning"-level).
 
     --color
     --no-color
@@ -135,7 +135,7 @@ exports[`CLI --help 1`] = `
     --max-warnings, --mw
 
       Number of warnings above which the process will exit with code 2.
-      Useful when setting \\"defaultSeverity\\" to \\"warning\\" and expecting the
+      Useful when setting "defaultSeverity" to "warning" and expecting the
       process to fail on warnings (e.g. CI build).
 
     --output-file, -o
