@@ -2,6 +2,8 @@
 
 ## 15.0.0
 
+[Migrating to `15.0.0` guide](docs/migration-guide/to-15.md).
+
 - Removed: `syntax` option ([#6420](https://github.com/stylelint/stylelint/pull/6420)) ([@fpetrakov](https://github.com/fpetrakov)). (BREAKING)
 - Removed: Node.js 12 support ([#6477](https://github.com/stylelint/stylelint/pull/6477)) ([@ybiquitous](https://github.com/ybiquitous)). (BREAKING)
 - Removed: support for processors ([#6479](https://github.com/stylelint/stylelint/pull/6479)) ([@ybiquitous](https://github.com/ybiquitous)). (BREAKING)
