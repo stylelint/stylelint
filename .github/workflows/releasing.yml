@@ -39,8 +39,8 @@ jobs:
       - name: Create release pull request
         uses: changesets/action@v1
         with:
-          commit: Prepare release 15.0.0
-          title: Prepare release 15.0.0
+          commit: Prepare release
+          title: Prepare release
           # this expects you to have a npm script called version that runs some logic and then calls `changeset version`.
           # We're also restoring `package.json` because we're using `np` for publishing
           version: npm run version
