@@ -9,8 +9,6 @@ on:
 
 env:
   FORCE_COLOR: 2
-  coverage_node: 18
-  coverage_os: ubuntu-latest
 
 jobs:
   lint:
@@ -20,11 +18,11 @@ jobs:
     uses: stylelint/.github/.github/workflows/test.yml@main
     with:
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
-      exclude: '[{"node-version": "${{ env.coverage_node }}", "os": "${{ env.coverage_os }}"}]'
+      exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
 
   test-coverage:
-    name: Test on Node.js ${{ env.coverage_node }} and ${{ env.coverage_os }} for coverage
-    runs-on: ${{ env.coverage_os }}
+    name: Test on Node.js 18 and ubuntu-latest for coverage
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -32,7 +30,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.coverage_node }}
+          node-version: 18
           cache: npm
 
       - name: Install latest npm
