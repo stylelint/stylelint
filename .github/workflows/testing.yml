@@ -21,7 +21,7 @@ jobs:
       exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
 
   test-coverage:
-    name: Test on Node.js 18 and ubuntu-latest for coverage
+    name: Test on Node.js 18 and ubuntu-latest with coverage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
