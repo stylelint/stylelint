@@ -46,7 +46,7 @@
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
     "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test-coverage": "jest --coverage",
     "version": "changeset version",
     "postversion": "git restore package.json",
     "watch": "jest --watch",
