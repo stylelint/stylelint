@@ -106,7 +106,7 @@ You can use the [`report*`](./configure.md#report) properties in your config to 
 
 Each of these properties is configurable if you need to add exceptions to them.
 
-You can also use the [`reportDisables`](./configure.md#reportdisables secondary property to disallow disables on a per-rule basis.
+You can also use the [`reportDisables`](./configure.md#reportdisables) secondary property to disallow disables on a per-rule basis.
 
 ## Using Stylelint
 
