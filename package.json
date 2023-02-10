@@ -37,7 +37,6 @@
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.mjs",
     "format": "prettier . --write --cache",
-    "jest": "jest",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check --cache",
     "lint:js": "eslint . --cache --max-warnings=0 --ext .js,.mjs",
@@ -46,7 +45,8 @@
     "prepare": "husky install && patch-package",
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "version": "changeset version",
     "postversion": "git restore package.json",
     "watch": "jest --watch",
