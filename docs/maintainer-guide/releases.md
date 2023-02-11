@@ -8,7 +8,7 @@
    3. [`stylelint/stylelint-demo`](https://github.com/stylelint/stylelint-demo)
    4. [`stylelint/stylelint.io`](https://github.com/stylelint/stylelint.io)
 3. Release Stylelint:
-   1. If necessary, reorder the changelog entries in the "Prepare release" pull request so that the widest-reaching changes come first
+   1. If necessary, reorder the changelog entries in the "Prepare release" pull request so that the widest-reaching changes come first.
    2. Merge the "Prepare release" pull request.
    3. Open a terminal window in the `stylelint` repository.
    4. Run `npm run release`.
@@ -19,18 +19,18 @@
    1. Change to the `stylelint-config-*` repository.
    2. Repeat steps 5 to 8 above for that repository.
 5. Update the online demo:
-   1. Change to the `stylelint-demo` repository
+   1. Change to the `stylelint-demo` repository.
    2. Run `npm install stylelint@latest --save`.
    3. Run `npm test`.
    4. Commit these changes.
    5. Push these changes.
-   6. If necessary, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
-   7. If necessary, log in using the Stylelint Heroku account: `heroku login`
-   8. If necessary, set up a remote: `heroku git:remote -a stylelint-demo`
-   9. Push the code: `git push heroku main`
+   6. If necessary, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli).
+   7. If necessary, log in using the Stylelint Heroku account: `heroku login`.
+   8. If necessary, set up a remote: `heroku git:remote -a stylelint-demo`.
+   9. Push the code: `git push heroku main`.
    10. Confirm the deployment of the update to [stylelint.io/demo](https://stylelint.io/demo).
 6. Update the website:
-   1. Change to the `stylelint.io` repository
+   1. Change to the `stylelint.io` repository.
    2. Run `npm install https://github.com/stylelint/stylelint/tarball/${new_version} --save-dev` (replacing `${new_version}` with the version number e.g. `14.13.2`).
    3. Run `npm test`.
    4. Commit these changes.
@@ -39,7 +39,7 @@
 7. Compose a tweet that:
    - announces the release
    - communicates what has changed
-   - links to the appropriate heading in the changelog on [stylelint.io](https://stylelint.io).
+   - links to the appropriate heading in the changelog on [stylelint.io](https://stylelint.io)
 
 ## New release issue template
 
