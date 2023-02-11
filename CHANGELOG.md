@@ -1,5 +1,12 @@
 # Changelog
 
+## 15.1.0
+
+- Added: `declaration-block-no-redundant-longhand-properties` autofix ([#6580](https://github.com/stylelint/stylelint/pull/6580)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `env()` ([#6646](https://github.com/stylelint/stylelint/pull/6646)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-calc-no-unspaced-operator` TypeError on empty `calc()` ([#6634](https://github.com/stylelint/stylelint/pull/6634)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: inaccurate `customSyntax` inference ([#6645](https://github.com/stylelint/stylelint/pull/6645)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 15.0.0
 
 [Migrating to `15.0.0` guide](docs/migration-guide/to-15.md).
