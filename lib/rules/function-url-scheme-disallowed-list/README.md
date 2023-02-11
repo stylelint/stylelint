@@ -16,6 +16,8 @@ This rule ignores:
 - URL arguments without an existing URL scheme
 - URL arguments with variables or variable interpolation (`$sass`, `@less`, `--custom-property`, `#{$var}`, `@{var}`, `$(var)`)
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `array|string|regex`: `["array", "of", /schemes/, "/regex/"]|"scheme"|"/regex/"|/regex/`

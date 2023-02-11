@@ -68,6 +68,8 @@ Flexbox-related properties can be ignored using `ignoreShorthands: ["/flex/"]` (
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 ### `true`

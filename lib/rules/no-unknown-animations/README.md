@@ -15,6 +15,8 @@ a { animation: fancy-slide 2s linear; }
 
 This rule considers the identifiers of `@keyframes` rules defined within the same source to be known.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 ### `true`

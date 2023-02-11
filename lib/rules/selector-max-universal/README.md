@@ -13,6 +13,8 @@ This rule resolves nested selectors before counting the number of universal sele
 
 The logical combinations pseudo-class (e.g. `:not`, `:has`) is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `int`: Maximum universal selectors allowed.

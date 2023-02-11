@@ -17,6 +17,8 @@ This rule enforces that practice _as best it can_, reporting fewer errors than i
 
 We recommend turning this rule off if you use a lot of nesting.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## How it works
 
 **This rule looks at the last _compound selector_ in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.**
