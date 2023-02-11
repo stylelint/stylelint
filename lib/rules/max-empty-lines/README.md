@@ -1,5 +1,7 @@
 # max-empty-lines
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Limit the number of adjacent empty lines.
 
 <!-- prettier-ignore -->
@@ -12,7 +14,7 @@ a {} /* ↑ */
  * These lines */
 ```
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

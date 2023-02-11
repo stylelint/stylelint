@@ -4,42 +4,41 @@
 [![Build Status](https://github.com/stylelint/stylelint/workflows/Testing/badge.svg)](https://github.com/stylelint/stylelint/actions/workflows/testing.yml?query=branch%3Amain)
 [![npm downloads](https://img.shields.io/npm/dm/stylelint)](https://npmcharts.com/compare/stylelint?minimal=true)
 
-A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
+A mighty CSS linter that helps you avoid errors and enforce conventions.
 
 ## Features
 
 It's mighty as it:
 
-- has over **170 built-in rules** for modern CSS syntax and features
-- supports **plugins** so you can create your own rules
+- has over **100 built-in rules** for modern CSS syntax and features
+- supports **plugins** so you can create your own custom rules
 - automatically **fixes problems** where possible
-- is **well tested** with over 15000 unit tests
-- supports **shareable configs** that you can extend or create
-- is **unopinionated** so that you can customize it to your exact needs
-- **complements pretty printers** like Prettier
-- has a **growing community** and is used by Google, GitHub and WordPress
+- supports **shareable configs** that you can create or extend
+- can **be customized** to your exact needs
+- has **15k unit tests** making it robust
+- is **trusted by companies worldwide** like Google and GitHub
 
-And can be extended to:
+And it can be extended to:
 
-- parse **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
-- extract **embedded styles** from HTML, Markdown and CSS-in-JS object & template literals
+- extract **embedded styles** from HTML, Markdown and CSS-in-JS template literals
+- parse **CSS-like languages** like SCSS, Sass, Less and SugarSS
 
 ## How it'll help you
 
 It'll help you **avoid errors**, for example:
 
-- invalid things, e.g. malformed hex colors and named grid areas
-- unknown things, e.g. units and functions that aren't in the CSS specs
-- valid things that are problematic, e.g. duplicated selectors and overridden properties
+- invalid things, e.g. malformed grid areas
+- valid things that are problematic, e.g. duplicate selectors
+- unknown things, e.g. misspelled property names
 
-And **enforce non-stylistic conventions**, for example:
+And **enforce conventions**, for example:
 
-- what units, functions, at-rules etc are allowed
-- consistent patterns for selector names, at-rule names, custom properties etc
-- maximum specificity or maximum quantity of each selector type
-- your preferred notation for color functions, font weight etc
+- disallow things, e.g. specific units
+- enforce naming patterns, e.g. for custom properties
+- set limits, e.g. the number of ID selectors
+- specify notations, e.g. for modern color functions
 
-There are also rules for enforcing stylistic conventions, but we now recommend you use Stylelint alongside a pretty printer like Prettier. Linters and pretty printers are complementary tools that work together.
+We recommend using a pretty printer like Prettier alongside Stylelint. Linters and pretty printers are complementary tools that work together to help you write consistent and error-free code.
 
 ## Example output
 
@@ -49,29 +48,23 @@ There are also rules for enforcing stylistic conventions, but we now recommend y
 
 - User guide
   - [Getting started](docs/user-guide/get-started.md)
-  - [Configuration](docs/user-guide/configure.md)
+  - [Customizing](docs/user-guide/customize.md)
+  - [Configuring](docs/user-guide/configure.md)
   - [Rules](docs/user-guide/rules.md)
-  - Usage
-    - [CLI](docs/user-guide/usage/cli.md)
-    - [Node.js API](docs/user-guide/usage/node-api.md)
-    - [PostCSS plugin](docs/user-guide/usage/postcss-plugin.md)
-    - [Options](docs/user-guide/usage/options.md)
-  - Integrations
-    - [Editor integrations](docs/user-guide/integrations/editor.md)
-    - [Task runner integrations](docs/user-guide/integrations/task-runner.md)
-    - [Other integrations](docs/user-guide/integrations/other.md)
   - [Ignoring code](docs/user-guide/ignore-code.md)
-  - [Combining rules](docs/user-guide/combine.md)
-  - [Using regex](docs/user-guide/regex.md)
+  - [CLI](docs/user-guide/cli.md)
+  - [Node.js API](docs/user-guide/node-api.md)
+  - [PostCSS plugin](docs/user-guide/postcss-plugin.md)
+  - [Options](docs/user-guide/options.md)
   - [Errors & warnings](docs/user-guide/errors.md)
 - Developer guide
-  - [Working on rules](docs/developer-guide/rules.md)
+  - [Writing rules](docs/developer-guide/rules.md)
   - [Writing plugins](docs/developer-guide/plugins.md)
   - [Writing custom syntaxes](docs/developer-guide/syntaxes.md)
   - [Writing custom formatters](docs/developer-guide/formatters.md)
   - [Writing system tests](docs/developer-guide/system-tests.md)
-  - [Writing processors](docs/developer-guide/processors.md)
 - Migration guide
+  - [Migrating to 15.0.0](docs/migration-guide/to-15.md)
   - [Migrating to 14.0.0](docs/migration-guide/to-14.md)
 - Maintainer guide
   - [Managing issues](docs/maintainer-guide/issues.md)

@@ -1,5 +1,7 @@
 # block-opening-brace-newline-after
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Require a newline after the opening brace of blocks.
 
 <!-- prettier-ignore -->
@@ -19,9 +21,7 @@ a { /* end-of-line comment */
 }
 ```
 
-Refer to [combining rules](../../../docs/user-guide/combine.md) for more information on using this rule with [`block-opening-brace-newline-before`](../block-opening-brace-newline-before/README.md) to disallow single-line rules.
-
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

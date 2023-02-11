@@ -1,5 +1,7 @@
 # declaration-block-trailing-semicolon
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Require or disallow a trailing semicolon within declaration blocks.
 
 <!-- prettier-ignore -->
@@ -17,7 +19,7 @@ This rule ignores:
 - trailing `//` comments
 - declaration blocks containing nested (at-)rules
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

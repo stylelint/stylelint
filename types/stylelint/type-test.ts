@@ -11,8 +11,8 @@ import type {
 	FormatterType,
 	LintResult,
 	LinterResult,
-	Plugin,
 	Rule,
+	RuleBase,
 	RuleMeta,
 	Warning,
 } from 'stylelint';
@@ -34,7 +34,6 @@ const options: Partial<LinterOptions> = {
 	reportNeedlessDisables: true,
 	ignorePath: ['foo'],
 	customSyntax: 'postcss-scss',
-	syntax: 'scss', // Removed but still accepted in type definition
 	config: {
 		overrides: [
 			{
@@ -90,9 +89,9 @@ const meta: RuleMeta = { url: '...' };
 const problemMessage: string = messages.problem;
 const problemFunc: (...reason: string[]) => string = messages.warning;
 
-const testPlugin: Plugin = (options) => {
+const testRule: RuleBase = (option) => {
 	return (root, result) => {
-		const validOptions = stylelint.utils.validateOptions(result, ruleName, { actual: options });
+		const validOptions = stylelint.utils.validateOptions(result, ruleName, { actual: option });
 		if (!validOptions) {
 			return;
 		}
@@ -118,12 +117,12 @@ const testPlugin: Plugin = (options) => {
 	};
 };
 
-(testPlugin as Rule).ruleName = ruleName;
-(testPlugin as Rule).messages = messages;
-(testPlugin as Rule).primaryOptionArray = true;
-(testPlugin as Rule).meta = meta;
+(testRule as Rule).ruleName = ruleName;
+(testRule as Rule).messages = messages;
+(testRule as Rule).primaryOptionArray = true;
+(testRule as Rule).meta = meta;
 
-stylelint.createPlugin(ruleName, testPlugin as Rule);
+stylelint.createPlugin(ruleName, testRule as Rule);
 
 messages.withNarrowedParam('should work');
 
