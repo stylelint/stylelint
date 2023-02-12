@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `declaration-property-value-no-unknown` parseError even when a file starts with `/* stylelint-disable */`
+Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as violation
