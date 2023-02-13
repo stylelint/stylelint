@@ -424,7 +424,7 @@ declare module 'stylelint' {
 	};
 
 	/** @internal */
-	export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
+	export type ShorthandProperties =
 		| 'animation'
 		| 'background'
 		| 'border'
@@ -459,7 +459,11 @@ declare module 'stylelint' {
 		| 'padding'
 		| 'text-decoration'
 		| 'text-emphasis'
-		| 'transition',
+		| 'transition';
+
+	/** @internal */
+	export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
+		ShorthandProperties,
 		ReadonlySet<string>
 	>;
 

@@ -10,49 +10,39 @@ on:
 env:
   FORCE_COLOR: 2
 
-permissions:
-  contents: read
-
 jobs:
   lint:
     uses: stylelint/.github/.github/workflows/lint.yml@main
 
   test:
-    name: Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    uses: stylelint/.github/.github/workflows/test.yml@main
+    with:
+      os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
+      exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
 
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [14, 16, 18]
-        os: [ubuntu-latest, windows-latest, macos-latest]
-
+  test-coverage:
+    name: Test on Node.js 18 and ubuntu-latest with coverage
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
           cache: npm
 
       - name: Install latest npm
-        # TODO: npm@9 is the latest, but it doesn't work on Node.js v12 and v14 with windows.
-        run: npm install --global npm@8
+        run: npm install --global npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Test
-        run: npm run jest
-        if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == 18)"
-
       - name: Test with coverage
-        run: npm run jest -- --coverage
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 18
+        run: npm run test-coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 18
         with:
           files: ./.coverage/lcov.info

@@ -9,7 +9,11 @@ a { top: unknown; }
  * property and value pairs like these */
 ```
 
-This is an experimental rule with some false negatives that will be patched in minor releases.
+This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
+
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as Sass or Less, as they have their own syntaxes.
+
+This rule is experimental with some false negatives that we'll patch in minor releases.
 
 It sometimes overlaps with:
 
@@ -19,8 +23,6 @@ It sometimes overlaps with:
 - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
 If duplicate problems are flagged, you can turn off the corresponding rule.
-
-This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
 
 ## Options
 
