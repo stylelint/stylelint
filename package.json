@@ -177,7 +177,7 @@
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.0",
     "eslint": "^8.34.0",
-    "eslint-config-stylelint": "^17.1.0",
+    "eslint-config-stylelint": "^18.0.0",
     "husky": "^8.0.3",
     "jest": "^29.4.1",
     "jest-preset-stylelint": "^6.0.0",
