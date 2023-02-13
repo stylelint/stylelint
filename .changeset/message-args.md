@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `messageArgs` to 77 rules
+Added: `messageArgs` to 76 rules
