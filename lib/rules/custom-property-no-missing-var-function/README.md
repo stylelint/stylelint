@@ -12,6 +12,8 @@ Disallow missing `var` function for custom properties.
 
 This rule only reports custom properties that are defined within the same source.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 ### `true`

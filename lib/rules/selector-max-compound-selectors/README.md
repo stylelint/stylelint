@@ -16,6 +16,8 @@ This rule resolves nested selectors before counting the depth of a selector. Eac
 
 `:not()` is considered one compound selector irrespective to the complexity of the selector inside it. The rule _does_ process that inner selector, but does so separately, independent of the main selector.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `int`: Maximum compound selectors allowed.

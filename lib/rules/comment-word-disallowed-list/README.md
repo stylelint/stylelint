@@ -11,6 +11,8 @@ Specify a list of disallowed words within comments.
 
 **Caveat:** Comments within _selector and value lists_ are currently ignored.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `array|string|regexp`: `["array", "of", "words", /or/, "/regex/"]|"word"|"/regex/"|/regex/`

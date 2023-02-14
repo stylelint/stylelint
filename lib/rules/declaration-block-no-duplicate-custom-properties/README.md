@@ -11,6 +11,8 @@ a { --custom-property: pink; --custom-property: orange; }
 
 This rule is case-sensitive.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 ### `true`

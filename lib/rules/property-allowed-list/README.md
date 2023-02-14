@@ -11,6 +11,8 @@ a { display: block; }
 
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `array|string|regex`: `["array", "of", /properties/, "regex"]|"property"|"/regex/"|/regex/`

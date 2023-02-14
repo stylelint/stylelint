@@ -11,6 +11,8 @@ Disallow unknown at-rules.
 
 This rule considers at-rules defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 ### `true`

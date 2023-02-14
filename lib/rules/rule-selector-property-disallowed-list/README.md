@@ -9,6 +9,8 @@ Specify a list of disallowed properties for selectors within rules.
  * Selector and property name */
 ```
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `object`: `{ "selector": ["array", "of", "properties", "/regex/", /regex/]|"property"|"/regex/"|/regex/`

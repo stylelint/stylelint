@@ -2,6 +2,8 @@
 
 Limit the number of values for a list of properties within declarations.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `object`: `{ "unprefixed-property-name": int }`
