@@ -15,6 +15,8 @@ For legacy reasons, `rgb()` and `hsl()` also supports an alternate syntax that s
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule when the primary option is `"modern"`.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `string`: `"modern"|"legacy"`

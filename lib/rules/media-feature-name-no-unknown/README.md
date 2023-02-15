@@ -13,6 +13,8 @@ This rule considers media feature names defined in the CSS Specifications, up to
 
 This rule ignores vendor-prefixed media feature names.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 ### `true`
