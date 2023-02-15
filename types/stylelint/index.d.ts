@@ -9,7 +9,9 @@ declare module 'stylelint' {
 	export type Severity = 'warning' | 'error';
 
 	type ConfigExtends = string | string[];
-	export type Plugin = { default?: { ruleName: string; rule: Rule } } | { ruleName: string; rule: Rule };
+	export type Plugin =
+		| { default?: { ruleName: string; rule: Rule } }
+		| { ruleName: string; rule: Rule };
 	type ConfigPlugins = string | Plugin | (string | Plugin)[];
 	type ConfigIgnoreFiles = string | string[];
 
@@ -622,7 +624,7 @@ declare module 'stylelint' {
 
 	export type Stylelint = Omit<PublicApi, '_createLinter'>;
 
-	const stylelint: Stylelint;
+	const stylelint: PublicApi;
 
 	export default stylelint;
 }
