@@ -9,7 +9,7 @@ declare module 'stylelint' {
 	export type Severity = 'warning' | 'error';
 
 	type ConfigExtends = string | string[];
-	type Plugin = { default?: { ruleName: string; rule: Rule } } | { ruleName: string; rule: Rule };
+	export type Plugin = { default?: { ruleName: string; rule: Rule } } | { ruleName: string; rule: Rule };
 	type ConfigPlugins = string | Plugin | (string | Plugin)[];
 	type ConfigIgnoreFiles = string | string[];
 
@@ -180,7 +180,7 @@ declare module 'stylelint' {
 		optional?: boolean;
 	};
 
-	type RuleContext = {
+	export type RuleContext = {
 		fix?: boolean | undefined;
 		newline?: string | undefined;
 	};
@@ -620,7 +620,9 @@ declare module 'stylelint' {
 		};
 	};
 
-	const stylelint: PublicApi;
+	export type Stylelint = Omit<PublicApi, '_createLinter'>;
+
+	const stylelint: Stylelint;
 
 	export default stylelint;
 }
