@@ -8,10 +8,14 @@ declare module 'stylelint' {
 	 */
 	export type Severity = 'warning' | 'error';
 
-	type ConfigExtends = string | string[];
+	/**
+	 * A Stylelint plugin.
+	 */
 	export type Plugin =
 		| { default?: { ruleName: string; rule: Rule } }
 		| { ruleName: string; rule: Rule };
+
+	type ConfigExtends = string | string[];
 	type ConfigPlugins = string | Plugin | (string | Plugin)[];
 	type ConfigIgnoreFiles = string | string[];
 
@@ -182,6 +186,9 @@ declare module 'stylelint' {
 		optional?: boolean;
 	};
 
+	/**
+	 * A rule context.
+	 */
 	export type RuleContext = {
 		fix?: boolean | undefined;
 		newline?: string | undefined;
@@ -621,8 +628,6 @@ declare module 'stylelint' {
 			longhandSubPropertiesOfShorthandProperties: LonghandSubPropertiesOfShorthandProperties;
 		};
 	};
-
-	export type Stylelint = Omit<PublicApi, '_createLinter'>;
 
 	const stylelint: PublicApi;
 
