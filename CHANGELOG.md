@@ -1,5 +1,18 @@
 # Changelog
 
+## 15.2.0
+
+- Added: `messageArgs` to 76 rules ([#6589](https://github.com/stylelint/stylelint/pull/6589)) ([@kizu](https://github.com/kizu)).
+- Fixed: TypeScript error to export `Plugin` and `RuleContext` ([#6664](https://github.com/stylelint/stylelint/pull/6664)) ([@henryruhs](https://github.com/henryruhs)).
+- Fixed: `overrides.extends` order when including same rules ([#6660](https://github.com/stylelint/stylelint/pull/6660)) ([@kuoruan](https://github.com/kuoruan)).
+- Fixed: `annotation-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
+- Fixed: `declaration-property-value-no-unknown` false positives for at-rule descriptors ([#6669](https://github.com/stylelint/stylelint/pull/6669)) ([@FloEdelmann](https://github.com/FloEdelmann)).
+- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as violation ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-name-case` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
+- Fixed: `function-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
+- Fixed: `unit-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
+- Fixed: `value-keyword-case` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
+
 ## 15.1.0
 
 - Added: `declaration-block-no-redundant-longhand-properties` autofix ([#6580](https://github.com/stylelint/stylelint/pull/6580)) ([@mattxwang](https://github.com/mattxwang)).
