@@ -77,7 +77,7 @@ Disallow overrides with these `no-overrides` rules.
 
 Disallow unmatchable things with these `no-unmatchable` rules.
 
-- [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md): Disallow unmatchable An+B selectors
+- [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md): Disallow unmatchable An+B selectors.
 
 ### Unknown
 

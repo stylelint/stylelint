@@ -9,7 +9,7 @@ a:nth-child(0n+0) {}
  * This unmatchable An+B selector */
 ```
 
-[An+B selectors](https://drafts.csswg.org/css-syntax/#anb) are one-indexed. Selectors that always evaluate to `0` will not match any elements.
+[An+B selectors](https://www.w3.org/TR/css-syntax-3/#anb-microsyntax) are one-indexed. Selectors that always evaluate to `0` will not match any elements.
 
 ## Options
 
