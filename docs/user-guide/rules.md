@@ -73,6 +73,12 @@ Disallow overrides with these `no-overrides` rules.
 
 - [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties (Ⓡ & Ⓢ).
 
+### Unmatchable
+
+Disallow unmatchable things with these `no-unmatchable` rules.
+
+- [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md): Disallow unmatchable An+B selectors.
+
 ### Unknown
 
 Disallow unknown things with these `no-unknown` rules.
