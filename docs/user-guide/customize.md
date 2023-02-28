@@ -85,7 +85,7 @@ Or you can use [the plugin](https://www.npmjs.com/package/stylelint-order) direc
 }
 ```
 
-Custom rules do all sorts; from enforcing [strict BEM conventions](https://www.npmjs.com/package/stylelint-selector-bem-pattern) to [strict scales for values](https://www.npmjs.com/package/@signal-noise/stylelint-scales). You'll find more shared configs and plugins of custom rules listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme).
+Custom rules do all sorts; from enforcing [strict BEM conventions](https://www.npmjs.com/package/stylelint-selector-bem-pattern) to [strict scales for numeric values](https://www.npmjs.com/package/stylelint-scales). You'll find more shared configs and plugins of custom rules listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme).
 
 You can also [write your own custom rules within a plugin](../developer-guide/plugins.md). This is particularly useful if you have specific needs or conventions you want to enforce.
 
