@@ -26,6 +26,12 @@ A string to lint.
 
 The directory from which Stylelint will look for files. Defaults to the current working directory returned by `process.cwd()`.
 
+### `extensions`
+
+Specify supported file extensions. Stylelint defaults to `['css']`.
+
+Note that it only applies to directories; i.e., files and glob patterns will be ignored.
+
 ### `files`
 
 A file glob, or array of [file globs](https://github.com/sindresorhus/globby).

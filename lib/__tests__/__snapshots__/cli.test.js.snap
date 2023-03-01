@@ -100,10 +100,8 @@ exports[`CLI --help 1`] = `
 
     --ext                         [default: ".css"]
 
-      Specify supported file extensions.
-
-      Only applies to directories.
-      i.e. glob patterns and/or file names are ignored
+      Comma-separated list that specifies the file extensions of the targeted files.
+      Only applies to directories; i.e., files and glob patterns will be ignored.
 
     --formatter, -f               [default: "string"]
 

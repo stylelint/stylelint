@@ -220,16 +220,6 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 
 You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#configs).
 
-## `extensions`
-
-Allows you to specify which file extensions Stylelint uses when searching for target files in the directories set in the [input](./cli.md#usage-examples).
-
-```json
-{
-  "extensions": ["css", "scss", "less"]
-}
-```
-
 ## `plugins`
 
 Plugins are custom rules or sets of custom rules built to support methodologies, toolsets, _non-standard_ CSS features, or very specific use cases.

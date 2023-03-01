@@ -1,5 +1,0 @@
-{
-	"customSyntax": "postcss-scss",
-	"extends": "./extensions/config",
-	"extensions": ["scss", "sass"]
-}

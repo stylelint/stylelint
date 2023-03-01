@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: ext flag and extensions property
+Added: `--ext` CLI flag and `extensions` Node.js API option

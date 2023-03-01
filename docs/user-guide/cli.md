@@ -62,9 +62,10 @@ Disable the default ignores. Stylelint will not automatically ignore the content
 
 ### `--ext`
 
-Allows you to specify which file extensions Stylelint uses when searching for target files in the directories set in the [input](#usage-examples).
+Specify file extensions used when searching for target files in the directories set in the [input](#usage-examples). [More info](node-api.md#extensions).
 
-Note that [extensions](./configure.md#extensions) will take precedence if both are provided.
+Note it also accepts dot-less elements in its list.
+e.g. `--ext css,less` is treated the same as the more conventional `--ext .css,.less`
 
 ### `--fix`
 
@@ -139,6 +140,12 @@ _You should include quotation marks around file globs._
 ### Example A - recursive
 
 Recursively linting all `.css` files in the `foo` directory:
+
+```shell
+stylelint foo
+```
+
+or
 
 ```shell
 stylelint "foo/**/*.css"

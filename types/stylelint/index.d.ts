@@ -46,7 +46,6 @@ declare module 'stylelint' {
 	 */
 	export type Config = {
 		extends?: ConfigExtends;
-		extensions?: string[];
 		plugins?: ConfigPlugins;
 		pluginFunctions?: {
 			[pluginName: string]: Rule;
