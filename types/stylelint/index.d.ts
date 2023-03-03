@@ -631,5 +631,5 @@ declare module 'stylelint' {
 
 	const stylelint: PublicApi;
 
-	export default stylelint;
+	export = stylelint;
 }
