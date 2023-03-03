@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: type definition for CommonJS
+Fixed: TypeScript error for CommonJS importing
