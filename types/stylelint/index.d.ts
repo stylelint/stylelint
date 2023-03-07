@@ -468,7 +468,8 @@ declare module 'stylelint' {
 		| 'padding'
 		| 'text-decoration'
 		| 'text-emphasis'
-		| 'transition';
+		| 'transition'
+		| 'inset';
 
 	/** @internal */
 	export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
