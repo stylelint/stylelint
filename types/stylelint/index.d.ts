@@ -461,6 +461,7 @@ declare module 'stylelint' {
 		| 'grid-gap'
 		| 'grid-row'
 		| 'grid-template'
+		| 'inset'
 		| 'list-style'
 		| 'margin'
 		| 'mask'
@@ -468,8 +469,7 @@ declare module 'stylelint' {
 		| 'padding'
 		| 'text-decoration'
 		| 'text-emphasis'
-		| 'transition'
-		| 'inset';
+		| 'transition';
 
 	/** @internal */
 	export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
