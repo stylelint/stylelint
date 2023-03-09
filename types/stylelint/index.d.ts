@@ -461,6 +461,7 @@ declare module 'stylelint' {
 		| 'grid-gap'
 		| 'grid-row'
 		| 'grid-template'
+		| 'inset'
 		| 'list-style'
 		| 'margin'
 		| 'mask'

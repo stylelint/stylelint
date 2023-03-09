@@ -28,6 +28,7 @@ This rule complains when the following shorthand properties can be used:
 
 - `margin`
 - `padding`
+- `inset`
 - `background`
 - `font`
 - `border`
