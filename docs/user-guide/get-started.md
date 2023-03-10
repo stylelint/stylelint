@@ -6,27 +6,17 @@ You can quickly get started by extending a shared config.
 
 You can extend our [standard config](https://www.npmjs.com/package/stylelint-config-standard) to lint CSS.
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the config:
+1\. Use [npm](https://docs.npmjs.com/about-npm/) and [our `init` tool](https://www.npmjs.com/package/create-stylelint) to install Stylelint and the config:
 
 ```shell
-npm install --save-dev stylelint stylelint-config-standard
+npm init stylelint
 ```
 
-2\. Create a `.stylelintrc.json` configuration file in the root of your project with the following content:
-
-```json
-{
-  "extends": "stylelint-config-standard"
-}
-```
-
-3\. Run Stylelint on all the CSS files in your project:
+2\. Run Stylelint on all the CSS files in your project:
 
 ```shell
 npx stylelint "**/*.css"
 ```
-
-_Include quotation marks around the file globs._
 
 Once you're up and running, you can [customize](./customize.md) Stylelint.
 
