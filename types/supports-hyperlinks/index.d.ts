@@ -1,8 +1,6 @@
-declare module 'supports-hyperlinks' {
-	var supportsHyperlinks: {
-		stdout: boolean;
-		stderr: boolean;
-	};
+declare var supportsHyperlinks: {
+	stdout: boolean;
+	stderr: boolean;
+};
 
-	export = supportsHyperlinks;
-}
+export = supportsHyperlinks;

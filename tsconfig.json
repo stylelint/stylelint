@@ -13,10 +13,11 @@
 		"noImplicitReturns": false,
 		"noUnusedParameters": true,
 		"noUncheckedIndexedAccess": true,
-		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": false,
-		"typeRoots": ["./types", "./node_modules/@types"]
+		"paths": {
+			"*": ["./node_modules/@types/*", "./types/*"]
+		}
 	},
 	"include": ["lib", "types", "package.json"],
 	"exclude": ["**/*.test.js", "**/__tests__/"]
