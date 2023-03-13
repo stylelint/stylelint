@@ -1,0 +1,13 @@
+diff --git a/node_modules/postcss-value-parser/lib/parse.js b/node_modules/postcss-value-parser/lib/parse.js
+index 950631c..70475df 100644
+--- a/node_modules/postcss-value-parser/lib/parse.js
++++ b/node_modules/postcss-value-parser/lib/parse.js
+@@ -174,7 +174,7 @@ module.exports = function(input) {
+       };
+       pos = next;
+ 
+-      if (name === "url" && code !== singleQuote && code !== doubleQuote) {
++      if ((name === "url" || name === "url-prefix") && code !== singleQuote && code !== doubleQuote) {
+         next -= 1;
+         do {
+           escape = false;
