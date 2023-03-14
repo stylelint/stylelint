@@ -144,7 +144,7 @@
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^6.0.0",
     "postcss-selector-parser": "^6.0.11",
-    "postcss-value-parser": "^4.2.0",
+    "postcss-value-parser": "github:TrySound/postcss-value-parser#pull/90/merge",
     "resolve-from": "^5.0.0",
     "string-width": "^4.2.3",
     "strip-ansi": "^6.0.1",
