@@ -1,50 +1,94 @@
-declare module 'stylelint' {
-	import type * as PostCSS from 'postcss';
-	import type { GlobbyOptions } from 'globby';
-	import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
+import type * as PostCSS from 'postcss';
+import type { GlobbyOptions } from 'globby';
+import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
+type ConfigExtends = string | string[];
+type ConfigPlugins = string | stylelint.Plugin | (string | stylelint.Plugin)[];
+type ConfigIgnoreFiles = string | string[];
+
+type ConfigRules = {
+	[ruleName: string]: stylelint.ConfigRuleSettings<any, Object>;
+};
+type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
+	files: string | string[];
+};
+
+type DisableSettings = stylelint.ConfigRuleSettings<boolean, stylelint.DisableOptions>;
+
+// A meta-type that returns a union over all properties of `T` whose values
+// have type `U`.
+type PropertyNamesOfType<T, U> = {
+	[K in keyof T]-?: T[K] extends U ? K : never;
+}[keyof T];
+
+type FileCache = {
+	calcHashOfConfig: (config: stylelint.Config) => void;
+	hasFileChanged: (absoluteFilepath: string) => boolean;
+	reconcile: () => void;
+	destroy: () => void;
+	removeEntry: (absoluteFilepath: string) => void;
+};
+
+type EmptyResult = {
+	root: {
+		nodes?: undefined;
+		source: {
+			lang?: undefined;
+			input: {
+				file?: string;
+			};
+		};
+	};
+	messages: PostCSS.Message[];
+	opts: undefined;
+};
+
+// Note: With strict function types enabled, function signatures are checked contravariantly.
+// This means that it would not be possible for rule authors to narrow the message function
+// parameters to e.g. just `string`. Declaring the type for rule message functions through
+// method declarations tricks TypeScript into bivariant signature checking. More details can
+// be found here: https://stackoverflow.com/questions/52667959/what-is-the-purpose-of-bivariancehack-in-typescript-types.
+// and in the original discussion: https://github.com/stylelint/stylelint/pull/6147#issuecomment-1155337016.
+type RuleMessageFunc = {
+	bivariance(...args: (string | number | boolean | RegExp)[]): string;
+}['bivariance'];
+
+type RuleOptionsPossibleFunc = (value: unknown) => boolean;
+
+type DisableReportEntry = {
+	source?: string;
+	ranges: stylelint.DisableReportRange[];
+};
+
+declare namespace stylelint {
 	/**
 	 * Rule severity.
 	 */
-	export type Severity = 'warning' | 'error';
+	type Severity = 'warning' | 'error';
 
 	/**
 	 * A Stylelint plugin.
 	 */
-	export type Plugin =
-		| { default?: { ruleName: string; rule: Rule } }
-		| { ruleName: string; rule: Rule };
-
-	type ConfigExtends = string | string[];
-	type ConfigPlugins = string | Plugin | (string | Plugin)[];
-	type ConfigIgnoreFiles = string | string[];
+	type Plugin = { default?: { ruleName: string; rule: Rule } } | { ruleName: string; rule: Rule };
 
 	/** @internal */
-	export type ConfigRuleSettings<T, O extends Object> =
+	type ConfigRuleSettings<T, O extends Object> =
 		| null
 		| undefined
 		| NonNullable<T>
 		| [NonNullable<T>]
 		| [NonNullable<T>, O];
 
-	type ConfigRules = {
-		[ruleName: string]: ConfigRuleSettings<any, Object>;
-	};
-	type ConfigOverride = Omit<Config, 'overrides'> & {
-		files: string | string[];
-	};
-
 	/** @internal */
-	export type DisableOptions = {
+	type DisableOptions = {
 		except?: (string | RegExp)[];
 		severity?: Severity;
 	};
-	type DisableSettings = ConfigRuleSettings<boolean, DisableOptions>;
 
 	/**
 	 * Configuration.
 	 */
-	export type Config = {
+	type Config = {
 		extends?: ConfigExtends;
 		plugins?: ConfigPlugins;
 		pluginFunctions?: {
@@ -63,22 +107,14 @@ declare module 'stylelint' {
 		customSyntax?: CustomSyntax;
 	};
 
-	// A meta-type that returns a union over all properties of `T` whose values
-	// have type `U`.
-	type PropertyNamesOfType<T, U> = {
-		[K in keyof T]-?: T[K] extends U ? K : never;
-	}[keyof T];
+	/** @internal */
+	type DisablePropertyName = PropertyNamesOfType<Config, DisableSettings>;
 
 	/** @internal */
-	export type DisablePropertyName = PropertyNamesOfType<Config, DisableSettings>;
+	type CosmiconfigResult = (ReturnType<CosmiconfigTransformSync> & { config: Config }) | null;
 
 	/** @internal */
-	export type CosmiconfigResult =
-		| (ReturnType<CosmiconfigTransformSync> & { config: Config })
-		| null;
-
-	/** @internal */
-	export type DisabledRange = {
+	type DisabledRange = {
 		comment: PostCSS.Comment;
 		start: number;
 		strictStart: boolean;
@@ -89,23 +125,15 @@ declare module 'stylelint' {
 	};
 
 	/** @internal */
-	export type DisabledRangeObject = {
+	type DisabledRangeObject = {
 		[ruleName: string]: DisabledRange[];
 	};
 
 	/** @internal */
-	export type DisabledWarning = { line: number; rule: string };
-
-	type FileCache = {
-		calcHashOfConfig: (config: Config) => void;
-		hasFileChanged: (absoluteFilepath: string) => boolean;
-		reconcile: () => void;
-		destroy: () => void;
-		removeEntry: (absoluteFilepath: string) => void;
-	};
+	type DisabledWarning = { line: number; rule: string };
 
 	/** @internal */
-	export type StylelintPostcssResult = {
+	type StylelintPostcssResult = {
 		ruleSeverities: { [ruleName: string]: Severity };
 		customMessages: { [ruleName: string]: RuleMessage };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
@@ -119,65 +147,39 @@ declare module 'stylelint' {
 		config?: Config;
 	};
 
-	type EmptyResult = {
-		root: {
-			nodes?: undefined;
-			source: {
-				lang?: undefined;
-				input: {
-					file?: string;
-				};
-			};
-		};
-		messages: PostCSS.Message[];
-		opts: undefined;
-	};
-
 	/** @internal */
-	export type WarningOptions = PostCSS.WarningOptions & {
+	type WarningOptions = PostCSS.WarningOptions & {
 		stylelintType?: string;
 		severity?: Severity;
 		rule?: string;
 	};
 
 	/** @internal */
-	export type PostcssResult = (PostCSS.Result | EmptyResult) & {
+	type PostcssResult = (PostCSS.Result | EmptyResult) & {
 		stylelint: StylelintPostcssResult;
 		warn(message: string, options?: WarningOptions): void;
 	};
 
 	/** @internal */
-	export type Formatter = (results: LintResult[], returnValue: LinterResult) => string;
+	type Formatter = (results: LintResult[], returnValue: LinterResult) => string;
 
 	/** @internal */
-	export type FormatterType = 'compact' | 'github' | 'json' | 'string' | 'tap' | 'unix' | 'verbose';
+	type FormatterType = 'compact' | 'github' | 'json' | 'string' | 'tap' | 'unix' | 'verbose';
 
 	/** @internal */
-	export type CustomSyntax = string | PostCSS.Syntax;
-
-	// Note: With strict function types enabled, function signatures are checked contravariantly.
-	// This means that it would not be possible for rule authors to narrow the message function
-	// parameters to e.g. just `string`. Declaring the type for rule message functions through
-	// method declarations tricks TypeScript into bivariant signature checking. More details can
-	// be found here: https://stackoverflow.com/questions/52667959/what-is-the-purpose-of-bivariancehack-in-typescript-types.
-	// and in the original discussion: https://github.com/stylelint/stylelint/pull/6147#issuecomment-1155337016.
-	type RuleMessageFunc = {
-		bivariance(...args: (string | number | boolean | RegExp)[]): string;
-	}['bivariance'];
+	type CustomSyntax = string | PostCSS.Syntax;
 
 	/** @internal */
-	export type RuleMessage = string | RuleMessageFunc;
+	type RuleMessage = string | RuleMessageFunc;
 
 	/** @internal */
-	export type RuleMessages = { [message: string]: RuleMessage };
-
-	type RuleOptionsPossibleFunc = (value: unknown) => boolean;
+	type RuleMessages = { [message: string]: RuleMessage };
 
 	/** @internal */
-	export type RuleOptionsPossible = boolean | number | string | RuleOptionsPossibleFunc;
+	type RuleOptionsPossible = boolean | number | string | RuleOptionsPossibleFunc;
 
 	/** @internal */
-	export type RuleOptions = {
+	type RuleOptions = {
 		actual: unknown;
 		possible?:
 			| RuleOptionsPossibleFunc
@@ -189,20 +191,20 @@ declare module 'stylelint' {
 	/**
 	 * A rule context.
 	 */
-	export type RuleContext = {
+	type RuleContext = {
 		fix?: boolean | undefined;
 		newline?: string | undefined;
 	};
 
 	/** @internal */
-	export type RuleBase<P = any, S = any> = (
+	type RuleBase<P = any, S = any> = (
 		primaryOption: P,
 		secondaryOptions: Record<string, S>,
 		context: RuleContext,
 	) => (root: PostCSS.Root, result: PostcssResult) => Promise<void> | void;
 
 	/** @internal */
-	export type RuleMeta = {
+	type RuleMeta = {
 		url: string;
 		deprecated?: boolean;
 		fixable?: boolean;
@@ -211,7 +213,7 @@ declare module 'stylelint' {
 	/**
 	 * A rule.
 	 */
-	export type Rule<P = any, S = any> = RuleBase<P, S> & {
+	type Rule<P = any, S = any> = RuleBase<P, S> & {
 		ruleName: string;
 		messages: RuleMessages;
 		primaryOptionArray?: boolean;
@@ -219,7 +221,7 @@ declare module 'stylelint' {
 	};
 
 	/** @internal */
-	export type GetPostcssOptions = {
+	type GetPostcssOptions = {
 		code?: string;
 		codeFilename?: string;
 		filePath?: string;
@@ -227,7 +229,7 @@ declare module 'stylelint' {
 	};
 
 	/** @internal */
-	export type GetLintSourceOptions = GetPostcssOptions & {
+	type GetLintSourceOptions = GetPostcssOptions & {
 		existingPostcssResult?: PostCSS.Result;
 		cache?: boolean;
 	};
@@ -235,7 +237,7 @@ declare module 'stylelint' {
 	/**
 	 * Linter options.
 	 */
-	export type LinterOptions = {
+	type LinterOptions = {
 		files?: string | string[];
 		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
@@ -269,7 +271,7 @@ declare module 'stylelint' {
 	/**
 	 * A CSS syntax error.
 	 */
-	export type CssSyntaxError = {
+	type CssSyntaxError = {
 		file?: string;
 		input: {
 			column: number;
@@ -302,7 +304,7 @@ declare module 'stylelint' {
 	/**
 	 * A lint warning.
 	 */
-	export type Warning = {
+	type Warning = {
 		/**
 		 * The line of the inclusive start position of the warning.
 		 */
@@ -328,7 +330,7 @@ declare module 'stylelint' {
 	/**
 	 * A lint result.
 	 */
-	export type LintResult = {
+	type LintResult = {
 		source?: string;
 		deprecations: {
 			text: string;
@@ -350,21 +352,16 @@ declare module 'stylelint' {
 	};
 
 	/** @internal */
-	export type DisableReportRange = {
+	type DisableReportRange = {
 		rule: string;
 		start: number;
 		end?: number;
 	};
 
-	type DisableReportEntry = {
-		source?: string;
-		ranges: DisableReportRange[];
-	};
-
 	/**
 	 * A linter result.
 	 */
-	export type LinterResult = {
+	type LinterResult = {
 		/**
 		 * The working directory from which the linter was run when the
 		 * results were generated.
@@ -390,7 +387,7 @@ declare module 'stylelint' {
 	/**
 	 * A lint problem.
 	 */
-	export type Problem = {
+	type Problem = {
 		ruleName: string;
 		result: PostcssResult;
 		message: RuleMessage;
@@ -433,7 +430,7 @@ declare module 'stylelint' {
 	};
 
 	/** @internal */
-	export type ShorthandProperties =
+	type ShorthandProperties =
 		| 'animation'
 		| 'background'
 		| 'border'
@@ -472,7 +469,7 @@ declare module 'stylelint' {
 		| 'transition';
 
 	/** @internal */
-	export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
+	type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
 		ShorthandProperties,
 		ReadonlySet<string>
 	>;
@@ -480,7 +477,7 @@ declare module 'stylelint' {
 	/**
 	 * Utility functions.
 	 */
-	export type Utils = {
+	type Utils = {
 		/**
 		 * Report a problem.
 		 *
@@ -558,7 +555,7 @@ declare module 'stylelint' {
 	 * any time.
 	 * @internal
 	 */
-	export type InternalApi = {
+	type InternalApi = {
 		_options: LinterOptions & { cwd: string };
 		_extendExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
@@ -566,71 +563,71 @@ declare module 'stylelint' {
 		_fileCache: FileCache;
 	};
 
-	export type DisableOptionsReport = DisableReportEntry[];
+	type DisableOptionsReport = DisableReportEntry[];
 
-	export type PostcssPluginOptions = Omit<LinterOptions, 'customSyntax'> | Config;
-
-	type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
-		/**
-		 * Runs Stylelint with the given options and returns a Promise that
-		 * resolves to the results.
-		 *
-		 * @param options - A lint options object
-		 * @returns A lint result
-		 */
-		lint: (options: LinterOptions) => Promise<LinterResult>;
-
-		/**
-		 * Available rules.
-		 */
-		rules: { [k: string]: Rule };
-
-		/**
-		 * Result report formatters by name.
-		 */
-		formatters: { [k: string]: Formatter };
-
-		/**
-		 * Creates a Stylelint plugin.
-		 */
-		createPlugin: (ruleName: string, rule: Rule) => Plugin;
-
-		/**
-		 * The Stylelint "internal API" is passed among functions
-		 * so that methods on a Stylelint instance can invoke
-		 * each other while sharing options and caches.
-		 *
-		 * @internal
-		 */
-		_createLinter: (options: LinterOptions) => InternalApi;
-
-		/**
-		 * Resolves the effective configuration for a given file. Resolves to
-		 * `undefined` if no config is found.
-		 *
-		 * @param filePath - The path to the file to get the config for.
-		 * @param options - The options to use when creating the Stylelint instance.
-		 * @returns A resolved config or `undefined`.
-		 */
-		resolveConfig: (
-			filePath: string,
-			options?: Pick<LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
-		) => Promise<Config | undefined>;
-
-		/**
-		 * Utility functions.
-		 */
-		utils: Utils;
-
-		/**
-		 * Reference objects.
-		 */
-		reference: {
-			longhandSubPropertiesOfShorthandProperties: LonghandSubPropertiesOfShorthandProperties;
-		};
-	};
-
-	const stylelint: PublicApi;
-
-	export default stylelint;
+	type PostcssPluginOptions = Omit<LinterOptions, 'customSyntax'> | Config;
 }
+
+type PublicApi = PostCSS.PluginCreator<stylelint.PostcssPluginOptions> & {
+	/**
+	 * Runs Stylelint with the given options and returns a Promise that
+	 * resolves to the results.
+	 *
+	 * @param options - A lint options object
+	 * @returns A lint result
+	 */
+	lint: (options: stylelint.LinterOptions) => Promise<stylelint.LinterResult>;
+
+	/**
+	 * Available rules.
+	 */
+	rules: { [k: string]: stylelint.Rule };
+
+	/**
+	 * Result report formatters by name.
+	 */
+	formatters: { [k: string]: stylelint.Formatter };
+
+	/**
+	 * Creates a Stylelint plugin.
+	 */
+	createPlugin: (ruleName: string, rule: stylelint.Rule) => stylelint.Plugin;
+
+	/**
+	 * The Stylelint "internal API" is passed among functions
+	 * so that methods on a Stylelint instance can invoke
+	 * each other while sharing options and caches.
+	 *
+	 * @internal
+	 */
+	_createLinter: (options: stylelint.LinterOptions) => stylelint.InternalApi;
+
+	/**
+	 * Resolves the effective configuration for a given file. Resolves to
+	 * `undefined` if no config is found.
+	 *
+	 * @param filePath - The path to the file to get the config for.
+	 * @param options - The options to use when creating the Stylelint instance.
+	 * @returns A resolved config or `undefined`.
+	 */
+	resolveConfig: (
+		filePath: string,
+		options?: Pick<stylelint.LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
+	) => Promise<stylelint.Config | undefined>;
+
+	/**
+	 * Utility functions.
+	 */
+	utils: stylelint.Utils;
+
+	/**
+	 * Reference objects.
+	 */
+	reference: {
+		longhandSubPropertiesOfShorthandProperties: stylelint.LonghandSubPropertiesOfShorthandProperties;
+	};
+};
+
+declare const stylelint: PublicApi;
+
+export = stylelint;

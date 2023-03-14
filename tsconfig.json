@@ -3,7 +3,6 @@
 		"target": "ES2020",
 		"module": "commonjs",
 		"lib": ["ES2020"],
-		"allowJs": true,
 		"checkJs": true,
 		"noEmit": true,
 		"strict": true,
@@ -13,10 +12,11 @@
 		"noImplicitReturns": false,
 		"noUnusedParameters": true,
 		"noUncheckedIndexedAccess": true,
-		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": false,
-		"typeRoots": ["./types", "./node_modules/@types"]
+		"paths": {
+			"*": ["./node_modules/@types/*", "./types/*"]
+		}
 	},
 	"include": ["lib", "types", "package.json"],
 	"exclude": ["**/*.test.js", "**/__tests__/"]

@@ -16,7 +16,7 @@ import type {
 	RuleMeta,
 	Warning,
 } from 'stylelint';
-import stylelint from 'stylelint';
+import * as stylelint from 'stylelint';
 
 const options: Partial<LinterOptions> = {
 	allowEmptyInput: true,
