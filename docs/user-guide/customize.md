@@ -91,7 +91,7 @@ You can also [write your own custom rules within a plugin](../developer-guide/pl
 
 ## Strictness
 
-We recommend you craft a config that strictly enforces your conventions and then use [special comments](./ignore-code.md) to disable specific rules when needed. You needn't shy away from using them as they are an integral part of Stylelint.
+We recommend you craft a config that strictly enforces your conventions and then use [configuration comments](./ignore-code.md) to disable specific rules when needed. You needn't shy away from using them as they are an integral part of Stylelint.
 
 You can use the [`report*`](./configure.md#report) properties in your config to ensure your comments aren't useless and descriptionless:
 
