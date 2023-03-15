@@ -7,7 +7,7 @@ You can ignore:
 
 ## Parts of a file
 
-You can temporarily turn off rules using special comments in your CSS.
+You can temporarily turn off rules using configuration comments in your CSS.
 
 For example, you can either turn all the rules off:
 
