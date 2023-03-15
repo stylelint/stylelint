@@ -418,7 +418,7 @@ For example:
 You can set what configuration comments like `/* stylelint-disable */` start with. This can be useful if you use multiple instances of Stylelint with different configurations.
 
 
-For example, to have stylelint disable rules with `/* stylelint-special-rules-disable */` instead of the default `/* stylelint-disable */`:
+For example, to have an instance of Stylelint disable rules with `/* stylelint-foo-instance-disable */` instead of the default `/* stylelint-disable */`:
 
 ```json
 {
