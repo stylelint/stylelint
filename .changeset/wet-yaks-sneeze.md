@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Make stylelintCommandPrefix configurable
+Added: `configurationComment` configuration property
