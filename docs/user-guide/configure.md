@@ -415,7 +415,8 @@ For example:
 
 ### `configurationComment`
 
-You can set the `configurationComment` to change the prefix of stylelint commands used in `stylelint-disable` comments. This can be useful if you expect to have multiple instances of stylelint with different configurations running.
+You can set what configuration comments like `/* stylelint-disable */` start with. This can be useful if you use multiple instances of Stylelint with different configurations.
+
 
 For example, to have stylelint disable rules with `/* stylelint-special-rules-disable */` instead of the default `/* stylelint-disable */`:
 
