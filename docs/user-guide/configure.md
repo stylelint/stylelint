@@ -399,6 +399,18 @@ For example:
 
 [More info](options.md#reportneedlessdisables).
 
+## `configurationComment`
+
+You can set what configuration comments like `/* stylelint-disable */` start with. This can be useful if you use multiple instances of Stylelint with different configurations.
+
+For example, to have an instance of Stylelint disable rules with `/* stylelint-foo-instance-disable */` instead of the default `/* stylelint-disable */`:
+
+```json
+{
+  "configurationComment": "stylelint-foo-instance"
+}
+```
+
 ## `ignoreDisables`
 
 Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
@@ -412,19 +424,6 @@ For example:
 ```
 
 [More info](options.md#ignoredisables).
-
-### `configurationComment`
-
-You can set what configuration comments like `/* stylelint-disable */` start with. This can be useful if you use multiple instances of Stylelint with different configurations.
-
-
-For example, to have an instance of Stylelint disable rules with `/* stylelint-foo-instance-disable */` instead of the default `/* stylelint-disable */`:
-
-```json
-{
-  "configurationComment": "stylelint-foo-instance"
-}
-```
 
 ## `ignoreFiles`
 
