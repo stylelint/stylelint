@@ -422,7 +422,7 @@ For example, to have an instance of Stylelint disable rules with `/* stylelint-f
 
 ```json
 {
-  "configurationComment": "stylelint-special-rules"
+  "configurationComment": "stylelint-foo-instance"
 }
 ```
 
