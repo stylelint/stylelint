@@ -4,10 +4,10 @@
 
 - Added: `configurationComment` configuration property ([#6629](https://github.com/stylelint/stylelint/pull/6629)) ([@ifitzpatrick](https://github.com/ifitzpatrick)).
 - Added: `selector-anb-no-unmatchable` rule ([#6678](https://github.com/stylelint/stylelint/pull/6678)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: TypeScript error for CommonJS importing ([#6703](https://github.com/stylelint/stylelint/pull/6703)) ([@remcohaszing](https://github.com/remcohaszing)).
 - Fixed: `*-no-redundant-*` false negatives for `inset` shorthand ([#6699](https://github.com/stylelint/stylelint/pull/6699)) ([@rayrw](https://github.com/rayrw)).
 - Fixed: `function-url-quotes` autofix for multiple `url()` ([#6711](https://github.com/stylelint/stylelint/pull/6711)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `value-keyword-case` false positives for Level 4 system colours ([#6712](https://github.com/stylelint/stylelint/pull/6712)) ([@thewilkybarkid](https://github.com/thewilkybarkid)).
-- Fixed: TypeScript error for CommonJS importing ([#6695](https://github.com/stylelint/stylelint/pull/6695)) ([@baseballyama](https://github.com/baseballyama)).
 
 ## 15.2.0
 
