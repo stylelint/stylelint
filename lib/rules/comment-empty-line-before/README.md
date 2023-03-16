@@ -140,7 +140,7 @@ a {
 
 #### `"stylelint-commands"`
 
-Ignore comments that deliver commands to stylelint, e.g. `/* stylelint-disable color-no-hex */`.
+Ignore configuration comments, e.g. `/* stylelint-disable color-no-hex */`.
 
 For example, with `"always"`:
 
@@ -150,7 +150,7 @@ The following patterns are considered problems:
 ```css
 a {
   background: pink;
-  /* not a Stylelint command */
+  /* not a configuration comment */
   color: #eee;
 }
 ```

@@ -197,6 +197,7 @@ function rule(primary, secondary, context) {
 
 `context` is an object which could have two properties:
 
+- `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
 - `fix`(boolean): If `true`, your rule can apply autofixes.
 - `newline`(string): Line-ending used in current linted file.
 
