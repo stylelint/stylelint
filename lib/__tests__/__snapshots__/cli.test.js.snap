@@ -14,7 +14,7 @@ exports[`CLI --help 1`] = `
 
   Options:
 
-    --config , -c
+    --config, -c
 
       Path to a specific configuration file (JSON, YAML, or CommonJS), or the
       name of a module in node_modules that points to one. If no --config
