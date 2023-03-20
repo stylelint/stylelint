@@ -16,7 +16,7 @@ Stylelint does not throw an error when glob pattern matches no files.
 
 ## `configFile`
 
-CLI flag: `--config`
+CLI flag: `--config, -c`
 
 Path to a JSON, YAML, or JS file that contains your [configuration object](./configure.md).
 

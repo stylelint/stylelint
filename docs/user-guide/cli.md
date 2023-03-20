@@ -48,7 +48,7 @@ Force enabling/disabling of color.
 
 Absolute path to the directory that relative paths defining "extends", "plugins", and "customSyntax" are _relative to_. Only necessary if these values are relative paths. [More info](options.md#configbasedir).
 
-### `--config`
+### `--config, -c`
 
 Path to a JSON, YAML, or JS file that contains your [configuration object](./configure.md). [More info](options.md#configfile).
 
