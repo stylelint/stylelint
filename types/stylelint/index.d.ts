@@ -98,7 +98,6 @@ declare namespace stylelint {
 		ignorePatterns?: string;
 		rules?: ConfigRules;
 		quiet?: boolean;
-		quietDeprecationWarnings?: boolean;
 		defaultSeverity?: Severity;
 		ignoreDisables?: DisableSettings;
 		reportNeedlessDisables?: DisableSettings;
