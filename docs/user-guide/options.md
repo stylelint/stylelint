@@ -223,4 +223,4 @@ Only register problems for rules with an "error"-level severity (ignore "warning
 
 CLI flag: `--quiet-deprecation-warnings`
 
-Ignore deprecation warnings for rules.
+Ignore deprecation warnings.

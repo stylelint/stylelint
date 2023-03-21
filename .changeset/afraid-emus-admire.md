@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Add `--quiet-deprecation-warnings` flag
+Added: `--quiet-deprecation-warnings` flag

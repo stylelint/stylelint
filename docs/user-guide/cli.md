@@ -102,7 +102,7 @@ Only register problems for rules with an "error"-level severity (ignore "warning
 
 ### `--quiet-deprecation-warnings`
 
-Ignore deprecation warnings for rules. [More info](options.md#quietDeprecationWarnings)
+Ignore deprecation warnings. [More info](options.md#quietdeprecationwarnings).
 
 ### `--report-descriptionless-disables, --rdd`
 
