@@ -100,6 +100,10 @@ Print the configuration for the given path. Stylelint outputs the configuration 
 
 Only register problems for rules with an "error"-level severity (ignore "warning"-level). [More info](options.md#quiet).
 
+### `--quiet-deprecation-warnings`
+
+Ignore deprecation warnings for rules. [More info](options.md#quietDeprecationWarnings)
+
 ### `--report-descriptionless-disables, --rdd`
 
 Produce a report of the `stylelint-disable` comments without a description. [More info](options.md#reportdescriptionlessdisables).

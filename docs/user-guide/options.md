@@ -218,3 +218,9 @@ If using `code` or `stdin` to pass a source string directly, you can use `codeFi
 CLI flag: `--quiet`
 
 Only register problems for rules with an "error"-level severity (ignore "warning"-level).
+
+## `quietDeprecationWarnings`
+
+CLI flag: `--quiet-deprecation-warnings`
+
+Ignore deprecation warnings for rules.
