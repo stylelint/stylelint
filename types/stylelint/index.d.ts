@@ -268,6 +268,7 @@ declare namespace stylelint {
 		fix?: boolean;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
+		quietDeprecationWarnings?: boolean;
 	};
 
 	/**

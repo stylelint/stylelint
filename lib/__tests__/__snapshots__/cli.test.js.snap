@@ -112,6 +112,10 @@ exports[`CLI --help 1`] = `
       Only register problems for rules with an "error"-level severity (ignore
       "warning"-level).
 
+    --quiet-deprecation-warnings
+
+      Ignore deprecations warnings.
+
     --color
     --no-color
 

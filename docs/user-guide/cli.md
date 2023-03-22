@@ -68,7 +68,7 @@ Automatically fix, where possible, problems reported by rules. [More info](optio
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
-## `--globbyOptions, --go`
+### `--globbyOptions, --go`
 
 Options in JSON format passed to [globby](https://github.com/sindresorhus/globby). [More info](options.md#globbyoptions).
 
@@ -99,6 +99,10 @@ Print the configuration for the given path. Stylelint outputs the configuration 
 ### `--quiet, -q`
 
 Only register problems for rules with an "error"-level severity (ignore "warning"-level). [More info](options.md#quiet).
+
+### `--quiet-deprecation-warnings`
+
+Ignore deprecation warnings. [More info](options.md#quietdeprecationwarnings).
 
 ### `--report-descriptionless-disables, --rdd`
 
