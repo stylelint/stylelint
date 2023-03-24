@@ -89,6 +89,7 @@ Disallow unknown things with these `no-unknown` rules.
 - [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md): Disallow unknown functions (Ⓡ & Ⓢ).
 - [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names (Ⓡ & Ⓢ).
 - [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
+- [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md): Disallow unknown custom properties.
 - [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md): Disallow unknown properties (Ⓡ & Ⓢ).
 - [`selector-pseudo-class-no-unknown`](../../lib/rules/selector-pseudo-class-no-unknown/README.md): Disallow unknown pseudo-class selectors (Ⓡ & Ⓢ).
 - [`selector-pseudo-element-no-unknown`](../../lib/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors (Ⓡ & Ⓢ).
