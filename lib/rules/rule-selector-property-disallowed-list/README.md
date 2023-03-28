@@ -5,7 +5,7 @@ Specify a list of disallowed properties for selectors within rules.
 <!-- prettier-ignore -->
 ```css
     a { color: red; }
-/** ↑          ↑
+/** ↑   ↑
  * Selector and property name */
 ```
 
