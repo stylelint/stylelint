@@ -228,7 +228,7 @@ Enforce one representation of things that have multiple with these `notation` (s
 - [`hue-degree-notation`](../../lib/rules/hue-degree-notation/README.md): Specify number or angle notation for degree hues (Autofixable) (Ⓢ).
 - [`import-notation`](../../lib/rules/import-notation/README.md): Specify string or URL notation for `@import` rules (Autofixable) (Ⓢ).
 - [`keyframe-selector-notation`](../../lib/rules/keyframe-selector-notation/README.md): Specify keyword or percentage notation for keyframe selectors (Autofixable) (Ⓢ).
-- [`media-feature-range-notation`](../../lib/rules/media-feature-range-notation/README.md): Specify context or prefix notation for media feature ranges. (Autofixable) (Ⓢ).
+- [`media-feature-range-notation`](../../lib/rules/media-feature-range-notation/README.md): Specify context or prefix notation for media feature ranges (Autofixable) (Ⓢ).
 - [`selector-not-notation`](../../lib/rules/selector-not-notation/README.md): Specify simple or complex notation for `:not()` pseudo-class selectors (Autofixable) (Ⓢ).
 - [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-element selectors (Autofixable) (Ⓢ).
 
