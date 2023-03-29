@@ -77,13 +77,6 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-width: 10custom;
-a {
-}
-```
-
-<!-- prettier-ignore -->
-```css
 a {
   width: 10--foo--baz;
 }
