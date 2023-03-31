@@ -22,7 +22,7 @@ a {
 }
 ```
 
-This rule will only complain if you've used the longhand equivalent of _all_ the properties that the shorthand will set and if their values are not [CSS-wide keywords](https://www.w3.org/TR/css-values/#common-keywords) : `initial`, `inherit`, `revert`, `revert-layer`, `unset`.
+This rule will only complain if you've used the longhand equivalent of _all_ the properties that the shorthand will set and if their values are not [CSS-wide keywords](https://www.w3.org/TR/css-values/#common-keywords) like `initial`, `inherit` etc.
 
 This rule complains when the following shorthand properties can be used:
 
