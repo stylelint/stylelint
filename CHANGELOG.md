@@ -9,6 +9,8 @@
 - Fixed: `function-url-quotes` autofix for double-slash comments in SCSS maps ([#6745](https://github.com/stylelint/stylelint/pull/6745)) ([@jgerigmeyer](https://github.com/jgerigmeyer)).
 - Fixed: `isPathIgnored()` utility's performance ([#6728](https://github.com/stylelint/stylelint/pull/6728)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `rule-selector-property-disallowed-list` secondary options ([#6723](https://github.com/stylelint/stylelint/pull/6723)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` with basic keywords ([#6748](https://github.com/stylelint/stylelint/pull/6748)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: deprecation warnings for disabled rules ([#6747](https://github.com/stylelint/stylelint/pull/6747)) ([@ybiquitous](https://github.com/ybiquitous)).
 
 ## 15.3.0
 
