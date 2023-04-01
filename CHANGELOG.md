@@ -1,5 +1,15 @@
 # Changelog
 
+## 15.4.0
+
+- Added: `--quiet-deprecation-warnings` flag ([#6724](https://github.com/stylelint/stylelint/pull/6724)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: `-c` alias for `--config` ([#6720](https://github.com/stylelint/stylelint/pull/6720)) ([@sidverma32](https://github.com/sidverma32)).
+- Added: `media-feature-range-notation` autofix ([#6742](https://github.com/stylelint/stylelint/pull/6742)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `no-unknown-custom-properties` rule ([#6731](https://github.com/stylelint/stylelint/pull/6731)) ([@jameschensmith](https://github.com/jameschensmith)).
+- Fixed: `function-url-quotes` autofix for double-slash comments in SCSS maps ([#6745](https://github.com/stylelint/stylelint/pull/6745)) ([@jgerigmeyer](https://github.com/jgerigmeyer)).
+- Fixed: `isPathIgnored()` utility's performance ([#6728](https://github.com/stylelint/stylelint/pull/6728)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `rule-selector-property-disallowed-list` secondary options ([#6723](https://github.com/stylelint/stylelint/pull/6723)) ([@mattxwang](https://github.com/mattxwang)).
+
 ## 15.3.0
 
 - Added: `configurationComment` configuration property ([#6629](https://github.com/stylelint/stylelint/pull/6629)) ([@ifitzpatrick](https://github.com/ifitzpatrick)).
