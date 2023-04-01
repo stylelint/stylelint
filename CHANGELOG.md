@@ -1,5 +1,10 @@
 # Changelog
 
+## 15.3.1
+
+- Fixed: `declaration-block-no-redundant-longhand-properties` with basic keywords ([#6748](https://github.com/stylelint/stylelint/pull/6748)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: deprecation warnings for disabled rules ([#6747](https://github.com/stylelint/stylelint/pull/6747)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 15.4.0
 
 - Added: `--quiet-deprecation-warnings` flag ([#6724](https://github.com/stylelint/stylelint/pull/6724)) ([@mattxwang](https://github.com/mattxwang)).
