@@ -1,7 +1,7 @@
 # Stylelint
 
-[![npm version](https://img.shields.io/npm/v/stylelint)](https://www.npmjs.com/package/stylelint)
-[![Build Status](https://github.com/stylelint/stylelint/workflows/Testing/badge.svg)](https://github.com/stylelint/stylelint/actions/workflows/testing.yml?query=branch%3Amain)
+[![npm version](https://img.shields.io/npm/v/stylelint?logo=npm&logoColor=fff)](https://www.npmjs.com/package/stylelint)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/stylelint/stylelint/testing.yml?branch=main&label=Tests&logo=github)](https://github.com/stylelint/stylelint/actions/workflows/testing.yml?query=branch%3Amain)
 [![npm downloads](https://img.shields.io/npm/dm/stylelint)](https://npmcharts.com/compare/stylelint?minimal=true)
 
 A mighty CSS linter that helps you avoid errors and enforce conventions.
