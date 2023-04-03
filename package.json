@@ -128,7 +128,7 @@
     "global-modules": "^2.0.0",
     "globby": "^11.1.0",
     "globjoin": "^0.1.4",
-    "html-tags": "^3.2.0",
+    "html-tags": "^3.3.0",
     "ignore": "^5.2.4",
     "import-lazy": "^4.0.0",
     "imurmurhash": "^0.1.4",
