@@ -149,7 +149,7 @@ p {
 }
 ```
 
-### `ignoreProperties: ["/regex/", "non-regex"]`
+### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
 
 Ignore duplicates of specific properties.
 
