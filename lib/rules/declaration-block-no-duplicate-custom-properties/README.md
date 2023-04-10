@@ -40,3 +40,34 @@ a { --custom-property: pink; }
 ```css
 a { --custom-property: pink; --cUstOm-prOpErtY: orange; }
 ```
+
+## Optional secondary options
+
+### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+
+Ignore duplicates of specific properties.
+
+Given:
+
+```json
+["--custom-property", "/ignored/"]
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { --another-custom-property: 1; --another-custom-property: 1; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { --custom-property: 1; --custom-property: 1; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { --custom-ignored-property: 1; --custom-ignored-property: 1; }
+```
