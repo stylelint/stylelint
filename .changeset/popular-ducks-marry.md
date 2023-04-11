@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `color-function notation` false positives for namespaced imports
+Fixed: `color-function-notation` false positives for namespaced imports
