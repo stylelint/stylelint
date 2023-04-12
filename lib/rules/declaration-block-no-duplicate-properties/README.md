@@ -112,6 +112,33 @@ p {
 }
 ```
 
+### `ignore: ["consecutive-duplicates-with-different-syntaxes"]`
+
+Ignore consecutive duplicated properties with different value syntaxes (type and unit of value).
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+/* properties with the same value syntax */
+p {
+  font-size: 16px;
+  font-size: 14px;
+  font-weight: 400;
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+p {
+  font-size: 16px;
+  font-size: 16rem;
+  font-weight: 400;
+}
+```
+
 ### `ignore: ["consecutive-duplicates-with-same-prefixless-values"]`
 
 Ignore consecutive duplicated properties with identical values, when ignoring their prefix.
