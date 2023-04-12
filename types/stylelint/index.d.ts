@@ -106,6 +106,9 @@ declare namespace stylelint {
 		configurationComment?: string;
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
+		allowEmptyInput?: boolean;
+		cache?: boolean;
+		fix?: boolean;
 	};
 
 	/** @internal */
