@@ -92,18 +92,29 @@ exports[`CLI --help 1`] = `
       on *nix systems or "\\" on Windows. Otherwise the path will be assumed to
       be a file.
 
-    --cache-strategy <metadata|content>
+    --cache-strategy <strategy>
 
-      A strategy for the cache to use for detecting changed files. Defaults to "metadata".
+      A strategy for the cache to use for detecting changed files. Either one of:
+
+        metadata     by metadata of a file (default)
+        content      by content of a file
 
       The "content" strategy can be useful in cases where the modification time
       of your files changes even if their contents have not. For example, this can
       happen during git operations like "git clone" because git does not track file
       modification time.
 
-    --formatter, -f <compact|github|json|string|tap|unix|verbose>
+    --formatter, -f <formatter>
 
-      The output formatter. Defaults to "string".
+      An output formatter. The variants are as follows:
+
+        string       human-readable strings (default)
+        compact      similar to ESLint's compact formatter
+        github       workflow commands for GitHub Actions
+        json         JSON format
+        tap          TAP format
+        unix         C compiler-like format
+        verbose      extend "string" to include a file list and a tally
 
     --custom-formatter <path_or_module>
 
