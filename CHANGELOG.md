@@ -1,5 +1,16 @@
 # Changelog
 
+## 15.5.0
+
+- Added: `ignore: ["consecutive-duplicates-with-different-syntaxes"]` to `declaration-block-no-duplicate-properties` ([#6772](https://github.com/stylelint/stylelint/pull/6772)) ([@kimulaco](https://github.com/kimulaco)).
+- Added: `ignoreProperties: []` to `declaration-block-no-duplicate-custom-properties` ([#6773](https://github.com/stylelint/stylelint/pull/6773)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: raw regex support to `ignoreProperties` for `declaration-block-no-duplicate-properties` ([#6764](https://github.com/stylelint/stylelint/pull/6764)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `block-no-empty` false positives with non-whitespace characters ([#6782](https://github.com/stylelint/stylelint/pull/6782)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `color-function-notation` false positives for namespaced imports ([#6774](https://github.com/stylelint/stylelint/pull/6774)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `custom-property-empty-line-before` false positives for CSS-in-JS ([#6767](https://github.com/stylelint/stylelint/pull/6767)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `media-feature-range-notation` parse error ([#6760](https://github.com/stylelint/stylelint/pull/6760)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: CLI help improvements ([#6783](https://github.com/stylelint/stylelint/pull/6783)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 15.4.0
 
 - Added: `--quiet-deprecation-warnings` flag ([#6724](https://github.com/stylelint/stylelint/pull/6724)) ([@mattxwang](https://github.com/mattxwang)).
