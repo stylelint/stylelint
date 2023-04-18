@@ -114,7 +114,7 @@
   "dependencies": {
     "@csstools/css-parser-algorithms": "^2.1.1",
     "@csstools/css-tokenizer": "^2.1.1",
-    "@csstools/media-query-list-parser": "^2.0.2",
+    "@csstools/media-query-list-parser": "^2.0.4",
     "@csstools/selector-specificity": "^2.2.0",
     "balanced-match": "^2.0.0",
     "colord": "^2.9.3",
