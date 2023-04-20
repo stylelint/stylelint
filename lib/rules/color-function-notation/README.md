@@ -123,7 +123,7 @@ a { color: hsl(.75turn, 60%, 70%) }
 
 Ignore color functions containing variables.
 
-Given
+Given:
 
 ```json
 ["modern", { "ignore": ["with-var-inside"] }]
@@ -137,7 +137,7 @@ a {
 }
 ```
 
-Given
+Given:
 
 ```json
 ["legacy", { "ignore": ["with-var-inside"] }]
