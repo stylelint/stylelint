@@ -446,3 +446,51 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 - or `process.cwd()`.
 
 _Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
+
+## `allowEmptyInput`
+
+Stylelint does not throw an error when the glob pattern matches no files.
+
+For example:
+
+```json
+{
+  "allowEmptyInput": true
+}
+```
+
+Note: this config option should not be overridden on a per-file basis.
+
+[More info](options.md#allowemptyinput).
+
+## `cache`
+
+Store the results of processed files so that Stylelint only operates on the changed ones.
+
+For example:
+
+```json
+{
+  "cache": true
+}
+```
+
+Note: this config option should not be overridden on a per-file basis.
+
+[More info](options.md#cache).
+
+## `fix`
+
+Automatically fix, where possible, problems reported by rules.
+
+For example:
+
+```json
+{
+  "fix": true
+}
+```
+
+Note: this config option should not be overridden on a per-file basis.
+
+[More info](options.md#fix).
