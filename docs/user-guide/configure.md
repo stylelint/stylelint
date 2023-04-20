@@ -473,6 +473,8 @@ For example:
 }
 ```
 
+Note: this config option should not be overridden on a per-file basis.
+
 [More info](options.md#cache).
 
 ## `fix`
