@@ -288,6 +288,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 ### Number
 
 - [`number-leading-zero`](../../lib/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1 (Autofixable).
+- [`number-no-partial-percent`](../../lib/rules/number-no-partial-percent/README.md): Disallow percent size values that are not `0%` or `100%`.
 - [`number-no-trailing-zeros`](../../lib/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers (Autofixable).
 
 ### String
