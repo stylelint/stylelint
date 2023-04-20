@@ -1,5 +1,15 @@
 # Changelog
 
+## 15.6.0
+
+- Added: `allowEmptyInput`, `cache`, `fix` options to configuration object ([#6778](https://github.com/stylelint/stylelint/pull/6778)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: `ignore: ["with-var-inside"]` to `color-function-notation` ([#6802](https://github.com/stylelint/stylelint/pull/6802)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-duplicate-properties` autofix for 3 or more duplicates ([#6801](https://github.com/stylelint/stylelint/pull/6801)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-duplicate-properties` false positives with option `ignore: ["consecutive-duplicates-with-different-syntaxes"]` ([#6797](https://github.com/stylelint/stylelint/pull/6797)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-block-no-duplicate-properties` syntax error ([#6792](https://github.com/stylelint/stylelint/pull/6792)) ([@yoyo837](https://github.com/yoyo837)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `grid-template` ([#6777](https://github.com/stylelint/stylelint/pull/6777)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `function-url-quotes` autofix for comments in SCSS function ([#6800](https://github.com/stylelint/stylelint/pull/6800)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 15.5.0
 
 - Added: `ignore: ["consecutive-duplicates-with-different-syntaxes"]` to `declaration-block-no-duplicate-properties` ([#6772](https://github.com/stylelint/stylelint/pull/6772)) ([@kimulaco](https://github.com/kimulaco)).
