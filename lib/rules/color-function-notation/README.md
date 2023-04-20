@@ -116,3 +116,37 @@ a { color: hsla(270, 60%, 50%, 15%) }
 ```css
 a { color: hsl(.75turn, 60%, 70%) }
 ```
+
+## Optional secondary options
+
+### `ignore: ["with-var-inside"]`
+
+Ignore color functions containing variables.
+
+Given:
+
+```json
+["modern", { "ignore": ["with-var-inside"] }]
+```
+
+The following patterns are _not_ considered problems:
+
+```css
+a {
+  color: rgba(var(--foo), 0.5);
+}
+```
+
+Given:
+
+```json
+["legacy", { "ignore": ["with-var-inside"] }]
+```
+
+The following patterns are _not_ considered problems:
+
+```css
+a {
+  color: rgba(var(--foo) / 0.5);
+}
+```
