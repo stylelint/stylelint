@@ -17,7 +17,6 @@ jobs:
   test:
     uses: stylelint/.github/.github/workflows/test.yml@main
     with:
-      node-version: '["14", "16", "18"]' # TODO: Tests on Node.js 20 are still unstable. We can remove this line if they become stable.
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
       exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
 
