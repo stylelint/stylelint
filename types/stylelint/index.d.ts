@@ -95,7 +95,7 @@ declare namespace stylelint {
 			[pluginName: string]: Rule;
 		};
 		ignoreFiles?: ConfigIgnoreFiles;
-		ignorePatterns?: string;
+		ignorePatterns?: string[];
 		rules?: ConfigRules;
 		quiet?: boolean;
 		defaultSeverity?: Severity;
