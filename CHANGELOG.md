@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.6.1
+
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `transition` ([#6815](https://github.com/stylelint/stylelint/pull/6815)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `github` formatter for missing final newline ([#6822](https://github.com/stylelint/stylelint/pull/6822)) ([@konomae](https://github.com/konomae)).
+- Fixed: `selector-pseudo-class-no-unknown` false positive for `:modal` ([#6811](https://github.com/stylelint/stylelint/pull/6811)) ([@Yasir761](https://github.com/Yasir761)).
+
 ## 15.6.0
 
 - Added: `allowEmptyInput`, `cache`, `fix` options to configuration object ([#6778](https://github.com/stylelint/stylelint/pull/6778)) ([@mattxwang](https://github.com/mattxwang)).

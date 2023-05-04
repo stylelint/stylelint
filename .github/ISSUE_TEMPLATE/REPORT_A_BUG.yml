@@ -16,6 +16,19 @@ body:
     id: reproduce-bug
     attributes:
       label: 'What steps are needed to reproduce the bug?'
+      description: 'Provide the smallest reproducible CSS example or steps.'
+      placeholder: |
+        ```css
+        a {
+          colo: red;
+        }
+        ```
+
+        Or
+
+        1. Step 1
+        2. Step 2
+        3. ...
     validations:
       required: true
   - type: textarea
@@ -27,26 +40,42 @@ body:
         ```json
         {
           "rules": {
-            "number-leading-zero": "always"
+            "declaration-block-no-duplicate-properties": true
           }
         }
         ```
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: stylelint-run
     attributes:
       label: 'How did you run Stylelint?'
-      description: 'For example, CLI, Node,js API or PostCSS plugin.'
+      description: 'For example, CLI, Node.js API, PostCSS plugin, or [Stylelint demo](https://stylelint.io/demo/).'
       placeholder: |
-        CLI with `stylelint "**/*.css" --config myconfig.json`
+        ```shell
+        stylelint "**/*.css" --config myconfig.json
+        ```
+
+        Or
+
+        https://stylelint.io/demo/#...
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: stylelint-version
     attributes:
-      label: 'Which version of Stylelint are you using?'
-      placeholder: '`14.0.0`'
+      label: 'Which version of Stylelint or dependencies are you using?'
+      placeholder: |
+        15.6.0
+
+        Or
+
+        ```json
+        {
+          "stylelint": "15.6.0",
+          "stylelint-config-standard": "33.0.0"
+        }
+        ```
     validations:
       required: true
   - type: textarea
@@ -67,11 +96,11 @@ body:
 
         ```
         test.css
-        2:4    Expected a leading zero (number-leading-zero)
+         4:9   ✖  Unexpected unknown property "colo" (property-no-unknown)
         ```
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: non-standard-syntax
     attributes:
       label: 'Does the bug relate to non-standard syntax?'
