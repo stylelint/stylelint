@@ -146,7 +146,7 @@
     "postcss-selector-parser": "^6.0.12",
     "postcss-value-parser": "^4.2.0",
     "resolve-from": "^5.0.0",
-    "string-width": "^4.2.3",
+    "string-width": "^6.1.0",
     "strip-ansi": "^6.0.1",
     "style-search": "^0.1.0",
     "supports-hyperlinks": "^3.0.0",
