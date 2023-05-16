@@ -1,5 +1,13 @@
 # Changelog
 
+## 15.6.2
+
+- Fixed: `alpha-value-notation` false negatives for `oklab()`, `oklch()`, and `color()` ([#6844](https://github.com/stylelint/stylelint/pull/6844)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` `autofix` with `cubic-bezier()` ([#6841](https://github.com/stylelint/stylelint/pull/6841)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-no-unknown` false positives for unspaced operators against nested brackets ([#6842](https://github.com/stylelint/stylelint/pull/6842)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-url-quotes` false positives for SCSS `with()` construct ([#6847](https://github.com/stylelint/stylelint/pull/6847)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `media-feature-name-no-unknown` false positives for `not` and `or` ([#6838](https://github.com/stylelint/stylelint/pull/6838)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 15.6.1
 
 - Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `transition` ([#6815](https://github.com/stylelint/stylelint/pull/6815)) ([@mattxwang](https://github.com/mattxwang)).
