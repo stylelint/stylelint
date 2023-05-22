@@ -77,7 +77,7 @@ Disallow overrides with these `no-overrides` rules.
 
 Disallow unmatchable things with these `no-unmatchable` rules.
 
-- [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md): Disallow unmatchable An+B selectors.
+- [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md): Disallow unmatchable An+B selectors (Ⓡ & Ⓢ).
 
 ### Unknown
 
@@ -203,7 +203,7 @@ Specify lowercase or uppercase for words.
 
 Apply limits with these `max` and `min` rules.
 
-- [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within a single-line declaration block.
+- [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within a single-line declaration block (Ⓢ).
 - [`declaration-property-max-values`](../../lib/rules/declaration-property-max-values/README.md): Limit the number of values for a list of properties within declarations.
 - [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
 - [`number-max-precision`](../../lib/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers (Ⓢ).
@@ -258,7 +258,7 @@ Require or disallow quotes with these `quotes` rules.
 Disallow redundancy with these `no-redundant` rules.
 
 - [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow redundant longhand properties within declaration-block (Autofixable) (Ⓢ).
-- [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values within shorthand properties (Autofixable).
+- [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values within shorthand properties (Autofixable) (Ⓢ).
 
 ### Whitespace inside
 
