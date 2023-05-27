@@ -30,6 +30,7 @@ let parsedOptions = ruleOptions;
 /* eslint-disable eqeqeq */
 if (
 	ruleOptions[0] === '[' ||
+	ruleOptions[0] === '{' ||
 	parsedOptions === 'true' ||
 	parsedOptions === 'false' ||
 	Number(parsedOptions) == parsedOptions
