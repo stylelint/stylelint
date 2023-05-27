@@ -51,9 +51,43 @@ const processor = postcss().use(rule);
 fetch(CSS_URL)
 	.then((response) => response.text())
 	.then((response) => {
+		let css = '';
+
+		for (let i = 0; i < 10; i++) {
+			css += `${response}\n\n`;
+		}
+
+		let firstTime = true;
+		let lazyResult;
+
 		const bench = new Benchmark('rule test', {
 			defer: true,
-			fn: (deferred) => benchFn(response, () => deferred.resolve()),
+			setup: () => {
+				lazyResult = processor.process(css, { from: undefined });
+			},
+			onCycle: () => {
+				lazyResult = processor.process(css, { from: undefined });
+			},
+			fn: (deferred) => {
+				lazyResult
+					.then((result) => {
+						if (firstTime) {
+							firstTime = false;
+							result.messages
+								.filter((m) => m.stylelintType === 'invalidOption')
+								.forEach((m) => {
+									console.log(bold(yellow(`>> ${m.text}`)));
+								});
+							console.log(`${bold('Warnings')}: ${result.warnings().length}`);
+						}
+
+						deferred.resolve();
+					})
+					.catch((err) => {
+						console.log(err.stack);
+						deferred.resolve();
+					});
+			},
 		});
 
 		bench.on('complete', () => {
@@ -64,28 +98,4 @@ fetch(CSS_URL)
 		bench.run();
 	})
 	.catch((error) => console.log('error:', error));
-
-let firstTime = true;
-
-function benchFn(css, done) {
-	processor
-		.process(css, { from: undefined })
-		.then((result) => {
-			if (firstTime) {
-				firstTime = false;
-				result.messages
-					.filter((m) => m.stylelintType === 'invalidOption')
-					.forEach((m) => {
-						console.log(bold(yellow(`>> ${m.text}`)));
-					});
-				console.log(`${bold('Warnings')}: ${result.warnings().length}`);
-			}
-
-			done();
-		})
-		.catch((err) => {
-			console.log(err.stack);
-			done();
-		});
-}
 /* eslint-enable no-console */
