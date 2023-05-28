@@ -25,6 +25,13 @@ if (!ruleOptions) {
 
 const CSS_URL = 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css';
 
+// PostCSS and modern hardware is too fast to benchmark with a small source.
+// Duplicating the source CSS N times gives a larger mean while reducing the deviation.
+//
+// 20 was chosen because it gives a mean in the 50-200ms range
+// with a deviation that is ±10% of the mean.
+const DUPLICATE_SOURCE_N_TIMES = 20;
+
 let parsedOptions = ruleOptions;
 
 /* eslint-disable eqeqeq */
@@ -54,7 +61,7 @@ fetch(CSS_URL)
 	.then((response) => {
 		let css = '';
 
-		for (let i = 0; i < 20; i++) {
+		for (let i = 0; i < DUPLICATE_SOURCE_N_TIMES; i++) {
 			css += `${response}\n\n`;
 		}
 
