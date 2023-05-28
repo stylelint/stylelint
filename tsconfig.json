@@ -19,5 +19,5 @@
 		}
 	},
 	"include": ["lib", "types", "package.json"],
-	"exclude": ["**/*.test.js", "**/__tests__/"]
+	"exclude": ["**/*.test.js", "**/__tests__/", "lib/**/*.d.ts"]
 }

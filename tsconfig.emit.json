@@ -1,0 +1,10 @@
+{
+	"extends": "./tsconfig",
+	"include": ["lib/"],
+	"compilerOptions": {
+		"declaration": true,
+		"noEmit": false,
+		"emitDeclarationOnly": true,
+		"noEmitOnError": true
+	}
+}

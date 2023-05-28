@@ -6,3 +6,4 @@ yarn.lock
 .vscode/settings.json
 .idea
 tmp/
+lib/**/*.d.ts
