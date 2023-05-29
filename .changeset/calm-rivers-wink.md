@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `length-zero-no-unit` false positive on new math functions
+Fixed: `length-zero-no-unit` false positives on new math functions
