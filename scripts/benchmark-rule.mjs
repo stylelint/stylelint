@@ -2,16 +2,15 @@
 
 /* eslint-disable no-console */
 import Benchmark from 'benchmark';
-import fetch from 'node-fetch';
-import normalizeRuleSettings from '../lib/normalizeRuleSettings.js';
 import picocolors from 'picocolors';
 import postcss from 'postcss';
+
+import normalizeRuleSettings from '../lib/normalizeRuleSettings.js';
 import rules from '../lib/rules/index.js';
+
 const { bold, yellow } = picocolors;
 
-const ruleName = process.argv[2];
-const ruleOptions = process.argv[3];
-const ruleContext = process.argv[4];
+const [, , ruleName, ruleOptions, ruleContext] = process.argv;
 
 const ruleFunc = rules[ruleName];
 
@@ -48,8 +47,7 @@ if (
 /* eslint-enable eqeqeq */
 const ruleSettings = normalizeRuleSettings(parsedOptions);
 
-const primary = ruleSettings[0];
-const secondary = ruleSettings[1] || null;
+const [primary, secondary] = ruleSettings;
 const context = ruleContext ? JSON.parse(ruleContext) : {};
 
 const rule = ruleFunc(primary, secondary, context);
@@ -92,7 +90,7 @@ fetch(CSS_URL)
 						deferred.resolve();
 					})
 					.catch((err) => {
-						console.log(err.stack);
+						console.error(err.stack);
 						deferred.resolve();
 					});
 			},
@@ -105,5 +103,5 @@ fetch(CSS_URL)
 
 		bench.run();
 	})
-	.catch((error) => console.log('error:', error));
+	.catch((error) => console.error('error:', error));
 /* eslint-enable no-console */
