@@ -56,6 +56,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install codespell
+        run: pip install codespell
+
       - name: Spellcheck
         # Ignore a CI failure because there are false positives.
-        run: codespell || echo 'Fix misspells via `codespell` on your console, or ignore false positives.'
+        run: codespell || echo 'Fix misspells via "codespell" on your console, or ignore false positives.'
