@@ -48,3 +48,17 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           files: ./.coverage/lcov.info
+
+  spellcheck:
+    name: Check misspelled words
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Spellcheck
+        uses: codespell-project/actions-codespell@v1
+        with:
+          check_filenames: true
+          skip: ./.git,./node_modules,package-lock.json
