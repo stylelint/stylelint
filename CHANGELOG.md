@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.7.0
+
+- Added: `splitList: boolean` to `selector-nested-pattern` ([#6896](https://github.com/stylelint/stylelint/pull/6896)) ([@is2ei](https://github.com/is2ei)).
+- Fixed: `unit-no-unknown` false positives for `unicode-range` descriptors ([#6892](https://github.com/stylelint/stylelint/pull/6892)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: segmentation fault errors for Cosmiconfig 8.2 ([#6902](https://github.com/stylelint/stylelint/pull/6902)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 15.6.3
 
 - Fixed: `alpha-value-notation` false positives for `color()` ([#6885](https://github.com/stylelint/stylelint/pull/6885)) ([@romainmenke](https://github.com/romainmenke)).

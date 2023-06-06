@@ -182,7 +182,7 @@ color: pink;}
 Given:
 
 ```json
-["/fo/"]
+["/for/i"]
 ```
 
 The following patterns are _not_ considered problems:
