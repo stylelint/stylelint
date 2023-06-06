@@ -23,6 +23,7 @@ jobs:
   test-coverage:
     name: Test on Node.js 18 and ubuntu-latest with coverage
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -46,3 +47,17 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           files: ./.coverage/lcov.info
+
+  spellcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install codespell
+        run: pip install codespell
+
+      - name: Spellcheck
+        # Ignore a CI failure because there are false positives.
+        run: codespell || echo 'Fix misspells via "codespell" on your console, or ignore false positives.'

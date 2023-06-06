@@ -4,7 +4,7 @@ Disallow unknown properties.
 
 <!-- prettier-ignore -->
 ```css
-a { heigth: 100%; }
+a { height: 100%; }
 /** ↑
  * This property */
 ```

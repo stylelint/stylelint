@@ -35,7 +35,7 @@ You should add test cases for all patterns that are:
 You should use:
 
 - realistic CSS, avoiding the use of ellipses
-- the minimum amount of code possible, e.g. use an empty rule if targetting selectors
+- the minimum amount of code possible, e.g. use an empty rule if targeting selectors
 - `{}` for empty rules, rather than `{ }`
 - the `a` type selector by default
 - the `@media` at-rules by default

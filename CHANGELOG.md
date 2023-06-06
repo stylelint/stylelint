@@ -1,5 +1,21 @@
 # Changelog
 
+## 15.7.0
+
+- Added: `splitList: boolean` to `selector-nested-pattern` ([#6896](https://github.com/stylelint/stylelint/pull/6896)) ([@is2ei](https://github.com/is2ei)).
+- Fixed: `unit-no-unknown` false positives for `unicode-range` descriptors ([#6892](https://github.com/stylelint/stylelint/pull/6892)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: segmentation fault errors for Cosmiconfig 8.2 ([#6902](https://github.com/stylelint/stylelint/pull/6902)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 15.6.3
+
+- Fixed: `alpha-value-notation` false positives for `color()` ([#6885](https://github.com/stylelint/stylelint/pull/6885)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `alpha-value-notation` performance with improved benchmark script ([#6864](https://github.com/stylelint/stylelint/pull/6864)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `at-rule-property-required-list` performance ([#6865](https://github.com/stylelint/stylelint/pull/6865)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `color-*` performance ([#6868](https://github.com/stylelint/stylelint/pull/6868)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `length-zero-no-unit` false positives on new math functions ([#6871](https://github.com/stylelint/stylelint/pull/6871)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `string` formatter for unexpected truncation on non-ASCII characters ([#6861](https://github.com/stylelint/stylelint/pull/6861)) ([@Max10240](https://github.com/Max10240)).
+- Fixed: `unit-no-unknown` false positives for the second and subsequent `image-set()` with `x` descriptor ([#6879](https://github.com/stylelint/stylelint/pull/6879)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 15.6.2
 
 - Fixed: `alpha-value-notation` false negatives for `oklab()`, `oklch()`, and `color()` ([#6844](https://github.com/stylelint/stylelint/pull/6844)) ([@romainmenke](https://github.com/romainmenke)).

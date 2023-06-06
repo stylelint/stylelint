@@ -77,3 +77,37 @@ a {
   &:focus {}
 }
 ```
+
+## Optional secondary options
+
+### `splitList: true | false` (default: `false`)
+
+Split selector lists into individual selectors.
+
+For example, with `true`.
+
+Given the string:
+
+```json
+"^&:(?:hover|focus)$"
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  .bar:hover,
+  &:focus {}
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  &:hover,
+  &:focus {}
+}
+```
