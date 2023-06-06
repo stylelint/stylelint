@@ -152,7 +152,6 @@
     "supports-hyperlinks": "^3.0.0",
     "svg-tags": "^1.0.0",
     "table": "^6.8.1",
-    "v8-compile-cache": "^2.3.0",
     "write-file-atomic": "^5.0.1"
   },
   "devDependencies": {
