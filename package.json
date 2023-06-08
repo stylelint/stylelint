@@ -45,7 +45,7 @@
     "prepare": "husky install && patch-package",
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
-    "test": "jest --workerIdleMemoryLimit=0.2 --debug",
+    "test": "jest",
     "test-coverage": "jest --coverage",
     "version": "changeset version",
     "postversion": "git restore package.json",

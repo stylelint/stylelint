@@ -15,10 +15,12 @@ jobs:
     uses: stylelint/.github/.github/workflows/lint.yml@main
 
   test:
-    uses: stylelint/.github/.github/workflows/test.yml@main
+    uses: stylelint/.github/.github/workflows/test.yml@add-test-options # TODO: switch to @main
     with:
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
       exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
+      # HACK: `--workerIdleMemoryLimit` can avoid failures on Node.js 20. See https://github.com/jestjs/jest/issues/11956
+      test-options: '--workerIdleMemoryLimit=0.2'
 
   test-coverage:
     name: Test on Node.js 18 and ubuntu-latest with coverage
