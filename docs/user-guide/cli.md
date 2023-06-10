@@ -94,7 +94,7 @@ Path of file to write a report. Stylelint outputs the report to the specified `f
 
 ### `--print-config`
 
-Print the configuration for the given path. Stylelint outputs the configuration used for the file passed.
+Print the configuration for the given input path.
 
 ### `--quiet, -q`
 
