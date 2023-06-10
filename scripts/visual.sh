@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
+set -u
 
-echo "Normal:"
-node ../bin/stylelint.js visual.css --config=visual-config.json
+echo "########## Compact formatter ##########"
+echo ""
+node ../bin/stylelint.js visual.css --config visual-config.mjs --formatter compact
+echo ""
 
-echo -e "\n\nVerbose:"
-node ../bin/stylelint.js visual.css --config=visual-config.json --formatter verbose
+echo ""
+echo "########## Default formatter ##########"
+node ../bin/stylelint.js visual.css --config visual-config.json
+
+echo "########## Verbose formatter ##########"
+node ../bin/stylelint.js visual.css --config visual-config.cjs --formatter verbose

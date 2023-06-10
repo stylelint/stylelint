@@ -5,7 +5,7 @@ Stylelint expects a configuration object, and looks for one in a:
 - `stylelint` property in `package.json`
 - `.stylelintrc` file
 - `.stylelintrc.{cjs,js,json,yaml,yml}` file
-- `stylelint.config.{cjs,js}` file exporting a JS object
+- `stylelint.config.{cjs,mjs,js}` file
 
 Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config` or `configFile` option](options.md#configfile) to short-circuit the search.
 
