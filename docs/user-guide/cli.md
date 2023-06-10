@@ -94,7 +94,7 @@ Path of file to write a report. Stylelint outputs the report to the specified `f
 
 ### `--print-config`
 
-Print the configuration for the given input path.
+Print the configuration for the given input path. Globs are unsupported.
 
 ### `--quiet, -q`
 
@@ -204,6 +204,14 @@ Ensure output on successful runs:
 
 ```shell
 stylelint -f verbose "foo/**/*.css"
+```
+
+### Example J - print a config
+
+Print a configuration used for the given input file:
+
+```shell
+stylelint test.css --print-config
 ```
 
 ## Exit codes
