@@ -88,6 +88,7 @@ Disallow unknown things with these `no-unknown` rules.
 - [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md): Disallow unknown values for properties within declarations.
 - [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md): Disallow unknown functions (Ⓡ & Ⓢ).
 - [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names (Ⓡ & Ⓢ).
+- [`media-feature-name-value-no-unknown`](../../lib/rules/media-feature-name-value-no-unknown/README.md): Disallow unknown values for media features.
 - [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 - [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md): Disallow unknown custom properties.
 - [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md): Disallow unknown properties (Ⓡ & Ⓢ).
