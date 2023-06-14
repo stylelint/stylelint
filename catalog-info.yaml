@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1beta1
+kind: Component
+metadata:
+  name: stylelint
+  namespace: economist-impact
+  annotations:
+    github.com/project-slug: signal-noise/stylelint
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: library
+  lifecycle: production
+  owner: group:economist-impact/signal-noise
