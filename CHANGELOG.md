@@ -5,14 +5,14 @@
 - Added: `media-feature-name-value-no-unknown` ([#6906](https://github.com/stylelint/stylelint/pull/6906)) ([@romainmenke](https://github.com/romainmenke)).
 - Added: support for `.mjs` configuration files ([#6910](https://github.com/stylelint/stylelint/pull/6910)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `--print-config` description in CLI help ([#6914](https://github.com/stylelint/stylelint/pull/6914)) ([@ybiquitous](https://github.com/ybiquitous)).
-- Fixed: `allowEmptyInput` in configuration files ([#6929](https://github.com/stylelint/stylelint/pull/6929)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `allowEmptyInput` option in configuration files ([#6929](https://github.com/stylelint/stylelint/pull/6929)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `custom-property-no-missing-var-function` performance ([#6922](https://github.com/stylelint/stylelint/pull/6922)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `function-calc-no-unspaced-operator` performance ([#6923](https://github.com/stylelint/stylelint/pull/6923)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `function-linear-gradient-no-nonstandard-direction` performance ([#6924](https://github.com/stylelint/stylelint/pull/6924)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `function-no-unknown` false positives for SCSS functions with namespace ([#6921](https://github.com/stylelint/stylelint/pull/6921)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `max-nesting-depth` error for at-rules in Sass syntax ([#6909](https://github.com/stylelint/stylelint/pull/6909)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `selector-anb-no-unmatchable` performance ([#6925](https://github.com/stylelint/stylelint/pull/6925)) ([@romainmenke](https://github.com/romainmenke)).
-- Fixed: remove `v8-compile-cache` ([#6907](https://github.com/stylelint/stylelint/pull/6907)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: remove `v8-compile-cache` dependency ([#6907](https://github.com/stylelint/stylelint/pull/6907)) ([@ybiquitous](https://github.com/ybiquitous)).
 
 ## 15.7.0
 
