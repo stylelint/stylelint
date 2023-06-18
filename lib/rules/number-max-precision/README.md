@@ -155,22 +155,22 @@ a { color: rgb(127.333 0 0); }
 
 <!-- prettier-ignore -->
 ```css
-a { color: rgb(calc(127.333 / 3) 0 0) }
+a { color: rgb(calc(127.333 / 3) 0 0); }
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { color: oklch(0.333 0 0) }
+a { color: oklch(0.333 0 0); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { color: lab(0.3333 0 0) }
+a { color: lab(0.3333 0 0); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { color: oklab(calc(127.333 / 3) 0 0) }
+a { color: oklab(calc(127.333 / 3) 0 0); }
 ```
