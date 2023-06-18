@@ -134,7 +134,7 @@ a {
 }
 ```
 
-### `insideFunctions: {"/regex/": 1, /regex/: 1, "string": 1}`
+### `insideFunctions: {"/regex/": int, /regex/: int, "string": int}`
 
 The `insideFunctions` option can change a primary option value for specified functions.
 
@@ -150,7 +150,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { color: rgb(127.333 0 0) }
+a { color: rgb(127.333 0 0); }
 ```
 
 <!-- prettier-ignore -->
