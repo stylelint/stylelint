@@ -149,8 +149,6 @@
     "string-width": "^4.2.3",
     "strip-ansi": "^6.0.1",
     "style-search": "^0.1.0",
-    "stylelint-config-recommended": "^12.0.0",
-    "stylelint-config-standard": "^33.0.0",
     "supports-hyperlinks": "^3.0.0",
     "svg-tags": "^1.0.0",
     "table": "^6.8.1",
