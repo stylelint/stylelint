@@ -7,7 +7,7 @@ There are over one hundred built-in rules to help you:
 
 Many of them are turned on in our [recommended](https://www.npmjs.com/package/stylelint-config-recommended) and [standard](https://www.npmjs.com/package/stylelint-config-standard) configs.
 
-- ⭐ - [Recommended](https://www.npmjs.com/package/stylelint-config-recommended)
+- ⭐️ - [Recommended](https://www.npmjs.com/package/stylelint-config-recommended)
 - 💅 - [Standard](https://www.npmjs.com/package/stylelint-config-standard)
 - 🔧 - Autofixable
 
@@ -19,7 +19,7 @@ You can avoid errors with these `no` rules.
 
 Disallow descending things with these `no-descending` rules.
 
-| Rule                                                                                                                                                                                         | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                         | ⭐️ | 💅  | 🔧  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md)<br/>Disallow selectors of lower specificity from coming after overriding selectors of higher specificity. | ✅  | ✅  |     |
 
@@ -27,7 +27,7 @@ Disallow descending things with these `no-descending` rules.
 
 Disallow duplicates with these `no-duplicate` rules.
 
-| Rule                                                                                                                                                                                                 | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                 | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`declaration-block-no-duplicate-custom-properties`](../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md)<br/>Disallow duplicate custom properties within declaration blocks. | ✅  | ✅  |     |
 | [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md)<br/>Disallow duplicate properties within declaration blocks.                      | ✅  | ✅  | ✅  |
@@ -40,7 +40,7 @@ Disallow duplicates with these `no-duplicate` rules.
 
 Disallow empty things with these `no-empty` rules.
 
-| Rule                                                                                          | ⭐  | 💅  | 🔧  |
+| Rule                                                                                          | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`block-no-empty`](../../lib/rules/block-no-empty/README.md)<br/>Disallow empty blocks.       | ✅  | ✅  |     |
 | [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md)<br/>Disallow empty comments. | ✅  | ✅  |     |
@@ -50,7 +50,7 @@ Disallow empty things with these `no-empty` rules.
 
 Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 
-| Rule                                                                                                                                                                 | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                 | ⭐️ | 💅  | 🔧  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors.                                                            | ✅  | ✅  |     |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅  | ✅  | ✅  |
@@ -64,7 +64,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 
 Disallow irregular things with these `no-irregular` rules.
 
-| Rule                                                                                                              | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                              | ⭐️ | 💅  | 🔧  |
 | ----------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`no-irregular-whitespace`](../../lib/rules/no-irregular-whitespace/README.md)<br/>Disallow irregular whitespace. | ✅  | ✅  |     |
 
@@ -72,7 +72,7 @@ Disallow irregular things with these `no-irregular` rules.
 
 Disallow missing things with these `no-missing` rules.
 
-| Rule                                                                                                                                                                                           | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                           | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md)<br/>Disallow missing `var` function for custom properties.                      | ✅  | ✅  |     |
 | [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md)<br/>Disallow a missing generic family keyword within font families. | ✅  | ✅  |     |
@@ -81,7 +81,7 @@ Disallow missing things with these `no-missing` rules.
 
 Disallow non-standard things with these `no-nonstandard` rules.
 
-| Rule                                                                                                                                                                                                         | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                         | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md)<br/>Disallow non-standard direction values for linear gradient functions. | ✅  | ✅  |     |
 
@@ -89,7 +89,7 @@ Disallow non-standard things with these `no-nonstandard` rules.
 
 Disallow overrides with these `no-overrides` rules.
 
-| Rule                                                                                                                                                                                                            | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                            | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md)<br/>Disallow shorthand properties that override related longhand properties. | ✅  | ✅  |     |
 
@@ -97,7 +97,7 @@ Disallow overrides with these `no-overrides` rules.
 
 Disallow unmatchable things with these `no-unmatchable` rules.
 
-| Rule                                                                                                                            | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                            | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md)<br/>Disallow unmatchable An+B selectors. | ✅  | ✅  |     |
 
@@ -105,7 +105,7 @@ Disallow unmatchable things with these `no-unmatchable` rules.
 
 Disallow unknown things with these `no-unknown` rules.
 
-| Rule                                                                                                                                                                       | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                       | ⭐️ | 💅  | 🔧  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md)<br/>Disallow unknown annotations.                                                               | ✅  | ✅  |     |
 | [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)<br/>Disallow unknown at-rules.                                                                        | ✅  | ✅  |     |
@@ -131,7 +131,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### At-rule
 
-| Rule                                                                                                                                                   | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                   | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`at-rule-allowed-list`](../../lib/rules/at-rule-allowed-list/README.md)<br/>Specify a list of allowed at-rules.                                       |     |     |     |
 | [`at-rule-disallowed-list`](../../lib/rules/at-rule-disallowed-list/README.md)<br/>Specify a list of disallowed at-rules.                              |     |     |     |
@@ -140,7 +140,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Color
 
-| Rule                                                                                                                 | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                 | ⭐️ | 💅  | 🔧  |
 | -------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`color-hex-alpha`](../../lib/rules/color-hex-alpha/README.md)<br/>Require or disallow alpha channel for hex colors. |     |     |     |
 | [`color-named`](../../lib/rules/color-named/README.md)<br/>Require (where possible) or disallow named colors.        |     |     |     |
@@ -148,13 +148,13 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Comment
 
-| Rule                                                                                                                                             | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                             | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`comment-word-disallowed-list`](../../lib/rules/comment-word-disallowed-list/README.md)<br/>Specify a list of disallowed words within comments. |     |     |     |
 
 #### Declaration
 
-| Rule                                                                                                                                                                                                | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md)<br/>Disallow `!important` within declarations.                                                                     |     |     |     |
 | [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list/README.md)<br/>Specify a list of allowed property and unit pairs within declarations.             |     |     |     |
@@ -164,7 +164,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Function
 
-| Rule                                                                                                                                                 | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                 | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`function-allowed-list`](../../lib/rules/function-allowed-list/README.md)<br/>Specify a list of allowed functions.                                  |     |     |     |
 | [`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md)<br/>Specify a list of disallowed functions.                         |     |     |     |
@@ -174,13 +174,13 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Length
 
-| Rule                                                                                                        | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                        | ⭐️ | 💅  | 🔧  |
 | ----------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`length-zero-no-unit`](../../lib/rules/length-zero-no-unit/README.md)<br/>Disallow units for zero lengths. |     | ✅  | ✅  |
 
 #### Media feature
 
-| Rule                                                                                                                                                                              | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                              | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`media-feature-name-allowed-list`](../../lib/rules/media-feature-name-allowed-list/README.md)<br/>Specify a list of allowed media feature names.                                 |     |     |     |
 | [`media-feature-name-disallowed-list`](../../lib/rules/media-feature-name-disallowed-list/README.md)<br/>Specify a list of disallowed media feature names.                        |     |     |     |
@@ -190,7 +190,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Property
 
-| Rule                                                                                                                            | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                            | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`property-allowed-list`](../../lib/rules/property-allowed-list/README.md)<br/>Specify a list of allowed properties.            |     |     |     |
 | [`property-disallowed-list`](../../lib/rules/property-disallowed-list/README.md)<br/>Specify a list of disallowed properties.   |     |     |     |
@@ -198,13 +198,13 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Rule
 
-| Rule                                                                                                                                                                                 | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                 | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`rule-selector-property-disallowed-list`](../../lib/rules/rule-selector-property-disallowed-list/README.md)<br/>Specify a list of disallowed properties for selectors within rules. |     |     |     |
 
 #### Selector
 
-| Rule                                                                                                                                                                         | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                         | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`selector-attribute-name-disallowed-list`](../../lib/rules/selector-attribute-name-disallowed-list/README.md)<br/>Specify a list of disallowed attribute names.             |     |     |     |
 | [`selector-attribute-operator-allowed-list`](../../lib/rules/selector-attribute-operator-allowed-list/README.md)<br/>Specify a list of allowed attribute operators.          |     |     |     |
@@ -221,14 +221,14 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Unit
 
-| Rule                                                                                                             | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                             | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md)<br/>Specify a list of allowed units.          |     |     |     |
 | [`unit-disallowed-list`](../../lib/rules/unit-disallowed-list/README.md)<br/>Specify a list of disallowed units. |     |     |     |
 
 #### Value
 
-| Rule                                                                                                                  | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                  | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`value-no-vendor-prefix`](../../lib/rules/value-no-vendor-prefix/README.md)<br/>Disallow vendor prefixes for values. |     | ✅  | ✅  |
 
@@ -236,7 +236,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 Specify lowercase or uppercase for words.
 
-| Rule                                                                                                                         | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                         | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`function-name-case`](../../lib/rules/function-name-case/README.md)<br/>Specify lowercase or uppercase for function names.  |     | ✅  | ✅  |
 | [`selector-type-case`](../../lib/rules/selector-type-case/README.md)<br/>Specify lowercase or uppercase for type selectors.  |     | ✅  | ✅  |
@@ -244,7 +244,7 @@ Specify lowercase or uppercase for words.
 
 ### Empty lines
 
-| Rule                                                                                                                                                               | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                               | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`at-rule-empty-line-before`](../../lib/rules/at-rule-empty-line-before/README.md)<br/>Require or disallow an empty line before at-rules.                          |     | ✅  | ✅  |
 | [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md)<br/>Require or disallow an empty line before comments.                          |     | ✅  | ✅  |
@@ -256,7 +256,7 @@ Specify lowercase or uppercase for words.
 
 Apply limits with these `max` and `min` rules.
 
-| Rule                                                                                                                                                                                                      | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                      | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md)<br/>Limit the number of declarations within a single-line declaration block. |     | ✅  |     |
 | [`declaration-property-max-values`](../../lib/rules/declaration-property-max-values/README.md)<br/>Limit the number of values for a list of properties within declarations.                               |     |     |     |
@@ -277,7 +277,7 @@ Apply limits with these `max` and `min` rules.
 
 Enforce one representation of things that have multiple with these `notation` (sometimes implicit) rules.
 
-| Rule                                                                                                                                                                                              | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                              | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`alpha-value-notation`](../../lib/rules/alpha-value-notation/README.md)<br/>Specify percentage or number notation for alpha-values.                                                              |     | ✅  | ✅  |
 | [`color-function-notation`](../../lib/rules/color-function-notation/README.md)<br/>Specify modern or legacy notation for color-functions.                                                         |     | ✅  | ✅  |
@@ -294,7 +294,7 @@ Enforce one representation of things that have multiple with these `notation` (s
 
 Enforce naming conventions with these `pattern` rules.
 
-| Rule                                                                                                                                                 | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                 | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`comment-pattern`](../../lib/rules/comment-pattern/README.md)<br/>Specify a pattern for comments.                                                   |     |     |     |
 | [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md)<br/>Specify a pattern for custom media query names.                         |     | ✅  |     |
@@ -308,7 +308,7 @@ Enforce naming conventions with these `pattern` rules.
 
 Require or disallow quotes with these `quotes` rules.
 
-| Rule                                                                                                                                    | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                    | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`font-family-name-quotes`](../../lib/rules/font-family-name-quotes/README.md)<br/>Require or disallow quotes for font family names.    |     | ✅  | ✅  |
 | [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md)<br/>Require or disallow quotes for urls.                         |     | ✅  | ✅  |
@@ -318,7 +318,7 @@ Require or disallow quotes with these `quotes` rules.
 
 Disallow redundancy with these `no-redundant` rules.
 
-| Rule                                                                                                                                                                                                      | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                      | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md)<br/>Disallow redundant longhand properties within declaration-block. |     | ✅  | ✅  |
 | [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md)<br/>Disallow redundant values within shorthand properties.                                   |     | ✅  | ✅  |
@@ -327,7 +327,7 @@ Disallow redundancy with these `no-redundant` rules.
 
 Require or disallow whitespace on the inside.
 
-| Rule                                                                                                                                                    | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                    | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`comment-whitespace-inside`](../../lib/rules/comment-whitespace-inside/README.md)<br/>Require or disallow whitespace on the inside of comment markers. |     | ✅  | ✅  |
 
@@ -337,13 +337,13 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Color
 
-| Rule                                                                                                            | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                            | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`color-hex-case`](../../lib/rules/color-hex-case/README.md)<br/>Specify lowercase or uppercase for hex colors. |     |     | ✅  |
 
 ### Function
 
-| Rule                                                                                                                                                                                                | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`function-comma-newline-after`](../../lib/rules/function-comma-newline-after/README.md)<br/>Require a newline or disallow whitespace after the commas of functions.                                |     |     | ✅  |
 | [`function-comma-newline-before`](../../lib/rules/function-comma-newline-before/README.md)<br/>Require a newline or disallow whitespace before the commas of functions.                             |     |     | ✅  |
@@ -356,26 +356,26 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Number
 
-| Rule                                                                                                                                              | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                              | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`number-leading-zero`](../../lib/rules/number-leading-zero/README.md)<br/>Require or disallow a leading zero for fractional numbers less than 1. |     |     | ✅  |
 | [`number-no-trailing-zeros`](../../lib/rules/number-no-trailing-zeros/README.md)<br/>Disallow trailing zeros in numbers.                          |     |     | ✅  |
 
 ### String
 
-| Rule                                                                                                           | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                           | ⭐️ | 💅  | 🔧  |
 | -------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`string-quotes`](../../lib/rules/string-quotes/README.md)<br/>Specify single or double quotes around strings. |     |     | ✅  |
 
 ### Unit
 
-| Rule                                                                                             | ⭐  | 💅  | 🔧  |
+| Rule                                                                                             | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`unit-case`](../../lib/rules/unit-case/README.md)<br/>Specify lowercase or uppercase for units. |     |     | ✅  |
 
 ### Value list
 
-| Rule                                                                                                                                                                           | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                           | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`value-list-comma-newline-after`](../../lib/rules/value-list-comma-newline-after/README.md)<br/>Require a newline or disallow whitespace after the commas of value lists.     |     |     | ✅  |
 | [`value-list-comma-newline-before`](../../lib/rules/value-list-comma-newline-before/README.md)<br/>Require a newline or disallow whitespace before the commas of value lists.  |     |     |     |
@@ -385,13 +385,13 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Property
 
-| Rule                                                                                                          | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                          | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`property-case`](../../lib/rules/property-case/README.md)<br/>Specify lowercase or uppercase for properties. |     |     | ✅  |
 
 ### Declaration
 
-| Rule                                                                                                                                                                             | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                             | ⭐️ | 💅  | 🔧  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`declaration-bang-space-after`](../../lib/rules/declaration-bang-space-after/README.md)<br/>Require a single space or disallow whitespace after the bang of declarations.       |     |     | ✅  |
 | [`declaration-bang-space-before`](../../lib/rules/declaration-bang-space-before/README.md)<br/>Require a single space or disallow whitespace before the bang of declarations.    |     |     | ✅  |
@@ -401,7 +401,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Declaration block
 
-| Rule                                                                                                                                                                                                            | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                            | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`declaration-block-semicolon-newline-after`](../../lib/rules/declaration-block-semicolon-newline-after/README.md)<br/>Require a newline or disallow whitespace after the semicolons of declaration blocks.     |     |     | ✅  |
 | [`declaration-block-semicolon-newline-before`](../../lib/rules/declaration-block-semicolon-newline-before/README.md)<br/>Require a newline or disallow whitespace before the semicolons of declaration blocks.  |     |     |     |
@@ -411,7 +411,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Block
 
-| Rule                                                                                                                                                                                   | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                   | ⭐️ | 💅  | 🔧  |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`block-closing-brace-empty-line-before`](../../lib/rules/block-closing-brace-empty-line-before/README.md)<br/>Require or disallow an empty line before the closing brace of blocks.   |     |     | ✅  |
 | [`block-closing-brace-newline-after`](../../lib/rules/block-closing-brace-newline-after/README.md)<br/>Require a newline or disallow whitespace after the closing brace of blocks.     |     |     | ✅  |
@@ -425,7 +425,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Selector
 
-| Rule                                                                                                                                                                                                                                            | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                                                            | ⭐️ | 💅  | 🔧  |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`selector-attribute-brackets-space-inside`](../../lib/rules/selector-attribute-brackets-space-inside/README.md)<br/>Require a single space or disallow whitespace on the inside of the brackets within attribute selectors.                    |     |     | ✅  |
 | [`selector-attribute-operator-space-after`](../../lib/rules/selector-attribute-operator-space-after/README.md)<br/>Require a single space or disallow whitespace after operators within attribute selectors.                                    |     |     | ✅  |
@@ -440,7 +440,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Selector list
 
-| Rule                                                                                                                                                                                    | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                    | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`selector-list-comma-newline-after`](../../lib/rules/selector-list-comma-newline-after/README.md)<br/>Require a newline or disallow whitespace after the commas of selector lists.     |     |     | ✅  |
 | [`selector-list-comma-newline-before`](../../lib/rules/selector-list-comma-newline-before/README.md)<br/>Require a newline or disallow whitespace before the commas of selector lists.  |     |     | ✅  |
@@ -449,7 +449,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Media feature
 
-| Rule                                                                                                                                                                                                                   | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                                                   | ⭐️ | 💅  | 🔧  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`media-feature-colon-space-after`](../../lib/rules/media-feature-colon-space-after/README.md)<br/>Require a single space or disallow whitespace after the colon in media features.                                    |     |     | ✅  |
 | [`media-feature-colon-space-before`](../../lib/rules/media-feature-colon-space-before/README.md)<br/>Require a single space or disallow whitespace before the colon in media features.                                 |     |     | ✅  |
@@ -460,7 +460,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### Media query list
 
-| Rule                                                                                                                                                                                             | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                                             | ⭐️ | 💅  | 🔧  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-: | :-: | :-: |
 | [`media-query-list-comma-newline-after`](../../lib/rules/media-query-list-comma-newline-after/README.md)<br/>Require a newline or disallow whitespace after the commas of media query lists.     |     |     | ✅  |
 | [`media-query-list-comma-newline-before`](../../lib/rules/media-query-list-comma-newline-before/README.md)<br/>Require a newline or disallow whitespace before the commas of media query lists.  |     |     |     |
@@ -469,7 +469,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### At-rule
 
-| Rule                                                                                                                                                                              | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                                                              | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`at-rule-name-case`](../../lib/rules/at-rule-name-case/README.md)<br/>Specify lowercase or uppercase for at-rules names.                                                         |     |     | ✅  |
 | [`at-rule-name-newline-after`](../../lib/rules/at-rule-name-newline-after/README.md)<br/>Require a newline after at-rule names.                                                   |     |     |     |
@@ -479,7 +479,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 ### General / Sheet
 
-| Rule                                                                                                                                          | ⭐  | 💅  | 🔧  |
+| Rule                                                                                                                                          | ⭐️ | 💅  | 🔧  |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | :-: | :-: | :-: |
 | [`indentation`](../../lib/rules/indentation/README.md)<br/>Specify indentation.                                                               |     |     | ✅  |
 | [`linebreaks`](../../lib/rules/linebreaks/README.md)<br/>Specify unix or windows linebreaks.                                                  |     |     | ✅  |
