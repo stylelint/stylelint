@@ -133,3 +133,44 @@ a {
   width: 10.989my-other-unit;
 }
 ```
+
+### `insideFunctions: {"/regex/": int, /regex/: int, "string": int}`
+
+The `insideFunctions` option can change a primary option value for specified functions.
+
+For example, with `2`.
+
+Given:
+
+```json
+{"/^(oklch|oklab|lch|lab)$/", 4}
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: rgb(127.333 0 0); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { color: rgb(calc(127.333 / 3) 0 0); }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: oklch(0.333 0 0); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { color: lab(0.3333 0 0); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { color: oklab(calc(127.333 / 3) 0 0); }
+```
