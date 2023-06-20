@@ -1,9 +1,8 @@
-'use strict';
+import postcssScss from 'postcss-scss';
 
-const postcssScss = require('postcss-scss');
+import stylelint from '../../lib/index.js';
 
-const stylelint = require('../../lib');
-const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
+import { caseCode, caseConfig, prepForSnapshot } from '../systemTestUtils.mjs';
 
 const CASE_NUMBER = '002';
 

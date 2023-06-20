@@ -1,7 +1,6 @@
-'use strict';
+import stylelint from '../../lib/index.js';
 
-const stylelint = require('../../lib');
-const { caseConfigFile, caseFilesForFix, prepForSnapshot } = require('../systemTestUtils');
+import { caseConfigFile, caseFilesForFix, prepForSnapshot } from '../systemTestUtils.mjs';
 
 const CASE_NUMBER = '003';
 
