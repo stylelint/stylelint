@@ -45,11 +45,11 @@
     "prepare": "husky install && patch-package",
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
-    "test": "jest",
-    "test-coverage": "jest --coverage",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test-coverage": "npm run test --ignore-script -- --coverage",
     "version": "changeset version",
     "postversion": "git restore package.json",
-    "watch": "jest --watch",
+    "watch": "npm run test --ignore-script -- --watch",
     "changelog-to-github-release": "remark --quiet --use ./scripts/remark-changelog-to-github-release.mjs CHANGELOG.md"
   },
   "lint-staged": {
@@ -79,8 +79,8 @@
     "clearMocks": true,
     "collectCoverage": false,
     "collectCoverageFrom": [
-      "lib/**/*.js",
-      "!lib/**/{__tests__,testUtils}/**/*.js"
+      "lib/**/*.{js,mjs}",
+      "!lib/**/{__tests__,testUtils}/**/*.{js,mjs}"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageReporters": [
@@ -105,7 +105,7 @@
       "system-tests"
     ],
     "testEnvironment": "node",
-    "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$",
+    "testRegex": ".*\\.test\\.m?js$|rules/.*/__tests__/.*\\.m?js$",
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
