@@ -1090,7 +1090,7 @@ Changes:
   - `rule-empty-line-before`
 - Added: `selector-max-class` rule.
 - Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
-- Fixed: "Cannot find module 'pify'" regression in node@4 with npm@2 ([#2614](https://github.com/stylelint/stylelint/pull/2614)).
+- Fixed: "Cannot find module 'pify'" regression in `node@4` with `npm@2` ([#2614](https://github.com/stylelint/stylelint/pull/2614)).
 - Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
 - Fixed: Less `:extend` is now ignored ([#2571](https://github.com/stylelint/stylelint/pull/2571)).
 - Fixed: `function-parentheses-space-inside` now ignores functions without parameters ([#2587](https://github.com/stylelint/stylelint/pull/2587)).
