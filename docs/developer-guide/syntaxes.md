@@ -30,4 +30,4 @@ module.exports = {
 };
 ```
 
-We recommended requiring the custom syntax until PostCSS@7 is no longer in circulation.
+We recommended requiring the custom syntax until PostCSS v7 is no longer in circulation.
