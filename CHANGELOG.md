@@ -1,5 +1,12 @@
 # Changelog
 
+## 15.9.0
+
+- Added: `insideFunctions: {"function": int}` to `number-max-precision` ([#6932](https://github.com/stylelint/stylelint/pull/6932)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `border-radius` shorthand ([#6958](https://github.com/stylelint/stylelint/pull/6958)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `border-width` shorthand ([#6956](https://github.com/stylelint/stylelint/pull/6956)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `grid-column` and `grid-row` ([#6957](https://github.com/stylelint/stylelint/pull/6957)) ([@mattxwang](https://github.com/mattxwang)).
+
 ## 15.8.0
 
 - Added: `media-feature-name-value-no-unknown` ([#6906](https://github.com/stylelint/stylelint/pull/6906)) ([@romainmenke](https://github.com/romainmenke)).
