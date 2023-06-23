@@ -62,6 +62,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
+| [`media-feature-no-invalid`](../../lib/rules/media-feature-no-invalid/README.md)<br/>Disallow invalid media queries. | | |
 <!-- prettier-ignore-end -->
 
 ### Irregular
