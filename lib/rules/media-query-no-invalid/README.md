@@ -1,4 +1,4 @@
-# media-feature-no-invalid
+# media-query-no-invalid
 
 Disallow invalid media queries.
 
