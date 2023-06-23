@@ -1,5 +1,12 @@
 # Changelog
 
+## 15.9.0
+
+- Added: `insideFunctions: {"function": int}` to `number-max-precision` ([#6932](https://github.com/stylelint/stylelint/pull/6932)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `border-radius` shorthand ([#6958](https://github.com/stylelint/stylelint/pull/6958)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `border-width` shorthand ([#6956](https://github.com/stylelint/stylelint/pull/6956)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `grid-column` and `grid-row` ([#6957](https://github.com/stylelint/stylelint/pull/6957)) ([@mattxwang](https://github.com/mattxwang)).
+
 ## 15.8.0
 
 - Added: `media-feature-name-value-no-unknown` ([#6906](https://github.com/stylelint/stylelint/pull/6906)) ([@romainmenke](https://github.com/romainmenke)).
@@ -1090,7 +1097,7 @@ Changes:
   - `rule-empty-line-before`
 - Added: `selector-max-class` rule.
 - Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
-- Fixed: "Cannot find module 'pify'" regression in node@4 with npm@2 ([#2614](https://github.com/stylelint/stylelint/pull/2614)).
+- Fixed: "Cannot find module 'pify'" regression in `node@4` with `npm@2` ([#2614](https://github.com/stylelint/stylelint/pull/2614)).
 - Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
 - Fixed: Less `:extend` is now ignored ([#2571](https://github.com/stylelint/stylelint/pull/2571)).
 - Fixed: `function-parentheses-space-inside` now ignores functions without parameters ([#2587](https://github.com/stylelint/stylelint/pull/2587)).

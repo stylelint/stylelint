@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 
 import replaceBackslashes from '../lib/testUtils/replaceBackslashes.js';
-import uniqueId from '../lib/testUtils/uniqueId.js';
+import uniqueId from '../lib/testUtils/uniqueId.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
