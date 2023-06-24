@@ -47,6 +47,7 @@
     "pretest": "npm run lint",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
+    "test-only": "npm test --ignore-scripts",
     "version": "changeset version",
     "postversion": "git restore package.json",
     "watch": "npm test --ignore-scripts -- --watch",
