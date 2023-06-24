@@ -46,10 +46,10 @@
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test-coverage": "npm run test --ignore-script -- --coverage",
+    "test-coverage": "npm test --ignore-scripts -- --coverage",
     "version": "changeset version",
     "postversion": "git restore package.json",
-    "watch": "npm run test --ignore-script -- --watch",
+    "watch": "npm test --ignore-scripts -- --watch",
     "changelog-to-github-release": "remark --quiet --use ./scripts/remark-changelog-to-github-release.mjs CHANGELOG.md"
   },
   "lint-staged": {
