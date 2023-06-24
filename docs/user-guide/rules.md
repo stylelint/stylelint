@@ -58,11 +58,11 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | ✅ | |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅ | 🔧 |
 | [`keyframe-declaration-no-important`](../../lib/rules/keyframe-declaration-no-important/README.md)<br/>Disallow invalid `!important` within keyframe declarations. | ✅ | |
+| [`media-query-no-invalid`](../../lib/rules/media-query-no-invalid/README.md)<br/>Disallow invalid media queries. | | |
 | [`named-grid-areas-no-invalid`](../../lib/rules/named-grid-areas-no-invalid/README.md)<br/>Disallow invalid named grid areas. | ✅ | |
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
-| [`media-query-no-invalid`](../../lib/rules/media-query-no-invalid/README.md)<br/>Disallow invalid media queries. | | |
 <!-- prettier-ignore-end -->
 
 ### Irregular
