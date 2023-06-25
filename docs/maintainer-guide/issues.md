@@ -41,6 +41,10 @@ You should:
   - "Fix x false positives/negatives for y", e.g. "Fix `color-no-hex` false positives for Less mixins"
 - use `*` if the issue applies to a group of rules, e.g. "Fix `selector-*-pattern` false negatives for SCSS variables"
 
+## Assignees
+
+You can assign yourself to an issue, but not other people without their permission.
+
 ## Saved replies
 
 You should use [saved replies](https://help.github.com/en/github/writing-on-github/working-with-saved-replies).
