@@ -43,7 +43,10 @@ You should:
 
 ## Assignees
 
-You can assign yourself to an issue, but not other people without their permission.
+You can:
+
+- assign yourself to an issue, but not other people without their permission
+- unassign others after asking if they are still working on an issue
 
 ## Saved replies
 
