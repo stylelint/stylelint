@@ -389,3 +389,5 @@ Require or disallow whitespace on the inside with this `whitespace-inside` rule.
 | :-- | :-: | :-: |
 | [`comment-whitespace-inside`](../../lib/rules/comment-whitespace-inside/README.md)<br/>Require or disallow whitespace on the inside of comment markers. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
+
+## Deprecated
