@@ -2,4 +2,4 @@
 "stylelint": major
 ---
 
-Removed: deprecated rules
+Removed: 76 rules deprecated in 15.0.0
