@@ -16,7 +16,7 @@ body:
     id: reproduce-bug
     attributes:
       label: 'What minimal example or steps are needed to reproduce the bug?'
-      description: 'Provide the smallest reproducible example or steps possible.'
+      description: 'Provide the smallest possible reproducible example or steps.'
       placeholder: |
         ```css
         a {
@@ -35,7 +35,7 @@ body:
     id: stylelint-configuration
     attributes:
       label: 'What minimal configuration is needed to reproduce the bug?'
-      description: 'Provide the smallest reproducible configuration possible.'
+      description: 'Provide the smallest possible reproducible configuration.'
       placeholder: |
         ```json
         {
