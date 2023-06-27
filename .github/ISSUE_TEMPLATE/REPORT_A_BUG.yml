@@ -100,5 +100,6 @@ body:
     id: proposal-bugfix
     attributes:
       label: 'Do you have a proposal to fix the bug?'
+      description: 'Propose your idea to help us.'
     validations:
       required: false
