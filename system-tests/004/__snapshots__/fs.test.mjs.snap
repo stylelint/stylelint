@@ -7,7 +7,7 @@ exports[`fs - errored state for reportNeedlessDisables 1`] = `
   "output": [
     {
       "deprecations": [],
-      "errored": false,
+      "errored": true,
       "invalidOptionWarnings": [],
       "parseErrors": [],
       "warnings": [
@@ -27,7 +27,7 @@ exports[`fs - errored state for reportNeedlessDisables 1`] = `
   "results": [
     {
       "deprecations": [],
-      "errored": false,
+      "errored": true,
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
