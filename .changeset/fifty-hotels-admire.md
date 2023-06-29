@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: remove `postcss-media-query-parser` dependency
+Removed: `postcss-media-query-parser` dependency
