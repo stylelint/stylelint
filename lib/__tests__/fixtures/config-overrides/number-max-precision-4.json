@@ -1,0 +1,5 @@
+{
+	"rules": {
+		"number-max-precision": 4
+	}
+}
