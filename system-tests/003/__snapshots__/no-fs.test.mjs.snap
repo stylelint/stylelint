@@ -16,454 +16,210 @@ exports[`no-fs - zen garden CSS with standard config 1`] = `
 
 /* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
 
+
 /* basic elements */
 html {
-  margin: 0;
-  padding: 0;
-}
+	margin: 0;
+	padding: 0;
+	}
 
 body {
-  font: 75% georgia, sans-serif;
-  line-height: 1.88889;
-  color: #555753;
-  background: #fff url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right;
-  margin: 0;
-  padding: 0;
-}
+	font: 75% georgia, sans-serif;
+	line-height: 1.88889;
+	color: #555753;
+	background: #fff url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right;
+	margin: 0;
+	padding: 0;
+	}
 
 p {
-  margin-top: 0;
-  text-align: justify;
-}
+	margin-top: 0;
+	text-align: justify;
+	}
 
 h3 {
-  font: italic normal 1.4em georgia, sans-serif;
-  letter-spacing: 1px;
-  margin-bottom: 0;
-  color: #7d775c;
-}
+	font: italic normal 1.4em georgia, sans-serif;
+	letter-spacing: 1px;
+	margin-bottom: 0;
+	color: #7D775C;
+	}
 
 a:link {
-  font-weight: bold;
-  text-decoration: none;
-  color: #b7a5df;
-}
+	font-weight: bold;
+	text-decoration: none;
+	color: #B7A5DF;
+	}
 
 a:visited {
-  font-weight: bold;
-  text-decoration: none;
-  color: #d4cddc;
-}
+	font-weight: bold;
+	text-decoration: none;
+	color: #D4CDDC;
+	}
 
-a:hover,
-a:focus,
-a:active {
-  text-decoration: underline;
-  color: #9685ba;
-}
+a:hover, a:focus, a:active {
+	text-decoration: underline;
+	color: #9685BA;
+	}
 
 abbr {
-  border-bottom: none;
-}
+	border-bottom: none;
+	}
+
 
 /* specific divs */
 .page-wrapper {
-  background: url(http://csszengarden.com/001/zen-bg.jpg) no-repeat top left;
-  padding: 0 175px 0 110px;
-  margin: 0;
-  position: relative;
-}
+	background: url(http://csszengarden.com/001/zen-bg.jpg) no-repeat top left;
+	padding: 0 175px 0 110px;
+	margin: 0;
+	position: relative;
+	}
 
 .intro {
-  min-width: 470px;
-  width: 100%;
-}
+	min-width: 470px;
+	width: 100%;
+	}
 
 header h1 {
-  background: transparent url(http://csszengarden.com/001/h1.gif) no-repeat top left;
-  margin-top: 10px;
-  display: block;
-  width: 219px;
-  height: 87px;
-  float: left;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
+	background: transparent url(http://csszengarden.com/001/h1.gif) no-repeat top left;
+	margin-top: 10px;
+	display: block;
+	width: 219px;
+	height: 87px;
+	float: left;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
 
 header h2 {
-  background: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left;
-  margin-top: 58px;
-  margin-bottom: 40px;
-  width: 200px;
-  height: 18px;
-  float: right;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
+	background: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left;
+	margin-top: 58px;
+	margin-bottom: 40px;
+	width: 200px;
+	height: 18px;
+	float: right;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
 
 header {
-  padding-top: 20px;
-  height: 87px;
+	padding-top: 20px;
+	height: 87px;
 }
 
 .summary {
-  clear: both;
-  margin: 20px 20px 20px 10px;
-  width: 160px;
-  float: left;
-}
+	clear: both;
+	margin: 20px 20px 20px 10px;
+	width: 160px;
+	float: left;
+	}
 
 .summary p {
-  font: italic 1.1em/2.2 georgia;
-  text-align: center;
-}
+	font: italic 1.1em/2.2 georgia;
+	text-align: center;
+	}
 
 .preamble {
-  clear: right;
-  padding: 0 10px 0;
-}
+	clear: right;
+	padding: 0 10px 0;
+	}
 
 .supporting {
-  padding-left: 10px;
-  margin-bottom: 40px;
-}
+	padding-left: 10px;
+	margin-bottom: 40px;
+	}
 
 footer {
-  text-align: center;
-}
+	text-align: center;
+	}
 
-footer a:link,
-footer a:visited {
-  margin-right: 20px;
-}
+footer a:link, footer a:visited {
+	margin-right: 20px;
+	}
 
 .sidebar {
-  margin-left: 600px;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+	margin-left: 600px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	}
 
 .sidebar .wrapper {
-  font: 10px verdana, sans-serif;
-  background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y;
-  padding: 10px;
-  margin-top: 150px;
-  width: 130px;
-}
+	font: 10px verdana, sans-serif;
+	background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y;
+	padding: 10px;
+	margin-top: 150px;
+	width: 130px;
+	}
 
 .sidebar h3.select {
-  background: transparent url(http://csszengarden.com/001/h3.gif) no-repeat top left;
-  margin: 10px 0 5px;
-  width: 97px;
-  height: 16px;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
+	background: transparent url(http://csszengarden.com/001/h3.gif) no-repeat top left;
+	margin: 10px 0 5px;
+	width: 97px;
+	height: 16px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
 
 .sidebar h3.archives {
-  background: transparent url(http://csszengarden.com/001/h5.gif) no-repeat top left;
-  margin: 25px 0 5px;
-  width: 57px;
-  height: 14px;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
+	background: transparent url(http://csszengarden.com/001/h5.gif) no-repeat top left;
+	margin: 25px 0 5px;
+	width:57px;
+	height: 14px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
 
 .sidebar h3.resources {
-  background: transparent url(http://csszengarden.com/001/h6.gif) no-repeat top left;
-  margin: 25px 0 5px;
-  width: 63px;
-  height: 10px;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
+	background: transparent url(http://csszengarden.com/001/h6.gif) no-repeat top left;
+	margin: 25px 0 5px;
+	width:63px;
+	height: 10px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+
 
 .sidebar ul {
-  margin: 0;
-  padding: 0;
-}
+	margin: 0;
+	padding: 0;
+	}
 
 .sidebar li {
-  line-height: 1.3em;
-  background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center;
-  display: block;
-  padding-top: 5px;
-  margin-bottom: 5px;
-  list-style-type: none;
-}
+	line-height: 1.3em;
+	background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center;
+	display: block;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	list-style-type: none;
+	}
 
 .sidebar li a:link {
-  color: #988f5e;
-}
+	color: #988F5E;
+	}
 
 .sidebar li a:visited {
-  color: #b3ae94;
-}
+	color: #B3AE94;
+	}
+
 
 .extra1 {
-  background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  width: 148px;
-  height: 110px;
-}
+	background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;
+	position: absolute;
+	top: 40px;
+	right: 0;
+	width: 148px;
+	height: 110px;
+	}
 ",
   "reportedDisables": [],
   "results": [
     {
-      "deprecations": [
-        {
-          "reference": undefined,
-          "text": "The "at-rule-name-case" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "at-rule-name-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "at-rule-semicolon-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "block-closing-brace-empty-line-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "block-closing-brace-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "block-closing-brace-newline-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "block-closing-brace-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "block-opening-brace-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "block-opening-brace-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "block-opening-brace-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "color-hex-case" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-bang-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-bang-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-block-semicolon-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-block-semicolon-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-block-semicolon-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-block-trailing-semicolon" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-colon-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-colon-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "declaration-colon-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "function-comma-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "function-comma-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "function-comma-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "function-max-empty-lines" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "function-parentheses-newline-inside" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "function-parentheses-space-inside" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "function-whitespace-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "max-empty-lines" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-feature-colon-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-feature-colon-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-feature-name-case" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-feature-parentheses-space-inside" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-feature-range-operator-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-feature-range-operator-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-query-list-comma-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-query-list-comma-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "media-query-list-comma-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "no-eol-whitespace" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "no-extra-semicolons" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "no-missing-end-of-source-newline" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "number-leading-zero" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "number-no-trailing-zeros" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "property-case" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-attribute-brackets-space-inside" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-attribute-operator-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-attribute-operator-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-combinator-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-combinator-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-descendant-combinator-no-non-space" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-list-comma-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-list-comma-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-max-empty-lines" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-pseudo-class-case" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-pseudo-class-parentheses-space-inside" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "selector-pseudo-element-case" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "unit-case" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "value-list-comma-newline-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "value-list-comma-space-after" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "value-list-comma-space-before" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "value-list-max-empty-lines" rule is deprecated.",
-        },
-        {
-          "reference": undefined,
-          "text": "The "indentation" rule is deprecated.",
-        },
-      ],
+      "deprecations": [],
       "errored": true,
       "ignored": undefined,
       "invalidOptionWarnings": [],
@@ -486,66 +242,11 @@ footer a:visited {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-empty-line-before",
     },
-    "at-rule-name-case": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/at-rule-name-case",
-    },
-    "at-rule-name-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/at-rule-name-space-after",
-    },
     "at-rule-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/at-rule-no-unknown",
     },
-    "at-rule-semicolon-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/at-rule-semicolon-newline-after",
-    },
-    "block-closing-brace-empty-line-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/block-closing-brace-empty-line-before",
-    },
-    "block-closing-brace-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/block-closing-brace-newline-after",
-    },
-    "block-closing-brace-newline-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/block-closing-brace-newline-before",
-    },
-    "block-closing-brace-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/block-closing-brace-space-before",
-    },
     "block-no-empty": {
       "url": "https://stylelint.io/user-guide/rules/block-no-empty",
-    },
-    "block-opening-brace-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/block-opening-brace-newline-after",
-    },
-    "block-opening-brace-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/block-opening-brace-space-after",
-    },
-    "block-opening-brace-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/block-opening-brace-space-before",
-    },
-    "color-hex-case": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/color-hex-case",
     },
     "color-hex-length": {
       "fixable": true,
@@ -569,16 +270,6 @@ footer a:visited {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/custom-property-empty-line-before",
     },
-    "declaration-bang-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-bang-space-after",
-    },
-    "declaration-bang-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-bang-space-before",
-    },
     "declaration-block-no-duplicate-properties": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-no-duplicate-properties",
@@ -586,43 +277,8 @@ footer a:visited {
     "declaration-block-no-shorthand-property-overrides": {
       "url": "https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides",
     },
-    "declaration-block-semicolon-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-newline-after",
-    },
-    "declaration-block-semicolon-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-after",
-    },
-    "declaration-block-semicolon-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-before",
-    },
     "declaration-block-single-line-max-declarations": {
       "url": "https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations",
-    },
-    "declaration-block-trailing-semicolon": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-block-trailing-semicolon",
-    },
-    "declaration-colon-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-colon-newline-after",
-    },
-    "declaration-colon-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-colon-space-after",
-    },
-    "declaration-colon-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/declaration-colon-space-before",
     },
     "declaration-empty-line-before": {
       "fixable": true,
@@ -638,52 +294,12 @@ footer a:visited {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-calc-no-unspaced-operator",
     },
-    "function-comma-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/function-comma-newline-after",
-    },
-    "function-comma-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/function-comma-space-after",
-    },
-    "function-comma-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/function-comma-space-before",
-    },
     "function-linear-gradient-no-nonstandard-direction": {
       "url": "https://stylelint.io/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
-    },
-    "function-max-empty-lines": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/function-max-empty-lines",
     },
     "function-name-case": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-name-case",
-    },
-    "function-parentheses-newline-inside": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/function-parentheses-newline-inside",
-    },
-    "function-parentheses-space-inside": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/function-parentheses-space-inside",
-    },
-    "function-whitespace-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/function-whitespace-after",
-    },
-    "indentation": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/indentation",
     },
     "keyframe-declaration-no-important": {
       "url": "https://stylelint.io/user-guide/rules/keyframe-declaration-no-important",
@@ -692,58 +308,8 @@ footer a:visited {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/length-zero-no-unit",
     },
-    "max-empty-lines": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/max-empty-lines",
-    },
-    "media-feature-colon-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-feature-colon-space-after",
-    },
-    "media-feature-colon-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-feature-colon-space-before",
-    },
-    "media-feature-name-case": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-feature-name-case",
-    },
     "media-feature-name-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-unknown",
-    },
-    "media-feature-parentheses-space-inside": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-feature-parentheses-space-inside",
-    },
-    "media-feature-range-operator-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-feature-range-operator-space-after",
-    },
-    "media-feature-range-operator-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-feature-range-operator-space-before",
-    },
-    "media-query-list-comma-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-newline-after",
-    },
-    "media-query-list-comma-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-space-after",
-    },
-    "media-query-list-comma-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-space-before",
     },
     "no-descending-specificity": {
       "url": "https://stylelint.io/user-guide/rules/no-descending-specificity",
@@ -757,38 +323,8 @@ footer a:visited {
     "no-empty-source": {
       "url": "https://stylelint.io/user-guide/rules/no-empty-source",
     },
-    "no-eol-whitespace": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/no-eol-whitespace",
-    },
-    "no-extra-semicolons": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/no-extra-semicolons",
-    },
     "no-invalid-double-slash-comments": {
       "url": "https://stylelint.io/user-guide/rules/no-invalid-double-slash-comments",
-    },
-    "no-missing-end-of-source-newline": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/no-missing-end-of-source-newline",
-    },
-    "number-leading-zero": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/number-leading-zero",
-    },
-    "number-no-trailing-zeros": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/number-no-trailing-zeros",
-    },
-    "property-case": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/property-case",
     },
     "property-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/property-no-unknown",
@@ -797,68 +333,8 @@ footer a:visited {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/rule-empty-line-before",
     },
-    "selector-attribute-brackets-space-inside": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-attribute-brackets-space-inside",
-    },
-    "selector-attribute-operator-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-attribute-operator-space-after",
-    },
-    "selector-attribute-operator-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-attribute-operator-space-before",
-    },
-    "selector-combinator-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-combinator-space-after",
-    },
-    "selector-combinator-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-combinator-space-before",
-    },
-    "selector-descendant-combinator-no-non-space": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-descendant-combinator-no-non-space",
-    },
-    "selector-list-comma-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-list-comma-newline-after",
-    },
-    "selector-list-comma-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-list-comma-space-before",
-    },
-    "selector-max-empty-lines": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-max-empty-lines",
-    },
-    "selector-pseudo-class-case": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-case",
-    },
     "selector-pseudo-class-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown",
-    },
-    "selector-pseudo-class-parentheses-space-inside": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-parentheses-space-inside",
-    },
-    "selector-pseudo-element-case": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-case",
     },
     "selector-pseudo-element-colon-notation": {
       "fixable": true,
@@ -877,37 +353,12 @@ footer a:visited {
     "string-no-newline": {
       "url": "https://stylelint.io/user-guide/rules/string-no-newline",
     },
-    "unit-case": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/unit-case",
-    },
     "unit-no-unknown": {
       "url": "https://stylelint.io/user-guide/rules/unit-no-unknown",
     },
     "value-keyword-case": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-keyword-case",
-    },
-    "value-list-comma-newline-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/value-list-comma-newline-after",
-    },
-    "value-list-comma-space-after": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-after",
-    },
-    "value-list-comma-space-before": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-before",
-    },
-    "value-list-max-empty-lines": {
-      "deprecated": true,
-      "fixable": true,
-      "url": "https://stylelint.io/user-guide/rules/value-list-max-empty-lines",
     },
   },
 }
