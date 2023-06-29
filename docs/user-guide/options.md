@@ -42,7 +42,7 @@ When using the Node.js API, the autofixed code is available as the value of the 
 
 If a source contains a:
 
-- scoped disable comment, e.g. `/* stylelint-disable indentation */`, any problems reported by the scoped rules will not be automatically fixed anywhere in the source
+- scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rules will not be automatically fixed anywhere in the source
 - unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of source will not be automatically fixed
 
 This limitation in being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
