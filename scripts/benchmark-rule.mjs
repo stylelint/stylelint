@@ -1,6 +1,6 @@
-'use strict';
-
 /* eslint-disable no-console */
+import { argv, exit } from 'node:process';
+
 import Benchmark from 'benchmark';
 import picocolors from 'picocolors';
 import postcss from 'postcss';
@@ -10,16 +10,31 @@ import rules from '../lib/rules/index.js';
 
 const { bold, yellow } = picocolors;
 
-const [, , ruleName, ruleOptions, ruleContext] = process.argv;
+const [, , ruleName, ruleOptions, ruleContext] = argv;
 
 const ruleFunc = rules[ruleName];
 
-if (!ruleFunc) {
-	throw new Error('You must specify a valid rule name');
+function printHelp() {
+	const script = 'node benchmark-rule.mjs';
+
+	console.log(`Usage: ${script} <ruleName> <ruleOptions> [ruleContext]`);
+	console.log('');
+	console.log('Examples:');
+	console.log('  # With a primary option');
+	console.log(`  ${script} value-keyword-case lower`);
+	console.log('');
+	console.log('  # With secondary options (JSON format)');
+	console.log(`  ${script} value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'`);
+	console.log('');
+	console.log('  # With a context');
+	console.log(
+		`  ${script} value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'`,
+	);
 }
 
-if (!ruleOptions) {
-	throw new Error('You must specify rule options');
+if (!ruleFunc || !ruleOptions) {
+	printHelp();
+	exit(-1);
 }
 
 const CSS_URL = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css';
