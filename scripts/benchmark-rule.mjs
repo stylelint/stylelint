@@ -22,7 +22,7 @@ if (!ruleOptions) {
 	throw new Error('You must specify rule options');
 }
 
-const CSS_URL = 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css';
+const CSS_URL = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css';
 
 // PostCSS and modern hardware is too fast to benchmark with a small source.
 // Duplicating the source CSS N times gives a larger mean while reducing the deviation.
