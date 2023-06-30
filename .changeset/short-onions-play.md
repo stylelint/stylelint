@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `selector|value-no-vendor-prefix` performance
+Fixed: `{selector,value}-no-vendor-prefix` performance
