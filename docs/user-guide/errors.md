@@ -65,7 +65,7 @@ The CSS parser built into Stylelint (or the chosen [custom syntax](options.md#cu
 
 The construct-specific parsers are:
 
-- `postcss-media-query-parser`
+- `@csstools/media-query-list-parser`
 - `postcss-selector-parser`
 - `postcss-value-parser`
 
