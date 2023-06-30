@@ -287,7 +287,7 @@ Deprecating rules doesn't happen very often. When you do, you must:
 
 ## Improve the performance of a rule
 
-You can run a benchmarks on any given rule with any valid config using:
+You can run a benchmark on any given rule with any valid config using:
 
 ```shell
 npm run benchmark-rule -- ruleName ruleOptions [ruleContext]
@@ -296,21 +296,17 @@ npm run benchmark-rule -- ruleName ruleOptions [ruleContext]
 If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
 
 ```shell
-npm run benchmark-rule -- selector-combinator-space-after never
+npm run benchmark-rule -- value-keyword-case lower
 ```
 
 ```shell
-npm run benchmark-rule -- selector-combinator-space-after always
-```
-
-```shell
-npm run benchmark-rule -- block-opening-brace-space-before "[\"always\", {\"ignoreAtRules\": [\"else\"]}]"
+npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
 ```
 
 If the `ruleContext` argument is specified, the sames procedure would apply:
 
 ```shell
-npm run benchmark-rule -- block-opening-brace-space-before "[\"always\", {\"ignoreAtRules\": [\"else\"]}]" "{\"fix\": \"true\"}"
+npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'
 ```
 
 The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.
