@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-- Fixed: `function-no-unknown` performance
+Fixed: `function-no-unknown` performance
