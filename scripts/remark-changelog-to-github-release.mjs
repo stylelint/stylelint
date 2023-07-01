@@ -1,4 +1,4 @@
-// eslint-disable-next-line node/no-extraneous-import -- We don't want to manage extra dependencies.
+// eslint-disable-next-line n/no-extraneous-import -- We don't want to manage extra dependencies.
 import { visit } from 'unist-util-visit';
 
 /**
