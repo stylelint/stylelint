@@ -195,7 +195,7 @@
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
     "eslint": "^8.43.0",
-    "eslint-config-stylelint": "^18.0.0",
+    "eslint-config-stylelint": "^19.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.2",
     "husky": "^8.0.3",
