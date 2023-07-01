@@ -17,7 +17,7 @@ jobs:
   test:
     uses: stylelint/.github/.github/workflows/test.yml@main
     with:
-      node-version: '["14", "16", "18", "20"]'
+      node-version: '["16", "18", "20"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
       exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
       # HACK: `--workerIdleMemoryLimit` can avoid failures on Node.js 20. See https://github.com/jestjs/jest/issues/11956
