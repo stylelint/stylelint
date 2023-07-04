@@ -13,6 +13,7 @@
 		"noUnusedParameters": true,
 		"noUncheckedIndexedAccess": true,
 		"resolveJsonModule": true,
+		"esModuleInterop": true,
 		"skipLibCheck": false,
 		"paths": {
 			"*": ["./node_modules/@types/*", "./types/*"]
