@@ -1,5 +1,30 @@
 # Changelog
 
+## 15.10.0
+
+- Added: `media-query-no-invalid` ([#6963](https://github.com/stylelint/stylelint/pull/6963)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: support for JS objects with `extends` config option ([#6998](https://github.com/stylelint/stylelint/pull/6998)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: `{selector,value}-no-vendor-prefix` performance ([#7016](https://github.com/stylelint/stylelint/pull/7016)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `custom-property-pattern` performance ([#7009](https://github.com/stylelint/stylelint/pull/7009)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for `<color-interpolation-method>` ([#6987](https://github.com/stylelint/stylelint/pull/6987)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-name-case` performance ([#7010](https://github.com/stylelint/stylelint/pull/7010)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-no-unknown` performance ([#7004](https://github.com/stylelint/stylelint/pull/7004)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-url-quotes` performance ([#7011](https://github.com/stylelint/stylelint/pull/7011)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `hue-degree-notation` false negatives for `oklch` ([#7015](https://github.com/stylelint/stylelint/pull/7015)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `hue-degree-notation` performance ([#7012](https://github.com/stylelint/stylelint/pull/7012)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `media-feature-name-no-unknown` false positives for `environment-blending`, `nav-controls`, `prefers-reduced-data`, and `video-color-gamut` ([#6978](https://github.com/stylelint/stylelint/pull/6978)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `media-feature-name-no-vendor-prefix` positions for `*-device-pixel-ratio` ([#6977](https://github.com/stylelint/stylelint/pull/6977)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-descending-specificity` performance ([#7026](https://github.com/stylelint/stylelint/pull/7026)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-duplicate-at-import-rules` false negatives for imports with `supports` and `layer` conditions ([#7001](https://github.com/stylelint/stylelint/pull/7001)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-anb-no-unmatchable` performance ([#7042](https://github.com/stylelint/stylelint/pull/7042)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-id-pattern` performance ([#7013](https://github.com/stylelint/stylelint/pull/7013)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-pseudo-class-no-unknown` false negatives for pseudo-elements with matching names ([#6964](https://github.com/stylelint/stylelint/pull/6964)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` performance ([#7007](https://github.com/stylelint/stylelint/pull/7007)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-type-case` performance ([#7041](https://github.com/stylelint/stylelint/pull/7041)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` performance ([#7027](https://github.com/stylelint/stylelint/pull/7027)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `unit-disallowed-list` false negatives with percentages ([#7018](https://github.com/stylelint/stylelint/pull/7018)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: inconsistent `errored` properties in `stylelint.lint()` return value ([#6983](https://github.com/stylelint/stylelint/pull/6983)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 15.9.0
 
 - Added: `insideFunctions: {"function": int}` to `number-max-precision` ([#6932](https://github.com/stylelint/stylelint/pull/6932)) ([@romainmenke](https://github.com/romainmenke)).
