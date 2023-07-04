@@ -4,6 +4,7 @@
 
 - Added: `media-query-no-invalid` ([#6963](https://github.com/stylelint/stylelint/pull/6963)) ([@romainmenke](https://github.com/romainmenke)).
 - Added: support for JS objects with `extends` config option ([#6998](https://github.com/stylelint/stylelint/pull/6998)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: inconsistent `errored` properties in `stylelint.lint()` return value ([#6983](https://github.com/stylelint/stylelint/pull/6983)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `{selector,value}-no-vendor-prefix` performance ([#7016](https://github.com/stylelint/stylelint/pull/7016)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `custom-property-pattern` performance ([#7009](https://github.com/stylelint/stylelint/pull/7009)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for `<color-interpolation-method>` ([#6987](https://github.com/stylelint/stylelint/pull/6987)) ([@romainmenke](https://github.com/romainmenke)).
@@ -23,7 +24,6 @@
 - Fixed: `selector-type-case` performance ([#7041](https://github.com/stylelint/stylelint/pull/7041)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-type-no-unknown` performance ([#7027](https://github.com/stylelint/stylelint/pull/7027)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `unit-disallowed-list` false negatives with percentages ([#7018](https://github.com/stylelint/stylelint/pull/7018)) ([@romainmenke](https://github.com/romainmenke)).
-- Fixed: inconsistent `errored` properties in `stylelint.lint()` return value ([#6983](https://github.com/stylelint/stylelint/pull/6983)) ([@ybiquitous](https://github.com/ybiquitous)).
 
 ## 15.9.0
 
