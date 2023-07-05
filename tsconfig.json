@@ -20,5 +20,11 @@
 		}
 	},
 	"include": ["lib", "types", "package.json"],
-	"exclude": ["**/*.test.js", "**/__tests__/"]
+	"exclude": [
+		"**/*.test.js",
+		"**/__tests__/",
+		"**/ts41/get.d.ts",
+		"**/meow/**",
+		"./node_modules/meow/node_modules/type-fest/ts41/get.d.ts"
+	]
 }
