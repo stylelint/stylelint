@@ -3,7 +3,7 @@
 1. Create a [new issue](https://github.com/stylelint/stylelint/issues/new?title=Release+%7Bversion%7D&labels=status%3A+needs+discussion) to announce the planned release:
    - include the [template checklist](#new-release-issue-template)
    - if applicable, list any new rules so that we can discuss including them in our configs
-2. If necessary, open a pull request to mark those rules in `docs/user-guide/rules.md`.
+2. If necessary, open a pull request to mark those rules in [`docs/user-guide/rules.md`](../user-guide/rules.md).
 3. If necessary, test `main` locally in the:
    1. [`stylelint/stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended)
    2. [`stylelint/stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard)
