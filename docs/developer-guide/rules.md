@@ -97,6 +97,7 @@ Use `node.raws` instead of `node.raw()` when accessing raw strings from the [Pos
 
 Depending on the rule, we also recommend using:
 
+- [media-query-list-parser](https://www.npmjs.com/package/@csstools/media-query-list-parser)
 - [postcss-value-parser](https://github.com/TrySound/postcss-value-parser)
 - [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser)
 
