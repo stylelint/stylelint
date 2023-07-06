@@ -1,5 +1,10 @@
 # Changelog
 
+## 15.10.1
+
+- Security: fix for `semver` vulnerability ([#7043](https://github.com/stylelint/stylelint/pull/7043)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: invalid option regression on Windows 10 ([#7043](https://github.com/stylelint/stylelint/pull/7043)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 15.10.0
 
 - Added: `media-query-no-invalid` ([#6963](https://github.com/stylelint/stylelint/pull/6963)) ([@romainmenke](https://github.com/romainmenke)).
