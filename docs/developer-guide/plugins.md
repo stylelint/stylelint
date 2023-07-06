@@ -10,6 +10,7 @@ We recommend your custom rules adhere to our [rule conventions](rules.md) for:
 - tests
 - docs
 - metadata
+- construct-specific parsers
 
 ## The anatomy of a plugin
 
@@ -216,6 +217,8 @@ Alternatively, if you don't want to use Jest you'll find more testing tool in [A
 
 Stylelint exposes some useful utilities.
 
+You're also welcome to copy any of the [internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) into your plugin. You should not `require` or `import` them directly, as they are not part of the public API and may change or be removed without warning.
+
 ### `stylelint.utils.report`
 
 Adds problems from your plugin to the list of problems that Stylelint will report to the user.
@@ -310,14 +313,6 @@ module.exports = stylelint.createPlugin(ruleName, (expectation) => {
 ## Allow primary option arrays
 
 If your plugin can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For more information, check out the ["Working on rules"](rules.md) doc.
-
-## External helper modules
-
-In addition to the standard parsers mentioned in the ["Working on rules"](rules.md) doc, there are other external modules used within Stylelint that we recommend using. These include:
-
-- [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
-
-Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it into an external module.
 
 ## Peer dependencies
 
