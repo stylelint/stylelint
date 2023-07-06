@@ -20,7 +20,7 @@ When merging a PR, you should:
    - one approval is usually fine for simple fixes
    - two approvals are often useful for bigger changes
 2. If applicable, add a [changeset](https://github.com/changesets/changesets) using the GitHub interface:
-   - prefix the entry with either: "Removed", "Changed", "Deprecated", "Added", or "Fixed"
+   - prefix the entry with either: "Removed", "Changed", "Deprecated", "Added", "Fixed" or "Security"
    - if applicable, lead with the name of the rule, e.g. "Fixed: `unit-disallowed-list` false positives for custom properties".
 3. ["Squash and merge"](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squash-and-merge-your-pull-request-commits) commits ensuring the resulting commit message:
    - either matches the changeset entry but in the present tense, e.g. "Fix `unit-disallowed-list` false positives for custom properties"

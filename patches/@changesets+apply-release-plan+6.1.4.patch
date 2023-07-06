@@ -1,8 +1,8 @@
 diff --git a/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js b/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js
-index c2e8d2f..3e40b6e 100644
+index a537ba7..27062a3 100644
 --- a/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js
 +++ b/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js
-@@ -199,7 +199,7 @@ async function getChangelogEntry(release, releases, changesets, changelogFuncs,
+@@ -203,7 +203,7 @@ async function getChangelogEntry(release, releases, changesets, changelogFuncs,
    onlyUpdatePeerDependentsWhenOutOfRange
  }) {
    if (release.type === "none") return null;
@@ -11,7 +11,7 @@ index c2e8d2f..3e40b6e 100644
      major: [],
      minor: [],
      patch: []
-@@ -240,6 +240,15 @@ async function getChangelogEntry(release, releases, changesets, changelogFuncs,
+@@ -244,6 +244,15 @@ async function getChangelogEntry(release, releases, changesets, changelogFuncs,
    });
    let relevantChangesets = changesets.filter(cs => relevantChangesetIds.has(cs.id));
    changelogLines.patch.push(changelogFuncs.getDependencyReleaseLine(relevantChangesets, dependentReleases, changelogOpts));

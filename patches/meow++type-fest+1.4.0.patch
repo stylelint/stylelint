@@ -1,0 +1,14 @@
+diff --git a/node_modules/meow/node_modules/type-fest/ts41/get.d.ts b/node_modules/meow/node_modules/type-fest/ts41/get.d.ts
+index f12a886..33f127a 100644
+--- a/node_modules/meow/node_modules/type-fest/ts41/get.d.ts
++++ b/node_modules/meow/node_modules/type-fest/ts41/get.d.ts
+@@ -92,7 +92,9 @@ type PropertyOf<BaseType, Key extends string> =
+ 		? Item
+ 		: unknown
+ 	)
++	// @ts-expect-error
+ 	: Key extends keyof WithStringKeys<BaseType>
++	// @ts-expect-error
+ 	? WithStringKeys<BaseType>[Key]
+ 	: unknown;
+ 
