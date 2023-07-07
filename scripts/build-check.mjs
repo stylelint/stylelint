@@ -15,7 +15,11 @@ function main() {
 			stderr.write(error.stderr);
 		}
 
-		exit(error.status);
+		if (typeof error.status === 'number') {
+			exit(error.status);
+		} else {
+			throw error;
+		}
 	}
 }
 
