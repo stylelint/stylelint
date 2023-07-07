@@ -52,7 +52,7 @@
     "prepare": "husky install && patch-package",
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
-    "test": "npm run build && node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
     "test-only": "npm test --ignore-scripts",
     "version": "changeset version",
