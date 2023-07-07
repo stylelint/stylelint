@@ -23,6 +23,7 @@ export default inputFiles.map((input) => {
 			format: 'cjs',
 			file: input.replace('.mjs', '.cjs'),
 			generatedCode: 'es2015',
+			interop: 'auto',
 		},
 	};
 });
