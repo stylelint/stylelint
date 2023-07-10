@@ -8,6 +8,17 @@ updates:
     labels:
       - 'pr: dependencies'
     versioning-strategy: increase
+    groups:
+      changesets:
+        patterns: ['@changesets/*']
+      eslint:
+        patterns: ['eslint', 'eslint-*']
+      jest:
+        patterns: ['jest', 'jest-*', '@jest/*']
+      stylelint:
+        patterns: ['@stylelint/*']
+      typescript:
+        patterns: ['typescript', '@types/*']
 
   - package-ecosystem: github-actions
     directory: '/'
