@@ -157,7 +157,7 @@ By default, the indent level of the CSS code block in non-CSS-like files is dete
 For example, with `[ 2, { baseIndentLevel: 1 } ]`, CSS should be indented 1 levels higher than `<style>` tag:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <style>
