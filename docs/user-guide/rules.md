@@ -478,7 +478,7 @@ These rules are deprecated — we won't fix bugs nor add options, and we will re
 
 <!-- prettier-ignore-start -->
 | | | |
-| -: |
+| :-- | :-: | :-: |
 | [`declaration-block-semicolon-newline-after`](../../lib/rules/declaration-block-semicolon-newline-after/README.md)<br/>Require a newline or disallow whitespace after the semicolons of declaration blocks. | | 🔧 |
 | [`declaration-block-semicolon-newline-before`](../../lib/rules/declaration-block-semicolon-newline-before/README.md)<br/>Require a newline or disallow whitespace before the semicolons of declaration blocks. | | |
 | [`declaration-block-semicolon-space-after`](../../lib/rules/declaration-block-semicolon-space-after/README.md)<br/>Require a single space or disallow whitespace after the semicolons of declaration blocks. | | 🔧 |
