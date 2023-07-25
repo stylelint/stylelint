@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
 set -u
 
+SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+
+cd "${SCRIPT_DIR}" || exit
+
+stylelint() {
+	"${SCRIPT_DIR}/../bin/stylelint.mjs" "$@"
+}
+
 echo "########## Compact formatter ##########"
 echo ""
-node ../bin/stylelint.js visual.css --config visual-config.mjs --formatter compact
+stylelint visual.css --config visual-config.mjs --formatter compact
 echo ""
 
 echo ""
 echo "########## Default formatter ##########"
-node ../bin/stylelint.js visual.css --config visual-config.json
+stylelint visual.css --config visual-config.json
 
 echo "########## Verbose formatter ##########"
-node ../bin/stylelint.js visual.css --config visual-config.cjs --formatter verbose
+stylelint visual.css --config visual-config.cjs --formatter verbose
