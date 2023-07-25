@@ -116,8 +116,7 @@
       }
     },
     "moduleNameMapper": {
-      "^stylelint$": "<rootDir>/lib/index.js",
-      "stylelint/lib/utils/getOsEol": "<rootDir>/lib/utils/getOsEol.js"
+      "^stylelint$": "<rootDir>/lib/index.js"
     },
     "preset": "jest-preset-stylelint",
     "roots": [
