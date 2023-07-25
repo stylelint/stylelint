@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url';
+import { relative } from 'node:path';
 import { rmSync } from 'node:fs';
 
 import fg from 'fast-glob';
@@ -16,14 +18,20 @@ for (const input of inputFiles) {
 	rmSync(input.replace('.mjs', '.cjs'), { force: true });
 }
 
+const rootDir = fileURLToPath(new URL('.', import.meta.url));
+
 export default inputFiles.map((input) => {
 	return {
 		input,
 		output: {
 			format: 'cjs',
-			file: input.replace('.mjs', '.cjs'),
+			dir: rootDir,
+			entryFileNames: ({ facadeModuleId }) => {
+				return relative(rootDir, facadeModuleId).replace('.mjs', '.cjs');
+			},
 			generatedCode: 'es2015',
 			interop: 'auto',
+			preserveModules: true,
 		},
 	};
 });
