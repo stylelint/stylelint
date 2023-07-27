@@ -9,8 +9,8 @@
    2. [`stylelint/stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard)
    3. [`stylelint/stylelint.io`](https://github.com/stylelint/stylelint.io)
 4. Release Stylelint:
-   1. If necessary, reorder the changelog entries in the "Prepare release" pull request so that the widest-reaching changes come first.
-   2. Merge the "Prepare release" pull request.
+   1. If necessary, reorder the changelog entries in the "Prepare x.y.z" pull request so that the widest-reaching changes come first.
+   2. Merge the "Prepare x.y.z" pull request.
    3. Open a terminal window in the `stylelint` repository.
    4. Run `npm run release`.
    5. Select the version from the [`np`](https://github.com/sindresorhus/np) prompt that matches the one in the changelog.
