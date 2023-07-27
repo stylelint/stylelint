@@ -29,8 +29,12 @@ export default inputFiles.map((input) => {
 			entryFileNames: ({ facadeModuleId }) => {
 				return relative(rootDir, facadeModuleId).replace('.mjs', '.cjs');
 			},
-			generatedCode: 'es2015',
-			interop: 'auto',
+			generatedCode: {
+				preset: 'es2015',
+				symbols: false,
+			},
+			interop: 'default',
+			esModule: false,
 			preserveModules: true,
 		},
 	};
