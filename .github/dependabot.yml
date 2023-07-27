@@ -9,6 +9,9 @@ updates:
       - 'pr: dependencies'
     versioning-strategy: increase
     groups:
+      csstools-parser:
+        patterns: ['@csstools/*']
+        exclude-patterns: ['@csstools/selector-specificity'] # unrelated to other parser packages
       changesets:
         patterns: ['@changesets/*']
       eslint:
