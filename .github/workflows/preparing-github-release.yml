@@ -5,6 +5,10 @@ on:
     tags:
       - '**'
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   prepare:
     name: Prepare
@@ -16,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Prepare release
-        uses: ybiquitous/changelog-to-github-release-action@main
+        uses: stylelint/changelog-to-github-release-action@main
         with:
           tag: ${{ github.ref_name }}
           draft: true
