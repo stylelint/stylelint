@@ -5,33 +5,22 @@ on:
     tags:
       - '**'
 
-permissions:
-  contents: write
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   prepare:
     name: Prepare
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Node.js LTS
-        uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Prepare release
+        uses: stylelint/changelog-to-github-release-action@main
         with:
-          node-version: 'lts/*'
-          cache: npm
-
-      - name: Install latest npm
-        run: npm install --global npm@latest
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Extract changelog entries
-        run: npm run changelog-to-github-release --silent > /tmp/changes.md
-
-      - name: Create draft release
-        run: gh release create "${GITHUB_REF_NAME}" --draft --notes-file /tmp/changes.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+          draft: true
