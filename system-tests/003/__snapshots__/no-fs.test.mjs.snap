@@ -2,9 +2,7 @@
 
 exports[`no-fs - zen garden CSS with standard config 1`] = `
 {
-  "cwd": "",
-  "errored": true,
-  "output": "/* css Zen Garden default style v1.02 */
+  "code": "/* css Zen Garden default style v1.02 */
 
 /* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
 
@@ -215,6 +213,211 @@ footer a:visited {
   height: 110px;
 }
 ",
+  "cwd": "",
+  "errored": true,
+  "output": [
+    {
+      "deprecations": [
+        {
+          "text": "The "at-rule-name-case" rule is deprecated.",
+        },
+        {
+          "text": "The "at-rule-name-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "at-rule-semicolon-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-empty-line-before" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-newline-before" rule is deprecated.",
+        },
+        {
+          "text": "The "block-closing-brace-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "block-opening-brace-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-opening-brace-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "block-opening-brace-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "color-hex-case" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-bang-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-bang-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-trailing-semicolon" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-colon-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-colon-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-colon-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "function-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "function-comma-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "function-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "function-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "function-parentheses-newline-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "function-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "function-whitespace-after" rule is deprecated.",
+        },
+        {
+          "text": "The "max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-colon-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-colon-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-name-case" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-range-operator-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-feature-range-operator-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "media-query-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-query-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "media-query-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "no-eol-whitespace" rule is deprecated.",
+        },
+        {
+          "text": "The "no-extra-semicolons" rule is deprecated.",
+        },
+        {
+          "text": "The "no-missing-end-of-source-newline" rule is deprecated.",
+        },
+        {
+          "text": "The "number-leading-zero" rule is deprecated.",
+        },
+        {
+          "text": "The "number-no-trailing-zeros" rule is deprecated.",
+        },
+        {
+          "text": "The "property-case" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-attribute-brackets-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-attribute-operator-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-attribute-operator-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-combinator-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-combinator-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-descendant-combinator-no-non-space" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-pseudo-class-case" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-pseudo-class-parentheses-space-inside" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-pseudo-element-case" rule is deprecated.",
+        },
+        {
+          "text": "The "unit-case" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "indentation" rule is deprecated.",
+        },
+      ],
+      "errored": true,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "warnings": [
+        {
+          "column": 25,
+          "endColumn": 32,
+          "endLine": 102,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+        },
+      ],
+    },
+  ],
   "reportedDisables": [],
   "results": [
     {
