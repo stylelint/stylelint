@@ -36,6 +36,8 @@ export default inputFiles.map((input) => {
 			interop: 'default',
 			esModule: false,
 			preserveModules: true,
+			validate: true,
 		},
+		treeshake: false,
 	};
 });
