@@ -84,6 +84,7 @@
       "__dirname": true,
       "module": true,
       "require": true,
+      "testInvalidRuleConfigs": true,
       "testRule": true
     },
     "root": true
