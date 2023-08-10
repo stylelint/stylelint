@@ -5,7 +5,7 @@ import Benchmark from 'benchmark';
 import picocolors from 'picocolors';
 import postcss from 'postcss';
 
-import normalizeRuleSettings from '../lib/normalizeRuleSettings.js';
+import normalizeRuleSettings from '../lib/normalizeRuleSettings.mjs';
 import rules from '../lib/rules/index.js';
 
 const { bold, yellow } = picocolors;
