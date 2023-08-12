@@ -1,0 +1,6 @@
+{
+	"rules": {
+		"block-no-empty": true,
+		"color-hex-length": "short"
+	}
+}
