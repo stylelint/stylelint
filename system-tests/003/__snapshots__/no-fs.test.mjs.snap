@@ -2,9 +2,7 @@
 
 exports[`no-fs - zen garden CSS with standard config 1`] = `
 {
-  "cwd": "",
-  "errored": true,
-  "output": "/* css Zen Garden default style v1.02 */
+  "code": "/* css Zen Garden default style v1.02 */
 
 /* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
 
@@ -216,6 +214,27 @@ footer a:link, footer a:visited {
 	height: 110px;
 	}
 ",
+  "cwd": "",
+  "errored": true,
+  "output": [
+    {
+      "deprecations": [],
+      "errored": true,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "warnings": [
+        {
+          "column": 25,
+          "endColumn": 32,
+          "endLine": 102,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+        },
+      ],
+    },
+  ],
   "reportedDisables": [],
   "results": [
     {
