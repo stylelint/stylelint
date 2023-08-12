@@ -375,7 +375,8 @@ declare namespace stylelint {
 		cwd: string;
 		results: LintResult[];
 		errored: boolean;
-		output: any;
+		output: string;
+		code?: string;
 		maxWarningsExceeded?: {
 			maxWarnings: number;
 			foundWarnings: number;
