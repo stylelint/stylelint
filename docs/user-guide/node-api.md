@@ -46,6 +46,10 @@ For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby
 
 `stylelint.lint()` returns a Promise that resolves with an object containing the following properties:
 
+### `code`
+
+A string that contains the autofixed code, if the `fix` option is set to `true` and the `code` option is provided. Otherwise, it is `undefined`.
+
 ### `cwd`
 
 The directory used as the working directory for the linting operation.
@@ -56,10 +60,7 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 
 ### `output`
 
-A string that contains either the:
-
-- formatted problems (using the default formatter or whichever you passed)
-- or the autofixed code, if the `fix` option is set to `true`
+A string that contains the formatted problems (using the default formatter or whichever you passed).
 
 ### `postcssResults`
 
@@ -191,7 +192,7 @@ stylelint
   });
 ```
 
-The autofixed code will be available as the value of the `output` property in the returned object.
+The autofixed code will be available as the value of the `code` property in the returned object.
 
 ## Resolving the effective config for a file
 
