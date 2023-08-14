@@ -1,5 +1,10 @@
 # Changelog
 
+## 15.10.3
+
+- Fixed: `declaration-property-value-no-unknown` false negatives for typed custom properties ([#7078](https://github.com/stylelint/stylelint/pull/7078)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `property-no-unknown` false positives for scroll-driven animations ([#7090](https://github.com/stylelint/stylelint/pull/7090)) ([@renato-bohler](https://github.com/renato-bohler)).
+
 ## 15.10.2
 
 - Fixed: `declaration-property-value-no-unknown` false negatives for nested declarations ([#7079](https://github.com/stylelint/stylelint/pull/7079)) ([@romainmenke](https://github.com/romainmenke)).
