@@ -218,6 +218,7 @@ stylelint test.css --print-config
 
 The CLI can exit the process with the following exit codes:
 
-- `1` - something unknown went wrong
-- `2` - there was at least one rule problem or CLI flag error
-- `78` - there was some problem with the configuration file
+- `1` - fatal error
+- `2` - lint problem
+- `64` - invalid CLI usage
+- `78` - invalid configuration file
