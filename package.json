@@ -68,6 +68,12 @@
       "stylelint",
       "stylelint/jest"
     ],
+    "rules": {
+      "n/prefer-global/process": [
+        "error",
+        "never"
+      ]
+    },
     "overrides": [
       {
         "files": [
@@ -85,11 +91,8 @@
       }
     ],
     "globals": {
-      "__dirname": true,
-      "module": true,
-      "require": true,
-      "testRule": true,
-      "testRuleConfigs": true
+      "testRule": "readonly",
+      "testRuleConfigs": "readonly"
     },
     "root": true
   },
