@@ -2,6 +2,7 @@ import { copyFile, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import os from 'node:os';
 import path from 'node:path';
+import process from 'node:process';
 
 import replaceBackslashes from '../lib/testUtils/replaceBackslashes.mjs';
 import uniqueId from '../lib/testUtils/uniqueId.mjs';
