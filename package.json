@@ -85,11 +85,8 @@
       }
     ],
     "globals": {
-      "__dirname": true,
-      "module": true,
-      "require": true,
-      "testRule": true,
-      "testRuleConfigs": true
+      "testRule": "readonly",
+      "testRuleConfigs": "readonly"
     },
     "root": true
   },
@@ -199,7 +196,7 @@
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
     "eslint": "^8.47.0",
-    "eslint-config-stylelint": "^19.1.0",
+    "eslint-config-stylelint": "^20.0.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jest": "^27.2.3",
     "husky": "^8.0.3",
