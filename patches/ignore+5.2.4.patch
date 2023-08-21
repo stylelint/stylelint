@@ -1,0 +1,45 @@
+diff --git a/node_modules/ignore/index.d.ts b/node_modules/ignore/index.d.ts
+index 520eafa..859d940 100644
+--- a/node_modules/ignore/index.d.ts
++++ b/node_modules/ignore/index.d.ts
+@@ -5,7 +5,8 @@ interface TestResult {
+   unignored: boolean
+ }
+ 
+-export interface Ignore {
++declare namespace ignore {
++interface Ignore {
+   /**
+    * Adds one or several rules to the current manager.
+    * @param  {string[]} patterns
+@@ -41,6 +42,7 @@ export interface Ignore {
+    */
+   test(pathname: Pathname): TestResult
+ }
++}
+ 
+ interface Options {
+   ignorecase?: boolean
+@@ -49,13 +51,15 @@ interface Options {
+   allowRelativePaths?: boolean
+ }
+ 
+-/**
+- * Creates new ignore manager.
+- */
+-declare function ignore(options?: Options): Ignore
++interface PublicApi {
++  /**
++   * Creates new ignore manager.
++   */
++  (options?: Options): ignore.Ignore
+ 
+-declare namespace ignore {
+-  export function isPathValid (pathname: string): boolean
++  isPathValid: (pathname: string) => boolean
+ }
+ 
+-export default ignore
++declare const ignore: PublicApi
++
++export = ignore

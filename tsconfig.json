@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
-		"target": "ES2020",
+		"target": "ES2021",
 		"module": "commonjs",
-		"lib": ["ES2020"],
+		"lib": ["ES2021"],
 		"checkJs": true,
 		"noEmit": true,
 		"strict": true,
@@ -20,5 +20,5 @@
 		}
 	},
 	"include": ["lib", "types", "package.json"],
-	"exclude": ["**/*.test.{js,mjs}", "**/__tests__/"]
+	"exclude": ["**/*.test.{js,mjs}", "**/__tests__/", "lib/**/*.cjs"]
 }
