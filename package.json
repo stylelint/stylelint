@@ -64,6 +64,9 @@
       "stylelint",
       "stylelint/jest"
     ],
+    "rules": {
+      "n/prefer-global/process": "off"
+    },
     "overrides": [
       {
         "files": [
