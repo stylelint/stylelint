@@ -22,6 +22,7 @@ updates:
         patterns: ['@stylelint/*']
       typescript:
         patterns: ['typescript', '@types/*']
+    target-branch: v16 # TODO: We must remove this setting when deleting this branch.
 
   - package-ecosystem: github-actions
     directory: '/'
