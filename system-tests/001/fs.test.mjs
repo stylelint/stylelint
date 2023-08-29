@@ -1,4 +1,4 @@
-import stylelint from 'stylelint';
+import stylelint from '../../lib/index.mjs';
 
 import { caseConfigFile, caseFiles, prepForSnapshot } from '../systemTestUtils.mjs';
 

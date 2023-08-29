@@ -1,6 +1,6 @@
 import postcssScss from 'postcss-scss';
 
-import stylelint from 'stylelint';
+import stylelint from '../../lib/index.mjs';
 
 import { caseCode, caseConfig, prepForSnapshot } from '../systemTestUtils.mjs';
 
