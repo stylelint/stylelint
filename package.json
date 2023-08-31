@@ -213,7 +213,7 @@
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.7",
     "remark-cli": "^11.0.0",
-    "rollup": "^3.26.2",
+    "rollup": "^3.28.1",
     "sugarss": "^4.0.1",
     "typescript": "^5.2.2"
   },
