@@ -22,10 +22,6 @@
   },
   "license": "MIT",
   "author": "stylelint",
-  "exports": {
-    "import": "./lib/index.mjs",
-    "require": "./lib/index.cjs"
-  },
   "main": "lib/index.js",
   "types": "types/stylelint/index.d.ts",
   "bin": {
