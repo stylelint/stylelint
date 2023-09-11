@@ -117,7 +117,7 @@
       }
     },
     "moduleNameMapper": {
-      "^stylelint$": "<rootDir>/lib/index.js"
+      "^stylelint$": "<rootDir>/lib/index.cjs"
     },
     "preset": "jest-preset-stylelint",
     "roots": [
