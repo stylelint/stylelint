@@ -211,7 +211,7 @@
     "postcss-import": "^15.1.0",
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",
-    "postcss-scss": "^4.0.7",
+    "postcss-scss": "^4.0.8",
     "remark-cli": "^11.0.0",
     "rollup": "^3.26.2",
     "sugarss": "^4.0.1",
