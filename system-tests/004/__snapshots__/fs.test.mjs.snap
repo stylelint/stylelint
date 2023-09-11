@@ -10,6 +10,27 @@ exports[`fs - errored state for reportNeedlessDisables 1`] = `
       "errored": true,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [
+        {
+          "column": 1,
+          "endColumn": 38,
+          "endLine": 1,
+          "line": 1,
+          "rule": "--report-needless-disables",
+          "severity": "error",
+          "text": "Needless disable for "block-no-empty"",
+        },
+      ],
+    },
+  ],
+  "report": [
+    {
+      "deprecations": [],
+      "errored": true,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 1,
@@ -62,6 +83,17 @@ exports[`fs - no errored state 1`] = `
       "errored": false,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [],
+    },
+  ],
+  "report": [
+    {
+      "deprecations": [],
+      "errored": false,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [],
     },
   ],

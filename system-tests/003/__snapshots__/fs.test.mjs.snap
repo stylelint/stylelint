@@ -10,6 +10,27 @@ exports[`fs - zen garden CSS with standard config 1`] = `
       "errored": true,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [
+        {
+          "column": 25,
+          "endColumn": 32,
+          "endLine": 102,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+        },
+      ],
+    },
+  ],
+  "report": [
+    {
+      "deprecations": [],
+      "errored": true,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 25,

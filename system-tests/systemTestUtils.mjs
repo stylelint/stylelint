@@ -37,15 +37,22 @@ export async function caseFilesForFix(caseNumber, ext = 'css') {
 	return tempPath;
 }
 
-export function prepForSnapshot({ results, cwd, output, ...rest }) {
+export function prepForSnapshot({ results, cwd, output, report, ...rest }) {
 	// If output isn't fixed code
 	if (output.startsWith('[')) {
 		// The `source` of each file varies between platforms or if a tmp file is used
-		output = JSON.parse(output).map((warning) => {
-			delete warning.source;
+		output = JSON.parse(output).map((warning) => ({
+			...warning,
+			source: '/path/to/dummy.css',
+		}));
+	}
 
-			return warning;
-		});
+	if (report) {
+		// The `source` of each file varies between platforms or if a tmp file is used
+		report = JSON.parse(report).map((warning) => ({
+			...warning,
+			source: '/path/to/dummy.css',
+		}));
 	}
 
 	return {
@@ -57,7 +64,8 @@ export function prepForSnapshot({ results, cwd, output, ...rest }) {
 
 			return result;
 		}),
-		output,
+		output, // TODO: Deprecated. Remove in the next major version.
+		report,
 		...rest,
 	};
 }

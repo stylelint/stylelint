@@ -10,6 +10,17 @@ exports[`fs - valid sanitize.css and their config 1`] = `
       "errored": false,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [],
+    },
+  ],
+  "report": [
+    {
+      "deprecations": [],
+      "errored": false,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [],
     },
   ],

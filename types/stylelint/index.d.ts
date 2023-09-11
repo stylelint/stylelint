@@ -375,7 +375,23 @@ declare namespace stylelint {
 		cwd: string;
 		results: LintResult[];
 		errored: boolean;
+		/**
+		 * @deprecated Use `output` for the formatted problems, or use `code`
+		 *   for the autofixed code instead. This will be removed in the next major version.
+		 */
 		output: string;
+		/** @internal To show the depreaction warning. */
+		_output?: string;
+		/** @internal To show the depreaction warning. */
+		_outputWarned?: boolean;
+		/**
+		 * A string that contains the formatted problems.
+		 */
+		report: string;
+		/**
+		 * A string that contains the autofixed code, if the `fix` option is set to `true`
+		 * and the `code` option is provided.
+		 */
 		code?: string;
 		maxWarningsExceeded?: {
 			maxWarnings: number;
