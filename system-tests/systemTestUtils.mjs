@@ -59,10 +59,9 @@ export function prepForSnapshot({ results, cwd, output, report, ...rest }) {
 		cwd: path.relative(process.cwd(), cwd),
 		// The _postcssResult object is not part of our API and is huge
 		results: results.map((result) => {
-			delete result.source;
 			delete result._postcssResult;
 
-			return result;
+			return { ...result, source: '/path/to/dummy.css' };
 		}),
 		output, // TODO: Deprecated. Remove in the next major version.
 		report,

@@ -88,6 +88,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 10,

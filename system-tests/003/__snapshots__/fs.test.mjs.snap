@@ -52,6 +52,7 @@ exports[`fs - zen garden CSS with standard config 1`] = `
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 25,

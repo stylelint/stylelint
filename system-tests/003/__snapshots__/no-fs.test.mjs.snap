@@ -456,6 +456,7 @@ footer a:link, footer a:visited {
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 25,

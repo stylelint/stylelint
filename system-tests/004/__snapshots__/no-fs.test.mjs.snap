@@ -52,6 +52,7 @@ exports[`no-fs - errored state for reportNeedlessDisables 1`] = `
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 1,
@@ -105,6 +106,7 @@ exports[`no-fs - no errored state 1`] = `
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [],
     },
   ],
