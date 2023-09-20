@@ -11,6 +11,8 @@ a { color: black }
 
 This rule ignores `$sass` and `@less` variable syntaxes.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `string`: `"always-where-possible"|"never"`
