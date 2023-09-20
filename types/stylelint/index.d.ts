@@ -168,7 +168,18 @@ declare namespace stylelint {
 	type Formatter = (results: LintResult[], returnValue: LinterResult) => string;
 
 	/** @internal */
-	type FormatterType = 'compact' | 'github' | 'json' | 'string' | 'tap' | 'unix' | 'verbose';
+	type Formatters = {
+		readonly compact: Promise<Formatter>;
+		readonly github: Promise<Formatter>;
+		readonly json: Promise<Formatter>;
+		readonly string: Promise<Formatter>;
+		readonly tap: Promise<Formatter>;
+		readonly unix: Promise<Formatter>;
+		readonly verbose: Promise<Formatter>;
+	};
+
+	/** @internal */
+	type FormatterType = keyof Formatters;
 
 	/** @internal */
 	type CustomSyntax = string | PostCSS.Syntax;
@@ -609,7 +620,7 @@ type PublicApi = PostCSS.PluginCreator<stylelint.PostcssPluginOptions> & {
 	/**
 	 * Result report formatters by name.
 	 */
-	formatters: { [k: string]: stylelint.Formatter };
+	formatters: stylelint.Formatters;
 
 	/**
 	 * Creates a Stylelint plugin.
