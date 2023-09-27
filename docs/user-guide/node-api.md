@@ -60,11 +60,20 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 
 ### `output`
 
-A string that contains the formatted problems (using the default formatter or whichever you passed).
+> **Warning** This property is deprecated and will be removed in the next major version. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide](../migration-guide/to-16.md).
+
+A string that contains either the:
+
+- formatted problems (using the default formatter or whichever you passed)
+- or the autofixed code, if the `fix` option is set to `true`
 
 ### `postcssResults`
 
 An array containing all the accumulated [PostCSS LazyResults](https://api.postcss.org/LazyResult.html).
+
+### `report`
+
+A string that contains the formatted problems (using the default formatter or whichever you passed).
 
 ### `results`
 

@@ -10,6 +10,45 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "errored": true,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [
+        {
+          "column": 10,
+          "endColumn": 15,
+          "endLine": 79,
+          "line": 79,
+          "rule": "color-named",
+          "severity": "error",
+          "text": "Unexpected named color "white" (color-named)",
+        },
+        {
+          "column": 1,
+          "endColumn": 12,
+          "endLine": 118,
+          "line": 118,
+          "rule": "selector-no-qualifying-type",
+          "severity": "error",
+          "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
+        },
+        {
+          "column": 3,
+          "endColumn": 4,
+          "endLine": 125,
+          "line": 123,
+          "rule": "selector-no-qualifying-type",
+          "severity": "error",
+          "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
+        },
+      ],
+    },
+  ],
+  "report": [
+    {
+      "deprecations": [],
+      "errored": true,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 10,
@@ -49,6 +88,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
+      "source": "/path/to/dummy.css",
       "warnings": [
         {
           "column": 10,

@@ -37,27 +37,34 @@ export async function caseFilesForFix(caseNumber, ext = 'css') {
 	return tempPath;
 }
 
-export function prepForSnapshot({ results, cwd, output, ...rest }) {
+export function prepForSnapshot({ results, cwd, output, report, ...rest }) {
 	// If output isn't fixed code
 	if (output.startsWith('[')) {
 		// The `source` of each file varies between platforms or if a tmp file is used
-		output = JSON.parse(output).map((warning) => {
-			delete warning.source;
+		output = JSON.parse(output).map((warning) => ({
+			...warning,
+			source: '/path/to/dummy.css',
+		}));
+	}
 
-			return warning;
-		});
+	if (report) {
+		// The `source` of each file varies between platforms or if a tmp file is used
+		report = JSON.parse(report).map((warning) => ({
+			...warning,
+			source: '/path/to/dummy.css',
+		}));
 	}
 
 	return {
 		cwd: path.relative(process.cwd(), cwd),
 		// The _postcssResult object is not part of our API and is huge
 		results: results.map((result) => {
-			delete result.source;
 			delete result._postcssResult;
 
-			return result;
+			return { ...result, source: '/path/to/dummy.css' };
 		}),
-		output,
+		output, // TODO: Deprecated. Remove in the next major version.
+		report,
 		...rest,
 	};
 }
