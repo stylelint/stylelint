@@ -472,6 +472,8 @@ declare namespace stylelint {
 		| 'mask'
 		| 'outline'
 		| 'padding'
+		| 'padding-block'
+		| 'padding-inline'
 		| 'text-decoration'
 		| 'text-emphasis'
 		| 'transition';
