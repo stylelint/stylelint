@@ -467,6 +467,8 @@ declare namespace stylelint {
 		| 'inset'
 		| 'list-style'
 		| 'margin'
+		| 'margin-block'
+		| 'margin-inline'
 		| 'mask'
 		| 'outline'
 		| 'padding'
