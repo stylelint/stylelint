@@ -474,6 +474,10 @@ declare namespace stylelint {
 		| 'padding'
 		| 'padding-block'
 		| 'padding-inline'
+		| 'scroll-margin-block'
+		| 'scroll-margin-inline'
+		| 'scroll-padding-block'
+		| 'scroll-padding-inline'
 		| 'text-decoration'
 		| 'text-emphasis'
 		| 'transition';
