@@ -53,6 +53,10 @@ type RuleMessageFunc = {
 	bivariance(...args: (string | number | boolean | RegExp)[]): string;
 }['bivariance'];
 
+type RuleSeverityFunc = {
+	bivariance(...args: (string | number | boolean | RegExp)[]): stylelint.Severity | null;
+}['bivariance'];
+
 type RuleOptionsPossibleFunc = (value: unknown) => boolean;
 
 type DisableReportEntry = {
@@ -138,7 +142,7 @@ declare namespace stylelint {
 
 	/** @internal */
 	type StylelintPostcssResult = {
-		ruleSeverities: { [ruleName: string]: Severity };
+		ruleSeverities: { [ruleName: string]: RuleSeverity };
 		customMessages: { [ruleName: string]: RuleMessage };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		quiet?: boolean;
@@ -202,6 +206,9 @@ declare namespace stylelint {
 			| Record<string, RuleOptionsPossible[]>;
 		optional?: boolean;
 	};
+
+	/** @internal */
+	type RuleSeverity = Severity | RuleSeverityFunc;
 
 	/**
 	 * A rule context.
@@ -460,7 +467,7 @@ declare namespace stylelint {
 		/**
 		 * Optional severity override for the problem.
 		 */
-		severity?: Severity;
+		severity?: RuleSeverity;
 	};
 
 	/** @internal */

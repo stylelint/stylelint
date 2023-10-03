@@ -179,6 +179,41 @@ For example:
 
 Reporters may use these severity levels to display problems or exit the process differently.
 
+Experimental feature: some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
+
+This function must return `"error"`, `"warning"`, or `null`. When it would return `null`, the `defaultSeverity` would be used.
+
+For example, given:
+
+```js
+{
+	rules: {
+		'selector-disallowed-list': [
+			['a > .foo', '/\\[data-.+]/'],
+			{
+				severity: (selector) => {
+					return selector.includes('a > .foo') ? 'error' : 'warning';
+				},
+			},
+		],
+	},
+}
+```
+
+The following pattern is reported as an error:
+
+<!-- prettier-ignore -->
+```css
+a > .foo {}
+```
+
+But the following pattern would be reported as a warning:
+
+<!-- prettier-ignore -->
+```css
+a[data-auto="1"] {}
+```
+
 ## `extends`
 
 You can extend an existing configuration (whether your own or a third-party one). Configurations can bundle plugins, custom syntaxes, options, and configure rules. They can also extend other configurations.
