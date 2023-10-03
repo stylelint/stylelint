@@ -177,7 +177,7 @@
     "@changesets/get-github-info": "^0.5.2",
     "@jest/globals": "^29.7.0",
     "@stylelint/prettier-config": "^3.0.0",
-    "@stylelint/remark-preset": "^4.0.0",
+    "@stylelint/remark-preset": "^5.0.0",
     "@types/balanced-match": "^1.0.4",
     "@types/css-tree": "^2.3.2",
     "@types/debug": "^4.1.9",
