@@ -114,7 +114,8 @@
         "functions": 75,
         "lines": 75,
         "statements": 75
-      }
+      },
+      "./lib/rules/*/index.mjs": {}
     },
     "moduleNameMapper": {
       "^stylelint$": "<rootDir>/lib/index.cjs"
