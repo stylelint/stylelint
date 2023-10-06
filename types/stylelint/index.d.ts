@@ -477,6 +477,8 @@ declare namespace stylelint {
 		| 'margin-inline'
 		| 'mask'
 		| 'outline'
+		| 'overflow'
+		| 'overscroll-behavior'
 		| 'padding'
 		| 'padding-block'
 		| 'padding-inline'
