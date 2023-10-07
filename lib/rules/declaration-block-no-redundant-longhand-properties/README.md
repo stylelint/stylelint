@@ -50,6 +50,7 @@ This rule complains when the following shorthand properties can be used:
 - `flex-flow`
 - `font`
 - `font-synthesis`
+- `gap`
 - `grid`
 - `grid-area`
 - `grid-column`
@@ -65,11 +66,18 @@ This rule complains when the following shorthand properties can be used:
 - `margin-inline`
 - `mask`
 - `outline`
+- `overflow`
+- `overscroll-behavior`
 - `padding`
 - `padding-block`
 - `padding-inline`
+- `place-content`
+- `place-items`
+- `place-self`
+- `scroll-margin`
 - `scroll-margin-block`
 - `scroll-margin-inline`
+- `scroll-padding`
 - `scroll-padding-block`
 - `scroll-padding-inline`
 - `text-decoration`
