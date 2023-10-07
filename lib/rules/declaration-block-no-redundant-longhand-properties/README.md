@@ -49,6 +49,7 @@ This rule complains when the following shorthand properties can be used:
 - `flex`
 - `flex-flow`
 - `font`
+- `font-synthesis`
 - `grid`
 - `grid-area`
 - `grid-column`
