@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `ignoreRules` option for `max-nesting-depth` rule
+Added: `ignoreRules` to `max-nesting-depth`
