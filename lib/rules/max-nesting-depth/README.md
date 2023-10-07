@@ -413,3 +413,61 @@ a {
   }
 }
 ```
+
+### `ignoreRules: ["/regex/", /regex/, "string"]`
+
+Ignore rules matching with the specified selectors.
+
+For example, with `1` and given:
+
+```json
+[".my-selector", "/^.ignored-sel/"]
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  .my-selector {   /* ignored */
+    b {      /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  .my-selector, .ignored-selector { /* ignored */
+    b {              /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  .not-ignored-selector { /* 1 */
+    b {      /* 2 */
+      top: 0;
+    }
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  .my-selector, .not-ignored-selector { /* 1 */
+    b {               /* 2 */
+      top: 0;
+    }
+  }
+}
+```
