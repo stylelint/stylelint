@@ -136,7 +136,7 @@
     "@csstools/css-tokenizer": "^2.2.1",
     "@csstools/media-query-list-parser": "^2.1.5",
     "@csstools/selector-specificity": "^3.0.0",
-    "balanced-match": "^2.0.0",
+    "balanced-match": "^3.0.1",
     "colord": "^2.9.3",
     "cosmiconfig": "^8.3.6",
     "css-functions-list": "^3.2.0",
