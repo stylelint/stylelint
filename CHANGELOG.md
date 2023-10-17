@@ -1,5 +1,14 @@
 # Changelog
 
+## 15.11.0
+
+- Added: `ignoreRules` to `max-nesting-depth` ([#7215](https://github.com/stylelint/stylelint/pull/7215)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `grid-template` with `repeat()` ([#7230](https://github.com/stylelint/stylelint/pull/7230)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false negative for `font-synthesis` ([#7214](https://github.com/stylelint/stylelint/pull/7214)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false negatives for `*-block` and `*-inline` logical properties ([#7208](https://github.com/stylelint/stylelint/pull/7208)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false negatives for `overflow`, `overscroll-behavior`, `scroll-margin`, `scroll-padding`, and new Box Alignment shorthands ([#7213](https://github.com/stylelint/stylelint/pull/7213)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `function-no-unknown` false positives for `light-dark`, `linear` and `xywh` ([#7242](https://github.com/stylelint/stylelint/pull/7242)) ([@mattxwang](https://github.com/mattxwang)).
+
 ## 15.10.3
 
 - Fixed: `declaration-property-value-no-unknown` false negatives for typed custom properties ([#7078](https://github.com/stylelint/stylelint/pull/7078)) ([@romainmenke](https://github.com/romainmenke)).
