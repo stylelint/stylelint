@@ -187,7 +187,7 @@
     "@types/imurmurhash": "^0.1.2",
     "@types/micromatch": "^4.0.3",
     "@types/normalize-path": "^3.0.0",
-    "@types/postcss-less": "^4.0.3",
+    "@types/postcss-less": "^4.0.4",
     "@types/postcss-resolve-nested-selector": "^0.1.1",
     "@types/postcss-safe-parser": "^5.0.2",
     "@types/svg-tags": "^1.0.0",
