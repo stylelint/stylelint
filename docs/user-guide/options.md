@@ -133,6 +133,13 @@ If the number of warnings exceeds this value, the:
 - CLI process exits with code `2`
 - Node.js API adds a [`maxWarningsExceeded`](node-api.md#maxwarningsexceeded) property to the returned data
 
+### `mergeRules`
+
+Merge the rules when both `filePath` and `config` are passed.
+
+Note that `config` will be the one overriding.
+i.e. in case of conflict `config` prevails
+
 ## `disableDefaultIgnores`
 
 CLI flags: `--disable-default-ignores, --di`

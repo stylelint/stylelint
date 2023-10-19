@@ -265,6 +265,7 @@ declare namespace stylelint {
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
+		mergeRules?: boolean;
 		customSyntax?: CustomSyntax;
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
@@ -641,7 +642,10 @@ type PublicApi = PostCSS.PluginCreator<stylelint.PostcssPluginOptions> & {
 	 */
 	resolveConfig: (
 		filePath: string,
-		options?: Pick<stylelint.LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
+		options?: Pick<
+			stylelint.LinterOptions,
+			'cwd' | 'config' | 'configBasedir' | 'configFile' | 'mergeRules'
+		>,
 	) => Promise<stylelint.Config | undefined>;
 
 	/**

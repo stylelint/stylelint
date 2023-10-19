@@ -149,11 +149,20 @@ exports[`CLI --help 1`] = `
       Report "stylelint-disable" comments without a description. The process will
       exit with code 2 if descriptionless disables are found.
 
+    --rule, -r
+
+      Sets rules individually.
+      Multiple can be set.
+
     --max-warnings, --mw <number>
 
       The number of warnings above which the process will exit with code 2.
       Useful when setting "defaultSeverity" to "warning" and expecting the process
       to fail on warnings (e.g. CI build).
+
+    --merge-rules
+
+      Merge rules passed using --rule into the config.
 
     --output-file, -o <path>
 
