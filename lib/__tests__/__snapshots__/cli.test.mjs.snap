@@ -151,7 +151,7 @@ exports[`CLI --help 1`] = `
 
     --rule, -r
 
-      Sets rules individually.
+      Set rules individually.
       Multiple can be set.
 
     --max-warnings, --mw <number>
