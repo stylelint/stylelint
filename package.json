@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "15.10.3",
+  "version": "15.11.0",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -141,7 +141,7 @@
     "balanced-match": "^2.0.0",
     "colord": "^2.9.3",
     "cosmiconfig": "^9.0.0-alpha.1",
-    "css-functions-list": "^3.2.0",
+    "css-functions-list": "^3.2.1",
     "css-tree": "^2.3.1",
     "debug": "^4.3.4",
     "fast-glob": "^3.3.1",
@@ -155,7 +155,7 @@
     "import-lazy": "^4.0.0",
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
-    "known-css-properties": "^0.28.0",
+    "known-css-properties": "^0.29.0",
     "mathml-tag-names": "^2.1.3",
     "meow": "^10.1.5",
     "micromatch": "^4.0.5",
