@@ -127,13 +127,13 @@
       },
       "./lib/rules/*/index.mjs": {}
     },
-    "moduleNameMapper": {
-      "^stylelint$": "<rootDir>/lib/index.cjs"
-    },
     "preset": "jest-preset-stylelint",
     "roots": [
       "lib",
       "system-tests"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.setup.mjs"
     ],
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.m?js$|rules/.*/__tests__/.*\\.m?js$",
