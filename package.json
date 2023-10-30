@@ -166,7 +166,7 @@
     "postcss-selector-parser": "^6.0.13",
     "postcss-value-parser": "^4.2.0",
     "resolve-from": "^5.0.0",
-    "string-width": "^4.2.3",
+    "string-width": "^7.0.0",
     "strip-ansi": "^6.0.1",
     "supports-hyperlinks": "^3.0.0",
     "svg-tags": "^1.0.0",
