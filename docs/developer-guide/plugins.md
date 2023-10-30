@@ -297,15 +297,16 @@ Here's an example of a plugin that runs `declaration-no-important` only if there
 
 ```js
 module.exports = stylelint.createPlugin(ruleName, (expectation) => {
-  const runDeclarationNoImportant =
-    stylelint.rules["declaration-no-important"](expectation);
+  const runDeclarationNoImportant = stylelint.rules[
+    "declaration-no-important"
+  ].then((rule) => rule(expectation));
 
   return (root, result) => {
-    if (root.toString().indexOf("@@check-declaration-no-important") === -1) {
+    if (!root.toString().includes("@@check-declaration-no-important")) {
       return;
     }
 
-    runDeclarationNoImportant(root, result);
+    return runDeclarationNoImportant.then((rule) => rule(root, result));
   };
 });
 ```
