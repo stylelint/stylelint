@@ -304,7 +304,7 @@ npm run benchmark-rule -- value-keyword-case lower
 npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
 ```
 
-If the `ruleContext` argument is specified, the sames procedure would apply:
+If the `ruleContext` argument is specified, the same procedure would apply:
 
 ```shell
 npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'
