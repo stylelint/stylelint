@@ -11,7 +11,8 @@ Disallow empty comments.
 
 This rule ignores SCSS-like comments.
 
-**Caveat:** Comments within _selector and value lists_ are currently ignored.
+> [!WARNING]
+> Comments within _selector and value lists_ are currently ignored.
 
 ## Options
 
