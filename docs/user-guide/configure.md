@@ -480,7 +480,7 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 - the config's filepath, if the config is a file that Stylelint found and loaded;
 - or `process.cwd()`.
 
-_Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
+> [!NOTE] > _This is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
 
 ## `allowEmptyInput`
 
@@ -494,7 +494,8 @@ For example:
 }
 ```
 
-Note: this config option should not be overridden on a per-file basis.
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
 
 [More info](options.md#allowemptyinput).
 
@@ -510,7 +511,8 @@ For example:
 }
 ```
 
-Note: this config option should not be overridden on a per-file basis.
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
 
 [More info](options.md#cache).
 
@@ -526,6 +528,7 @@ For example:
 }
 ```
 
-Note: this config option should not be overridden on a per-file basis.
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
 
 [More info](options.md#fix).
