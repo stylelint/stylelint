@@ -26,7 +26,8 @@ a {
 }
 ```
 
-> [!NOTE] > **root-level at-rules will _not_ be included in the nesting depth calculation**, because most users would take for granted that root-level at-rules are "free" (because necessary). So both of the following `.foo` rules have a nesting depth of 2, and will therefore pass if your `max` is less than or equal to 2:
+> [!NOTE]
+> root-level at-rules will **not be included** in the nesting depth calculation, because most users would take for granted that root-level at-rules are "free" (because necessary). So both of the following `.foo` rules have a nesting depth of 2, and will therefore pass if your `max` is less than or equal to 2:
 
 <!-- prettier-ignore -->
 ```css

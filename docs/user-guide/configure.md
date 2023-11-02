@@ -480,7 +480,8 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 - the config's filepath, if the config is a file that Stylelint found and loaded;
 - or `process.cwd()`.
 
-> [!NOTE] > _This is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
+> [!NOTE]
+> This is **not an efficient method for ignoring lots of files**. If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
 
 ## `allowEmptyInput`
 
