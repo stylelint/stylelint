@@ -60,7 +60,8 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 
 ### `output`
 
-> **Warning** This property is deprecated and will be removed in the next major version. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide](../migration-guide/to-16.md).
+> [!WARNING]
+> This property is deprecated and will be removed in the next major version. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide](../migration-guide/to-16.md).
 
 A string that contains either the:
 
@@ -183,7 +184,8 @@ stylelint
   });
 ```
 
-Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
+> [!NOTE]
+> The `customSyntax` option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
 
 ### Example F
 

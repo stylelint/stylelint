@@ -92,7 +92,17 @@
   },
   "remarkConfig": {
     "plugins": [
-      "@stylelint/remark-preset"
+      "@stylelint/remark-preset",
+      [
+        "remark-lint-no-undefined-references",
+        {
+          "allow": [
+            "!NOTE",
+            "!IMPORTANT",
+            "!WARNING"
+          ]
+        }
+      ]
     ]
   },
   "jest": {

@@ -72,7 +72,8 @@ If you want to lint two or more different languages, you can combine `customSynt
 
 Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
 
-Note that Stylelint can provide no guarantee that core rules work with custom syntaxes.
+> [!NOTE]
+> Stylelint can provide no guarantee that core rules work with custom syntaxes.
 
 ## `formatter`
 
