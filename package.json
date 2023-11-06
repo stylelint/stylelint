@@ -120,12 +120,11 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 75,
-        "functions": 75,
-        "lines": 75,
-        "statements": 75
-      },
-      "./lib/rules/*/index.mjs": {}
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
     },
     "preset": "jest-preset-stylelint",
     "roots": [
@@ -136,7 +135,7 @@
       "<rootDir>/jest.setup.mjs"
     ],
     "testEnvironment": "node",
-    "testRegex": ".*\\.test\\.m?js$|rules/.*/__tests__/.*\\.m?js$",
+    "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$|system-tests/.*\\.test\\.cjs$",
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
