@@ -2,4 +2,4 @@
 "stylelint": major
 ---
 
-Removed: Node.js 14 support
+Removed: Node.js less than 18.12.0 support
