@@ -17,9 +17,9 @@ jobs:
   test:
     uses: stylelint/.github/.github/workflows/test.yml@main
     with:
-      node-version: '["18", "20"]'
+      node-version: '["18", "20", "current"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
-      exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
+      exclude: '[{"node-version": "20", "os": "ubuntu-latest"}]' # for coverage
       # HACK: `--workerIdleMemoryLimit` can avoid failures on Node.js 20. See https://github.com/jestjs/jest/issues/11956
       test-options: '--workerIdleMemoryLimit=0.2'
 
@@ -34,7 +34,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
 
       - name: Install latest npm
