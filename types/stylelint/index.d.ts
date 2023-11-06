@@ -244,6 +244,135 @@ declare namespace stylelint {
 	};
 
 	/** @internal */
+	type BuiltInRules = {
+		readonly 'alpha-value-notation': Promise<Rule>;
+		readonly 'annotation-no-unknown': Promise<Rule>;
+		readonly 'at-rule-allowed-list': Promise<Rule>;
+		readonly 'at-rule-disallowed-list': Promise<Rule>;
+		readonly 'at-rule-empty-line-before': Promise<Rule>;
+		readonly 'at-rule-no-unknown': Promise<Rule>;
+		readonly 'at-rule-no-vendor-prefix': Promise<Rule>;
+		readonly 'at-rule-property-required-list': Promise<Rule>;
+		readonly 'block-no-empty': Promise<Rule>;
+		readonly 'color-function-notation': Promise<Rule>;
+		readonly 'color-hex-alpha': Promise<Rule>;
+		readonly 'color-hex-length': Promise<Rule>;
+		readonly 'color-named': Promise<Rule>;
+		readonly 'color-no-hex': Promise<Rule>;
+		readonly 'color-no-invalid-hex': Promise<Rule>;
+		readonly 'comment-empty-line-before': Promise<Rule>;
+		readonly 'comment-no-empty': Promise<Rule>;
+		readonly 'comment-pattern': Promise<Rule>;
+		readonly 'comment-whitespace-inside': Promise<Rule>;
+		readonly 'comment-word-disallowed-list': Promise<Rule>;
+		readonly 'custom-media-pattern': Promise<Rule>;
+		readonly 'custom-property-empty-line-before': Promise<Rule>;
+		readonly 'custom-property-no-missing-var-function': Promise<Rule>;
+		readonly 'custom-property-pattern': Promise<Rule>;
+		readonly 'declaration-block-no-duplicate-custom-properties': Promise<Rule>;
+		readonly 'declaration-block-no-duplicate-properties': Promise<Rule>;
+		readonly 'declaration-block-no-redundant-longhand-properties': Promise<Rule>;
+		readonly 'declaration-block-no-shorthand-property-overrides': Promise<Rule>;
+		readonly 'declaration-block-single-line-max-declarations': Promise<Rule>;
+		readonly 'declaration-empty-line-before': Promise<Rule>;
+		readonly 'declaration-no-important': Promise<Rule>;
+		readonly 'declaration-property-max-values': Promise<Rule>;
+		readonly 'declaration-property-unit-allowed-list': Promise<Rule>;
+		readonly 'declaration-property-unit-disallowed-list': Promise<Rule>;
+		readonly 'declaration-property-value-allowed-list': Promise<Rule>;
+		readonly 'declaration-property-value-disallowed-list': Promise<Rule>;
+		readonly 'declaration-property-value-no-unknown': Promise<Rule>;
+		readonly 'font-family-name-quotes': Promise<Rule>;
+		readonly 'font-family-no-duplicate-names': Promise<Rule>;
+		readonly 'font-family-no-missing-generic-family-keyword': Promise<Rule>;
+		readonly 'font-weight-notation': Promise<Rule>;
+		readonly 'function-allowed-list': Promise<Rule>;
+		readonly 'function-calc-no-unspaced-operator': Promise<Rule>;
+		readonly 'function-disallowed-list': Promise<Rule>;
+		readonly 'function-linear-gradient-no-nonstandard-direction': Promise<Rule>;
+		readonly 'function-name-case': Promise<Rule>;
+		readonly 'function-no-unknown': Promise<Rule>;
+		readonly 'function-url-no-scheme-relative': Promise<Rule>;
+		readonly 'function-url-quotes': Promise<Rule>;
+		readonly 'function-url-scheme-allowed-list': Promise<Rule>;
+		readonly 'function-url-scheme-disallowed-list': Promise<Rule>;
+		readonly 'hue-degree-notation': Promise<Rule>;
+		readonly 'import-notation': Promise<Rule>;
+		readonly 'keyframe-block-no-duplicate-selectors': Promise<Rule>;
+		readonly 'keyframe-declaration-no-important': Promise<Rule>;
+		readonly 'keyframe-selector-notation': Promise<Rule>;
+		readonly 'keyframes-name-pattern': Promise<Rule>;
+		readonly 'length-zero-no-unit': Promise<Rule>;
+		readonly 'max-nesting-depth': Promise<Rule>;
+		readonly 'media-feature-name-allowed-list': Promise<Rule>;
+		readonly 'media-feature-name-disallowed-list': Promise<Rule>;
+		readonly 'media-feature-name-no-unknown': Promise<Rule>;
+		readonly 'media-feature-name-no-vendor-prefix': Promise<Rule>;
+		readonly 'media-feature-name-unit-allowed-list': Promise<Rule>;
+		readonly 'media-feature-name-value-allowed-list': Promise<Rule>;
+		readonly 'media-feature-name-value-no-unknown': Promise<Rule>;
+		readonly 'media-feature-range-notation': Promise<Rule>;
+		readonly 'media-query-no-invalid': Promise<Rule>;
+		readonly 'named-grid-areas-no-invalid': Promise<Rule>;
+		readonly 'no-descending-specificity': Promise<Rule>;
+		readonly 'no-duplicate-at-import-rules': Promise<Rule>;
+		readonly 'no-duplicate-selectors': Promise<Rule>;
+		readonly 'no-empty-source': Promise<Rule>;
+		readonly 'no-invalid-double-slash-comments': Promise<Rule>;
+		readonly 'no-invalid-position-at-import-rule': Promise<Rule>;
+		readonly 'no-irregular-whitespace': Promise<Rule>;
+		readonly 'no-unknown-animations': Promise<Rule>;
+		readonly 'no-unknown-custom-properties': Promise<Rule>;
+		readonly 'number-max-precision': Promise<Rule>;
+		readonly 'property-allowed-list': Promise<Rule>;
+		readonly 'property-disallowed-list': Promise<Rule>;
+		readonly 'property-no-unknown': Promise<Rule>;
+		readonly 'property-no-vendor-prefix': Promise<Rule>;
+		readonly 'rule-empty-line-before': Promise<Rule>;
+		readonly 'rule-selector-property-disallowed-list': Promise<Rule>;
+		readonly 'selector-anb-no-unmatchable': Promise<Rule>;
+		readonly 'selector-attribute-name-disallowed-list': Promise<Rule>;
+		readonly 'selector-attribute-operator-allowed-list': Promise<Rule>;
+		readonly 'selector-attribute-operator-disallowed-list': Promise<Rule>;
+		readonly 'selector-attribute-quotes': Promise<Rule>;
+		readonly 'selector-class-pattern': Promise<Rule>;
+		readonly 'selector-combinator-allowed-list': Promise<Rule>;
+		readonly 'selector-combinator-disallowed-list': Promise<Rule>;
+		readonly 'selector-disallowed-list': Promise<Rule>;
+		readonly 'selector-id-pattern': Promise<Rule>;
+		readonly 'selector-max-attribute': Promise<Rule>;
+		readonly 'selector-max-class': Promise<Rule>;
+		readonly 'selector-max-combinators': Promise<Rule>;
+		readonly 'selector-max-compound-selectors': Promise<Rule>;
+		readonly 'selector-max-id': Promise<Rule>;
+		readonly 'selector-max-pseudo-class': Promise<Rule>;
+		readonly 'selector-max-specificity': Promise<Rule>;
+		readonly 'selector-max-type': Promise<Rule>;
+		readonly 'selector-max-universal': Promise<Rule>;
+		readonly 'selector-nested-pattern': Promise<Rule>;
+		readonly 'selector-no-qualifying-type': Promise<Rule>;
+		readonly 'selector-no-vendor-prefix': Promise<Rule>;
+		readonly 'selector-not-notation': Promise<Rule>;
+		readonly 'selector-pseudo-class-allowed-list': Promise<Rule>;
+		readonly 'selector-pseudo-class-disallowed-list': Promise<Rule>;
+		readonly 'selector-pseudo-class-no-unknown': Promise<Rule>;
+		readonly 'selector-pseudo-element-allowed-list': Promise<Rule>;
+		readonly 'selector-pseudo-element-colon-notation': Promise<Rule>;
+		readonly 'selector-pseudo-element-disallowed-list': Promise<Rule>;
+		readonly 'selector-pseudo-element-no-unknown': Promise<Rule>;
+		readonly 'selector-type-case': Promise<Rule>;
+		readonly 'selector-type-no-unknown': Promise<Rule>;
+		readonly 'shorthand-property-no-redundant-values': Promise<Rule>;
+		readonly 'string-no-newline': Promise<Rule>;
+		readonly 'time-min-milliseconds': Promise<Rule>;
+		readonly 'unit-allowed-list': Promise<Rule>;
+		readonly 'unit-disallowed-list': Promise<Rule>;
+		readonly 'unit-no-unknown': Promise<Rule>;
+		readonly 'value-keyword-case': Promise<Rule>;
+		readonly 'value-no-vendor-prefix': Promise<Rule>;
+	};
+
+	/** @internal */
 	type GetPostcssOptions = {
 		code?: string;
 		codeFilename?: string;
@@ -645,7 +774,7 @@ type PublicApi = PostCSS.PluginCreator<stylelint.PostcssPluginOptions> & {
 	/**
 	 * Available rules.
 	 */
-	rules: { [k: string]: stylelint.Rule };
+	rules: stylelint.BuiltInRules;
 
 	/**
 	 * Result report formatters by name.
