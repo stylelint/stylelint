@@ -24,7 +24,7 @@ jobs:
       test-options: '--workerIdleMemoryLimit=0.2'
 
   test-coverage:
-    name: Test on Node.js 18 and ubuntu-latest with coverage
+    name: Test on Node.js 20 and ubuntu-latest with coverage
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
