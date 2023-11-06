@@ -35,12 +35,14 @@ export async function caseFilesForFix(caseNumber, ext = 'css') {
 }
 
 export function prepForSnapshot({ results, cwd, output, report, ...rest }) {
+	const dummySource = '/path/to/dummy.css';
+
 	// If output isn't fixed code
 	if (output.startsWith('[')) {
 		// The `source` of each file varies between platforms or if a tmp file is used
 		output = JSON.parse(output).map((warning) => ({
 			...warning,
-			source: '/path/to/dummy.css',
+			source: dummySource,
 		}));
 	}
 
@@ -48,7 +50,7 @@ export function prepForSnapshot({ results, cwd, output, report, ...rest }) {
 		// The `source` of each file varies between platforms or if a tmp file is used
 		report = JSON.parse(report).map((warning) => ({
 			...warning,
-			source: '/path/to/dummy.css',
+			source: dummySource,
 		}));
 	}
 
@@ -58,7 +60,7 @@ export function prepForSnapshot({ results, cwd, output, report, ...rest }) {
 		results: results.map((result) => {
 			delete result._postcssResult;
 
-			return { ...result, source: '/path/to/dummy.css' };
+			return { ...result, source: dummySource };
 		}),
 		output, // TODO: Deprecated. Remove in the next major version.
 		report,
