@@ -29,62 +29,7 @@
       "require": "./lib/index.cjs"
     },
     "./package.json": "./package.json",
-    "./lib/utils/isStandardSyntaxAtRule": {
-      "import": "./lib/utils/isStandardSyntaxAtRule.mjs",
-      "require": "./lib/utils/isStandardSyntaxAtRule.cjs"
-    },
-    "./lib/utils/isStandardSyntaxColorFunction": {
-      "import": "./lib/utils/isStandardSyntaxColorFunction.mjs",
-      "require": "./lib/utils/isStandardSyntaxColorFunction.cjs"
-    },
-    "./lib/utils/isStandardSyntaxCombinator": {
-      "import": "./lib/utils/isStandardSyntaxCombinator.mjs",
-      "require": "./lib/utils/isStandardSyntaxCombinator.cjs"
-    },
-    "./lib/utils/isStandardSyntaxComment": {
-      "import": "./lib/utils/isStandardSyntaxComment.mjs",
-      "require": "./lib/utils/isStandardSyntaxComment.cjs"
-    },
-    "./lib/utils/isStandardSyntaxDeclaration": {
-      "import": "./lib/utils/isStandardSyntaxDeclaration.mjs",
-      "require": "./lib/utils/isStandardSyntaxDeclaration.cjs"
-    },
-    "./lib/utils/isStandardSyntaxFunction": {
-      "import": "./lib/utils/isStandardSyntaxFunction.mjs",
-      "require": "./lib/utils/isStandardSyntaxFunction.cjs"
-    },
-    "./lib/utils/isStandardSyntaxHexColor": {
-      "import": "./lib/utils/isStandardSyntaxHexColor.mjs",
-      "require": "./lib/utils/isStandardSyntaxHexColor.cjs"
-    },
-    "./lib/utils/isStandardSyntaxKeyframesName": {
-      "import": "./lib/utils/isStandardSyntaxKeyframesName.mjs",
-      "require": "./lib/utils/isStandardSyntaxKeyframesName.cjs"
-    },
-    "./lib/utils/isStandardSyntaxProperty": {
-      "import": "./lib/utils/isStandardSyntaxProperty.mjs",
-      "require": "./lib/utils/isStandardSyntaxProperty.cjs"
-    },
-    "./lib/utils/isStandardSyntaxRule": {
-      "import": "./lib/utils/isStandardSyntaxRule.mjs",
-      "require": "./lib/utils/isStandardSyntaxRule.cjs"
-    },
-    "./lib/utils/isStandardSyntaxSelector": {
-      "import": "./lib/utils/isStandardSyntaxSelector.mjs",
-      "require": "./lib/utils/isStandardSyntaxSelector.cjs"
-    },
-    "./lib/utils/isStandardSyntaxTypeSelector": {
-      "import": "./lib/utils/isStandardSyntaxTypeSelector.mjs",
-      "require": "./lib/utils/isStandardSyntaxTypeSelector.cjs"
-    },
-    "./lib/utils/isStandardSyntaxUrl": {
-      "import": "./lib/utils/isStandardSyntaxUrl.mjs",
-      "require": "./lib/utils/isStandardSyntaxUrl.cjs"
-    },
-    "./lib/utils/isStandardSyntaxValue": {
-      "import": "./lib/utils/isStandardSyntaxValue.mjs",
-      "require": "./lib/utils/isStandardSyntaxValue.cjs"
-    }
+    "./lib/utils/isStandardSyntax*": "./lib/utils/isStandardSyntax*"
   },
   "main": "lib/index.cjs",
   "types": "types/stylelint/index.d.ts",
