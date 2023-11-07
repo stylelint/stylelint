@@ -29,7 +29,7 @@
       "require": "./lib/index.cjs"
     },
     "./package.json": "./package.json",
-    "./lib/utils/isStandardSyntax*": "./lib/utils/isStandardSyntax*"
+    "./lib/utils/*": "./lib/utils/*"
   },
   "main": "lib/index.cjs",
   "types": "types/stylelint/index.d.ts",
