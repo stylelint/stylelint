@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "author": "stylelint",
-  "main": "lib/index.js",
+  "main": "lib/index.cjs",
   "types": "types/stylelint/index.d.ts",
   "bin": {
     "stylelint": "bin/stylelint.mjs"
