@@ -1,0 +1,16 @@
+diff --git a/node_modules/is-plain-object/package.json b/node_modules/is-plain-object/package.json
+index 3ea169a..622dff4 100644
+--- a/node_modules/is-plain-object/package.json
++++ b/node_modules/is-plain-object/package.json
+@@ -25,7 +25,10 @@
+   ],
+   "exports": {
+     ".": {
+-      "import": "./dist/is-plain-object.mjs",
++      "import": {
++        "types": "./is-plain-object.d.ts",
++        "default": "./dist/is-plain-object.mjs"
++      },
+       "require": "./dist/is-plain-object.js"
+     },
+     "./package.json": "./package.json"
