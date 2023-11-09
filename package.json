@@ -22,7 +22,6 @@
   },
   "license": "MIT",
   "author": "stylelint",
-  "type": "module",
   "exports": {
     ".": {
       "import": {
