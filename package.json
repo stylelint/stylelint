@@ -24,7 +24,10 @@
   "author": "stylelint",
   "exports": {
     ".": {
-      "import": "./lib/index.mjs",
+      "import": {
+        "types": "./types/stylelint/index.d.ts",
+        "default": "./lib/index.mjs"
+      },
       "require": "./lib/index.cjs"
     },
     "./package.json": "./package.json",
