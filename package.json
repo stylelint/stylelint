@@ -22,7 +22,18 @@
   },
   "license": "MIT",
   "author": "stylelint",
-  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/stylelint/index.d.ts",
+        "default": "./lib/index.mjs"
+      },
+      "require": "./lib/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./lib/utils/*": "./lib/utils/*"
+  },
+  "main": "lib/index.cjs",
   "types": "types/stylelint/index.d.ts",
   "bin": {
     "stylelint": "bin/stylelint.mjs"
