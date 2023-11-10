@@ -1,8 +1,9 @@
 {
 	"compilerOptions": {
-		"target": "ES2020",
-		"module": "commonjs",
-		"lib": ["ES2020"],
+		"module": "Node16",
+		"moduleResolution": "Node16",
+		"target": "ES2022",
+		"lib": ["ES2022"],
 		"checkJs": true,
 		"noEmit": true,
 		"strict": true,
@@ -12,13 +13,13 @@
 		"noImplicitReturns": false,
 		"noUnusedParameters": true,
 		"noUncheckedIndexedAccess": true,
-		"resolveJsonModule": true,
+		"resolveJsonModule": false,
 		"esModuleInterop": true,
 		"skipLibCheck": false,
 		"paths": {
-			"*": ["./node_modules/@types/*", "./types/*"]
+			"stylelint": ["./types/stylelint/index.d.ts"]
 		}
 	},
-	"include": ["lib", "types", "package.json"],
-	"exclude": ["**/*.test.{js,mjs}", "**/__tests__/"]
+	"include": ["lib/**/*.mjs", "types/**/*.ts"],
+	"exclude": ["**/__tests__/**"]
 }

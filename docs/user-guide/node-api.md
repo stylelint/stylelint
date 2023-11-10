@@ -46,6 +46,10 @@ For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby
 
 `stylelint.lint()` returns a Promise that resolves with an object containing the following properties:
 
+### `code`
+
+A string that contains the autofixed code, if the `fix` option is set to `true` and the `code` option is provided. Otherwise, it is `undefined`.
+
 ### `cwd`
 
 The directory used as the working directory for the linting operation.
@@ -56,6 +60,9 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 
 ### `output`
 
+> [!WARNING]
+> This property is deprecated and will be removed in the next major version. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide](../migration-guide/to-16.md).
+
 A string that contains either the:
 
 - formatted problems (using the default formatter or whichever you passed)
@@ -64,6 +71,10 @@ A string that contains either the:
 ### `postcssResults`
 
 An array containing all the accumulated [PostCSS LazyResults](https://api.postcss.org/LazyResult.html).
+
+### `report`
+
+A string that contains the formatted problems (using the default formatter or whichever you passed).
 
 ### `results`
 
@@ -173,7 +184,8 @@ stylelint
   });
 ```
 
-Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
+> [!NOTE]
+> The `customSyntax` option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
 
 ### Example F
 
@@ -191,7 +203,7 @@ stylelint
   });
 ```
 
-The autofixed code will be available as the value of the `output` property in the returned object.
+The autofixed code will be available as the value of the `code` property in the returned object.
 
 ## Resolving the effective config for a file
 

@@ -258,8 +258,9 @@ Look at the READMEs of other rules to glean more conventional patterns.
 
 The final step is to add references to the new rule in the following places:
 
-- [The rules `index.js` file](../../lib/rules/index.js)
+- [The rules `index.mjs` file](../../lib/rules/index.mjs)
 - [The list of rules](../user-guide/rules.md)
+- [The type definition of rules](../../types/stylelint/index.d.ts)
 
 ## Add an option to a rule
 

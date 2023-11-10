@@ -1,15 +1,13 @@
 import { copyFile, readFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
 import os from 'node:os';
 import path from 'node:path';
+import process from 'node:process';
 
 import replaceBackslashes from '../lib/testUtils/replaceBackslashes.mjs';
 import uniqueId from '../lib/testUtils/uniqueId.mjs';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-
 export function caseFilePath(caseNumber, fileName = 'stylesheet') {
-	return replaceBackslashes(path.join(__dirname, caseNumber, fileName));
+	return replaceBackslashes(new URL(`./${caseNumber}/${fileName}`, import.meta.url));
 }
 
 export function caseFiles(caseNumber) {
@@ -31,32 +29,41 @@ export async function caseCode(caseNumber, ext = 'css') {
 export async function caseFilesForFix(caseNumber, ext = 'css') {
 	const tempPath = replaceBackslashes(path.join(os.tmpdir(), `stylesheet-${uniqueId()}.${ext}`));
 
-	await copyFile(path.join(__dirname, caseNumber, `stylesheet.${ext}`), tempPath);
+	await copyFile(new URL(`./${caseNumber}/stylesheet.${ext}`, import.meta.url), tempPath);
 
 	return tempPath;
 }
 
-export function prepForSnapshot({ results, cwd, output, ...rest }) {
+export function prepForSnapshot({ results, cwd, output, report, ...rest }) {
+	const dummySource = '/path/to/dummy.css';
+
 	// If output isn't fixed code
 	if (output.startsWith('[')) {
 		// The `source` of each file varies between platforms or if a tmp file is used
-		output = JSON.parse(output).map((warning) => {
-			delete warning.source;
+		output = JSON.parse(output).map((warning) => ({
+			...warning,
+			source: dummySource,
+		}));
+	}
 
-			return warning;
-		});
+	if (report) {
+		// The `source` of each file varies between platforms or if a tmp file is used
+		report = JSON.parse(report).map((warning) => ({
+			...warning,
+			source: dummySource,
+		}));
 	}
 
 	return {
 		cwd: path.relative(process.cwd(), cwd),
 		// The _postcssResult object is not part of our API and is huge
 		results: results.map((result) => {
-			delete result.source;
 			delete result._postcssResult;
 
-			return result;
+			return { ...result, source: dummySource };
 		}),
-		output,
+		output, // TODO: Deprecated. Remove in the next major version.
+		report,
 		...rest,
 	};
 }

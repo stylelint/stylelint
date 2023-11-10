@@ -17,14 +17,14 @@ jobs:
   test:
     uses: stylelint/.github/.github/workflows/test.yml@main
     with:
-      node-version: '["14", "16", "18", "20"]'
+      node-version: '["18", "20", "current"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
-      exclude: '[{"node-version": "18", "os": "ubuntu-latest"}]' # for coverage
+      exclude: '[{"node-version": "20", "os": "ubuntu-latest"}]' # for coverage
       # HACK: `--workerIdleMemoryLimit` can avoid failures on Node.js 20. See https://github.com/jestjs/jest/issues/11956
       test-options: '--workerIdleMemoryLimit=0.2'
 
   test-coverage:
-    name: Test on Node.js 18 and ubuntu-latest with coverage
+    name: Test on Node.js 20 and ubuntu-latest with coverage
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -34,7 +34,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
 
       - name: Install latest npm
@@ -53,6 +53,31 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           files: ./.coverage/lcov.info
+
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          cache: npm
+
+      - name: Install latest npm
+        run: npm install --global npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Check built files
+        run: npm run build-check
 
   spellcheck:
     runs-on: ubuntu-latest
