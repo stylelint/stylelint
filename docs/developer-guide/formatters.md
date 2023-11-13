@@ -70,13 +70,13 @@ And the second argument (`returnValue`) is an object (type `LinterResult`) with 
 
 You can use environmental variables in your formatter. For example, pass `SKIP_WARNINGS`:
 
-```console
+```shell
 SKIP_WARNINGS=true stylelint "*.css" --custom-formatter ./my-formatter.js
 ```
 
 Alternatively, you can create a separate formatting program and pipe the output from the built-in JSON formatter into it:
 
-```console
+```shell
 stylelint -f json "*.css" | my-program-that-reads-JSON --option
 ```
 

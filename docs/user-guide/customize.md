@@ -116,7 +116,7 @@ You don't have to use the [CLI](./cli.md) either; we also provide a [Node.js API
 
 Whichever you choose, there are [many options](./options.md) in Stylelint that you can use to customize how Stylelint works. For example, you'll likely want to use the [`--fix` option](options.md#fix) to automatically fix as many problems as possible:
 
-```console
+```shell
 npx stylelint "**/*.css" --fix
 ```
 
