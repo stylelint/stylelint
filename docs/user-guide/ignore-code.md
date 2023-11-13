@@ -62,7 +62,8 @@ Stylelint supports complex, overlapping disabling & enabling patterns:
 /* stylelint-enable foo */
 ```
 
-**Caveat:** Comments within _selector and value lists_ are currently ignored.
+> [!WARNING]
+> Comments within _selector and value lists_ are currently ignored.
 
 You may also include a description at the end of the comment, after two hyphens:
 
@@ -72,7 +73,8 @@ You may also include a description at the end of the comment, after two hyphens:
 /* stylelint-disable foo, bar -- Reason for disabling the foo and bar rules. */
 ```
 
-**Important:** There must be a space on both sides of the hyphens.
+> [!WARNING]
+> There must be a space on both sides of the hyphens.
 
 ## Files entirely
 

@@ -38,11 +38,11 @@ Automatically fix, where possible, problems reported by rules.
 
 For CSS with standard syntax, Stylelint uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix syntax errors.
 
-When using the Node.js API, the autofixed code is available as the value of the `output` property in the returned object.
+When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
 If a source contains a:
 
-- scoped disable comment, e.g. `/* stylelint-disable indentation */`, any problems reported by the scoped rules will not be automatically fixed anywhere in the source
+- scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rules will not be automatically fixed anywhere in the source
 - unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of source will not be automatically fixed
 
 This limitation in being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
@@ -72,7 +72,8 @@ If you want to lint two or more different languages, you can combine `customSynt
 
 Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
 
-Note that Stylelint can provide no guarantee that core rules work with custom syntaxes.
+> [!NOTE]
+> Stylelint can provide no guarantee that core rules work with custom syntaxes.
 
 ## `formatter`
 
@@ -90,7 +91,7 @@ Options are:
 - `unix` - generates messages like a C compiler, so that tools like Emacs' _Compilation mode_ can hyperlink them
 - `verbose` - extends `string` to include a list of checked files and a tally for each rule
 
-The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path (either a filesystem path or a dependency) to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
+The `formatter` Node.js API option can also accept a function or a `Promise` function, whereas the `--custom-formatter` CLI flag accepts a path (either a filesystem path or a dependency) to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
 
 ## `cache`
 
