@@ -186,7 +186,7 @@
     "postcss-value-parser": "^4.2.0",
     "resolve-from": "^5.0.0",
     "string-width": "^4.2.3",
-    "strip-ansi": "^6.0.1",
+    "strip-ansi": "^7.1.0",
     "supports-hyperlinks": "^3.0.0",
     "svg-tags": "^1.0.0",
     "table": "^6.8.1",
