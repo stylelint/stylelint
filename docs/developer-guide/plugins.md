@@ -71,7 +71,7 @@ If your plugin rule supports [autofixing](rules.md#add-autofix), then `ruleFunct
 - the PostCSS Root (the parsed AST)
 - the PostCSS LazyResult
 
-You'll have to [learn about the PostCSS API](https://api.postcss.org/).
+You'll have to [learn about the PostCSS API](https://postcss.org/api/).
 
 ### Asynchronous rules
 

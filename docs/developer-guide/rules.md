@@ -81,7 +81,7 @@ You should make use of the:
 
 #### PostCSS API
 
-Use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
+Use the [PostCSS API](https://postcss.org/api/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
 
 When using array methods on nodes, e.g. `find`, `some`, `filter` etc, you should explicitly check the `type` property of the node before attempting to access other properties. For example:
 
@@ -184,7 +184,7 @@ If the rule has autofix use:
 
 ### Add autofix
 
-Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
+Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](https://postcss.org/api/).
 
 Add `context` variable to rule parameters:
 
