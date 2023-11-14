@@ -2,14 +2,46 @@
 
 Stylelint expects a configuration object, and looks for one in a:
 
+- `stylelint.config.js` or `.stylelintrc.js` file
+  - Which module system to use depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js (e.g., `"type": "module"` in `package.json`).
+- `stylelint.config.mjs` or `.stylelintrc.mjs` file using `export default` (ES module)
+- `stylelint.config.cjs` or `.stylelintrc.cjs` file using `module.exports` (CommonJS)
+- `.stylelintrc.json`, `.stylelintrc.yml`, or `.stylelintrc.yaml` file
+- `.stylelintrc` file in JSON or YAML format
+  - We recommend adding an extension (e.g., `.json`) to help your editor provide syntax checking and highlighting.
 - `stylelint` property in `package.json`
-- `.stylelintrc` file
-- `.stylelintrc.{cjs,js,json,yaml,yml}` file
-- `stylelint.config.{cjs,mjs,js}` file
+
+ES module example:
+
+```js
+export default {
+  rules: {
+    "block-no-empty": true
+  }
+};
+```
+
+CommonJS example:
+
+```js
+module.exports = {
+  rules: {
+    "block-no-empty": true
+  }
+};
+```
+
+JSON example:
+
+```json
+{
+  "rules": {
+    "block-no-empty": true
+  }
+}
+```
 
 Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config` or `configFile` option](options.md#configfile) to short-circuit the search.
-
-The `.stylelintrc` file (without extension) can be in JSON or YAML format. We recommend adding an extension to help your editor provide syntax checking and highlighting.
 
 The configuration object has the following properties:
 
