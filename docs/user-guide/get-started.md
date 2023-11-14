@@ -34,7 +34,7 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 
 1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the config:
 
-```console
+```shell
 npm install --save-dev stylelint stylelint-config-standard-scss
 ```
 
@@ -103,6 +103,6 @@ For example, to lint CSS files and the CSS within Lit Elements you can update yo
 
 And then run Stylelint on both your CSS and JavaScript files:
 
-```console
+```shell
 npx stylelint "**/*.{css,js}"
 ```

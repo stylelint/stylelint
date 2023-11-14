@@ -51,7 +51,7 @@ a { --foo: #f00; color: var(--bar, var(--foo)); }
 ```
 
 <!-- prettier-ignore -->
-``` css
+```css
 @property --foo { syntax: "<color>"; inherits: false; initial-value: #f00; }
 a { color: var(--foo); }
 ```

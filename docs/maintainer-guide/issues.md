@@ -56,7 +56,7 @@ You should use [saved replies](https://help.github.com/en/github/writing-on-gith
 
 That doesn't use a template:
 
-```md
+```markdown
 Thank you for creating this issue. However, issues need to follow one of our templates so that we can clearly understand your particular circumstances.
 
 Please help us help you by [recreating the issue](https://github.com/stylelint/stylelint/issues/new/choose) using one of our templates.
@@ -64,7 +64,7 @@ Please help us help you by [recreating the issue](https://github.com/stylelint/s
 
 That is best suited as a plugin:
 
-```md
+```markdown
 Thank you for your suggestion. I think this is best-suited as a [plugin](https://stylelint.io/developer-guide/plugins).
 ```
 
@@ -72,7 +72,7 @@ Thank you for your suggestion. I think this is best-suited as a [plugin](https:/
 
 That fixes a bug in a rule:
 
-```md
+```markdown
 I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
 There are [steps on how to fix a bug in a rule](https://stylelint.io/developer-guide/rules#fix-a-bug-in-a-rule) in the Developer guide.
@@ -80,7 +80,7 @@ There are [steps on how to fix a bug in a rule](https://stylelint.io/developer-g
 
 That adds a new option to a rule:
 
-```md
+```markdown
 I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
 There are [steps on how to add a new option](https://stylelint.io/developer-guide/rules#add-an-option-to-a-rule) in the Developer guide.
@@ -88,7 +88,7 @@ There are [steps on how to add a new option](https://stylelint.io/developer-guid
 
 That adds a new rule:
 
-```md
+```markdown
 I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
 There are [steps on how to add a new rule](https://stylelint.io/developer-guide/rules#add-a-rule) in the Developer guide.
@@ -96,6 +96,6 @@ There are [steps on how to add a new rule](https://stylelint.io/developer-guide/
 
 That is another type of improvement:
 
-```md
+```markdown
 I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
 ```
