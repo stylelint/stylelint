@@ -41,7 +41,7 @@ JSON example:
 }
 ```
 
-Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config` or `configFile` option](options.md#configfile) to short-circuit the search.
+Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) option to short-circuit the search.
 
 The configuration object has the following properties:
 
