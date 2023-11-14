@@ -2,4 +2,4 @@
 "stylelint": major
 ---
 
-Changed: Node.js API so that the `stylelint.formatters` object has `Promise` functions
+Changed: `stylelint.formatters` object to have `Promise` values

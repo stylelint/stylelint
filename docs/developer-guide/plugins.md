@@ -14,36 +14,47 @@ We recommend your custom rules adhere to our [rule conventions](rules.md) for:
 
 ## The anatomy of a plugin
 
-```js
-// Abbreviated example
-const stylelint = require("stylelint");
+Let's say we write a plugin forbidding certain word (e.g., "foo") within a selector.
+The plugin's implementation would be:
 
-const ruleName = "plugin/foo-bar";
-const messages = stylelint.utils.ruleMessages(ruleName, {
-  expected: "Expected ..."
+```js
+import stylelint from "stylelint";
+
+const { report, ruleMessages, validateOptions } = stylelint.utils;
+
+const ruleName = "foo-org/selector-no-foo";
+
+const messages = ruleMessages(ruleName, {
+  rejected: (selector) => `Unexpected "foo" within selector "${selector}"`
 });
+
 const meta = {
-  url: "https://github.com/foo-org/stylelint-foo/blob/main/src/rules/foo-bar/README.md"
-  // deprecated: true,
+  url: "https://github.com/foo-org/stylelint-selector-no-foo/blob/main/README.md"
 };
 
-const ruleFunction = (primaryOption, secondaryOptionObject) => {
-  return (postcssRoot, postcssResult) => {
-    const validOptions = stylelint.utils.validateOptions(
-      postcssResult,
-      ruleName,
-      {
-        /* .. */
-      }
-    );
+const ruleFunction = (primary, secondaryOptions) => {
+  return (root, result) => {
+    const validOptions = validateOptions(result, ruleName, {
+      actual: primary,
+      possible: [true]
+    });
 
     if (!validOptions) {
       return;
     }
 
-    // ... some logic ...
-    stylelint.utils.report({
-      /* .. */
+    root.walkRules((ruleNode) => {
+      const { selector } = ruleNode;
+
+      if (selector.includes("foo")) {
+        report({
+          result,
+          ruleName,
+          message: messages.rejected(selector),
+          node: ruleNode
+          word: selector,
+        });
+      }
     });
   };
 };
@@ -52,7 +63,31 @@ ruleFunction.ruleName = ruleName;
 ruleFunction.messages = messages;
 ruleFunction.meta = meta;
 
-module.exports = stylelint.createPlugin(ruleName, ruleFunction);
+export default stylelint.createPlugin(ruleName, ruleFunction);
+```
+
+> [!IMPORTANT]
+> A CommonJS plugin also works, but such a plugin may be unsupported in the future.
+> We recommend writing an ES module plugin if compatibility doesn't matter.
+
+The usage would be:
+
+```json
+{
+  "plugins": ["@foo-org/stylelint-selector-no-foo"],
+  "rules": {
+    "foo-org/selector-no-foo": true
+  }
+}
+```
+
+```sh-session
+$ echo '.foo {}' | stylelint --stdin-filename=test.css
+
+test.css
+ 1:1  ✖  Unexpected "foo" within selector ".foo"  foo-org/selector-no-foo
+
+1 problem (1 error, 0 warnings)
 ```
 
 Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`, to ensure it never clashes with the built-in rules. If your plugin provides only a single rule or you can't think of a good namespace, you can use `plugin/my-rule`. _You should document your plugin's rule name (and namespace) because users need to use them in their config._
@@ -75,52 +110,21 @@ You'll have to [learn about the PostCSS API](https://api.postcss.org/).
 
 ### Asynchronous rules
 
-You can return a `Promise` instance from your plugin function to create an asynchronous rule.
+You can write your plugin as an _async function_ to deal with `Promise`.
 
 ```js
-// Abbreviated asynchronous example
-const stylelint = require("stylelint");
+const ruleFunction = (primary, secondaryOptions) => {
+  return async (root, result) => {
+    // validate options...
 
-const ruleName = "plugin/foo-bar-async";
-const messages = stylelint.utils.ruleMessages(ruleName, {
-  expected: "Expected ..."
-});
-const meta = {
-  /* .. */
-};
+    // load a forbidden word asynchronously
+    const forbiddenWord = await import("./forbidden-word.js");
 
-const ruleFunction = (primaryOption, secondaryOptionObject) => {
-  return (postcssRoot, postcssResult) => {
-    const validOptions = stylelint.utils.validateOptions(
-      postcssResult,
-      ruleName,
-      {
-        /* .. */
-      }
-    );
+    // traverse AST nodes...
 
-    if (!validOptions) {
-      return;
-    }
-
-    return new Promise((resolve) => {
-      // some async operation
-      setTimeout(() => {
-        // ... some logic ...
-        stylelint.utils.report({
-          /* .. */
-        });
-        resolve();
-      }, 1);
-    });
+    // report a warning if a violation against the word is detected...
   };
 };
-
-ruleFunction.ruleName = ruleName;
-ruleFunction.messages = messages;
-ruleFunction.meta = meta;
-
-module.exports = stylelint.createPlugin(ruleName, ruleFunction);
 ```
 
 ## Testing
@@ -130,10 +134,9 @@ You should use [`jest-preset-stylelint`](https://github.com/stylelint/jest-prese
 For example:
 
 ```js
-// index.test.js
-const {
-  rule: { ruleName, messages }
-} = require(".");
+import rule from "./index.js";
+
+const { messages, ruleName } = rule;
 
 testRule({
   plugins: ["./index.js"],
@@ -143,81 +146,81 @@ testRule({
 
   accept: [
     {
-      code: ".class {}"
+      code: ".a {}"
     },
     {
-      code: ".my-class {}"
+      code: ".b {}"
     }
   ],
 
   reject: [
     {
-      code: ".myClass {}",
-      fixed: ".my-class {}",
-      message: messages.expected,
+      code: ".foo {}",
+      fixed: ".safe {}",
+      message: messages.rejected(".foo"),
       line: 1,
       column: 1,
       endLine: 1,
-      endColumn: 9
+      endColumn: 8
     }
   ]
 });
 ```
 
-However, if your plugin involves more than just checking syntax you can use Stylelint directly.
+However, if your plugin involves more than just checking syntax, you can use Stylelint directly.
 
 For example:
 
 ```js
-// index.test.js
-const { lint } = require("stylelint");
+import stylelint from "stylelint";
+
+const { lint } = stylelint;
 
 const config = {
   plugins: ["./index.js"],
   rules: {
-    "plugin/at-import-no-unresolveable": [true]
+    "foo-org/selector-no-foo": true
   }
 };
 
-it("warns for unresolveable import", async () => {
+it("warns", async () => {
   const {
     results: [{ warnings, parseErrors }]
   } = await lint({
-    files: "fixtures/contains-unresolveable-import.css",
+    files: ["fixtures/test.css"],
     config
   });
 
   expect(parseErrors).toHaveLength(0);
   expect(warnings).toHaveLength(1);
 
-  const [{ line, column, text }] = warnings;
+  const [{ text, line, column }] = warnings;
 
-  expect(text).toBe(
-    "Unexpected unresolveable import (plugin/at-import-no-unresolveable)"
-  );
+  expect(text).toBe('Unexpected "foo" within selector ".foo"');
   expect(line).toBe(1);
   expect(column).toBe(1);
 });
 
-it("doesn't warn for fileless sources", async () => {
+it("doesn't warn", async () => {
   const {
     results: [{ warnings, parseErrors }]
   } = await lint({
-    code: "@import url(unknown.css)",
+    code: ".foo {}",
     config
   });
+
   expect(parseErrors).toHaveLength(0);
   expect(warnings).toHaveLength(0);
 });
 ```
 
-Alternatively, if you don't want to use Jest you'll find more testing tool in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
+Alternatively, if you don't want to use Jest, you'll find more testing tool in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
 
 ## `stylelint.utils`
 
 Stylelint exposes some useful utilities.
 
-You're also welcome to copy any of the [internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) into your plugin. You should not `require` or `import` them directly, as they are not part of the public API and may change or be removed without warning.
+You're also welcome to copy any of the [internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) into your plugin. You should not `import` them directly, as they are not part of the public API and may change or be removed without warning.
 
 ### `stylelint.utils.report`
 
@@ -237,6 +240,9 @@ Validates the options for your rule.
 
 Checks CSS against a standard or custom Stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing Stylelint rules.
 
+> [!NOTE]
+> This is an async function. Your custom rule may need to wait until a `Promise` the function returns is resolved.
+
 It accepts an options object and a callback that is invoked with warnings from the specified rule. The options are:
 
 - `ruleName`: the name of the rule you are invoking
@@ -245,49 +251,55 @@ It accepts an options object and a callback that is invoked with warnings from t
 - `result?`: the PostCSS result for resolving and invoking custom rules
 - `context?`: the [context](rules.md#add-autofix) for the rule you are invoking
 
-Use the warning to create a _new_ warning _from your plugin rule_ that you report with `stylelint.utils.report`.
+Use the warning to create a _new_ warning _from your plugin rule_ that you report with [`stylelint.utils.report`](#stylelintutilsreport).
 
-For example, imagine you want to create a plugin that runs `at-rule-no-unknown` with a built-in list of exceptions for at-rules provided by your preprocessor-of-choice:
+For example, imagine you want to create a plugin that runs [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md) with a built-in list of exceptions for at-rules provided by your preprocessor-of-choice:
 
 ```js
+const { checkAgainstRule, report } = stylelint.utils;
+
 const allowableAtRules = [
   /* .. */
 ];
 
-function myPluginRule(primaryOption, secondaryOptionObject, ruleContext) {
-  return (postcssRoot, postcssResult) => {
-    const defaultedOptions = Object.assign({}, secondaryOptionObject, {
-      ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || [])
-    });
+const ruleName = "your-own/at-rule-no-unknown";
 
-    stylelint.utils.checkAgainstRule(
+const myPluginRule = (primary, secondaryOptions, context) => {
+  return async (root, result) => {
+    const ignoreAtRules = allowableAtRules.concat(
+      secondaryOptions?.ignoreAtRules ?? []
+    );
+    const defaultedSecondaryOptions = { ...secondaryOptions, ignoreAtRules };
+
+    await checkAgainstRule(
       {
         ruleName: "at-rule-no-unknown",
-        ruleSettings: [primaryOption, defaultedOptions],
-        root: postcssRoot,
-        result: postcssResult,
-        context: ruleContext
+        ruleSettings: [primary, defaultedSecondaryOptions],
+        root,
+        result,
+        context
       },
       (warning) => {
-        stylelint.utils.report({
-          message: myMessage,
-          ruleName: myRuleName,
-          result: postcssResult,
+        report({
+          ruleName,
+          result,
+          message: warning.text,
           node: warning.node,
-          line: warning.line,
-          column: warning.column,
-          endLine: warning.endLine,
-          endColumn: warning.endColumn
+          start: { line: warning.line, column: warning.column },
+          end: { line: warning.endLine, column: warning.endColumn }
         });
       }
     );
   };
-}
+};
 ```
 
 ## `stylelint.rules`
 
-All of the rule functions are available at `stylelint.rules`. This allows you to build on top of existing rules for your particular needs.
+All of the rule functions are available at the `stylelint.rules` object. This allows you to build on top of existing rules for your particular needs.
+
+> [!NOTE]
+> Every value in the `stylelint.rules` object is a `Promise` resolving a rule function. This avoids loading all the rules and slowing the start-up down.
 
 A typical use-case is to build in more complex conditionals that the rule's options allow for. For example, maybe your codebase uses special comment directives to customize rule options for specific stylesheets. You could build a plugin that checks those directives and then runs the appropriate rules with the right options (or doesn't run them at all).
 
@@ -296,17 +308,16 @@ All rules share a common signature. They are a function that accepts two argumen
 Here's an example of a plugin that runs `declaration-no-important` only if there is a special directive `@@check-declaration-no-important` somewhere in the stylesheet:
 
 ```js
-module.exports = stylelint.createPlugin(ruleName, (expectation) => {
-  const runDeclarationNoImportant = stylelint.rules[
-    "declaration-no-important"
-  ].then((rule) => rule(expectation));
+stylelint.createPlugin(ruleName, (primary) => {
+  const rulePromise = stylelint.rules["declaration-no-important"];
+  const ruleRunnner = rulePromise.then((rule) => rule(primary));
 
-  return (root, result) => {
+  return async (root, result) => {
     if (!root.toString().includes("@@check-declaration-no-important")) {
       return;
     }
 
-    return runDeclarationNoImportant.then((rule) => rule(root, result));
+    (await ruleRunnner)(root, result);
   };
 });
 ```

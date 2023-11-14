@@ -2,4 +2,4 @@
 "stylelint": major
 ---
 
-Changed: Node.js API so that the `stylelint.rules` object has `Promise` functions
+Changed: `stylelint.rules` object to have `Promise` values
