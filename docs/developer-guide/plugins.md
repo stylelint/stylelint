@@ -66,7 +66,6 @@ ruleFunction.meta = meta;
 export default createPlugin(ruleName, ruleFunction);
 ```
 
-
 The usage would be:
 
 ```json
