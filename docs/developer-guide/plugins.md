@@ -19,7 +19,10 @@ This example plugin disallows the word "foo" in selectors:
 ```js
 import stylelint from "stylelint";
 
-const { report, ruleMessages, validateOptions } = stylelint.utils;
+const {
+  createPlugin,
+  utils: { report, ruleMessages, validateOptions }
+} = stylelint;
 
 const ruleName = "foo-org/selector-no-foo";
 
@@ -50,8 +53,8 @@ const ruleFunction = (primary, secondaryOptions) => {
           result,
           ruleName,
           message: messages.rejected(selector),
-          node: ruleNode
-          word: selector,
+          node: ruleNode,
+          word: selector
         });
       }
     });
@@ -62,7 +65,7 @@ ruleFunction.ruleName = ruleName;
 ruleFunction.messages = messages;
 ruleFunction.meta = meta;
 
-export default stylelint.createPlugin(ruleName, ruleFunction);
+export default createPlugin(ruleName, ruleFunction);
 ```
 
 > [!IMPORTANT]
@@ -255,7 +258,9 @@ Use the warning to create a _new_ warning _from your plugin rule_ that you repor
 For example, imagine you want to create a plugin that runs [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md) with a built-in list of exceptions for at-rules provided by your preprocessor-of-choice:
 
 ```js
-const { checkAgainstRule, report } = stylelint.utils;
+const {
+  utils: { checkAgainstRule, report }
+} = stylelint;
 
 const allowableAtRules = [
   /* .. */
@@ -307,7 +312,7 @@ All rules share a common signature. They are a function that accepts two argumen
 Here's an example of a plugin that runs `declaration-no-important` only if there is a special directive `@@check-declaration-no-important` somewhere in the stylesheet:
 
 ```js
-stylelint.createPlugin(ruleName, (primary) => {
+createPlugin(ruleName, (primary) => {
   const rulePromise = stylelint.rules["declaration-no-important"];
   const ruleRunnner = rulePromise.then((rule) => rule(primary));
 
