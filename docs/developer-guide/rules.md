@@ -186,17 +186,27 @@ If the rule has autofix use:
 
 Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](https://postcss.org/api/).
 
+Set `meta.fixable = true` to the rule:
+
+```diff js
+const meta = {
+  url: /* .. */,
++ fixable: true,
+};
+```
+
 Add `context` variable to rule parameters:
 
-```js
-function rule(primary, secondary, context) {
+```diff js
+-function rule(primary, secondary) {
++function rule(primary, secondary, context) {
   return (root, result) => {
     /* .. */
   };
 }
 ```
 
-`context` is an object which could have two properties:
+`context` is an object which could have three properties:
 
 - `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
 - `fix`(boolean): If `true`, your rule can apply autofixes.
