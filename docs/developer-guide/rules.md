@@ -190,7 +190,7 @@ Add `fixable: true` to the rule's `meta`:
 
 ```diff js
 const meta = {
-	url: /* .. */,
+  url: /* .. */,
 + fixable: true,
 };
 ```
