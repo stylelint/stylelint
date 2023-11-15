@@ -41,22 +41,20 @@ const ruleFunction = (primary, secondaryOptions) => {
       possible: [true]
     });
 
-    if (!validOptions) {
-      return;
-    }
+    if (!validOptions) return;
 
     root.walkRules((ruleNode) => {
       const { selector } = ruleNode;
 
-      if (selector.includes("foo")) {
-        report({
-          result,
-          ruleName,
-          message: messages.rejected(selector),
-          node: ruleNode,
-          word: selector
-        });
-      }
+      if (!selector.includes("foo")) return;
+
+      report({
+        result,
+        ruleName,
+        message: messages.rejected(selector),
+        node: ruleNode,
+        word: selector
+      });
     });
   };
 };
