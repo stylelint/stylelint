@@ -222,7 +222,9 @@ You're also welcome to copy any of the [internal utils](https://github.com/style
 
 Adds problems from your plugin to the list of problems that Stylelint will report to the user.
 
-Use `stylelint.utils.report()` to ensure your plugin respects disabled ranges and other possible future features of stylelint. _Do not use PostCSS's `node.warn()` method directly._
+Use `stylelint.utils.report()` to ensure your plugin respects disabled ranges and other possible future features of stylelint. _Do not use PostCSS's [`Node#warn()`](https://postcss.org/api/#node-warn) method directly._
+
+You can specify PostCSS's [warning options](https://postcss.org/api/#warningoptions) (e.g., `word`, `index`, `start`, etc.) to detail where a problem occurs. For example:
 
 ### `stylelint.utils.ruleMessages()`
 
