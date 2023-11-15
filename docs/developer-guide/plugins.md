@@ -218,21 +218,21 @@ Stylelint exposes some useful utilities.
 
 You're also welcome to copy any of the [internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) into your plugin. You should not `import` them directly, as they are not part of the public API and may change or be removed without warning.
 
-### `stylelint.utils.report`
+### `stylelint.utils.report()`
 
 Adds problems from your plugin to the list of problems that Stylelint will report to the user.
 
-Use `stylelint.utils.report` to ensure your plugin respects disabled ranges and other possible future features of stylelint. _Do not use PostCSS's `node.warn()` method directly._
+Use `stylelint.utils.report()` to ensure your plugin respects disabled ranges and other possible future features of stylelint. _Do not use PostCSS's `node.warn()` method directly._
 
-### `stylelint.utils.ruleMessages`
+### `stylelint.utils.ruleMessages()`
 
 Tailors your messages to the format of standard Stylelint rules.
 
-### `stylelint.utils.validateOptions`
+### `stylelint.utils.validateOptions()`
 
 Validates the options for your rule.
 
-### `stylelint.utils.checkAgainstRule`
+### `stylelint.utils.checkAgainstRule()`
 
 Checks CSS against a standard or custom Stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing Stylelint rules.
 
@@ -247,7 +247,7 @@ It accepts an options object and a callback that is invoked with warnings from t
 - `result?`: the PostCSS result for resolving and invoking custom rules
 - `context?`: the [context](rules.md#add-autofix) for the rule you are invoking
 
-Use the warning to create a _new_ warning _from your plugin rule_ that you report with [`stylelint.utils.report`](#stylelintutilsreport).
+Use the warning to create a _new_ warning _from your plugin rule_ that you report with [`stylelint.utils.report()`](#stylelintutilsreport).
 
 For example, imagine you want to create a plugin that runs [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md) with a built-in list of exceptions for at-rules provided by your preprocessor-of-choice:
 
