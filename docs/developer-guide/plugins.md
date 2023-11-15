@@ -239,7 +239,7 @@ Validates the options for your rule.
 Checks CSS against a standard or custom Stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing Stylelint rules.
 
 > [!NOTE]
-> This is an async function. Your custom rule may need to wait until a `Promise` the function returns is resolved.
+> This is an async function. Your custom rule may need to wait until a `Promise` returned by the function is resolved.
 
 It accepts an options object and a callback that is invoked with warnings from the specified rule. The options are:
 
