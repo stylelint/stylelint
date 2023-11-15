@@ -297,7 +297,7 @@ const myPluginRule = (primary, secondaryOptions, context) => {
 All of the rule functions are available at the `stylelint.rules` object. This allows you to build on top of existing rules for your particular needs.
 
 > [!NOTE]
-> Every value in the `stylelint.rules` object is a `Promise` resolving a rule function. This avoids loading all the rules and slowing the start-up down.
+> Every value in the `stylelint.rules` object is a `Promise` resolving a rule function.
 
 A typical use-case is to build in more complex conditionals that the rule's options allow for. For example, maybe your codebase uses special comment directives to customize rule options for specific stylesheets. You could build a plugin that checks those directives and then runs the appropriate rules with the right options (or doesn't run them at all).
 
