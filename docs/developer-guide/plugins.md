@@ -14,8 +14,7 @@ We recommend your custom rules adhere to our [rule conventions](rules.md) for:
 
 ## The anatomy of a plugin
 
-Let's say we write a plugin forbidding certain word (e.g., "foo") within a selector.
-The plugin's implementation would be:
+This example plugin disallows the word "foo" in selectors:
 
 ```js
 import stylelint from "stylelint";
