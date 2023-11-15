@@ -742,7 +742,7 @@ export type Utils = {
 			context?: RuleContext;
 		},
 		callback: (warning: PostCSS.Warning) => void,
-	) => void;
+	) => Promise<void>;
 };
 
 /**
