@@ -2,4 +2,4 @@
 "stylelint": major
 ---
 
-Changed: `stylelint.utils.checkAgainstRule` to become an async function
+Changed: `stylelint.utils.checkAgainstRule` to be an async function
