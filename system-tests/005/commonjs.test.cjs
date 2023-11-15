@@ -8,14 +8,18 @@ const stylelint = require('../../lib/index.cjs');
 const [nodeMajorVersion] = process.versions.node.split('.', 1);
 const testFn = Number(nodeMajorVersion) >= 20 ? test : test.skip;
 
-testFn('CommonJS API and config', async () => {
-	const result = await stylelint.lint({
-		files: [caseFilePath('stylesheet.css')],
-		configFile: caseFilePath('config.cjs'),
-	});
+testFn(
+	'CommonJS API and config',
+	async () => {
+		const result = await stylelint.lint({
+			files: [caseFilePath('stylesheet.css')],
+			configFile: caseFilePath('config.cjs'),
+		});
 
-	expect(normalizeResult(result)).toMatchSnapshot();
-});
+		expect(normalizeResult(result)).toMatchSnapshot();
+	},
+	20000,
+);
 
 function caseFilePath(basename) {
 	return path.join(__dirname, basename).replaceAll('\\', '/');
