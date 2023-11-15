@@ -206,7 +206,7 @@ Add `context` variable to rule parameters:
 }
 ```
 
-`context` is an object which could have two properties:
+`context` is an object which could have three properties:
 
 - `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
 - `fix`(boolean): If `true`, your rule can apply autofixes.
