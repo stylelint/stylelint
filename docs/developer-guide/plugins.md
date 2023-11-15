@@ -114,8 +114,8 @@ const ruleFunction = (primary, secondaryOptions) => {
   return async (root, result) => {
     // validate options...
 
-    // load a forbidden word asynchronously
-    const forbiddenWord = await import("./forbidden-word.js");
+    // load disallowed words asynchronously
+    const disallowedWords = await import("./disallowed-words.js");
 
     // traverse AST nodes...
 
