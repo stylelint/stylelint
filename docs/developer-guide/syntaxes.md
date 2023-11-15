@@ -2,7 +2,7 @@
 
 Custom syntaxes are [PostCSS](https://github.com/postcss/postcss) syntaxes written by the community to support other styling languages, e.g. SCSS, and containers, e.g. HTML, using the [`customSyntax` option](../user-guide/options.md#customsyntax).
 
-To write one, familiarize yourself with PostCSS's [how to write custom syntax](https://github.com/postcss/postcss/blob/main/docs/syntax.md) guide. You can use one of the existing custom syntaxes from [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme) for reference.
+To write one, familiarize yourself with PostCSS's [how to write custom syntax](https://postcss.org/docs/how-to-write-custom-syntax) guide. You can use one of the existing custom syntaxes from [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme) for reference.
 
 After publishing your custom syntax, we recommend creating a shared config that:
 

@@ -66,7 +66,7 @@ For your plugin rule to work with the [standard configuration format](../user-gu
 
 If your plugin rule supports [autofixing](rules.md#add-autofix), then `ruleFunction` should also accept a third argument: `context`.
 
-`ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md). It takes 2 arguments:
+`ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://postcss.org/docs/writing-a-postcss-plugin). It takes 2 arguments:
 
 - the PostCSS Root (the parsed AST)
 - the PostCSS LazyResult
