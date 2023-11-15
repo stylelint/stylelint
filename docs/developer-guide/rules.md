@@ -186,7 +186,7 @@ If the rule has autofix use:
 
 Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
 
-Add `fixable: true` to the rule's `meta`:
+Set `meta.fixable = true` to the rule:
 
 ```diff js
 const meta = {
