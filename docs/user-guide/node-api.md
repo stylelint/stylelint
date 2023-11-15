@@ -70,7 +70,7 @@ A string that contains either the:
 
 ### `postcssResults`
 
-An array containing all the accumulated [PostCSS LazyResults](https://api.postcss.org/LazyResult.html).
+An array containing all the accumulated [PostCSS LazyResults](https://postcss.org/api/#lazyresult).
 
 ### `report`
 
