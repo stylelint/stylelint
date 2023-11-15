@@ -66,9 +66,6 @@ ruleFunction.meta = meta;
 export default createPlugin(ruleName, ruleFunction);
 ```
 
-> [!IMPORTANT]
-> A CommonJS plugin also works, but such a plugin may be unsupported in the future.
-> We recommend writing an ES module plugin if compatibility doesn't matter.
 
 The usage would be:
 
