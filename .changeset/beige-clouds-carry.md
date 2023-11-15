@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: support for ESM plugin
+Added: support for ESM plugins
