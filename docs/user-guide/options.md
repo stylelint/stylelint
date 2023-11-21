@@ -70,7 +70,7 @@ This option should be a string that resolves to a JS module that exports a [Post
 
 If you want to lint two or more different languages, you can combine `customSyntax` with the [`overrides`](./configure.md#overrides) configuration property.
 
-Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://postcss.org/docs/how-to-write-custom-syntax#syntax). Stylelint treats the `parse` property as a required value.
+Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://postcss.org/docs/how-to-write-custom-syntax#syntax). Stylelint treats the `parse` property as a required value. Also, Stylelint supports syntax modules written in ESM.
 
 > [!NOTE]
 > Stylelint can provide no guarantee that core rules work with custom syntaxes.
