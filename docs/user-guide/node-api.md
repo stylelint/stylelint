@@ -3,9 +3,7 @@
 The Stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
-stylelint.lint(options).then((resultObject) => {
-  /* .. */
-});
+const result = await stylelint.lint(options);
 ```
 
 ## Options
@@ -16,7 +14,7 @@ In addition to the [standard options](options.md), the Node API accepts:
 
 A [configuration object](./configure.md).
 
-Stylelint does not bother looking for a `.stylelintrc` file if you use this option.
+Stylelint does not bother looking for a configuration file (e.g. `stylelint.config.js`) if you use this option.
 
 ### `code`
 
@@ -44,7 +42,7 @@ For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby
 
 ## The returned promise
 
-`stylelint.lint()` returns a Promise that resolves with an object containing the following properties:
+`stylelint.lint()` returns a `Promise` that resolves with an object containing the following properties:
 
 ### `code`
 
@@ -86,8 +84,8 @@ An object containing the maximum number of warnings and the amount found, e.g. `
 
 ## Syntax errors
 
-`stylelint.lint()` does not reject the Promise when your CSS contains syntax errors.
-It resolves with an object (see [The returned promise](#the-returned-promise)) that contains information about the syntax error.
+`stylelint.lint()` does not reject the `Promise` when your CSS contains syntax errors.
+It resolves with an object (see [the returned promise](#the-returned-promise)) that contains information about the syntax error.
 
 ## Usage examples
 
@@ -96,19 +94,16 @@ It resolves with an object (see [The returned promise](#the-returned-promise)) t
 As `config` contains no relative paths for `extends` or `plugins`, you do not have to use `configBasedir`:
 
 ```js
-stylelint
-  .lint({
+try {
+  const result = await stylelint.lint({
     config: { rules: "color-no-invalid-hex" },
     files: "all/my/stylesheets/*.css"
-  })
-  .then((data) => {
-    // do things with data.output, data.errored,
-    // and data.results
-  })
-  .catch((err) => {
-    // do things with err e.g.
-    console.error(err.stack);
   });
+  // do things with result.report, result.errored, and result.results
+} catch (err) {
+  // do things with err e.g.
+  console.error(err.stack);
+}
 ```
 
 ### Example B
@@ -116,49 +111,41 @@ stylelint
 If `myConfig` _does_ contain relative paths for `extends` or `plugins`, you _do_ have to use `configBasedir`:
 
 ```js
-stylelint
-  .lint({
-    config: myConfig,
-    configBasedir: path.join(__dirname, "configs"),
-    files: "all/my/stylesheets/*.css"
-  })
-  .then(() => {
-    /* .. */
-  });
+const result = await stylelint.lint({
+  config: myConfig,
+  configBasedir: url.fileURLToPath(new URL("configs", import.meta.url)),
+  files: "all/my/stylesheets/*.css"
+});
 ```
 
 ### Example C
 
-Using a string instead of a file glob, and the verbose formatter instead of the default JSON:
+Using a string code instead of a file glob, and the verbose formatter instead of the default JSON:
 
 ```js
-stylelint
-  .lint({
-    code: "a { color: pink; }",
-    config: myConfig,
-    formatter: "verbose"
-  })
-  .then(() => {
-    /* .. */
-  });
+const result = await stylelint.lint({
+  code: "a { color: pink; }",
+  config: myConfig,
+  formatter: "verbose"
+});
+
+// do things with result.report
 ```
+
+The report will be available as the value of the `report` property in the returned object.
 
 ### Example D
 
-Using your own custom formatter function and parse `.scss` source files:
+Using your own custom formatter function and parse `.css` source files:
 
 ```js
-stylelint
-  .lint({
-    config: myConfig,
-    files: "all/my/stylesheets/*.scss",
-    formatter: (stylelintResults) => {
-      /* .. */
-    }
-  })
-  .then(() => {
+const result = await stylelint.lint({
+  config: myConfig,
+  files: "all/my/stylesheets/*.css",
+  formatter: (results) => {
     /* .. */
-  });
+  }
+});
 ```
 
 ### Example E
@@ -166,22 +153,18 @@ stylelint
 Using a custom syntax:
 
 ```js
-stylelint
-  .lint({
-    config: myConfig,
-    files: "all/my/stylesheets/*.css",
-    customSyntax: {
-      parse: (css, opts) => {
-        /* .. */
-      },
-      stringify: (root, builder) => {
-        /* .. */
-      }
+const result = await stylelint.lint({
+  config: myConfig,
+  files: "all/my/stylesheets/*.css",
+  customSyntax: {
+    parse(css, opts) {
+      /* .. */
+    },
+    stringify(node, builder) {
+      /* .. */
     }
-  })
-  .then(() => {
-    /* .. */
-  });
+  }
+});
 ```
 
 > [!NOTE]
@@ -189,25 +172,23 @@ stylelint
 
 ### Example F
 
-Using a string and the `fix` option:
+Using a string code and the `fix` option:
 
 ```js
-stylelint
-  .lint({
-    code: "a { color: pink; }",
-    config: { rules: { "hue-degree-notation": "angle" } },
-    fix: true
-  })
-  .then(() => {
-    /* .. */
-  });
+const result = await stylelint.lint({
+  code: "a { color: pink; }",
+  config: { rules: { "hue-degree-notation": "angle" } },
+  fix: true
+});
+
+// do things with result.code
 ```
 
 The autofixed code will be available as the value of the `code` property in the returned object.
 
 ## Resolving the effective config for a file
 
-If you want to find out what exact configuration will be used for a file without actually linting it, you can use the `resolveConfig()` function. Given a file path, it will return a Promise that resolves with the effective configuration object:
+If you want to find out what exact configuration will be used for a file without actually linting it, you can use the `resolveConfig()` function. Given a file path, it will return a `Promise` that resolves with the effective configuration object:
 
 ```js
 const config = await stylelint.resolveConfig(filePath);
@@ -227,7 +208,7 @@ const config = await stylelint.resolveConfig(filePath);
 // }
 ```
 
-If a configuration cannot be found for a file, `resolveConfig()` will return a Promise that resolves to `undefined`.
+If a configuration cannot be found for a file, `resolveConfig()` will return a `Promise` that resolves to `undefined`.
 
 You can also pass the following subset of the [options that you would normally pass to `lint()`](#options):
 
