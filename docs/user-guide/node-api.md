@@ -136,7 +136,7 @@ The report will be available as the value of the `report` property in the return
 
 ### Example D
 
-Using your own custom formatter function and parse `.css` source files:
+Using your own custom formatter function:
 
 ```js
 const result = await stylelint.lint({
