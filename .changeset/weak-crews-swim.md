@@ -2,4 +2,4 @@
 "stylelint": major
 ---
 
-Added: `exports` field to `package.json` for Conditional Exports (ESM/CJS)
+Added: `exports` field to `package.json` for Conditional Exports (ESM/CommonJS)

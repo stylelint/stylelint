@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Deprecated: CJS Node.js API
+Deprecated: CommonJS Node.js API
