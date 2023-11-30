@@ -47,6 +47,7 @@
     "lib/**/*.mjs",
     "!**/__tests__/**",
     "!lib/testUtils/**",
+    "!lib/rules/*/README.md",
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
