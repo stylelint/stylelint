@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Refactor: `.js` extension to `.mjs` and `.cjs`
+Refactored: `.js` extension to `.mjs` and `.cjs`
