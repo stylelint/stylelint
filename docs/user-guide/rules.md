@@ -334,8 +334,8 @@ Enforce one representation of things that have multiple with these `notation` (s
 | [`color-hex-length`](../../lib/rules/color-hex-length/README.md)<br/>Specify short or long notation for hex colors. | ✅ | 🔧 |
 | [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md)<br/>Specify numeric or named notation for font weights. | | 🔧 |
 | [`hue-degree-notation`](../../lib/rules/hue-degree-notation/README.md)<br/>Specify number or angle notation for degree hues. | ✅ | 🔧 |
-| [`lightness-notation`](../../lib/rules/lightness-notation/README.md)<br/>Specify number or percentage notation for lightness. | ✅ | 🔧 |
 | [`import-notation`](../../lib/rules/import-notation/README.md)<br/>Specify string or URL notation for `@import` rules. | ✅ | 🔧 |
+| [`lightness-notation`](../../lib/rules/lightness-notation/README.md)<br/>Specify number or percentage notation for lightness. | ✅ | 🔧 |
 | [`keyframe-selector-notation`](../../lib/rules/keyframe-selector-notation/README.md)<br/>Specify keyword or percentage notation for keyframe selectors. | ✅ | 🔧 |
 | [`media-feature-range-notation`](../../lib/rules/media-feature-range-notation/README.md)<br/>Specify context or prefix notation for media feature ranges. | ✅ | 🔧 |
 | [`selector-not-notation`](../../lib/rules/selector-not-notation/README.md)<br/>Specify simple or complex notation for `:not()` pseudo-class selectors. | ✅ | 🔧 |
