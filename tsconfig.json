@@ -20,6 +20,6 @@
 			"stylelint": ["./types/stylelint/index.d.ts"]
 		}
 	},
-	"include": ["lib/**/*.mjs", "types/**/*.ts", "rollup.config.*"],
+	"include": ["lib/**/*.mjs", "types/**/*.ts", "rollup.config.*", ".changeset/*.mjs"],
 	"exclude": ["**/__tests__/**"]
 }
