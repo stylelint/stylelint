@@ -1,5 +1,29 @@
 # Changelog
 
+## 16.0.0
+
+- Removed: Node.js less than 18.12.0 support ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Removed: 76 rules deprecated in 15.0.0 ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Changed: `stylelint.formatters` object to have `Promise` values ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Changed: exit code for CLI flag error ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Changed: default syntax behaviour to always use safe-parser with `fix` regardless of extension ([#7357](https://github.com/stylelint/stylelint/pull/7357)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Changed: TypeScript definitions for ESM ([#7309](https://github.com/stylelint/stylelint/pull/7309)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Changed: `stylelint.rules` object to have `Promise` values ([#7279](https://github.com/stylelint/stylelint/pull/7279)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Changed: `stylelint.utils.checkAgainstRule` to be an async function ([#7339](https://github.com/stylelint/stylelint/pull/7339)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Deprecated: CommonJS Node.js API ([#7353](https://github.com/stylelint/stylelint/pull/7353)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Deprecated: `output` property in a Node.js API returned object. Instead, `report`/`code` properties are recommended ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: `exports` field to `package.json` for Conditional Exports (ESM/CommonJS) ([#7307](https://github.com/stylelint/stylelint/pull/7307)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: support for ESM plugins ([#7339](https://github.com/stylelint/stylelint/pull/7339)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: support for ESM custom formatters ([#7343](https://github.com/stylelint/stylelint/pull/7343)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `severity` secondary option's function support ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: support for a `Promise` formatter function ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Added: support for ESM custom syntaxes ([#7351](https://github.com/stylelint/stylelint/pull/7351)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `report`/`code` properties to a Node.js API returned object ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: no longer needed workaround for Cosmiconfig segfault ([#7329](https://github.com/stylelint/stylelint/pull/7329)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: CLI regression to avoid waiting for stdin without any input ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: CLI to avoid different outputs on empty files and empty stdin ([#7002](https://github.com/stylelint/stylelint/pull/7002)) ([@mattxwang](https://github.com/mattxwang)).
+- Refactored: `.js` extension to `.mjs` and `.cjs` ([#7307](https://github.com/stylelint/stylelint/pull/7307)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 15.11.0
 
 - Added: `ignoreRules` to `max-nesting-depth` ([#7215](https://github.com/stylelint/stylelint/pull/7215)) ([@mattxwang](https://github.com/mattxwang)).
