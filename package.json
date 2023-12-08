@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "16.0.0-3",
+  "version": "16.0.1",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -25,10 +25,13 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./types/stylelint/index.d.ts",
+        "types": "./types/stylelint/index.d.mts",
         "default": "./lib/index.mjs"
       },
-      "require": "./lib/index.cjs"
+      "require": {
+        "types": "./types/stylelint/index.d.ts",
+        "default": "./lib/index.cjs"
+      }
     },
     "./package.json": "./package.json",
     "./lib/utils/*": "./lib/utils/*"
@@ -48,6 +51,7 @@
     "!**/__tests__/**",
     "!lib/testUtils/**",
     "!lib/rules/*/README.md",
+    "types/stylelint/index.d.mts",
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
@@ -66,7 +70,7 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
     "test-only": "npm test --ignore-scripts",
-    "version": "changeset version",
+    "version": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
     "postversion": "git restore package.json",
     "watch": "npm test --ignore-scripts -- --watch"
   },
@@ -180,7 +184,7 @@
     "micromatch": "^4.0.5",
     "normalize-path": "^3.0.0",
     "picocolors": "^1.0.0",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.32",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^7.0.0",
     "postcss-selector-parser": "^6.0.13",
@@ -194,8 +198,8 @@
     "write-file-atomic": "^5.0.1"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@changesets/get-github-info": "^0.5.2",
+    "@changesets/cli": "^2.27.1",
+    "@changesets/get-github-info": "^0.6.0",
     "@jest/globals": "^29.7.0",
     "@stylelint/prettier-config": "^3.0.0",
     "@stylelint/remark-preset": "^5.0.0",
@@ -216,7 +220,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^8.54.0",
+    "eslint": "^8.55.0",
     "eslint-config-stylelint": "^20.0.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jest": "^27.6.0",
@@ -224,7 +228,7 @@
     "jest": "^29.7.0",
     "jest-preset-stylelint": "^6.3.2",
     "jest-watch-typeahead": "^2.2.2",
-    "lint-staged": "^15.1.0",
+    "lint-staged": "^15.2.0",
     "np": "^8.0.4",
     "npm-run-all": "^4.1.5",
     "patch-package": "^8.0.0",
@@ -234,7 +238,7 @@
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.9",
     "remark-cli": "^12.0.0",
-    "rollup": "^4.6.0",
+    "rollup": "^4.6.1",
     "sugarss": "^4.0.1",
     "typescript": "^5.3.2"
   },

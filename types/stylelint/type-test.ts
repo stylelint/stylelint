@@ -16,7 +16,14 @@ import type {
 	RuleMeta,
 	Warning,
 } from 'stylelint';
-import stylelint from 'stylelint';
+import stylelint = require('stylelint');
+
+import('stylelint').then((module) => {
+	module.default({
+		code: '',
+		codeFilename: '',
+	});
+});
 
 const options: Partial<LinterOptions> = {
 	allowEmptyInput: true,

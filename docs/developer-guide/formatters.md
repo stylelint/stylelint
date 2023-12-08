@@ -6,7 +6,7 @@ A formatter is a function with the following signature:
 /**
  * @type {import('stylelint').Formatter}
  */
-function formatter(results, returnValue) {
+export default function formatter(results, returnValue) {
   return "a string of formatted results";
 }
 ```
