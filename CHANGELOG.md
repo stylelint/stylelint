@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.0.1
+
+- Fixed: type definitions for CommonJS ([#7377](https://github.com/stylelint/stylelint/pull/7377)) ([@remcohaszing](https://github.com/remcohaszing)).
+
 ## 16.0.0
 
 [Migrating to `16.0.0` guide](docs/migration-guide/to-16.md).
