@@ -2,7 +2,7 @@
 
 ## 16.0.1
 
-- Fixed: type definitions for CommonJS ([#7377](https://github.com/stylelint/stylelint/pull/7377)) ([@remcohaszing](https://github.com/remcohaszing)).
+- Fixed: type definitions for CommonJS and ESM ([#7377](https://github.com/stylelint/stylelint/pull/7377)) ([@remcohaszing](https://github.com/remcohaszing)).
 
 ## 16.0.0
 
