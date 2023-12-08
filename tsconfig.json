@@ -15,10 +15,7 @@
 		"noUncheckedIndexedAccess": true,
 		"resolveJsonModule": false,
 		"esModuleInterop": true,
-		"skipLibCheck": false,
-		"paths": {
-			"stylelint": ["./types/stylelint/index.d.ts"]
-		}
+		"skipLibCheck": false
 	},
 	"include": ["lib/**/*.mjs", "types/**/*.ts", "rollup.config.*", ".changeset/*.mjs"],
 	"exclude": ["**/__tests__/**"]

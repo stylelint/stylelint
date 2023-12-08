@@ -25,10 +25,13 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./types/stylelint/index.d.ts",
+        "types": "./types/stylelint/index.d.mts",
         "default": "./lib/index.mjs"
       },
-      "require": "./lib/index.cjs"
+      "require": {
+        "types": "./types/stylelint/index.d.ts",
+        "default": "./lib/index.cjs"
+      }
     },
     "./package.json": "./package.json",
     "./lib/utils/*": "./lib/utils/*"
@@ -48,6 +51,7 @@
     "!**/__tests__/**",
     "!lib/testUtils/**",
     "!lib/rules/*/README.md",
+    "types/stylelint/index.d.mts",
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
