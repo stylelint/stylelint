@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix type definitions
+Fixed: type definitions for CommonJS
