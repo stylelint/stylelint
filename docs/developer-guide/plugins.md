@@ -125,17 +125,26 @@ const ruleFunction = (primary, secondaryOptions) => {
 
 ## Testing
 
-You should use [`jest-preset-stylelint`](https://github.com/stylelint/jest-preset-stylelint) to test your plugin. The preset exposes a global `testRule` function that you can use to efficiently test your plugin using a schema.
+You can use either:
+
+- [`stylelint-test-rule-node`](https://www.npmjs.com/package/stylelint-test-rule-node) (`node:test` based)
+- [`jest-preset-stylelint`](https://github.com/stylelint/jest-preset-stylelint) (Jest based)
+
+Both expose a `testRule` function that you can use to efficiently test your plugin using a schema.
 
 For example:
 
 ```js
-import rule from "./index.js";
+import { testRule } from "stylelint-test-rule-node";
 
-const { messages, ruleName } = rule;
+import plugin from "./index.js";
+
+const {
+  rule: { messages, ruleName }
+} = plugin;
 
 testRule({
-  plugins: ["./index.js"],
+  plugins: [plugin],
   ruleName,
   config: true,
   fix: true,
@@ -163,7 +172,9 @@ testRule({
 });
 ```
 
-However, if your plugin involves more than just checking syntax, you can use Stylelint directly.
+Alternatively, you'll find more testing options in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
+
+If your plugin involves more than just checking syntax, you can use Stylelint directly.
 
 For example:
 
@@ -209,8 +220,6 @@ it("doesn't warn", async () => {
   expect(warnings).toHaveLength(0);
 });
 ```
-
-Alternatively, if you don't want to use Jest, you'll find more testing tool in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
 
 ## `stylelint.utils`
 
