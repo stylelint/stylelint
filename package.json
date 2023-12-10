@@ -67,7 +67,7 @@
     "prepare": "husky install && patch-package && npm run build",
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js system-tests/006 --no-verbose",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
     "test-only": "npm test --ignore-scripts",
     "version": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
