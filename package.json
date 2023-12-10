@@ -152,6 +152,7 @@
     ],
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$|system-tests/.*\\.test\\.cjs$",
+    "transform": {},
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
