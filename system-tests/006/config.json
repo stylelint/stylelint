@@ -1,0 +1,8 @@
+{
+	"extends": ["stylelint-config-foo"],
+	"customSyntax": "postcss-foo",
+	"plugins": ["stylelint-foo"],
+	"rules": {
+		"foo/foo": true
+	}
+}

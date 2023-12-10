@@ -1,0 +1,8 @@
+{
+  "name": "stylelint-foo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Stylelint plugin for testing",
+  "type": "module",
+  "exports": "./index.js"
+}

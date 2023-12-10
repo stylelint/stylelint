@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`no-fs - import packages 1`] = `
+{
+  "cwd": "",
+  "errored": true,
+  "output": [
+    {
+      "deprecations": [],
+      "errored": true,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [
+        {
+          "column": 1,
+          "endColumn": 4,
+          "endLine": 1,
+          "line": 1,
+          "rule": "foo/foo",
+          "severity": "error",
+          "text": "Unexpected "foo" selector",
+        },
+        {
+          "column": 5,
+          "endColumn": 7,
+          "endLine": 1,
+          "line": 1,
+          "rule": "block-no-empty",
+          "severity": "error",
+          "text": "Unexpected empty block (block-no-empty)",
+        },
+      ],
+    },
+  ],
+  "report": [
+    {
+      "deprecations": [],
+      "errored": true,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [
+        {
+          "column": 1,
+          "endColumn": 4,
+          "endLine": 1,
+          "line": 1,
+          "rule": "foo/foo",
+          "severity": "error",
+          "text": "Unexpected "foo" selector",
+        },
+        {
+          "column": 5,
+          "endColumn": 7,
+          "endLine": 1,
+          "line": 1,
+          "rule": "block-no-empty",
+          "severity": "error",
+          "text": "Unexpected empty block (block-no-empty)",
+        },
+      ],
+    },
+  ],
+  "reportedDisables": [],
+  "results": [
+    {
+      "deprecations": [],
+      "errored": true,
+      "ignored": undefined,
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "source": "/path/to/dummy.css",
+      "warnings": [
+        {
+          "column": 1,
+          "endColumn": 4,
+          "endLine": 1,
+          "line": 1,
+          "rule": "foo/foo",
+          "severity": "error",
+          "text": "Unexpected "foo" selector",
+        },
+        {
+          "column": 5,
+          "endColumn": 7,
+          "endLine": 1,
+          "line": 1,
+          "rule": "block-no-empty",
+          "severity": "error",
+          "text": "Unexpected empty block (block-no-empty)",
+        },
+      ],
+    },
+  ],
+  "ruleMetadata": {
+    "block-no-empty": {
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty",
+    },
+    "foo/foo": {},
+  },
+}
+`;

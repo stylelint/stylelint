@@ -1,0 +1,8 @@
+{
+  "name": "postcss-foo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A PostCSS custom syntax for testing",
+  "type": "module",
+  "exports": "./index.js"
+}

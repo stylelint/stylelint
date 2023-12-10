@@ -1,0 +1,8 @@
+{
+  "name": "stylelint-config-foo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Stylelint shareable configuration for testing",
+  "type": "module",
+  "exports": "./index.js"
+}
