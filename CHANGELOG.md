@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.0.2
+
+- Fixed: `ERR_UNSUPPORTED_ESM_URL_SCHEME` error on Windows ([#7383](https://github.com/stylelint/stylelint/pull/7383)) ([@JounQin](https://github.com/JounQin)).
+
 ## 16.0.1
 
 - Fixed: type definitions for CommonJS and ESM compatibility ([#7377](https://github.com/stylelint/stylelint/pull/7377)) ([@remcohaszing](https://github.com/remcohaszing)).
