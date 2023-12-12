@@ -115,26 +115,26 @@ This option will include selectors inside of the array elements.
 Given:
 
 ```json
-[":global"]
+[":--foo"]
 ```
 
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:global(#foo) {}
+:--foo(#foo) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:global(#foo #bar #baz) {}
+:--foo(#foo #bar #baz) {}
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:global { --foo: 1px; }
+:--foo { --fizz: 1px;}
 ```
 
 <!-- prettier-ignore -->
