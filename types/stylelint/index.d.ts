@@ -308,6 +308,7 @@ declare namespace stylelint {
 		readonly 'keyframe-selector-notation': Promise<Rule>;
 		readonly 'keyframes-name-pattern': Promise<Rule>;
 		readonly 'length-zero-no-unit': Promise<Rule>;
+		readonly 'lightness-notation': Promise<Rule>;
 		readonly 'max-nesting-depth': Promise<Rule>;
 		readonly 'media-feature-name-allowed-list': Promise<Rule>;
 		readonly 'media-feature-name-disallowed-list': Promise<Rule>;
