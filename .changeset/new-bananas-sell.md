@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: Ignore multiline SCSS interpolation e.g. in `declaration-property-value-no-unknown`
+Fixed: `declaration-property-value-no-unknown` and other false positives for multiline SCSS interpolation.
