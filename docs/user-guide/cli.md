@@ -88,6 +88,13 @@ Pattern of files to ignore (in addition to those in `.stylelintignore`).
 
 Set a limit to the number of warnings accepted. [More info](options.md#maxwarnings).
 
+### `--merge-rules`
+
+Merge rules that were passed using `--rule` into the config.
+
+> [!NOTE]
+> In case of conflict `--rule` takes priority over the rules in the config.
+
 ### `--output-file, -o`
 
 Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to the standard output.
@@ -115,6 +122,18 @@ Produce a report of the `stylelint-disable` comments that used for rules that do
 ### `--report-needless-disables, --rd`
 
 Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportneedlessdisables).
+
+### `--rule`
+
+Add a rule.
+
+```shell
+stylelint foo.css --rule "\"font-weight-notation\": \"numeric\""
+```
+
+> [!IMPORTANT]
+> By default, [`rules`](configure.md#rules) are ignored if `--rule` is passed.
+> To switch to a merge strategy use [`--merge-rules`](#--merge-rules).
 
 ### `--stdin-filename`
 

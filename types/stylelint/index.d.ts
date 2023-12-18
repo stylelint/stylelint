@@ -418,6 +418,7 @@ declare namespace stylelint {
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
+		mergeRules?: boolean;
 		customSyntax?: CustomSyntax;
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
@@ -815,7 +816,10 @@ declare namespace stylelint {
 		 */
 		resolveConfig: (
 			filePath: string,
-			options?: Pick<LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
+			options?: Pick<
+				LinterOptions,
+				'cwd' | 'config' | 'configBasedir' | 'configFile' | 'mergeRules'
+			>,
 		) => Promise<Config | undefined>;
 
 		/**
