@@ -115,3 +115,29 @@ The following pattern is _not_ considered a problem:
   .foo {}
 }
 ```
+
+### `ignore: ["keyframe-selectors"]`
+
+Ignore selectors that are keyframe selectors.
+
+Given:
+
+```json
+[/from/, { ignore: ['keyframe-selectors'] }]
+```
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@keyframes fade-in {
+  from {}
+}
+```
+
+The following pattern is considered a problem:
+
+<!-- prettier-ignore -->
+```css
+.from {}
+```
