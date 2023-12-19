@@ -179,6 +179,7 @@
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
     "known-css-properties": "^0.29.0",
+    "levn": "^0.4.1",
     "mathml-tag-names": "^2.1.3",
     "meow": "^12.1.1",
     "micromatch": "^4.0.5",

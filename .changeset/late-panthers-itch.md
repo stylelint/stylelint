@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `--rule` flag, `--merge-rules` flag and `mergeRules` option
+Added: `--rule`, `--rules`, `--merge-rules` flags and `mergeRules` option
