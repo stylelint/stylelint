@@ -135,6 +135,18 @@ stylelint foo.css --rule "\"font-weight-notation\": \"numeric\""
 > By default, [`rules`](configure.md#rules) are ignored if `--rule` is passed.
 > To switch to a merge strategy use [`--merge-rules`](#--merge-rules).
 
+### `--rules`
+
+Add rules.
+
+```shell
+stylelint foo.css --rules "color-named: 'always-where-possible', color-no-invalid-hex: true"
+```
+
+> [!NOTE]
+> By default, `--rules` is ignored if `--rule` is passed.
+> i.e. either use one or the other
+
 ### `--stdin-filename`
 
 A filename to assign the input. [More info](options.md#codefilename).
