@@ -14,12 +14,16 @@ Stylelint expects a configuration object, and looks for one in a:
 ES module example:
 
 ```js
+/** @type {import('stylelint').Config} */
 export default {
   rules: {
     "block-no-empty": true
   }
 };
 ```
+
+> [!NOTE]
+> The JSDoc annotation (`@type`) benefits auto-completion or type-check by TypeScript.
 
 CommonJS example:
 

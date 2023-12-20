@@ -34,7 +34,8 @@ const meta = {
   url: "https://github.com/foo-org/stylelint-selector-no-foo/blob/main/README.md"
 };
 
-const ruleFunction = (primary, secondaryOptions) => {
+/** @type {import('stylelint').Rule} */
+const ruleFunction = (primary, secondaryOptions, context) => {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: primary,
@@ -65,6 +66,9 @@ ruleFunction.meta = meta;
 
 export default createPlugin(ruleName, ruleFunction);
 ```
+
+> [!NOTE]
+> The JSDoc annotation (`@type`) benefits auto-completion or type-check by TypeScript.
 
 The usage would be:
 
