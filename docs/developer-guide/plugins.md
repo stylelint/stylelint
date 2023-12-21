@@ -68,7 +68,7 @@ export default createPlugin(ruleName, ruleFunction);
 ```
 
 > [!NOTE]
-> The JSDoc annotation (`@type`) benefits auto-completion or type-check by TypeScript.
+> The [JSDoc `@type` tag](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html#type) enables the autocompletion and type-checking features provided by Typescript.
 
 The usage would be:
 
