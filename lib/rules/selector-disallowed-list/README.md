@@ -80,7 +80,7 @@ For example, with `true`.
 Given:
 
 ```json
-[".foo"]
+[".foo", { "splitList": true }]
 ```
 
 The following pattern is considered a problem:
@@ -104,7 +104,7 @@ Ignore selectors that are inside a block.
 Given:
 
 ```json
-[".foo"]
+[".foo", { "ignore": ["inside-block"] }]
 ```
 
 The following pattern is _not_ considered a problem:
@@ -113,5 +113,24 @@ The following pattern is _not_ considered a problem:
 ```css
 .bar {
   .foo {}
+}
+```
+
+### `ignore: ["keyframe-selectors"]`
+
+Ignore keyframe selectors.
+
+Given:
+
+```json
+["/from/", { "ignore": ["keyframe-selectors"] }]
+```
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@keyframes fade-in {
+  from {}
 }
 ```
