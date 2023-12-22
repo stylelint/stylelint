@@ -118,7 +118,7 @@ The following pattern is _not_ considered a problem:
 
 ### `ignore: ["keyframe-selectors"]`
 
-Ignore selectors that are keyframe selectors.
+Ignore keyframe selectors.
 
 Given:
 
