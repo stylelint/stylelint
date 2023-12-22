@@ -123,7 +123,7 @@ Ignore selectors that are keyframe selectors.
 Given:
 
 ```json
-[/from/, { ignore: ['keyframe-selectors'] }]
+["/from/", { "ignore": ["keyframe-selectors}"] }]
 ```
 
 The following pattern is _not_ considered a problem:
@@ -133,11 +133,4 @@ The following pattern is _not_ considered a problem:
 @keyframes fade-in {
   from {}
 }
-```
-
-The following pattern is considered a problem:
-
-<!-- prettier-ignore -->
-```css
-.from {}
 ```
