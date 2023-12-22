@@ -23,7 +23,7 @@ export default {
 ```
 
 > [!NOTE]
-> The JSDoc annotation (`@type`) benefits auto-completion or type-check by TypeScript.
+> The `@type` JSDoc annotation enables Typescript to autocomplete and type-check.
 
 CommonJS example:
 
