@@ -123,7 +123,7 @@ Ignore keyframe selectors.
 Given:
 
 ```json
-["/from/", { "ignore": ["keyframe-selectors}"] }]
+["/from/", { "ignore": ["keyframe-selectors"] }]
 ```
 
 The following pattern is _not_ considered a problem:
