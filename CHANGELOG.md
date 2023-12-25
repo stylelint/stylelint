@@ -2,7 +2,7 @@
 
 ## 16.1.0
 
-- Added: `lightness-notation` rule ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `lightness-notation` rule ([#7366](https://github.com/stylelint/stylelint/pull/7366)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Added: `ignore: ["keyframe-selectors"]` to `selector-disallowed-list` ([#7417](https://github.com/stylelint/stylelint/pull/7417)) ([@mattxwang](https://github.com/mattxwang)).
 - Fixed: `selector-pseudo-class-no-unknown` false positive for `:popover-open` ([#7425](https://github.com/stylelint/stylelint/pull/7425)) ([@mattxwang](https://github.com/mattxwang)).
 - Fixed: `declaration-property-value-no-unknown` and other false positives for multiline SCSS interpolation. ([#7406](https://github.com/stylelint/stylelint/pull/7406)) ([@FloEdelmann](https://github.com/FloEdelmann)).
