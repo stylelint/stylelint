@@ -1,5 +1,13 @@
 # Changelog
 
+## 16.1.0
+
+- Added: `lightness-notation` rule ([#7366](https://github.com/stylelint/stylelint/pull/7366)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Added: `ignore: ["keyframe-selectors"]` to `selector-disallowed-list` ([#7417](https://github.com/stylelint/stylelint/pull/7417)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `selector-pseudo-class-no-unknown` false positive for `:popover-open` ([#7425](https://github.com/stylelint/stylelint/pull/7425)) ([@mattxwang](https://github.com/mattxwang)).
+- Fixed: `declaration-property-value-no-unknown` and other false positives for multiline SCSS interpolation. ([#7406](https://github.com/stylelint/stylelint/pull/7406)) ([@FloEdelmann](https://github.com/FloEdelmann)).
+- Fixed: `function-url-quotes` false positives for SCSS variable and `@` character ([#7416](https://github.com/stylelint/stylelint/pull/7416)) ([@mattxwang](https://github.com/mattxwang)).
+
 ## 16.0.2
 
 - Fixed: `ERR_UNSUPPORTED_ESM_URL_SCHEME` error on Windows ([#7383](https://github.com/stylelint/stylelint/pull/7383)) ([@JounQin](https://github.com/JounQin)).
