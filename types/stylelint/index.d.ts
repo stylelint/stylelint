@@ -181,6 +181,7 @@ declare namespace stylelint {
 	type Formatters = {
 		readonly compact: Promise<Formatter>;
 		readonly github: Promise<Formatter>;
+		readonly gitlab: Promise<Formatter>;
 		readonly json: Promise<Formatter>;
 		readonly string: Promise<Formatter>;
 		readonly tap: Promise<Formatter>;
@@ -211,6 +212,21 @@ declare namespace stylelint {
 			| RuleOptionsPossible[]
 			| Record<string, RuleOptionsPossible[]>;
 		optional?: boolean;
+	};
+
+	/** @internal */
+	export type GitlabFormatterIssueLocation = {
+		path: string | undefined;
+		positions: {
+			begin: {
+				line: number;
+				column: number;
+			};
+			end?: {
+				line: number;
+				column: number | undefined;
+			};
+		};
 	};
 
 	/** @internal */

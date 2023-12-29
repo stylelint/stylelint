@@ -18,6 +18,7 @@ export {
 	Formatters,
 	GetLintSourceOptions,
 	GetPostcssOptions,
+	GitlabFormatterIssueLocation,
 	InternalApi,
 	LintResult,
 	LinterOptions,
