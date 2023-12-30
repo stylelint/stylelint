@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-fix: load custom formatter with `dynamicImport` util for Windows compatibility
+Fixed: `ERR_UNSUPPORTED_ESM_URL_SCHEME` for `--custom-formatter` on Windows
