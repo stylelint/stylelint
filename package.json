@@ -158,9 +158,9 @@
     ]
   },
   "dependencies": {
-    "@csstools/css-parser-algorithms": "^2.4.0",
+    "@csstools/css-parser-algorithms": "^2.5.0",
     "@csstools/css-tokenizer": "^2.2.2",
-    "@csstools/media-query-list-parser": "^2.1.6",
+    "@csstools/media-query-list-parser": "^2.1.7",
     "@csstools/selector-specificity": "^3.0.1",
     "balanced-match": "^2.0.0",
     "colord": "^2.9.3",
