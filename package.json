@@ -187,7 +187,7 @@
     "postcss": "^8.4.32",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^7.0.0",
-    "postcss-selector-parser": "^6.0.13",
+    "postcss-selector-parser": "^6.0.15",
     "postcss-value-parser": "^4.2.0",
     "resolve-from": "^5.0.0",
     "string-width": "^4.2.3",
