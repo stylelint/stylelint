@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `allowEmptyInput` option ignored in configuration files
+Fixed: `allowEmptyInput` option ignored in configuration file
