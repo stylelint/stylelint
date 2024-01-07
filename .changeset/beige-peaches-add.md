@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix: `Template literal` behavior with line breaks is incorrect
+Fixed: `function-no-unknown|value-keyword-case` false positives for template literals with line breaks
