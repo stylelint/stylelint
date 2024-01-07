@@ -131,7 +131,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:--foo { --fizz: 1px;}
+:--foo() {}
 ```
 
 <!-- prettier-ignore -->
