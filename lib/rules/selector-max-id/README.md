@@ -134,11 +134,6 @@ The following patterns are _not_ considered problems:
 :--foo() {}
 ```
 
-<!-- prettier-ignore -->
-```css
-:-webkit-any(#foo) {}
-```
-
 This option has a higher presedence than `ignoreContextFunctionalPseudoClasses`.
 
 For example, given if maximum selectors allowed are 2 and `:not` is included in `ignoreContextFunctionalPseudoClasses` and `includeContextFunctionalPseudoClasses`:
