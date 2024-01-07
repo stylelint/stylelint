@@ -110,7 +110,9 @@ a:has(#foo) {}
 
 ### `includeContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
 
-This option will include selectors inside of the array elements.
+Include selectors inside of specified functional pseudo-classes in the check.
+
+This option has a higher precedence than `ignoreContextFunctionalPseudoClasses`.
 
 Given:
 
