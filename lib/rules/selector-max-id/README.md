@@ -124,11 +124,6 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:--foo(#foo) {}
-```
-
-<!-- prettier-ignore -->
-```css
 :--foo(#foo #bar #baz) {}
 ```
 
