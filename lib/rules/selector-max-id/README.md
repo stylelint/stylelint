@@ -134,39 +134,3 @@ The following patterns are _not_ considered problems:
 :--foo() {}
 ```
 
-This option has a higher presedence than `ignoreContextFunctionalPseudoClasses`.
-
-For example, given if maximum selectors allowed are 2 and `:not` is included in `ignoreContextFunctionalPseudoClasses` and `includeContextFunctionalPseudoClasses`:
-
-```json
-[':not', /^:(glob|loc)al/, ':webkit-any']
-```
-
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-:webkit-any(#foo #bar #baz) {}
-```
-
-<!-- prettier-ignore -->
-```css
-a:not(#foo #bar #bazz) {}
-```
-
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css
-:local { foo: 1px; } {}
-```
-
-<!-- prettier-ignore -->
-```css
-:-webkit-any(#foo #bar) {}
-```
-
-<!-- prettier-ignore -->
-```css
-#foo :global(#bazz #fizz) :local(#bar) {}
-```
