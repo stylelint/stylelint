@@ -79,9 +79,35 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
+### `checkContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
+
+Check selectors inside of the specified custom [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
+
+This option has a higher precedence than `ignoreContextFunctionalPseudoClasses`.
+
+Given:
+
+```json
+[":--foo"]
+```
+
+The following pattern is considered a problem:
+
+<!-- prettier-ignore -->
+```css
+:--foo(#foo #bar #baz) {}
+```
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+:--foo() {}
+```
+
 ### `ignoreContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
 
-Ignore selectors inside of specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
+Ignore selectors inside of the specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
 
 Given:
 
