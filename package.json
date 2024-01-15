@@ -204,7 +204,7 @@
     "@stylelint/prettier-config": "^3.0.0",
     "@stylelint/remark-preset": "^5.0.0",
     "@types/balanced-match": "^1.0.4",
-    "@types/css-tree": "^2.3.4",
+    "@types/css-tree": "^2.3.5",
     "@types/debug": "^4.1.12",
     "@types/file-entry-cache": "^5.0.4",
     "@types/global-modules": "^2.0.2",
