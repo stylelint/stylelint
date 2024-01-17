@@ -214,6 +214,14 @@ Print a configuration used for the given input file:
 stylelint test.css --print-config
 ```
 
+### Example K - piping a report to another command
+
+Use a report as input for another command through piping:
+
+```shell
+stylelint -f json "*.css" 2>&1 | jq '[.[] | .warnings | length] | add'
+```
+
 ## Exit codes
 
 The CLI can exit the process with the following exit codes:
