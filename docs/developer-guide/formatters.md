@@ -77,7 +77,7 @@ SKIP_WARNINGS=true stylelint "*.css" --custom-formatter ./my-formatter.js
 Alternatively, you can create a separate formatting program and pipe the output from the built-in JSON formatter into it:
 
 ```shell
-stylelint -f json "*.css" | my-program-that-reads-JSON --option
+stylelint -f json "*.css" 2>&1 | my-program-that-reads-JSON --option
 ```
 
 ## `stylelint.formatters`
