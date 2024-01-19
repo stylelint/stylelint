@@ -1,5 +1,17 @@
 # Changelog
 
+## 16.2.0
+
+- Added: `media-query-no-invalid` specific problem messages ([#7462](https://github.com/stylelint/stylelint/pull/7462)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `checkContextFunctionalPseudoClasses: []` to `selector-max-id` ([#7380](https://github.com/stylelint/stylelint/pull/7380)) ([@brigitamaria](https://github.com/brigitamaria)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for `@starting-style` ([#7461](https://github.com/stylelint/stylelint/pull/7461)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: `function-no-unknown|value-keyword-case` false positives for template literals with line breaks ([#7443](https://github.com/stylelint/stylelint/pull/7443)) ([@Sh031224](https://github.com/Sh031224)).
+- Fixed: `allowEmptyInput` option ignored in configuration object regression ([#7446](https://github.com/stylelint/stylelint/pull/7446)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `at-rule-no-unknown` false positives for `@starting-style` ([#7438](https://github.com/stylelint/stylelint/pull/7438)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: `ERR_UNSUPPORTED_ESM_URL_SCHEME` for `--custom-formatter` on Windows ([#7432](https://github.com/stylelint/stylelint/pull/7432)) ([@JounQin](https://github.com/JounQin)).
+- Fixed: `Error: Could not find <package>` message clarity ([#7456](https://github.com/stylelint/stylelint/pull/7456)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `overrides.files` negated pattern regression introduced in 15.0.0 ([#7468](https://github.com/stylelint/stylelint/pull/7468)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.1.0
 
 - Added: `lightness-notation` rule ([#7366](https://github.com/stylelint/stylelint/pull/7366)) ([@fpetrakov](https://github.com/fpetrakov)).
