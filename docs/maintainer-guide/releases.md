@@ -20,12 +20,10 @@
    1. Change to the `stylelint-config-*` repository.
    2. Repeat steps 5 to 8 above for that repository.
 6. Update the website:
-   1. Change to the `stylelint.io` repository.
-   2. Run `npm install https://github.com/stylelint/stylelint/tarball/${new_version} --save-dev` (replacing `${new_version}` with the version number e.g. `14.13.2`).
-   3. Run `npm test`.
-   4. Commit these changes.
-   5. Push these changes.
-   6. Confirm the deployment of the update to [stylelint.io](https://stylelint.io).
+   1. Go to the [releasing action page](https://github.com/stylelint/stylelint.io/actions/workflows/release-stylelint.yml) in the `stylelint.io` repository.
+   2. Click **Run workflow**.
+   3. Check and merge a pull request created by the action.
+   4. Confirm the deployment of the update to [stylelint.io](https://stylelint.io).
 7. Check that [stylelint.io/demo](https://stylelint.io/demo) installs the latest Stylelint and config versions.
 8. Compose a tweet that:
    - announces the release
