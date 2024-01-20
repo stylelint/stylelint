@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: unexpected error message in `report()`
+Fixed: `report()` error message responsibility for a missing node or line number
