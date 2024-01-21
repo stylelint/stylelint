@@ -45,6 +45,7 @@
 - Added: `exports` field to `package.json` for Conditional Exports (ESM/CommonJS) ([#7307](https://github.com/stylelint/stylelint/pull/7307)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM plugins ([#7339](https://github.com/stylelint/stylelint/pull/7339)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM custom formatters ([#7343](https://github.com/stylelint/stylelint/pull/7343)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: support for a dependency name to `--custom-formatter` ([#7343](https://github.com/stylelint/stylelint/pull/7343)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: `severity` secondary option's function support ([#7202](https://github.com/stylelint/stylelint/pull/7202)) ([@kizu](https://github.com/kizu)).
 - Added: support for a `Promise` formatter function ([#7184](https://github.com/stylelint/stylelint/pull/7184)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM custom syntaxes ([#7351](https://github.com/stylelint/stylelint/pull/7351)) ([@ybiquitous](https://github.com/ybiquitous)).
