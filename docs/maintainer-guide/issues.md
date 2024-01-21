@@ -13,7 +13,7 @@ When you first triage an issue, you should:
 
 After triage, you should add:
 
-- _one_ of the non-need `status: *` labels, e.g. `status: ready to implement`
+- _one_ of the non-need `status: *` labels, e.g. `status: ask to implement`
 - _zero or one_ of the `type: *` labels, e.g. `type: new rule`
 - _zero, one or more_ of the `syntax: *` labels, e.g. `syntax: scss`
 - optionally, the `good first issue`, `help wanted`, `priority: high` and `upstream` labels
@@ -68,12 +68,12 @@ That is best suited as a plugin:
 Thank you for your suggestion. I think this is best-suited as a [plugin](https://stylelint.io/developer-guide/plugins).
 ```
 
-### Label as ready to implement
+### Label as ask to implement
 
 That fixes a bug in a rule:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as "ask to implement". Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
 There are [steps on how to fix a bug in a rule](https://stylelint.io/developer-guide/rules#fix-a-bug-in-a-rule) in the Developer guide.
 ```
@@ -81,7 +81,7 @@ There are [steps on how to fix a bug in a rule](https://stylelint.io/developer-g
 That adds a new option to a rule:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as "ask to implement". Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
 There are [steps on how to add a new option](https://stylelint.io/developer-guide/rules#add-an-option-to-a-rule) in the Developer guide.
 ```
@@ -89,7 +89,7 @@ There are [steps on how to add a new option](https://stylelint.io/developer-guid
 That adds a new rule:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as "ask to implement". Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
 There are [steps on how to add a new rule](https://stylelint.io/developer-guide/rules#add-a-rule) in the Developer guide.
 ```
@@ -97,5 +97,5 @@ There are [steps on how to add a new rule](https://stylelint.io/developer-guide/
 That is another type of improvement:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as "ask to implement". Please consider [contributing](https://stylelint.io/contributing) if you have time.
 ```
