@@ -26,6 +26,7 @@ jobs:
             gh issue edit "${url}" --add-label 'status: ask to implement' --remove-label 'status: ready to implement'
           done
         env:
+          GH_REPO: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issue_comment: |-
             This issue is older than one month. Please ask before opening a pull request, as it may no longer be relevant.
