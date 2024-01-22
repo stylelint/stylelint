@@ -28,5 +28,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issue_comment: |-
-            This issue is older than 1 month. Even though it is labelled as "ask to implement", please ask before opening a pull request as it may no longer be relevant.
+            This issue is older than one month. Please ask before opening a pull request, as it may no longer be relevant.
           label: stale # Avoid duplicate comments by labeling
