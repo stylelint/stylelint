@@ -12,8 +12,6 @@ const { bold, yellow } = picocolors;
 
 const [, , ruleName, ruleOptions, ruleContext] = argv;
 
-const ruleFunc = rules[ruleName];
-
 function printHelp() {
 	const script = 'node benchmark-rule.mjs';
 
@@ -32,7 +30,7 @@ function printHelp() {
 	);
 }
 
-if (!ruleFunc || !ruleOptions) {
+if (!ruleName || !(ruleName in rules) || !ruleOptions) {
 	printHelp();
 	exit(-1);
 }
@@ -65,7 +63,7 @@ const ruleSettings = normalizeRuleSettings(parsedOptions);
 const [primary, secondary] = ruleSettings;
 const context = ruleContext ? JSON.parse(ruleContext) : {};
 
-const rule = ruleFunc(primary, secondary, context);
+const rule = (await rules[ruleName])(primary, secondary, context);
 
 const processor = postcss().use(rule);
 
