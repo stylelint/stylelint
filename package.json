@@ -80,6 +80,9 @@
   },
   "prettier": "@stylelint/prettier-config",
   "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2023
+    },
     "extends": [
       "stylelint",
       "stylelint/jest"
