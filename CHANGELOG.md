@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.2.1
+
+- Fixed: report flags not reporting on subsequent runs when cache is used ([#7483](https://github.com/stylelint/stylelint/pull/7483)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `custom-property-no-missing-var-function` false positives for properties that can contain author-defined identifiers ([#7478](https://github.com/stylelint/stylelint/pull/7478)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:seeking`, the media loading state and sound state pseudo-classes ([#7490](https://github.com/stylelint/stylelint/pull/7490)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-max-specificity` false positives with `ignoreSelectors` option for `of <selector>` syntax ([#7475](https://github.com/stylelint/stylelint/pull/7475)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `function-calc-no-unspaced-operator` performance ([#7505](https://github.com/stylelint/stylelint/pull/7505)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `validateOptions` to report when secondary option object is an empty object or null ([#7476](https://github.com/stylelint/stylelint/pull/7476)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `report()` error message responsibility for a missing node or line number ([#7474](https://github.com/stylelint/stylelint/pull/7474)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.2.0
 
 - Added: `media-query-no-invalid` specific problem messages ([#7462](https://github.com/stylelint/stylelint/pull/7462)) ([@romainmenke](https://github.com/romainmenke)).
