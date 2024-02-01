@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.2.1
+
+- Fixed: report flags not reporting on subsequent runs when cache is used ([#7483](https://github.com/stylelint/stylelint/pull/7483)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `custom-property-no-missing-var-function` false positives for properties that can contain author-defined identifiers ([#7478](https://github.com/stylelint/stylelint/pull/7478)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:seeking`, the media loading state and sound state pseudo-classes ([#7490](https://github.com/stylelint/stylelint/pull/7490)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-max-specificity` false positives with `ignoreSelectors` option for `of <selector>` syntax ([#7475](https://github.com/stylelint/stylelint/pull/7475)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `function-calc-no-unspaced-operator` performance ([#7505](https://github.com/stylelint/stylelint/pull/7505)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `validateOptions` to report when secondary option object is an empty object or null ([#7476](https://github.com/stylelint/stylelint/pull/7476)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `report()` error message responsibility for a missing node or line number ([#7474](https://github.com/stylelint/stylelint/pull/7474)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.2.0
 
 - Added: `media-query-no-invalid` specific problem messages ([#7462](https://github.com/stylelint/stylelint/pull/7462)) ([@romainmenke](https://github.com/romainmenke)).
@@ -45,6 +55,7 @@
 - Added: `exports` field to `package.json` for Conditional Exports (ESM/CommonJS) ([#7307](https://github.com/stylelint/stylelint/pull/7307)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM plugins ([#7339](https://github.com/stylelint/stylelint/pull/7339)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM custom formatters ([#7343](https://github.com/stylelint/stylelint/pull/7343)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: support for a package name as arguments to `--custom-formatter` ([#7343](https://github.com/stylelint/stylelint/pull/7343)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: `severity` secondary option's function support ([#7202](https://github.com/stylelint/stylelint/pull/7202)) ([@kizu](https://github.com/kizu)).
 - Added: support for a `Promise` formatter function ([#7184](https://github.com/stylelint/stylelint/pull/7184)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM custom syntaxes ([#7351](https://github.com/stylelint/stylelint/pull/7351)) ([@ybiquitous](https://github.com/ybiquitous)).
@@ -1457,7 +1468,7 @@ Changes:
 - Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 - Changed: `unit-*` rules now check `@media` values too.
 - Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
-- Added: [processors](/docs/user-guide/configure.md#processors).
+- Added: processors.
 - Added: `media-feature-parentheses-space-inside` rule.
 - Added: `no-missing-end-of-source-newline` rule.
 - Added: `property-no-unknown` rule.
