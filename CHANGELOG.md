@@ -1458,7 +1458,7 @@ Changes:
 - Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 - Changed: `unit-*` rules now check `@media` values too.
 - Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
-- Added: [processors](/docs/user-guide/configure.md#processors).
+- Added: processors.
 - Added: `media-feature-parentheses-space-inside` rule.
 - Added: `no-missing-end-of-source-newline` rule.
 - Added: `property-no-unknown` rule.
