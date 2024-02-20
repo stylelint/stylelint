@@ -12,6 +12,12 @@ const inputFiles = fg.globSync([
 
 	// NOTE: We cannot support CommonJS for `cli.mjs` since the `meow` dependency is pure ESM.
 	'!lib/cli.mjs',
+	/**
+	 * NOTE: We are using pure ESM dependency `import-meta-resolve`
+	 *
+	 * @see https://github.com/stylelint/stylelint/pull/7532
+	 */
+	'!lib/utils/getModulePath.mjs',
 ]);
 
 // clean up
