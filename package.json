@@ -56,7 +56,7 @@
   ],
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.mjs",
-    "build": "rollup -c",
+    "build": "rollup -c && git checkout HEAD -- lib/utils/getModulePath.cjs",
     "build-check": "node scripts/build-check.mjs",
     "format": "prettier . --write --cache",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
