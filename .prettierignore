@@ -19,3 +19,4 @@ system-tests/**/*.scss
 
 # Ignore built CommonJS files
 lib/**/*.cjs
+lib/vendor
