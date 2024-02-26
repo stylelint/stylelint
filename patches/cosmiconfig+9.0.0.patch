@@ -1,0 +1,15 @@
+diff --git a/node_modules/cosmiconfig/dist/types.d.ts b/node_modules/cosmiconfig/dist/types.d.ts
+index a7ddb91..f59591a 100644
+--- a/node_modules/cosmiconfig/dist/types.d.ts
++++ b/node_modules/cosmiconfig/dist/types.d.ts
+@@ -5,8 +5,8 @@ export type Config = any;
+ /**
+  * @public
+  */
+-export type CosmiconfigResult = {
+-    config: Config;
++export type CosmiconfigResult<T = Config> = {
++    config: T;
+     filepath: string;
+     isEmpty?: boolean;
+ } | null;
