@@ -59,3 +59,43 @@ div {}
 ```css
 .foo + div :not (a b ~ c) {} /* `a b ~ c` is inside `:not()`, so it is evaluated separately */
 ```
+
+## Optional secondary options
+
+### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
+
+Ignore some compound selectors. This may be useful for deep selectors like Vue's `::v-deep` or Angular's `::ng-deep` that behave more like combinators than compound selectors.
+
+For example, with `2`.
+
+Given:
+
+```json
+["::v-deep", "/-foo-/"]
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+.foo .bar ::v-deep .baz {}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+.foo::v-deep .bar {}
+```
+
+<!-- prettier-ignore -->
+```css
+.foo ::v-deep .baz {}
+```
+
+<!-- prettier-ignore -->
+```css
+.foo {
+  & ::v-deep > .bar {}
+}
+```
