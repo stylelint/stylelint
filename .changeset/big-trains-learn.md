@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Add `ignoreSelectors` option to `selector-max-compound-selectors` rule
+Added: `ignoreSelectors: []` to `selector-max-compound-selectors`
