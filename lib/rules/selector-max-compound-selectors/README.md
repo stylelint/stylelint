@@ -95,7 +95,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-.some {
-  &-ignored-class ::v-deep > .bar {}
+.foo {
+  &.some-ignored-class ::v-deep > .bar {}
 }
 ```
