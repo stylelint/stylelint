@@ -14,7 +14,9 @@ A [compound selector](https://www.w3.org/TR/selectors4/#compound) is a chain of 
 
 This rule resolves nested selectors before counting the depth of a selector. Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
 
-`:not()` is considered one compound selector irrespective to the complexity of the selector inside it. The rule _does_ process that inner selector, but does so separately, independent of the main selector.
+<!-- prettier-ignore -->
+> [!WARNING]
+> `:not()` is considered one compound selector irrespective to the complexity of the selector inside it. The rule _does_ process that inner selector, but does so separately, independent of the main selector.
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
