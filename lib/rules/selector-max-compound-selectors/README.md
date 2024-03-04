@@ -73,7 +73,7 @@ For example, with `2`.
 Given:
 
 ```json
-["::v-deep", "/ignored/"]
+["::v-deep", "/ignored/", ":not"]
 ```
 
 The following patterns are considered problems:
@@ -81,6 +81,11 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 .foo .bar ::v-deep .baz {}
+```
+
+<!-- prettier-ignore -->
+```css
+p a :not(.foo .bar .baz) {}
 ```
 
 The following patterns are _not_ considered problems:
@@ -93,6 +98,11 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 .foo ::v-deep .baz {}
+```
+
+<!-- prettier-ignore -->
+```css
+p a :not(.foo .bar) {}
 ```
 
 <!-- prettier-ignore -->
