@@ -1,4 +1,6 @@
 node_modules
+!lib/__tests__/fixtures/node_modules
+!lib/utils/__tests__/fixtures/node_modules
 *.log
 .coverage
 .eslintcache
