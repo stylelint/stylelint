@@ -208,7 +208,7 @@
     "@stylelint/prettier-config": "^3.0.0",
     "@stylelint/remark-preset": "^5.0.0",
     "@types/balanced-match": "^1.0.4",
-    "@types/css-tree": "^2.3.6",
+    "@types/css-tree": "^2.3.7",
     "@types/debug": "^4.1.12",
     "@types/file-entry-cache": "^5.0.4",
     "@types/global-modules": "^2.0.2",
@@ -244,7 +244,7 @@
     "remark-cli": "^12.0.0",
     "rollup": "^4.12.1",
     "sugarss": "^4.0.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "engines": {
     "node": ">=18.12.0"
