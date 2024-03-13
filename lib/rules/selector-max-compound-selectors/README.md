@@ -111,3 +111,13 @@ p a :not(.foo .bar) {}
   &.some-ignored-class ::v-deep > .bar {}
 }
 ```
+
+<!-- prettier-ignore -->
+```css
+.foo .bar > .ignored.ignored {}
+```
+
+<!-- prettier-ignore -->
+```css
+.foo .bar > .ignored .ignored {}
+```
