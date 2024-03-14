@@ -88,6 +88,16 @@ The following patterns are considered problems:
 p a :not(.foo .bar .baz) {}
 ```
 
+<!-- prettier-ignore -->
+```css
+.foo .bar > .baz.ignored {}
+```
+
+<!-- prettier-ignore -->
+```css
+.foo .bar > .ignored.baz {}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
