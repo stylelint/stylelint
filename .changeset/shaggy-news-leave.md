@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: inaccurate end positions in `selector-max-type`
+Fixed: `selector-max-type` end positions
