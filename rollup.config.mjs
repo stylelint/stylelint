@@ -65,9 +65,9 @@ function addWarningForCommonJS() {
 					`
 	if (!options.quietDeprecationWarnings) {
 		process.emitWarning('The CommonJS Node.js API is deprecated.', {
-		  type: 'DeprecationWarning',
-    		  code: 'stylelint:002',
-    		  detail: 'See https://stylelint.io/migration-guide/to-16'
+			type: 'DeprecationWarning',
+			code: 'stylelint:002',
+			detail: 'See https://stylelint.io/migration-guide/to-16'
 		});
 	}
 `,
