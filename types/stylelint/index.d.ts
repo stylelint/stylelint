@@ -196,7 +196,9 @@ declare namespace stylelint {
 	export type CustomSyntax = string | PostCSS.Syntax;
 
 	/** @internal */
-	export type PostProcessor = (result: LintResult[]) => LintResult[]; // TODO accepts a string type like CustomSyntax
+	export type PostProcessorFunction = (results: LintResult[]) => LintResult[];
+
+	export type PostProcessor = string | PostProcessorFunction;
 
 	/** @internal */
 	export type RuleMessage = string | RuleMessageFunc;

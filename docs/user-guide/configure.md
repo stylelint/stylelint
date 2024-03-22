@@ -375,6 +375,27 @@ Patterns are applied against the file path relative to the directory of the conf
 
 Overrides have higher precedence than regular configurations. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
 
+## `postProcessor`
+
+You can use the `postProcessor` property to run a function after all rules have been evaluated. This function receives the `results` object of the linting process and can modify it.
+
+```js
+// post-processor.js
+export default (results) => {
+  results.forEach((result) => {
+    result.warnings.forEach((warning) => {
+      warning.text = warning.text.replace("foo", "bar");
+    });
+  });
+};
+```
+
+```json
+{
+  "postProcessor": "path/to/post-processor.js"
+}
+```
+
 ## `defaultSeverity`
 
 You can set the default severity level for all rules that do not have a severity specified in their secondary options. For example, you can set the default severity to `"warning"`:
