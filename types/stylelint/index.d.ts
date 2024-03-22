@@ -115,6 +115,7 @@ declare namespace stylelint {
 		configurationComment?: string;
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
+		postProcessor?: PostProcessor;
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
@@ -193,6 +194,9 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type CustomSyntax = string | PostCSS.Syntax;
+
+	/** @internal */
+	export type PostProcessor = (result: LintResult[]) => LintResult[]; // TODO accepts a string type like CustomSyntax
 
 	/** @internal */
 	export type RuleMessage = string | RuleMessageFunc;
