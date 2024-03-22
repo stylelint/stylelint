@@ -161,9 +161,9 @@
     ]
   },
   "dependencies": {
-    "@csstools/css-parser-algorithms": "^2.6.0",
-    "@csstools/css-tokenizer": "^2.2.3",
-    "@csstools/media-query-list-parser": "^2.1.8",
+    "@csstools/css-parser-algorithms": "^2.6.1",
+    "@csstools/css-tokenizer": "^2.2.4",
+    "@csstools/media-query-list-parser": "^2.1.9",
     "@csstools/selector-specificity": "^3.0.2",
     "@dual-bundle/import-meta-resolve": "^4.0.0",
     "balanced-match": "^2.0.0",
@@ -233,7 +233,7 @@
     "jest-preset-stylelint": "^7.0.0",
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "^15.2.2",
-    "np": "^10.0.0",
+    "np": "^10.0.1",
     "npm-run-all": "^4.1.5",
     "patch-package": "^8.0.0",
     "postcss-html": "^1.6.0",
@@ -242,7 +242,7 @@
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.9",
     "remark-cli": "^12.0.0",
-    "rollup": "^4.12.1",
+    "rollup": "^4.13.0",
     "sugarss": "^4.0.1",
     "typescript": "^5.4.2"
   },
