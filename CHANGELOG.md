@@ -1,5 +1,16 @@
 # Changelog
 
+## 16.3.0
+
+- Added: `ignoreSelectors: []` to `selector-max-compound-selectors` ([#7544](https://github.com/stylelint/stylelint/pull/7544)) ([@FloEdelmann](https://github.com/FloEdelmann)).
+- Added: tally of fixable problems to `string` and `verbose` formatters ([#7539](https://github.com/stylelint/stylelint/pull/7539)) ([@m-allanson](https://github.com/m-allanson)).
+- Added: support for `*-deprecation` command-line flags of Node.js ([#7550](https://github.com/stylelint/stylelint/pull/7550)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: false positive CJS deprecation warning for dual-package plugins ([#7532](https://github.com/stylelint/stylelint/pull/7532)) ([@JounQin](https://github.com/JounQin)).
+- Fixed: `rule-selector-property-disallowed-list` false positives for nesting selectors ([#7558](https://github.com/stylelint/stylelint/pull/7558)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-pseudo-*-allowed-list` false positives for vendor prefixes ([#7525](https://github.com/stylelint/stylelint/pull/7525)) ([@carlosjeurissen](https://github.com/carlosjeurissen)).
+- Fixed: `report()` for `index`/`endIndex` zero values ([#7565](https://github.com/stylelint/stylelint/pull/7565)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-type` end positions ([#7518](https://github.com/stylelint/stylelint/pull/7518)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.2.1
 
 - Fixed: report flags not reporting on subsequent runs when cache is used ([#7483](https://github.com/stylelint/stylelint/pull/7483)) ([@ybiquitous](https://github.com/ybiquitous)).
