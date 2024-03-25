@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "16.2.1",
+  "version": "16.3.0",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -64,7 +64,8 @@
     "lint:js": "eslint . --cache --max-warnings=0 --ext .js,.mjs",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
-    "prepare": "husky && patch-package && npm run build",
+    "prepare": "husky && npm run build",
+    "postprepare": "patch-package",
     "release": "np --no-release-draft",
     "pretest": "npm run lint",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
