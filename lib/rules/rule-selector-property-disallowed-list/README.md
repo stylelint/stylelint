@@ -69,7 +69,7 @@ Ignore keyframe selectors.
 Given:
 
 ```json
-[{"/^[a-z]+$/": ["opacity"]}, { "ignore": ["keyframe-selectors"] ]
+[{ "/^[a-z]+$/": ["opacity"] }, { "ignore": ["keyframe-selectors"] }]
 ```
 
 The following pattern is _not_ considered a problem:
