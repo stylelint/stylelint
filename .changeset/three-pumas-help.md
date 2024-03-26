@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix an issue where the expected config for `/index.js` could not be loaded
+Fix an issue where config for `/index.js` could not be loaded
