@@ -1,5 +1,10 @@
 # Changelog
 
+## 16.3.1
+
+- Fixed: `selector-max-id` end positions ([#7571](https://github.com/stylelint/stylelint/pull/7571)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: import errors for configs and plugins omitting `/index.js` ([#7578](https://github.com/stylelint/stylelint/pull/7578)) ([@ota-meshi](https://github.com/ota-meshi)).
+
 ## 16.3.0
 
 - Added: `ignoreSelectors: []` to `selector-max-compound-selectors` ([#7544](https://github.com/stylelint/stylelint/pull/7544)) ([@FloEdelmann](https://github.com/FloEdelmann)).
