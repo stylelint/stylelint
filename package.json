@@ -71,9 +71,8 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
     "test-only": "npm test --ignore-scripts",
-    "version": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
-    "postversion": "git restore package.json",
-    "watch": "npm test --ignore-scripts -- --watch"
+    "watch": "npm test --ignore-scripts -- --watch",
+    "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md && git restore package.json"
   },
   "lint-staged": {
     "*.{js,mjs}": "eslint --cache --fix",
