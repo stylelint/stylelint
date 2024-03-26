@@ -62,6 +62,8 @@ a { padding-top: 0px; }
 html[data-foo] { color: red; }
 ```
 
+## Optional secondary options
+
 ### `ignore: ["keyframe-selectors"]`
 
 Ignore keyframe selectors.
