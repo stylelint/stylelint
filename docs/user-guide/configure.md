@@ -377,6 +377,9 @@ Overrides have higher precedence than regular configurations. Multiple overrides
 
 ## `processors`
 
+> ⚠️ Warning:
+> This is an experimental feature. The API may change in the future.
+
 Processors are functions that hook into Stylelint's pipeline.
 Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
 
