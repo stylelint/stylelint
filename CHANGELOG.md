@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.4.0
+
+- Added: `ignore: ["keyframe-selectors"]` to `rule-selector-property-disallowed-list` ([#7572](https://github.com/stylelint/stylelint/pull/7572)) ([@emmacharp](https://github.com/emmacharp)).
+
 ## 16.3.1
 
 - Fixed: `selector-max-id` end positions ([#7571](https://github.com/stylelint/stylelint/pull/7571)) ([@romainmenke](https://github.com/romainmenke)).
