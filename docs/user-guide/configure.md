@@ -375,18 +375,23 @@ Patterns are applied against the file path relative to the directory of the conf
 
 Overrides have higher precedence than regular configurations. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
 
-## `postProcessor`
+## `processors`
 
-You can use the `postProcessor` property to run a function after all rules have been evaluated. This function receives the `results` object of the linting process and can modify it.
+Processors are functions that hook into Stylelint's pipeline.
+Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
 
 ```js
 // post-processor.js
-export default (results) => {
-  results.forEach((result) => {
+export default {
+  name: "remap-location",
+
+  /** @type {(result: LintResult) => void} */
+  postprocess(result) {
     result.warnings.forEach((warning) => {
-      warning.text = warning.text.replace("foo", "bar");
+      warning.endLine =
+        warning.endLine === undefined ? warning.line : warning.line + 5;
     });
-  });
+  }
 };
 ```
 

@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Add config `postProcessor` that allows modifying lint results.
+Add config `processors` that allows modifying lint results.
