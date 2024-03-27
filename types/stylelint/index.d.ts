@@ -16,6 +16,8 @@ type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
 	files: string | string[];
 };
 
+type ConfigProcessors = string | stylelint.Processor | (string | stylelint.Processor)[];
+
 type DisableSettings = stylelint.ConfigRuleSettings<boolean, stylelint.DisableOptions>;
 
 // A meta-type that returns a union over all properties of `T` whose values
@@ -115,7 +117,7 @@ declare namespace stylelint {
 		configurationComment?: string;
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
-		postProcessor?: PostProcessor;
+		processors?: ConfigProcessors;
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
@@ -196,9 +198,12 @@ declare namespace stylelint {
 	export type CustomSyntax = string | PostCSS.Syntax;
 
 	/** @internal */
-	export type PostProcessorFunction = (results: LintResult[]) => LintResult[];
+	export type PostProcessFunction = (results: LintResult[]) => void;
 
-	export type PostProcessor = string | PostProcessorFunction;
+	export type Processor = {
+		name: string;
+		postprocess: PostProcessFunction;
+	};
 
 	/** @internal */
 	export type RuleMessage = string | RuleMessageFunc;
