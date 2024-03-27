@@ -397,7 +397,7 @@ export default {
 
 ```json
 {
-  "postProcessor": "path/to/post-processor.js"
+  "processors": "path/to/post-processor.js"
 }
 ```
 
