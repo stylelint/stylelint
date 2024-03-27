@@ -375,6 +375,35 @@ Patterns are applied against the file path relative to the directory of the conf
 
 Overrides have higher precedence than regular configurations. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
 
+## `processors`
+
+> ⚠️ Warning:
+> This is an experimental feature. The API may change in the future.
+
+Processors are functions that hook into Stylelint's pipeline.
+Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
+
+```js
+// post-processor.js
+export default {
+  name: "remap-location",
+
+  /** @type {(result: LintResult) => void} */
+  postprocess(result) {
+    result.warnings.forEach((warning) => {
+      warning.endLine =
+        warning.endLine === undefined ? warning.line : warning.line + 5;
+    });
+  }
+};
+```
+
+```json
+{
+  "processors": "path/to/post-processor.js"
+}
+```
+
 ## `defaultSeverity`
 
 You can set the default severity level for all rules that do not have a severity specified in their secondary options. For example, you can set the default severity to `"warning"`:
