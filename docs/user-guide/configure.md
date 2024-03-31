@@ -377,7 +377,7 @@ Overrides have higher precedence than regular configurations. Multiple overrides
 
 ## `processors`
 
-> ⚠️ Warning:
+> [!WARNING]
 > This is an experimental feature. The API may change in the future.
 
 Processors are functions that hook into Stylelint's pipeline.
