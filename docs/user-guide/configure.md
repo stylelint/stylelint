@@ -404,7 +404,7 @@ export default {
 
 ```json
 {
-  "processors": "path/to/post-processor.js"
+  "processors": ["path/to/post-processor.js"]
 }
 ```
 
