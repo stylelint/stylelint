@@ -389,17 +389,19 @@ Currently, processors contains only two properties: a string `name` and a functi
 
 ```js
 // post-processor.js
-export default {
-  name: "remap-location",
+export default function myProcessor() {
+  return {
+    name: "remap-location",
 
-  /** @type {(result: LintResult) => void} */
-  postprocess(result) {
-    result.warnings.forEach((warning) => {
-      warning.endLine =
-        warning.endLine === undefined ? warning.line : warning.line + 5;
-    });
-  }
-};
+    /** @type {(result: LintResult) => void} */
+    postprocess(result) {
+      result.warnings.forEach((warning) => {
+        warning.endLine =
+          warning.endLine === undefined ? warning.line : warning.line + 5;
+      });
+    }
+  };
+}
 ```
 
 ```json
