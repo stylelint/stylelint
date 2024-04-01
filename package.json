@@ -198,7 +198,7 @@
     "strip-ansi": "^7.1.0",
     "supports-hyperlinks": "^3.0.0",
     "svg-tags": "^1.0.0",
-    "table": "^6.8.1",
+    "table": "^6.8.2",
     "write-file-atomic": "^5.0.1"
   },
   "devDependencies": {
