@@ -27,7 +27,6 @@ export {
 	PostcssPluginOptions,
 	PostcssResult,
 	Processor,
-	PostProcessFunction,
 	Problem,
 	PublicApi,
 	Rule,
