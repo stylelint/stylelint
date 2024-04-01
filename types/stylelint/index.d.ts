@@ -16,7 +16,7 @@ type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
 	files: string | string[];
 };
 
-type ConfigProcessors = string | stylelint.Processor | (string | stylelint.Processor)[];
+type ConfigProcessors = string[];
 
 type DisableSettings = stylelint.ConfigRuleSettings<boolean, stylelint.DisableOptions>;
 

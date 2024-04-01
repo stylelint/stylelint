@@ -380,9 +380,7 @@ Overrides have higher precedence than regular configurations. Multiple overrides
 > [!WARNING]
 > This is an experimental feature. The API may change in the future.
 >
-> This `processors` property was [removed in 15.0.0](../../migration-guide/to-15.md#removed-processors-configuration-property), but has revived for post-processing. Note that this is different from the previous behavior.
->
-> This `processors` property was [removed in 15.0.0](../../migration-guide/to-15.md#removed-processors-configuration-property), but has revived for post-processing. Note that this is different from the previous behavior.
+> This `processors` property was [removed in 15.0.0](../migration-guide/to-15.md#removed-processors-configuration-property), but has revived for post-processing. Note that this is different from the previous behavior.
 
 Processors are functions that hook into Stylelint's pipeline.
 Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
