@@ -205,7 +205,7 @@ declare namespace stylelint {
 	 */
 	export type Processor = () => {
 		name: string;
-		postprocess: (result: LintResult) => void;
+		postprocess: (result: LintResult, root?: PostCSS.Root) => void;
 	};
 
 	/** @internal */
