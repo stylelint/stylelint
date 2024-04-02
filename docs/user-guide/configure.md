@@ -404,7 +404,7 @@ export default function myProcessor() {
 
 ```json
 {
-  "processors": ["path/to/post-processor.js"]
+  "processors": ["path/to/my-processor.js"]
 }
 ```
 
