@@ -385,27 +385,59 @@ Overrides have higher precedence than regular configurations. Multiple overrides
 Processors are functions that hook into Stylelint's pipeline.
 Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
 
+For example, you can use a processor to remap the result location. Below processor expands the warning location for 'color-no-hex' rule to the entire CSS declaration. A warning for a hex color in a rule like `a { color: #111; }` would originally point to the hex color itself (e.g., line 1, columns 12-16). After processing, the warning will encompass the entire declaration (e.g., line 1, columns 5-16).
+
+```json
+{
+  "rules": { "color-no-hex": true },
+  "processors": ["path/to/my-processor.js"]
+}
+```
+
 ```js
 // my-processor.js
 
 /** @type {import("stylelint").Processor} */
 export default function myProcessor() {
   return {
-    name: "remap-location",
+    name: "remap-color-no-hex",
 
-    postprocess(result) {
-      result.warnings.forEach((warning) => {
-        warning.endLine =
-          warning.endLine === undefined ? warning.line : warning.line + 5;
+    postprocess(result, root) {
+      const updatedWarnings = result.warnings.map((warning) => {
+        if (warning.rule !== "color-no-hex") {
+          return warning;
+        }
+
+        let updatedWarning = { ...warning };
+
+        root?.walk((node) => {
+          const { start, end } = node.source;
+
+          if (
+            node.type === "decl" &&
+            start.line <= warning.line &&
+            end.line >= warning.endLine &&
+            start.column <= warning.column &&
+            end.column >= warning.endColumn
+          ) {
+            updatedWarning = {
+              ...updatedWarning,
+              line: start.line,
+              endLine: end.line,
+              column: start.column,
+              endColumn: end.column
+            };
+
+            return false;
+          }
+        });
+
+        return updatedWarning;
       });
+
+      result.warnings = updatedWarnings;
     }
   };
-}
-```
-
-```json
-{
-  "processors": ["path/to/my-processor.js"]
 }
 ```
 
