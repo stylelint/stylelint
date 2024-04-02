@@ -386,12 +386,13 @@ Processors are functions that hook into Stylelint's pipeline.
 Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
 
 ```js
-// post-processor.js
+// my-processor.js
+
+/** @type {import("stylelint").Processor} */
 export default function myProcessor() {
   return {
     name: "remap-location",
 
-    /** @type {(result: LintResult) => void} */
     postprocess(result) {
       result.warnings.forEach((warning) => {
         warning.endLine =
