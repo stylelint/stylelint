@@ -197,12 +197,12 @@ declare namespace stylelint {
 	/** @internal */
 	export type CustomSyntax = string | PostCSS.Syntax;
 
-	/** @internal */
-	export type PostProcessFunction = (result: LintResult) => void;
-
-	export type Processor = {
+	/**
+     * WARNING: This is an experimental feature. The API may change in the future.
+     */
+	export type Processor = () => {
 		name: string;
-		postprocess: PostProcessFunction;
+		postprocess: (result: LintResult) => void;
 	};
 
 	/** @internal */
