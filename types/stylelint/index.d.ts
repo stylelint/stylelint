@@ -118,6 +118,9 @@ declare namespace stylelint {
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
 		processors?: ConfigProcessors;
+		_processorFunctions?: {
+			[processorName: string]: Omit<ReturnType<Processor>, 'name'>;
+		}; // Internal use only
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
@@ -198,8 +201,8 @@ declare namespace stylelint {
 	export type CustomSyntax = string | PostCSS.Syntax;
 
 	/**
-     * WARNING: This is an experimental feature. The API may change in the future.
-     */
+	 * WARNING: This is an experimental feature. The API may change in the future.
+	 */
 	export type Processor = () => {
 		name: string;
 		postprocess: (result: LintResult) => void;
