@@ -118,9 +118,8 @@ declare namespace stylelint {
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
 		processors?: ConfigProcessors;
-		_processorFunctions?: {
-			[processorName: string]: Omit<ReturnType<Processor>, 'name'>;
-		}; // Internal use only
+		/** @internal */
+		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
