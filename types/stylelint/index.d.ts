@@ -329,6 +329,7 @@ declare namespace stylelint {
 		readonly 'no-irregular-whitespace': Promise<Rule>;
 		readonly 'no-unknown-animations': Promise<Rule>;
 		readonly 'no-unknown-custom-properties': Promise<Rule>;
+		readonly 'no-unknown-custom-media': Promise<Rule>;
 		readonly 'number-max-precision': Promise<Rule>;
 		readonly 'property-allowed-list': Promise<Rule>;
 		readonly 'property-disallowed-list': Promise<Rule>;

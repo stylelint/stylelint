@@ -131,6 +131,7 @@ Disallow unknown things with these `no-unknown` rules.
 | [`media-feature-name-value-no-unknown`](../../lib/rules/media-feature-name-value-no-unknown/README.md)<br/>Disallow unknown values for media features. | | |
 | [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)<br/>Disallow unknown animations. | | |
 | [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)<br/>Disallow unknown custom properties. | | |
+| [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)<br/>Disallow unknown custom media queries. | | |
 | [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)<br/>Disallow unknown properties. | ✅ | |
 | [`selector-pseudo-class-no-unknown`](../../lib/rules/selector-pseudo-class-no-unknown/README.md)<br/>Disallow unknown pseudo-class selectors. | ✅ | |
 | [`selector-pseudo-element-no-unknown`](../../lib/rules/selector-pseudo-element-no-unknown/README.md)<br/>Disallow unknown pseudo-element selectors. | ✅ | |
