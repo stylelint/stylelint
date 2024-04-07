@@ -25,9 +25,9 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (--md) {}
+@media (--sm) {}
 
-@media (--md), (min-width: 40rem) {}
+@media (--sm), (min-width: 40rem) {}
 ```
 
 The following patterns are _not_ considered problems:
