@@ -13,7 +13,7 @@ Disallow unknown custom media queries.
 *   And this one */
 ```
 
-This rule considers custom media queries defined within the same source to be known. Use the importForm secondary option to specify more sources.
+This rule considers custom media queries defined within the same source to be known.
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
