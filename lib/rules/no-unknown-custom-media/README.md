@@ -13,7 +13,7 @@ Disallow unknown custom media queries.
 *   And this one */
 ```
 
-This rule considers custom media queries defined within the same source to be known.
+This rule considers custom media queries defined **within the same source** to be known.
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
@@ -27,7 +27,7 @@ The following patterns are considered problems:
 ```css
 @media (--sm) {}
 
-@media (--sm), (min-width: 40rem) {}
+@media (--sm), (max-height: 40rem) {}
 ```
 
 The following patterns are _not_ considered problems:
@@ -36,7 +36,14 @@ The following patterns are _not_ considered problems:
 ```css
 @custom-media --sm (min-width: 40rem);
 
-@media (--sm) {}
+@media (--sm), (max-height: 40rem) {}
+```
 
-@media (--sm), (min-width: 40rem) {}
+> [!NOTE] `@custom-media` can be used before its defined
+
+<!-- prettier-ignore -->
+```css
+@media (--lg) {}
+
+@custom-media --lg (min-width: 60rem);
 ```
