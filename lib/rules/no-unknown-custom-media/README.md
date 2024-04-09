@@ -39,7 +39,8 @@ The following patterns are _not_ considered problems:
 @media (--sm), (max-height: 40rem) {}
 ```
 
-> [!NOTE] `@custom-media` can be used before its defined
+> [!NOTE]
+> The `@custom-media` name can be used before its declaration
 
 <!-- prettier-ignore -->
 ```css
