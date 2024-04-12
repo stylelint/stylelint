@@ -681,6 +681,10 @@ declare namespace stylelint {
 		| 'text-emphasis'
 		| 'transition';
 
+	type ImplicitResetters = Extract<ShorthandProperties, 'border' | 'flex' | 'font'>;
+	/** @internal */
+	export type ShorthandToResetToInitialProperty = ReadonlyMap<ImplicitResetters, Set<string>>;
+
 	/** @internal */
 	export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
 		ShorthandProperties,

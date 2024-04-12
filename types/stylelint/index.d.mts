@@ -40,6 +40,7 @@ export {
 	RuleSeverity,
 	Severity,
 	ShorthandProperties,
+	ShorthandToResetToInitialProperty,
 	StylelintPostcssResult,
 	Utils,
 	Warning,
