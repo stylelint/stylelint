@@ -375,6 +375,72 @@ Patterns are applied against the file path relative to the directory of the conf
 
 Overrides have higher precedence than regular configurations. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
 
+## `processors`
+
+> [!WARNING]
+> This is an experimental feature. The API may change in the future.
+>
+> This `processors` property was [removed in 15.0.0](../migration-guide/to-15.md#removed-processors-configuration-property), but has revived for post-processing. Note that this is different from the previous behavior.
+
+Processors are functions that hook into Stylelint's pipeline.
+Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
+
+For example, you can use a processor to remap the result location. Below processor expands the warning location for 'color-no-hex' rule to the entire CSS declaration. A warning for a hex color in a rule like `a { color: #111; }` would originally point to the hex color itself (e.g., line 1, columns 12-16). After processing, the warning will encompass the entire declaration (e.g., line 1, columns 5-16).
+
+```json
+{
+  "rules": { "color-no-hex": true },
+  "processors": ["path/to/my-processor.js"]
+}
+```
+
+```js
+// my-processor.js
+
+/** @type {import("stylelint").Processor} */
+export default function myProcessor() {
+  return {
+    name: "remap-color-no-hex",
+
+    postprocess(result, root) {
+      const updatedWarnings = result.warnings.map((warning) => {
+        if (warning.rule !== "color-no-hex") {
+          return warning;
+        }
+
+        let updatedWarning = { ...warning };
+
+        root?.walk((node) => {
+          const { start, end } = node.source;
+
+          if (
+            node.type === "decl" &&
+            start.line <= warning.line &&
+            end.line >= warning.endLine &&
+            start.column <= warning.column &&
+            end.column >= warning.endColumn
+          ) {
+            updatedWarning = {
+              ...updatedWarning,
+              line: start.line,
+              endLine: end.line,
+              column: start.column,
+              endColumn: end.column
+            };
+
+            return false;
+          }
+        });
+
+        return updatedWarning;
+      });
+
+      result.warnings = updatedWarnings;
+    }
+  };
+}
+```
+
 ## `defaultSeverity`
 
 You can set the default severity level for all rules that do not have a severity specified in their secondary options. For example, you can set the default severity to `"warning"`:
