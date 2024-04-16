@@ -1,6 +1,18 @@
 # function-calc-no-unspaced-operator
 
-Disallow invalid unspaced operator within `calc` functions.
+Disallow invalid unspaced operator within math functions that accept a single [`calc-sum`](https://www.w3.org/TR/css-values-4/#typedef-calc-sum):
+
+- `calc`
+- `sin`
+- `cos`
+- `tan`
+- `exp`
+- `abs`
+- `sign`
+- `asin`
+- `acos`
+- `atan`
+- `sqrt`
 
 <!-- prettier-ignore -->
 ```css
@@ -27,6 +39,11 @@ a { top: calc(1px+2px); }
 <!-- prettier-ignore -->
 ```css
 a { top: calc(1px+ 2px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transform: rotate(atan(-2+1)); }
 ```
 
 The following patterns are _not_ considered problems:
