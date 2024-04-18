@@ -1,18 +1,6 @@
 # function-calc-no-unspaced-operator
 
-Disallow invalid unspaced operator within math functions that accept a single [`calc-sum`](https://www.w3.org/TR/css-values-4/#typedef-calc-sum):
-
-- `calc`
-- `sin`
-- `cos`
-- `tan`
-- `exp`
-- `abs`
-- `sign`
-- `asin`
-- `acos`
-- `atan`
-- `sqrt`
+Disallow invalid unspaced operator within math functions that accept a single [`<calc-sum>`](https://www.w3.org/TR/css-values-4/#typedef-calc-sum) value, such as `calc()` or `abs()`.
 
 <!-- prettier-ignore -->
 ```css
