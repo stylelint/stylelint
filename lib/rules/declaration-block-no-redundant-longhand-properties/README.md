@@ -174,6 +174,60 @@ a {
 
 ## Optional secondary options
 
+### `ignoreLonghands: ["string"]`
+
+Given:
+
+<!-- prettier-ignore -->
+```json
+["text-decoration-thickness", "background-size", "background-origin", "background-clip"]
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: purple;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-color: transparent;
+  background-image: none;
+  background-size: contain;
+  background-origin: border-box;
+  background-clip: text;
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  text-decoration: underline solid purple;
+  text-decoration-thickness: 1px;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  background: none 0% 0% repeat scroll transparent;
+  background-size: contain;
+  background-origin: border-box;
+  background-clip: text;
+}
+```
+
 ### `ignoreShorthands: ["/regex/", /regex/, "string"]`
 
 Given:
