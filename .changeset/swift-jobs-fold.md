@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `border`
+Fixed: `declaration-block-no-redundant-longhand-properties` false negatives for `border`
