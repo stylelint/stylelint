@@ -224,7 +224,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^8.57.0",
+    "eslint": "^9.1.0",
     "eslint-config-stylelint": "^21.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^28.2.0",
