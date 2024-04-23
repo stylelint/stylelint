@@ -2,10 +2,10 @@
 
 ## 16.4.0
 
-- Added: experimental support for post processors ([#7568](https://github.com/stylelint/stylelint/pull/7568)) ([@YuanboXue-Amber](https://github.com/YuanboXue-Amber)).
+- Added: `no-unknown-custom-media` ([#7594](https://github.com/stylelint/stylelint/pull/7594)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Added: `ignoreLonghands: []` to `declaration-block-no-redundant-longhand-properties` ([#7611](https://github.com/stylelint/stylelint/pull/7611)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `ignore: ["keyframe-selectors"]` to `rule-selector-property-disallowed-list` ([#7572](https://github.com/stylelint/stylelint/pull/7572)) ([@emmacharp](https://github.com/emmacharp)).
-- Added: `no-unknown-custom-media` ([#7594](https://github.com/stylelint/stylelint/pull/7594)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Added: experimental support for post processors ([#7568](https://github.com/stylelint/stylelint/pull/7568)) ([@YuanboXue-Amber](https://github.com/YuanboXue-Amber)).
 - Fixed: `function-calc-no-unspaced-operator` false negatives for some math functions ([#7619](https://github.com/stylelint/stylelint/pull/7619)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for `border` ([#7585](https://github.com/stylelint/stylelint/pull/7585)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `text-decoration` ([#7611](https://github.com/stylelint/stylelint/pull/7611)) ([@Mouvedia](https://github.com/Mouvedia)).
