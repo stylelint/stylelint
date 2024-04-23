@@ -11,7 +11,7 @@
 - Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for `border` ([#7585](https://github.com/stylelint/stylelint/pull/7585)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for `font` and `border` ([#7606](https://github.com/stylelint/stylelint/pull/7606)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `function-calc-no-unspaced-operator` false negatives for some math functions ([#7619](https://github.com/stylelint/stylelint/pull/7619)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `function-no-unknown` false positives for `anchor` and `anchor-size` ([#7607](https://github.com/stylelint/stylelint/pull/7607)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-no-unknown` false positives for `anchor`, `anchor-size` and `palette-mix` ([#7607](https://github.com/stylelint/stylelint/pull/7607) & [#7640](https://github.com/stylelint/stylelint/pull/7640)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `selector-max-attribute` end positions ([#7592](https://github.com/stylelint/stylelint/pull/7592)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-max-class` end positions ([#7590](https://github.com/stylelint/stylelint/pull/7590)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-max-combinators` end positions ([#7596](https://github.com/stylelint/stylelint/pull/7596)) ([@romainmenke](https://github.com/romainmenke)).
