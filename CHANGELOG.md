@@ -1,5 +1,25 @@
 # Changelog
 
+## 16.4.0
+
+- Added: `no-unknown-custom-media` ([#7594](https://github.com/stylelint/stylelint/pull/7594)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Added: `ignoreLonghands: []` to `declaration-block-no-redundant-longhand-properties` ([#7611](https://github.com/stylelint/stylelint/pull/7611)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `ignore: ["keyframe-selectors"]` to `rule-selector-property-disallowed-list` ([#7572](https://github.com/stylelint/stylelint/pull/7572)) ([@emmacharp](https://github.com/emmacharp)).
+- Added: experimental support for post processors ([#7568](https://github.com/stylelint/stylelint/pull/7568)) ([@YuanboXue-Amber](https://github.com/YuanboXue-Amber)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix conflicts ([#7626](https://github.com/stylelint/stylelint/pull/7626)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `text-decoration` ([#7611](https://github.com/stylelint/stylelint/pull/7611)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for `border` ([#7585](https://github.com/stylelint/stylelint/pull/7585)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for `font` and `border` ([#7606](https://github.com/stylelint/stylelint/pull/7606)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-calc-no-unspaced-operator` false negatives for some math functions ([#7619](https://github.com/stylelint/stylelint/pull/7619)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-no-unknown` false positives for `anchor` and `anchor-size` ([#7607](https://github.com/stylelint/stylelint/pull/7607)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-max-attribute` end positions ([#7592](https://github.com/stylelint/stylelint/pull/7592)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-class` end positions ([#7590](https://github.com/stylelint/stylelint/pull/7590)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-combinators` end positions ([#7596](https://github.com/stylelint/stylelint/pull/7596)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-compound-selectors` end positions ([#7599](https://github.com/stylelint/stylelint/pull/7599)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-pseudo-class` end positions ([#7598](https://github.com/stylelint/stylelint/pull/7598)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-universal` end positions ([#7597](https://github.com/stylelint/stylelint/pull/7597)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for experimental and deprecated HTML tags ([#7612](https://github.com/stylelint/stylelint/pull/7612)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.3.1
 
 - Fixed: `selector-max-id` end positions ([#7571](https://github.com/stylelint/stylelint/pull/7571)) ([@romainmenke](https://github.com/romainmenke)).
