@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": minor
 ---
 
-Fixed: false negatives for `value-no-vendor-prefix`
+Fixed: `value-no-vendor-prefix` false negatives
