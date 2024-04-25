@@ -17,7 +17,7 @@ jobs:
   test:
     uses: stylelint/.github/.github/workflows/test.yml@main
     with:
-      node-version: '["18", "20", "current"]'
+      node-version: '["18", "20", "22"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
       exclude: '[{"node-version": "20", "os": "ubuntu-latest"}]' # for coverage
 
@@ -32,7 +32,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: npm
 
       - name: Install latest npm
