@@ -67,22 +67,22 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-cursor: -webkit-grab;
+a { cursor: -webkit-grab; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-.foo { list-style-type: -moz-hangul; }
+a { list-style-type: -moz-hangul; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-.foo { list-style-type: -moz-hangul-consonant; }
+a { list-style-type: -moz-hangul-consonant; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-.foo { -webkit-appearance: -apple-pay-button; }
+a { -webkit-appearance: -apple-pay-button; }
 ```
 
 > [!WARNING]
