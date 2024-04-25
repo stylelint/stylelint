@@ -46,6 +46,7 @@ export default inputFiles.map((input) => {
 			plugins: [addWarningForCommonJS()],
 		},
 		treeshake: false,
+		logLevel: 'silent',
 	};
 });
 
