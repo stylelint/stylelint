@@ -55,22 +55,37 @@ a { background: linear-gradient(bottom, #000, #fff); }
 
 ## Optional secondary options
 
-### `ignoreValues: ["string"]`
+### `ignoreValues: ["/regex/", /regex/, "string"]`
 
 Given:
 
 ```json
-["grab", "max-content"]
+["grab", "hangul", "/^-apple-/"]
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-cursor: -webkit-grab;
+a { cursor: -webkit-grab; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-.foo { max-width: -moz-max-content; }
+a { list-style-type: -moz-hangul; }
 ```
+
+<!-- prettier-ignore -->
+```css
+a { list-style-type: -moz-hangul-consonant; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { -webkit-appearance: -apple-pay-button; }
+```
+
+> [!WARNING]
+> An _exact_ match comparison will be performed for non-regex strings in the next major version.
+> If you want to keep the legacy behavior, please consider using a regex instead.
+> E.g. `[/^(-webkit-|-moz-|-ms-)?inline-/]`.
