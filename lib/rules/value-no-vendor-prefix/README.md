@@ -86,6 +86,6 @@ cursor: -webkit-grab;
 ```
 
 > [!WARNING]
-> An _exact_ match comparison will be performed for non-regex strings in the next major version.  
-> If you want to keep the legacy behavior, please consider using a regex instead.  
-> e.g. `[/^(-webkit-|-moz-|-ms-)?inline-/]`
+> An _exact_ match comparison will be performed for non-regex strings in the next major version.
+> If you want to keep the legacy behavior, please consider using a regex instead.
+> E.g. `[/^(-webkit-|-moz-|-ms-)?inline-/]`.
