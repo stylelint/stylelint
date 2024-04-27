@@ -83,4 +83,4 @@ a { -moz-user-select: -moz-all; }
 > [!WARNING]
 > An _exact_ match comparison will be performed for non-regex strings in the next major version.
 > If you want to keep the legacy behavior, please consider using a regex instead.
-> E.g. `[/^(-webkit-|-moz-|-ms-)?max-content$/]`.
+> E.g. `[/^(-webkit-|-moz-)?max-content$/]`.
