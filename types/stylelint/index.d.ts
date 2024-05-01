@@ -1,6 +1,6 @@
 import type * as PostCSS from 'postcss';
 import type { GlobbyOptions } from 'globby';
-import type * as Cosmiconfig from 'cosmiconfig';
+import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
 type ConfigExtends = string | string[];
 
@@ -129,7 +129,9 @@ declare namespace stylelint {
 	export type DisablePropertyName = PropertyNamesOfType<Config, DisableSettings>;
 
 	/** @internal */
-	export type CosmiconfigResult = Cosmiconfig.CosmiconfigResult<Config>;
+	export type CosmiconfigResult =
+		| (ReturnType<CosmiconfigTransformSync> & { config: Config })
+		| null;
 
 	/** @internal */
 	export type DisabledRange = {
@@ -768,7 +770,7 @@ declare namespace stylelint {
 	 */
 	export type InternalApi = {
 		_options: LinterOptions & { cwd: string };
-		_extendExplorer: Cosmiconfig.PublicExplorer;
+		_extendExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
 		_postcssResultCache: Map<string, PostCSS.Result>;
 		_fileCache: FileCache;
