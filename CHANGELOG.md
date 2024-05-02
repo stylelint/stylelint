@@ -4,8 +4,7 @@
 
 - Added: regex support to `ignoreValues` for `value-no-vendor-prefix` ([#7650](https://github.com/stylelint/stylelint/pull/7650)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `shorthand-property-no-redundant-values` false negatives for functions ([#7657](https://github.com/stylelint/stylelint/pull/7657)) ([@ybiquitous](https://github.com/ybiquitous)).
-- Fixed: `value-no-vendor-prefix` false negatives ([#7654](https://github.com/stylelint/stylelint/pull/7654)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `value-no-vendor-prefix` false negatives/positives ([#7658](https://github.com/stylelint/stylelint/pull/7658)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `value-no-vendor-prefix` false negatives/positives ([#7654](https://github.com/stylelint/stylelint/pull/7654) & [#7658](https://github.com/stylelint/stylelint/pull/7658)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `CosmiconfigResult` type error ([#7661](https://github.com/stylelint/stylelint/pull/7661)) ([@ybiquitous](https://github.com/ybiquitous)).
 
 ## 16.4.0
