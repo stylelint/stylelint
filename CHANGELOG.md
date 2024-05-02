@@ -1,5 +1,12 @@
 # Changelog
 
+## 16.5.0
+
+- Added: regex support to `ignoreValues` for `value-no-vendor-prefix` ([#7650](https://github.com/stylelint/stylelint/pull/7650)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `shorthand-property-no-redundant-values` false negatives for functions ([#7657](https://github.com/stylelint/stylelint/pull/7657)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `value-no-vendor-prefix` false negatives/positives ([#7654](https://github.com/stylelint/stylelint/pull/7654) & [#7658](https://github.com/stylelint/stylelint/pull/7658)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `CosmiconfigResult` type error ([#7661](https://github.com/stylelint/stylelint/pull/7661)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.4.0
 
 - Added: `no-unknown-custom-media` ([#7594](https://github.com/stylelint/stylelint/pull/7594)) ([@fpetrakov](https://github.com/fpetrakov)).
