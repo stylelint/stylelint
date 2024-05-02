@@ -111,17 +111,7 @@
   },
   "remarkConfig": {
     "plugins": [
-      "@stylelint/remark-preset",
-      [
-        "remark-lint-no-undefined-references",
-        {
-          "allow": [
-            "!NOTE",
-            "!IMPORTANT",
-            "!WARNING"
-          ]
-        }
-      ]
+      "@stylelint/remark-preset"
     ]
   },
   "jest": {
@@ -206,7 +196,7 @@
     "@changesets/get-github-info": "^0.6.0",
     "@jest/globals": "^29.7.0",
     "@stylelint/prettier-config": "^3.0.0",
-    "@stylelint/remark-preset": "^5.0.0",
+    "@stylelint/remark-preset": "^5.1.0",
     "@types/balanced-match": "^1.0.4",
     "@types/css-tree": "^2.3.7",
     "@types/debug": "^4.1.12",
