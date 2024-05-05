@@ -161,9 +161,9 @@
     ]
   },
   "dependencies": {
-    "@csstools/css-parser-algorithms": "^2.6.1",
-    "@csstools/css-tokenizer": "^2.2.4",
-    "@csstools/media-query-list-parser": "^2.1.9",
+    "@csstools/css-parser-algorithms": "^2.6.3",
+    "@csstools/css-tokenizer": "^2.3.1",
+    "@csstools/media-query-list-parser": "^2.1.11",
     "@csstools/selector-specificity": "^3.0.3",
     "@dual-bundle/import-meta-resolve": "^4.0.0",
     "balanced-match": "^2.0.0",
