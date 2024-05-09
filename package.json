@@ -226,7 +226,7 @@
     "np": "^10.0.5",
     "npm-run-all": "^4.1.5",
     "patch-package": "^8.0.0",
-    "postcss-html": "^1.6.0",
+    "postcss-html": "^1.7.0",
     "postcss-import": "^16.1.0",
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",
