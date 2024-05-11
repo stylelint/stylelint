@@ -195,7 +195,7 @@ stylelint "foo/**/*.css" --config bar/mySpecialConfig.json
 Recursively linting all `.css` files in the `foo` directory using a custom syntax:
 
 ```shell
-stylelint "foo/**/*.css" --customSyntax path/to/my-custom-syntax.js
+stylelint "foo/**/*.css" --custom-syntax path/to/my-custom-syntax.js
 ```
 
 ### Example I - print on success

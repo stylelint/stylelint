@@ -1,6 +1,6 @@
 # function-calc-no-unspaced-operator
 
-Disallow invalid unspaced operator within `calc` functions.
+Disallow invalid unspaced operator within [math functions](https://www.w3.org/TR/css-values-4/#calc-syntax), such as `calc()` or `min()`.
 
 <!-- prettier-ignore -->
 ```css
@@ -27,6 +27,11 @@ a { top: calc(1px+2px); }
 <!-- prettier-ignore -->
 ```css
 a { top: calc(1px+ 2px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transform: rotate(atan(-2+1)); }
 ```
 
 The following patterns are _not_ considered problems:

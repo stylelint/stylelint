@@ -10,7 +10,10 @@ Disallow missing `var` function for custom properties.
  *             This custom property */
 ```
 
-This rule only reports custom properties that are defined within the same source.
+This rule has the following limitations:
+
+- It only reports custom properties that are defined within the same source.
+- It does not check properties that can contain author-defined identifiers, e.g. `transition-property`.
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
@@ -44,4 +47,10 @@ a { color: var(--foo); }
 ```css
 @property --foo {}
 a { color: var(--foo); }
+```
+
+<!-- prettier-ignore -->
+```css
+@property --foo {}
+a { transition-property: --foo; }
 ```

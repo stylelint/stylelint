@@ -130,6 +130,7 @@ Disallow unknown things with these `no-unknown` rules.
 | [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md)<br/>Disallow unknown media feature names. | ✅ | |
 | [`media-feature-name-value-no-unknown`](../../lib/rules/media-feature-name-value-no-unknown/README.md)<br/>Disallow unknown values for media features. | | |
 | [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)<br/>Disallow unknown animations. | | |
+| [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)<br/>Disallow unknown custom media queries. | | |
 | [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)<br/>Disallow unknown custom properties. | | |
 | [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)<br/>Disallow unknown properties. | ✅ | |
 | [`selector-pseudo-class-no-unknown`](../../lib/rules/selector-pseudo-class-no-unknown/README.md)<br/>Disallow unknown pseudo-class selectors. | ✅ | |
@@ -306,10 +307,10 @@ Apply limits with these `max` and `min` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md)<br/>Limit the number of declarations within a single-line declaration block. | | ✅ | |
+| [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md)<br/>Limit the number of declarations within a single-line declaration block. | ✅ | |
 | [`declaration-property-max-values`](../../lib/rules/declaration-property-max-values/README.md)<br/>Limit the number of values for a list of properties within declarations. | | |
 | [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md)<br/>Limit the depth of nesting. | | |
-| [`number-max-precision`](../../lib/rules/number-max-precision/README.md)<br/>Limit the number of decimal places allowed in numbers. | | ✅ | |
+| [`number-max-precision`](../../lib/rules/number-max-precision/README.md)<br/>Limit the number of decimal places allowed in numbers. | ✅ | |
 | [`selector-max-attribute`](../../lib/rules/selector-max-attribute/README.md)<br/>Limit the number of attribute selectors in a selector. | | |
 | [`selector-max-class`](../../lib/rules/selector-max-class/README.md)<br/>Limit the number of classes in a selector. | | |
 | [`selector-max-combinators`](../../lib/rules/selector-max-combinators/README.md)<br/>Limit the number of combinators in a selector. | | |
@@ -350,11 +351,11 @@ Enforce naming conventions with these `pattern` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`comment-pattern`](../../lib/rules/comment-pattern/README.md)<br/>Specify a pattern for comments. | | |
-| [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md)<br/>Specify a pattern for custom media query names. | | ✅ | |
-| [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md)<br/>Specify a pattern for custom properties. | | ✅ | |
-| [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md)<br/>Specify a pattern for keyframe names. | | ✅ | |
-| [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md)<br/>Specify a pattern for class selectors. | | ✅ | |
-| [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md)<br/>Specify a pattern for ID selectors. | | ✅ | |
+| [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md)<br/>Specify a pattern for custom media query names. | ✅ | |
+| [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md)<br/>Specify a pattern for custom properties. | ✅ | |
+| [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md)<br/>Specify a pattern for keyframe names. | ✅ | |
+| [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md)<br/>Specify a pattern for class selectors. | ✅ | |
+| [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md)<br/>Specify a pattern for ID selectors. | ✅ | |
 | [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md)<br/>Specify a pattern for the selectors of rules nested within rules. | | |
 <!-- prettier-ignore-end -->
 

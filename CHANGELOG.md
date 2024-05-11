@@ -1,5 +1,58 @@
 # Changelog
 
+## 16.5.0
+
+- Added: regex support to `ignoreValues` for `value-no-vendor-prefix` ([#7650](https://github.com/stylelint/stylelint/pull/7650)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `shorthand-property-no-redundant-values` false negatives for functions ([#7657](https://github.com/stylelint/stylelint/pull/7657)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `value-no-vendor-prefix` false negatives/positives ([#7654](https://github.com/stylelint/stylelint/pull/7654) & [#7658](https://github.com/stylelint/stylelint/pull/7658)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `CosmiconfigResult` type error ([#7661](https://github.com/stylelint/stylelint/pull/7661)) ([@ybiquitous](https://github.com/ybiquitous)).
+
+## 16.4.0
+
+- Added: `no-unknown-custom-media` ([#7594](https://github.com/stylelint/stylelint/pull/7594)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Added: `ignoreLonghands: []` to `declaration-block-no-redundant-longhand-properties` ([#7611](https://github.com/stylelint/stylelint/pull/7611)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `ignore: ["keyframe-selectors"]` to `rule-selector-property-disallowed-list` ([#7572](https://github.com/stylelint/stylelint/pull/7572)) ([@emmacharp](https://github.com/emmacharp)).
+- Added: experimental support for post processors ([#7568](https://github.com/stylelint/stylelint/pull/7568)) ([@YuanboXue-Amber](https://github.com/YuanboXue-Amber)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix conflicts ([#7626](https://github.com/stylelint/stylelint/pull/7626)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `text-decoration` ([#7611](https://github.com/stylelint/stylelint/pull/7611)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for `border` ([#7585](https://github.com/stylelint/stylelint/pull/7585)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for `font` and `border` ([#7606](https://github.com/stylelint/stylelint/pull/7606)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-calc-no-unspaced-operator` false negatives for some math functions ([#7619](https://github.com/stylelint/stylelint/pull/7619)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-no-unknown` false positives for `anchor`, `anchor-size` and `palette-mix` ([#7607](https://github.com/stylelint/stylelint/pull/7607) & [#7640](https://github.com/stylelint/stylelint/pull/7640)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-max-attribute` end positions ([#7592](https://github.com/stylelint/stylelint/pull/7592)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-class` end positions ([#7590](https://github.com/stylelint/stylelint/pull/7590)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-combinators` end positions ([#7596](https://github.com/stylelint/stylelint/pull/7596)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-compound-selectors` end positions ([#7599](https://github.com/stylelint/stylelint/pull/7599)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-pseudo-class` end positions ([#7598](https://github.com/stylelint/stylelint/pull/7598)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-universal` end positions ([#7597](https://github.com/stylelint/stylelint/pull/7597)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for experimental and deprecated HTML tags ([#7612](https://github.com/stylelint/stylelint/pull/7612)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.3.1
+
+- Fixed: `selector-max-id` end positions ([#7571](https://github.com/stylelint/stylelint/pull/7571)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: import errors for configs and plugins omitting `/index.js` ([#7578](https://github.com/stylelint/stylelint/pull/7578)) ([@ota-meshi](https://github.com/ota-meshi)).
+
+## 16.3.0
+
+- Added: `ignoreSelectors: []` to `selector-max-compound-selectors` ([#7544](https://github.com/stylelint/stylelint/pull/7544)) ([@FloEdelmann](https://github.com/FloEdelmann)).
+- Added: tally of fixable problems to `string` and `verbose` formatters ([#7539](https://github.com/stylelint/stylelint/pull/7539)) ([@m-allanson](https://github.com/m-allanson)).
+- Added: support for `*-deprecation` command-line flags of Node.js ([#7550](https://github.com/stylelint/stylelint/pull/7550)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: false positive CJS deprecation warning for dual-package plugins ([#7532](https://github.com/stylelint/stylelint/pull/7532)) ([@JounQin](https://github.com/JounQin)).
+- Fixed: `rule-selector-property-disallowed-list` false positives for nesting selectors ([#7558](https://github.com/stylelint/stylelint/pull/7558)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-pseudo-*-allowed-list` false positives for vendor prefixes ([#7525](https://github.com/stylelint/stylelint/pull/7525)) ([@carlosjeurissen](https://github.com/carlosjeurissen)).
+- Fixed: `report()` for `index`/`endIndex` zero values ([#7565](https://github.com/stylelint/stylelint/pull/7565)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-type` end positions ([#7518](https://github.com/stylelint/stylelint/pull/7518)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.2.1
+
+- Fixed: report flags not reporting on subsequent runs when cache is used ([#7483](https://github.com/stylelint/stylelint/pull/7483)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `custom-property-no-missing-var-function` false positives for properties that can contain author-defined identifiers ([#7478](https://github.com/stylelint/stylelint/pull/7478)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:seeking`, the media loading state and sound state pseudo-classes ([#7490](https://github.com/stylelint/stylelint/pull/7490)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-max-specificity` false positives with `ignoreSelectors` option for `of <selector>` syntax ([#7475](https://github.com/stylelint/stylelint/pull/7475)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `function-calc-no-unspaced-operator` performance ([#7505](https://github.com/stylelint/stylelint/pull/7505)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `validateOptions` to report when secondary option object is an empty object or null ([#7476](https://github.com/stylelint/stylelint/pull/7476)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `report()` error message responsibility for a missing node or line number ([#7474](https://github.com/stylelint/stylelint/pull/7474)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.2.0
 
 - Added: `media-query-no-invalid` specific problem messages ([#7462](https://github.com/stylelint/stylelint/pull/7462)) ([@romainmenke](https://github.com/romainmenke)).
@@ -45,6 +98,7 @@
 - Added: `exports` field to `package.json` for Conditional Exports (ESM/CommonJS) ([#7307](https://github.com/stylelint/stylelint/pull/7307)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM plugins ([#7339](https://github.com/stylelint/stylelint/pull/7339)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM custom formatters ([#7343](https://github.com/stylelint/stylelint/pull/7343)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: support for a package name as arguments to `--custom-formatter` ([#7343](https://github.com/stylelint/stylelint/pull/7343)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: `severity` secondary option's function support ([#7202](https://github.com/stylelint/stylelint/pull/7202)) ([@kizu](https://github.com/kizu)).
 - Added: support for a `Promise` formatter function ([#7184](https://github.com/stylelint/stylelint/pull/7184)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: support for ESM custom syntaxes ([#7351](https://github.com/stylelint/stylelint/pull/7351)) ([@ybiquitous](https://github.com/ybiquitous)).
@@ -1457,7 +1511,7 @@ Changes:
 - Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 - Changed: `unit-*` rules now check `@media` values too.
 - Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
-- Added: [processors](/docs/user-guide/configure.md#processors).
+- Added: processors.
 - Added: `media-feature-parentheses-space-inside` rule.
 - Added: `no-missing-end-of-source-newline` rule.
 - Added: `property-no-unknown` rule.

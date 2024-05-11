@@ -455,6 +455,9 @@ exports[`CommonJS API and config 1`] = `
     "no-unknown-animations": {
       "url": "https://stylelint.io/user-guide/rules/no-unknown-animations",
     },
+    "no-unknown-custom-media": {
+      "url": "https://stylelint.io/user-guide/rules/no-unknown-custom-media",
+    },
     "no-unknown-custom-properties": {
       "url": "https://stylelint.io/user-guide/rules/no-unknown-custom-properties",
     },
