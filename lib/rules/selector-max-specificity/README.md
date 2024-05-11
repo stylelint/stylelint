@@ -48,7 +48,7 @@ The following patterns are considered problems:
 ```css
 .foo {
   color: red;
-  @nest .baz .bar & {
+  .baz .bar & {
     color: blue;
   }
 }
@@ -84,7 +84,7 @@ div {}
 ```css
 .foo {
   color: red;
-  @nest .baz & {
+  .baz & {
     color: blue;
   }
 }
@@ -100,7 +100,7 @@ Given:
 [
   "0,2,0",
   {
-    "ignoreSelectors": [":global", ":local", "/^my-/"]
+    "ignoreSelectors": [":is", ":has", "/^my-/"]
   }
 ]
 ```
@@ -109,17 +109,17 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:global(.foo) .bar {}
+:is(.foo) .bar {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo.bar) {}
+:has(.foo.bar) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo, :global(.bar).baz) {}
+:has(.foo, :is(.bar).baz) {}
 ```
 
 <!-- prettier-ignore -->
@@ -131,17 +131,17 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:global(.foo) .bar.baz {}
+:is(.foo) .bar.baz {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo.bar.baz) {}
+:has(.foo.bar.baz) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo, :global(.bar), .foo.bar.baz) {}
+:has(.foo, :is(.bar), .foo.bar.baz) {}
 ```
 
 <!-- prettier-ignore -->
