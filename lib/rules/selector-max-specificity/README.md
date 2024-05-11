@@ -100,7 +100,7 @@ Given:
 [
   "0,2,0",
   {
-    "ignoreSelectors": [":global", ":local", "/^my-/"]
+    "ignoreSelectors": [":host", ":host-context", "/^my-/"]
   }
 ]
 ```
@@ -109,17 +109,17 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:global(.foo) .bar {}
+:host(.foo) .bar {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo.bar) {}
+:host-context(.foo.bar) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo, :global(.bar).baz) {}
+:host-context(.foo, :host(.bar).baz) {}
 ```
 
 <!-- prettier-ignore -->
@@ -131,17 +131,17 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-:global(.foo) .bar.baz {}
+:host(.foo) .bar.baz {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo.bar.baz) {}
+:host-context(.foo.bar.baz) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-:local(.foo, :global(.bar), .foo.bar.baz) {}
+:host-context(.foo, :host(.bar), .foo.bar.baz) {}
 ```
 
 <!-- prettier-ignore -->
