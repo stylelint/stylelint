@@ -48,7 +48,7 @@ The following patterns are considered problems:
 ```css
 .foo {
   color: red;
-  .baz .bar & {
+  @nest .baz .bar & {
     color: blue;
   }
 }
@@ -84,7 +84,7 @@ div {}
 ```css
 .foo {
   color: red;
-  .baz & {
+  @nest .baz & {
     color: blue;
   }
 }
