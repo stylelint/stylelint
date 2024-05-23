@@ -13,6 +13,8 @@ export {
 	DisabledRange,
 	DisabledRangeObject,
 	DisabledWarning,
+	Fixer,
+	FixerData,
 	Formatter,
 	FormatterType,
 	Formatters,
