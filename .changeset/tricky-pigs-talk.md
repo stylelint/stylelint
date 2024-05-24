@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix: missing GitHub Sponsor for `npm fund`
+Fixed: missing GitHub Sponsor for `npm fund`
