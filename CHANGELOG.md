@@ -1,5 +1,13 @@
 # Changelog
 
+## 16.6.0
+
+- Fixed: `function-calc-no-unspaced-operator` false negatives ([#7655](https://github.com/stylelint/stylelint/pull/7655) & [#7670](https://github.com/stylelint/stylelint/pull/7670) & [#7676](https://github.com/stylelint/stylelint/pull/7676)) ([@ybiquitous](https://github.com/ybiquitous) & [@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-not-notation` autofix of the `"simple"` option ([#7703](https://github.com/stylelint/stylelint/pull/7703)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-max-specificity` end positions ([#7685](https://github.com/stylelint/stylelint/pull/7685)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-descending-specificity` end positions ([#7701](https://github.com/stylelint/stylelint/pull/7701)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: missing GitHub Sponsor for `npm fund` ([#7707](https://github.com/stylelint/stylelint/pull/7707)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.5.0
 
 - Added: regex support to `ignoreValues` for `value-no-vendor-prefix` ([#7650](https://github.com/stylelint/stylelint/pull/7650)) ([@Mouvedia](https://github.com/Mouvedia)).
