@@ -2,8 +2,7 @@
 
 ## 16.6.0
 
-- Fixed: `function-calc-no-unspaced-operator` false negatives for three or more operands ([#7655](https://github.com/stylelint/stylelint/pull/7655)) ([@ybiquitous](https://github.com/ybiquitous)).
-- Fixed: `function-calc-no-unspaced-operator` false negatives for newer math functions that receive multiple arguments ([#7655](https://github.com/stylelint/stylelint/pull/7655)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `function-calc-no-unspaced-operator` false negatives ([#7655](https://github.com/stylelint/stylelint/pull/7655) & [#7670](https://github.com/stylelint/stylelint/pull/7670) & [#7676](https://github.com/stylelint/stylelint/pull/7676)) ([@ybiquitous](https://github.com/ybiquitous) & [@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-not-notation` autofix of the `"simple"` option ([#7703](https://github.com/stylelint/stylelint/pull/7703)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `selector-max-specificity` end positions ([#7685](https://github.com/stylelint/stylelint/pull/7685)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `no-descending-specificity` end positions ([#7701](https://github.com/stylelint/stylelint/pull/7701)) ([@romainmenke](https://github.com/romainmenke)).
