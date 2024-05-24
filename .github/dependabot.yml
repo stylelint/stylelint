@@ -15,7 +15,7 @@ updates:
       changesets:
         patterns: ['@changesets/*']
       eslint:
-        patterns: ['eslint', 'eslint-*']
+        patterns: ['eslint-*'] # TODO: Include 'eslint' when we're ready for ESLint v9.
       jest:
         patterns: ['jest', 'jest-*', '@jest/*']
       stylelint:
