@@ -16,10 +16,16 @@
   ],
   "homepage": "https://stylelint.io",
   "repository": "stylelint/stylelint",
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/stylelint"
-  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/stylelint"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/stylelint"
+    }
+  ],
   "license": "MIT",
   "author": "stylelint",
   "exports": {
