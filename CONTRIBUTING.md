@@ -71,4 +71,4 @@ We welcome financial contributions in full transparency on our [Open Collective]
 
 Anyone can file an expense. We will "merge" the expense into the ledger if it makes sense for the development of the community. Open Collective then reimburses the person who filed the expense.
 
-You can financially support us by becoming a [backer or sponsor on Open Collective](https://opencollective.com/stylelint) on Open Collective or a [sponsor on GitHub](https://github.com/sponsors/stylelint).
+You can financially support us by becoming a [backer or sponsor on Open Collective](https://opencollective.com/stylelint) or a [sponsor on GitHub](https://github.com/sponsors/stylelint).
