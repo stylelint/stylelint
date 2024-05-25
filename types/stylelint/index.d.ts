@@ -162,6 +162,7 @@ declare namespace stylelint {
 		ignored?: boolean;
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
+		disableWritingFix?: boolean;
 		config?: Config;
 	};
 
