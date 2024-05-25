@@ -36,9 +36,7 @@ type FileCache = {
 
 type EmptyResult = {
 	root: {
-		nodes?: undefined;
 		source: {
-			lang?: undefined;
 			input: {
 				file?: string;
 			};
@@ -164,7 +162,6 @@ declare namespace stylelint {
 		ignored?: boolean;
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
-		disableWritingFix?: boolean;
 		config?: Config;
 	};
 
