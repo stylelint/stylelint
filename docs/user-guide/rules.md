@@ -30,7 +30,7 @@ Disallow duplicates with these `no-duplicate` rules.
 | :-- | :-: | :-: |
 | [`declaration-block-no-duplicate-custom-properties`](../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md)<br/>Disallow duplicate custom properties within declaration blocks. | ✅ | |
 | [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md)<br/>Disallow duplicate properties within declaration blocks. | ✅ | 🔧 |
-| [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md)<br/>Disallow duplicate names within font families. | ✅ | 🔧 |
+| [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md)<br/>Disallow duplicate names within font families. | ✅ | |
 | [`keyframe-block-no-duplicate-selectors`](../../lib/rules/keyframe-block-no-duplicate-selectors/README.md)<br/>Disallow duplicate selectors within keyframe blocks. | ✅ | |
 | [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md)<br/>Disallow duplicate `@import` rules. | ✅ | |
 | [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md)<br/>Disallow duplicate selectors. | ✅ | |
