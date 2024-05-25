@@ -36,9 +36,7 @@ type FileCache = {
 
 type EmptyResult = {
 	root: {
-		nodes?: undefined;
 		source: {
-			lang?: undefined;
 			input: {
 				file?: string;
 			};
