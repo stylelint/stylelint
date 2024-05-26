@@ -15,13 +15,18 @@ updates:
       changesets:
         patterns: ['@changesets/*']
       eslint:
-        patterns: ['eslint-*'] # TODO: Include 'eslint' when we're ready for ESLint v9.
+        patterns: ['eslint', 'eslint-*']
       jest:
         patterns: ['jest', 'jest-*', '@jest/*']
+      postcss:
+        patterns: ['postcss', 'postcss-*']
       stylelint:
         patterns: ['@stylelint/*']
       typescript:
         patterns: ['typescript', '@types/*']
+    ignore:
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: github-actions
     directory: '/'
