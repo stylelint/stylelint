@@ -1,6 +1,7 @@
 import type * as PostCSS from 'postcss';
 import type { GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
+import { RequiredDeep } from 'type-fest';
 
 type ConfigExtends = string | string[];
 
@@ -252,14 +253,20 @@ declare namespace stylelint {
 	};
 
 	type FixerArguments = { [x: string]: any };
-	type Source = {
-		start?: { line: number; column: number };
-		end: { line: number; column: number };
+	type Range = {
+		start?: {
+			line: number;
+			column?: number /** inclusive */;
+		};
+		end: {
+			line: number;
+			column?: number /** exclusive */;
+		};
 	};
 
-	export type Fixer = (args?: FixerArguments) => Source;
+	export type Fixer = (args?: FixerArguments) => Range;
 	export type FixerData = {
-		source: Required<Source>;
+		source: RequiredDeep<Range>;
 		callback: Fixer;
 		args?: FixerArguments;
 		unfixable?: boolean;

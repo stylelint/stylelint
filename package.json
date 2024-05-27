@@ -240,6 +240,7 @@
     "remark-cli": "^12.0.1",
     "rollup": "^4.18.0",
     "sugarss": "^4.0.1",
+    "type-fest": "^4.18.3",
     "typescript": "^5.4.5"
   },
   "engines": {
