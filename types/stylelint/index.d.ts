@@ -1,7 +1,6 @@
 import type * as PostCSS from 'postcss';
 import type { GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
-import { RequiredDeep } from 'type-fest';
 
 type ConfigExtends = string | string[];
 
@@ -268,7 +267,7 @@ declare namespace stylelint {
 
 	export type Fixer = (args?: FixerArguments) => Range;
 	export type FixerData = {
-		source: RequiredDeep<Range>;
+		source: { start: Required<Exclude<Range['start'], undefined>>; end: Required<Range['end']> };
 		callback: Fixer;
 		args?: FixerArguments;
 		unfixable?: boolean;
