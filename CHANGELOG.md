@@ -1,5 +1,10 @@
 # Changelog
 
+## 16.6.1
+
+- Fixed: `no-descending-specificity` false positives for nested selectors ([#7724](https://github.com/stylelint/stylelint/pull/7724)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positive for `model` ([#7718](https://github.com/stylelint/stylelint/pull/7718)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.6.0
 
 - Fixed: `function-calc-no-unspaced-operator` false negatives ([#7655](https://github.com/stylelint/stylelint/pull/7655) & [#7670](https://github.com/stylelint/stylelint/pull/7670) & [#7676](https://github.com/stylelint/stylelint/pull/7676)) ([@ybiquitous](https://github.com/ybiquitous) & [@romainmenke](https://github.com/romainmenke)).
