@@ -253,7 +253,6 @@ declare namespace stylelint {
 		fixable?: boolean;
 	};
 
-	type FixerArguments = { [x: string]: any };
 	type Range = {
 		start: {
 			line: number;
@@ -265,11 +264,9 @@ declare namespace stylelint {
 		};
 	};
 
-	export type Fixer = (args?: FixerArguments) => void;
 	export type FixerData = {
 		source: Range;
-		callback: Fixer;
-		args?: FixerArguments;
+		callback: (...args: any) => void;
 		unfixable?: boolean;
 	};
 
