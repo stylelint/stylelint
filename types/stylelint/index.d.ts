@@ -255,19 +255,19 @@ declare namespace stylelint {
 
 	type FixerArguments = { [x: string]: any };
 	type Range = {
-		start?: {
+		start: {
 			line: number;
-			column?: number /** inclusive */;
+			column: number /** inclusive */;
 		};
 		end: {
 			line: number;
-			column?: number /** exclusive */;
+			column: number /** exclusive */;
 		};
 	};
 
-	export type Fixer = (args?: FixerArguments) => Range;
+	export type Fixer = (args?: FixerArguments) => void;
 	export type FixerData = {
-		source: { start: Required<Exclude<Range['start'], undefined>>; end: Required<Range['end']> };
+		source: Range;
 		callback: Fixer;
 		args?: FixerArguments;
 		unfixable?: boolean;
