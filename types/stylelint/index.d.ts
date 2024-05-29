@@ -155,6 +155,7 @@ declare namespace stylelint {
 		ruleSeverities: { [ruleName: string]: RuleSeverity };
 		customMessages: { [ruleName: string]: RuleMessage };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
+		fixersData: { [ruleName: string]: Array<{ range: FixerData['range']; fixed: boolean }> };
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
@@ -248,6 +249,23 @@ declare namespace stylelint {
 		deprecated?: boolean;
 		fixable?: boolean;
 		fixer?: boolean;
+	};
+
+	type Range = {
+		start: {
+			line: number;
+			column: number /** inclusive */;
+		};
+		end: {
+			line: number;
+			column: number /** exclusive */;
+		};
+	};
+
+	export type FixerData = {
+		range: Range;
+		callback: (...args: any) => void;
+		unfixable?: boolean;
 	};
 
 	/**
