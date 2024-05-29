@@ -532,6 +532,7 @@ footer a:link, footer a:visited {
     },
     "function-name-case": {
       "fixable": true,
+      "fixer": true,
       "url": "https://stylelint.io/user-guide/rules/function-name-case",
     },
     "keyframe-declaration-no-important": {

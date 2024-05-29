@@ -98,6 +98,7 @@ exports[`no-fs - valid sanitize.css and their config 1`] = `
     },
     "function-name-case": {
       "fixable": true,
+      "fixer": true,
       "url": "https://stylelint.io/user-guide/rules/function-name-case",
     },
     "keyframe-declaration-no-important": {
