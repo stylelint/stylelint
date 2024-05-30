@@ -450,6 +450,7 @@ declare namespace stylelint {
 		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
+		safeDisables?: boolean;
 		maxWarnings?: number;
 		customSyntax?: CustomSyntax;
 		formatter?: FormatterType | Formatter;
