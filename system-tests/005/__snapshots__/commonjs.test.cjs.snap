@@ -353,6 +353,7 @@ exports[`CommonJS API and config 1`] = `
     },
     "function-name-case": {
       "fixable": true,
+      "fixer": true,
       "url": "https://stylelint.io/user-guide/rules/function-name-case",
     },
     "function-no-unknown": {
@@ -554,6 +555,7 @@ exports[`CommonJS API and config 1`] = `
     },
     "selector-not-notation": {
       "fixable": true,
+      "fixer": true,
       "url": "https://stylelint.io/user-guide/rules/selector-not-notation",
     },
     "selector-pseudo-class-allowed-list": {
@@ -580,6 +582,7 @@ exports[`CommonJS API and config 1`] = `
     },
     "selector-type-case": {
       "fixable": true,
+      "fixer": true,
       "url": "https://stylelint.io/user-guide/rules/selector-type-case",
     },
     "selector-type-no-unknown": {
