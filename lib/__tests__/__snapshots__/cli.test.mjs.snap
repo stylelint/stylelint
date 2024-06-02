@@ -71,14 +71,6 @@ exports[`CLI --help 1`] = `
 
       Ignore "stylelint-disable" comments.
 
-    --[no-]safe-disables
-
-      If disabled, while fixing Stylelint will respect the "stylelint-disable" comments for the
-      rules that have been transitioned to use the "fix" util. For the remaining rules, it will
-      ignore the "stylelint-disable" comments and match the unsafe autofixing prior to v13.2.0.
-
-      This flag will remain set to true by default until all fixable core rules have been migrated.
-
     --disable-default-ignores, --di
 
       Allow linting of "node_modules".

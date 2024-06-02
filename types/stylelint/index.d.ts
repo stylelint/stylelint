@@ -164,7 +164,6 @@ declare namespace stylelint {
 		ignored?: boolean;
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
-		disableWritingFix?: boolean;
 		config?: Config;
 	};
 
@@ -450,7 +449,6 @@ declare namespace stylelint {
 		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
-		safeDisables?: boolean;
 		maxWarnings?: number;
 		customSyntax?: CustomSyntax;
 		formatter?: FormatterType | Formatter;
@@ -602,6 +600,7 @@ declare namespace stylelint {
 		result: PostcssResult;
 		message: RuleMessage;
 		messageArgs?: Parameters<RuleMessageFunc> | undefined;
+		fix?: (() => void) | undefined;
 		node: PostCSS.Node;
 		/**
 		 * The inclusive start index of the problem, relative to the node's
