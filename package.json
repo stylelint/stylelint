@@ -167,7 +167,7 @@
     "cosmiconfig": "^9.0.0",
     "css-functions-list": "^3.2.2",
     "css-tree": "^2.3.1",
-    "debug": "^4.3.4",
+    "debug": "^4.3.5",
     "fast-glob": "^3.3.2",
     "fastest-levenshtein": "^1.0.16",
     "file-entry-cache": "^9.0.0",
@@ -198,7 +198,7 @@
     "write-file-atomic": "^5.0.1"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.3",
+    "@changesets/cli": "^2.27.5",
     "@changesets/get-github-info": "^0.6.0",
     "@jest/globals": "^29.7.0",
     "@stylelint/prettier-config": "^3.0.0",
