@@ -157,7 +157,7 @@ declare namespace stylelint {
 		ruleSeverities: { [ruleName: string]: RuleSeverity };
 		customMessages: { [ruleName: string]: RuleMessage };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
-		fixersData: { [ruleName: string]: Array<{ range: FixerData['range']; fixed: boolean }> };
+		fixersData: { [ruleName: string]: Array<FixerData> };
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
@@ -266,8 +266,7 @@ declare namespace stylelint {
 
 	export type FixerData = {
 		range: Range;
-		callback: (...args: any) => void;
-		unfixable?: boolean;
+		fixed: boolean;
 	};
 
 	/**
@@ -596,6 +595,7 @@ declare namespace stylelint {
 	 * A lint problem.
 	 */
 	export type Problem = {
+		fix?: () => void;
 		ruleName: string;
 		result: PostcssResult;
 		message: RuleMessage;
@@ -635,6 +635,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
+		unfixable?: boolean;
 	};
 
 	/** @internal */
