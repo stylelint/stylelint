@@ -116,10 +116,6 @@ Produce a report of the `stylelint-disable` comments that used for rules that do
 
 Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportneedlessdisables).
 
-### `--safe-disables, --no-safe-disables`
-
-Force enabling/disabling fixing of the files that contain `stylelint-disable` commands. [More info](options.md#safeDisables).
-
 ### `--stdin-filename`
 
 A filename to assign the input. [More info](options.md#codefilename).

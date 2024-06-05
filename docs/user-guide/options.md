@@ -206,13 +206,6 @@ CLI flags: `--report-needless-disables, --rd`
 
 Report `stylelint-disable` comments that don't actually match any lints that need to be disabled.
 
-## `safeDisables`
-
-CLI flag: `--safe-disables, --no-safe-disables`
-
-When disabled, it reverts to the autofixing behaviour prior to [#4573](https://github.com/stylelint/stylelint/pull/4573).
-Until all fixable core rules have been migrated to use [`stylelint.utils.fix()`](../developer-guide/plugins.md#stylelintutilsfix) it will default to `true`.
-
 ## `codeFilename`
 
 CLI flag: `--stdin-filename`

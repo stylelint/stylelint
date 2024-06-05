@@ -231,10 +231,6 @@ Stylelint exposes some useful utilities.
 
 You're also welcome to copy any of the [internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) into your plugin. You should not `import` them directly, as they are not part of the public API and may change or be removed without warning.
 
-### `stylelint.utils.fix()`
-
-Use `stylelint.utils.fix()` to ensure your plugin takes into account the `stylelint-disable` commands while fixing. [More info](../user-guide/ignore-code.md).
-
 ### `stylelint.utils.report()`
 
 Adds problems from your plugin to the list of problems that Stylelint will report to the user.
