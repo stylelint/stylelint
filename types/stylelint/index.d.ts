@@ -110,7 +110,7 @@ declare namespace stylelint {
 		rules?: ConfigRules;
 		quiet?: boolean;
 		defaultSeverity?: Severity;
-		ignoreDisables?: DisableSettings;
+		ignoreDisables?: boolean;
 		reportNeedlessDisables?: DisableSettings;
 		reportInvalidScopeDisables?: DisableSettings;
 		reportDescriptionlessDisables?: DisableSettings;
@@ -635,7 +635,6 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		unfixable?: boolean;
 	};
 
 	/** @internal */
