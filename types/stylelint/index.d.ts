@@ -156,6 +156,7 @@ declare namespace stylelint {
 	export type StylelintPostcssResult = {
 		ruleSeverities: { [ruleName: string]: RuleSeverity };
 		customMessages: { [ruleName: string]: RuleMessage };
+		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
@@ -170,6 +171,7 @@ declare namespace stylelint {
 	export type WarningOptions = PostCSS.WarningOptions & {
 		stylelintType?: string;
 		severity?: Severity;
+		url?: string;
 		rule?: string;
 	};
 
@@ -496,6 +498,7 @@ declare namespace stylelint {
 		rule: string;
 		severity: Severity;
 		text: string;
+		url?: string;
 		stylelintType?: string;
 	};
 
