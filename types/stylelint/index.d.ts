@@ -250,7 +250,6 @@ declare namespace stylelint {
 		url: string;
 		deprecated?: boolean;
 		fixable?: boolean;
-		fixer?: boolean;
 	};
 
 	type Range = {
