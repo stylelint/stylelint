@@ -594,7 +594,7 @@ declare namespace stylelint {
 	 * A lint problem.
 	 */
 	export type Problem = {
-		fix?: () => void;
+		fix?: () => void | never;
 		ruleName: string;
 		result: PostcssResult;
 		message: RuleMessage;
