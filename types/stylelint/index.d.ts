@@ -252,7 +252,7 @@ declare namespace stylelint {
 		fixable?: boolean;
 	};
 
-	type Range = {
+	export type Range = {
 		start: {
 			line: number;
 			column: number /** inclusive */;
@@ -263,7 +263,7 @@ declare namespace stylelint {
 		};
 	};
 
-	export type FixerData = {
+	type FixerData = {
 		range: Range;
 		fixed: boolean;
 	};
