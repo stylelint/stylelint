@@ -172,6 +172,23 @@ Experimental feature: some rules support message arguments. For example, when co
 
 With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`). On the other hand, with JS format, you can use both a `printf`-like format and a function.
 
+### `url`
+
+You can use the `url` secondary option to provide a custom link to external docs. These urls can then be displayed in custom formatters.
+
+For examplel
+
+```json
+{
+  "color-no-hex": [
+    true,
+    {
+      "url": "https://stylelint.io"
+    }
+  ]
+}
+```
+
 ### `reportDisables`
 
 You can set the `reportDisables` secondary option to report any `stylelint-disable` comments for this rule, effectively disallowing authors to opt-out of it.
