@@ -594,7 +594,6 @@ declare namespace stylelint {
 	 * A lint problem.
 	 */
 	export type Problem = {
-		fix?: () => void | never;
 		ruleName: string;
 		result: PostcssResult;
 		message: RuleMessage;
@@ -634,6 +633,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
+		fix?: () => void | never;
 	};
 
 	/** @internal */
