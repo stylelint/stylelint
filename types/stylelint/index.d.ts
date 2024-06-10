@@ -634,6 +634,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
+		unfixable?: boolean;
 	};
 
 	/** @internal */
