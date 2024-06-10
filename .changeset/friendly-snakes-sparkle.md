@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `fix` to `Problem` type
+Added: `fix` callback to the object passed to `stylelint.utils.report()`
