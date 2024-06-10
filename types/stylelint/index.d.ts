@@ -252,15 +252,10 @@ declare namespace stylelint {
 		fixable?: boolean;
 	};
 
+	/** @internal */
 	export type Range = {
-		start: {
-			line: number;
-			column: number /** inclusive */;
-		};
-		end: {
-			line: number;
-			column: number /** exclusive */;
-		};
+		start: Position;
+		end: Position;
 	};
 
 	type FixerData = {
@@ -590,6 +585,11 @@ declare namespace stylelint {
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 	};
 
+	type Position = {
+		line: number;
+		column: number;
+	};
+
 	/**
 	 * A lint problem.
 	 */
@@ -614,19 +614,13 @@ declare namespace stylelint {
 		 * node's source text. If provided, this will be used instead of
 		 * `index`.
 		 */
-		start?: {
-			line: number;
-			column: number;
-		};
+		start?: Position;
 		/**
 		 * The exclusive end position of the problem, relative to the
 		 * node's source text. If provided, this will be used instead of
 		 * `endIndex`.
 		 */
-		end?: {
-			line: number;
-			column: number;
-		};
+		end?: Position;
 		word?: string;
 		line?: number;
 		/**
