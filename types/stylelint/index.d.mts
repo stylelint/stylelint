@@ -29,6 +29,7 @@ export {
 	Processor,
 	Problem,
 	PublicApi,
+	Range,
 	Rule,
 	RuleBase,
 	RuleContext,

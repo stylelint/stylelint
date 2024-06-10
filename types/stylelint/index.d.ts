@@ -110,7 +110,7 @@ declare namespace stylelint {
 		rules?: ConfigRules;
 		quiet?: boolean;
 		defaultSeverity?: Severity;
-		ignoreDisables?: DisableSettings;
+		ignoreDisables?: boolean;
 		reportNeedlessDisables?: DisableSettings;
 		reportInvalidScopeDisables?: DisableSettings;
 		reportDescriptionlessDisables?: DisableSettings;
@@ -157,6 +157,7 @@ declare namespace stylelint {
 		ruleSeverities: { [ruleName: string]: RuleSeverity };
 		customMessages: { [ruleName: string]: RuleMessage };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
+		fixersData: { [ruleName: string]: Array<FixerData> };
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
@@ -249,6 +250,17 @@ declare namespace stylelint {
 		url: string;
 		deprecated?: boolean;
 		fixable?: boolean;
+	};
+
+	/** @internal */
+	export type Range = {
+		start: Position;
+		end: Position;
+	};
+
+	type FixerData = {
+		range: Range;
+		fixed: boolean;
 	};
 
 	/**
@@ -573,6 +585,11 @@ declare namespace stylelint {
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 	};
 
+	type Position = {
+		line: number;
+		column: number;
+	};
+
 	/**
 	 * A lint problem.
 	 */
@@ -597,25 +614,20 @@ declare namespace stylelint {
 		 * node's source text. If provided, this will be used instead of
 		 * `index`.
 		 */
-		start?: {
-			line: number;
-			column: number;
-		};
+		start?: Position;
 		/**
 		 * The exclusive end position of the problem, relative to the
 		 * node's source text. If provided, this will be used instead of
 		 * `endIndex`.
 		 */
-		end?: {
-			line: number;
-			column: number;
-		};
+		end?: Position;
 		word?: string;
 		line?: number;
 		/**
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
+		fix?: () => void | never;
 	};
 
 	/** @internal */
