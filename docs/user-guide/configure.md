@@ -176,16 +176,12 @@ With formats that don't support a function like JSON, you can use a `printf`-lik
 
 You can use the `url` secondary option to provide a custom link to external docs. These urls can then be displayed in custom formatters.
 
-For examplel
+For example:
 
+<!-- prettier-ignore -->
 ```json
 {
-  "color-no-hex": [
-    true,
-    {
-      "url": "https://stylelint.io"
-    }
-  ]
+  "color-no-hex": [true, {"url": "https://example.org/your-custom-doc"}]
 }
 ```
 
