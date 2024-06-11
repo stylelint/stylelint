@@ -3,37 +3,68 @@
 exports[`fs - zen garden CSS with standard config 1`] = `
 {
   "cwd": "",
-  "errored": false,
+  "errored": true,
   "output": [
     {
       "deprecations": [],
-      "errored": false,
+      "errored": true,
       "invalidOptionWarnings": [],
       "parseErrors": [],
       "source": "/path/to/dummy.css",
-      "warnings": [],
+      "warnings": [
+        {
+          "column": 25,
+          "endColumn": 32,
+          "endLine": 102,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+        },
+      ],
     },
   ],
   "report": [
     {
       "deprecations": [],
-      "errored": false,
+      "errored": true,
       "invalidOptionWarnings": [],
       "parseErrors": [],
       "source": "/path/to/dummy.css",
-      "warnings": [],
+      "warnings": [
+        {
+          "column": 25,
+          "endColumn": 32,
+          "endLine": 102,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+        },
+      ],
     },
   ],
   "reportedDisables": [],
   "results": [
     {
       "deprecations": [],
-      "errored": false,
+      "errored": true,
       "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
       "source": "/path/to/dummy.css",
-      "warnings": [],
+      "warnings": [
+        {
+          "column": 25,
+          "endColumn": 32,
+          "endLine": 102,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+          "url": undefined,
+        },
+      ],
     },
   ],
   "ruleMetadata": {
