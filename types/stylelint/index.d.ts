@@ -259,7 +259,7 @@ declare namespace stylelint {
 	};
 
 	type FixerData = {
-		range: Range;
+		range?: Range;
 		fixed: boolean;
 	};
 
@@ -627,7 +627,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		fix?: () => void | never;
+		fix?: () => void | never | Range;
 	};
 
 	/** @internal */
