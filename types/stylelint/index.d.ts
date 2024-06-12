@@ -259,7 +259,7 @@ declare namespace stylelint {
 	};
 
 	type FixerData = {
-		range: Range | void;
+		range?: Range;
 		fixed: boolean;
 	};
 
