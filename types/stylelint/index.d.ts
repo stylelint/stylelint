@@ -658,6 +658,7 @@ declare namespace stylelint {
 		| 'flex-flow'
 		| 'font'
 		| 'font-synthesis'
+		| 'font-variant'
 		| 'gap'
 		| 'grid'
 		| 'grid-area'

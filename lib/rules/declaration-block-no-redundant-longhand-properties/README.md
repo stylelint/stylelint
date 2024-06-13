@@ -50,6 +50,7 @@ This rule complains when the following shorthand properties can be used:
 - `flex-flow`
 - `font`
 - `font-synthesis`
+- `font-variant`
 - `gap`
 - `grid`
 - `grid-area`
