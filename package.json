@@ -113,6 +113,7 @@
       "testRule": "readonly",
       "testRuleConfigs": "readonly"
     },
+    "reportUnusedDisableDirectives": true,
     "root": true
   },
   "remarkConfig": {
