@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix: `property-no-unknown` false positives
+Fixed: `property-no-unknown` false positives for `navigation` and legacy properties
