@@ -98,6 +98,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
           "rule": "color-named",
           "severity": "error",
           "text": "Unexpected named color "white" (color-named)",
+          "url": undefined,
         },
         {
           "column": 1,
@@ -107,6 +108,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
           "rule": "selector-no-qualifying-type",
           "severity": "error",
           "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
+          "url": undefined,
         },
         {
           "column": 3,
@@ -116,6 +118,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
           "rule": "selector-no-qualifying-type",
           "severity": "error",
           "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
+          "url": undefined,
         },
       ],
     },

@@ -62,6 +62,7 @@ exports[`fs - zen garden CSS with standard config 1`] = `
           "rule": "font-family-no-missing-generic-family-keyword",
           "severity": "error",
           "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+          "url": undefined,
         },
       ],
     },
