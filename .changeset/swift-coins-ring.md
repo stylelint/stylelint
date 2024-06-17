@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": minor
 ---
 
-Changed: updated the tape formatter to version 14 of the specification
+Changed: `tap` formatter to support TAP14

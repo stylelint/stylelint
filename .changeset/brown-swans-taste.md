@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: replace _directive end marker line_ by _document end marker line_ in the output of the tap formatter
+Fixed: YAML diagnostic block _end marker line_ of the `tap` formatter
