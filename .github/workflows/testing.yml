@@ -53,7 +53,7 @@ jobs:
           files: ./.coverage/lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
-          version: '0.6.0' # TODO: Workaround for https://github.com/codecov/codecov-action/issues/1487
+          version: v0.6.0 # TODO: Workaround for https://github.com/codecov/codecov-action/issues/1487
 
   build:
     runs-on: ubuntu-latest
