@@ -260,17 +260,11 @@ declare namespace stylelint {
 		end: Position;
 	};
 
-	type FixerData =
-		| {
-				range?: Range;
-				fixed: boolean;
-				text?: string;
-		  }
-		| {
-				range: Range[];
-				fixed: boolean;
-				text: string[];
-		  };
+	export type FixerData = {
+		range: Range | Range[];
+		fixed: boolean;
+		text?: string | string[];
+	};
 
 	/**
 	 * A rule.
