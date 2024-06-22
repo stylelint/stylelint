@@ -260,10 +260,17 @@ declare namespace stylelint {
 		end: Position;
 	};
 
-	type FixerData = {
-		range?: Range;
-		fixed: boolean;
-	};
+	type FixerData =
+		| {
+				range?: Range;
+				fixed: boolean;
+				text?: string;
+		  }
+		| {
+				range: Range[];
+				fixed: boolean;
+				text: string[];
+		  };
 
 	/**
 	 * A rule.
@@ -634,8 +641,16 @@ declare namespace stylelint {
 		 * @internal
 		 * WARNING: Don't use this feature now. It may change in the future.
 		 */
-		fix?: () => void | never | Range;
+		fix?: Fix;
 	};
+
+	interface Fix {
+		(): void | never;
+		editInfo?: {
+			range?: Range;
+			text: string | string[];
+		};
+	}
 
 	/** @internal */
 	export type ShorthandProperties =
