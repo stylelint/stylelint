@@ -638,12 +638,19 @@ declare namespace stylelint {
 		fix?: Fix;
 	};
 
+	type EditInfo =
+		| {
+				range?: Range;
+				text: string;
+		  }
+		| {
+				range: Range[];
+				text: string[];
+		  };
+
 	interface Fix {
 		(): void | never;
-		editInfo?: {
-			range?: Range;
-			text: string | string[];
-		};
+		editInfo?: EditInfo;
 	}
 
 	/** @internal */
