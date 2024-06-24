@@ -635,7 +635,7 @@ declare namespace stylelint {
 		 * @internal
 		 * WARNING: Don't use this feature now. It may change in the future.
 		 */
-		fix?: Fix;
+		fix?: (apply: boolean) => void | never | EditInfo;
 	};
 
 	type EditInfo =
@@ -647,11 +647,6 @@ declare namespace stylelint {
 				range: Range[];
 				text: string[];
 		  };
-
-	interface Fix {
-		(): void | never;
-		editInfo?: EditInfo;
-	}
 
 	/** @internal */
 	export type ShorthandProperties =
