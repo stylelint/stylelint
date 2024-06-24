@@ -13,7 +13,7 @@
 		"noImplicitReturns": false,
 		"noUnusedParameters": true,
 		"noUncheckedIndexedAccess": true,
-		"resolveJsonModule": false,
+		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"skipLibCheck": false
 	},
