@@ -261,9 +261,9 @@ declare namespace stylelint {
 	};
 
 	export type FixerData = {
-		range: Range | Range[];
+		range: Range;
 		fixed: boolean;
-		text?: string | string[];
+		text?: string;
 	};
 
 	/**
@@ -638,15 +638,10 @@ declare namespace stylelint {
 		fix?: (apply: boolean) => void | never | EditInfo;
 	};
 
-	type EditInfo =
-		| {
-				range?: Range;
-				text: string;
-		  }
-		| {
-				range: Range[];
-				text: string[];
-		  };
+	type EditInfo = {
+		range?: Range;
+		text: string;
+	};
 
 	/** @internal */
 	export type ShorthandProperties =
