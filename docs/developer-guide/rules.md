@@ -102,6 +102,7 @@ Depending on the rule, we also recommend using:
 - [@csstools/css-parser-algorithms](https://www.npmjs.com/package/@csstools/css-parser-algorithms)
 - [@csstools/css-tokenizer](https://www.npmjs.com/package/@csstools/css-tokenizer)
 - [@csstools/media-query-list-parser](https://www.npmjs.com/package/@csstools/media-query-list-parser)
+- [css-tree](https://www.npmjs.com/package/css-tree)
 
 There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
