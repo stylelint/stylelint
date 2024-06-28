@@ -97,9 +97,12 @@ Use `node.raws` instead of `node.raw()` when accessing raw strings from the [Pos
 
 Depending on the rule, we also recommend using:
 
-- [media-query-list-parser](https://www.npmjs.com/package/@csstools/media-query-list-parser)
-- [postcss-value-parser](https://github.com/TrySound/postcss-value-parser)
-- [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser)
+- [postcss-value-parser](https://www.npmjs.com/package/postcss-value-parser)
+- [postcss-selector-parser](https://www.npmjs.com/package/postcss-selector-parser)
+- [@csstools/css-parser-algorithms](https://www.npmjs.com/package/@csstools/css-parser-algorithms)
+- [@csstools/css-tokenizer](https://www.npmjs.com/package/@csstools/css-tokenizer)
+- [@csstools/media-query-list-parser](https://www.npmjs.com/package/@csstools/media-query-list-parser)
+- [css-tree](https://www.npmjs.com/package/css-tree)
 
 There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
