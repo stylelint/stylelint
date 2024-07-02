@@ -260,9 +260,10 @@ declare namespace stylelint {
 		end: Position;
 	};
 
-	type FixerData = {
-		range?: Range;
+	export type FixerData = {
+		range: Range;
 		fixed: boolean;
+		text?: string;
 	};
 
 	/**
@@ -634,7 +635,12 @@ declare namespace stylelint {
 		 * @internal
 		 * WARNING: Don't use this feature now. It may change in the future.
 		 */
-		fix?: () => void | never | Range;
+		fix?: (apply: boolean) => void | never | EditInfo;
+	};
+
+	type EditInfo = {
+		range?: Range;
+		text: string;
 	};
 
 	/** @internal */
