@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `stylelint.utils.checkAgainstRule()` to use `result.stylelint` if possible
+Fixed: `stylelint.utils.checkAgainstRule()` to use `result.stylelint` if present
