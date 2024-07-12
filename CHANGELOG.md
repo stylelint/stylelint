@@ -4,14 +4,14 @@
 
 - Changed: `tap` formatter to support TAP14 ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `url` secondary option ([#7743](https://github.com/stylelint/stylelint/pull/7743)) ([@emmacharp](https://github.com/emmacharp)).
+- Fixed: YAML diagnostic block _end marker line_ of the `tap` formatter ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: autofix of incorrectly implemented plugins when unscoped stylelint commands are present ([#7733](https://github.com/stylelint/stylelint/pull/7733)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `at-rule-no-vendor-prefix` false negatives for `@-moz-document` and `@-webkit-viewport` ([#7772](https://github.com/stylelint/stylelint/pull/7772)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `font-family-name-quotes` false negatives for `-moz-*`/`-webkit-*` keywords ([#7777](https://github.com/stylelint/stylelint/pull/7777)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false negatives for font families which names match a CSS3 `font-variant` keyword ([#7823](https://github.com/stylelint/stylelint/pull/7823)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `declaration-block-no-redundant-longhand-properties`/`declaration-block-no-shorthand-property-overrides` false negatives for `font-variant` ([#7734](https://github.com/stylelint/stylelint/pull/7734)) ([@Bilie](https://github.com/Bilie)).
 - Fixed: `shorthand-property-no-redundant-values` false negatives for logical properties, `overflow`, `overscroll-behavior`, `scroll-margin` and `scroll-padding` ([#7808](https://github.com/stylelint/stylelint/pull/7808)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `function-name-case` end positions ([#7747](https://github.com/stylelint/stylelint/pull/7747)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: YAML diagnostic block _end marker line_ of the `tap` formatter ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: autofix of incorrectly implemented plugins when unscoped stylelint commands are present ([#7733](https://github.com/stylelint/stylelint/pull/7733)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `comment-whitespace-inside` end positions ([#7744](https://github.com/stylelint/stylelint/pull/7744)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `value-keyword-case` end positions ([#7760](https://github.com/stylelint/stylelint/pull/7760)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `media-feature-name-no-vendor-prefix` autofix ([#7770](https://github.com/stylelint/stylelint/pull/7770)) ([@Mouvedia](https://github.com/Mouvedia)).
