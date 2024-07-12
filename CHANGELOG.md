@@ -6,28 +6,28 @@
 - Added: `url` secondary option ([#7743](https://github.com/stylelint/stylelint/pull/7743)) ([@emmacharp](https://github.com/emmacharp)).
 - Fixed: YAML diagnostic block _end marker line_ of the `tap` formatter ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: autofix of incorrectly implemented plugins when unscoped stylelint commands are present ([#7733](https://github.com/stylelint/stylelint/pull/7733)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `at-rule-no-unknown` false positives for `@historical-forms` and `@font-palette-values` ([#7774](https://github.com/stylelint/stylelint/pull/7774)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `at-rule-no-unknown` false positives for `@view-transition` ([#7753](https://github.com/stylelint/stylelint/pull/7753)) ([@sebdanielsson](https://github.com/sebdanielsson)).
 - Fixed: `at-rule-no-vendor-prefix` false negatives for `@-moz-document` and `@-webkit-viewport` ([#7772](https://github.com/stylelint/stylelint/pull/7772)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `comment-whitespace-inside` end positions ([#7744](https://github.com/stylelint/stylelint/pull/7744)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-duplicate-properties` reported ranges ([#7758](https://github.com/stylelint/stylelint/pull/7758)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-redundant-longhand-properties`/`declaration-block-no-shorthand-property-overrides` false negatives for `font-variant` ([#7734](https://github.com/stylelint/stylelint/pull/7734)) ([@Bilie](https://github.com/Bilie)).
 - Fixed: `font-family-name-quotes` false negatives for `-moz-*`/`-webkit-*` keywords ([#7777](https://github.com/stylelint/stylelint/pull/7777)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false negatives for font families which names match a CSS3 `font-variant` keyword ([#7823](https://github.com/stylelint/stylelint/pull/7823)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `declaration-block-no-redundant-longhand-properties`/`declaration-block-no-shorthand-property-overrides` false negatives for `font-variant` ([#7734](https://github.com/stylelint/stylelint/pull/7734)) ([@Bilie](https://github.com/Bilie)).
-- Fixed: `shorthand-property-no-redundant-values` false negatives for logical properties, `overflow`, `overscroll-behavior`, `scroll-margin` and `scroll-padding` ([#7808](https://github.com/stylelint/stylelint/pull/7808)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `function-name-case` end positions ([#7747](https://github.com/stylelint/stylelint/pull/7747)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `comment-whitespace-inside` end positions ([#7744](https://github.com/stylelint/stylelint/pull/7744)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `value-keyword-case` end positions ([#7760](https://github.com/stylelint/stylelint/pull/7760)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `media-feature-name-no-vendor-prefix` autofix ([#7770](https://github.com/stylelint/stylelint/pull/7770)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `declaration-block-no-duplicate-properties` reported ranges ([#7758](https://github.com/stylelint/stylelint/pull/7758)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `at-rule-no-unknown` false positives for `@historical-forms` and `@font-palette-values` ([#7774](https://github.com/stylelint/stylelint/pull/7774)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `selector-not-notation` end positions when new lines are part of the selector ([#7755](https://github.com/stylelint/stylelint/pull/7755)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `stylelint.utils.checkAgainstRule()` for Promise-based rules ([#7821](https://github.com/stylelint/stylelint/pull/7821)) ([@aaronccasanova](https://github.com/aaronccasanova)).
-- Fixed: `quietDeprecationWarnings` to suppress `stylelint:003` warning ([#7837](https://github.com/stylelint/stylelint/pull/7837)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `function-no-unknown` performance by reducing file read count ([#7801](https://github.com/stylelint/stylelint/pull/7801)) ([@ybiquitous](https://github.com/ybiquitous)).
-- Fixed: `selector-type-case` end positions ([#7752](https://github.com/stylelint/stylelint/pull/7752)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `at-rule-no-unknown` false positives for `@view-transition` ([#7753](https://github.com/stylelint/stylelint/pull/7753)) ([@sebdanielsson](https://github.com/sebdanielsson)).
-- Fixed: `stylelint.utils.checkAgainstRule()` to use `result.stylelint` if present ([#7833](https://github.com/stylelint/stylelint/pull/7833)) ([@ybiquitous](https://github.com/ybiquitous)).
-- Fixed: `selector-no-vendor-prefix` autofix ([#7763](https://github.com/stylelint/stylelint/pull/7763)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `property-no-unknown` false positives for `navigation` and miscellaneous legacy properties ([#7764](https://github.com/stylelint/stylelint/pull/7764)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `string-no-newline` false positives for escaped multi-line ([#7818](https://github.com/stylelint/stylelint/pull/7818)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `media-feature-name-no-vendor-prefix` autofix ([#7770](https://github.com/stylelint/stylelint/pull/7770)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `no-invalid-double-slash-comments` reported ranges ([#7768](https://github.com/stylelint/stylelint/pull/7768)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `property-no-unknown` false positives for `navigation` and miscellaneous legacy properties ([#7764](https://github.com/stylelint/stylelint/pull/7764)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `quietDeprecationWarnings` to suppress `stylelint:003` warning ([#7837](https://github.com/stylelint/stylelint/pull/7837)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `selector-no-vendor-prefix` autofix ([#7763](https://github.com/stylelint/stylelint/pull/7763)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-not-notation` end positions when new lines are part of the selector ([#7755](https://github.com/stylelint/stylelint/pull/7755)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-case` end positions ([#7752](https://github.com/stylelint/stylelint/pull/7752)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `shorthand-property-no-redundant-values` false negatives for logical properties, `overflow`, `overscroll-behavior`, `scroll-margin` and `scroll-padding` ([#7808](https://github.com/stylelint/stylelint/pull/7808)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `string-no-newline` false positives for escaped multi-line ([#7818](https://github.com/stylelint/stylelint/pull/7818)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `stylelint.utils.checkAgainstRule()` for Promise-based rules ([#7821](https://github.com/stylelint/stylelint/pull/7821)) ([@aaronccasanova](https://github.com/aaronccasanova)).
+- Fixed: `stylelint.utils.checkAgainstRule()` to use `result.stylelint` if present ([#7833](https://github.com/stylelint/stylelint/pull/7833)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `value-keyword-case` end positions ([#7760](https://github.com/stylelint/stylelint/pull/7760)) ([@Mouvedia](https://github.com/Mouvedia)).
 
 ## 16.6.1
 
