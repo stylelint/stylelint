@@ -4,7 +4,6 @@
 
 - Changed: `tap` formatter to support TAP14 ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `url` secondary option ([#7743](https://github.com/stylelint/stylelint/pull/7743)) ([@emmacharp](https://github.com/emmacharp)).
-- Added: `fix` callback to the object passed to `stylelint.utils.report()` ([#7730](https://github.com/stylelint/stylelint/pull/7730)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `at-rule-no-vendor-prefix` false negatives for `@-moz-document` and `@-webkit-viewport` ([#7772](https://github.com/stylelint/stylelint/pull/7772)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `font-family-name-quotes` false negatives for `-moz-*`/`-webkit-*` keywords ([#7777](https://github.com/stylelint/stylelint/pull/7777)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false negatives for font families which names match a CSS3 `font-variant` keyword ([#7823](https://github.com/stylelint/stylelint/pull/7823)) ([@Mouvedia](https://github.com/Mouvedia)).
