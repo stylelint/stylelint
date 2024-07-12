@@ -4,8 +4,6 @@
 
 - Changed: `tap` formatter to support TAP14 ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `url` secondary option ([#7743](https://github.com/stylelint/stylelint/pull/7743)) ([@emmacharp](https://github.com/emmacharp)).
-- Fixed: YAML diagnostic block _end marker line_ of the `tap` formatter ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: autofix of incorrectly implemented plugins when unscoped stylelint commands are present ([#7733](https://github.com/stylelint/stylelint/pull/7733)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `at-rule-no-unknown` false positives for `@historical-forms` and `@font-palette-values` ([#7774](https://github.com/stylelint/stylelint/pull/7774)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `at-rule-no-unknown` false positives for `@view-transition` ([#7753](https://github.com/stylelint/stylelint/pull/7753)) ([@sebdanielsson](https://github.com/sebdanielsson)).
 - Fixed: `at-rule-no-vendor-prefix` false negatives for `@-moz-document` and `@-webkit-viewport` ([#7772](https://github.com/stylelint/stylelint/pull/7772)) ([@Mouvedia](https://github.com/Mouvedia)).
@@ -25,9 +23,11 @@
 - Fixed: `selector-type-case` end positions ([#7752](https://github.com/stylelint/stylelint/pull/7752)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `shorthand-property-no-redundant-values` false negatives for logical properties, `overflow`, `overscroll-behavior`, `scroll-margin` and `scroll-padding` ([#7808](https://github.com/stylelint/stylelint/pull/7808)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `string-no-newline` false positives for escaped multi-line ([#7818](https://github.com/stylelint/stylelint/pull/7818)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `value-keyword-case` end positions ([#7760](https://github.com/stylelint/stylelint/pull/7760)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `stylelint.utils.checkAgainstRule()` for Promise-based rules ([#7821](https://github.com/stylelint/stylelint/pull/7821)) ([@aaronccasanova](https://github.com/aaronccasanova)).
 - Fixed: `stylelint.utils.checkAgainstRule()` to use `result.stylelint` if present ([#7833](https://github.com/stylelint/stylelint/pull/7833)) ([@ybiquitous](https://github.com/ybiquitous)).
-- Fixed: `value-keyword-case` end positions ([#7760](https://github.com/stylelint/stylelint/pull/7760)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: YAML diagnostic block _end marker line_ of the `tap` formatter ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: autofix of incorrectly implemented plugins when unscoped stylelint commands are present ([#7733](https://github.com/stylelint/stylelint/pull/7733)) ([@romainmenke](https://github.com/romainmenke)).
 
 ## 16.6.1
 
