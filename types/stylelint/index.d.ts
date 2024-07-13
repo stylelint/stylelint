@@ -635,12 +635,9 @@ declare namespace stylelint {
 		 * @internal
 		 * WARNING: Don't use this feature now. It may change in the future.
 		 */
-		fix?: (apply: boolean) => void | never | EditInfo;
-	};
-
-	type EditInfo = {
+		fix?: () => void | never;
 		range?: Range;
-		text: string;
+		replacement?: string;
 	};
 
 	/** @internal */
