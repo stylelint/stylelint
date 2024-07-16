@@ -198,6 +198,7 @@
 - Fixed: `selector-type-case` performance ([#7041](https://github.com/stylelint/stylelint/pull/7041)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-type-no-unknown` performance ([#7027](https://github.com/stylelint/stylelint/pull/7027)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `unit-disallowed-list` false negatives with percentages ([#7018](https://github.com/stylelint/stylelint/pull/7018)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: support for UNC paths ([#7030](https://github.com/stylelint/stylelint/pull/7030)) ([@jeddy3](https://github.com/jeddy3)).
 
 ## 15.9.0
 
