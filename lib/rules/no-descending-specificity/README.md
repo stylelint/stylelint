@@ -25,9 +25,9 @@ So `.foo .bar` (whose last compound selector is `.bar`) will be compared to `.ba
 
 And `a > li#wag.pit` (whose last compound selector is `li#wag.pit`) will be compared to `div li#wag.pit` and `a > b > li + li#wag.pit`, but not to `li` or `li #wag`, etc.
 
-Selectors targeting pseudo-elements are not considered comparable to similar selectors without the pseudo-element, because they target other elements on the rendered page. For example, `a::before {}` will not be compared to `a:hover {}`, because `a::before` targets a pseudo-element whereas `a:hover` targets the actual `<a>`.
+Selectors targeting pseudo-elements are not considered comparable to similar selectors without the pseudo-element, because they target other elements on the rendered page. For example, `a::before { top: 10px; }` will not be compared to `a:hover { top: 10px; }`, because `a::before` targets a pseudo-element whereas `a:hover` targets the actual `<a>`.
 
-This rule only compares rules that are within the same media context. So `a {} @media print { #baz a {} }` is fine.
+This rule only compares rules that are within the same media context. So `a {top: 10px; } @media print { #baz a { top: 10px; } }` is fine.
 
 This rule resolves nested selectors before calculating the specificity of the selectors.
 
