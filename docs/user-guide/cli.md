@@ -90,7 +90,7 @@ Set a limit to the number of warnings accepted. [More info](options.md#maxwarnin
 
 ### `--output-file, -o`
 
-Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to the standard output.
+Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to standard error.
 
 ### `--print-config`
 
