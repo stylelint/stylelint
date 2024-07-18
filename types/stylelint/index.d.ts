@@ -634,7 +634,7 @@ declare namespace stylelint {
 		 * @internal
 		 * WARNING: Don't use this feature now. It may change in the future.
 		 */
-		fix?: () => void | never | Range;
+		fix?: () => void | undefined | never;
 	};
 
 	/** @internal */
