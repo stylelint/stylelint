@@ -362,4 +362,32 @@ To make a single module provide multiple rules, export an array of plugin object
 
 ## Sharing plugins and plugin packs
 
-Use the `stylelint-plugin` keyword within your `package.json`.
+Use the `stylelint-plugin` keyword within your `package.json`. For example:
+
+```json
+{
+  "keywords": ["stylelint", "stylelint-plugin"]
+}
+```
+
+## Sharing configurations
+
+You may want to create a shareable configuration for your plugins to provide a default ruleset. For example:
+
+```json
+{
+  "plugins": ["stylelint-plugin-foo"],
+  "rules": {
+    "foo/rule-1": true,
+    "foo/rule-2": true
+  }
+}
+```
+
+When publishing such configurations, use the `stylelint-config` keyword within your `package.json`. For example:
+
+```json
+{
+  "keywords": ["stylelint", "stylelint-config"]
+}
+```
