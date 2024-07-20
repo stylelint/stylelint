@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Deprecated: GitHub formatter
+Deprecated: `github` formatter
