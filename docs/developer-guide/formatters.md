@@ -83,3 +83,13 @@ stylelint -f json "*.css" 2>&1 | my-program-that-reads-JSON --option
 ## `stylelint.formatters`
 
 Stylelint's internal formatters are exposed publicly in `stylelint.formatters`.
+
+## Sharing formatters
+
+Use the `stylelint-formatter` keyword within your `package.json`. For example:
+
+```json
+{
+  "keywords": ["stylelint", "stylelint-formatter"]
+}
+```
