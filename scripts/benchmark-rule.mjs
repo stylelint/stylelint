@@ -67,6 +67,7 @@ const rule = (await rules[ruleName])(primary, secondary, context);
 
 const processor = postcss().use(rule);
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- This script is only for development. We can tolerate it.
 fetch(CSS_URL)
 	.then((response) => response.text())
 	.then((response) => {
