@@ -90,7 +90,7 @@ Set a limit to the number of warnings accepted. [More info](options.md#maxwarnin
 
 ### `--output-file, -o`
 
-Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to standard error.
+Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to `process.stderr`.
 
 ### `--print-config`
 
@@ -130,7 +130,7 @@ Show the currently installed version of Stylelint.
 
 ## Usage examples
 
-The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stdout`.
+The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stderr`.
 
 _You should include quotation marks around file globs._
 
