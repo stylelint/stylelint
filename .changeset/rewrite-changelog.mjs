@@ -11,7 +11,13 @@ const byPrefixOrder = (a, b) => {
 	const aPrefix = entryPattern.exec(a)?.[1];
 	const bPrefix = entryPattern.exec(b)?.[1];
 
-	if (aPrefix && bPrefix) return ENTRY_PREFIXES.indexOf(aPrefix) - ENTRY_PREFIXES.indexOf(bPrefix);
+	if (aPrefix && bPrefix) {
+		const comparison = ENTRY_PREFIXES.indexOf(aPrefix) - ENTRY_PREFIXES.indexOf(bPrefix);
+
+		if (comparison !== 0) return comparison;
+
+		return a.localeCompare(b);
+	}
 
 	if (!aPrefix && bPrefix) return 1;
 
