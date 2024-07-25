@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `postcss-resolve-nested-selector` error for `@nest`
+Fixed: `selector-max-compound-selectors` error for `@nest`
