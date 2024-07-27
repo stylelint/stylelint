@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `stylelint.utils.checkAgainstRule()` to prevent false problems when both `reportNeedlessDisables` and `quiet` enabled
+Fixed: `stylelint.utils.checkAgainstRule()` regression when `reportNeedlessDisables` and `quiet` are both enabled
