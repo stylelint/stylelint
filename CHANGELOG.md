@@ -8,7 +8,7 @@
 - Fixed: `no-descending-specificity` false positives for nested rules without declarations ([#7850](https://github.com/stylelint/stylelint/pull/7850)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `no-duplicate-selectors` end positions ([#7867](https://github.com/stylelint/stylelint/pull/7867)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `no-duplicate-selectors` false negatives for three or more duplicates ([#7867](https://github.com/stylelint/stylelint/pull/7867)) ([@romainmenke](https://github.com/romainmenke)).
-- Fixed: `selector-max-compound-selectors` error for `@nest` ([#7875](https://github.com/stylelint/stylelint/pull/7875)) ([@dependabot](https://github.com/apps/dependabot)).
+- Fixed: `selector-max-compound-selectors` error for `@nest` ([#7875](https://github.com/stylelint/stylelint/pull/7875)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-pseudo-class-no-unknown` false positives for `:active-view-transition` and `:active-view-transition-type()` ([#7868](https://github.com/stylelint/stylelint/pull/7868)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `selector-type-*`, `selector-max-type` and `selector-class-pattern` false positives for `<timeline-range-name>` in keyframe selectors ([#7856](https://github.com/stylelint/stylelint/pull/7856)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `stylelint.utils.checkAgainstRule()` regression when `reportNeedlessDisables` and `quiet` are both enabled ([#7879](https://github.com/stylelint/stylelint/pull/7879)) ([@ybiquitous](https://github.com/ybiquitous)).
