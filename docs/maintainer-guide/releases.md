@@ -5,7 +5,7 @@
    - if applicable, list any new rules so that we can discuss including them in our configs
 2. If necessary, open a pull request to mark those rules in [`docs/user-guide/rules.md`](../user-guide/rules.md).
 3. Check if package tests in [stylelint/stylelint-ecosystem-tester](https://github.com/stylelint/stylelint-ecosystem-tester) fail with the new version.
-4. If necessary, test the main branch locally in the:
+4. If necessary, test the main branch locally against:
    1. [stylelint/stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended)
    2. [stylelint/stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
    3. [stylelint/stylelint.io](https://github.com/stylelint/stylelint.io)
