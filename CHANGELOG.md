@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.8.1
+
+- Fixed: `no-duplicate-selectors` false positives with Less syntax ([#7888](https://github.com/stylelint/stylelint/pull/7888)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.8.0
 
 - Deprecated: `github` formatter ([#7865](https://github.com/stylelint/stylelint/pull/7865)) ([@marcalexiei](https://github.com/marcalexiei)).
