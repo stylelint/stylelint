@@ -136,7 +136,7 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type DisabledRange = {
-		comment: PostCSS.Comment;
+		node: PostCSS.Node;
 		start: number;
 		strictStart: boolean;
 		end?: number;
@@ -637,7 +637,7 @@ declare namespace stylelint {
 		 * @internal
 		 * WARNING: Don't use this feature now. It may change in the future.
 		 */
-		fix?: () => void | never | Range;
+		fix?: () => void | undefined | never;
 	};
 
 	/** @internal */

@@ -1,5 +1,23 @@
 # Changelog
 
+## 16.8.1
+
+- Fixed: `no-duplicate-selectors` false positives with Less syntax ([#7888](https://github.com/stylelint/stylelint/pull/7888)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.8.0
+
+- Deprecated: `github` formatter ([#7865](https://github.com/stylelint/stylelint/pull/7865)) ([@marcalexiei](https://github.com/marcalexiei)).
+- Fixed: `function-url-quotes` false positives for SCSS variables and `#`/`?` characters ([#7874](https://github.com/stylelint/stylelint/pull/7874)) ([@vimalloc](https://github.com/vimalloc)).
+- Fixed: `keyframe-selector-notation` false positives for `entry-crossing` and `exit-crossing` ([#7859](https://github.com/stylelint/stylelint/pull/7859)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-descending-specificity` false positives for nested rules without declarations ([#7850](https://github.com/stylelint/stylelint/pull/7850)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-duplicate-selectors` end positions ([#7867](https://github.com/stylelint/stylelint/pull/7867)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-duplicate-selectors` false negatives for three or more duplicates ([#7867](https://github.com/stylelint/stylelint/pull/7867)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-compound-selectors` error for `@nest` ([#7875](https://github.com/stylelint/stylelint/pull/7875)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:active-view-transition` and `:active-view-transition-type()` ([#7868](https://github.com/stylelint/stylelint/pull/7868)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-*`, `selector-max-type` and `selector-class-pattern` false positives for `<timeline-range-name>` in keyframe selectors ([#7856](https://github.com/stylelint/stylelint/pull/7856)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `stylelint.utils.checkAgainstRule()` regression when `reportNeedlessDisables` and `quiet` are both enabled ([#7879](https://github.com/stylelint/stylelint/pull/7879)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: configuration comments within selector and value lists being ignored ([#7839](https://github.com/stylelint/stylelint/pull/7839)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.7.0
 
 - Changed: `tap` formatter to support TAP14 ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
