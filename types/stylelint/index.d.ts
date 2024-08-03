@@ -631,10 +631,6 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		/**
-		 * @internal
-		 * WARNING: Don't use this feature now. It may change in the future.
-		 */
 		fix?: () => void | undefined | never;
 	};
 
