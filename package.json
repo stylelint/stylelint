@@ -161,7 +161,7 @@
     "@csstools/css-parser-algorithms": "^2.7.1",
     "@csstools/css-tokenizer": "^2.4.1",
     "@csstools/media-query-list-parser": "^2.1.13",
-    "@csstools/selector-specificity": "^3.1.1",
+    "@csstools/selector-specificity": "^4.0.0",
     "@dual-bundle/import-meta-resolve": "^4.1.0",
     "balanced-match": "^2.0.0",
     "colord": "^2.9.3",
