@@ -99,7 +99,7 @@ For your plugin rule to work with the [standard configuration format](../user-gu
 - the primary option
 - optionally, a secondary options object
 
-If your plugin rule supports [autofixing](rules.md#add-autofix), then `fixable` should be set to `true` in `meta`.
+If your plugin rule supports [autofixing](rules.md#add-autofix), then `meta.fixable` should be set to `true`.
 
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://postcss.org/docs/writing-a-postcss-plugin). It takes 2 arguments:
 

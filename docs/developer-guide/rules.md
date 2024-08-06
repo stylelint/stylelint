@@ -227,7 +227,7 @@ function rule(primary, secondary) {
 - `newline`(string): Line-ending used in current linted file.
 
 > [!WARNING]
-> The `fix` boolean is deprecated in favour of the `fix` callback which properly handles [configuration comments](../user-guide/ignore-code.md#parts-of-a-file).
+> The convention of restricting the appliance of fixes based on the `context.fix` property is deprecated in favour of recommending the `fix` callback which properly handles [configuration comments](../user-guide/ignore-code.md#parts-of-a-file).
 
 If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
 
