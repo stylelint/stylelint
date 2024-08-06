@@ -40,12 +40,10 @@ For CSS with standard syntax, Stylelint uses [postcss-safe-parser](https://www.n
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
-If a source contains a:
+When a rule relies on the deprecated [`context`](../developer-guide/rules.md#context)`.fix` and a source contains:
 
-- scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rules will not be automatically fixed anywhere in the source
-- unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of source will not be automatically fixed
-
-This limitation is being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
+- a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
+- an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
 
 ## `customSyntax`
 
