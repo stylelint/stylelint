@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Deprecated: `context.fix` in favour of the `fix` callback
+Deprecated: `context.fix` usage in favour of recommending to pass a `fix` callback to `report()`
