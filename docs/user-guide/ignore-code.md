@@ -62,9 +62,6 @@ Stylelint supports complex, overlapping disabling & enabling patterns:
 /* stylelint-enable foo */
 ```
 
-> [!WARNING]
-> Comments within _selector and value lists_ are currently ignored.
-
 You may also include a description at the end of the comment, after two hyphens:
 
 ```css
