@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.8.2
+
+- Deprecated: `context.fix` usage in favour of recommending to pass a `fix` callback to `report()` ([#7895](https://github.com/stylelint/stylelint/pull/7895)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: deprecation notice annotation to the output of the `github` formatter ([#7909](https://github.com/stylelint/stylelint/pull/7909)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-invalid-double-slash-comments` reported ranges ([#7905](https://github.com/stylelint/stylelint/pull/7905)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.8.1
 
 - Fixed: `no-duplicate-selectors` false positives with Less syntax ([#7888](https://github.com/stylelint/stylelint/pull/7888)) ([@romainmenke](https://github.com/romainmenke)).
