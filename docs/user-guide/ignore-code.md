@@ -63,7 +63,8 @@ Stylelint supports complex, overlapping disabling & enabling patterns:
 ```
 
 > [!WARNING]
-> Comments within _selector and value lists_ are currently ignored.
+> Non-standard syntax comments (i.e. `//`) are only minimally supported.  
+> They will only work when found outside of selectors or value lists.
 
 You may also include a description at the end of the comment, after two hyphens:
 
