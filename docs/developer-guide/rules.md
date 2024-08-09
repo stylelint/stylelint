@@ -198,22 +198,36 @@ const meta = {
 };
 ```
 
-Add `context` variable to rule parameters:
+Pass `fix` callback to the [`report` utility](./plugins.md#stylelintutilsreport):
 
 ```diff js
--function rule(primary, secondary) {
-+function rule(primary, secondary, context) {
+function rule(primary, secondary) {
   return (root, result) => {
     /* .. */
+
++   const fix = () => { /* put your mutations here */ };
+
+    report({
+      result,
+      ruleName,
+      message,
+      node,
++     fix
+    });
   };
 }
 ```
+
+### Context
 
 `context` is an object which could have three properties:
 
 - `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
 - `fix`(boolean): If `true`, your rule can apply autofixes.
 - `newline`(string): Line-ending used in current linted file.
+
+> [!WARNING]
+> The convention of restricting the appliance of fixes based on the `context.fix` property is deprecated in favour of recommending the `fix` callback which properly handles [configuration comments](../user-guide/ignore-code.md#parts-of-a-file).
 
 If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
 
