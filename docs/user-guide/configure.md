@@ -648,3 +648,9 @@ For example:
 > This config option should not be overridden on a per-file basis.
 
 [More info](options.md#fix).
+
+## `formatter`
+
+Specify the formatter to format your results.
+
+[More info](options.md#formatter).

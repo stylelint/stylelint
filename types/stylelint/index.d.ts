@@ -109,6 +109,7 @@ declare namespace stylelint {
 		ignorePatterns?: string;
 		rules?: ConfigRules;
 		quiet?: boolean;
+		formatter?: FormatterType | Formatter;
 		defaultSeverity?: Severity;
 		ignoreDisables?: boolean;
 		reportNeedlessDisables?: DisableSettings;
@@ -448,6 +449,7 @@ declare namespace stylelint {
 		maxWarnings?: number;
 		customSyntax?: CustomSyntax;
 		formatter?: FormatterType | Formatter;
+		customFormatter?: string;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean;
 		allowEmptyInput?: boolean;
