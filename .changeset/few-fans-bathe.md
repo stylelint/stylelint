@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix: `no-invalid-double-slash-comments` reported `endIndex`
+Fixed: `no-invalid-double-slash-comments` end positions
