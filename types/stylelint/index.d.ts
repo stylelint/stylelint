@@ -700,7 +700,7 @@ declare namespace stylelint {
 	/** @internal */
 	export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
 		ShorthandProperties,
-		ReadonlySet<string>
+		ReadonlyMap<string, boolean>
 	>;
 
 	/**
