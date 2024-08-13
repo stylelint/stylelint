@@ -97,7 +97,7 @@ CLI flag: `--cache`
 
 Store the results of processed files so that Stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`.
 
-the following values are used as cache keys:
+The following values are used as cache keys:
 
 - Stylelint version
 - Options
