@@ -448,6 +448,8 @@ declare namespace stylelint {
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
 		customSyntax?: CustomSyntax;
+		/** @internal */
+		_defaultFormatter?: FormatterType | Formatter;
 		formatter?: FormatterType | Formatter;
 		customFormatter?: string;
 		disableDefaultIgnores?: boolean;
