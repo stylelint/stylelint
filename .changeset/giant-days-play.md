@@ -1,5 +1,0 @@
----
-"stylelint": patch
----
-
-Fixed: `no-invalid-double-slash-comments` reported ranges
