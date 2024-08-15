@@ -5,19 +5,20 @@ import { rmSync } from 'node:fs';
 
 import fg from 'fast-glob';
 
+const testFileGlobs = ['!**/__tests__/**', '!lib/testUtils/**'];
+
+// clean up
+for (const cjs of fg.globSync(['lib/**/*.cjs', ...testFileGlobs])) {
+	rmSync(cjs);
+}
+
 const inputFiles = fg.globSync([
 	'lib/**/*.mjs',
-	'!**/__tests__/**',
-	'!lib/testUtils/**',
+	...testFileGlobs,
 
 	// NOTE: We cannot support CommonJS for `cli.mjs` since the `meow` dependency is pure ESM.
 	'!lib/cli.mjs',
 ]);
-
-// clean up
-for (const input of inputFiles) {
-	rmSync(input.replace('.mjs', '.cjs'), { force: true });
-}
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 
