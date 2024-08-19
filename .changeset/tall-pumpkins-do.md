@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `--no-deprecation` to suppress `stylelint:000` warning
+Fixed: `--no-deprecation` to suppress rule deprecation warnings
