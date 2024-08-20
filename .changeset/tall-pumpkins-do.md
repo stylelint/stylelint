@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `--no-deprecation` to suppress rule deprecation warnings
+Fixed: honour Node.js `--no-deprecation` flag for rule deprecation warnings

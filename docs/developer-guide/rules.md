@@ -311,9 +311,21 @@ You should:
 
 Deprecating rules doesn't happen very often. When you do, you must:
 
-1. Add the appropriate metadata to mark the rule as deprecated like so: `rule.meta = { deprecated: true }`
-2. Set the `stylelintType` to `deprecation`
-3. Optionaly set `stylelintReference` to a link that points to a specific version of the rule's README on your source-code-hosting facility of choice—e.g. GitHub—so that it always remains accessible.
+1. Add the appropriate metadata to mark the rule as deprecated like so: `rule.meta = { deprecated: true }`.
+2. Set the `stylelintType` to `'deprecation'`.
+3. Optionally set `stylelintReference` to a link that points to a specific version of the rule's document so that it always remains accessible.
+
+For example:
+
+```js
+result.warn(
+  `"your-namespace/old-rule" has been deprecated and will be removed in 7.0. Use '"your-namespace/new-rule" instead.`,
+  {
+    stylelintType: 'deprecation',
+    stylelintReference: 'https://github.com/your-org/your-stylelint-plugin/blob/v6.3.0/src/rules/old-rule/README.md'
+  },
+);
+```
 
 ## Improve the performance of a rule
 
