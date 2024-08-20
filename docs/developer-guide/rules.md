@@ -321,9 +321,10 @@ For example:
 result.warn(
   `"your-namespace/old-rule" has been deprecated and will be removed in 7.0. Use '"your-namespace/new-rule" instead.`,
   {
-    stylelintType: 'deprecation',
-    stylelintReference: 'https://github.com/your-org/your-stylelint-plugin/blob/v6.3.0/src/rules/old-rule/README.md'
-  },
+    stylelintType: "deprecation",
+    stylelintReference:
+      "https://github.com/your-org/your-stylelint-plugin/blob/v6.3.0/src/rules/old-rule/README.md"
+  }
 );
 ```
 
