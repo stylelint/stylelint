@@ -319,7 +319,7 @@ For example:
 
 ```js
 result.warn(
-  `"your-namespace/old-rule" has been deprecated and will be removed in 7.0. Use '"your-namespace/new-rule" instead.`,
+  `"your-namespace/old-rule" has been deprecated and will be removed in 7.0. Use "your-namespace/new-rule" instead.`,
   {
     stylelintType: "deprecation",
     stylelintReference:
