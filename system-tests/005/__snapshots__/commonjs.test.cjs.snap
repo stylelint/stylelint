@@ -239,7 +239,10 @@ exports[`CommonJS API and config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/block-no-empty",
     },
     "color-function-notation": {
-      "fixable": true,
+      "fixable": {
+        "legacy": false,
+        "modern": true,
+      },
       "url": "https://stylelint.io/user-guide/rules/color-function-notation",
     },
     "color-hex-alpha": {
@@ -428,7 +431,10 @@ exports[`CommonJS API and config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-value-no-unknown",
     },
     "media-feature-range-notation": {
-      "fixable": true,
+      "fixable": {
+        "context": true,
+        "prefix": false,
+      },
       "url": "https://stylelint.io/user-guide/rules/media-feature-range-notation",
     },
     "media-query-no-invalid": {
