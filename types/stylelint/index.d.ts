@@ -169,9 +169,11 @@ declare namespace stylelint {
 		config?: Config;
 	};
 
+	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
+
 	/** @internal */
 	export type WarningOptions = PostCSS.WarningOptions & {
-		stylelintType?: string;
+		stylelintType?: StylelintWarningType;
 		severity?: Severity;
 		url?: string;
 		rule?: string;
@@ -516,7 +518,7 @@ declare namespace stylelint {
 		severity: Severity;
 		text: string;
 		url?: string;
-		stylelintType?: string;
+		stylelintType?: StylelintWarningType;
 	};
 
 	/**
@@ -531,7 +533,9 @@ declare namespace stylelint {
 		invalidOptionWarnings: {
 			text: string;
 		}[];
-		parseErrors: (PostCSS.Warning & { stylelintType: string })[];
+		parseErrors: (PostCSS.Warning & {
+			stylelintType: Extract<StylelintWarningType, 'parseError'>;
+		})[];
 		errored?: boolean;
 		warnings: Warning[];
 		ignored?: boolean;

@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.8.2
+
+- Deprecated: `context.fix` usage in favour of recommending to pass a `fix` callback to `report()` ([#7895](https://github.com/stylelint/stylelint/pull/7895)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: deprecation notice annotation to the output of the `github` formatter ([#7909](https://github.com/stylelint/stylelint/pull/7909)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `custom-property-no-missing-var-function` false positives for `view-transition-name` ([#7914](https://github.com/stylelint/stylelint/pull/7914)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `keyframe-block-no-duplicate-selectors` reported ranges ([#7932](https://github.com/stylelint/stylelint/pull/7932)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-invalid-double-slash-comments` reported ranges ([#7907](https://github.com/stylelint/stylelint/pull/7907) & [#7905](https://github.com/stylelint/stylelint/pull/7905)) ([@Mouvedia](https://github.com/Mouvedia) & [@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-type` reported ranges ([#7916](https://github.com/stylelint/stylelint/pull/7916)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for `::highlight()` and `::view-transition-*()` ([#7913](https://github.com/stylelint/stylelint/pull/7913)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.8.1
 
 - Fixed: `no-duplicate-selectors` false positives with Less syntax ([#7888](https://github.com/stylelint/stylelint/pull/7888)) ([@romainmenke](https://github.com/romainmenke)).
