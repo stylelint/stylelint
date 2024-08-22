@@ -243,7 +243,14 @@ declare namespace stylelint {
 		newline?: string | undefined;
 	};
 
-	type Primary = string | number | boolean | RegExp | Array<string | RegExp> | Record<string, any>;
+	type Primary =
+		| string
+		| number
+		| true
+		| null
+		| RegExp
+		| Array<string | RegExp>
+		| Record<string, any>;
 
 	/** @internal */
 	export type RuleBase<P extends Primary = any, S = any> = (
