@@ -21,7 +21,6 @@ Might break your lint build:
 - a bug fix in a rule that results in Stylelint reporting more errors
 - a new rule is created
 - a new option to an existing rule that does not result in Stylelint reporting more errors by default
-- an existing rule is deprecated
 - a new CLI capability is created
 - a new public API capability is created
 - a new formatter is created
