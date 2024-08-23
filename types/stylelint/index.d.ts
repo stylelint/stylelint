@@ -243,14 +243,7 @@ declare namespace stylelint {
 		newline?: string | undefined;
 	};
 
-	type Primary =
-		| string
-		| number
-		| true
-		| null
-		| RegExp
-		| Array<string | RegExp>
-		| Record<string, any>;
+	type Primary = string | number | true | RegExp | Array<string | RegExp> | Record<string, any>;
 
 	/** @internal */
 	export type RuleBase<P extends Primary = any, S = any> = (
@@ -259,13 +252,11 @@ declare namespace stylelint {
 		context: RuleContext,
 	) => (root: PostCSS.Root, result: PostcssResult) => Promise<void> | void;
 
-	type Fixable<P> = P extends string ? Record<P, boolean> | boolean : boolean;
-
 	/** @internal */
-	export type RuleMeta<P = any> = {
+	export type RuleMeta = {
 		url: string;
 		deprecated?: boolean;
-		fixable?: Fixable<P>;
+		fixable?: boolean;
 	};
 
 	/** @internal */
@@ -286,7 +277,7 @@ declare namespace stylelint {
 		ruleName: string;
 		messages: RuleMessages;
 		primaryOptionArray?: boolean;
-		meta?: RuleMeta<P>;
+		meta?: RuleMeta;
 	};
 
 	type BuiltInRules = {
