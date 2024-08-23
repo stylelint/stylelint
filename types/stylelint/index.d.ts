@@ -243,10 +243,8 @@ declare namespace stylelint {
 		newline?: string | undefined;
 	};
 
-	type Primary = string | number | true | RegExp | Array<string | RegExp> | Record<string, any>;
-
 	/** @internal */
-	export type RuleBase<P extends Primary = any, S = any> = (
+	export type RuleBase<P = any, S = any> = (
 		primaryOption: P,
 		secondaryOptions: S,
 		context: RuleContext,
@@ -273,7 +271,7 @@ declare namespace stylelint {
 	/**
 	 * A rule.
 	 */
-	export type Rule<P = any, S = any> = RuleBase<P extends Primary ? P : any, S> & {
+	export type Rule<P = any, S = any> = RuleBase<P, S> & {
 		ruleName: string;
 		messages: RuleMessages;
 		primaryOptionArray?: boolean;
