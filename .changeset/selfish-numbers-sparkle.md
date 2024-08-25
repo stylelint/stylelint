@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `selector-class-pattern` message's first argument
+Fixed: `selector-class-pattern` end positions
