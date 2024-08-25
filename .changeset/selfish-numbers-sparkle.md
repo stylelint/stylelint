@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `selector-class-pattern` selector message argument be trimmed
+Fixed: `selector-class-pattern` message's first argument
