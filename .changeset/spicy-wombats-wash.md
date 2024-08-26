@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": minor
 ---
 
-Fixed: `keyframe-selector-notation`/`no-unknown-animations`/`keyframe-declaration-no-important`/`keyframe-block-no-duplicate-selectors` false negatives for `@-o-keyframes` and `@-ms-keyframes`
+Fixed: `keyframe-block-no-duplicate-selectors`/`keyframe-declaration-no-important`/`keyframe-selector-notation`/`no-unknown-animations` false negatives for `@-o-keyframes` and `@-ms-keyframes`
