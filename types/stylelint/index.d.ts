@@ -92,7 +92,7 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type DisableOptions = {
-		except?: (string | RegExp)[];
+		except?: StringsOrRegexes;
 		severity?: Severity;
 	};
 
@@ -282,18 +282,22 @@ declare namespace stylelint {
 		readonly [name in keyof CoreRules]: Promise<Rule>;
 	};
 
-	type Primary = string | number | true | RegExp | Array<string | RegExp> | Record<string, any>;
+	type StringOrRegex = string | RegExp;
+	type StringsOrRegexes = Array<StringOrRegex>;
+	type OneOrMoreStrings = string | string[];
+	type Primary = number | true | StringOrRegex | StringsOrRegexes | Record<string, any>;
 	type Secondary = Record<string, any>;
 	type CoreRule<P extends Primary, S extends Secondary = any> = Rule<P, S>;
 
+	/** @internal */
 	export type CoreRules = {
 		'alpha-value-notation': CoreRule<
 			'number' | 'percentage',
-			{ exceptProperties: Array<string | RegExp> }
+			{ exceptProperties: StringsOrRegexes }
 		>;
-		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: Array<string | RegExp> }>;
-		'at-rule-allowed-list': CoreRule<string | string[]>;
-		'at-rule-disallowed-list': CoreRule<string | string[]>;
+		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: StringsOrRegexes }>;
+		'at-rule-allowed-list': CoreRule<OneOrMoreStrings>;
+		'at-rule-disallowed-list': CoreRule<OneOrMoreStrings>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -314,35 +318,32 @@ declare namespace stylelint {
 				ignoreAtRules: string[];
 			}
 		>;
-		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: Array<string | RegExp> }>;
+		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: StringsOrRegexes }>;
 		'at-rule-no-vendor-prefix': CoreRule<true>;
-		'at-rule-property-required-list': CoreRule<Record<string, string | string[]>>;
+		'at-rule-property-required-list': CoreRule<Record<string, OneOrMoreStrings>>;
 		'block-no-empty': CoreRule<true, { ignore: 'comments'[] }>;
-		'color-function-notation': CoreRule<
-			'modern' | 'legacy',
-			{ ignore: 'with-var-inside'[] | 'with-var-inside' }
-		>;
+		'color-function-notation': CoreRule<'modern' | 'legacy', { ignore: 'with-var-inside'[] }>;
 		'color-hex-alpha': CoreRule<'always' | 'never'>;
 		'color-hex-length': CoreRule<'short' | 'long'>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: Array<string | RegExp>; ignore: ['inside-function'] }
+			{ ignoreProperties: StringsOrRegexes; ignore: 'inside-function'[] }
 		>;
 		'color-no-hex': CoreRule<true>;
 		'color-no-invalid-hex': CoreRule<true>;
 		'comment-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: ['first-nested'];
+				except: 'first-nested'[];
 				ignore: ('stylelint-commands' | 'after-comment')[];
-				ignoreComments: Array<string | RegExp>;
+				ignoreComments: StringsOrRegexes;
 			}
 		>;
 		'comment-no-empty': CoreRule<true>;
-		'comment-pattern': CoreRule<string | RegExp>;
+		'comment-pattern': CoreRule<StringOrRegex>;
 		'comment-whitespace-inside': CoreRule<'always' | 'never'>;
-		'comment-word-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'custom-media-pattern': CoreRule<string | RegExp>;
+		'comment-word-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'custom-media-pattern': CoreRule<StringOrRegex>;
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -351,10 +352,10 @@ declare namespace stylelint {
 			}
 		>;
 		'custom-property-no-missing-var-function': CoreRule<true>;
-		'custom-property-pattern': CoreRule<string | RegExp>;
+		'custom-property-pattern': CoreRule<StringOrRegex>;
 		'declaration-block-no-duplicate-custom-properties': CoreRule<
 			true,
-			{ ignoreProperties: Array<string | RegExp> }
+			{ ignoreProperties: StringsOrRegexes }
 		>;
 		'declaration-block-no-duplicate-properties': CoreRule<
 			true,
@@ -365,12 +366,12 @@ declare namespace stylelint {
 					| 'consecutive-duplicates-with-different-syntaxes'
 					| 'consecutive-duplicates-with-same-prefixless-values'
 				>;
-				ignoreProperties: Array<string | RegExp>;
+				ignoreProperties: StringsOrRegexes;
 			}
 		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
-			{ ignoreShorthands: Array<string | RegExp>; ignoreLonghands: string[] }
+			{ ignoreShorthands: StringsOrRegexes; ignoreLonghands: string[] }
 		>;
 		'declaration-block-no-shorthand-property-overrides': CoreRule<true>;
 		'declaration-block-single-line-max-declarations': CoreRule<number>;
@@ -378,28 +379,28 @@ declare namespace stylelint {
 			'always' | 'never',
 			{
 				except: ('first-nested' | 'after-comment' | 'after-declaration')[];
-				ignore: [
-					'after-comment' | 'after-declaration' | 'first-nested' | 'inside-single-line-block',
-				];
+				ignore: Array<
+					'after-comment' | 'after-declaration' | 'first-nested' | 'inside-single-line-block'
+				>;
 			}
 		>;
 		'declaration-no-important': CoreRule<true>;
 		'declaration-property-max-values': CoreRule<Record<string, number>>;
 		'declaration-property-unit-allowed-list': CoreRule<
-			Record<string, string | string[]>,
+			Record<string, OneOrMoreStrings>,
 			{ ignore: 'inside-function'[] }
 		>;
-		'declaration-property-unit-disallowed-list': CoreRule<Record<string, string | string[]>>;
+		'declaration-property-unit-disallowed-list': CoreRule<Record<string, OneOrMoreStrings>>;
 		'declaration-property-value-allowed-list': CoreRule<
-			Record<string, string | RegExp | Array<string | RegExp>>
+			Record<string, StringOrRegex | StringsOrRegexes>
 		>;
 		'declaration-property-value-disallowed-list': CoreRule<
-			Record<string, string | RegExp | Array<string | RegExp>>
+			Record<string, StringOrRegex | StringsOrRegexes>
 		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
 			{
-				ignoreProperties: Record<string, string | RegExp | Array<string | RegExp>>;
+				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
 				propertiesSyntax: Record<string, string>;
 				typesSyntax: Record<string, string>;
 			}
@@ -407,25 +408,22 @@ declare namespace stylelint {
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword'
 		>;
-		'font-family-no-duplicate-names': CoreRule<
-			true,
-			{ ignoreFontFamilyNames: Array<string | RegExp> }
-		>;
+		'font-family-no-duplicate-names': CoreRule<true, { ignoreFontFamilyNames: StringsOrRegexes }>;
 		'font-family-no-missing-generic-family-keyword': CoreRule<
 			true,
-			{ ignoreFontFamilies: Array<string | RegExp> }
+			{ ignoreFontFamilies: StringsOrRegexes }
 		>;
 		'font-weight-notation': CoreRule<'numeric' | 'named-where-possible', { ignore: 'relative'[] }>;
-		'function-allowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
+		'function-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
 		'function-calc-no-unspaced-operator': CoreRule<true>;
-		'function-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
+		'function-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
 		'function-linear-gradient-no-nonstandard-direction': CoreRule<true>;
-		'function-name-case': CoreRule<'lower' | 'upper', { ignoreFunctions: Array<string | RegExp> }>;
-		'function-no-unknown': CoreRule<true, { ignoreFunctions: Array<string | RegExp> }>;
+		'function-name-case': CoreRule<'lower' | 'upper', { ignoreFunctions: StringsOrRegexes }>;
+		'function-no-unknown': CoreRule<true, { ignoreFunctions: StringsOrRegexes }>;
 		'function-url-no-scheme-relative': CoreRule<true>;
 		'function-url-quotes': CoreRule<'always' | 'never', { except: 'empty'[] }>;
-		'function-url-scheme-allowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'function-url-scheme-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
+		'function-url-scheme-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'function-url-scheme-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
 		'hue-degree-notation': CoreRule<'angle' | 'number'>;
 		'import-notation': CoreRule<'string' | 'url'>;
 		'keyframe-block-no-duplicate-selectors': CoreRule<true>;
@@ -433,12 +431,12 @@ declare namespace stylelint {
 		'keyframe-selector-notation': CoreRule<
 			'keyword' | 'percentage' | 'percentage-unless-within-keyword-only-block'
 		>;
-		'keyframes-name-pattern': CoreRule<string | RegExp>;
+		'keyframes-name-pattern': CoreRule<StringOrRegex>;
 		'length-zero-no-unit': CoreRule<
 			true,
 			{
 				ignore: 'custom-properties'[];
-				ignoreFunctions: Array<string | RegExp>;
+				ignoreFunctions: StringsOrRegexes;
 			}
 		>;
 		'lightness-notation': CoreRule<'percentage' | 'number'>;
@@ -446,21 +444,18 @@ declare namespace stylelint {
 			number,
 			{
 				ignore: ('blockless-at-rules' | 'pseudo-classes')[];
-				ignoreAtRules: Array<string | RegExp>;
-				ignoreRules: Array<string | RegExp>;
-				ignorePseudoClasses: Array<string | RegExp>;
+				ignoreAtRules: StringsOrRegexes;
+				ignoreRules: StringsOrRegexes;
+				ignorePseudoClasses: StringsOrRegexes;
 			}
 		>;
-		'media-feature-name-allowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'media-feature-name-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'media-feature-name-no-unknown': CoreRule<
-			true,
-			{ ignoreMediaFeatureNames: Array<string | RegExp> }
-		>;
+		'media-feature-name-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'media-feature-name-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'media-feature-name-no-unknown': CoreRule<true, { ignoreMediaFeatureNames: StringsOrRegexes }>;
 		'media-feature-name-no-vendor-prefix': CoreRule<true>;
-		'media-feature-name-unit-allowed-list': CoreRule<Record<string, string | string[]>>;
+		'media-feature-name-unit-allowed-list': CoreRule<Record<string, OneOrMoreStrings>>;
 		'media-feature-name-value-allowed-list': CoreRule<
-			Record<string, string | RegExp | Array<string | RegExp>>
+			Record<string, StringOrRegex | StringsOrRegexes>
 		>;
 		'media-feature-name-value-no-unknown': CoreRule<true>;
 		'media-feature-range-notation': CoreRule<'prefix' | 'context'>;
@@ -471,7 +466,7 @@ declare namespace stylelint {
 		'no-duplicate-selectors': CoreRule<true, { disallowInList: boolean }>;
 		'no-empty-source': CoreRule<true>;
 		'no-invalid-double-slash-comments': CoreRule<true>;
-		'no-invalid-position-at-import-rule': CoreRule<true, { ignoreAtRules: Array<string | RegExp> }>;
+		'no-invalid-position-at-import-rule': CoreRule<true, { ignoreAtRules: StringsOrRegexes }>;
 		'no-irregular-whitespace': CoreRule<true>;
 		'no-unknown-animations': CoreRule<true>;
 		'no-unknown-custom-media': CoreRule<true>;
@@ -479,23 +474,23 @@ declare namespace stylelint {
 		'number-max-precision': CoreRule<
 			number,
 			{
-				ignoreProperties: Array<string | RegExp>;
-				ignoreUnits: Array<string | RegExp>;
+				ignoreProperties: StringsOrRegexes;
+				ignoreUnits: StringsOrRegexes;
 				insideFunctions: Record<string, number>;
 			}
 		>;
-		'property-allowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'property-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
+		'property-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'property-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
 		'property-no-unknown': CoreRule<
 			true,
 			{
 				checkPrefixed: boolean;
-				ignoreAtRules: Array<string | RegExp>;
-				ignoreProperties: Array<string | RegExp>;
-				ignoreSelectors: Array<string | RegExp>;
+				ignoreAtRules: StringsOrRegexes;
+				ignoreProperties: StringsOrRegexes;
+				ignoreSelectors: StringsOrRegexes;
 			}
 		>;
-		'property-no-vendor-prefix': CoreRule<true, { ignoreProperties: Array<string | RegExp> }>;
+		'property-no-vendor-prefix': CoreRule<true, { ignoreProperties: StringsOrRegexes }>;
 		'rule-empty-line-before': CoreRule<
 			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
 			{
@@ -510,109 +505,103 @@ declare namespace stylelint {
 			}
 		>;
 		'rule-selector-property-disallowed-list': CoreRule<
-			Record<string, string | RegExp | Array<string | RegExp>>,
+			Record<string, StringOrRegex | StringsOrRegexes>,
 			{
 				ignore: 'keyframe-selectors'[];
 			}
 		>;
 		'selector-anb-no-unmatchable': CoreRule<true>;
-		'selector-attribute-name-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'selector-attribute-operator-allowed-list': CoreRule<string | string[]>;
-		'selector-attribute-operator-disallowed-list': CoreRule<string | string[]>;
+		'selector-attribute-name-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-attribute-operator-allowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-attribute-operator-disallowed-list': CoreRule<OneOrMoreStrings>;
 		'selector-attribute-quotes': CoreRule<'always' | 'never'>;
-		'selector-class-pattern': CoreRule<string | RegExp, { resolveNestedSelectors: boolean }>;
-		'selector-combinator-allowed-list': CoreRule<string | string[]>;
-		'selector-combinator-disallowed-list': CoreRule<string | string[]>;
+		'selector-class-pattern': CoreRule<StringOrRegex, { resolveNestedSelectors: boolean }>;
+		'selector-combinator-allowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-combinator-disallowed-list': CoreRule<OneOrMoreStrings>;
 		'selector-disallowed-list': CoreRule<
-			string | RegExp | Array<string | RegExp>,
+			StringOrRegex | StringsOrRegexes,
 			{ splitList: boolean; ignore: ('inside-block' | 'keyframe-selectors')[] }
 		>;
-		'selector-id-pattern': CoreRule<string | RegExp>;
-		'selector-max-attribute': CoreRule<number, { ignoreAttributes: Array<string | RegExp> }>;
+		'selector-id-pattern': CoreRule<StringOrRegex>;
+		'selector-max-attribute': CoreRule<number, { ignoreAttributes: StringsOrRegexes }>;
 		'selector-max-class': CoreRule<number>;
 		'selector-max-combinators': CoreRule<number>;
-		'selector-max-compound-selectors': CoreRule<
-			number,
-			{ ignoreSelectors: Array<string | RegExp> }
-		>;
+		'selector-max-compound-selectors': CoreRule<number, { ignoreSelectors: StringsOrRegexes }>;
 		'selector-max-id': CoreRule<
 			number,
 			{
-				ignoreContextFunctionalPseudoClasses: Array<string | RegExp>;
-				checkContextFunctionalPseudoClasses: Array<string | RegExp>;
+				ignoreContextFunctionalPseudoClasses: StringsOrRegexes;
+				checkContextFunctionalPseudoClasses: StringsOrRegexes;
 			}
 		>;
 		'selector-max-pseudo-class': CoreRule<number>;
-		'selector-max-specificity': CoreRule<string, { ignoreSelectors: Array<string | RegExp> }>;
+		'selector-max-specificity': CoreRule<string, { ignoreSelectors: StringsOrRegexes }>;
 		'selector-max-type': CoreRule<
 			number,
 			{
-				ignore: ('descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements')[];
-				ignoreTypes: Array<string | RegExp>;
+				ignore: Array<'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'>;
+				ignoreTypes: StringsOrRegexes;
 			}
 		>;
 		'selector-max-universal': CoreRule<number, { ignoreAfterCombinators: string[] }>;
-		'selector-nested-pattern': CoreRule<string | RegExp, { splitList: boolean }>;
+		'selector-nested-pattern': CoreRule<StringOrRegex, { splitList: boolean }>;
 		'selector-no-qualifying-type': CoreRule<true, { ignore: ('attribute' | 'class' | 'id')[] }>;
-		'selector-no-vendor-prefix': CoreRule<true, { ignoreSelectors: Array<string | RegExp> }>;
+		'selector-no-vendor-prefix': CoreRule<true, { ignoreSelectors: StringsOrRegexes }>;
 		'selector-not-notation': CoreRule<'simple' | 'complex'>;
-		'selector-pseudo-class-allowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'selector-pseudo-class-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
-		'selector-pseudo-class-no-unknown': CoreRule<
-			true,
-			{ ignorePseudoClasses: Array<string | RegExp> }
-		>;
-		'selector-pseudo-element-allowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
+		'selector-pseudo-class-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-class-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-class-no-unknown': CoreRule<true, { ignorePseudoClasses: StringsOrRegexes }>;
+		'selector-pseudo-element-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
 		'selector-pseudo-element-colon-notation': CoreRule<'single' | 'double'>;
-		'selector-pseudo-element-disallowed-list': CoreRule<string | RegExp | Array<string | RegExp>>;
+		'selector-pseudo-element-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
 		'selector-pseudo-element-no-unknown': CoreRule<
 			true,
-			{ ignorePseudoElements: Array<string | RegExp> }
+			{ ignorePseudoElements: StringsOrRegexes }
 		>;
-		'selector-type-case': CoreRule<'lower' | 'upper', { ignoreTypes: Array<string | RegExp> }>;
+		'selector-type-case': CoreRule<'lower' | 'upper', { ignoreTypes: StringsOrRegexes }>;
 		'selector-type-no-unknown': CoreRule<
 			true,
 			{
 				ignore: ('custom-elements' | 'default-namespace')[];
-				ignoreNamespaces: Array<string | RegExp>;
-				ignoreTypes: Array<string | RegExp>;
+				ignoreNamespaces: StringsOrRegexes;
+				ignoreTypes: StringsOrRegexes;
 			}
 		>;
 		'shorthand-property-no-redundant-values': CoreRule<true>;
 		'string-no-newline': CoreRule<true>;
 		'time-min-milliseconds': CoreRule<number, { ignore: 'delay'[] }>;
 		'unit-allowed-list': CoreRule<
-			string | string[],
+			OneOrMoreStrings,
 			{
-				ignoreFunctions: string | RegExp | Array<string | RegExp>;
-				ignoreProperties: Record<string, string | RegExp | Array<string | RegExp>>;
+				ignoreFunctions: StringOrRegex | StringsOrRegexes;
+				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
 			}
 		>;
 		'unit-disallowed-list': CoreRule<
-			string | string[],
+			OneOrMoreStrings,
 			{
-				ignoreFunctions: string | RegExp | Array<string | RegExp>;
-				ignoreProperties: Record<string, string | RegExp | Array<string | RegExp>>;
-				ignoreMediaFeatureNames: Record<string, string | RegExp | Array<string | RegExp>>;
+				ignoreFunctions: StringOrRegex | StringsOrRegexes;
+				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
+				ignoreMediaFeatureNames: Record<string, StringOrRegex | StringsOrRegexes>;
 			}
 		>;
 		'unit-no-unknown': CoreRule<
 			true,
 			{
-				ignoreUnits: Array<string | RegExp>;
-				ignoreFunctions: Array<string | RegExp>;
+				ignoreUnits: StringsOrRegexes;
+				ignoreFunctions: StringsOrRegexes;
 			}
 		>;
 		'value-keyword-case': CoreRule<
 			'lower' | 'upper',
 			{
-				ignoreProperties: Array<string | RegExp>;
-				ignoreKeywords: Array<string | RegExp>;
-				ignoreFunctions: Array<string | RegExp>;
+				ignoreProperties: StringsOrRegexes;
+				ignoreKeywords: StringsOrRegexes;
+				ignoreFunctions: StringsOrRegexes;
 				camelCaseSvgKeywords: boolean;
 			}
 		>;
-		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: Array<string | RegExp> }>;
+		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: StringsOrRegexes }>;
 	};
 
 	/** @internal */
@@ -633,7 +622,7 @@ declare namespace stylelint {
 	 * Linter options.
 	 */
 	export type LinterOptions = {
-		files?: string | string[];
+		files?: OneOrMoreStrings;
 		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
 		cacheLocation?: string;
@@ -649,7 +638,7 @@ declare namespace stylelint {
 		 */
 		cwd?: string;
 		ignoreDisables?: boolean;
-		ignorePath?: string | string[];
+		ignorePath?: OneOrMoreStrings;
 		ignorePattern?: string[];
 		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
