@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Changed: `secondaryOptions` type
+Changed: `secondaryOptions` argument type of the `Rule` function
