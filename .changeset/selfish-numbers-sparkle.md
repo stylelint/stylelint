@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `selector-class-pattern` end positions
+Fixed: `selector-class-pattern` reported ranges
