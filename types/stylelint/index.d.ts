@@ -246,7 +246,7 @@ declare namespace stylelint {
 	/** @internal */
 	export type RuleBase<P = any, S = any> = (
 		primaryOption: P,
-		secondaryOptions: S,
+		secondaryOptions: S extends Record<string, any> ? S : never,
 		context: RuleContext,
 	) => (root: PostCSS.Root, result: PostcssResult) => Promise<void> | void;
 
