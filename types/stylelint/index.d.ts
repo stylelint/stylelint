@@ -278,10 +278,6 @@ declare namespace stylelint {
 		meta?: RuleMeta;
 	};
 
-	type BuiltInRules = {
-		readonly [name in keyof CoreRules]: Promise<Rule>;
-	};
-
 	type StringOrRegex = string | RegExp;
 	type StringsOrRegexes = Array<StringOrRegex>;
 	type OneOrMoreStrings = string | string[];
@@ -1014,7 +1010,7 @@ declare namespace stylelint {
 		/**
 		 * Available rules.
 		 */
-		rules: BuiltInRules;
+		rules: { readonly [name in keyof CoreRules]: Promise<CoreRules[name]> };
 
 		/**
 		 * Result report formatters by name.
