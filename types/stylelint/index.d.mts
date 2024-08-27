@@ -1,6 +1,5 @@
 export {
 	default,
-	BuiltInRules,
 	Config,
 	ConfigRuleSettings,
 	CosmiconfigResult,
@@ -16,7 +15,6 @@ export {
 	DisabledWarning,
 	Formatter,
 	FormatterType,
-	Formatters,
 	GetLintSourceOptions,
 	GetPostcssOptions,
 	InternalApi,
@@ -39,7 +37,6 @@ export {
 	RuleMeta,
 	RuleOptions,
 	RuleOptionsPossible,
-	RuleSeverity,
 	Severity,
 	ShorthandProperties,
 	StylelintPostcssResult,
