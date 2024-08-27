@@ -92,7 +92,7 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type DisableOptions = {
-		except?: (string | RegExp)[];
+		except?: StringsOrRegexes;
 		severity?: Severity;
 	};
 
@@ -279,133 +279,329 @@ declare namespace stylelint {
 	};
 
 	type BuiltInRules = {
-		readonly 'alpha-value-notation': Promise<Rule>;
-		readonly 'annotation-no-unknown': Promise<Rule>;
-		readonly 'at-rule-allowed-list': Promise<Rule>;
-		readonly 'at-rule-disallowed-list': Promise<Rule>;
-		readonly 'at-rule-empty-line-before': Promise<Rule>;
-		readonly 'at-rule-no-unknown': Promise<Rule>;
-		readonly 'at-rule-no-vendor-prefix': Promise<Rule>;
-		readonly 'at-rule-property-required-list': Promise<Rule>;
-		readonly 'block-no-empty': Promise<Rule>;
-		readonly 'color-function-notation': Promise<Rule>;
-		readonly 'color-hex-alpha': Promise<Rule>;
-		readonly 'color-hex-length': Promise<Rule>;
-		readonly 'color-named': Promise<Rule>;
-		readonly 'color-no-hex': Promise<Rule>;
-		readonly 'color-no-invalid-hex': Promise<Rule>;
-		readonly 'comment-empty-line-before': Promise<Rule>;
-		readonly 'comment-no-empty': Promise<Rule>;
-		readonly 'comment-pattern': Promise<Rule>;
-		readonly 'comment-whitespace-inside': Promise<Rule>;
-		readonly 'comment-word-disallowed-list': Promise<Rule>;
-		readonly 'custom-media-pattern': Promise<Rule>;
-		readonly 'custom-property-empty-line-before': Promise<Rule>;
-		readonly 'custom-property-no-missing-var-function': Promise<Rule>;
-		readonly 'custom-property-pattern': Promise<Rule>;
-		readonly 'declaration-block-no-duplicate-custom-properties': Promise<Rule>;
-		readonly 'declaration-block-no-duplicate-properties': Promise<Rule>;
-		readonly 'declaration-block-no-redundant-longhand-properties': Promise<Rule>;
-		readonly 'declaration-block-no-shorthand-property-overrides': Promise<Rule>;
-		readonly 'declaration-block-single-line-max-declarations': Promise<Rule>;
-		readonly 'declaration-empty-line-before': Promise<Rule>;
-		readonly 'declaration-no-important': Promise<Rule>;
-		readonly 'declaration-property-max-values': Promise<Rule>;
-		readonly 'declaration-property-unit-allowed-list': Promise<Rule>;
-		readonly 'declaration-property-unit-disallowed-list': Promise<Rule>;
-		readonly 'declaration-property-value-allowed-list': Promise<Rule>;
-		readonly 'declaration-property-value-disallowed-list': Promise<Rule>;
-		readonly 'declaration-property-value-no-unknown': Promise<Rule>;
-		readonly 'font-family-name-quotes': Promise<Rule>;
-		readonly 'font-family-no-duplicate-names': Promise<Rule>;
-		readonly 'font-family-no-missing-generic-family-keyword': Promise<Rule>;
-		readonly 'font-weight-notation': Promise<Rule>;
-		readonly 'function-allowed-list': Promise<Rule>;
-		readonly 'function-calc-no-unspaced-operator': Promise<Rule>;
-		readonly 'function-disallowed-list': Promise<Rule>;
-		readonly 'function-linear-gradient-no-nonstandard-direction': Promise<Rule>;
-		readonly 'function-name-case': Promise<Rule>;
-		readonly 'function-no-unknown': Promise<Rule>;
-		readonly 'function-url-no-scheme-relative': Promise<Rule>;
-		readonly 'function-url-quotes': Promise<Rule>;
-		readonly 'function-url-scheme-allowed-list': Promise<Rule>;
-		readonly 'function-url-scheme-disallowed-list': Promise<Rule>;
-		readonly 'hue-degree-notation': Promise<Rule>;
-		readonly 'import-notation': Promise<Rule>;
-		readonly 'keyframe-block-no-duplicate-selectors': Promise<Rule>;
-		readonly 'keyframe-declaration-no-important': Promise<Rule>;
-		readonly 'keyframe-selector-notation': Promise<Rule>;
-		readonly 'keyframes-name-pattern': Promise<Rule>;
-		readonly 'length-zero-no-unit': Promise<Rule>;
-		readonly 'lightness-notation': Promise<Rule>;
-		readonly 'max-nesting-depth': Promise<Rule>;
-		readonly 'media-feature-name-allowed-list': Promise<Rule>;
-		readonly 'media-feature-name-disallowed-list': Promise<Rule>;
-		readonly 'media-feature-name-no-unknown': Promise<Rule>;
-		readonly 'media-feature-name-no-vendor-prefix': Promise<Rule>;
-		readonly 'media-feature-name-unit-allowed-list': Promise<Rule>;
-		readonly 'media-feature-name-value-allowed-list': Promise<Rule>;
-		readonly 'media-feature-name-value-no-unknown': Promise<Rule>;
-		readonly 'media-feature-range-notation': Promise<Rule>;
-		readonly 'media-query-no-invalid': Promise<Rule>;
-		readonly 'named-grid-areas-no-invalid': Promise<Rule>;
-		readonly 'no-descending-specificity': Promise<Rule>;
-		readonly 'no-duplicate-at-import-rules': Promise<Rule>;
-		readonly 'no-duplicate-selectors': Promise<Rule>;
-		readonly 'no-empty-source': Promise<Rule>;
-		readonly 'no-invalid-double-slash-comments': Promise<Rule>;
-		readonly 'no-invalid-position-at-import-rule': Promise<Rule>;
-		readonly 'no-irregular-whitespace': Promise<Rule>;
-		readonly 'no-unknown-animations': Promise<Rule>;
-		readonly 'no-unknown-custom-media': Promise<Rule>;
-		readonly 'no-unknown-custom-properties': Promise<Rule>;
-		readonly 'number-max-precision': Promise<Rule>;
-		readonly 'property-allowed-list': Promise<Rule>;
-		readonly 'property-disallowed-list': Promise<Rule>;
-		readonly 'property-no-unknown': Promise<Rule>;
-		readonly 'property-no-vendor-prefix': Promise<Rule>;
-		readonly 'rule-empty-line-before': Promise<Rule>;
-		readonly 'rule-selector-property-disallowed-list': Promise<Rule>;
-		readonly 'selector-anb-no-unmatchable': Promise<Rule>;
-		readonly 'selector-attribute-name-disallowed-list': Promise<Rule>;
-		readonly 'selector-attribute-operator-allowed-list': Promise<Rule>;
-		readonly 'selector-attribute-operator-disallowed-list': Promise<Rule>;
-		readonly 'selector-attribute-quotes': Promise<Rule>;
-		readonly 'selector-class-pattern': Promise<Rule>;
-		readonly 'selector-combinator-allowed-list': Promise<Rule>;
-		readonly 'selector-combinator-disallowed-list': Promise<Rule>;
-		readonly 'selector-disallowed-list': Promise<Rule>;
-		readonly 'selector-id-pattern': Promise<Rule>;
-		readonly 'selector-max-attribute': Promise<Rule>;
-		readonly 'selector-max-class': Promise<Rule>;
-		readonly 'selector-max-combinators': Promise<Rule>;
-		readonly 'selector-max-compound-selectors': Promise<Rule>;
-		readonly 'selector-max-id': Promise<Rule>;
-		readonly 'selector-max-pseudo-class': Promise<Rule>;
-		readonly 'selector-max-specificity': Promise<Rule>;
-		readonly 'selector-max-type': Promise<Rule>;
-		readonly 'selector-max-universal': Promise<Rule>;
-		readonly 'selector-nested-pattern': Promise<Rule>;
-		readonly 'selector-no-qualifying-type': Promise<Rule>;
-		readonly 'selector-no-vendor-prefix': Promise<Rule>;
-		readonly 'selector-not-notation': Promise<Rule>;
-		readonly 'selector-pseudo-class-allowed-list': Promise<Rule>;
-		readonly 'selector-pseudo-class-disallowed-list': Promise<Rule>;
-		readonly 'selector-pseudo-class-no-unknown': Promise<Rule>;
-		readonly 'selector-pseudo-element-allowed-list': Promise<Rule>;
-		readonly 'selector-pseudo-element-colon-notation': Promise<Rule>;
-		readonly 'selector-pseudo-element-disallowed-list': Promise<Rule>;
-		readonly 'selector-pseudo-element-no-unknown': Promise<Rule>;
-		readonly 'selector-type-case': Promise<Rule>;
-		readonly 'selector-type-no-unknown': Promise<Rule>;
-		readonly 'shorthand-property-no-redundant-values': Promise<Rule>;
-		readonly 'string-no-newline': Promise<Rule>;
-		readonly 'time-min-milliseconds': Promise<Rule>;
-		readonly 'unit-allowed-list': Promise<Rule>;
-		readonly 'unit-disallowed-list': Promise<Rule>;
-		readonly 'unit-no-unknown': Promise<Rule>;
-		readonly 'value-keyword-case': Promise<Rule>;
-		readonly 'value-no-vendor-prefix': Promise<Rule>;
+		readonly [name in keyof CoreRules]: Promise<Rule>;
+	};
+
+	type StringOrRegex = string | RegExp;
+	type StringsOrRegexes = Array<StringOrRegex>;
+	type OneOrMoreStrings = string | string[];
+	type Primary = number | true | StringOrRegex | StringsOrRegexes | Record<string, any>;
+	type Secondary = Record<string, any>;
+	type CoreRule<P extends Primary, S extends Secondary = any> = Rule<P, S>;
+
+	/** @internal */
+	export type CoreRules = {
+		'alpha-value-notation': CoreRule<
+			'number' | 'percentage',
+			{ exceptProperties: StringsOrRegexes }
+		>;
+		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: StringsOrRegexes }>;
+		'at-rule-allowed-list': CoreRule<OneOrMoreStrings>;
+		'at-rule-disallowed-list': CoreRule<OneOrMoreStrings>;
+		'at-rule-empty-line-before': CoreRule<
+			'always' | 'never',
+			{
+				except: Array<
+					| 'after-same-name'
+					| 'inside-block'
+					| 'blockless-after-same-name-blockless'
+					| 'blockless-after-blockless'
+					| 'first-nested'
+				>;
+				ignore: Array<
+					| 'after-comment'
+					| 'first-nested'
+					| 'inside-block'
+					| 'blockless-after-same-name-blockless'
+					| 'blockless-after-blockless'
+				>;
+				ignoreAtRules: string[];
+			}
+		>;
+		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: StringsOrRegexes }>;
+		'at-rule-no-vendor-prefix': CoreRule<true>;
+		'at-rule-property-required-list': CoreRule<Record<string, OneOrMoreStrings>>;
+		'block-no-empty': CoreRule<true, { ignore: 'comments'[] }>;
+		'color-function-notation': CoreRule<'modern' | 'legacy', { ignore: 'with-var-inside'[] }>;
+		'color-hex-alpha': CoreRule<'always' | 'never'>;
+		'color-hex-length': CoreRule<'short' | 'long'>;
+		'color-named': CoreRule<
+			'never' | 'always-where-possible',
+			{ ignoreProperties: StringsOrRegexes; ignore: 'inside-function'[] }
+		>;
+		'color-no-hex': CoreRule<true>;
+		'color-no-invalid-hex': CoreRule<true>;
+		'comment-empty-line-before': CoreRule<
+			'always' | 'never',
+			{
+				except: 'first-nested'[];
+				ignore: ('stylelint-commands' | 'after-comment')[];
+				ignoreComments: StringsOrRegexes;
+			}
+		>;
+		'comment-no-empty': CoreRule<true>;
+		'comment-pattern': CoreRule<StringOrRegex>;
+		'comment-whitespace-inside': CoreRule<'always' | 'never'>;
+		'comment-word-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'custom-media-pattern': CoreRule<StringOrRegex>;
+		'custom-property-empty-line-before': CoreRule<
+			'always' | 'never',
+			{
+				except: ('first-nested' | 'after-comment' | 'after-custom-property')[];
+				ignore: ('after-comment' | 'first-nested' | 'inside-single-line-block')[];
+			}
+		>;
+		'custom-property-no-missing-var-function': CoreRule<true>;
+		'custom-property-pattern': CoreRule<StringOrRegex>;
+		'declaration-block-no-duplicate-custom-properties': CoreRule<
+			true,
+			{ ignoreProperties: StringsOrRegexes }
+		>;
+		'declaration-block-no-duplicate-properties': CoreRule<
+			true,
+			{
+				ignore: Array<
+					| 'consecutive-duplicates'
+					| 'consecutive-duplicates-with-different-values'
+					| 'consecutive-duplicates-with-different-syntaxes'
+					| 'consecutive-duplicates-with-same-prefixless-values'
+				>;
+				ignoreProperties: StringsOrRegexes;
+			}
+		>;
+		'declaration-block-no-redundant-longhand-properties': CoreRule<
+			true,
+			{ ignoreShorthands: StringsOrRegexes; ignoreLonghands: string[] }
+		>;
+		'declaration-block-no-shorthand-property-overrides': CoreRule<true>;
+		'declaration-block-single-line-max-declarations': CoreRule<number>;
+		'declaration-empty-line-before': CoreRule<
+			'always' | 'never',
+			{
+				except: ('first-nested' | 'after-comment' | 'after-declaration')[];
+				ignore: Array<
+					'after-comment' | 'after-declaration' | 'first-nested' | 'inside-single-line-block'
+				>;
+			}
+		>;
+		'declaration-no-important': CoreRule<true>;
+		'declaration-property-max-values': CoreRule<Record<string, number>>;
+		'declaration-property-unit-allowed-list': CoreRule<
+			Record<string, OneOrMoreStrings>,
+			{ ignore: 'inside-function'[] }
+		>;
+		'declaration-property-unit-disallowed-list': CoreRule<Record<string, OneOrMoreStrings>>;
+		'declaration-property-value-allowed-list': CoreRule<
+			Record<string, StringOrRegex | StringsOrRegexes>
+		>;
+		'declaration-property-value-disallowed-list': CoreRule<
+			Record<string, StringOrRegex | StringsOrRegexes>
+		>;
+		'declaration-property-value-no-unknown': CoreRule<
+			true,
+			{
+				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
+				propertiesSyntax: Record<string, string>;
+				typesSyntax: Record<string, string>;
+			}
+		>;
+		'font-family-name-quotes': CoreRule<
+			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword'
+		>;
+		'font-family-no-duplicate-names': CoreRule<true, { ignoreFontFamilyNames: StringsOrRegexes }>;
+		'font-family-no-missing-generic-family-keyword': CoreRule<
+			true,
+			{ ignoreFontFamilies: StringsOrRegexes }
+		>;
+		'font-weight-notation': CoreRule<'numeric' | 'named-where-possible', { ignore: 'relative'[] }>;
+		'function-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'function-calc-no-unspaced-operator': CoreRule<true>;
+		'function-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'function-linear-gradient-no-nonstandard-direction': CoreRule<true>;
+		'function-name-case': CoreRule<'lower' | 'upper', { ignoreFunctions: StringsOrRegexes }>;
+		'function-no-unknown': CoreRule<true, { ignoreFunctions: StringsOrRegexes }>;
+		'function-url-no-scheme-relative': CoreRule<true>;
+		'function-url-quotes': CoreRule<'always' | 'never', { except: 'empty'[] }>;
+		'function-url-scheme-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'function-url-scheme-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'hue-degree-notation': CoreRule<'angle' | 'number'>;
+		'import-notation': CoreRule<'string' | 'url'>;
+		'keyframe-block-no-duplicate-selectors': CoreRule<true>;
+		'keyframe-declaration-no-important': CoreRule<true>;
+		'keyframe-selector-notation': CoreRule<
+			'keyword' | 'percentage' | 'percentage-unless-within-keyword-only-block'
+		>;
+		'keyframes-name-pattern': CoreRule<StringOrRegex>;
+		'length-zero-no-unit': CoreRule<
+			true,
+			{
+				ignore: 'custom-properties'[];
+				ignoreFunctions: StringsOrRegexes;
+			}
+		>;
+		'lightness-notation': CoreRule<'percentage' | 'number'>;
+		'max-nesting-depth': CoreRule<
+			number,
+			{
+				ignore: ('blockless-at-rules' | 'pseudo-classes')[];
+				ignoreAtRules: StringsOrRegexes;
+				ignoreRules: StringsOrRegexes;
+				ignorePseudoClasses: StringsOrRegexes;
+			}
+		>;
+		'media-feature-name-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'media-feature-name-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'media-feature-name-no-unknown': CoreRule<true, { ignoreMediaFeatureNames: StringsOrRegexes }>;
+		'media-feature-name-no-vendor-prefix': CoreRule<true>;
+		'media-feature-name-unit-allowed-list': CoreRule<Record<string, OneOrMoreStrings>>;
+		'media-feature-name-value-allowed-list': CoreRule<
+			Record<string, StringOrRegex | StringsOrRegexes>
+		>;
+		'media-feature-name-value-no-unknown': CoreRule<true>;
+		'media-feature-range-notation': CoreRule<'prefix' | 'context'>;
+		'media-query-no-invalid': CoreRule<true>;
+		'named-grid-areas-no-invalid': CoreRule<true>;
+		'no-descending-specificity': CoreRule<true, { ignore: 'selectors-within-list'[] }>;
+		'no-duplicate-at-import-rules': CoreRule<true>;
+		'no-duplicate-selectors': CoreRule<true, { disallowInList: boolean }>;
+		'no-empty-source': CoreRule<true>;
+		'no-invalid-double-slash-comments': CoreRule<true>;
+		'no-invalid-position-at-import-rule': CoreRule<true, { ignoreAtRules: StringsOrRegexes }>;
+		'no-irregular-whitespace': CoreRule<true>;
+		'no-unknown-animations': CoreRule<true>;
+		'no-unknown-custom-media': CoreRule<true>;
+		'no-unknown-custom-properties': CoreRule<true>;
+		'number-max-precision': CoreRule<
+			number,
+			{
+				ignoreProperties: StringsOrRegexes;
+				ignoreUnits: StringsOrRegexes;
+				insideFunctions: Record<string, number>;
+			}
+		>;
+		'property-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'property-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'property-no-unknown': CoreRule<
+			true,
+			{
+				checkPrefixed: boolean;
+				ignoreAtRules: StringsOrRegexes;
+				ignoreProperties: StringsOrRegexes;
+				ignoreSelectors: StringsOrRegexes;
+			}
+		>;
+		'property-no-vendor-prefix': CoreRule<true, { ignoreProperties: StringsOrRegexes }>;
+		'rule-empty-line-before': CoreRule<
+			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
+			{
+				ignore: ('after-comment' | 'first-nested' | 'inside-block')[];
+				except: Array<
+					| 'after-rule'
+					| 'after-single-line-comment'
+					| 'first-nested'
+					| 'inside-block-and-after-rule'
+					| 'inside-block'
+				>;
+			}
+		>;
+		'rule-selector-property-disallowed-list': CoreRule<
+			Record<string, StringOrRegex | StringsOrRegexes>,
+			{
+				ignore: 'keyframe-selectors'[];
+			}
+		>;
+		'selector-anb-no-unmatchable': CoreRule<true>;
+		'selector-attribute-name-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-attribute-operator-allowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-attribute-operator-disallowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-attribute-quotes': CoreRule<'always' | 'never'>;
+		'selector-class-pattern': CoreRule<StringOrRegex, { resolveNestedSelectors: boolean }>;
+		'selector-combinator-allowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-combinator-disallowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-disallowed-list': CoreRule<
+			StringOrRegex | StringsOrRegexes,
+			{ splitList: boolean; ignore: ('inside-block' | 'keyframe-selectors')[] }
+		>;
+		'selector-id-pattern': CoreRule<StringOrRegex>;
+		'selector-max-attribute': CoreRule<number, { ignoreAttributes: StringsOrRegexes }>;
+		'selector-max-class': CoreRule<number>;
+		'selector-max-combinators': CoreRule<number>;
+		'selector-max-compound-selectors': CoreRule<number, { ignoreSelectors: StringsOrRegexes }>;
+		'selector-max-id': CoreRule<
+			number,
+			{
+				ignoreContextFunctionalPseudoClasses: StringsOrRegexes;
+				checkContextFunctionalPseudoClasses: StringsOrRegexes;
+			}
+		>;
+		'selector-max-pseudo-class': CoreRule<number>;
+		'selector-max-specificity': CoreRule<string, { ignoreSelectors: StringsOrRegexes }>;
+		'selector-max-type': CoreRule<
+			number,
+			{
+				ignore: Array<'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'>;
+				ignoreTypes: StringsOrRegexes;
+			}
+		>;
+		'selector-max-universal': CoreRule<number, { ignoreAfterCombinators: string[] }>;
+		'selector-nested-pattern': CoreRule<StringOrRegex, { splitList: boolean }>;
+		'selector-no-qualifying-type': CoreRule<true, { ignore: ('attribute' | 'class' | 'id')[] }>;
+		'selector-no-vendor-prefix': CoreRule<true, { ignoreSelectors: StringsOrRegexes }>;
+		'selector-not-notation': CoreRule<'simple' | 'complex'>;
+		'selector-pseudo-class-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-class-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-class-no-unknown': CoreRule<true, { ignorePseudoClasses: StringsOrRegexes }>;
+		'selector-pseudo-element-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-element-colon-notation': CoreRule<'single' | 'double'>;
+		'selector-pseudo-element-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-element-no-unknown': CoreRule<
+			true,
+			{ ignorePseudoElements: StringsOrRegexes }
+		>;
+		'selector-type-case': CoreRule<'lower' | 'upper', { ignoreTypes: StringsOrRegexes }>;
+		'selector-type-no-unknown': CoreRule<
+			true,
+			{
+				ignore: ('custom-elements' | 'default-namespace')[];
+				ignoreNamespaces: StringsOrRegexes;
+				ignoreTypes: StringsOrRegexes;
+			}
+		>;
+		'shorthand-property-no-redundant-values': CoreRule<true>;
+		'string-no-newline': CoreRule<true>;
+		'time-min-milliseconds': CoreRule<number, { ignore: 'delay'[] }>;
+		'unit-allowed-list': CoreRule<
+			OneOrMoreStrings,
+			{
+				ignoreFunctions: StringOrRegex | StringsOrRegexes;
+				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
+			}
+		>;
+		'unit-disallowed-list': CoreRule<
+			OneOrMoreStrings,
+			{
+				ignoreFunctions: StringOrRegex | StringsOrRegexes;
+				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
+				ignoreMediaFeatureNames: Record<string, StringOrRegex | StringsOrRegexes>;
+			}
+		>;
+		'unit-no-unknown': CoreRule<
+			true,
+			{
+				ignoreUnits: StringsOrRegexes;
+				ignoreFunctions: StringsOrRegexes;
+			}
+		>;
+		'value-keyword-case': CoreRule<
+			'lower' | 'upper',
+			{
+				ignoreProperties: StringsOrRegexes;
+				ignoreKeywords: StringsOrRegexes;
+				ignoreFunctions: StringsOrRegexes;
+				camelCaseSvgKeywords: boolean;
+			}
+		>;
+		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: StringsOrRegexes }>;
 	};
 
 	/** @internal */
@@ -426,7 +622,7 @@ declare namespace stylelint {
 	 * Linter options.
 	 */
 	export type LinterOptions = {
-		files?: string | string[];
+		files?: OneOrMoreStrings;
 		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
 		cacheLocation?: string;
@@ -442,7 +638,7 @@ declare namespace stylelint {
 		 */
 		cwd?: string;
 		ignoreDisables?: boolean;
-		ignorePath?: string | string[];
+		ignorePath?: OneOrMoreStrings;
 		ignorePattern?: string[];
 		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;

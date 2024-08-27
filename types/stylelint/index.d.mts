@@ -4,6 +4,7 @@ export {
 	Config,
 	ConfigRuleSettings,
 	CosmiconfigResult,
+	CoreRules,
 	CssSyntaxError,
 	CustomSyntax,
 	DisableOptions,
