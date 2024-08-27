@@ -92,7 +92,7 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type DisableOptions = {
-		except?: StringsOrRegexes;
+		except?: Array<StringOrRegex>;
 		severity?: Severity;
 	};
 
@@ -279,9 +279,8 @@ declare namespace stylelint {
 	};
 
 	type StringOrRegex = string | RegExp;
-	type StringsOrRegexes = Array<StringOrRegex>;
-	type OneOrMoreStrings = string | string[];
-	type Primary = number | true | StringOrRegex | StringsOrRegexes | Record<string, any>;
+	type OneOrMany<S> = S | S[];
+	type Primary = number | true | OneOrMany<StringOrRegex> | Record<string, any>;
 	type Secondary = Record<string, any>;
 	type CoreRule<P extends Primary, S extends Secondary = any> = Rule<P, S>;
 
@@ -289,93 +288,99 @@ declare namespace stylelint {
 	export type CoreRules = {
 		'alpha-value-notation': CoreRule<
 			'number' | 'percentage',
-			{ exceptProperties: StringsOrRegexes }
+			{ exceptProperties: OneOrMany<StringOrRegex> }
 		>;
-		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: StringsOrRegexes }>;
-		'at-rule-allowed-list': CoreRule<OneOrMoreStrings>;
-		'at-rule-disallowed-list': CoreRule<OneOrMoreStrings>;
+		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
+		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
+		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: Array<
+				except: OneOrMany<
 					| 'after-same-name'
 					| 'inside-block'
 					| 'blockless-after-same-name-blockless'
 					| 'blockless-after-blockless'
 					| 'first-nested'
 				>;
-				ignore: Array<
+				ignore: OneOrMany<
 					| 'after-comment'
 					| 'first-nested'
 					| 'inside-block'
 					| 'blockless-after-same-name-blockless'
 					| 'blockless-after-blockless'
 				>;
-				ignoreAtRules: string[];
+				ignoreAtRules: OneOrMany<string>;
 			}
 		>;
-		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: StringsOrRegexes }>;
+		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-no-vendor-prefix': CoreRule<true>;
-		'at-rule-property-required-list': CoreRule<Record<string, OneOrMoreStrings>>;
-		'block-no-empty': CoreRule<true, { ignore: 'comments'[] }>;
-		'color-function-notation': CoreRule<'modern' | 'legacy', { ignore: 'with-var-inside'[] }>;
+		'at-rule-property-required-list': CoreRule<Record<string, OneOrMany<string>>>;
+		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
+		'color-function-notation': CoreRule<
+			'modern' | 'legacy',
+			{ ignore: OneOrMany<'with-var-inside'> }
+		>;
 		'color-hex-alpha': CoreRule<'always' | 'never'>;
 		'color-hex-length': CoreRule<'short' | 'long'>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: StringsOrRegexes; ignore: 'inside-function'[] }
+			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> }
 		>;
 		'color-no-hex': CoreRule<true>;
 		'color-no-invalid-hex': CoreRule<true>;
 		'comment-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: 'first-nested'[];
-				ignore: ('stylelint-commands' | 'after-comment')[];
-				ignoreComments: StringsOrRegexes;
+				except: OneOrMany<'first-nested'>;
+				ignore: OneOrMany<'stylelint-commands' | 'after-comment'>;
+				ignoreComments: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'comment-no-empty': CoreRule<true>;
 		'comment-pattern': CoreRule<StringOrRegex>;
 		'comment-whitespace-inside': CoreRule<'always' | 'never'>;
-		'comment-word-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'comment-word-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'custom-media-pattern': CoreRule<StringOrRegex>;
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: ('first-nested' | 'after-comment' | 'after-custom-property')[];
-				ignore: ('after-comment' | 'first-nested' | 'inside-single-line-block')[];
+				except: OneOrMany<'first-nested' | 'after-comment' | 'after-custom-property'>;
+				ignore: OneOrMany<'after-comment' | 'first-nested' | 'inside-single-line-block'>;
 			}
 		>;
 		'custom-property-no-missing-var-function': CoreRule<true>;
 		'custom-property-pattern': CoreRule<StringOrRegex>;
 		'declaration-block-no-duplicate-custom-properties': CoreRule<
 			true,
-			{ ignoreProperties: StringsOrRegexes }
+			{ ignoreProperties: OneOrMany<StringOrRegex> }
 		>;
 		'declaration-block-no-duplicate-properties': CoreRule<
 			true,
 			{
-				ignore: Array<
+				ignore: OneOrMany<
 					| 'consecutive-duplicates'
 					| 'consecutive-duplicates-with-different-values'
 					| 'consecutive-duplicates-with-different-syntaxes'
 					| 'consecutive-duplicates-with-same-prefixless-values'
 				>;
-				ignoreProperties: StringsOrRegexes;
+				ignoreProperties: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
-			{ ignoreShorthands: StringsOrRegexes; ignoreLonghands: string[] }
+			{
+				ignoreShorthands: OneOrMany<StringOrRegex>;
+				ignoreLonghands: string[];
+			}
 		>;
 		'declaration-block-no-shorthand-property-overrides': CoreRule<true>;
 		'declaration-block-single-line-max-declarations': CoreRule<number>;
 		'declaration-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: ('first-nested' | 'after-comment' | 'after-declaration')[];
-				ignore: Array<
+				except: OneOrMany<'first-nested' | 'after-comment' | 'after-declaration'>;
+				ignore: OneOrMany<
 					'after-comment' | 'after-declaration' | 'first-nested' | 'inside-single-line-block'
 				>;
 			}
@@ -383,20 +388,18 @@ declare namespace stylelint {
 		'declaration-no-important': CoreRule<true>;
 		'declaration-property-max-values': CoreRule<Record<string, number>>;
 		'declaration-property-unit-allowed-list': CoreRule<
-			Record<string, OneOrMoreStrings>,
-			{ ignore: 'inside-function'[] }
+			Record<string, OneOrMany<string>>,
+			{ ignore: OneOrMany<'inside-function'> }
 		>;
-		'declaration-property-unit-disallowed-list': CoreRule<Record<string, OneOrMoreStrings>>;
-		'declaration-property-value-allowed-list': CoreRule<
-			Record<string, StringOrRegex | StringsOrRegexes>
-		>;
+		'declaration-property-unit-disallowed-list': CoreRule<Record<string, OneOrMany<string>>>;
+		'declaration-property-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'declaration-property-value-disallowed-list': CoreRule<
-			Record<string, StringOrRegex | StringsOrRegexes>
+			Record<string, OneOrMany<StringOrRegex>>
 		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
 			{
-				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
+				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 				propertiesSyntax: Record<string, string>;
 				typesSyntax: Record<string, string>;
 			}
@@ -404,22 +407,31 @@ declare namespace stylelint {
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword'
 		>;
-		'font-family-no-duplicate-names': CoreRule<true, { ignoreFontFamilyNames: StringsOrRegexes }>;
+		'font-family-no-duplicate-names': CoreRule<
+			true,
+			{ ignoreFontFamilyNames: OneOrMany<StringOrRegex> }
+		>;
 		'font-family-no-missing-generic-family-keyword': CoreRule<
 			true,
-			{ ignoreFontFamilies: StringsOrRegexes }
+			{ ignoreFontFamilies: OneOrMany<StringOrRegex> }
 		>;
-		'font-weight-notation': CoreRule<'numeric' | 'named-where-possible', { ignore: 'relative'[] }>;
-		'function-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'font-weight-notation': CoreRule<
+			'numeric' | 'named-where-possible',
+			{ ignore: OneOrMany<'relative'> }
+		>;
+		'function-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'function-calc-no-unspaced-operator': CoreRule<true>;
-		'function-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'function-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'function-linear-gradient-no-nonstandard-direction': CoreRule<true>;
-		'function-name-case': CoreRule<'lower' | 'upper', { ignoreFunctions: StringsOrRegexes }>;
-		'function-no-unknown': CoreRule<true, { ignoreFunctions: StringsOrRegexes }>;
+		'function-name-case': CoreRule<
+			'lower' | 'upper',
+			{ ignoreFunctions: OneOrMany<StringOrRegex> }
+		>;
+		'function-no-unknown': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
 		'function-url-no-scheme-relative': CoreRule<true>;
-		'function-url-quotes': CoreRule<'always' | 'never', { except: 'empty'[] }>;
-		'function-url-scheme-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
-		'function-url-scheme-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'function-url-quotes': CoreRule<'always' | 'never', { except: OneOrMany<'empty'> }>;
+		'function-url-scheme-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'function-url-scheme-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'hue-degree-notation': CoreRule<'angle' | 'number'>;
 		'import-notation': CoreRule<'string' | 'url'>;
 		'keyframe-block-no-duplicate-selectors': CoreRule<true>;
@@ -431,38 +443,42 @@ declare namespace stylelint {
 		'length-zero-no-unit': CoreRule<
 			true,
 			{
-				ignore: 'custom-properties'[];
-				ignoreFunctions: StringsOrRegexes;
+				ignore: OneOrMany<'custom-properties'>;
+				ignoreFunctions: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'lightness-notation': CoreRule<'percentage' | 'number'>;
 		'max-nesting-depth': CoreRule<
 			number,
 			{
-				ignore: ('blockless-at-rules' | 'pseudo-classes')[];
-				ignoreAtRules: StringsOrRegexes;
-				ignoreRules: StringsOrRegexes;
-				ignorePseudoClasses: StringsOrRegexes;
+				ignore: OneOrMany<'blockless-at-rules' | 'pseudo-classes'>;
+				ignoreAtRules: OneOrMany<StringOrRegex>;
+				ignoreRules: OneOrMany<StringOrRegex>;
+				ignorePseudoClasses: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'media-feature-name-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
-		'media-feature-name-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
-		'media-feature-name-no-unknown': CoreRule<true, { ignoreMediaFeatureNames: StringsOrRegexes }>;
-		'media-feature-name-no-vendor-prefix': CoreRule<true>;
-		'media-feature-name-unit-allowed-list': CoreRule<Record<string, OneOrMoreStrings>>;
-		'media-feature-name-value-allowed-list': CoreRule<
-			Record<string, StringOrRegex | StringsOrRegexes>
+		'media-feature-name-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'media-feature-name-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'media-feature-name-no-unknown': CoreRule<
+			true,
+			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> }
 		>;
+		'media-feature-name-no-vendor-prefix': CoreRule<true>;
+		'media-feature-name-unit-allowed-list': CoreRule<Record<string, OneOrMany<string>>>;
+		'media-feature-name-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'media-feature-name-value-no-unknown': CoreRule<true>;
 		'media-feature-range-notation': CoreRule<'prefix' | 'context'>;
 		'media-query-no-invalid': CoreRule<true>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
-		'no-descending-specificity': CoreRule<true, { ignore: 'selectors-within-list'[] }>;
+		'no-descending-specificity': CoreRule<true, { ignore: OneOrMany<'selectors-within-list'> }>;
 		'no-duplicate-at-import-rules': CoreRule<true>;
 		'no-duplicate-selectors': CoreRule<true, { disallowInList: boolean }>;
 		'no-empty-source': CoreRule<true>;
 		'no-invalid-double-slash-comments': CoreRule<true>;
-		'no-invalid-position-at-import-rule': CoreRule<true, { ignoreAtRules: StringsOrRegexes }>;
+		'no-invalid-position-at-import-rule': CoreRule<
+			true,
+			{ ignoreAtRules: OneOrMany<StringOrRegex> }
+		>;
 		'no-irregular-whitespace': CoreRule<true>;
 		'no-unknown-animations': CoreRule<true>;
 		'no-unknown-custom-media': CoreRule<true>;
@@ -470,28 +486,28 @@ declare namespace stylelint {
 		'number-max-precision': CoreRule<
 			number,
 			{
-				ignoreProperties: StringsOrRegexes;
-				ignoreUnits: StringsOrRegexes;
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignoreUnits: OneOrMany<StringOrRegex>;
 				insideFunctions: Record<string, number>;
 			}
 		>;
-		'property-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
-		'property-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'property-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'property-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'property-no-unknown': CoreRule<
 			true,
 			{
 				checkPrefixed: boolean;
-				ignoreAtRules: StringsOrRegexes;
-				ignoreProperties: StringsOrRegexes;
-				ignoreSelectors: StringsOrRegexes;
+				ignoreAtRules: OneOrMany<StringOrRegex>;
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignoreSelectors: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'property-no-vendor-prefix': CoreRule<true, { ignoreProperties: StringsOrRegexes }>;
+		'property-no-vendor-prefix': CoreRule<true, { ignoreProperties: OneOrMany<StringOrRegex> }>;
 		'rule-empty-line-before': CoreRule<
 			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
 			{
-				ignore: ('after-comment' | 'first-nested' | 'inside-block')[];
-				except: Array<
+				ignore: OneOrMany<'after-comment' | 'first-nested' | 'inside-block'>;
+				except: OneOrMany<
 					| 'after-rule'
 					| 'after-single-line-comment'
 					| 'first-nested'
@@ -501,103 +517,114 @@ declare namespace stylelint {
 			}
 		>;
 		'rule-selector-property-disallowed-list': CoreRule<
-			Record<string, StringOrRegex | StringsOrRegexes>,
+			Record<string, OneOrMany<StringOrRegex>>,
 			{
-				ignore: 'keyframe-selectors'[];
+				ignore: OneOrMany<'keyframe-selectors'>;
 			}
 		>;
 		'selector-anb-no-unmatchable': CoreRule<true>;
-		'selector-attribute-name-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
-		'selector-attribute-operator-allowed-list': CoreRule<OneOrMoreStrings>;
-		'selector-attribute-operator-disallowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-attribute-name-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'selector-attribute-operator-allowed-list': CoreRule<OneOrMany<string>>;
+		'selector-attribute-operator-disallowed-list': CoreRule<OneOrMany<string>>;
 		'selector-attribute-quotes': CoreRule<'always' | 'never'>;
 		'selector-class-pattern': CoreRule<StringOrRegex, { resolveNestedSelectors: boolean }>;
-		'selector-combinator-allowed-list': CoreRule<OneOrMoreStrings>;
-		'selector-combinator-disallowed-list': CoreRule<OneOrMoreStrings>;
+		'selector-combinator-allowed-list': CoreRule<OneOrMany<string>>;
+		'selector-combinator-disallowed-list': CoreRule<OneOrMany<string>>;
 		'selector-disallowed-list': CoreRule<
-			StringOrRegex | StringsOrRegexes,
-			{ splitList: boolean; ignore: ('inside-block' | 'keyframe-selectors')[] }
+			OneOrMany<StringOrRegex>,
+			{ splitList: boolean; ignore: OneOrMany<'inside-block' | 'keyframe-selectors'> }
 		>;
 		'selector-id-pattern': CoreRule<StringOrRegex>;
-		'selector-max-attribute': CoreRule<number, { ignoreAttributes: StringsOrRegexes }>;
+		'selector-max-attribute': CoreRule<number, { ignoreAttributes: OneOrMany<StringOrRegex> }>;
 		'selector-max-class': CoreRule<number>;
 		'selector-max-combinators': CoreRule<number>;
-		'selector-max-compound-selectors': CoreRule<number, { ignoreSelectors: StringsOrRegexes }>;
+		'selector-max-compound-selectors': CoreRule<
+			number,
+			{ ignoreSelectors: OneOrMany<StringOrRegex> }
+		>;
 		'selector-max-id': CoreRule<
 			number,
 			{
-				ignoreContextFunctionalPseudoClasses: StringsOrRegexes;
-				checkContextFunctionalPseudoClasses: StringsOrRegexes;
+				ignoreContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
+				checkContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'selector-max-pseudo-class': CoreRule<number>;
-		'selector-max-specificity': CoreRule<string, { ignoreSelectors: StringsOrRegexes }>;
+		'selector-max-specificity': CoreRule<string, { ignoreSelectors: OneOrMany<StringOrRegex> }>;
 		'selector-max-type': CoreRule<
 			number,
 			{
-				ignore: Array<'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'>;
-				ignoreTypes: StringsOrRegexes;
+				ignore: OneOrMany<
+					'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'
+				>;
+				ignoreTypes: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'selector-max-universal': CoreRule<number, { ignoreAfterCombinators: string[] }>;
+		'selector-max-universal': CoreRule<number, { ignoreAfterCombinators: OneOrMany<string> }>;
 		'selector-nested-pattern': CoreRule<StringOrRegex, { splitList: boolean }>;
-		'selector-no-qualifying-type': CoreRule<true, { ignore: ('attribute' | 'class' | 'id')[] }>;
-		'selector-no-vendor-prefix': CoreRule<true, { ignoreSelectors: StringsOrRegexes }>;
+		'selector-no-qualifying-type': CoreRule<
+			true,
+			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> }
+		>;
+		'selector-no-vendor-prefix': CoreRule<true, { ignoreSelectors: OneOrMany<StringOrRegex> }>;
 		'selector-not-notation': CoreRule<'simple' | 'complex'>;
-		'selector-pseudo-class-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
-		'selector-pseudo-class-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
-		'selector-pseudo-class-no-unknown': CoreRule<true, { ignorePseudoClasses: StringsOrRegexes }>;
-		'selector-pseudo-element-allowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-class-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'selector-pseudo-class-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'selector-pseudo-class-no-unknown': CoreRule<
+			true,
+			{ ignorePseudoClasses: OneOrMany<StringOrRegex> }
+		>;
+		'selector-pseudo-element-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'selector-pseudo-element-colon-notation': CoreRule<'single' | 'double'>;
-		'selector-pseudo-element-disallowed-list': CoreRule<StringOrRegex | StringsOrRegexes>;
+		'selector-pseudo-element-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'selector-pseudo-element-no-unknown': CoreRule<
 			true,
-			{ ignorePseudoElements: StringsOrRegexes }
+			{ ignorePseudoElements: OneOrMany<StringOrRegex> }
 		>;
-		'selector-type-case': CoreRule<'lower' | 'upper', { ignoreTypes: StringsOrRegexes }>;
+		'selector-type-case': CoreRule<'lower' | 'upper', { ignoreTypes: OneOrMany<StringOrRegex> }>;
 		'selector-type-no-unknown': CoreRule<
 			true,
 			{
-				ignore: ('custom-elements' | 'default-namespace')[];
-				ignoreNamespaces: StringsOrRegexes;
-				ignoreTypes: StringsOrRegexes;
+				ignore: OneOrMany<'custom-elements' | 'default-namespace'>;
+				ignoreNamespaces: OneOrMany<StringOrRegex>;
+				ignoreTypes: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'shorthand-property-no-redundant-values': CoreRule<true>;
 		'string-no-newline': CoreRule<true>;
-		'time-min-milliseconds': CoreRule<number, { ignore: 'delay'[] }>;
+		'time-min-milliseconds': CoreRule<number, { ignore: OneOrMany<'delay'> }>;
 		'unit-allowed-list': CoreRule<
-			OneOrMoreStrings,
+			OneOrMany<string>,
 			{
-				ignoreFunctions: StringOrRegex | StringsOrRegexes;
-				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
+				ignoreFunctions: OneOrMany<StringOrRegex>;
+				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 			}
 		>;
 		'unit-disallowed-list': CoreRule<
-			OneOrMoreStrings,
+			OneOrMany<string>,
 			{
-				ignoreFunctions: StringOrRegex | StringsOrRegexes;
-				ignoreProperties: Record<string, StringOrRegex | StringsOrRegexes>;
-				ignoreMediaFeatureNames: Record<string, StringOrRegex | StringsOrRegexes>;
+				ignoreFunctions: OneOrMany<StringOrRegex>;
+				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
+				ignoreMediaFeatureNames: Record<string, OneOrMany<StringOrRegex>>;
 			}
 		>;
 		'unit-no-unknown': CoreRule<
 			true,
 			{
-				ignoreUnits: StringsOrRegexes;
-				ignoreFunctions: StringsOrRegexes;
+				ignoreUnits: OneOrMany<StringOrRegex>;
+				ignoreFunctions: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'value-keyword-case': CoreRule<
 			'lower' | 'upper',
 			{
-				ignoreProperties: StringsOrRegexes;
-				ignoreKeywords: StringsOrRegexes;
-				ignoreFunctions: StringsOrRegexes;
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignoreKeywords: OneOrMany<StringOrRegex>;
+				ignoreFunctions: OneOrMany<StringOrRegex>;
 				camelCaseSvgKeywords: boolean;
 			}
 		>;
-		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: StringsOrRegexes }>;
+		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: Array<StringOrRegex> }>;
 	};
 
 	/** @internal */
@@ -618,7 +645,7 @@ declare namespace stylelint {
 	 * Linter options.
 	 */
 	export type LinterOptions = {
-		files?: OneOrMoreStrings;
+		files?: OneOrMany<string>;
 		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
 		cacheLocation?: string;
@@ -634,7 +661,7 @@ declare namespace stylelint {
 		 */
 		cwd?: string;
 		ignoreDisables?: boolean;
-		ignorePath?: OneOrMoreStrings;
+		ignorePath?: OneOrMany<string>;
 		ignorePattern?: string[];
 		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
