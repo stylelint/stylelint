@@ -371,7 +371,7 @@ declare namespace stylelint {
 			true,
 			{
 				ignoreShorthands: OneOrMany<StringOrRegex>;
-				ignoreLonghands: string[];
+				ignoreLonghands: OneOrMany<string>;
 			}
 		>;
 		'declaration-block-no-shorthand-property-overrides': CoreRule<true>;
