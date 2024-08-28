@@ -624,7 +624,7 @@ declare namespace stylelint {
 				camelCaseSvgKeywords: boolean;
 			}
 		>;
-		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: Array<StringOrRegex> }>;
+		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: OneOrMany<StringOrRegex> }>;
 	};
 
 	/** @internal */
