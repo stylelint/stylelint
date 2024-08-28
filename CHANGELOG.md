@@ -3,9 +3,10 @@
 ## 16.9.0
 
 - Changed: `secondaryOptions` argument type of the `Rule` function ([#7950](https://github.com/stylelint/stylelint/pull/7950)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `color-function-notation` reporting functions with less than 5 arguments ([#7948](https://github.com/stylelint/stylelint/pull/7948)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: `declaration-property-value-no-unknown` false negatives for `text-wrap` and `text-wrap-mode` ([#7956](https://github.com/stylelint/stylelint/pull/7956)) ([@sidverma32](https://github.com/sidverma32)).
-- Fixed: `declaration-property-value-no-unknown` false positives ([#7944](https://github.com/stylelint/stylelint/pull/7944)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `color-function-notation` reporting functions with less than 3 arguments ([#7948](https://github.com/stylelint/stylelint/pull/7948)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-no-unknown` false positives/negatives ([#7944](https://github.com/stylelint/stylelint/pull/7944) & [#7957](https://github.com/stylelint/stylelint/pull/7957) & [#7956](https://github.com/stylelint/stylelint/pull/7956)) ([@Mouvedia](https://github.com/Mouvedia) & [@sidverma32](https://github.com/sidverma32)).
+  - false positives: `overflow`, `word-break`, `width`
+  - false negatives: `anchor-name`, `field-sizing`, `text-box-edge`, `text-box-trim`, `text-spacing-trim`, `text-wrap`, `text-wrap-mode`, `text-wrap-style`, `view-timeline`, `view-timeline-axis`, `view-timeline-inset`, `view-timeline-name`, `view-transition-name`
 - Fixed: `keyframe-block-no-duplicate-selectors`/`keyframe-declaration-no-important`/`keyframe-selector-notation`/`no-unknown-animations` false negatives for `@-o-keyframes` and `@-ms-keyframes` ([#7953](https://github.com/stylelint/stylelint/pull/7953)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `no-duplicate-selectors` reported ranges ([#7938](https://github.com/stylelint/stylelint/pull/7938)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `property-no-vendor-prefix` report for `-webkit-background-size` ([#7940](https://github.com/stylelint/stylelint/pull/7940)) ([@Mouvedia](https://github.com/Mouvedia)).
