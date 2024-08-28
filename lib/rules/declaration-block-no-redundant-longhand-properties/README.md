@@ -175,7 +175,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreLonghands`: `["array", "of", "properties"]|"property"`
+### `ignoreLonghands: ["array", "of", "properties"]`
 
 Given:
 
