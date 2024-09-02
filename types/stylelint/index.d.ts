@@ -670,7 +670,7 @@ declare namespace stylelint {
 		maxWarnings?: number;
 		customSyntax?: CustomSyntax;
 		/** @internal */
-		_defaultFormatter?: FormatterType | Formatter;
+		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
 		customFormatter?: string;
 		disableDefaultIgnores?: boolean;
