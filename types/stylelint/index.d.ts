@@ -672,7 +672,6 @@ declare namespace stylelint {
 		/** @internal */
 		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
-		customFormatter?: string;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean;
 		allowEmptyInput?: boolean;
