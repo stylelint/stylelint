@@ -4,7 +4,7 @@ Specify a list of disallowed selectors.
 
 <!-- prettier-ignore -->
 ```css
-    .foo > .bar
+    .foo > .bar {}
 /** ↑
  * This is selector */
 ```

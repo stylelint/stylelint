@@ -232,12 +232,16 @@ function rule(primary, secondary) {
 If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
 
 ```js
-if (context.fix) {
-  // Apply fixes using PostCSS API
-  return; // Return and don't report a problem
-}
+function rule(primary, secondary) {
+  return (root, result) => {
+    if (context.fix) {
+      // Apply fixes using PostCSS API
+      return; // Return and don't report a problem
+    }
 
-report(/* .. */);
+    report(/* .. */);
+  };
+}
 ```
 
 ### Write the README

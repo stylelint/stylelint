@@ -6,8 +6,7 @@ Specify a pattern for the selectors of rules nested within rules.
 ```css
     a {
       color: orange;
-      &:hover { color: pink; }
-    } ↑
+      &:hover { color: pink; } }
 /**   ↑
  * This nested selector */
 ```
