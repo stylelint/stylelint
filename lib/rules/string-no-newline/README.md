@@ -6,9 +6,8 @@ Disallow invalid newlines within strings.
 ```css
 a {
   content: "first
-    second";     ↑
-}                ↑
-/**              ↑
+    second"; }/* ↑
+ *               ↑
  * The newline here */
 ```
 
