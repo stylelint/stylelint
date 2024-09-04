@@ -7,7 +7,7 @@ Disallow empty sources.
 
 ```
 
-A source containing only whitespace, i.e., spaces, tabs, or newlines, is considered empty.
+A source containing only whitespace, e.g., spaces, tabs, or newlines, is considered empty.
 
 ## Options
 
