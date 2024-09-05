@@ -15,8 +15,8 @@ Given:
 ```json
 {
   "border": 2,
-  "/^margin/": 1,
-},
+  "/^margin/": 1
+}
 ```
 
 The following patterns are considered problems:

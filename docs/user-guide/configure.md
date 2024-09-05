@@ -149,24 +149,33 @@ Alternately, you can write a [custom formatter](../developer-guide/formatters.md
 
 Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
 
-`.stylelintrc.js`:
+Via JavaScript:
 
 ```js
-{
-  'color-no-hex': [true, {
-    message: (hex) => `Don't use hex colors like "${hex}"`,
-  }]
-}
+export default {
+  rules: {
+    "color-no-hex": [
+      true,
+      {
+        message: (hex) => `Don't use hex colors like "${hex}"`
+      }
+    ]
+  }
+};
 ```
 
-`.stylelintrc.json`:
+Via JSON:
 
-<!-- prettier-ignore -->
 ```json
 {
-  "color-no-hex": [true, {
-    "message": "Don't use hex colors like \"%s\""
-  }]
+  "rules": {
+    "color-no-hex": [
+      true,
+      {
+        "message": "Don't use hex colors like \"%s\""
+      }
+    ]
+  }
 }
 ```
 
@@ -178,10 +187,11 @@ You can use the `url` secondary option to provide a custom link to external docs
 
 For example:
 
-<!-- prettier-ignore -->
 ```json
 {
-  "color-no-hex": [true, {"url": "https://example.org/your-custom-doc"}]
+  "rules": {
+    "color-no-hex": [true, { "url": "https://example.org/your-custom-doc" }]
+  }
 }
 ```
 
@@ -235,18 +245,18 @@ This function must return `"error"`, `"warning"`, or `null`. When it would retur
 For example, given:
 
 ```js
-{
-	rules: {
-		'selector-disallowed-list': [
-			['a > .foo', '/\\[data-.+]/'],
-			{
-				severity: (selector) => {
-					return selector.includes('a > .foo') ? 'error' : 'warning';
-				},
-			},
-		],
-	},
-}
+export default {
+  rules: {
+    "selector-disallowed-list": [
+      ["a > .foo", "/\\[data-.+]/"],
+      {
+        severity: (selector) => {
+          return selector.includes("a > .foo") ? "error" : "warning";
+        }
+      }
+    ]
+  }
+};
 ```
 
 The following pattern is reported as an error:
