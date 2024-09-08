@@ -31,7 +31,9 @@ This rule only compares rules that are within the same media context. So `a {top
 
 This rule resolves nested selectors before calculating the specificity of the selectors.
 
-## DOM Limitations
+## Limitations
+
+### DOM structure
 
 The linter can only check the CSS to check for specificity order. It does not have access to the HTML or DOM in order to interpret the use of the CSS.
 
@@ -51,6 +53,46 @@ This is a correct error because the `a:hover` on line 2 has a higher specificity
 This may lead to confusion because "the two selectors will never match the same `a` in the DOM". However, since the linter does not have access to the DOM it can not evaluate this, and therefore correctly reports the error about descending specificity.
 
 It may be possible to restructure your CSS to remove the error, otherwise it is recommended that you disable the rule for that line and leave a comment saying why the error should be ignored. Note that disabling the rule will cause additional valid errors from being reported.
+
+### `!important`
+
+The linter only checks selectors and doesn't take `!important` into account.
+
+This can lead to valid linting errors appearing to be invalid at first glance.
+
+For example the following will cause an error:
+
+<!-- prettier-ignore -->
+```css
+a:hover { top: 10px; }
+a { top: 10px; !important; }
+```
+
+This is a correct error because the `a:hover` on line 1 has a higher specificity than the `a` on line 2.
+
+This may lead to confusion because the declaration with `!important` will apply regardless of position. However, the linter only evaluates selectors, and therefore correctly reports the error about descending specificity.
+
+It may be possible to restructure your CSS to remove the error, otherwise it is recommended that you disable the rule for that line and leave a comment saying why the error should be ignored.
+
+### Different properties
+
+The linter only checks selectors and doesn't take individual properties into account.
+
+This can lead to valid linting errors appearing to be invalid at first glance.
+
+For example the following will cause an error:
+
+<!-- prettier-ignore -->
+```css
+a:hover { top: 10px; }
+a { left: 10px; }
+```
+
+This is a correct error because the `a:hover` on line 1 has a higher specificity than the `a` on line 2.
+
+This may lead to confusion because both rules contain different declarations and there isn't any conflict between either. However, the linter only evaluates selectors, and therefore correctly reports the error about descending specificity.
+
+It may be possible to restructure your CSS to remove the error, otherwise it is recommended that you disable the rule for that line and leave a comment saying why the error should be ignored.
 
 ## Options
 
