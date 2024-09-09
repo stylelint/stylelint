@@ -65,7 +65,7 @@ For example the following will cause an error:
 <!-- prettier-ignore -->
 ```css
 a:hover { top: 10px; }
-a { top: 10px; !important; }
+a { top: 10px !important; }
 ```
 
 This is a correct error because the `a:hover` on line 1 has a higher specificity than the `a` on line 2.
