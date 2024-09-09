@@ -33,11 +33,11 @@ This rule resolves nested selectors before calculating the specificity of the se
 
 ## Limitations
 
-This rule has the following limitations:
+This rule doesn't:
 
-- does not have access to HTML or DOM structure
-- does not consider `!important`
-- does not consider individual properties
+- have access to HTML or DOM structure
+- consider `!important`
+- consider individual properties
 
 This can lead to valid linting errors appearing to be invalid at first glance.
 
