@@ -680,7 +680,9 @@ Options are:
 - A formatter function.
   ```js
   export default {
-    formatter: () => { /*..*/ }
+    formatter: () => {
+      /* ... */
+    }
   };
   ```
 
