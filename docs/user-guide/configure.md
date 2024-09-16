@@ -666,29 +666,22 @@ Specify the formatter to format your results.
 Options are:
 
 - The name of a provided formatter.
-
-```json
-{
-  "formatter": "string"
-}
-```
-
-- A path to a custom formatter function.
-
-```json
-{
-  "formatter": "path/to/customformatter.js"
-}
-```
-
-- A formatter function
-
-```js
-export default {
-  formatter: () => {
-    // ...
+  ```json
+  {
+    "formatter": "string"
   }
-};
-```
+  ```
+- A path to a custom formatter function.
+  ```json
+  {
+    "formatter": "path/to/customformatter.js"
+  }
+  ```
+- A formatter function.
+  ```js
+  export default {
+    formatter: () => { /*..*/ }
+  };
+  ```
 
 [More info](options.md#formatter).
