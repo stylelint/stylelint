@@ -212,6 +212,12 @@ CLI flags: `--report-needless-disables, --rd`
 
 Report `stylelint-disable` comments that don't actually match any lints that need to be disabled.
 
+## `validate`
+
+CLI flags: [`--validate, --no-validate`](cli.md#--validate---no-validate)
+
+Force enable/disable the validation of the rules' options.
+
 ## `codeFilename`
 
 CLI flag: `--stdin-filename`

@@ -123,6 +123,7 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
+		validate?: boolean;
 	};
 
 	/** @internal */
@@ -674,6 +675,7 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
+		validate?: boolean;
 	};
 
 	/**
