@@ -126,7 +126,7 @@ Accept stdin input even if it is empty.
 
 ### `--validate, --no-validate`
 
-Force enable/disable the validation of the rules' options.
+Force enable/disable the validation of the rules' options. [More info](options.md#validate).
 
 ### `--version, -v`
 
