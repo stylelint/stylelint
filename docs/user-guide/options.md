@@ -212,6 +212,21 @@ CLI flags: `--report-needless-disables, --rd`
 
 Report `stylelint-disable` comments that don't actually match any lints that need to be disabled.
 
+## `validate`
+
+CLI flags: `--validate, --no-validate`
+
+Force enable/disable the validation of the rules' options. Default: `true`.
+For example, your CI might be faster by skipping the validation if [`rules`](configure.md#rules) didn't change.
+e.g.
+
+```js
+export default {
+  // …
+  validate: process.env["CI"] !== "true"
+};
+```
+
 ## `codeFilename`
 
 CLI flag: `--stdin-filename`

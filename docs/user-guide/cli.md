@@ -124,6 +124,10 @@ A filename to assign the input. [More info](options.md#codefilename).
 
 Accept stdin input even if it is empty.
 
+### `--validate, --no-validate`
+
+Force enable/disable the validation of the rules' options. [More info](options.md#validate).
+
 ### `--version, -v`
 
 Show the currently installed version of Stylelint.
