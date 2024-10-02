@@ -115,6 +115,7 @@ declare namespace stylelint {
 		reportNeedlessDisables?: DisableSettings;
 		reportInvalidScopeDisables?: DisableSettings;
 		reportDescriptionlessDisables?: DisableSettings;
+		reportUnscopedDisables?: DisableSettings;
 		configurationComment?: string;
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
@@ -668,6 +669,7 @@ declare namespace stylelint {
 		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
+		reportUnscopedDisables?: boolean;
 		maxWarnings?: number;
 		customSyntax?: CustomSyntax;
 		/** @internal */
