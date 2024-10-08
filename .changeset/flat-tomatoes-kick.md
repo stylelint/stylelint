@@ -1,5 +1,5 @@
 ---
-"stylelint": minor
+"stylelint": patch
 ---
 
-Added: Support `calc-size` function
+Fixed: `function-no-unknown` false positives for `calc-size`
