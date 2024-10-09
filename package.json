@@ -166,7 +166,7 @@
     "balanced-match": "^2.0.0",
     "colord": "^2.9.3",
     "cosmiconfig": "^9.0.0",
-    "css-functions-list": "^3.2.2",
+    "css-functions-list": "^3.2.3",
     "css-tree": "^3.0.0",
     "debug": "^4.3.7",
     "fast-glob": "^3.3.2",
