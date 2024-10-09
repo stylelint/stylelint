@@ -483,6 +483,7 @@ The available reports are:
 - [`reportDescriptionlessDisables`](#reportdescriptionlessdisables)
 - [`reportInvalidScopeDisables`](#reportinvalidscopedisables)
 - [`reportNeedlessDisables`](#reportneedlessdisables)
+- [`reportUnscopedDisables`](#reportunscopeddisables)
 
 They are configured like rules. They can have one of three values:
 
@@ -558,6 +559,18 @@ For example:
 ```
 
 [More info](options.md#reportneedlessdisables).
+
+### `reportUnscopedDisables`
+
+Report configuration comments that are not scoped to at least one rule. A [`report*`](#report) property.
+
+For example:
+
+```json
+{
+  "reportUnscopedDisables": true
+}
+```
 
 ## `configurationComment`
 

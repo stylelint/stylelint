@@ -212,6 +212,12 @@ CLI flags: `--report-needless-disables, --rd`
 
 Report `stylelint-disable` comments that don't actually match any lints that need to be disabled.
 
+## `reportUnscopedDisables`
+
+CLI flags: `--report-unscoped-disables, --rud`
+
+Report [configuration comments](../user-guide/ignore-code.md#parts-of-a-file) that aren't scoped to one or more rules.
+
 ## `validate`
 
 CLI flags: `--validate, --no-validate`
