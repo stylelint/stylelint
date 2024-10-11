@@ -1,5 +1,26 @@
 # Changelog
 
+## 16.10.0
+
+- Changed: `shorthand-property-no-redundant-values` reported ranges ([#8008](https://github.com/stylelint/stylelint/pull/8008)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `formatter` configuration property ([#7826](https://github.com/stylelint/stylelint/pull/7826)) ([@emmacharp](https://github.com/emmacharp)).
+- Added: `validate` option to Node.js API and `--validate` CLI flag ([#8009](https://github.com/stylelint/stylelint/pull/8009)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: fixed section to the output of the `verbose` formatter ([#7985](https://github.com/stylelint/stylelint/pull/7985)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: support for `string | RegExp` to `ignoreValues` option of `value-no-vendor-prefix` ([#7969](https://github.com/stylelint/stylelint/pull/7969)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: support for `string` to `ignoreLonghands` option of `declaration-block-no-redundant-longhand-properties` ([#7971](https://github.com/stylelint/stylelint/pull/7971)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `at-rule-no-unknown` false positives for `@position-try` ([#7968](https://github.com/stylelint/stylelint/pull/7968)) ([@yelizsevinc](https://github.com/yelizsevinc)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `grid-column`/`grid-row` ([#8023](https://github.com/stylelint/stylelint/pull/8023)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `declaration-property-value-no-unknown` false negatives/positives via [`css-tree@3.0.0`](https://github.com/csstree/csstree/releases/tag/v3.0.0) ([#7993](https://github.com/stylelint/stylelint/pull/7993)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-no-unknown` reported ranges and message ([#8003](https://github.com/stylelint/stylelint/pull/8003)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `keyframe-selector-notation` reported ranges ([#7992](https://github.com/stylelint/stylelint/pull/7992)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `length-zero-no-unit` false positives for Sass variables ([#8035](https://github.com/stylelint/stylelint/pull/8035)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `no-descending-specificity` reported ranges ([#7996](https://github.com/stylelint/stylelint/pull/7996)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-anb-no-unmatchable` reported ranges and message ([#8001](https://github.com/stylelint/stylelint/pull/8001)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `string` formatter handling of log symbols for non-Unicode terminals ([#7981](https://github.com/stylelint/stylelint/pull/7981)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: built `.cjs` files to address Rollup vulnerability ([#8010](https://github.com/stylelint/stylelint/pull/8010)) ([@dependabot](https://github.com/apps/dependabot)).
+- Fixed: incorrect `config` option for Node.js API with `extends` and `overrides` ([#8030](https://github.com/stylelint/stylelint/pull/8030)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: stricter validation for the options of `declaration-property-max-values`, `declaration-property-value-no-unknown` and `number-max-precision` ([#7975](https://github.com/stylelint/stylelint/pull/7975)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.9.0
 
 - Changed: `secondaryOptions` argument type of the `Rule` function ([#7950](https://github.com/stylelint/stylelint/pull/7950)) ([@Mouvedia](https://github.com/Mouvedia)).
