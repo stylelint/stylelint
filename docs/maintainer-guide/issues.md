@@ -2,21 +2,23 @@
 
 We manage issues consistently for the benefit of ourselves and our users.
 
-## Labels
+## Labels and issue types
 
-Use [labels](https://github.com/stylelint/stylelint/labels).
+Use [labels](https://github.com/stylelint/stylelint/labels) and issue types.
 
 When you first triage an issue, you should:
 
 - add one of the `status: needs *` labels, e.g. `status: needs discussion`
-- don't add any other label
+- don't add any other label or an issue type
 
 After triage, you should add:
 
+- _one_ of the issue types, e.g. `bug`
 - _one_ of the non-need `status: *` labels, e.g. `status: ready to implement`
-- _zero or one_ of the `type: *` labels, e.g. `type: new rule`
+- _zero or one_ of the `subtype: *` labels, e.g. `subtype: new rule`
 - _zero, one or more_ of the `syntax: *` labels, e.g. `syntax: scss`
-- optionally, the `good first issue`, `help wanted`, `priority: high` and `upstream` labels
+- _zero or one_ of the `priority: *` labels, e.g. `priority: high`
+- optionally, the `good first issue`, `help wanted` and `upstream` labels
 
 ## Milestones
 
