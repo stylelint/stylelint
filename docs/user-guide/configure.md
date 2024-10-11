@@ -572,6 +572,8 @@ For example:
 }
 ```
 
+[More info](options.md#reportunscopeddisables).
+
 ## `configurationComment`
 
 You can set what configuration comments like `/* stylelint-disable */` start with. This can be useful if you use multiple instances of Stylelint with different configurations.

@@ -170,7 +170,7 @@ You can use this option to see what your linting results would be like without t
 
 CLI flags: `--report-descriptionless-disables, --rdd`
 
-Report `stylelint-disable` comments without a description.
+Report [configuration comments][1] without a description.
 
 The following patterns are reported:
 
@@ -204,19 +204,19 @@ a {}
 
 CLI flags: `--report-invalid-scope-disables, --risd`
 
-Report `stylelint-disable` comments that don't match rules that are specified in the configuration object.
+Report [configuration comments][1] that don't match rules that are specified in the configuration object.
 
 ## `reportNeedlessDisables`
 
 CLI flags: `--report-needless-disables, --rd`
 
-Report `stylelint-disable` comments that don't actually match any lints that need to be disabled.
+Report [configuration comments][1] that don't actually match any lints that need to be disabled.
 
 ## `reportUnscopedDisables`
 
 CLI flags: `--report-unscoped-disables, --rud`
 
-Report [configuration comments](../user-guide/ignore-code.md#parts-of-a-file) that aren't scoped to one or more rules.
+Report [configuration comments][1] that aren't scoped to one or more rules.
 
 ## `validate`
 
@@ -252,3 +252,5 @@ Only register problems for rules with an "error"-level severity (ignore "warning
 CLI flag: `--quiet-deprecation-warnings`
 
 Ignore deprecation warnings.
+
+[1]: ../user-guide/ignore-code.md#parts-of-a-file

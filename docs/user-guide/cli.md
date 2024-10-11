@@ -118,7 +118,7 @@ Produce a report to clean up your codebase, keeping only the `stylelint-disable`
 
 ### `--report-unscoped-disables, --rud`
 
-Produce a report of the configuration comments that are not scoped to one or more rules.
+Produce a report of the configuration comments that are not scoped to one or more rules. [More info](options.md#reportunscopeddisables).
 
 ### `--stdin-filename`
 
