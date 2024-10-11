@@ -17,7 +17,7 @@
 - Fixed: `no-descending-specificity` reported ranges ([#7996](https://github.com/stylelint/stylelint/pull/7996)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-anb-no-unmatchable` reported ranges and message ([#8001](https://github.com/stylelint/stylelint/pull/8001)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `string` formatter handling of log symbols for non-Unicode terminals ([#7981](https://github.com/stylelint/stylelint/pull/7981)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Fixed: built `.cjs` files to address Rollup vulnerability ([#8010](https://github.com/stylelint/stylelint/pull/8010)) ([@dependabot](https://github.com/apps/dependabot)).
+- Fixed: built `.cjs` files to address Rollup vulnerability ([#8010](https://github.com/stylelint/stylelint/pull/8010)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: incorrect `config` option for Node.js API with `extends` and `overrides` ([#8030](https://github.com/stylelint/stylelint/pull/8030)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: stricter validation for the options of `declaration-property-max-values`, `declaration-property-value-no-unknown` and `number-max-precision` ([#7975](https://github.com/stylelint/stylelint/pull/7975)) ([@Mouvedia](https://github.com/Mouvedia)).
 
