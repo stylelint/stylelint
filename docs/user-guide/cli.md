@@ -116,6 +116,10 @@ Produce a report of the `stylelint-disable` comments that used for rules that do
 
 Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportneedlessdisables).
 
+### `--report-unscoped-disables, --rud`
+
+Produce a report of the configuration comments that are not scoped to one or more rules. [More info](options.md#reportunscopeddisables).
+
 ### `--stdin-filename`
 
 A filename to assign the input. [More info](options.md#codefilename).
