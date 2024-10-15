@@ -1015,7 +1015,7 @@ declare namespace stylelint {
 	export type InternalApi = {
 		_options: LinterOptions & { cwd: string };
 		_extendExplorer: ReturnType<typeof cosmiconfig>;
-		_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
+		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
 		_postcssResultCache: Map<string, PostCSS.Result>;
 		_fileCache: FileCache;
 	};
