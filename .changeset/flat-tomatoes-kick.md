@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `function-no-unknown` false positives for `calc-size`
+Fixed: `function-calc-no-unspaced-operator` false negatives for `calc-size`
