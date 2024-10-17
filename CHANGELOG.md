@@ -1,5 +1,18 @@
 # Changelog
 
+## 16.10.1
+
+- Fixed: `selector-attribute-name-disallowed-list` reported ranges ([#8037](https://github.com/stylelint/stylelint/pull/8037)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-attribute-operator-allowed-list` reported ranges ([#8038](https://github.com/stylelint/stylelint/pull/8038)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-attribute-operator-disallowed-list` reported ranges ([#8039](https://github.com/stylelint/stylelint/pull/8039)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-class-pattern` reported ranges ([#8042](https://github.com/stylelint/stylelint/pull/8042)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-combinator-allowed-list` reported ranges ([#8046](https://github.com/stylelint/stylelint/pull/8046)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-combinator-disallowed-list` reported ranges ([#8047](https://github.com/stylelint/stylelint/pull/8047)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-id-pattern` reported ranges ([#8045](https://github.com/stylelint/stylelint/pull/8045)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-attribute` reported ranges ([#8052](https://github.com/stylelint/stylelint/pull/8052)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-class` reported ranges ([#8053](https://github.com/stylelint/stylelint/pull/8053)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-id` reported ranges ([#8054](https://github.com/stylelint/stylelint/pull/8054)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.10.0
 
 - Changed: `shorthand-property-no-redundant-values` reported ranges ([#8008](https://github.com/stylelint/stylelint/pull/8008)) ([@Mouvedia](https://github.com/Mouvedia)).
