@@ -9,7 +9,7 @@ You can ignore:
 
 You can temporarily turn off rules using configuration comments in your CSS.
 
-For example, you can either turn all the rules off:
+For example, you can either turn all the rules off with an unscoped disable comment:
 
 <!-- prettier-ignore -->
 ```css
@@ -18,7 +18,7 @@ a {}
 /* stylelint-enable */
 ```
 
-Or you can turn off individual rules:
+Or you can turn off individual rules with a scoped disable comment:
 
 <!-- prettier-ignore -->
 ```css
@@ -63,7 +63,7 @@ Stylelint supports complex, overlapping disabling & enabling patterns:
 ```
 
 > [!WARNING]
-> Configuration commands in non-standard syntax comments (e.g. `// stylelint-disable`) are only minimally supported.  
+> Configuration commands in non-standard syntax comments (e.g. `// stylelint-disable`) are only minimally supported.
 > They will only work when found outside of selectors or value lists.
 
 You may also include a description at the end of the comment, after two hyphens:
