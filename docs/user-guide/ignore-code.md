@@ -9,7 +9,7 @@ You can ignore:
 
 You can temporarily turn off rules using configuration comments in your CSS.
 
-For example, you can either turn all the rules off:
+For example, you can either turn all the rules off with an unscoped disable comment:
 
 <!-- prettier-ignore -->
 ```css
@@ -18,7 +18,7 @@ a {}
 /* stylelint-enable */
 ```
 
-Or you can turn off individual rules:
+Or you can turn off individual rules with a scoped disable comment:
 
 <!-- prettier-ignore -->
 ```css
