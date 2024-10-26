@@ -63,7 +63,7 @@ Stylelint supports complex, overlapping disabling & enabling patterns:
 ```
 
 > [!WARNING]
-> Configuration commands in non-standard syntax comments (e.g. `// stylelint-disable`) are only minimally supported.
+> Configuration commands in non-standard syntax comments (e.g. `// stylelint-disable`) are only minimally supported.  
 > They will only work when found outside of selectors or value lists.
 
 You may also include a description at the end of the comment, after two hyphens:
