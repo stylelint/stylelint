@@ -41,6 +41,7 @@ type EmptyResult = {
 			lang?: undefined;
 			input: {
 				file?: string;
+				css?: string;
 			};
 		};
 	};
