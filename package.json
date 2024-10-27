@@ -67,7 +67,7 @@
     "format": "prettier . --write --cache",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check --cache",
-    "lint:js": "eslint . --cache --max-warnings=0 --ext .js,.mjs",
+    "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "prepare": "husky && npm run build",
@@ -85,37 +85,6 @@
     "*.{js,json,md,mjs,ts,yml}": "prettier --write"
   },
   "prettier": "@stylelint/prettier-config",
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 2023
-    },
-    "extends": [
-      "stylelint",
-      "stylelint/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.mjs"
-        ],
-        "plugins": [
-          "eslint-plugin-import"
-        ],
-        "rules": {
-          "import/extensions": [
-            "error",
-            "ignorePackages"
-          ]
-        }
-      }
-    ],
-    "globals": {
-      "testRule": "readonly",
-      "testRuleConfigs": "readonly"
-    },
-    "reportUnusedDisableDirectives": true,
-    "root": true
-  },
   "remarkConfig": {
     "plugins": [
       "@stylelint/remark-preset"
@@ -220,8 +189,8 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^8.57.0",
-    "eslint-config-stylelint": "^22.0.0",
+    "eslint": "^9.13.0",
+    "eslint-config-stylelint": "^23.0.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.8.3",
     "husky": "^9.1.6",
