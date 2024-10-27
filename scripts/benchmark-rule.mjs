@@ -64,8 +64,19 @@ const [primary, secondary] = ruleSettings;
 const context = ruleContext ? JSON.parse(ruleContext) : {};
 
 const rule = (await rules[ruleName])(primary, secondary, context);
+const fn = (root, result) => {
+	result.stylelint ||= {
+		ruleSeverities: {},
+		customMessages: {},
+		customUrls: {},
+		fixersData: {},
+		ruleMetadata: {},
+		disabledRanges: {},
+	};
 
-const processor = postcss().use(rule);
+	rule(root, result);
+};
+const processor = postcss().use(fn);
 
 // eslint-disable-next-line n/no-unsupported-features/node-builtins -- This script is only for development. We can tolerate it.
 fetch(CSS_URL)
