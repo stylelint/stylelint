@@ -30,12 +30,12 @@ function printHelp() {
 
 if (!ruleName || !ruleOptions) {
 	printHelp();
-	exit(-1);
+	exit(1);
 }
 
 if (!stylelint.rules[ruleName]) {
 	console.error(`Unknown rule: ${ruleName}`);
-	exit(-1);
+	exit(1);
 }
 
 const CSS_URL = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css';
