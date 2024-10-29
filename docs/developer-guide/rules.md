@@ -337,7 +337,7 @@ result.warn(
 You can run a benchmark on any given rule with any valid config using:
 
 ```shell
-npm run benchmark-rule -- ruleName ruleOptions [ruleContext]
+npm run benchmark-rule -- ruleName ruleOptions [config]
 ```
 
 If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
@@ -350,7 +350,7 @@ npm run benchmark-rule -- value-keyword-case lower
 npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
 ```
 
-If the `ruleContext` argument is specified, the same procedure would apply:
+If the `config` argument is specified, the same procedure would apply:
 
 ```shell
 npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'
