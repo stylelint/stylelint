@@ -87,6 +87,10 @@ vendor/**/*.css
 
 The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) _Your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`._
 
-Stylelint looks for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
+Stylelint looks for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and [`ignorePath`](options.md#ignorepath) (in JS) options. For example, you can specify a `.gitignore` file:
+
+```shell
+stylelint "*.css" --ignore-path .gitignore
+```
 
 Alternatively, you can add an [`ignoreFiles` property](configure.md#ignorefiles) within your configuration object.
