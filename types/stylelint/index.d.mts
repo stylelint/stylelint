@@ -27,6 +27,7 @@ export {
 	PostcssResult,
 	Processor,
 	Problem,
+	ProblemWithNormalizedPositions,
 	PublicApi,
 	Range,
 	Rule,

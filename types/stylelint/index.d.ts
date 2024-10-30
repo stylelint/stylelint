@@ -851,6 +851,15 @@ declare namespace stylelint {
 	};
 
 	/** @internal */
+	export type ProblemWithNormalizedPositions = Problem & {
+		line: number;
+		start: Position;
+		end: Position;
+		index: undefined;
+		endIndex: undefined;
+	};
+
+	/** @internal */
 	export type ShorthandProperties =
 		| 'animation'
 		| 'background'
