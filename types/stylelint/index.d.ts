@@ -851,13 +851,8 @@ declare namespace stylelint {
 	};
 
 	/** @internal */
-	export type ProblemWithNormalizedPositions = Problem & {
-		line: number;
-		start: Position;
-		end: Position;
-		index: undefined;
-		endIndex: undefined;
-	};
+	export type ProblemWithNormalizedPositions = Omit<Problem, 'index' | 'endIndex'> &
+                                                 Required<Pick<Problem, 'line' | 'start' | 'end'>>;
 
 	/** @internal */
 	export type ShorthandProperties =
