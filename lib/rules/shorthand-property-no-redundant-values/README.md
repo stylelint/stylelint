@@ -15,14 +15,18 @@ For some shorthand properties, e.g. those related to the [edges of a box](https:
 
 This rule checks the following shorthand properties:
 
-- `margin`
-- `padding`
-- `border-color`
+- `margin`, `margin-block`, `margin-inline`
+- `padding`, `padding-block`, `padding-inline`
+- `border-color`, `border-style`, `border-width`
 - `border-radius`
-- `border-style`
-- `border-width`
-- `grid-gap`
-- `inset`
+- `border-block-color`, `border-block-style`, `border-block-width`
+- `border-inline-color`, `border-inline-style`, `border-inline-width`
+- `gap`, `grid-gap`
+- `overflow`,
+- `overscroll-behavior`,
+- `scroll-margin`, `scroll-margin-block`, `scroll-margin-inline`
+- `scroll-padding`, `scroll-padding-block`, `scroll-padding-inline`
+- `inset`, `inset-block`, `inset-inline`
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

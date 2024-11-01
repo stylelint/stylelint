@@ -152,6 +152,7 @@ exports[`CommonJS API and config 1`] = `
           "rule": "comment-pattern",
           "severity": "error",
           "text": "Expected comment to match pattern "/regex/" (comment-pattern)",
+          "url": undefined,
         },
         {
           "column": 16,
@@ -161,6 +162,7 @@ exports[`CommonJS API and config 1`] = `
           "rule": "comment-whitespace-inside",
           "severity": "error",
           "text": "Expected whitespace after "/*" (comment-whitespace-inside)",
+          "url": undefined,
         },
         {
           "column": 18,
@@ -170,6 +172,7 @@ exports[`CommonJS API and config 1`] = `
           "rule": "comment-whitespace-inside",
           "severity": "error",
           "text": "Expected whitespace before "*/" (comment-whitespace-inside)",
+          "url": undefined,
         },
         {
           "column": 2,
@@ -179,6 +182,7 @@ exports[`CommonJS API and config 1`] = `
           "rule": "declaration-empty-line-before",
           "severity": "error",
           "text": "Expected empty line before declaration (declaration-empty-line-before)",
+          "url": undefined,
         },
         {
           "column": 2,
@@ -188,6 +192,7 @@ exports[`CommonJS API and config 1`] = `
           "rule": "property-allowed-list",
           "severity": "error",
           "text": "Unexpected property "color" (property-allowed-list)",
+          "url": undefined,
         },
         {
           "column": 2,
@@ -197,6 +202,7 @@ exports[`CommonJS API and config 1`] = `
           "rule": "rule-selector-property-disallowed-list",
           "severity": "error",
           "text": "Unexpected property "color" for selector "a" (rule-selector-property-disallowed-list)",
+          "url": undefined,
         },
       ],
     },

@@ -15,8 +15,6 @@ The clashes of these two mechanisms for prioritization, source order and specifi
 
 This rule enforces that practice _as best it can_, reporting fewer errors than it should. It cannot catch every _actual_ overriding selector, but it can catch certain common mistakes.
 
-We recommend turning this rule off if you use a lot of nesting.
-
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
 ## How it works
@@ -27,32 +25,72 @@ So `.foo .bar` (whose last compound selector is `.bar`) will be compared to `.ba
 
 And `a > li#wag.pit` (whose last compound selector is `li#wag.pit`) will be compared to `div li#wag.pit` and `a > b > li + li#wag.pit`, but not to `li` or `li #wag`, etc.
 
-Selectors targeting pseudo-elements are not considered comparable to similar selectors without the pseudo-element, because they target other elements on the rendered page. For example, `a::before {}` will not be compared to `a:hover {}`, because `a::before` targets a pseudo-element whereas `a:hover` targets the actual `<a>`.
+Selectors targeting pseudo-elements are not considered comparable to similar selectors without the pseudo-element, because they target other elements on the rendered page. For example, `a::before { top: 10px; }` will not be compared to `a:hover { top: 10px; }`, because `a::before` targets a pseudo-element whereas `a:hover` targets the actual `<a>`.
 
-This rule only compares rules that are within the same media context. So `a {} @media print { #baz a {} }` is fine.
+This rule only compares rules that are within the same media context. So `a {top: 10px; } @media print { #baz a { top: 10px; } }` is fine.
 
 This rule resolves nested selectors before calculating the specificity of the selectors.
 
-## DOM Limitations
+## Limitations
 
-The linter can only check the CSS to check for specificity order. It does not have access to the HTML or DOM in order to interpret the use of the CSS.
+This rule doesn't:
+
+- have access to HTML or DOM structure
+- consider `!important`
+- consider individual properties
 
 This can lead to valid linting errors appearing to be invalid at first glance.
+
+It may be possible to restructure your CSS to remove the error, otherwise it is recommended that you disable the rule for that line and leave a comment saying why the error should be ignored. Note that disabling the rule will cause additional valid errors from being reported.
+
+### DOM structure
+
+The linter can only check the CSS to check for specificity order. It does not have access to the HTML or DOM in order to interpret the use of the CSS.
 
 For example the following will cause an error:
 
 <!-- prettier-ignore -->
 ```css
-.component1 a {}
-.component1 a:hover {}
-.component2 a {}
+.component1 a { top: 10px; }
+.component1 a:hover { top: 10px; }
+.component2 a { top: 10px; }
 ```
 
 This is a correct error because the `a:hover` on line 2 has a higher specificity than the `a` on line 3.
 
 This may lead to confusion because "the two selectors will never match the same `a` in the DOM". However, since the linter does not have access to the DOM it can not evaluate this, and therefore correctly reports the error about descending specificity.
 
-It may be possible to restructure your CSS to remove the error, otherwise it is recommended that you disable the rule for that line and leave a comment saying why the error should be ignored. Note that disabling the rule will cause additional valid errors from being reported.
+### `!important`
+
+The linter only checks selectors and doesn't take `!important` into account.
+
+For example the following will cause an error:
+
+<!-- prettier-ignore -->
+```css
+a:hover { top: 10px; }
+a { top: 10px !important; }
+```
+
+This is a correct error because the `a:hover` on line 1 has a higher specificity than the `a` on line 2.
+
+This may lead to confusion because the declaration with `!important` will apply regardless of position. However, the linter only evaluates selectors, and therefore correctly reports the error about descending specificity.
+
+### Different properties
+
+The linter only checks selectors and doesn't take individual properties into account.
+
+For example the following will cause an error:
+
+<!-- prettier-ignore -->
+```css
+a:hover { top: 10px; }
+a { left: 10px; }
+```
+
+This is a correct error because the `a:hover` on line 1 has a higher specificity than the `a` on line 2.
+
+This may lead to confusion because both rules contain different declarations and there isn't any conflict between either. However, the linter only evaluates selectors, and therefore correctly reports the error about descending specificity.
 
 ## Options
 
@@ -62,35 +100,35 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-b a {}
-a {}
+b a { top: 10px; }
+a { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a + a {}
-a {}
+a + a { top: 10px; }
+a { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-b > a[foo] {}
-a[foo] {}
+b > a[foo] { top: 10px; }
+a[foo] { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  & > b {}
+  & > b { top: 10px; }
 }
-b {}
+b { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
 @media print {
-  #c a {}
-  a {}
+  #c a { top: 10px; }
+  a { top: 10px; }
 }
 ```
 
@@ -98,51 +136,51 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a {}
-b a {}
+a { top: 10px; }
+b a { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a {}
-a + a {}
+a { top: 10px; }
+a + a { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a[foo] {}
-b > a[foo] {}
+a[foo] { top: 10px; }
+b > a[foo] { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-b {}
+b { top: 10px; }
 a {
-  & > b {}
+  & > b { top: 10px; }
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a::before {}
-a:hover::before {}
-a {}
-a:hover {}
+a::before { top: 10px; }
+a:hover::before { top: 10px; }
+a { top: 10px; }
+a:hover { top: 10px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
 @media print {
-  a {}
-  #c a {}
+  a { top: 10px; }
+  #c a { top: 10px; }
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a {}
+a { top: 10px; }
 @media print {
-  #baz a {}
+  #baz a { top: 10px; }
 }
 ```
 
@@ -156,17 +194,17 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-b a {}
-h1 {}
-h2 {}
-h3 {}
-a {}
+b a { top: 10px; }
+h1 { top: 10px; }
+h2 { top: 10px; }
+h3 { top: 10px; }
+a { top: 10px; }
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-b a {}
-h1, h2, h3, a {}
+b a { top: 10px; }
+h1, h2, h3, a { top: 10px; }
 ```

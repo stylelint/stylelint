@@ -62,6 +62,7 @@ exports[`fs - errored state for reportNeedlessDisables 1`] = `
           "rule": "--report-needless-disables",
           "severity": "error",
           "text": "Needless disable for "block-no-empty"",
+          "url": undefined,
         },
       ],
     },

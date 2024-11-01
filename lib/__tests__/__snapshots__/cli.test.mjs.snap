@@ -110,7 +110,7 @@ exports[`CLI --help 1`] = `
 
         string       human-readable strings (default)
         compact      similar to ESLint's compact formatter
-        github       workflow commands for GitHub Actions
+        github       workflow commands for GitHub Actions (DEPRECATED)
         json         JSON format
         tap          TAP format
         unix         C compiler-like format
@@ -132,6 +132,10 @@ exports[`CLI --help 1`] = `
     --[no-]color
 
       Force enabling/disabling of color.
+
+    --[no-]validate
+
+      Force enable/disable the validation of the rules' options.
 
     --report-needless-disables, --rd
 

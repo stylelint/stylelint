@@ -90,7 +90,7 @@ Set a limit to the number of warnings accepted. [More info](options.md#maxwarnin
 
 ### `--output-file, -o`
 
-Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to the standard output.
+Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to `process.stderr`.
 
 ### `--print-config`
 
@@ -116,6 +116,10 @@ Produce a report of the `stylelint-disable` comments that used for rules that do
 
 Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportneedlessdisables).
 
+### `--report-unscoped-disables, --rud`
+
+Produce a report of the configuration comments that are not scoped to one or more rules. [More info](options.md#reportunscopeddisables).
+
 ### `--stdin-filename`
 
 A filename to assign the input. [More info](options.md#codefilename).
@@ -124,13 +128,17 @@ A filename to assign the input. [More info](options.md#codefilename).
 
 Accept stdin input even if it is empty.
 
+### `--validate, --no-validate`
+
+Force enable/disable the validation of the rules' options. [More info](options.md#validate).
+
 ### `--version, -v`
 
 Show the currently installed version of Stylelint.
 
 ## Usage examples
 
-The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stdout`.
+The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stderr`.
 
 _You should include quotation marks around file globs._
 

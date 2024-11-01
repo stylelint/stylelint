@@ -79,6 +79,10 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
 
 Stylelint is maintained by volunteers. Without the code contributions from [all these fantastic people](https://github.com/stylelint/stylelint/graphs/contributors), Stylelint would not exist. [Become a contributor](CONTRIBUTING.md).
 
+### Alumni
+
+We'd like to thank all past members for their invaluable contributions, including two of Stylelint's co-creators [@davidtheclark](https://github.com/davidtheclark) and [@MoOx](https://github.com/MoOx).
+
 ### Sponsors
 
 <object data="https://opencollective.com/stylelint/sponsors.svg?width=420&button=false" type="image/svg+xml">

@@ -18,10 +18,15 @@ updates:
         patterns: ['eslint', 'eslint-*']
       jest:
         patterns: ['jest', 'jest-*', '@jest/*']
+      postcss:
+        patterns: ['postcss', 'postcss-*']
       stylelint:
         patterns: ['@stylelint/*']
       typescript:
         patterns: ['typescript', '@types/*']
+    ignore:
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: github-actions
     directory: '/'

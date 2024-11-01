@@ -143,7 +143,7 @@ For example, with `2`.
 Given:
 
 ```json
-{"/^(oklch|oklab|lch|lab)$/", 4}
+{ "/^(oklch|oklab|lch|lab)$/": 4 }
 ```
 
 The following patterns are considered problems:

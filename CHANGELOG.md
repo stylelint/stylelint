@@ -1,5 +1,110 @@
 # Changelog
 
+## 16.10.0
+
+- Changed: `shorthand-property-no-redundant-values` reported ranges ([#8008](https://github.com/stylelint/stylelint/pull/8008)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `formatter` configuration property ([#7826](https://github.com/stylelint/stylelint/pull/7826)) ([@emmacharp](https://github.com/emmacharp)).
+- Added: `validate` option to Node.js API and `--validate` CLI flag ([#8009](https://github.com/stylelint/stylelint/pull/8009)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: fixed section to the output of the `verbose` formatter ([#7985](https://github.com/stylelint/stylelint/pull/7985)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: support for `string | RegExp` to `ignoreValues` option of `value-no-vendor-prefix` ([#7969](https://github.com/stylelint/stylelint/pull/7969)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: support for `string` to `ignoreLonghands` option of `declaration-block-no-redundant-longhand-properties` ([#7971](https://github.com/stylelint/stylelint/pull/7971)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `at-rule-no-unknown` false positives for `@position-try` ([#7968](https://github.com/stylelint/stylelint/pull/7968)) ([@yelizsevinc](https://github.com/yelizsevinc)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `grid-column`/`grid-row` ([#8023](https://github.com/stylelint/stylelint/pull/8023)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `declaration-property-value-no-unknown` false negatives/positives via [`css-tree@3.0.0`](https://github.com/csstree/csstree/releases/tag/v3.0.0) ([#7993](https://github.com/stylelint/stylelint/pull/7993)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-no-unknown` reported ranges and message ([#8003](https://github.com/stylelint/stylelint/pull/8003)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `keyframe-selector-notation` reported ranges ([#7992](https://github.com/stylelint/stylelint/pull/7992)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `length-zero-no-unit` false positives for Sass variables ([#8035](https://github.com/stylelint/stylelint/pull/8035)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `no-descending-specificity` reported ranges ([#7996](https://github.com/stylelint/stylelint/pull/7996)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-anb-no-unmatchable` reported ranges and message ([#8001](https://github.com/stylelint/stylelint/pull/8001)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `string` formatter handling of log symbols for non-Unicode terminals ([#7981](https://github.com/stylelint/stylelint/pull/7981)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: built `.cjs` files to address Rollup vulnerability ([#8010](https://github.com/stylelint/stylelint/pull/8010)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: incorrect `config` option for Node.js API with `extends` and `overrides` ([#8030](https://github.com/stylelint/stylelint/pull/8030)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: stricter validation for the options of `declaration-property-max-values`, `declaration-property-value-no-unknown` and `number-max-precision` ([#7975](https://github.com/stylelint/stylelint/pull/7975)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.9.0
+
+- Changed: `secondaryOptions` argument type of the `Rule` function ([#7950](https://github.com/stylelint/stylelint/pull/7950)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `color-function-notation` reporting functions with less than 3 arguments ([#7948](https://github.com/stylelint/stylelint/pull/7948)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-no-unknown` false positives/negatives ([#7944](https://github.com/stylelint/stylelint/pull/7944) & [#7957](https://github.com/stylelint/stylelint/pull/7957) & [#7956](https://github.com/stylelint/stylelint/pull/7956)) ([@Mouvedia](https://github.com/Mouvedia) & [@sidverma32](https://github.com/sidverma32)).
+  - false positives: `overflow`, `word-break`, `width`
+  - false negatives: `anchor-name`, `field-sizing`, `text-box-edge`, `text-box-trim`, `text-spacing-trim`, `text-wrap`, `text-wrap-mode`, `text-wrap-style`, `view-timeline`, `view-timeline-axis`, `view-timeline-inset`, `view-timeline-name`, `view-transition-name`
+- Fixed: `keyframe-block-no-duplicate-selectors`/`keyframe-declaration-no-important`/`keyframe-selector-notation`/`no-unknown-animations` false negatives for `@-o-keyframes` and `@-ms-keyframes` ([#7953](https://github.com/stylelint/stylelint/pull/7953)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-duplicate-selectors` reported ranges ([#7938](https://github.com/stylelint/stylelint/pull/7938)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `property-no-vendor-prefix` report for `-webkit-background-size` ([#7940](https://github.com/stylelint/stylelint/pull/7940)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-class-pattern` reported ranges ([#7959](https://github.com/stylelint/stylelint/pull/7959)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-no-qualifying-type` reported ranges ([#7937](https://github.com/stylelint/stylelint/pull/7937)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: honour Node.js `--no-deprecation` flag for rule deprecation warnings ([#7943](https://github.com/stylelint/stylelint/pull/7943)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.8.2
+
+- Deprecated: `context.fix` usage in favour of recommending to pass a `fix` callback to `report()` ([#7895](https://github.com/stylelint/stylelint/pull/7895)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: deprecation notice annotation to the output of the `github` formatter ([#7909](https://github.com/stylelint/stylelint/pull/7909)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `custom-property-no-missing-var-function` false positives for `view-transition-name` ([#7914](https://github.com/stylelint/stylelint/pull/7914)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `keyframe-block-no-duplicate-selectors` reported ranges ([#7932](https://github.com/stylelint/stylelint/pull/7932)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-invalid-double-slash-comments` reported ranges ([#7907](https://github.com/stylelint/stylelint/pull/7907) & [#7905](https://github.com/stylelint/stylelint/pull/7905)) ([@Mouvedia](https://github.com/Mouvedia) & [@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-type` reported ranges ([#7916](https://github.com/stylelint/stylelint/pull/7916)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for `::highlight()` and `::view-transition-*()` ([#7913](https://github.com/stylelint/stylelint/pull/7913)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.8.1
+
+- Fixed: `no-duplicate-selectors` false positives with Less syntax ([#7888](https://github.com/stylelint/stylelint/pull/7888)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.8.0
+
+- Deprecated: `github` formatter ([#7865](https://github.com/stylelint/stylelint/pull/7865)) ([@marcalexiei](https://github.com/marcalexiei)).
+- Fixed: `function-url-quotes` false positives for SCSS variables and `#`/`?` characters ([#7874](https://github.com/stylelint/stylelint/pull/7874)) ([@vimalloc](https://github.com/vimalloc)).
+- Fixed: `keyframe-selector-notation` false positives for `entry-crossing` and `exit-crossing` ([#7859](https://github.com/stylelint/stylelint/pull/7859)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-descending-specificity` false positives for nested rules without declarations ([#7850](https://github.com/stylelint/stylelint/pull/7850)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-duplicate-selectors` end positions ([#7867](https://github.com/stylelint/stylelint/pull/7867)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-duplicate-selectors` false negatives for three or more duplicates ([#7867](https://github.com/stylelint/stylelint/pull/7867)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-max-compound-selectors` error for `@nest` ([#7875](https://github.com/stylelint/stylelint/pull/7875)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:active-view-transition` and `:active-view-transition-type()` ([#7868](https://github.com/stylelint/stylelint/pull/7868)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-*`, `selector-max-type` and `selector-class-pattern` false positives for `<timeline-range-name>` in keyframe selectors ([#7856](https://github.com/stylelint/stylelint/pull/7856)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `stylelint.utils.checkAgainstRule()` regression when `reportNeedlessDisables` and `quiet` are both enabled ([#7879](https://github.com/stylelint/stylelint/pull/7879)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: configuration comments within selector and value lists being ignored ([#7839](https://github.com/stylelint/stylelint/pull/7839)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.7.0
+
+- Changed: `tap` formatter to support TAP14 ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `url` secondary option ([#7743](https://github.com/stylelint/stylelint/pull/7743)) ([@emmacharp](https://github.com/emmacharp)).
+- Fixed: `at-rule-no-unknown` false positives for `@historical-forms` and `@font-palette-values` ([#7774](https://github.com/stylelint/stylelint/pull/7774)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `at-rule-no-unknown` false positives for `@view-transition` ([#7753](https://github.com/stylelint/stylelint/pull/7753)) ([@sebdanielsson](https://github.com/sebdanielsson)).
+- Fixed: `at-rule-no-vendor-prefix` false negatives for `@-moz-document` and `@-webkit-viewport` ([#7772](https://github.com/stylelint/stylelint/pull/7772)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `comment-whitespace-inside` end positions ([#7744](https://github.com/stylelint/stylelint/pull/7744)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-duplicate-properties` reported ranges ([#7758](https://github.com/stylelint/stylelint/pull/7758)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-redundant-longhand-properties`/`declaration-block-no-shorthand-property-overrides` false negatives for `font-variant` ([#7734](https://github.com/stylelint/stylelint/pull/7734)) ([@Bilie](https://github.com/Bilie)).
+- Fixed: `font-family-name-quotes` false negatives for `-moz-*`/`-webkit-*` keywords ([#7777](https://github.com/stylelint/stylelint/pull/7777)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false negatives for font families which names match a CSS3 `font-variant` keyword ([#7823](https://github.com/stylelint/stylelint/pull/7823)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-name-case` end positions ([#7747](https://github.com/stylelint/stylelint/pull/7747)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-no-unknown` performance by reducing file read count ([#7801](https://github.com/stylelint/stylelint/pull/7801)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `media-feature-name-no-vendor-prefix` autofix ([#7770](https://github.com/stylelint/stylelint/pull/7770)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-invalid-double-slash-comments` reported ranges ([#7768](https://github.com/stylelint/stylelint/pull/7768)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `property-no-unknown` false positives for `navigation` and miscellaneous legacy properties ([#7764](https://github.com/stylelint/stylelint/pull/7764)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `quietDeprecationWarnings` to suppress `stylelint:003` warning ([#7837](https://github.com/stylelint/stylelint/pull/7837)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `selector-no-vendor-prefix` autofix ([#7763](https://github.com/stylelint/stylelint/pull/7763)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-not-notation` end positions when new lines are part of the selector ([#7755](https://github.com/stylelint/stylelint/pull/7755)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-case` end positions ([#7752](https://github.com/stylelint/stylelint/pull/7752)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `shorthand-property-no-redundant-values` false negatives for logical properties, `overflow`, `overscroll-behavior`, `scroll-margin` and `scroll-padding` ([#7808](https://github.com/stylelint/stylelint/pull/7808)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `string-no-newline` false positives for escaped multi-line ([#7818](https://github.com/stylelint/stylelint/pull/7818)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `value-keyword-case` end positions ([#7760](https://github.com/stylelint/stylelint/pull/7760)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `stylelint.utils.checkAgainstRule()` for Promise-based rules ([#7821](https://github.com/stylelint/stylelint/pull/7821)) ([@aaronccasanova](https://github.com/aaronccasanova)).
+- Fixed: `stylelint.utils.checkAgainstRule()` to use `result.stylelint` if present ([#7833](https://github.com/stylelint/stylelint/pull/7833)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: YAML diagnostic block _end marker line_ of the `tap` formatter ([#7759](https://github.com/stylelint/stylelint/pull/7759)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: autofix of incorrectly implemented plugins when unscoped stylelint commands are present ([#7733](https://github.com/stylelint/stylelint/pull/7733)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.6.1
+
+- Fixed: `no-descending-specificity` false positives for nested selectors ([#7724](https://github.com/stylelint/stylelint/pull/7724)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positive for `model` ([#7718](https://github.com/stylelint/stylelint/pull/7718)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.6.0
+
+- Fixed: `function-calc-no-unspaced-operator` false negatives ([#7655](https://github.com/stylelint/stylelint/pull/7655) & [#7670](https://github.com/stylelint/stylelint/pull/7670) & [#7676](https://github.com/stylelint/stylelint/pull/7676)) ([@ybiquitous](https://github.com/ybiquitous) & [@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-not-notation` autofix of the `"simple"` option ([#7703](https://github.com/stylelint/stylelint/pull/7703)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-max-specificity` end positions ([#7685](https://github.com/stylelint/stylelint/pull/7685)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `no-descending-specificity` end positions ([#7701](https://github.com/stylelint/stylelint/pull/7701)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: missing GitHub Sponsor for `npm fund` ([#7707](https://github.com/stylelint/stylelint/pull/7707)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.5.0
 
 - Added: regex support to `ignoreValues` for `value-no-vendor-prefix` ([#7650](https://github.com/stylelint/stylelint/pull/7650)) ([@Mouvedia](https://github.com/Mouvedia)).

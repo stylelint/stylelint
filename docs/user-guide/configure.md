@@ -149,28 +149,51 @@ Alternately, you can write a [custom formatter](../developer-guide/formatters.md
 
 Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
 
-`.stylelintrc.js`:
+Via JavaScript:
 
 ```js
-{
-  'color-no-hex': [true, {
-    message: (hex) => `Don't use hex colors like "${hex}"`,
-  }]
-}
+export default {
+  rules: {
+    "color-no-hex": [
+      true,
+      {
+        message: (hex) => `Don't use hex colors like "${hex}"`
+      }
+    ]
+  }
+};
 ```
 
-`.stylelintrc.json`:
+Via JSON:
 
-<!-- prettier-ignore -->
 ```json
 {
-  "color-no-hex": [true, {
-    "message": "Don't use hex colors like \"%s\""
-  }]
+  "rules": {
+    "color-no-hex": [
+      true,
+      {
+        "message": "Don't use hex colors like \"%s\""
+      }
+    ]
+  }
 }
 ```
 
 With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`). On the other hand, with JS format, you can use both a `printf`-like format and a function.
+
+### `url`
+
+You can use the `url` secondary option to provide a custom link to external docs. These urls can then be displayed in custom formatters.
+
+For example:
+
+```json
+{
+  "rules": {
+    "color-no-hex": [true, { "url": "https://example.org/your-custom-doc" }]
+  }
+}
+```
 
 ### `reportDisables`
 
@@ -222,18 +245,18 @@ This function must return `"error"`, `"warning"`, or `null`. When it would retur
 For example, given:
 
 ```js
-{
-	rules: {
-		'selector-disallowed-list': [
-			['a > .foo', '/\\[data-.+]/'],
-			{
-				severity: (selector) => {
-					return selector.includes('a > .foo') ? 'error' : 'warning';
-				},
-			},
-		],
-	},
-}
+export default {
+  rules: {
+    "selector-disallowed-list": [
+      ["a > .foo", "/\\[data-.+]/"],
+      {
+        severity: (selector) => {
+          return selector.includes("a > .foo") ? "error" : "warning";
+        }
+      }
+    ]
+  }
+};
 ```
 
 The following pattern is reported as an error:
@@ -460,6 +483,7 @@ The available reports are:
 - [`reportDescriptionlessDisables`](#reportdescriptionlessdisables)
 - [`reportInvalidScopeDisables`](#reportinvalidscopedisables)
 - [`reportNeedlessDisables`](#reportneedlessdisables)
+- [`reportUnscopedDisables`](#reportunscopeddisables)
 
 They are configured like rules. They can have one of three values:
 
@@ -535,6 +559,20 @@ For example:
 ```
 
 [More info](options.md#reportneedlessdisables).
+
+### `reportUnscopedDisables`
+
+Report configuration comments that are not scoped to at least one rule. A [`report*`](#report) property.
+
+For example:
+
+```json
+{
+  "reportUnscopedDisables": true
+}
+```
+
+[More info](options.md#reportunscopeddisables).
 
 ## `configurationComment`
 
@@ -635,3 +673,32 @@ For example:
 > This config option should not be overridden on a per-file basis.
 
 [More info](options.md#fix).
+
+## `formatter`
+
+Specify the formatter to format your results.
+
+Options are:
+
+- The name of a provided formatter.
+  ```json
+  {
+    "formatter": "string"
+  }
+  ```
+- A path to a custom formatter function.
+  ```json
+  {
+    "formatter": "path/to/customformatter.js"
+  }
+  ```
+- A formatter function.
+  ```js
+  export default {
+    formatter: () => {
+      /* ... */
+    }
+  };
+  ```
+
+[More info](options.md#formatter).

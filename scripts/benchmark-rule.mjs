@@ -3,19 +3,17 @@ import { argv, exit } from 'node:process';
 
 import Benchmark from 'benchmark';
 import picocolors from 'picocolors';
-import postcss from 'postcss';
 
-import normalizeRuleSettings from '../lib/normalizeRuleSettings.mjs';
-import rules from '../lib/rules/index.mjs';
+import stylelint from '../lib/index.mjs';
 
-const { bold, yellow } = picocolors;
+const { bold, red, yellow } = picocolors;
 
-const [, , ruleName, ruleOptions, ruleContext] = argv;
+const [, , ruleName, ruleOptions, config] = argv;
 
 function printHelp() {
 	const script = 'node benchmark-rule.mjs';
 
-	console.log(`Usage: ${script} <ruleName> <ruleOptions> [ruleContext]`);
+	console.log(`Usage: ${script} <ruleName> <ruleOptions> [config]`);
 	console.log('');
 	console.log('Examples:');
 	console.log('  # With a primary option');
@@ -24,15 +22,20 @@ function printHelp() {
 	console.log('  # With secondary options (JSON format)');
 	console.log(`  ${script} value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'`);
 	console.log('');
-	console.log('  # With a context');
+	console.log('  # With a config');
 	console.log(
 		`  ${script} value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'`,
 	);
 }
 
-if (!ruleName || !(ruleName in rules) || !ruleOptions) {
+if (!ruleName || !ruleOptions) {
 	printHelp();
-	exit(-1);
+	exit(1);
+}
+
+if (!stylelint.rules[ruleName]) {
+	console.error(`Unknown rule: ${ruleName}`);
+	exit(1);
 }
 
 const CSS_URL = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css';
@@ -58,15 +61,16 @@ if (
 }
 
 /* eslint-enable eqeqeq */
-const ruleSettings = normalizeRuleSettings(parsedOptions);
 
-const [primary, secondary] = ruleSettings;
-const context = ruleContext ? JSON.parse(ruleContext) : {};
+const lintConfig = {
+	rules: { [ruleName]: parsedOptions },
+	cache: false,
+	formatter: () => '',
+	...(config ? JSON.parse(config) : {}),
+};
+const lint = (code) => stylelint.lint({ code, config: lintConfig });
 
-const rule = (await rules[ruleName])(primary, secondary, context);
-
-const processor = postcss().use(rule);
-
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- This script is only for development. We can tolerate it.
 fetch(CSS_URL)
 	.then((response) => response.text())
 	.then((response) => {
@@ -82,22 +86,25 @@ fetch(CSS_URL)
 		const bench = new Benchmark('rule test', {
 			defer: true,
 			setup: () => {
-				lazyResult = processor.process(css, { from: undefined });
+				lazyResult = lint(css);
 			},
 			onCycle: () => {
-				lazyResult = processor.process(css, { from: undefined });
+				lazyResult = lint(css);
 			},
 			fn: (deferred) => {
 				lazyResult
 					.then((result) => {
 						if (firstTime) {
 							firstTime = false;
-							result.messages
-								.filter((m) => m.stylelintType === 'invalidOption')
-								.forEach((m) => {
-									console.log(bold(yellow(`>> ${m.text}`)));
+							result.results.forEach(({ parseErrors, invalidOptionWarnings, warnings }) => {
+								parseErrors.forEach(({ text }) => {
+									console.error(bold(red(`>> ${text}`)));
 								});
-							console.log(`${bold('Warnings')}: ${result.warnings().length}`);
+								invalidOptionWarnings.forEach(({ text }) => {
+									console.warn(bold(yellow(`>> ${text}`)));
+								});
+								console.log(`${bold('Warnings')}: ${warnings.length}`);
+							});
 						}
 
 						deferred.resolve();

@@ -13,7 +13,7 @@ export default function formatter(results, returnValue) {
 
 Where the first argument (`results`) is an array of Stylelint result objects (type `Array<StylelintResult>`) in the form:
 
-```js
+```jsonc
 // A Stylelint result object
 {
   "source": "path/to/file.css", // The filepath or PostCSS identifier like <input css 1>
@@ -49,7 +49,7 @@ Where the first argument (`results`) is an array of Stylelint result objects (ty
 
 And the second argument (`returnValue`) is an object (type `LinterResult`) with one or more of the following keys:
 
-```js
+```jsonc
 {
   "errored": false, // `true` if there were any warnings with "error" severity
   "maxWarningsExceeded": {
@@ -60,7 +60,7 @@ And the second argument (`returnValue`) is an object (type `LinterResult`) with 
   "ruleMetadata": {
     "block-no-empty": {
       "url": "https://stylelint.io/user-guide/rules/block-no-empty"
-    },
+    }
     // other rules...
   }
 }
@@ -83,3 +83,13 @@ stylelint -f json "*.css" 2>&1 | my-program-that-reads-JSON --option
 ## `stylelint.formatters`
 
 Stylelint's internal formatters are exposed publicly in `stylelint.formatters`.
+
+## Sharing formatters
+
+Use the `stylelint-formatter` keyword within your `package.json`. For example:
+
+```json
+{
+  "keywords": ["stylelint", "stylelint-formatter"]
+}
+```

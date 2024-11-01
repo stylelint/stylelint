@@ -97,9 +97,12 @@ Use `node.raws` instead of `node.raw()` when accessing raw strings from the [Pos
 
 Depending on the rule, we also recommend using:
 
-- [media-query-list-parser](https://www.npmjs.com/package/@csstools/media-query-list-parser)
-- [postcss-value-parser](https://github.com/TrySound/postcss-value-parser)
-- [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser)
+- [postcss-value-parser](https://www.npmjs.com/package/postcss-value-parser)
+- [postcss-selector-parser](https://www.npmjs.com/package/postcss-selector-parser)
+- [@csstools/css-parser-algorithms](https://www.npmjs.com/package/@csstools/css-parser-algorithms)
+- [@csstools/css-tokenizer](https://www.npmjs.com/package/@csstools/css-tokenizer)
+- [@csstools/media-query-list-parser](https://www.npmjs.com/package/@csstools/media-query-list-parser)
+- [css-tree](https://www.npmjs.com/package/css-tree)
 
 There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
@@ -195,16 +198,27 @@ const meta = {
 };
 ```
 
-Add `context` variable to rule parameters:
+Pass `fix` callback to the [`report` utility](./plugins.md#stylelintutilsreport):
 
 ```diff js
--function rule(primary, secondary) {
-+function rule(primary, secondary, context) {
+function rule(primary, secondary) {
   return (root, result) => {
     /* .. */
+
++   const fix = () => { /* put your mutations here */ };
+
+    report({
+      result,
+      ruleName,
+      message,
+      node,
++     fix
+    });
   };
 }
 ```
+
+### Context
 
 `context` is an object which could have three properties:
 
@@ -212,15 +226,22 @@ Add `context` variable to rule parameters:
 - `fix`(boolean): If `true`, your rule can apply autofixes.
 - `newline`(string): Line-ending used in current linted file.
 
+> [!WARNING]
+> The convention of restricting the appliance of fixes based on the `context.fix` property is deprecated in favour of recommending the `fix` callback which properly handles [configuration comments](../user-guide/ignore-code.md#parts-of-a-file).
+
 If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
 
 ```js
-if (context.fix) {
-  // Apply fixes using PostCSS API
-  return; // Return and don't report a problem
-}
+function rule(primary, secondary, context) {
+  return (root, result) => {
+    if (context.fix) {
+      // Apply fixes using PostCSS API
+      return; // Return and don't report a problem
+    }
 
-report(/* .. */);
+    report(/* .. */);
+  };
+}
 ```
 
 ### Write the README
@@ -294,15 +315,29 @@ You should:
 
 Deprecating rules doesn't happen very often. When you do, you must:
 
-1. Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
-2. Add the appropriate metadata to mark the rule as deprecated like `rule.meta = { deprecated: true }`.
+1. Add the appropriate metadata to mark the rule as deprecated like so: `rule.meta = { deprecated: true }`.
+2. Set the `stylelintType` to `'deprecation'`.
+3. Optionally set `stylelintReference` to a link that points to a specific version of the rule's document so that it always remains accessible.
+
+For example:
+
+```js
+result.warn(
+  `"your-namespace/old-rule" has been deprecated and will be removed in 7.0. Use "your-namespace/new-rule" instead.`,
+  {
+    stylelintType: "deprecation",
+    stylelintReference:
+      "https://github.com/your-org/your-stylelint-plugin/blob/v6.3.0/src/rules/old-rule/README.md"
+  }
+);
+```
 
 ## Improve the performance of a rule
 
 You can run a benchmark on any given rule with any valid config using:
 
 ```shell
-npm run benchmark-rule -- ruleName ruleOptions [ruleContext]
+npm run benchmark-rule -- ruleName ruleOptions [config]
 ```
 
 If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
@@ -315,7 +350,7 @@ npm run benchmark-rule -- value-keyword-case lower
 npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
 ```
 
-If the `ruleContext` argument is specified, the same procedure would apply:
+If the `config` argument is specified, the same procedure would apply:
 
 ```shell
 npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'

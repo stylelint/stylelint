@@ -99,7 +99,7 @@ For your plugin rule to work with the [standard configuration format](../user-gu
 - the primary option
 - optionally, a secondary options object
 
-If your plugin rule supports [autofixing](rules.md#add-autofix), then `ruleFunction` should also accept a third argument: `context`.
+If your plugin rule supports [autofixing](rules.md#add-autofix), then `meta.fixable` should be set to `true`.
 
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://postcss.org/docs/writing-a-postcss-plugin). It takes 2 arguments:
 
@@ -263,7 +263,7 @@ It accepts an options object and a callback that is invoked with warnings from t
 - `ruleSettings`: settings for the rule you are invoking
 - `root`: the root node to run this rule against
 - `result?`: the PostCSS result for resolving and invoking custom rules
-- `context?`: the [context](rules.md#add-autofix) for the rule you are invoking
+- `context?`: the [context](rules.md#context) for the rule you are invoking
 
 Use the warning to create a _new_ warning _from your plugin rule_ that you report with [`stylelint.utils.report()`](#stylelintutilsreport).
 
@@ -362,4 +362,32 @@ To make a single module provide multiple rules, export an array of plugin object
 
 ## Sharing plugins and plugin packs
 
-Use the `stylelint-plugin` keyword within your `package.json`.
+Use the `stylelint-plugin` keyword within your `package.json`. For example:
+
+```json
+{
+  "keywords": ["stylelint", "stylelint-plugin"]
+}
+```
+
+## Sharing configurations
+
+You may want to create a shareable configuration for your plugins to provide a default ruleset. For example:
+
+```json
+{
+  "plugins": ["stylelint-plugin-foo"],
+  "rules": {
+    "foo/rule-1": true,
+    "foo/rule-2": true
+  }
+}
+```
+
+When publishing such configurations, use the `stylelint-config` keyword within your `package.json`. For example:
+
+```json
+{
+  "keywords": ["stylelint", "stylelint-config"]
+}
+```

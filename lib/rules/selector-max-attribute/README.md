@@ -74,7 +74,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-[type="text"][disabled]
+[type="text"][disabled] {}
 ```
 
 <!-- prettier-ignore -->

@@ -9,7 +9,7 @@ You can ignore:
 
 You can temporarily turn off rules using configuration comments in your CSS.
 
-For example, you can either turn all the rules off:
+For example, you can either turn all the rules off with an unscoped disable comment:
 
 <!-- prettier-ignore -->
 ```css
@@ -18,7 +18,7 @@ a {}
 /* stylelint-enable */
 ```
 
-Or you can turn off individual rules:
+Or you can turn off individual rules with a scoped disable comment:
 
 <!-- prettier-ignore -->
 ```css
@@ -63,7 +63,8 @@ Stylelint supports complex, overlapping disabling & enabling patterns:
 ```
 
 > [!WARNING]
-> Comments within _selector and value lists_ are currently ignored.
+> Configuration commands in non-standard syntax comments (e.g. `// stylelint-disable`) are only minimally supported.  
+> They will only work when found outside of selectors or value lists.
 
 You may also include a description at the end of the comment, after two hyphens:
 
@@ -86,6 +87,13 @@ vendor/**/*.css
 
 The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) _Your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`._
 
-Stylelint looks for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
+Stylelint looks for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the [`--ignore-path`](cli.md#--ignore-path--i) (in the CLI) and [`ignorePath`](options.md#ignorepath) (in JS) options.
+
+For convenience, if a `.gitignore` file is already present it can be substituted for `.stylelintignore`
+e.g.
+
+```shell
+stylelint "*.css" --ignore-path .gitignore
+```
 
 Alternatively, you can add an [`ignoreFiles` property](configure.md#ignorefiles) within your configuration object.

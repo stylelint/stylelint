@@ -5,19 +5,20 @@ import { rmSync } from 'node:fs';
 
 import fg from 'fast-glob';
 
+const testFileGlobs = ['!**/__tests__/**', '!lib/testUtils/**'];
+
+// clean up
+for (const cjs of fg.globSync(['lib/**/*.cjs', ...testFileGlobs])) {
+	rmSync(cjs);
+}
+
 const inputFiles = fg.globSync([
 	'lib/**/*.mjs',
-	'!**/__tests__/**',
-	'!lib/testUtils/**',
+	...testFileGlobs,
 
 	// NOTE: We cannot support CommonJS for `cli.mjs` since the `meow` dependency is pure ESM.
 	'!lib/cli.mjs',
 ]);
-
-// clean up
-for (const input of inputFiles) {
-	rmSync(input.replace('.mjs', '.cjs'), { force: true });
-}
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 
@@ -65,11 +66,12 @@ function addWarningForCommonJS() {
 					'	// [INSERT HERE] CommonJS deprecation code',
 					`
 	if (!options.quietDeprecationWarnings) {
-		process.emitWarning('The CommonJS Node.js API is deprecated.', {
-			type: 'DeprecationWarning',
-			code: 'stylelint:002',
-			detail: 'See https://stylelint.io/migration-guide/to-16'
-		});
+		const emitDeprecationWarning = require('./utils/emitDeprecationWarning.cjs');
+		emitDeprecationWarning(
+			'The CommonJS Node.js API is deprecated.',
+			'COMMONJS_NODEJS_API',
+			'See https://stylelint.io/migration-guide/to-16',
+		);
 	}
 `,
 				);

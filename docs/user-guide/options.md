@@ -40,12 +40,10 @@ For CSS with standard syntax, Stylelint uses [postcss-safe-parser](https://www.n
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
-If a source contains a:
+When a rule relies on the deprecated [`context`](../developer-guide/rules.md#context)`.fix` and a source contains:
 
-- scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rules will not be automatically fixed anywhere in the source
-- unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of source will not be automatically fixed
-
-This limitation in being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
+- a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
+- an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
 
 ## `customSyntax`
 
@@ -84,7 +82,7 @@ Specify the formatter to format your results.
 Options are:
 
 - `compact` - generates output similar to ESLint's compact formatter
-- `github` - generates messages via [workflow commands for GitHub Actions](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions)
+- `github` - generates messages via [workflow commands for GitHub Actions](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions) (DEPRECATED)
 - `json` (default for Node API) - generates [JSON](https://www.json.org) that can be consumed by another tool
 - `string` (default for CLI) - generates human-readable strings
 - `tap` - generates [Test Anything Protocol](http://testanything.org/) output
@@ -99,7 +97,15 @@ CLI flag: `--cache`
 
 Store the results of processed files so that Stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`.
 
+The following values are used as cache keys:
+
+- Stylelint version
+- Options
+
 Enabling this option can dramatically improve Stylelint's speed because only changed files are linted.
+
+> [!WARNING]
+> Plugins version and implementation are not used as cache keys. We recommend that you delete the cache when updating plugins.
 
 _If you run Stylelint with `cache` and then run Stylelint without `cache`, Stylelint deletes the `.stylelintcache` because we have to assume that the second command invalidated `.stylelintcache`._
 
@@ -164,7 +170,7 @@ You can use this option to see what your linting results would be like without t
 
 CLI flags: `--report-descriptionless-disables, --rdd`
 
-Report `stylelint-disable` comments without a description.
+Report [configuration comments][1] without a description.
 
 The following patterns are reported:
 
@@ -198,13 +204,34 @@ a {}
 
 CLI flags: `--report-invalid-scope-disables, --risd`
 
-Report `stylelint-disable` comments that don't match rules that are specified in the configuration object.
+Report [configuration comments][1] that don't match rules that are specified in the configuration object.
 
 ## `reportNeedlessDisables`
 
 CLI flags: `--report-needless-disables, --rd`
 
-Report `stylelint-disable` comments that don't actually match any lints that need to be disabled.
+Report [configuration comments][1] that don't actually match any lints that need to be disabled.
+
+## `reportUnscopedDisables`
+
+CLI flags: `--report-unscoped-disables, --rud`
+
+Report [configuration comments][1] that aren't scoped to one or more rules.
+
+## `validate`
+
+CLI flags: `--validate, --no-validate`
+
+Force enable/disable the validation of the rules' options. Default: `true`.
+For example, your CI might be faster by skipping the validation if [`rules`](configure.md#rules) didn't change.
+e.g.
+
+```js
+export default {
+  // …
+  validate: process.env["CI"] !== "true"
+};
+```
 
 ## `codeFilename`
 
@@ -225,3 +252,5 @@ Only register problems for rules with an "error"-level severity (ignore "warning
 CLI flag: `--quiet-deprecation-warnings`
 
 Ignore deprecation warnings.
+
+[1]: ../user-guide/ignore-code.md#parts-of-a-file
