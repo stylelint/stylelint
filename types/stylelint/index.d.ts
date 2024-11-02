@@ -110,7 +110,7 @@ declare namespace stylelint {
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
 		allowEmptyInput?: boolean;
 		cache?: boolean;
-		fix?: boolean;
+		fix?: boolean | 'lax' | 'strict';
 		validate?: boolean;
 	};
 
@@ -662,7 +662,7 @@ declare namespace stylelint {
 		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
-		fix?: boolean;
+		fix?: boolean | 'lax' | 'strict';
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
