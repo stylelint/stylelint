@@ -127,9 +127,9 @@
     ]
   },
   "dependencies": {
-    "@csstools/css-parser-algorithms": "^3.0.3",
+    "@csstools/css-parser-algorithms": "^3.0.4",
     "@csstools/css-tokenizer": "^3.0.3",
-    "@csstools/media-query-list-parser": "^4.0.1",
+    "@csstools/media-query-list-parser": "^4.0.2",
     "@csstools/selector-specificity": "^5.0.0",
     "@dual-bundle/import-meta-resolve": "^4.1.0",
     "balanced-match": "^2.0.0",
@@ -189,7 +189,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^9.13.0",
+    "eslint": "^9.14.0",
     "eslint-config-stylelint": "^23.0.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.8.3",
@@ -207,7 +207,7 @@
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.9",
     "remark-cli": "^12.0.1",
-    "rollup": "^4.24.2",
+    "rollup": "^4.24.3",
     "sugarss": "^4.0.1",
     "typescript": "^5.6.3"
   },
