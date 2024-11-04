@@ -136,6 +136,36 @@ Force enable/disable the validation of the rules' options. [More info](options.m
 
 Show the currently installed version of Stylelint.
 
+## Profile Rule Performance
+
+The `TIMING` environment variable allows you to profile the performance of individual rules.
+
+When set, it displays the execution time of the longest-running rules upon linting completion. This includes both rule creation and execution time, as well as each rule's relative impact as a percentage of the total rule processing time.
+
+```shell
+$ TIMING=10 npx stylelint "**/*.css"
+
+Rule                                               | Time (ms) | Relative
+:--------------------------------------------------|----------:|--------:
+no-descending-specificity                          |     1.031 |    12.3%
+alpha-value-notation                               |     0.734 |     8.8%
+function-no-unknown                                |     0.599 |     7.1%
+no-duplicate-selectors                             |     0.511 |     6.1%
+length-zero-no-unit                                |     0.308 |     3.7%
+declaration-block-no-redundant-longhand-properties |     0.279 |     3.3%
+custom-property-pattern                            |     0.261 |     3.1%
+selector-class-pattern                             |     0.256 |     3.1%
+value-keyword-case                                 |     0.248 |     3.0%
+selector-type-no-unknown                           |     0.242 |     2.9%
+```
+
+By default, it shows the top 10 longest-running rules. You can adjust the number of results by setting a different value for `TIMING`.
+
+For example:
+
+- `TIMING=30` will show the top 30 rules.
+- `TIMING=all` will display all rules.
+
 ## Usage examples
 
 The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stderr`.
