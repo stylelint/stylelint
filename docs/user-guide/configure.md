@@ -706,3 +706,5 @@ Options are:
 ## `validate`
 
 Force enable/disable the validation of the rules' options. Default: `true`.
+
+[More info](options.md#validate).
