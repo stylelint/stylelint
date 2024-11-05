@@ -391,7 +391,7 @@ The value of the `overrides` property is an array of objects. Each object:
 
 - must contain a `files` property, which is an array of glob patterns that specify which files the configuration should be applied to
 - should contain at least one other regular configuration property, such as `customSyntax`, `rules`, `extends`, etc.
-- may include a `name` property to provide a description of the override's purpose.
+- may contain a `name` property to provide a description of the override's purpose.
 
 The `customSyntax` property will be replaced, whereas `plugins`, `extends`, `rules`, etc. will be appended.
 
