@@ -69,8 +69,6 @@ The following patterns are _not_ considered problems:
 
 Ignore the specified functions.
 
-For example, with `true`.
-
 Given:
 
 ```json
@@ -92,9 +90,4 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 @media (max-width: get-default-width()) {}
-```
-
-<!-- prettier-ignore -->
-```css
-@media (max-width: get_default_width()) {}
 ```
