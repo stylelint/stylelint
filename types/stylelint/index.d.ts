@@ -35,20 +35,6 @@ type FileCache = {
 	removeEntry: (absoluteFilepath: string) => void;
 };
 
-type EmptyResult = {
-	root: {
-		nodes?: undefined;
-		source: {
-			lang?: undefined;
-			input: {
-				file?: string;
-			};
-		};
-	};
-	messages: PostCSS.Message[];
-	opts: undefined;
-};
-
 // Note: With strict function types enabled, function signatures are checked contravariantly.
 // This means that it would not be possible for rule authors to narrow the message function
 // parameters to e.g. just `string`. Declaring the type for rule message functions through
@@ -183,7 +169,7 @@ declare namespace stylelint {
 	};
 
 	/** @internal */
-	export type PostcssResult = (PostCSS.Result | EmptyResult) & {
+	export type PostcssResult = PostCSS.Result & {
 		stylelint: StylelintPostcssResult;
 		warn(message: string, options?: WarningOptions): void;
 	};
