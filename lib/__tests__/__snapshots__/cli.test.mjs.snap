@@ -51,7 +51,7 @@ exports[`CLI --help 1`] = `
       A pattern of files to ignore (in addition to those in ".stylelintignore").
       Multiple can be set.
 
-    --fix <mode>
+    --fix [<mode>]
 
       Automatically fix problems of certain rules. The modes are as follows:
 
@@ -59,7 +59,6 @@ exports[`CLI --help 1`] = `
         false        does not fix any problems
         lax          attempting to fix as much as possible even with syntax errors
         strict       only fixing when there are no syntax errors
-
 
     --custom-syntax <name_or_path>
 
