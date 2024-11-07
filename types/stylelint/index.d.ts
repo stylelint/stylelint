@@ -14,6 +14,7 @@ type ConfigRules = {
 
 type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
 	files: string | string[];
+	name?: string;
 };
 
 type ConfigProcessors = string[];
