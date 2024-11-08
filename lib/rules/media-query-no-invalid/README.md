@@ -84,10 +84,5 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (min-width: getDefaultWidth()) {}
-```
-
-<!-- prettier-ignore -->
-```css
 @media (max-width: get-default-width()) {}
 ```
