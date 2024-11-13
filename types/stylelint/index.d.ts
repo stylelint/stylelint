@@ -14,6 +14,7 @@ type ConfigRules = {
 
 type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
 	files: string | string[];
+	name?: string;
 };
 
 type ConfigProcessors = string[];
@@ -32,20 +33,6 @@ type FileCache = {
 	reconcile: () => void;
 	destroy: () => void;
 	removeEntry: (absoluteFilepath: string) => void;
-};
-
-type EmptyResult = {
-	root: {
-		nodes?: undefined;
-		source: {
-			lang?: undefined;
-			input: {
-				file?: string;
-			};
-		};
-	};
-	messages: PostCSS.Message[];
-	opts: undefined;
 };
 
 // Note: With strict function types enabled, function signatures are checked contravariantly.
@@ -115,6 +102,7 @@ declare namespace stylelint {
 		reportNeedlessDisables?: DisableSettings;
 		reportInvalidScopeDisables?: DisableSettings;
 		reportDescriptionlessDisables?: DisableSettings;
+		reportUnscopedDisables?: DisableSettings;
 		configurationComment?: string;
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
@@ -181,7 +169,7 @@ declare namespace stylelint {
 	};
 
 	/** @internal */
-	export type PostcssResult = (PostCSS.Result | EmptyResult) & {
+	export type PostcssResult = PostCSS.Result & {
 		stylelint: StylelintPostcssResult;
 		warn(message: string, options?: WarningOptions): void;
 	};
@@ -470,7 +458,7 @@ declare namespace stylelint {
 		'media-feature-name-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'media-feature-name-value-no-unknown': CoreRule<true>;
 		'media-feature-range-notation': CoreRule<'prefix' | 'context'>;
-		'media-query-no-invalid': CoreRule<true>;
+		'media-query-no-invalid': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
 		'no-descending-specificity': CoreRule<true, { ignore: OneOrMany<'selectors-within-list'> }>;
 		'no-duplicate-at-import-rules': CoreRule<true>;
@@ -668,6 +656,7 @@ declare namespace stylelint {
 		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
+		reportUnscopedDisables?: boolean;
 		maxWarnings?: number;
 		customSyntax?: CustomSyntax;
 		/** @internal */

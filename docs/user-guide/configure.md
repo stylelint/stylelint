@@ -391,6 +391,7 @@ The value of the `overrides` property is an array of objects. Each object:
 
 - must contain a `files` property, which is an array of glob patterns that specify which files the configuration should be applied to
 - should contain at least one other regular configuration property, such as `customSyntax`, `rules`, `extends`, etc.
+- may contain a `name` property to provide a description of the override's purpose
 
 The `customSyntax` property will be replaced, whereas `plugins`, `extends`, `rules`, etc. will be appended.
 
@@ -483,6 +484,7 @@ The available reports are:
 - [`reportDescriptionlessDisables`](#reportdescriptionlessdisables)
 - [`reportInvalidScopeDisables`](#reportinvalidscopedisables)
 - [`reportNeedlessDisables`](#reportneedlessdisables)
+- [`reportUnscopedDisables`](#reportunscopeddisables)
 
 They are configured like rules. They can have one of three values:
 
@@ -558,6 +560,20 @@ For example:
 ```
 
 [More info](options.md#reportneedlessdisables).
+
+### `reportUnscopedDisables`
+
+Report configuration comments that are not scoped to at least one rule. A [`report*`](#report) property.
+
+For example:
+
+```json
+{
+  "reportUnscopedDisables": true
+}
+```
+
+[More info](options.md#reportunscopeddisables).
 
 ## `configurationComment`
 
