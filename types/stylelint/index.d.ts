@@ -392,6 +392,8 @@ declare namespace stylelint {
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 				propertiesSyntax: Record<string, string>;
 				typesSyntax: Record<string, string>;
+				atRulesSyntax: Record<string, string>;
+				cssWideKeywords: string[];
 			}
 		>;
 		'font-family-name-quotes': CoreRule<
