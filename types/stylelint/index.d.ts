@@ -110,7 +110,7 @@ declare namespace stylelint {
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
 		allowEmptyInput?: boolean;
 		cache?: boolean;
-		fix?: boolean | 'lax' | 'strict';
+		fix?: boolean;
 		validate?: boolean;
 	};
 
@@ -228,7 +228,7 @@ declare namespace stylelint {
 	 */
 	export type RuleContext = {
 		configurationComment?: string | undefined;
-		fix?: boolean | undefined;
+		fix?: boolean | FixMode;
 		newline?: string | undefined;
 	};
 
