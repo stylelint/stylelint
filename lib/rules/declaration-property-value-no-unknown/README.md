@@ -9,7 +9,7 @@ a { top: unknown; }
  * property and value pairs like these */
 ```
 
-This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
+This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax`, `typesSyntax`, `atRulesSyntax`, and `cssWideKeywords` secondary options to extend the syntax.
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as Sass or Less, as they have their own syntaxes.
 
@@ -110,7 +110,7 @@ a { size: 0; }
 
 <!-- prettier-ignore -->
 ```css
-a { size: 10px }
+a { size: 10px; }
 ```
 
 ### `typesSyntax: { type: syntax }`
@@ -138,4 +138,69 @@ a { top: --foo(0); }
 <!-- prettier-ignore -->
 ```css
 a { top: --foo(10px); }
+```
+
+### `atRulesSyntax: { "at-rule": { "prelude": "syntax", "descriptors": { "descriptor": "syntax" } } }`
+
+Extend or alter the at-rules syntax dictionary. This option allows you to define custom at-rules or modify existing ones by specifying their expected syntax. Both `prelude` and `descriptors` are optional. The `prelude` is the part of the at-rule that comes after the at-rule name and before the block (if any). The `descriptors` are like properties specific to the at-rule, and are defined similarly to CSS properties.
+
+[CSS Value Definition Syntax](https://github.com/csstree/csstree/blob/master/docs/definition-syntax.md) is used to define the syntax of at-rules, their preludes, and descriptors. If a definition starts with `|` it is added to the existing definition value if any. See the [CSS syntax reference](https://csstree.github.io/docs/syntax/) for default definitions.
+
+Given:
+
+```json
+{
+  "atRulesSyntax": {
+    "example": {
+      "prelude": "<custom-ident>",
+      "descriptors": {
+        "foo": "<number>",
+        "bar": "<color>"
+      }
+    }
+  }
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@example my-ident { foo: 42; bar: red; }
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@example 10px { foo: 42; bar: red; }
+```
+
+<!-- prettier-ignore -->
+```css
+@example my-ident { foo: red; bar: 42; }
+```
+
+### `cssWideKeywords: [ "keyword", ... ]`
+
+Extend the list of CSS-wide keywords. By default, the rule considers standard CSS-wide keywords like `inherit`, `initial`, `unset`, etc. This option allows you to add custom global keywords that should be accepted as valid property values.
+
+Given:
+
+```json
+{ "cssWideKeywords": ["my-global-value"] }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { width: my-global-value; }
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { width: unknown-value; }
 ```
