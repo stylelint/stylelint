@@ -38,12 +38,11 @@ Automatically fix, where possible, problems reported by rules.
 
 Options are:
 
-- `true` or `"lax"` - uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix as much as possible, even when there are syntax errors
+- `"lax"` (default) - uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix as much as possible, even when there are syntax errors
 - `"strict"` - uses [PostCSS Parser](https://postcss.org/api/#postcss-parser) and only fixes problems when there are no syntax errors
-- `false` (default) - does not fix any problems
 
 > [!TIP]
-> If you don't care about strictness now, we recommend using `true` because `"strict"` may become the default in the future.
+> If you don't care about strictness now, we recommend using `--fix` because `"strict"` may become the default in the future.
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
