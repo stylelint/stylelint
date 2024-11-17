@@ -181,13 +181,6 @@ The following patterns are considered problems:
 @example my-ident { foo: red; bar: 42; }
 ```
 
-**Explanation:**
-
-- The `atRulesSyntax` option allows you to define or modify at-rules and their syntax.
-- In the example above, we define a custom at-rule `@example` with a `prelude` that must be a `<custom-ident>` (an identifier), and descriptors `foo` and `bar` with respective syntax `<number>` and `<color>`.
-- The first two patterns are acceptable because they conform to the defined syntax.
-- The latter two patterns are considered problems because they do not match the expected syntax.
-
 ### `cssWideKeywords: [ "keyword", ... ]`
 
 Extend the list of CSS-wide keywords. By default, the rule considers standard CSS-wide keywords like `inherit`, `initial`, `unset`, etc. This option allows you to add custom global keywords that should be accepted as valid property values.
