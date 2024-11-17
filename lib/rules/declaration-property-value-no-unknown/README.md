@@ -198,79 +198,9 @@ The following patterns are _not_ considered problems:
 a { width: my-global-value; }
 ```
 
-<!-- prettier-ignore -->
-```css
-a { color: my-global-value; }
-```
-
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { width: unknown-value; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { color: invalid-keyword; }
-```
-
-## Examples
-
-### Using `atRulesSyntax`
-
-You can define custom at-rules and their expected syntax using the `atRulesSyntax` option.
-
-Given:
-
-```json
-{
-  "atRulesSyntax": {
-    "example": {
-      "prelude": "<custom-ident>",
-      "descriptors": {
-        "foo": "<number>",
-        "bar": "<color>"
-      }
-    }
-  }
-}
-```
-
-The following pattern is _not_ considered a problem:
-
-<!-- prettier-ignore -->
-```css
-@example my-ident { foo: 42; bar: red; }
-```
-
-The following pattern is considered a problem:
-
-<!-- prettier-ignore -->
-```css
-@example my-ident { foo: red; bar: 42; }
-```
-
-### Using `cssWideKeywords`
-
-You can extend the list of recognized CSS-wide keywords using the `cssWideKeywords` option.
-
-Given:
-
-```json
-{ "cssWideKeywords": ["my-global-value"] }
-```
-
-The following pattern is _not_ considered a problem:
-
-<!-- prettier-ignore -->
-```css
-a { color: my-global-value; }
-```
-
-The following pattern is considered a problem:
-
-<!-- prettier-ignore -->
-```css
-a { color: invalid-keyword; }
 ```
