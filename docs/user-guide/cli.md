@@ -144,19 +144,29 @@ When set, it displays the execution time of the longest-running rules upon linti
 
 ```shell
 $ TIMING=10 npx stylelint "**/*.css"
-
-Rule                                               | Time (ms) | Relative
-:--------------------------------------------------|----------:|--------:
-no-descending-specificity                          |     1.031 |    12.3%
-alpha-value-notation                               |     0.734 |     8.8%
-function-no-unknown                                |     0.599 |     7.1%
-no-duplicate-selectors                             |     0.511 |     6.1%
-length-zero-no-unit                                |     0.308 |     3.7%
-declaration-block-no-redundant-longhand-properties |     0.279 |     3.3%
-custom-property-pattern                            |     0.261 |     3.1%
-selector-class-pattern                             |     0.256 |     3.1%
-value-keyword-case                                 |     0.248 |     3.0%
-selector-type-no-unknown                           |     0.242 |     2.9%
+╔════════════════════════════════════════════════════╤═══════════╤══════════╗
+║ Rule                                               │ Time (ms) │ Relative ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ no-descending-specificity                          │     1.225 │    17.7% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ no-duplicate-selectors                             │     0.457 │     6.6% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ alpha-value-notation                               │     0.313 │     4.5% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ selector-type-no-unknown                           │     0.284 │     4.1% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ declaration-block-no-redundant-longhand-properties │     0.267 │     3.9% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ color-hex-length                                   │     0.255 │     3.7% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ comment-empty-line-before                          │     0.227 │     3.3% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ selector-class-pattern                             │     0.215 │     3.1% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ length-zero-no-unit                                │     0.190 │     2.7% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ value-keyword-case                                 │     0.154 │     2.2% ║
+╚════════════════════════════════════════════════════╧═══════════╧══════════╝
 ```
 
 By default, it shows the top 10 longest-running rules. You can adjust the number of results by setting a different value for `TIMING`.
