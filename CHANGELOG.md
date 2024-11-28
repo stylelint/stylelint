@@ -2,11 +2,11 @@
 
 ## 16.11.0
 
-- Changed: deprecation warning to link to `https://stylelint.io/awesome-stylelint#formatters` ([#8115](https://github.com/stylelint/stylelint/pull/8115)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `--report-unscoped-disables` CLI flag and `reportUnscopedDisables` option to Node.js API and configuration object ([#8024](https://github.com/stylelint/stylelint/pull/8024)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `ignoreFunctions: []` to `media-query-no-invalid` ([#8060](https://github.com/stylelint/stylelint/pull/8060)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `name` configuration property under `overrides` ([#8095](https://github.com/stylelint/stylelint/pull/8095)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `benchmark-rule` script to resolve `TypeError` ([#8090](https://github.com/stylelint/stylelint/pull/8090)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `github` formatter deprecation warning link to `https://stylelint.io/awesome-stylelint#formatters` ([#8115](https://github.com/stylelint/stylelint/pull/8115)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `function-calc-no-unspaced-operator` false negatives for `calc-size` ([#8026](https://github.com/stylelint/stylelint/pull/8026)) ([@azat-io](https://github.com/azat-io)).
 - Fixed: `max-nesting-depth` false positives when the `&` selector is being ignored ([#8048](https://github.com/stylelint/stylelint/pull/8048)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `media-feature-name-value-no-unknown` false positives for `display-mode: picture-in-picture` ([#8136](https://github.com/stylelint/stylelint/pull/8136)) ([@Mouvedia](https://github.com/Mouvedia)).
@@ -35,7 +35,7 @@
 - Fixed: `selector-pseudo-class-no-unknown` reported ranges ([#8063](https://github.com/stylelint/stylelint/pull/8063)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `selector-pseudo-element-allowed-list` reported ranges ([#8068](https://github.com/stylelint/stylelint/pull/8068)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `selector-pseudo-element-colon-notation` reported ranges ([#8069](https://github.com/stylelint/stylelint/pull/8069)) ([@ryo-manba](https://github.com/ryo-manba)).
-- Fixed: `selector-pseudo-element-disallowed-list reported ranges ([#8070](https://github.com/stylelint/stylelint/pull/8070)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-element-disallowed-list` reported ranges ([#8070](https://github.com/stylelint/stylelint/pull/8070)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `selector-pseudo-element-no-unknown` false positives for `::scroll-marker` and `::scroll-marker-group` ([#8110](https://github.com/stylelint/stylelint/pull/8110)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `selector-pseudo-element-no-unknown` reported ranges ([#8071](https://github.com/stylelint/stylelint/pull/8071)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `selector-type-no-unknown` reported ranges ([#8076](https://github.com/stylelint/stylelint/pull/8076)) ([@ryo-manba](https://github.com/ryo-manba)).
