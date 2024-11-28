@@ -1,5 +1,45 @@
 # Changelog
 
+## 16.11.0
+
+- Changed: deprecation warning to link to `https://stylelint.io/awesome-stylelint#formatters` ([#8115](https://github.com/stylelint/stylelint/pull/8115)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `--report-unscoped-disables` CLI flag and `reportUnscopedDisables` option to Node.js API and configuration object ([#8024](https://github.com/stylelint/stylelint/pull/8024)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `ignoreFunctions: []` to `media-query-no-invalid` ([#8060](https://github.com/stylelint/stylelint/pull/8060)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `name` configuration property under `overrides` ([#8095](https://github.com/stylelint/stylelint/pull/8095)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `benchmark-rule` script to resolve `TypeError` ([#8090](https://github.com/stylelint/stylelint/pull/8090)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `function-calc-no-unspaced-operator` false negatives for `calc-size` ([#8026](https://github.com/stylelint/stylelint/pull/8026)) ([@azat-io](https://github.com/azat-io)).
+- Fixed: `max-nesting-depth` false positives when the `&` selector is being ignored ([#8048](https://github.com/stylelint/stylelint/pull/8048)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `media-feature-name-value-no-unknown` false positives for `display-mode: picture-in-picture` ([#8136](https://github.com/stylelint/stylelint/pull/8136)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-irregular-whitespace` reported ranges ([#8066](https://github.com/stylelint/stylelint/pull/8066)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-attribute-name-disallowed-list` reported ranges ([#8037](https://github.com/stylelint/stylelint/pull/8037)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-attribute-operator-allowed-list` reported ranges ([#8038](https://github.com/stylelint/stylelint/pull/8038)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-attribute-operator-disallowed-list` reported ranges ([#8039](https://github.com/stylelint/stylelint/pull/8039)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-class-pattern` reported ranges ([#8042](https://github.com/stylelint/stylelint/pull/8042)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-combinator-allowed-list` reported ranges ([#8046](https://github.com/stylelint/stylelint/pull/8046)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-combinator-disallowed-list` reported ranges ([#8047](https://github.com/stylelint/stylelint/pull/8047)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-disallowed-list` reported ranges ([#8067](https://github.com/stylelint/stylelint/pull/8067)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-id-pattern` reported ranges ([#8045](https://github.com/stylelint/stylelint/pull/8045)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-attribute` reported ranges ([#8052](https://github.com/stylelint/stylelint/pull/8052)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-class` reported ranges ([#8053](https://github.com/stylelint/stylelint/pull/8053)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-combinators` reported-ranges ([#8055](https://github.com/stylelint/stylelint/pull/8055)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-compound-selectors` reported ranges ([#8056](https://github.com/stylelint/stylelint/pull/8056)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-id` reported ranges ([#8054](https://github.com/stylelint/stylelint/pull/8054)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-pseudo-class` reported ranges ([#8057](https://github.com/stylelint/stylelint/pull/8057)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-specificity` reported ranges ([#8058](https://github.com/stylelint/stylelint/pull/8058)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-max-universal` reported ranges ([#8059](https://github.com/stylelint/stylelint/pull/8059)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-nested-pattern` reported ranges ([#8072](https://github.com/stylelint/stylelint/pull/8072)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-no-vendor-prefix` reported ranges ([#8073](https://github.com/stylelint/stylelint/pull/8073)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-not-notation` reported ranges ([#8074](https://github.com/stylelint/stylelint/pull/8074)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-class-allowed-list` reported ranges ([#8061](https://github.com/stylelint/stylelint/pull/8061)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-class-disallowed-list` reported ranges ([#8062](https://github.com/stylelint/stylelint/pull/8062)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-class-no-unknown` reported ranges ([#8063](https://github.com/stylelint/stylelint/pull/8063)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-element-allowed-list` reported ranges ([#8068](https://github.com/stylelint/stylelint/pull/8068)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-element-colon-notation` reported ranges ([#8069](https://github.com/stylelint/stylelint/pull/8069)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-element-disallowed-list reported ranges ([#8070](https://github.com/stylelint/stylelint/pull/8070)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::scroll-marker` and `::scroll-marker-group` ([#8110](https://github.com/stylelint/stylelint/pull/8110)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` reported ranges ([#8071](https://github.com/stylelint/stylelint/pull/8071)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `selector-type-no-unknown` reported ranges ([#8076](https://github.com/stylelint/stylelint/pull/8076)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.10.0
 
 - Changed: `shorthand-property-no-redundant-values` reported ranges ([#8008](https://github.com/stylelint/stylelint/pull/8008)) ([@Mouvedia](https://github.com/Mouvedia)).
