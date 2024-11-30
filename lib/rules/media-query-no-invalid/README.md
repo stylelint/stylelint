@@ -62,3 +62,27 @@ The following patterns are _not_ considered problems:
 ```css
 @media (color) and ((hover) or (width)) {}
 ```
+
+## Optional secondary options
+
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+
+Ignore the specified functions.
+
+Given:
+
+```json
+["theme", "/^get.*$/"]
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@media (min-width: theme(screens.md)) {}
+```
+
+<!-- prettier-ignore -->
+```css
+@media (max-width: get-default-width()) {}
+```
