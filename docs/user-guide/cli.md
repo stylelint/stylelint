@@ -142,7 +142,7 @@ The `TIMING` environment variable allows you to profile the performance of indiv
 
 When set, it displays the execution time of the longest-running rules upon linting completion. This includes both rule creation and execution time, as well as each rule's relative impact as a percentage of the total rule processing time.
 
-```shell
+```console
 $ TIMING=10 npx stylelint "**/*.css"
 ╔════════════════════════════════════════════════════╤═══════════╤══════════╗
 ║ Rule                                               │ Time (ms) │ Relative ║
