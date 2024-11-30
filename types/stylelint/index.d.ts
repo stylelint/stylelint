@@ -458,7 +458,7 @@ declare namespace stylelint {
 		'media-feature-name-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'media-feature-name-value-no-unknown': CoreRule<true>;
 		'media-feature-range-notation': CoreRule<'prefix' | 'context'>;
-		'media-query-no-invalid': CoreRule<true>;
+		'media-query-no-invalid': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
 		'no-descending-specificity': CoreRule<true, { ignore: OneOrMany<'selectors-within-list'> }>;
 		'no-duplicate-at-import-rules': CoreRule<true>;
