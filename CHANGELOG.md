@@ -1,5 +1,17 @@
 # Changelog
 
+## 16.12.0
+
+- Added: `selector-pseudo-class-disallowed-list` now checks `@page` at-rules and supports `@page` pseudo-classes ([#8171](https://github.com/stylelint/stylelint/pull/8171)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `custom-property-no-missing-var-function` false positives for `container-name` ([#8157](https://github.com/stylelint/stylelint/pull/8157)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `custom-property-no-missing-var-function` false positives for custom properties passed to `running()` ([#8172](https://github.com/stylelint/stylelint/pull/8172)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-no-unknown` false positives for `running()` ([#8172](https://github.com/stylelint/stylelint/pull/8172)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:-moz-only-whitespace` ([#8171](https://github.com/stylelint/stylelint/pull/8171)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:recto`, `:verso` and `:nth()` ([#8170](https://github.com/stylelint/stylelint/pull/8170)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::details-content` ([#8174](https://github.com/stylelint/stylelint/pull/8174)) ([@lukewarlow](https://github.com/lukewarlow)).
+- Fixed: `value-keyword-case` false negatives ([#8158](https://github.com/stylelint/stylelint/pull/8158)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `value-keyword-case` false positives for vendor-prefixed system colors ([#8146](https://github.com/stylelint/stylelint/pull/8146)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.11.0
 
 - Added: `--report-unscoped-disables` CLI flag and `reportUnscopedDisables` option to Node.js API and configuration object ([#8024](https://github.com/stylelint/stylelint/pull/8024)) ([@Mouvedia](https://github.com/Mouvedia)).
