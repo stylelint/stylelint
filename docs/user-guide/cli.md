@@ -136,6 +136,46 @@ Force enable/disable the validation of the rules' options. [More info](options.m
 
 Show the currently installed version of Stylelint.
 
+## Profile Rule Performance
+
+The `TIMING` environment variable allows you to profile the performance of individual rules.
+
+When set, it displays the execution time of the longest-running rules upon linting completion. This includes both rule creation and execution time, as well as each rule's relative impact as a percentage of the total rule processing time.
+
+```console
+$ TIMING=10 npx stylelint "**/*.css"
+╔════════════════════════════════════════════════════╤═══════════╤══════════╗
+║ Rule                                               │ Time (ms) │ Relative ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ no-descending-specificity                          │     1.225 │    17.7% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ no-duplicate-selectors                             │     0.457 │     6.6% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ alpha-value-notation                               │     0.313 │     4.5% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ selector-type-no-unknown                           │     0.284 │     4.1% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ declaration-block-no-redundant-longhand-properties │     0.267 │     3.9% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ color-hex-length                                   │     0.255 │     3.7% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ comment-empty-line-before                          │     0.227 │     3.3% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ selector-class-pattern                             │     0.215 │     3.1% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ length-zero-no-unit                                │     0.190 │     2.7% ║
+╟────────────────────────────────────────────────────┼───────────┼──────────╢
+║ value-keyword-case                                 │     0.154 │     2.2% ║
+╚════════════════════════════════════════════════════╧═══════════╧══════════╝
+```
+
+By default, it shows the top 10 longest-running rules. You can adjust the number of results by setting a different value for `TIMING`.
+
+For example:
+
+- `TIMING=30` will show the top 30 rules.
+- `TIMING=all` will display all rules.
+
 ## Usage examples
 
 The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stderr`.
