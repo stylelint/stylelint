@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `@page` support to `selector-pseudo-class-disallowed-list`
+Added: `selector-pseudo-class-disallowed-list` now checks `@page` at-rules and supports `@page` pseudo-classes
