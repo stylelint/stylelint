@@ -1,5 +1,5 @@
 ---
-"stylelint": minor
+"stylelint": patch
 ---
 
-Adds `::details-content` pseudo element
+Fixed: `selector-pseudo-element-no-unknown` for `::details-content`
