@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `function-no-unknown` false positives for `running`
+Fixed: `function-no-unknown` false positives for `running()`
