@@ -43,4 +43,5 @@ export {
 	Utils,
 	Warning,
 	WarningOptions,
+	FixMode,
 } from './index.js';

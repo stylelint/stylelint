@@ -229,7 +229,7 @@ declare namespace stylelint {
 	 */
 	export type RuleContext = {
 		configurationComment?: string | undefined;
-		fix?: boolean | undefined;
+		fix?: boolean | FixMode;
 		newline?: string | undefined;
 	};
 
@@ -663,12 +663,15 @@ declare namespace stylelint {
 		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
-		fix?: boolean;
+		fix?: boolean | FixMode;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
 		validate?: boolean;
 	};
+
+	/** @internal */
+	export type FixMode = 'lax' | 'strict';
 
 	/**
 	 * A CSS syntax error.
