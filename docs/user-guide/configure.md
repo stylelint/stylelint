@@ -703,3 +703,9 @@ Options are:
   ```
 
 [More info](options.md#formatter).
+
+## `validate`
+
+Force enable/disable the validation of the rules' options. Default: `true`.
+
+[More info](options.md#validate).
