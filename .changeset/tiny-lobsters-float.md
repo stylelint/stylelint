@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `selector-pseudo-class-no-unknown` false positive for `:open`
+Fixed: `selector-pseudo-class-no-unknown` false positives for `:open`
