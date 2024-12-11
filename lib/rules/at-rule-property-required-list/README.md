@@ -1,6 +1,6 @@
 # at-rule-property-required-list
 
-Specify a list of required descriptors (previously labelled properties) for an at-rule.
+Specify a list of required descriptors (previously labelled as properties) for an at-rule.
 
 <!-- prettier-ignore -->
 ```css
