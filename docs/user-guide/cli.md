@@ -140,7 +140,7 @@ Show the currently installed version of Stylelint.
 
 The `TIMING` environment variable allows you to profile the performance of individual rules.
 
-When set, it displays the execution time of the longest-running rules upon linting completion. This includes both rule creation and execution time, as well as each rule's relative impact as a percentage of the total rule processing time.
+When `TIMING` is set to `all` or a positive integer (`n >= 1`), it displays the execution time of the longest-running rules upon linting completion. This includes both rule creation and execution time, as well as each rule's relative impact as a percentage of the total rule processing time.
 
 ```console
 $ TIMING=10 npx stylelint "**/*.css"
@@ -169,7 +169,7 @@ $ TIMING=10 npx stylelint "**/*.css"
 ╚════╧════════════════════════════════════════════════════╧═══════════╧══════════╝
 ```
 
-By default, it shows the top 10 longest-running rules. You can adjust the number of results by setting a different value for `TIMING`.
+You can adjust the number of results by setting a different value for `TIMING`.
 
 For example:
 
