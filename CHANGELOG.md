@@ -1,5 +1,21 @@
 # Changelog
 
+## 16.12.0
+
+- Added: `selector-pseudo-class-allowed-list` now checks `@page` pseudo-classes ([#8176](https://github.com/stylelint/stylelint/pull/8176)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `selector-pseudo-class-disallowed-list` now checks `@page` at-rules and supports `@page` pseudo-classes ([#8171](https://github.com/stylelint/stylelint/pull/8171)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `at-rule-property-required-list` message to use "descriptor" for accuracy ([#8186](https://github.com/stylelint/stylelint/pull/8186)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `custom-property-no-missing-var-function` false positives for `container-name` ([#8157](https://github.com/stylelint/stylelint/pull/8157)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `custom-property-no-missing-var-function` false positives for custom properties passed to `running()` ([#8172](https://github.com/stylelint/stylelint/pull/8172)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `function-no-unknown` false positives for `running()` ([#8172](https://github.com/stylelint/stylelint/pull/8172)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:open` ([#8184](https://github.com/stylelint/stylelint/pull/8184)) ([@lukewarlow](https://github.com/lukewarlow)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:recto`, `:verso` and `:nth()` ([#8170](https://github.com/stylelint/stylelint/pull/8170)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for some `moz-*` vendor-prefixed pseudo-classes ([#8188](https://github.com/stylelint/stylelint/pull/8188)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::details-content` ([#8174](https://github.com/stylelint/stylelint/pull/8174)) ([@lukewarlow](https://github.com/lukewarlow)).
+- Fixed: `selector-type-no-unknown` false positives for idents in functional pseudo-classes ([#8191](https://github.com/stylelint/stylelint/pull/8191)) ([@elskhn](https://github.com/elskhn)).
+- Fixed: `value-keyword-case` false negatives ([#8158](https://github.com/stylelint/stylelint/pull/8158)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `value-keyword-case` false positives for vendor-prefixed system colors ([#8146](https://github.com/stylelint/stylelint/pull/8146)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.11.0
 
 - Added: `--report-unscoped-disables` CLI flag and `reportUnscopedDisables` option to Node.js API and configuration object ([#8024](https://github.com/stylelint/stylelint/pull/8024)) ([@Mouvedia](https://github.com/Mouvedia)).
