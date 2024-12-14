@@ -11,6 +11,8 @@ a { top: unknown; }
 
 This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
 
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property.
+
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as Sass or Less, as they have their own syntaxes.
 
 This rule is experimental with some false negatives that we'll patch in minor releases.
@@ -23,8 +25,6 @@ It sometimes overlaps with:
 - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
 If duplicate problems are flagged, you can turn off the corresponding rule.
-
-For more details on CSS value definition syntax, refer to the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/).
 
 ## Options
 
