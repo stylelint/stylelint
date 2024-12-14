@@ -16,7 +16,7 @@ A rule must be:
 And have a:
 
 - unambiguous finished state
-- singular purpose that doesn't overlap with other rules
+- singular purpose
 
 Its name is split into two parts:
 

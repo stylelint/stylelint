@@ -25,6 +25,10 @@ Provide multiple points of extensions, including:
 - [formatters](../developer-guide/formatters.md) - format Stylelint result objects
 - [plugins](../developer-guide/plugins.md) - build custom rules to support methodologies, toolsets, non-standard CSS features, other languages (like SCSS) or very specific use cases
 
+## Configurable
+
+Provide options to [customize the linter](../user-guide/customize.md) to specific project needs, including configurable rules that sometimes overlap.
+
 ## Robust
 
 Provide a robust tool with a [comprehensive test suite](../developer-guide/rules.md#write-tests), including:
