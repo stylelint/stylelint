@@ -27,10 +27,7 @@ Provide multiple points of extensions, including:
 
 ## Configurable
 
-Provide options to tailor the linter to specific project needs, including:
-
-- [customizable rules](https://stylelint.io/user-guide/customize/) - adjust rules for specific scenarios or preferences
-- overlapping rules - allow users to choose between different approaches to validation
+Provide options to [customize the linter](../user-guide/customize.md) to specific project needs, including configurable rules that sometimes overlap.
 
 ## Robust
 
