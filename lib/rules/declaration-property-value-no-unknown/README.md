@@ -24,6 +24,8 @@ It sometimes overlaps with:
 
 If duplicate problems are flagged, you can turn off the corresponding rule.
 
+For more details on CSS value definition syntax, refer to the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/).
+
 ## Options
 
 ### `true`
