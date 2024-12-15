@@ -15,6 +15,9 @@ This rule considers descriptors defined in the CSS Specifications, up to and inc
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
+Prior art:
+- [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)
+
 ## Options
 
 ### `true`
