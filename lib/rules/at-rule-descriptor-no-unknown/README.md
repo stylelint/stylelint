@@ -35,8 +35,8 @@ The following patterns are considered problems:
 ```
 
 ```css
-@property --example {
-  unknown-descriptor: value;
+@property --foo {
+  unknown-descriptor: "<color>";
 }
 ```
 
