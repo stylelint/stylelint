@@ -3,7 +3,7 @@
 ## 16.12.0
 
 - Added: `selector-pseudo-class-allowed-list` now checks `@page` pseudo-classes ([#8176](https://github.com/stylelint/stylelint/pull/8176)) ([@Mouvedia](https://github.com/Mouvedia)).
-- Added: `selector-pseudo-class-disallowed-list` now checks `@page` at-rules and supports `@page` pseudo-classes ([#8171](https://github.com/stylelint/stylelint/pull/8171)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `selector-pseudo-class-disallowed-list` now checks `@page` pseudo-classes ([#8171](https://github.com/stylelint/stylelint/pull/8171)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `at-rule-property-required-list` message to use "descriptor" for accuracy ([#8186](https://github.com/stylelint/stylelint/pull/8186)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `custom-property-no-missing-var-function` false positives for `container-name` ([#8157](https://github.com/stylelint/stylelint/pull/8157)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `custom-property-no-missing-var-function` false positives for custom properties passed to `running()` ([#8172](https://github.com/stylelint/stylelint/pull/8172)) ([@Mouvedia](https://github.com/Mouvedia)).
