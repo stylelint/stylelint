@@ -13,6 +13,9 @@ Disallow unknown descriptors for at-rules.
 
 This rule considers descriptors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what descriptors are known for an at-rule.
+
+
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
 Prior art:
