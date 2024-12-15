@@ -29,8 +29,8 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@counter-style example {
-  unknown-descriptor: value;
+@counter-style foo {
+  unknown-descriptor: cyclic;
 }
 ```
 
