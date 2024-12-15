@@ -51,9 +51,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@property --example {
+@property --foo {
   syntax: "<color>";
-  inherits: false;
-  initial-value: "aqua";
 }
 ```
