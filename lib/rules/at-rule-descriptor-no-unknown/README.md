@@ -4,8 +4,8 @@ Disallow unknown descriptors for at-rules.
 
 <!-- prettier-ignore -->
 ```css
-@counter-style example {
-  unknown-descriptor: value;
+@counter-style foo {
+  unknown-descriptor: cyclic;
 /**                ↑
  * Descriptors like this */
 }
