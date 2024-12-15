@@ -44,9 +44,8 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@counter-style example {
+@counter-style foo {
   system: cyclic;
-  symbols: "•";
 }
 ```
 
