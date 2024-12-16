@@ -36,6 +36,7 @@ The following patterns are considered problems:
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @property --foo {
   unknown-descriptor: "<color>";
