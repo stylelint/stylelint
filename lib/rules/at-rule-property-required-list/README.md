@@ -1,6 +1,6 @@
 # at-rule-property-required-list
 
-Specify a list of required descriptors (previously labelled as properties) for an at-rule.
+Specify a list of required properties (or descriptors) for an at-rule.
 
 <!-- prettier-ignore -->
 ```css
@@ -13,7 +13,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "at-rule-name": ["array", "of", "descriptors"]|"descriptor" }`
+`object`: `{ "at-rule-name": ["array", "of", "properties or descriptors", "properties"]|"property or descriptor" }`
 
 Given:
 
