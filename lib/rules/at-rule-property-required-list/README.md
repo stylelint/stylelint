@@ -13,7 +13,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "at-rule-name": ["array", "of", "properties or descriptors", "properties"]|"property or descriptor" }`
+`object`: `{ "at-rule-name": ["array", "of", "properties or descriptors"]|"property or descriptor" }`
 
 Given:
 
