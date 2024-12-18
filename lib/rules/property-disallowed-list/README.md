@@ -10,7 +10,6 @@ a { text-rendering: optimizeLegibility; }
 ```
 
 This rule ignores preprocessor variables (e.g. `$sass`, `@less`).
-It parses custom properties (e.g. `--foo: red`).
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
