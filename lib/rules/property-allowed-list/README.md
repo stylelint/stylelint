@@ -17,7 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 `array|string|regex`: `["array", "of", /properties/, "regex"]|"property"|"/regex/"|/regex/`
 
-If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/background/` will match `background`, `background-size`, `background-color`, etc.
+If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 
 Given:
 
