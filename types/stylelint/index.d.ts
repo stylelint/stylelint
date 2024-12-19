@@ -282,6 +282,7 @@ declare namespace stylelint {
 		>;
 		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
 		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
+		'at-rule-descriptor-value-no-invalid': CoreRule<true>;
 		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
