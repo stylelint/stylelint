@@ -36,7 +36,13 @@ CLI flag: `--fix`
 
 Automatically fix, where possible, problems reported by rules.
 
-For CSS with standard syntax, Stylelint uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix syntax errors.
+Options are:
+
+- `"lax"` (default) - uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix as much as possible, even when there are syntax errors
+- `"strict"` - uses [PostCSS Parser](https://postcss.org/api/#postcss-parser) and only fixes problems when there are no syntax errors
+
+> [!TIP]
+> If you don't care about strictness now, we recommend using `--fix` without any option because `"strict"` may become the default in the future.
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
