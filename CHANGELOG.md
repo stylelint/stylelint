@@ -1,5 +1,10 @@
 # Changelog
 
+## 16.13.0
+
+- Added: `lax`/`strict` values to the `fix` Node.js API option and CLI flag ([#8106](https://github.com/stylelint/stylelint/pull/8106)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: support for profiling rule performance via the `TIMING` environment variable ([#8108](https://github.com/stylelint/stylelint/pull/8108)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.12.0
 
 - Added: `selector-pseudo-class-allowed-list` now checks `@page` pseudo-classes ([#8176](https://github.com/stylelint/stylelint/pull/8176)) ([@Mouvedia](https://github.com/Mouvedia)).
