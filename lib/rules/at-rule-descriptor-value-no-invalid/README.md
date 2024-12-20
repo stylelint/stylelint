@@ -11,7 +11,7 @@ Disallow invalid values for descriptors within at-rules.
 }
 ```
 
-This rule considers descriptors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
+This rule considers descriptors and values defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what values are valid for a descriptor of an at-rule.
 
