@@ -39,7 +39,7 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 @property --foo {
-  syntax: "<unknown-type>";
+  syntax: unknown;
 }
 ```
 
