@@ -28,16 +28,6 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@charset "UTF-8";
-```
-
-<!-- prettier-ignore -->
-```css
-@CHARSET "UTF-8";
-```
-
-<!-- prettier-ignore -->
-```css
 @media (max-width: 960px) {}
 ```
 
