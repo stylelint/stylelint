@@ -70,3 +70,39 @@ a {
   font-family: "Times New Roman";
 }
 ```
+
+## Optional secondary options
+
+### `ignore: ["at-rules", "declarations"]`
+
+#### `"at-rules"`
+
+Ignore strings in at-rules.
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@charset 'utf-8
+';
+```
+
+<!-- prettier-ignore -->
+```css
+@import url('example
+.com');
+```
+
+#### `"declarations"`
+
+Ignore strings in declarations.
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  content: "first
+    second";
+}
+```
