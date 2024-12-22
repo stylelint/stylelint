@@ -81,11 +81,6 @@ Ignore strings in at-rules.
 
 The following patterns are _not_ considered problems:
 
-<!-- prettier-ignore -->
-```css
-@charset 'utf-8
-';
-```
 
 <!-- prettier-ignore -->
 ```css
