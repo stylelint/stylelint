@@ -63,7 +63,10 @@ stylelint.lint(options).then((x: LinterResult) => {
 
 stylelint.resolveConfig('path').then((config) => stylelint.lint({ config }));
 
-stylelint.resolveConfig('path', { config: options }).then((config) => stylelint.lint({ config }));
+// Override fix to match Config type.
+stylelint
+	.resolveConfig('path', { config: { ...options, fix: false } })
+	.then((config) => stylelint.lint({ config }));
 
 stylelint
 	.resolveConfig('path', { configBasedir: 'path' })
@@ -77,7 +80,7 @@ stylelint.resolveConfig('path', { cwd: 'path' }).then((config) => stylelint.lint
 
 stylelint
 	.resolveConfig('path', {
-		config: options,
+		config: { ...options, fix: false },
 		configBasedir: 'path',
 		configFile: 'path',
 		cwd: 'path',
