@@ -81,7 +81,6 @@ Ignore strings in at-rules.
 
 The following patterns are _not_ considered problems:
 
-
 <!-- prettier-ignore -->
 ```css
 @import url('example
