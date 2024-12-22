@@ -811,6 +811,38 @@ declare namespace stylelint {
 		column: number;
 	};
 
+	export type ProblemLocation =
+		| {
+				/**
+				 * The inclusive start position of the problem, relative to the
+				 * node's source text. If provided, this will be used instead of
+				 * `index`.
+				 */
+				start: Position;
+				/**
+				 * The exclusive end position of the problem, relative to the
+				 * node's source text. If provided, this will be used instead of
+				 * `endIndex`.
+				 */
+				end: Position;
+		  }
+		| {
+				/**
+				 * The inclusive start index of the problem, relative to the node's
+				 * source text.
+				 */
+				index: number;
+				/**
+				 * The exclusive end index of the problem, relative to the node's
+				 * source text.
+				 */
+				endIndex: number;
+		  }
+		| {
+				word: string;
+		  }
+		| {};
+
 	/**
 	 * A lint problem.
 	 */
@@ -820,36 +852,9 @@ declare namespace stylelint {
 		message: RuleMessage;
 		messageArgs?: Parameters<RuleMessageFunc> | undefined;
 		node: PostCSS.Node;
-		/**
-		 * The inclusive start index of the problem, relative to the node's
-		 * source text.
-		 */
-		index?: number;
-		/**
-		 * The exclusive end index of the problem, relative to the node's
-		 * source text.
-		 */
-		endIndex?: number;
-		/**
-		 * The inclusive start position of the problem, relative to the
-		 * node's source text. If provided, this will be used instead of
-		 * `index`.
-		 */
-		start?: Position;
-		/**
-		 * The exclusive end position of the problem, relative to the
-		 * node's source text. If provided, this will be used instead of
-		 * `endIndex`.
-		 */
-		end?: Position;
-		word?: string;
-		line?: number;
-		/**
-		 * Optional severity override for the problem.
-		 */
 		severity?: RuleSeverity;
 		fix?: () => void | undefined | never;
-	};
+	} & ProblemLocation;
 
 	/** @internal */
 	export type ShorthandProperties =

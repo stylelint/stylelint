@@ -115,9 +115,31 @@ const testRule: RuleBase = (option) => {
 					result,
 					message: messages.warning(warning.text),
 					node: root,
-					index: 1,
 					word: 'foo',
-					line: 2,
+				});
+
+				stylelint.utils.report({
+					ruleName,
+					result,
+					message: messages.warning(warning.text),
+					node: root,
+					index: 1,
+					endIndex: 2,
+				});
+
+				stylelint.utils.report({
+					ruleName,
+					result,
+					message: messages.warning(warning.text),
+					node: root,
+					start: {
+						line: 1,
+						column: 1,
+					},
+					end: {
+						line: 1,
+						column: 2,
+					},
 				});
 			},
 		);
