@@ -5,8 +5,8 @@ Disallow invalid newlines within strings.
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first
-    second"; }/* ↑
+  content: "foo
+    bar"; }/* ↑
  *               ↑
  * The newline here */
 ```
@@ -22,8 +22,8 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first
-    second";
+  content: "foo
+    bar";
 }
 ```
 
@@ -47,14 +47,14 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first\Asecond";
+  content: "foo\Abar";
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first\\nsecond";
+  content: "foo\\nbar";
 }
 ```
 
