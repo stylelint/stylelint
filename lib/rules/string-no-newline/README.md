@@ -73,11 +73,11 @@ a {
 
 ## Optional secondary options
 
-### `ignore: ["at-rules", "declarations"]`
+### `ignore: ["at-rule-preludes", "declaration-values"]`
 
-#### `"at-rules"`
+#### `"at-rule-preludes"`
 
-Ignore strings in at-rules.
+Ignore strings in at-rule preludes.
 
 The following patterns are _not_ considered problems:
 
@@ -87,9 +87,9 @@ The following patterns are _not_ considered problems:
 .css');
 ```
 
-#### `"declarations"`
+#### `"declaration-values"`
 
-Ignore strings in declarations.
+Ignore strings in declaration values.
 
 The following patterns are _not_ considered problems:
 
