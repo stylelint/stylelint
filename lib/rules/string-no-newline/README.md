@@ -96,7 +96,7 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first
-    second";
+  content: "foo
+    bar";
 }
 ```
