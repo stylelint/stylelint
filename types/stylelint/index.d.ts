@@ -844,7 +844,7 @@ declare namespace stylelint {
 		| {
 				word: string;
 		  }
-		| {};
+		| object;
 
 	/**
 	 * A lint problem.
