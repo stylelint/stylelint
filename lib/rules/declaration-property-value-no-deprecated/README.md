@@ -1,0 +1,42 @@
+# declaration-property-value-no-deprecated
+
+Disallow deprecated values for properties within declarations.
+
+<!-- prettier-ignore -->
+```css
+  a { color: ThreeDDarkShadow; }
+/**     ↑         ↑
+ * property and value pairs like these */
+```
+
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
+
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
+## Options
+
+### `true`
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { overflow: overlay; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { text-justify: distribute; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { overflow: auto; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { text-justify: inter-character; }
+```
