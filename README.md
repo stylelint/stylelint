@@ -73,6 +73,7 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Performing releases](docs/maintainer-guide/releases.md)
 - About
   - [Vision](docs/about/vision.md)
+  - [Governance](docs/about/governance.md)
   - [Semantic versioning](docs/about/semantic-versioning.md)
 
 ## Contributors
