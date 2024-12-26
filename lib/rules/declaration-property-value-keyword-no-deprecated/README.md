@@ -9,6 +9,13 @@ Disallow deprecated keywords for properties within declarations.
  * property and value pairs like these */
 ```
 
+This rule flags keywords that were removed or deprecated after being in the CSS specifications, including editor drafts, and were subsequently either:
+
+- shipped in a stable version of a browser
+- shipped by a developer channel/edition browser
+- shipped but behind experimental flags
+- polyfilled with some adoption before any browser actually shipped
+
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) accept arguments.
