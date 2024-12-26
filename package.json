@@ -195,7 +195,7 @@
     "eslint-plugin-jest": "^28.10.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
-    "jest-preset-stylelint": "https://github.com/stylelint/jest-preset-stylelint.git#add-support-for-replacement-text--persistent-hare-8293b2864c",
+    "jest-preset-stylelint": "github:stylelint/jest-preset-stylelint#add-support-for-replacement-text--persistent-hare-8293b2864c",
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "^15.2.11",
     "np": "^10.1.0",

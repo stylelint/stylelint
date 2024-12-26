@@ -150,7 +150,7 @@ declare namespace stylelint {
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		fixersData: { [ruleName: string]: Array<FixerData> };
-		fixedNodes: WeakSet<PostCSS.Node>;
+		fixedRanges: Array<{ start: PostCSS.Position; end: PostCSS.Position }>;
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
