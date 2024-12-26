@@ -112,7 +112,7 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
-		recordReplacementText?: boolean;
+		computeReplacementText?: boolean;
 		validate?: boolean;
 	};
 
@@ -168,6 +168,7 @@ declare namespace stylelint {
 		severity?: Severity;
 		url?: string;
 		rule?: string;
+		fix?: { range: Range; text: string };
 	};
 
 	/** @internal */
@@ -257,7 +258,6 @@ declare namespace stylelint {
 
 	type FixerData = {
 		range?: Range;
-		text?: string;
 	};
 
 	/**
@@ -666,6 +666,7 @@ declare namespace stylelint {
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
+		computeReplacementText?: boolean;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -728,6 +729,7 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
+		fix?: { range: Range; text: string };
 		rule: string;
 		severity: Severity;
 		text: string;
