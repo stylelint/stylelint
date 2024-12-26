@@ -40,3 +40,45 @@ a { overflow: auto; }
 ```css
 a { text-justify: inter-character; }
 ```
+
+## Optional secondary options
+
+### `ignoreValues: ["/regex/", /regex/, "string"]`
+
+Given:
+
+```json
+["ActiveBorder", "/caption/i"]
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: activeborder;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: activeBorder;
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: InactiveCaptionText;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: ActiveBorder;
+}
+```
