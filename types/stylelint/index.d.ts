@@ -112,6 +112,7 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
+		recordReplacementText?: boolean;
 		validate?: boolean;
 	};
 
@@ -149,6 +150,7 @@ declare namespace stylelint {
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		fixersData: { [ruleName: string]: Array<FixerData> };
+		fixedNodes: WeakSet<PostCSS.Node>;
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
@@ -255,7 +257,7 @@ declare namespace stylelint {
 
 	type FixerData = {
 		range?: Range;
-		fixed: boolean;
+		text?: string;
 	};
 
 	/**
@@ -851,7 +853,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		fix?: () => void | undefined | never;
+		fix?: () => PostCSS.Node | void | undefined | never;
 	};
 
 	/** @internal */
