@@ -1,4 +1,4 @@
-# declaration-property-value-no-deprecated
+# declaration-property-value-keyword-no-deprecated
 
 Disallow deprecated values for properties within declarations.
 

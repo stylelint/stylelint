@@ -18,7 +18,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`declaration-property-value-no-deprecated`](../../lib/rules/declaration-property-value-no-deprecated/README.md)<br/>Disallow deprecated values for properties within declarations. | | 🔧 |
+| [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated values for properties within declarations. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending

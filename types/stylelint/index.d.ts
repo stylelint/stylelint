@@ -405,7 +405,7 @@ declare namespace stylelint {
 		'declaration-property-value-disallowed-list': CoreRule<
 			Record<string, OneOrMany<StringOrRegex>>
 		>;
-		'declaration-property-value-no-deprecated': CoreRule<true>;
+		'declaration-property-value-keyword-no-deprecated': CoreRule<true>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
 			{

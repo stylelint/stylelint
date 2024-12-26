@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `declaration-property-value-no-deprecated` rule
+Added: `declaration-property-value-keyword-no-deprecated` rule
