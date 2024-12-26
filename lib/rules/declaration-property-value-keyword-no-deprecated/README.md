@@ -11,7 +11,7 @@ Disallow deprecated keywords for properties within declarations.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept `value` and `property` as arguments.
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) accept arguments.
 
 ## Options
 
@@ -43,7 +43,7 @@ a { text-justify: inter-character; }
 
 ## Optional secondary options
 
-### `ignoreValues: ["/regex/", /regex/, "string"]`
+### `ignoreKeywords: ["/regex/", /regex/, "string"]`
 
 Given:
 
@@ -51,34 +51,18 @@ Given:
 ["ActiveBorder", "/caption/i"]
 ```
 
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-a {
-  color: activeborder;
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  color: activeBorder;
-}
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a {
-  color: InactiveCaptionText;
+  color: ActiveBorder;
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  color: ActiveBorder;
+  color: InactiveCaptionText;
 }
 ```

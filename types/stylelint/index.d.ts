@@ -407,7 +407,7 @@ declare namespace stylelint {
 		>;
 		'declaration-property-value-keyword-no-deprecated': CoreRule<
 			true,
-			{ ignoreValues: OneOrMany<StringOrRegex> }
+			{ ignoreKeywords: OneOrMany<StringOrRegex> }
 		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
