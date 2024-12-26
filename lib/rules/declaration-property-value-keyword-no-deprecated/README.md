@@ -1,6 +1,6 @@
 # declaration-property-value-keyword-no-deprecated
 
-Disallow deprecated values for properties within declarations.
+Disallow deprecated keywords for properties within declarations.
 
 <!-- prettier-ignore -->
 ```css
@@ -11,7 +11,7 @@ Disallow deprecated values for properties within declarations.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept `value` and `property` as arguments.
 
 ## Options
 
