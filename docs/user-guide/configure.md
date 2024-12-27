@@ -28,6 +28,7 @@ export default {
 CommonJS example:
 
 ```js
+/** @type {import('stylelint').Config} */
 module.exports = {
   rules: {
     "block-no-empty": true
