@@ -168,7 +168,13 @@ declare namespace stylelint {
 		severity?: Severity;
 		url?: string;
 		rule?: string;
-		fix?: { range: Range; text: string };
+		fix?: {
+			range: {
+				start: PostCSS.Position;
+				end: PostCSS.Position;
+			};
+			text: string;
+		};
 	};
 
 	/** @internal */
@@ -729,7 +735,13 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
-		fix?: { range: Range; text: string };
+		fix?: {
+			range: {
+				start: PostCSS.Position;
+				end: PostCSS.Position;
+			};
+			text: string;
+		};
 		rule: string;
 		severity: Severity;
 		text: string;
@@ -855,7 +867,8 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		fix?: () => PostCSS.Node | void | undefined | never;
+		fix?: () => void | undefined | never;
+		fixedNode?: PostCSS.Node;
 	};
 
 	/** @internal */
