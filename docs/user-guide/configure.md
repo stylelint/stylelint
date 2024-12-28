@@ -23,7 +23,7 @@ export default {
 > - `.stylelintrc.js` file using `export default` or `module.exports`
 > - `.stylelintrc.mjs` file using `export default`
 > - `.stylelintrc.cjs` file using `module.exports`
-> - `.stylelintrc` file in YAML or JSON format.
+> - `.stylelintrc` file in YAML or JSON format
 > - `.stylelintrc.yml` or `.stylelintrc.yaml` file
 > - `.stylelintrc.json` file
 > - `stylelint` property in `package.json`
