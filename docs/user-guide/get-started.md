@@ -92,7 +92,7 @@ If you want to lint more than one language or container, you can use the [`overr
 For example, to lint CSS files and the CSS within Lit Elements you can update your configuration to:
 
 ```js
-/** @type {import('stylelint').Config} */
+/** @import { Config } from 'stylelint' */
 export default {
   extends: ["stylelint-config-standard"],
   overrides: [
