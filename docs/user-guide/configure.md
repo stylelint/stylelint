@@ -2,19 +2,9 @@
 
 Stylelint expects a configuration object.
 
-Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` (or `stylelint.config.mjs`, `stylelint.config.cjs`) file that exports one. Or, you can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) option to short-circuit the search.
+Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` file that exports one. You can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) options to short-circuit the search.
 
-> [!NOTE]
-> Stylelint currently supports other configuration formats, but we may remove these in the future:
->
-> - `.stylelintrc` file in JSON or YAML format.
-> - `.stylelintrc.json` file or `stylelint` property in `package.json`
-> - `.stylelintrc.yml` or `.stylelintrc.yaml` file
-> - `.stylelintrc.js` file using `export default` or `module.exports`
-> - `.stylelintrc.mjs` file using `export default`
-> - `stylelint.config.cjs` or `.stylelintrc.cjs` file using `module.exports`
->
-> For `.js` files, the module system depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js (e.g., `"type": "module"` in `package.json`).
+The style of export depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js, e.g., `"type": "module"` in your `package.json` file. You can use the `stylelint.config.mjs` or `stylelint.config.cjs` filename to be explicit.
 
 Example `stylelint.config.mjs` file:
 
@@ -26,6 +16,17 @@ export default {
   }
 };
 ```
+
+> [!NOTE]
+> Stylelint currently supports other configuration locations and formats, but we may remove these in the future:
+>
+> - `.stylelintrc.js` file using `export default` or `module.exports`
+> - `.stylelintrc.mjs` file using `export default`
+> - `.stylelintrc.cjs` file using `module.exports`
+> - `.stylelintrc` file in YAML or JSON format.
+> - `.stylelintrc.yml` or `.stylelintrc.yaml` file
+> - `.stylelintrc.json` file
+> - `stylelint` property in `package.json`
 
 The configuration object has the following properties:
 
