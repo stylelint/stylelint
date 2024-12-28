@@ -150,7 +150,7 @@ declare namespace stylelint {
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		fixersData: { [ruleName: string]: Array<FixerData> };
-		fixedRanges: Array<{ start: PostCSS.Position; end: PostCSS.Position }>;
+		fixedRanges: Array<[number, number]>;
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
@@ -169,10 +169,7 @@ declare namespace stylelint {
 		url?: string;
 		rule?: string;
 		fix?: {
-			range: {
-				start: PostCSS.Position;
-				end: PostCSS.Position;
-			};
+			range: [number, number];
 			text: string;
 		};
 	};
@@ -736,10 +733,7 @@ declare namespace stylelint {
 		 */
 		endColumn?: number;
 		fix?: {
-			range: {
-				start: PostCSS.Position;
-				end: PostCSS.Position;
-			};
+			range: [number, number];
 			text: string;
 		};
 		rule: string;
