@@ -1,17 +1,22 @@
 # Configuring
 
-Stylelint expects a configuration object, and looks for one in a:
+Stylelint expects a configuration object.
 
-- `stylelint.config.js` or `.stylelintrc.js` file
-  - Which module system to use depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js (e.g., `"type": "module"` in `package.json`).
-- `stylelint.config.mjs` or `.stylelintrc.mjs` file using `export default` (ES module)
-- `stylelint.config.cjs` or `.stylelintrc.cjs` file using `module.exports` (CommonJS)
-- `.stylelintrc.json`, `.stylelintrc.yml`, or `.stylelintrc.yaml` file
-- `.stylelintrc` file in JSON or YAML format
-  - We recommend adding an extension (e.g., `.json`) to help your editor provide syntax checking and highlighting.
-- `stylelint` property in `package.json`
+Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.{js,mjs}` file that exports one. Or, you can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) option to short-circuit the search.
 
-ES module example:
+> [!NOTE]
+> Stylelint currently supports other configuration formats, but we may remove these in the future:
+>
+> - `.stylelintrc` file in JSON or YAML format.
+> - `.stylelintrc.json` file or `stylelint` property in `package.json`
+> - `.stylelintrc.yml` or `.stylelintrc.yaml` file
+> - `.stylelintrc.js` file using `export default` or `module.exports`
+> - `.stylelintrc.mjs` file using `export default`
+> - `stylelint.config.cjs` or `.stylelintrc.cjs` file using `module.exports`
+>
+> For `.js` files, the module system depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js (e.g., `"type": "module"` in `package.json`).
+
+Example `stylelint.config.mjs` file:
 
 ```js
 /** @type {import('stylelint').Config} */
@@ -21,32 +26,6 @@ export default {
   }
 };
 ```
-
-> [!NOTE]
-> The `@type` JSDoc annotation enables Typescript to autocomplete and type-check.
-
-CommonJS example:
-
-```js
-/** @type {import('stylelint').Config} */
-module.exports = {
-  rules: {
-    "block-no-empty": true
-  }
-};
-```
-
-JSON example:
-
-```json
-{
-  "rules": {
-    "block-no-empty": true
-  }
-}
-```
-
-Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) option to short-circuit the search.
 
 The configuration object has the following properties:
 
