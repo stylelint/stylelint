@@ -41,7 +41,7 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
-/** @type {import('stylelint').Config} */
+/** @import { Config } from 'stylelint' */
 export default {
   extends: ["stylelint-config-standard"]
 };
@@ -70,7 +70,7 @@ npm install --save-dev stylelint stylelint-config-standard postcss-lit
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
-/** @type {import('stylelint').Config} */
+/** @import { Config } from 'stylelint' */
 export default {
   extends: "stylelint-config-standard",
   customSyntax: "postcss-lit"

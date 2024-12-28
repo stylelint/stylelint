@@ -19,7 +19,7 @@ Starting from the current working directory, Stylelint searches upwards until it
 Example `stylelint.config.mjs` file:
 
 ```js
-/** @type {import('stylelint').Config} */
+/** @import { Config } from 'stylelint' */
 export default {
   rules: {
     "block-no-empty": true
