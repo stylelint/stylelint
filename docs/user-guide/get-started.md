@@ -41,7 +41,7 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
-/** @import { Config } from 'stylelint' */
+/** @type {import('stylelint').Config} */
 export default {
   extends: ["stylelint-config-standard"]
 };
@@ -70,7 +70,7 @@ npm install --save-dev stylelint stylelint-config-standard postcss-lit
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
-/** @import { Config } from 'stylelint' */
+/** @type {import('stylelint').Config} */
 export default {
   extends: "stylelint-config-standard",
   customSyntax: "postcss-lit"
@@ -92,7 +92,7 @@ If you want to lint more than one language or container, you can use the [`overr
 For example, to lint CSS files and the CSS within Lit Elements you can update your configuration to:
 
 ```js
-/** @import { Config } from 'stylelint' */
+/** @type {import('stylelint').Config} */
 export default {
   extends: ["stylelint-config-standard"],
   overrides: [

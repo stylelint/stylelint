@@ -9,7 +9,7 @@ The style of export depends on your [default module system configuration](https:
 Example `stylelint.config.mjs` file:
 
 ```js
-/** @import { Config } from 'stylelint' */
+/** @type {import('stylelint').Config} */
 export default {
   rules: {
     "block-no-empty": true
