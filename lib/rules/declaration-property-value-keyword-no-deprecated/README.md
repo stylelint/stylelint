@@ -15,6 +15,7 @@ This rule flags keywords that were removed or deprecated after being in the CSS 
 - shipped by a developer channel/edition browser
 - shipped but behind experimental flags
 - polyfilled with some adoption before any browser actually shipped
+- had an MDN page at one point in time
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
