@@ -38,7 +38,7 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 npm install --save-dev stylelint stylelint-config-standard-scss
 ```
 
-2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
 
 ```js
 /** @type {import('stylelint').Config} */
