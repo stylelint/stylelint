@@ -2,7 +2,7 @@
 
 Stylelint expects a configuration object.
 
-Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.{js,mjs}` file that exports one. Or, you can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) option to short-circuit the search.
+Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` (or `stylelint.config.mjs`, `stylelint.config.cjs`) file that exports one. Or, you can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) option to short-circuit the search.
 
 > [!NOTE]
 > Stylelint currently supports other configuration formats, but we may remove these in the future:
