@@ -6,7 +6,7 @@ Starting from the current working directory, Stylelint searches upwards until it
 
 The style of export depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js, e.g., `"type": "module"` in your `package.json` file. You can use the `stylelint.config.mjs` or `stylelint.config.cjs` filename to be explicit.
 
-Example `stylelint.config.mjs` file:
+Example `stylelint.config.js` file:
 
 ```js
 /** @type {import('stylelint').Config} */

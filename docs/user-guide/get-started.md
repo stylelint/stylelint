@@ -67,7 +67,7 @@ For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 npm install --save-dev stylelint stylelint-config-standard postcss-lit
 ```
 
-2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
 
 ```js
 /** @type {import('stylelint').Config} */
