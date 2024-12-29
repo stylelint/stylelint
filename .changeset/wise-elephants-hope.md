@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Changed: `*-no-vendor-prefix` messages
+Fixed: `*-no-vendor-prefix` message ambiguity
