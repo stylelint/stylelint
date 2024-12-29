@@ -283,7 +283,7 @@ declare namespace stylelint {
 
 	type CoreRule<
 		P extends Primary,
-		S extends Secondary = object,
+		S extends Secondary = Secondary,
 		M extends Messages = Messages,
 	> = Rule<P, S, M>;
 
