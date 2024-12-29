@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Deprecated: ambiguous position arguments in `report`
+Deprecated: ambiguous position arguments in `utils.report()`
