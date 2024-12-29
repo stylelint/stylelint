@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Deprecate ambiguous position arugments in `report`
+Deprecate ambiguous position arguments in `report`
