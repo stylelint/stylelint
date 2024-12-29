@@ -581,7 +581,10 @@ declare namespace stylelint {
 			}
 		>;
 		'shorthand-property-no-redundant-values': CoreRule<true>;
-		'string-no-newline': CoreRule<true>;
+		'string-no-newline': CoreRule<
+			true,
+			{ ignore: OneOrMany<'at-rule-preludes' | 'declaration-values'> }
+		>;
 		'time-min-milliseconds': CoreRule<number, { ignore: OneOrMany<'delay'> }>;
 		'unit-allowed-list': CoreRule<
 			OneOrMany<string>,
