@@ -55,7 +55,6 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)<br/>Disallow unknown values for descriptors within at-rules. | | |
 | [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | ✅ | |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅ | 🔧 |
 | [`keyframe-declaration-no-important`](../../lib/rules/keyframe-declaration-no-important/README.md)<br/>Disallow invalid `!important` within keyframe declarations. | ✅ | |
@@ -125,6 +124,7 @@ Disallow unknown things with these `no-unknown` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md)<br/>Disallow unknown annotations. | ✅ | |
+| [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)<br/>Disallow unknown values for descriptors within at-rules. | | |
 | [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)<br/>Disallow unknown at-rules. | ✅ | |
 | [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)<br/>Disallow unknown values for properties within declarations. | | |
 | [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md)<br/>Disallow unknown functions. | ✅ | |
