@@ -11,6 +11,16 @@ We turn on most of the rules in our [standard config](https://www.npmjs.com/pack
 
 You can avoid errors with these `no` rules.
 
+### Deprecated
+
+Disallow deprecated things with these `no-deprecated` rules.
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | | |
+<!-- prettier-ignore-end -->
+
 ### Descending
 
 Disallow descending things with these `no-descending` rules.
