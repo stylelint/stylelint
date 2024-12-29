@@ -150,6 +150,7 @@ declare namespace stylelint {
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		fixersData: { [ruleName: string]: Array<FixerData> };
 		quiet?: boolean;
+		quietDeprecationWarnings?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
