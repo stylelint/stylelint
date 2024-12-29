@@ -38,12 +38,13 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 npm install --save-dev stylelint stylelint-config-standard-scss
 ```
 
-2\. Create a `.stylelintrc.json` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
 
-```json
-{
-  "extends": "stylelint-config-standard-scss"
-}
+```js
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ["stylelint-config-standard"]
+};
 ```
 
 3\. Run Stylelint on all the SCSS files in your project:
@@ -66,13 +67,14 @@ For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 npm install --save-dev stylelint stylelint-config-standard postcss-lit
 ```
 
-2\. Create a `.stylelintrc.json` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
 
-```json
-{
-  "extends": "stylelint-config-standard",
-  "customSyntax": "postcss-lit"
-}
+```js
+/** @type {import('stylelint').Config} */
+export default {
+  extends: "stylelint-config-standard",
+  customSyntax: "postcss-lit"
+};
 ```
 
 3\. Run Stylelint on all the JavaScript files in your project:
@@ -89,16 +91,17 @@ If you want to lint more than one language or container, you can use the [`overr
 
 For example, to lint CSS files and the CSS within Lit Elements you can update your configuration to:
 
-```json
-{
-  "extends": ["stylelint-config-standard"],
-  "overrides": [
+```js
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ["stylelint-config-standard"],
+  overrides: [
     {
-      "files": ["*.js"],
-      "customSyntax": "postcss-lit"
+      files: ["*.js"],
+      customSyntax: "postcss-lit"
     }
   ]
-}
+};
 ```
 
 And then run Stylelint on both your CSS and JavaScript files:
