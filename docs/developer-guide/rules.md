@@ -271,6 +271,7 @@ You should:
 - add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
 - use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
+- include a bulleted list of prior art in the expanded description
 - align the arrows within the prototypical code example with the beginning of the highlighted construct
 - align the text within the prototypical code example as far to the left as possible
 
@@ -302,6 +303,7 @@ You should:
 3. Change the rule's validation to allow for the new option.
 4. Add (as little as possible) logic to the rule to make the tests pass.
 5. Add documentation about the new option.
+6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts)
 
 ## Fix a bug in a rule
 
