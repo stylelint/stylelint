@@ -1,6 +1,6 @@
-# at-rule-descriptor-value-no-invalid
+# at-rule-descriptor-value-no-unknown
 
-Disallow invalid values for descriptors within at-rules.
+Disallow unknown values for descriptors within at-rules.
 
 <!-- prettier-ignore -->
 ```css
