@@ -87,7 +87,8 @@
   "prettier": "@stylelint/prettier-config",
   "remarkConfig": {
     "plugins": [
-      "@stylelint/remark-preset"
+      "@stylelint/remark-preset",
+      "./scripts/remark-plugins/lint-link-to-rule.mjs"
     ]
   },
   "jest": {
