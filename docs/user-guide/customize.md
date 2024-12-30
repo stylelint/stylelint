@@ -15,7 +15,7 @@ There's a lot you can do. For example, if you only want to allow:
 - `px` for borders
 - `rem` for paddings and gaps
 
-You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list) and [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list) rules:
+You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md) and [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list/README.md) rules:
 
 ```diff json
 {
@@ -30,7 +30,7 @@ You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list) and [`d
 }
 ```
 
-Or you can enforce the `hsl()` color notation using the [`color-named`](../../lib/rules/color-named), [`color-no-hex`](../../lib/rules/color-no-hex),[`function-disallowed-list`](../../lib/rules/function-disallowed-list) rules:
+Or you can enforce the `hsl()` color notation using the [`color-named`](../../lib/rules/color-named/README.md), [`color-no-hex`](../../lib/rules/color-no-hex/README.md),[`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md) rules:
 
 ```diff json
 {

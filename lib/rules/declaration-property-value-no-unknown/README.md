@@ -26,6 +26,10 @@ It sometimes overlaps with:
 
 If duplicate problems are flagged, you can turn off the corresponding rule.
 
+Prior art:
+
+- [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)
+
 ## Options
 
 ### `true`
