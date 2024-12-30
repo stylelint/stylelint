@@ -54,7 +54,8 @@ const ruleFunction = (primary, secondaryOptions, context) => {
         ruleName,
         message: messages.rejected(selector),
         node: ruleNode,
-        word: selector
+        index: 0,
+        endIndex: selector.length
       });
     });
   };

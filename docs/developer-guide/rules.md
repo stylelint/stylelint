@@ -212,6 +212,8 @@ function rule(primary, secondary) {
       ruleName,
       message,
       node,
+      index,
+      endIndex,
 +     fix
     });
   };
