@@ -145,7 +145,7 @@
     "globby": "^11.1.0",
     "globjoin": "^0.1.4",
     "html-tags": "^3.3.1",
-    "ignore": "^6.0.2",
+    "ignore": "^7.0.0",
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
     "known-css-properties": "^0.35.0",
