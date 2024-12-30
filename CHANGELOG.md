@@ -1330,7 +1330,7 @@ This release is accompanied by:
 
 Changes:
 
-- Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
+- Removed: the 21 rules deprecated in [`7.8.0`](https://github.com/stylelint/stylelint/releases/tag/7.8.0) & [`7.12.0`](https://github.com/stylelint/stylelint/releases/tag/7.12.0) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
   - `block-no-single-line`.
   - `custom-property-no-outside-root`
   - `declaration-block-no-ignored-properties`.
@@ -1352,7 +1352,7 @@ Changes:
   - `selector-root-no-composition`.
   - `stylelint-disable-reason`.
   - `time-no-imperceptible`.
-- Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
+- Removed: the 4 options deprecated in [`7.8.0`](https://github.com/stylelint/stylelint/releases/tag/7.8.0) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
   - `"all-nested"` option for `at-rule-empty-line-before`.
   - `"blockless-group"` option for `at-rule-empty-line-before`.
   - `"between-comments"` option for `comment-empty-line-before`.
