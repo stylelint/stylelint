@@ -17,7 +17,7 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
-This rule checks descriptors within at-rules. To check properties, you can use the [property-no-unknown](../property-no-unknown/README.md) rule.
+This rule checks descriptors within at-rules. To check properties, you can use the [`property-no-unknown`](../property-no-unknown/README.md) rule.
 
 Prior art:
 
