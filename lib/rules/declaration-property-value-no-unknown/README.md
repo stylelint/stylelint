@@ -15,8 +15,6 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as Sass or Less, as they have their own syntaxes.
 
-This rule is experimental with some false negatives that we'll patch in minor releases.
-
 It sometimes overlaps with:
 
 - [`color-no-invalid-hex`](../color-no-invalid-hex/README.md)
