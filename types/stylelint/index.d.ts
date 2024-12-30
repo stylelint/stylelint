@@ -848,6 +848,7 @@ declare namespace stylelint {
 		 */
 		end?: Position;
 		word?: string;
+		/** @deprecated */
 		line?: number;
 		/**
 		 * Optional severity override for the problem.
