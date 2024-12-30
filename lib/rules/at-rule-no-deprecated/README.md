@@ -4,7 +4,7 @@ Disallow deprecated at-rules.
 
 <!-- prettier-ignore -->
 ```css
-    @document url(http://www.w3.org/);
+    @viewport {}
 /** ↑
  * At-rules like this */
 ```
@@ -27,7 +27,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@document url("http://www.w3.org/")
+@viewport {}
 ```
 
 <!-- prettier-ignore -->
@@ -39,12 +39,12 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@namespace svg url('http://www.w3.org/2000/svg');
+@starting-style {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { @container (min-width: 20em) {} }
+a { @layer {} }
 ```
 
 ## Optional secondary options
@@ -54,14 +54,14 @@ a { @container (min-width: 20em) {} }
 Given:
 
 ```json
-["/^doc/", "apply"]
+["/^view/", "apply"]
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@document url("http://www.w3.org/")
+@viewport {}
 ```
 
 <!-- prettier-ignore -->
