@@ -56,7 +56,7 @@
 - Fixed: `selector-pseudo-element-no-unknown` reported ranges ([#8071](https://github.com/stylelint/stylelint/pull/8071)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `selector-type-no-unknown` reported ranges ([#8076](https://github.com/stylelint/stylelint/pull/8076)) ([@ryo-manba](https://github.com/ryo-manba)).
 
-## 16.10.0 - 2024-10-11
+## 16.10.0 - 2024-10-12
 
 - Changed: `shorthand-property-no-redundant-values` reported ranges ([#8008](https://github.com/stylelint/stylelint/pull/8008)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `formatter` configuration property ([#7826](https://github.com/stylelint/stylelint/pull/7826)) ([@emmacharp](https://github.com/emmacharp)).
@@ -77,7 +77,7 @@
 - Fixed: incorrect `config` option for Node.js API with `extends` and `overrides` ([#8030](https://github.com/stylelint/stylelint/pull/8030)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: stricter validation for the options of `declaration-property-max-values`, `declaration-property-value-no-unknown` and `number-max-precision` ([#7975](https://github.com/stylelint/stylelint/pull/7975)) ([@Mouvedia](https://github.com/Mouvedia)).
 
-## 16.9.0 - 2024-08-27
+## 16.9.0 - 2024-08-28
 
 - Changed: `secondaryOptions` argument type of the `Rule` function ([#7950](https://github.com/stylelint/stylelint/pull/7950)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `color-function-notation` reporting functions with less than 3 arguments ([#7948](https://github.com/stylelint/stylelint/pull/7948)) ([@Mouvedia](https://github.com/Mouvedia)).
@@ -193,7 +193,7 @@
 - Fixed: `selector-max-id` end positions ([#7571](https://github.com/stylelint/stylelint/pull/7571)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: import errors for configs and plugins omitting `/index.js` ([#7578](https://github.com/stylelint/stylelint/pull/7578)) ([@ota-meshi](https://github.com/ota-meshi)).
 
-## 16.3.0 - 2024-03-23
+## 16.3.0 - 2024-03-24
 
 - Added: `ignoreSelectors: []` to `selector-max-compound-selectors` ([#7544](https://github.com/stylelint/stylelint/pull/7544)) ([@FloEdelmann](https://github.com/FloEdelmann)).
 - Added: tally of fixable problems to `string` and `verbose` formatters ([#7539](https://github.com/stylelint/stylelint/pull/7539)) ([@m-allanson](https://github.com/m-allanson)).
@@ -214,7 +214,7 @@
 - Fixed: `validateOptions` to report when secondary option object is an empty object or null ([#7476](https://github.com/stylelint/stylelint/pull/7476)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: `report()` error message responsibility for a missing node or line number ([#7474](https://github.com/stylelint/stylelint/pull/7474)) ([@ybiquitous](https://github.com/ybiquitous)).
 
-## 16.2.0 - 2023-01-19
+## 16.2.0 - 2024-01-19
 
 - Added: `media-query-no-invalid` specific problem messages ([#7462](https://github.com/stylelint/stylelint/pull/7462)) ([@romainmenke](https://github.com/romainmenke)).
 - Added: `checkContextFunctionalPseudoClasses: []` to `selector-max-id` ([#7380](https://github.com/stylelint/stylelint/pull/7380)) ([@brigitamaria](https://github.com/brigitamaria)).
@@ -288,7 +288,7 @@
 - Fixed: `declaration-property-value-no-unknown` false negatives for nested declarations ([#7079](https://github.com/stylelint/stylelint/pull/7079)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `selector-pseudo-element-no-unknown` false positives for `view-transition` pseudo-elements ([#7070](https://github.com/stylelint/stylelint/pull/7070)) ([@danielroe](https://github.com/danielroe)).
 
-## 15.10.1 - 2023-07-05
+## 15.10.1 - 2023-07-06
 
 - Security: fix for `semver` vulnerability ([#7043](https://github.com/stylelint/stylelint/pull/7043)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: invalid option regression on Windows 10 ([#7043](https://github.com/stylelint/stylelint/pull/7043)) ([@romainmenke](https://github.com/romainmenke)).
@@ -318,7 +318,7 @@
 - Fixed: `selector-type-no-unknown` performance ([#7027](https://github.com/stylelint/stylelint/pull/7027)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `unit-disallowed-list` false negatives with percentages ([#7018](https://github.com/stylelint/stylelint/pull/7018)) ([@romainmenke](https://github.com/romainmenke)).
 
-## 15.9.0 - 2023-06-23
+## 15.9.0 - 2023-06-22
 
 - Added: `insideFunctions: {"function": int}` to `number-max-precision` ([#6932](https://github.com/stylelint/stylelint/pull/6932)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `border-radius` shorthand ([#6958](https://github.com/stylelint/stylelint/pull/6958)) ([@mattxwang](https://github.com/mattxwang)).
@@ -339,13 +339,13 @@
 - Fixed: `selector-anb-no-unmatchable` performance ([#6925](https://github.com/stylelint/stylelint/pull/6925)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: remove `v8-compile-cache` dependency ([#6907](https://github.com/stylelint/stylelint/pull/6907)) ([@ybiquitous](https://github.com/ybiquitous)).
 
-## 15.7.0 - 2023-06-05
+## 15.7.0 - 2023-06-06
 
 - Added: `splitList: boolean` to `selector-nested-pattern` ([#6896](https://github.com/stylelint/stylelint/pull/6896)) ([@is2ei](https://github.com/is2ei)).
 - Fixed: `unit-no-unknown` false positives for `unicode-range` descriptors ([#6892](https://github.com/stylelint/stylelint/pull/6892)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: segmentation fault errors for Cosmiconfig 8.2 ([#6902](https://github.com/stylelint/stylelint/pull/6902)) ([@romainmenke](https://github.com/romainmenke)).
 
-## 15.6.3 - 2023-06-03
+## 15.6.3 - 2023-06-02
 
 - Fixed: `alpha-value-notation` false positives for `color()` ([#6885](https://github.com/stylelint/stylelint/pull/6885)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `alpha-value-notation` performance with improved benchmark script ([#6864](https://github.com/stylelint/stylelint/pull/6864)) ([@romainmenke](https://github.com/romainmenke)).
@@ -369,7 +369,7 @@
 - Fixed: `github` formatter for missing final newline ([#6822](https://github.com/stylelint/stylelint/pull/6822)) ([@konomae](https://github.com/konomae)).
 - Fixed: `selector-pseudo-class-no-unknown` false positive for `:modal` ([#6811](https://github.com/stylelint/stylelint/pull/6811)) ([@Yasir761](https://github.com/Yasir761)).
 
-## 15.6.0 - 2023-04-22
+## 15.6.0 - 2023-04-23
 
 - Added: `allowEmptyInput`, `cache`, `fix` options to configuration object ([#6778](https://github.com/stylelint/stylelint/pull/6778)) ([@mattxwang](https://github.com/mattxwang)).
 - Added: `ignore: ["with-var-inside"]` to `color-function-notation` ([#6802](https://github.com/stylelint/stylelint/pull/6802)) ([@mattxwang](https://github.com/mattxwang)).
@@ -379,7 +379,7 @@
 - Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `grid-template` ([#6777](https://github.com/stylelint/stylelint/pull/6777)) ([@mattxwang](https://github.com/mattxwang)).
 - Fixed: `function-url-quotes` autofix for comments in SCSS function ([#6800](https://github.com/stylelint/stylelint/pull/6800)) ([@ybiquitous](https://github.com/ybiquitous)).
 
-## 15.5.0 - 2023-04-15
+## 15.5.0 - 2023-04-16
 
 - Added: `ignore: ["consecutive-duplicates-with-different-syntaxes"]` to `declaration-block-no-duplicate-properties` ([#6772](https://github.com/stylelint/stylelint/pull/6772)) ([@kimulaco](https://github.com/kimulaco)).
 - Added: `ignoreProperties: []` to `declaration-block-no-duplicate-custom-properties` ([#6773](https://github.com/stylelint/stylelint/pull/6773)) ([@mattxwang](https://github.com/mattxwang)).
@@ -481,7 +481,7 @@
 - Fixed: tally output of `string` formatter colorized ([#6443](https://github.com/stylelint/stylelint/pull/6443)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: usage of the `import-lazy` package to fit bundlers ([#6449](https://github.com/stylelint/stylelint/pull/6449)) ([@phoenisx](https://github.com/phoenisx)).
 
-## 14.14.1 - 2022-11-03
+## 14.14.1 - 2022-11-04
 
 - Fixed: `declaration-block-no-redundant-longhand-properties` false positives for `inherit` keyword ([#6419](https://github.com/stylelint/stylelint/pull/6419)) ([@kimulaco](https://github.com/kimulaco)).
 - Fixed: `shorthand-property-no-redundant-values` message to be consistent ([#6417](https://github.com/stylelint/stylelint/pull/6417)) ([@fpetrakov](https://github.com/fpetrakov)).
@@ -538,7 +538,7 @@
 - Fixed: `shorthand-property-no-redundant-values` message ([#6272](https://github.com/stylelint/stylelint/pull/6272)).
 - Fixed: `time-min-milliseconds` end positions ([#6273](https://github.com/stylelint/stylelint/pull/6273)).
 
-## 14.10.0 - 2022-08-10
+## 14.10.0 - 2022-08-11
 
 - Added: rule metadata to public `LinterResult` API ([#6166](https://github.com/stylelint/stylelint/pull/6166)).
 - Added: longhand sub-properties of shorthand properties reference data to public API ([#6168](https://github.com/stylelint/stylelint/pull/6168)).
@@ -578,7 +578,7 @@
 - Fixed: `unit-*` start and end positions ([#6169](https://github.com/stylelint/stylelint/pull/6169)).
 - Fixed: `value-no-vendor-prefix` end positions ([#6173](https://github.com/stylelint/stylelint/pull/6173)).
 
-## 14.9.1 - 2022-06-10
+## 14.9.1 - 2022-06-11
 
 - Fixed: `selector-max-specificity` false positives for `:nth-child` ([#6140](https://github.com/stylelint/stylelint/pull/6140)).
 
@@ -606,7 +606,7 @@
 - Fixed: `no-invalid-*` end positions ([#6072](https://github.com/stylelint/stylelint/pull/6072)).
 - Fixed: `no-invalid-position-at-import-rule` false positives for `@layer` ([#6094](https://github.com/stylelint/stylelint/pull/6094)).
 
-## 14.8.2 - 2022-05-03
+## 14.8.2 - 2022-05-04
 
 - Fixed: `function-calc-no-unspaced-operator` false positives for non-standard variables ([#6053](https://github.com/stylelint/stylelint/pull/6053)).
 - Fixed: `selector-*-no-unknown` end positions ([#6046](https://github.com/stylelint/stylelint/pull/6046)).
@@ -1238,7 +1238,7 @@
 - Added: `ignore: ["first-nested"]` to `rule-empty-line-before` ([#3179](https://github.com/stylelint/stylelint/pull/3179)).
 - Fixed: unnecessary Open Collective postinstall message ([#3180](https://github.com/stylelint/stylelint/pull/3180)).
 
-## 9.0.0 - 2018-02-08
+## 9.0.0 - 2018-02-18
 
 - Removed: Node.js 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
 - Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
@@ -2109,7 +2109,7 @@ Changes:
 
 - Fixed: `selector-no-vendor-prefix` now handles custom-property-sets.
 
-## 3.2.2 - 2016-01-09
+## 3.2.2 - 2016-01-10
 
 - Fixed: `selector-no-type` ignores `nth-child` pseudo-classes and `@keyframes` selectors.
 
