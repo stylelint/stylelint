@@ -110,10 +110,10 @@ There are significant benefits to using these parsers instead of regular express
 
 Stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/main/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
 
-Use the:
+Always use the:
 
 - `validateOptions()` utility to warn users about invalid options
-- `isStandardSyntax*` utilities to ignore non-standard syntax
+- `isStandardSyntax*` utilities before checking a node or string to ignore non-standard syntax
 
 ### Add options
 
@@ -271,6 +271,7 @@ You should:
 - add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
 - use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
+- include a bulleted list of prior art in the expanded description
 - align the arrows within the prototypical code example with the beginning of the highlighted construct
 - align the text within the prototypical code example as far to the left as possible
 

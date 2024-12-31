@@ -5,9 +5,9 @@ Disallow invalid newlines within strings.
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first
-    second"; }/* ↑
- *               ↑
+  content: "foo
+    bar"; }/*  ↑
+ *             ↑
  * The newline here */
 ```
 
@@ -22,8 +22,8 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first
-    second";
+  content: "foo
+    bar";
 }
 ```
 
@@ -47,14 +47,14 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first\Asecond";
+  content: "foo\Abar";
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  content: "first\\nsecond";
+  content: "foo\\nbar";
 }
 ```
 
@@ -68,5 +68,35 @@ a {
 ```css
 a {
   font-family: "Times New Roman";
+}
+```
+
+## Optional secondary options
+
+### `ignore: ["at-rule-preludes", "declaration-values"]`
+
+#### `"at-rule-preludes"`
+
+Ignore strings in at-rule preludes.
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@import url('foo
+.css');
+```
+
+#### `"declaration-values"`
+
+Ignore strings in declaration values.
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  content: "foo
+    bar";
 }
 ```
