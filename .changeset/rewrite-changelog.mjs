@@ -49,8 +49,7 @@ for (const line of currentLines) {
 	if (line.startsWith('## ')) {
 		if (!latestVersion) {
 			latestVersion = line.replace('## ', '');
-			// Add today's date to the latest version
-			newLines.push(`## ${latestVersion} - ${formattedDate}`);
+			newLines.push(`## ${latestVersion} - ${today}`);
 			continue;
 		} else {
 			entries.sort(byPrefixOrder);
