@@ -41,8 +41,7 @@ let stoppedIndex = -1;
 let subHeader = false;
 
 // Get today's date in YYYY-MM-DD format
-const today = new Date();
-const formattedDate = today.toISOString().split('T')[0];
+const today = new Date().toISOString().split('T')[0];
 
 for (const line of currentLines) {
 	stoppedIndex++;
