@@ -36,7 +36,6 @@ a { text-rendering: optimizeLegibility; }
 ```css
 a {
   animation: my-animation 2s;
-  color: red;
 }
 ```
 
