@@ -19,6 +19,11 @@ This rule flags at-rules that were removed or deprecated after being in the CSS 
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) accept arguments.
 
+Prior art:
+
+- [@csstools/stylelint-no-at-nest-rule](https://www.npmjs.com/package/@csstools/stylelint-no-at-nest-rule)
+- [@isnotdefined/no-obsolete](https://www.npmjs.com/package/@isnotdefined/stylelint-plugin)
+
 ## Options
 
 ### `true`
