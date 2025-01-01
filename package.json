@@ -120,6 +120,9 @@
     "setupFiles": [
       "<rootDir>/jest.setup.mjs"
     ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setupAfterEnv.mjs"
+    ],
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$|system-tests/.*\\.test\\.cjs$",
     "watchPlugins": [
