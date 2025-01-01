@@ -18,7 +18,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | | |
+| [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
