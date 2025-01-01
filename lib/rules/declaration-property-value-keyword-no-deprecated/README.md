@@ -21,6 +21,10 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) accept arguments.
 
+Prior art:
+
+- [@isnotdefined/no-obsolete](https://www.npmjs.com/package/@isnotdefined/stylelint-plugin)
+
 ## Options
 
 ### `true`
