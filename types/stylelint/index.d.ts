@@ -151,6 +151,7 @@ declare namespace stylelint {
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		fixersData: { [ruleName: string]: Array<FixerData> };
 		quiet?: boolean;
+		quietDeprecationWarnings?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
@@ -877,6 +878,7 @@ declare namespace stylelint {
 		 */
 		end?: Position;
 		word?: string;
+		/** @deprecated */
 		line?: number;
 		/**
 		 * Optional severity override for the problem.
