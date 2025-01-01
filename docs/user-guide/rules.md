@@ -11,6 +11,16 @@ We turn on most of the rules in our [standard config](https://www.npmjs.com/pack
 
 You can avoid errors with these `no` rules.
 
+### Deprecated
+
+Disallow deprecated things with these `no-deprecated` rules.
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | | 🔧 |
+<!-- prettier-ignore-end -->
+
 ### Descending
 
 Disallow descending things with these `no-descending` rules.
