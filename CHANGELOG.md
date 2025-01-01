@@ -56,7 +56,7 @@
 - Fixed: `selector-pseudo-element-no-unknown` reported ranges ([#8071](https://github.com/stylelint/stylelint/pull/8071)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `selector-type-no-unknown` reported ranges ([#8076](https://github.com/stylelint/stylelint/pull/8076)) ([@ryo-manba](https://github.com/ryo-manba)).
 
-## 16.10.0 - 2024-10-12
+## 16.10.0 - 2024-10-11
 
 - Changed: `shorthand-property-no-redundant-values` reported ranges ([#8008](https://github.com/stylelint/stylelint/pull/8008)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `formatter` configuration property ([#7826](https://github.com/stylelint/stylelint/pull/7826)) ([@emmacharp](https://github.com/emmacharp)).
@@ -318,7 +318,7 @@
 - Fixed: `selector-type-no-unknown` performance ([#7027](https://github.com/stylelint/stylelint/pull/7027)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `unit-disallowed-list` false negatives with percentages ([#7018](https://github.com/stylelint/stylelint/pull/7018)) ([@romainmenke](https://github.com/romainmenke)).
 
-## 15.9.0 - 2023-06-22
+## 15.9.0 - 2023-06-23
 
 - Added: `insideFunctions: {"function": int}` to `number-max-precision` ([#6932](https://github.com/stylelint/stylelint/pull/6932)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `border-radius` shorthand ([#6958](https://github.com/stylelint/stylelint/pull/6958)) ([@mattxwang](https://github.com/mattxwang)).
@@ -339,13 +339,13 @@
 - Fixed: `selector-anb-no-unmatchable` performance ([#6925](https://github.com/stylelint/stylelint/pull/6925)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: remove `v8-compile-cache` dependency ([#6907](https://github.com/stylelint/stylelint/pull/6907)) ([@ybiquitous](https://github.com/ybiquitous)).
 
-## 15.7.0 - 2023-06-06
+## 15.7.0 - 2023-06-05
 
 - Added: `splitList: boolean` to `selector-nested-pattern` ([#6896](https://github.com/stylelint/stylelint/pull/6896)) ([@is2ei](https://github.com/is2ei)).
 - Fixed: `unit-no-unknown` false positives for `unicode-range` descriptors ([#6892](https://github.com/stylelint/stylelint/pull/6892)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: segmentation fault errors for Cosmiconfig 8.2 ([#6902](https://github.com/stylelint/stylelint/pull/6902)) ([@romainmenke](https://github.com/romainmenke)).
 
-## 15.6.3 - 2023-06-02
+## 15.6.3 - 2023-06-03
 
 - Fixed: `alpha-value-notation` false positives for `color()` ([#6885](https://github.com/stylelint/stylelint/pull/6885)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `alpha-value-notation` performance with improved benchmark script ([#6864](https://github.com/stylelint/stylelint/pull/6864)) ([@romainmenke](https://github.com/romainmenke)).
@@ -390,7 +390,7 @@
 - Fixed: `media-feature-range-notation` parse error ([#6760](https://github.com/stylelint/stylelint/pull/6760)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Fixed: CLI help improvements ([#6783](https://github.com/stylelint/stylelint/pull/6783)) ([@ybiquitous](https://github.com/ybiquitous)).
 
-## 15.4.0 - 2023-03-31
+## 15.4.0 - 2023-04-01
 
 - Added: `--quiet-deprecation-warnings` flag ([#6724](https://github.com/stylelint/stylelint/pull/6724)) ([@mattxwang](https://github.com/mattxwang)).
 - Added: `-c` alias for `--config` ([#6720](https://github.com/stylelint/stylelint/pull/6720)) ([@sidverma32](https://github.com/sidverma32)).
@@ -481,7 +481,7 @@
 - Fixed: tally output of `string` formatter colorized ([#6443](https://github.com/stylelint/stylelint/pull/6443)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Fixed: usage of the `import-lazy` package to fit bundlers ([#6449](https://github.com/stylelint/stylelint/pull/6449)) ([@phoenisx](https://github.com/phoenisx)).
 
-## 14.14.1 - 2022-11-04
+## 14.14.1 - 2022-11-03
 
 - Fixed: `declaration-block-no-redundant-longhand-properties` false positives for `inherit` keyword ([#6419](https://github.com/stylelint/stylelint/pull/6419)) ([@kimulaco](https://github.com/kimulaco)).
 - Fixed: `shorthand-property-no-redundant-values` message to be consistent ([#6417](https://github.com/stylelint/stylelint/pull/6417)) ([@fpetrakov](https://github.com/fpetrakov)).
@@ -931,7 +931,7 @@
 - Fixed: `selector-pseudo-element-no-unknown` false positives for `::part` pseudo-element ([#4604](https://github.com/stylelint/stylelint/pull/4604)).
 - Fixed: `value-keyword-case` false positives for longhand `grid-column/row-*` properties ([#4611](https://github.com/stylelint/stylelint/pull/4611)).
 
-## 13.2.0 - 2020-02-13
+## 13.2.0 - 2020-02-14
 
 - Security: updated to `postcss-selector-parser@6` due to a vulnerability in one of `postcss-selector-parser@3` dependencies ([#4595](https://github.com/stylelint/stylelint/pull/4595)). Due to this update:
   - `selector-descendant-combinator-no-non-space` will ignore selectors containing comments
@@ -1533,7 +1533,7 @@ Changes:
 - Fixed: `no-descending-specificity` now ignores custom property sets.
 - Fixed: `value-keyword-case` false positives for some camel-case SVG keywords.
 
-## 7.4.2 - 2016-10-09
+## 7.4.2 - 2016-10-10
 
 - Fixed: regression where using `null` to turn off a rule caused errors.
 
@@ -1865,7 +1865,7 @@ Changes:
 - Fixed: parsing problems when using `///`-SassDoc-style comments.
 - Fixed: `max-empty-lines` places warning at the end of the violating newlines to avoid positioning confusions.
 
-## 6.0.3 - 2016-04-20
+## 6.0.3 - 2016-04-21
 
 - Fixed: CRLF (`\r\n`) warning positioning in `max-empty-lines` and `function-max-empty-lines`.
 
@@ -1896,14 +1896,14 @@ Changes:
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
 - Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
 
-## 5.4.0 - 2016-04-08
+## 5.4.0 - 2016-04-09
 
 - Added: `unit-no-unknown` rule.
 - Fixed: `no-descending-specificity` no longer gets confused when the last part of a selector is a compound selector.
 - Fixed: regression causing `indentation` to complain about Sass maps.
 - Fixed: `declaration-block-no-ignored-properties` now ignore `clear` for `position: absolute` and `position: relative` and does not ignore `float` on `display: table-*`.
 
-## 5.3.0 - 2016-04-06
+## 5.3.0 - 2016-04-07
 
 - Added: (experimental) support for [Less](http://lesscss.org/) syntax.
 - Added: support for [SugarSS](https://github.com/postcss/sugarss) syntax.
@@ -1931,7 +1931,7 @@ Changes:
 - Fixed: `no-descending-specificity` no longer delivers false positives after second run in Atom linter.
 - Fixed: `stylelint-disable-rule` imported correctly.
 
-## 5.2.0 - 2016-03-24
+## 5.2.0 - 2016-03-25
 
 - Added: `at-rule-semicolon-newline-after` rule.
 - Added: `no-indistinguishable-colors` rule.
@@ -1946,7 +1946,7 @@ Changes:
 - Fixed: `root-no-standard-properties` no longer delivers false positives inside the `:not()` pseudo-selector.
 - Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
 
-## 5.1.0 - 2016-03-17
+## 5.1.0 - 2016-03-18
 
 - Added: `selector-type-case` rule.
 - Fixed: no more subtle configuration bug when using extends and plugins together in tangled ways.
@@ -1955,7 +1955,7 @@ Changes:
 
 - Fixed: `string-no-newline` no longer stumbles when there are comment-starting characters inside strings.
 
-## 5.0.0 - 2016-03-10
+## 5.0.0 - 2016-03-11
 
 - Removed: `no-indistinguishable-colors` because its dependencies were unusable in Atom. (To be re-evaluated and re-added later.)
 - Removed: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
@@ -2037,7 +2037,7 @@ Changes:
 
 - Fixed: removed `console.log()`s in `rule-properties-order`.
 
-## 4.3.4 - 2016-02-16
+## 4.3.4 - 2016-02-17
 
 - Fixed: option normalization for rules with primary options that are arrays of objects, like `rule-properties-order`.
 - Fixed: accuracy of warning positions are `//` comments when using SCSS parser.
@@ -2048,7 +2048,7 @@ Changes:
 - Fixed: `media-feature-no-missing-punctuation` handles space-padded media features.
 - Fixed: regression causing CLI `--config` relatives paths that don't start with `./` to be rejected.
 
-## 4.3.3 - 2016-02-13
+## 4.3.3 - 2016-02-14
 
 - Fixed: again removed `stylelint.utils.ruleTester` because its dependencies broke things.
 
@@ -2086,7 +2086,7 @@ Changes:
 - Fixed: `ignoreFiles` handling of absolute paths.
 - Fixed: `ignoreFiles` uses the `configBasedir` option to interpret relative paths.
 
-## 4.2.0 - 2016-01-31
+## 4.2.0 - 2016-02-01
 
 - Added: support for custom messages with a `message` secondary property on any rule.
 - Fixed: CLI always ignores contents of `node_modules` and `bower_components` directories.
@@ -2172,7 +2172,7 @@ Changes:
 - Fixed: `comment-whitespace-inside` now ignores copyright (`/*!`) and sourcemap (`/*#`) comments.
 - Fixed: `rule-no-duplicate-properties` now ignores the `src` property.
 
-## 2.3.7 - 2015-12-09
+## 2.3.7 - 2015-12-10
 
 - Fixed: `function-calc-no-unspaced-operator` ignores characters in `$sass` and `@less` variables.
 - Fixed: `rule-properties-order` allows comments at the top of groups that expect newlines before them.
