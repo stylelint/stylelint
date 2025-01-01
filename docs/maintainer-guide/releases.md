@@ -10,7 +10,7 @@
    2. [stylelint/stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
    3. [stylelint/stylelint.io](https://github.com/stylelint/stylelint.io)
 5. Release Stylelint:
-   1. Ensure `CHANGELOG.md` has the correct date for the latest release.
+   1. Ensure `CHANGELOG.md` has the correct date (UTC) for the latest release.
    2. If necessary, reorder the changelog entries in the "Prepare x.y.z" pull request so that the widest-reaching changes come first.
    3. Merge the "Prepare x.y.z" pull request.
    4. Open a terminal window in the `stylelint` repository.
