@@ -17,6 +17,8 @@ This rule flags at-rules that were removed or deprecated after being in the CSS 
 - polyfilled with some adoption before any browser actually shipped
 - had an MDN page at one point in time
 
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
+
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) accept arguments.
 
 Prior art:
