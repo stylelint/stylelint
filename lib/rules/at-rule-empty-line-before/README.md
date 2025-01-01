@@ -14,7 +14,8 @@ a {}
 This rule ignores:
 
 - at-rules that are the very first node in the source
-- `@import` in Less.
+- the `@charset` rule
+- `@import` in Less
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
@@ -90,8 +91,6 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@charset "UTF-8";
-
 @import url(x.css);
 @import url(y.css);
 
@@ -163,18 +162,18 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@charset "UTF-8";
-
 @import url(x.css);
 @import url(y.css);
+
+@namespace svg url('http://www.w3.org/2000/svg');
 ```
 
 <!-- prettier-ignore -->
 ```css
-@charset "UTF-8";
-
 @import url(x.css); /* comment */
 @import url(y.css);
+
+@namespace svg url('http://www.w3.org/2000/svg');
 ```
 
 <!-- prettier-ignore -->
@@ -357,10 +356,10 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 
-@charset "UTF-8";
-
 @import url(x.css);
 @import url(y.css);
+
+@namespace svg url('http://www.w3.org/2000/svg');
 ```
 
 <!-- prettier-ignore -->
@@ -409,13 +408,13 @@ For example, with `"always"`.
 Given:
 
 ```json
-["import"]
+["namespace"]
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@charset "UTF-8";
-@import {}
+@import "foo.css";
+@namespace svg url('http://www.w3.org/2000/svg');
 ```
