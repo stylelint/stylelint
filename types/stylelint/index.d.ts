@@ -23,6 +23,7 @@ type DisableSettings = stylelint.ConfigRuleSettings<boolean, stylelint.DisableOp
 
 // A meta-type that returns a union over all properties of `T` whose values
 // have type `U`.
+// see sindresorhus/type-fest#630
 type PropertyNamesOfType<T, U> = {
 	[K in keyof T]-?: T[K] extends U ? K : never;
 }[keyof T];
@@ -150,6 +151,7 @@ declare namespace stylelint {
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		fixersData: { [ruleName: string]: Array<FixerData> };
 		quiet?: boolean;
+		quietDeprecationWarnings?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
@@ -261,9 +263,9 @@ declare namespace stylelint {
 	/**
 	 * A rule.
 	 */
-	export type Rule<P = any, S = any> = RuleBase<P, S> & {
+	export type Rule<P = any, S = any, M = RuleMessages> = RuleBase<P, S> & {
 		ruleName: string;
-		messages: RuleMessages;
+		messages: M;
 		primaryOptionArray?: boolean;
 		meta?: RuleMeta;
 	};
@@ -272,16 +274,31 @@ declare namespace stylelint {
 	type OneOrMany<S> = S | S[];
 	type Primary = number | true | OneOrMany<StringOrRegex> | Record<string, any>;
 	type Secondary = Record<string, any>;
-	type CoreRule<P extends Primary, S extends Secondary = any> = Rule<P, S>;
+
+	// see sindresorhus/type-fest#821
+	type Messages = {
+		[key in `expected${string}` | `rejected${string}`]: RuleMessage;
+	};
+
+	type AutofixMessage = { expected: (actual: string, expected: string) => string };
+
+	type CoreRule<
+		P extends Primary,
+		S extends Secondary = Secondary,
+		M extends Messages = Messages,
+	> = Rule<P, S, M>;
 
 	/** @internal */
 	export type CoreRules = {
 		'alpha-value-notation': CoreRule<
 			'number' | 'percentage',
-			{ exceptProperties: OneOrMany<StringOrRegex> }
+			{ exceptProperties: OneOrMany<StringOrRegex> },
+			AutofixMessage
 		>;
 		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
 		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
+		'at-rule-descriptor-no-unknown': CoreRule<true>;
+		'at-rule-descriptor-value-no-unknown': CoreRule<true>;
 		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
@@ -312,10 +329,14 @@ declare namespace stylelint {
 			{ ignore: OneOrMany<'with-var-inside'> }
 		>;
 		'color-hex-alpha': CoreRule<'always' | 'never'>;
-		'color-hex-length': CoreRule<'short' | 'long'>;
+		'color-hex-length': CoreRule<'short' | 'long', {}, AutofixMessage>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> }
+			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> },
+			{
+				expected: (expected: string, actual: string) => string;
+				rejected: (keyword: string) => string;
+			}
 		>;
 		'color-no-hex': CoreRule<true>;
 		'color-no-invalid-hex': CoreRule<true>;
@@ -386,6 +407,11 @@ declare namespace stylelint {
 		'declaration-property-value-disallowed-list': CoreRule<
 			Record<string, OneOrMany<StringOrRegex>>
 		>;
+		'declaration-property-value-keyword-no-deprecated': CoreRule<
+			true,
+			{ ignoreKeywords: OneOrMany<StringOrRegex> },
+			AutofixMessage & { rejected: (property: string, keyword: string) => string }
+		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
 			{
@@ -415,19 +441,22 @@ declare namespace stylelint {
 		'function-linear-gradient-no-nonstandard-direction': CoreRule<true>;
 		'function-name-case': CoreRule<
 			'lower' | 'upper',
-			{ ignoreFunctions: OneOrMany<StringOrRegex> }
+			{ ignoreFunctions: OneOrMany<StringOrRegex> },
+			AutofixMessage
 		>;
 		'function-no-unknown': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
 		'function-url-no-scheme-relative': CoreRule<true>;
 		'function-url-quotes': CoreRule<'always' | 'never', { except: OneOrMany<'empty'> }>;
 		'function-url-scheme-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'function-url-scheme-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'hue-degree-notation': CoreRule<'angle' | 'number'>;
-		'import-notation': CoreRule<'string' | 'url'>;
+		'hue-degree-notation': CoreRule<'angle' | 'number', {}, AutofixMessage>;
+		'import-notation': CoreRule<'string' | 'url', {}, AutofixMessage>;
 		'keyframe-block-no-duplicate-selectors': CoreRule<true>;
 		'keyframe-declaration-no-important': CoreRule<true>;
 		'keyframe-selector-notation': CoreRule<
-			'keyword' | 'percentage' | 'percentage-unless-within-keyword-only-block'
+			'keyword' | 'percentage' | 'percentage-unless-within-keyword-only-block',
+			{},
+			AutofixMessage
 		>;
 		'keyframes-name-pattern': CoreRule<StringOrRegex>;
 		'length-zero-no-unit': CoreRule<
@@ -437,7 +466,7 @@ declare namespace stylelint {
 				ignoreFunctions: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'lightness-notation': CoreRule<'percentage' | 'number'>;
+		'lightness-notation': CoreRule<'percentage' | 'number', {}, AutofixMessage>;
 		'max-nesting-depth': CoreRule<
 			number,
 			{
@@ -479,7 +508,8 @@ declare namespace stylelint {
 				ignoreProperties: OneOrMany<StringOrRegex>;
 				ignoreUnits: OneOrMany<StringOrRegex>;
 				insideFunctions: Record<string, number>;
-			}
+			},
+			AutofixMessage
 		>;
 		'property-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'property-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
@@ -571,7 +601,11 @@ declare namespace stylelint {
 			true,
 			{ ignorePseudoElements: OneOrMany<StringOrRegex> }
 		>;
-		'selector-type-case': CoreRule<'lower' | 'upper', { ignoreTypes: OneOrMany<StringOrRegex> }>;
+		'selector-type-case': CoreRule<
+			'lower' | 'upper',
+			{ ignoreTypes: OneOrMany<StringOrRegex> },
+			AutofixMessage
+		>;
 		'selector-type-no-unknown': CoreRule<
 			true,
 			{
@@ -580,8 +614,11 @@ declare namespace stylelint {
 				ignoreTypes: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'shorthand-property-no-redundant-values': CoreRule<true>;
-		'string-no-newline': CoreRule<true>;
+		'shorthand-property-no-redundant-values': CoreRule<true, {}, AutofixMessage>;
+		'string-no-newline': CoreRule<
+			true,
+			{ ignore: OneOrMany<'at-rule-preludes' | 'declaration-values'> }
+		>;
 		'time-min-milliseconds': CoreRule<number, { ignore: OneOrMany<'delay'> }>;
 		'unit-allowed-list': CoreRule<
 			OneOrMany<string>,
@@ -612,7 +649,8 @@ declare namespace stylelint {
 				ignoreKeywords: OneOrMany<StringOrRegex>;
 				ignoreFunctions: OneOrMany<StringOrRegex>;
 				camelCaseSvgKeywords: boolean;
-			}
+			},
+			AutofixMessage
 		>;
 		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: OneOrMany<StringOrRegex> }>;
 	};
@@ -846,6 +884,7 @@ declare namespace stylelint {
 		 */
 		end?: Position;
 		word?: string;
+		/** @deprecated */
 		line?: number;
 		/**
 		 * Optional severity override for the problem.

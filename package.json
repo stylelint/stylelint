@@ -87,7 +87,8 @@
   "prettier": "@stylelint/prettier-config",
   "remarkConfig": {
     "plugins": [
-      "@stylelint/remark-preset"
+      "@stylelint/remark-preset",
+      "./scripts/remark-plugins/lint-link-to-rule.mjs"
     ]
   },
   "jest": {
@@ -119,6 +120,9 @@
     "setupFiles": [
       "<rootDir>/jest.setup.mjs"
     ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setupAfterEnv.mjs"
+    ],
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$|system-tests/.*\\.test\\.cjs$",
     "watchPlugins": [
@@ -140,12 +144,12 @@
     "debug": "^4.3.7",
     "fast-glob": "^3.3.2",
     "fastest-levenshtein": "^1.0.16",
-    "file-entry-cache": "^9.1.0",
+    "file-entry-cache": "^10.0.5",
     "global-modules": "^2.0.0",
     "globby": "^11.1.0",
     "globjoin": "^0.1.4",
     "html-tags": "^3.3.1",
-    "ignore": "^6.0.2",
+    "ignore": "^7.0.0",
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
     "known-css-properties": "^0.35.0",
@@ -173,7 +177,7 @@
     "@stylelint/prettier-config": "^3.0.0",
     "@stylelint/remark-preset": "^5.1.1",
     "@types/balanced-match": "^1.0.4",
-    "@types/css-tree": "^2.3.9",
+    "@types/css-tree": "^2.3.10",
     "@types/debug": "^4.1.12",
     "@types/file-entry-cache": "^5.0.4",
     "@types/global-modules": "^2.0.2",
@@ -208,7 +212,7 @@
     "postcss-scss": "^4.0.9",
     "prettier": "^3.4.2",
     "remark-cli": "^12.0.1",
-    "rollup": "^4.28.1",
+    "rollup": "^4.29.1",
     "sugarss": "^5.0.0",
     "typescript": "^5.7.2"
   },

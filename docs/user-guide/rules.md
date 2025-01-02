@@ -11,6 +11,16 @@ We turn on most of the rules in our [standard config](https://www.npmjs.com/pack
 
 You can avoid errors with these `no` rules.
 
+### Deprecated
+
+Disallow deprecated things with these `no-deprecated` rules.
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | | 🔧 |
+<!-- prettier-ignore-end -->
+
 ### Descending
 
 Disallow descending things with these `no-descending` rules.
@@ -124,7 +134,9 @@ Disallow unknown things with these `no-unknown` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md)<br/>Disallow unknown annotations. | ✅ | |
+| [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)<br/>Disallow unknown values for descriptors within at-rules. | | |
 | [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)<br/>Disallow unknown at-rules. | ✅ | |
+| [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)<br/>Disallow unknown at-rule descriptors. | | |
 | [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)<br/>Disallow unknown values for properties within declarations. | | |
 | [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md)<br/>Disallow unknown functions. | ✅ | |
 | [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md)<br/>Disallow unknown media feature names. | ✅ | |
