@@ -303,6 +303,7 @@ declare namespace stylelint {
 		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
 		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-descriptor-no-unknown': CoreRule<true>;
+		'at-rule-descriptor-value-no-unknown': CoreRule<true>;
 		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
@@ -410,6 +411,11 @@ declare namespace stylelint {
 		'declaration-property-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'declaration-property-value-disallowed-list': CoreRule<
 			Record<string, OneOrMany<StringOrRegex>>
+		>;
+		'declaration-property-value-keyword-no-deprecated': CoreRule<
+			true,
+			{ ignoreKeywords: OneOrMany<StringOrRegex> },
+			AutofixMessage & { rejected: (property: string, keyword: string) => string }
 		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
