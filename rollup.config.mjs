@@ -66,7 +66,7 @@ function addWarningForCommonJS() {
 					'	// [INSERT HERE] CommonJS deprecation code',
 					`
 	if (!options.quietDeprecationWarnings) {
-		const emitDeprecationWarning = require('./utils/emitDeprecationWarning.cjs');
+		const emitDeprecationWarning = require('./utils/emitDeprecationWarning.cjs').default;
 		emitDeprecationWarning(
 			'The CommonJS Node.js API is deprecated.',
 			'COMMONJS_NODEJS_API',
