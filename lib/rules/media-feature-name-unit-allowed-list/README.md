@@ -9,6 +9,8 @@ Specify a list of allowed name and unit pairs within media features.
  * This media feature name and these units */
 ```
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `object`: `{ "name": ["array", "of", "units"]|"unit" }`
