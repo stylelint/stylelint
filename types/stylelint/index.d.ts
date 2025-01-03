@@ -149,7 +149,7 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
-		fixersData: { [ruleName: string]: Array<FixerData> };
+		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
 		disabledRanges: DisabledRangeObject;
@@ -253,10 +253,6 @@ declare namespace stylelint {
 	export type Range = {
 		start: Position;
 		end: Position;
-	};
-
-	type FixerData = {
-		range?: Range;
 	};
 
 	/**
