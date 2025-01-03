@@ -18,6 +18,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | | 🔧 |
 | [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | | 🔧 |
 <!-- prettier-ignore-end -->
 
