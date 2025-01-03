@@ -151,6 +151,7 @@ declare namespace stylelint {
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		fixersData: { [ruleName: string]: Array<FixerData> };
 		quiet?: boolean;
+		quietDeprecationWarnings?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
@@ -297,6 +298,7 @@ declare namespace stylelint {
 		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
 		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-descriptor-no-unknown': CoreRule<true>;
+		'at-rule-descriptor-value-no-unknown': CoreRule<true>;
 		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
@@ -405,6 +407,11 @@ declare namespace stylelint {
 		'declaration-property-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'declaration-property-value-disallowed-list': CoreRule<
 			Record<string, OneOrMany<StringOrRegex>>
+		>;
+		'declaration-property-value-keyword-no-deprecated': CoreRule<
+			true,
+			{ ignoreKeywords: OneOrMany<StringOrRegex> },
+			AutofixMessage & { rejected: (property: string, keyword: string) => string }
 		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
@@ -609,7 +616,10 @@ declare namespace stylelint {
 			}
 		>;
 		'shorthand-property-no-redundant-values': CoreRule<true, {}, AutofixMessage>;
-		'string-no-newline': CoreRule<true>;
+		'string-no-newline': CoreRule<
+			true,
+			{ ignore: OneOrMany<'at-rule-preludes' | 'declaration-values'> }
+		>;
 		'time-min-milliseconds': CoreRule<number, { ignore: OneOrMany<'delay'> }>;
 		'unit-allowed-list': CoreRule<
 			OneOrMany<string>,
@@ -875,6 +885,7 @@ declare namespace stylelint {
 		 */
 		end?: Position;
 		word?: string;
+		/** @deprecated */
 		line?: number;
 		/**
 		 * Optional severity override for the problem.

@@ -19,6 +19,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | | 🔧 |
+| [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
@@ -134,6 +135,7 @@ Disallow unknown things with these `no-unknown` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md)<br/>Disallow unknown annotations. | ✅ | |
+| [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)<br/>Disallow unknown values for descriptors within at-rules. | | |
 | [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)<br/>Disallow unknown at-rules. | ✅ | |
 | [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)<br/>Disallow unknown at-rule descriptors. | | |
 | [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)<br/>Disallow unknown values for properties within declarations. | | |

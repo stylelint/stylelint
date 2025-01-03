@@ -303,7 +303,7 @@ You should:
 3. Change the rule's validation to allow for the new option.
 4. Add (as little as possible) logic to the rule to make the tests pass.
 5. Add documentation about the new option.
-6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts)
+6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts).
 
 ## Fix a bug in a rule
 
