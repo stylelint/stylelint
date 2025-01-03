@@ -11,7 +11,7 @@ Disallow invalid preludes for at-rules.
 
 This rule considers preludes for at-rules defined within the CSS specifications, up to and including Editor's Drafts, to be valid.
 
-You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what descriptors are known for an at-rule.
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what preludes are known for an at-rule.
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
