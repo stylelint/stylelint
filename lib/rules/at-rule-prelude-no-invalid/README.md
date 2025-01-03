@@ -68,8 +68,3 @@ The following patterns are _not_ considered problems:
 ```css
 @font-palette-values foo {}
 ```
-
-<!-- prettier-ignore -->
-```css
-@font-feature-values #foo {}
-```
