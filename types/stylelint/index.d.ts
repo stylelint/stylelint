@@ -859,6 +859,13 @@ declare namespace stylelint {
 		column: number;
 	};
 
+	export type FixCallback = () => void | undefined | never;
+
+	export type FixObject = {
+		apply?: FixCallback;
+		node?: PostCSS.Node;
+	};
+
 	/**
 	 * A lint problem.
 	 */
@@ -897,8 +904,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		fix?: () => void | undefined | never;
-		fixedNode?: PostCSS.Node;
+		fix?: FixCallback | FixObject;
 	};
 
 	/** @internal */
