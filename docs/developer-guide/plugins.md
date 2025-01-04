@@ -127,6 +127,26 @@ const ruleFunction = (primary, secondaryOptions) => {
 };
 ```
 
+## Quiet deprecation warnings
+
+We sometimes introduce deprecation warnings that impact plugin authors. You can individually quiet these in your plugin by handling the `emitWarning` event.
+
+For example, to quiet the deprecationg warning for `context.fix`:
+
+```js
+const original = process.emitWarning;
+process.emitWarning = function (message, options) {
+  if (
+    message &&
+    options?.type === "DeprecationWarning" &&
+    options.code === "stylelint:005"
+  )
+    return;
+
+  original.call(process, message, options);
+};
+```
+
 ## Testing
 
 You can use either:
