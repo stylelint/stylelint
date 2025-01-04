@@ -143,7 +143,7 @@ process.emitWarning = function (message, options) {
     return;
   }
 
-  original.call(process, message, options);
+  original.apply(process, arguments);
 };
 ```
 
