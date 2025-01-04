@@ -139,8 +139,9 @@ process.emitWarning = function (message, options) {
   if (
     options?.type === "DeprecationWarning" &&
     options?.code === "stylelint:005"
-  )
+  ) {
     return;
+  }
 
   original.call(process, message, options);
 };
