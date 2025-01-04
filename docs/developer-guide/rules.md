@@ -123,7 +123,7 @@ When using `report()`, you can specify the location of a problem in various ways
 - only `node` - implicitly span the entire range of the given node
 - `word` - the first instance of a word in the serialized given node
 - `index` and `endIndex` offsets - an index range within the given node
-- `start` and `end` positions - a position range within the given node
+- `start` and `end` positions - a [range](https://postcss.org/api/#range) within the given node
 
 Each approach has pros and cons concerning:
 
