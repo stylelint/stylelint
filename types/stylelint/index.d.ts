@@ -113,6 +113,7 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
+		computeReplacementText?: boolean;
 		validate?: boolean;
 	};
 
@@ -149,6 +150,7 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
+		fixedRanges: Array<[number, number]>;
 		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -168,6 +170,10 @@ declare namespace stylelint {
 		severity?: Severity;
 		url?: string;
 		rule?: string;
+		fix?: {
+			range: [number, number];
+			text: string;
+		};
 	};
 
 	/** @internal */
@@ -699,6 +705,7 @@ declare namespace stylelint {
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
+		computeReplacementText?: boolean;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -761,6 +768,10 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
+		fix?: {
+			range: [number, number];
+			text: string;
+		};
 		rule: string;
 		severity: Severity;
 		text: string;
@@ -888,6 +899,7 @@ declare namespace stylelint {
 		 */
 		severity?: RuleSeverity;
 		fix?: () => void | undefined | never;
+		fixedNode?: PostCSS.Node;
 	};
 
 	/** @internal */

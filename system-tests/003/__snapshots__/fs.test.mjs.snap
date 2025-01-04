@@ -58,6 +58,7 @@ exports[`fs - zen garden CSS with standard config 1`] = `
           "column": 25,
           "endColumn": 32,
           "endLine": 102,
+          "fix": undefined,
           "line": 102,
           "rule": "font-family-no-missing-generic-family-keyword",
           "severity": "error",
