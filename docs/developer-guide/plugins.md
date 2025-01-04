@@ -140,7 +140,8 @@ process.emitWarning = function (message, options) {
     options &&
     typeof options === "object" &&
     options.type === "DeprecationWarning" &&
-    options.code === "stylelint:005"
+    options.code === "stylelint:005" &&
+    options.detail.includes(ruleName)
   ) {
     return;
   }
