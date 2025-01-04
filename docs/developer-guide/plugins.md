@@ -134,6 +134,7 @@ We sometimes introduce deprecation warnings that impact plugin authors. You can 
 For example, to quiet the deprecationg warning for `context.fix`:
 
 ```js
+const ruleName = "foo-bar-qux";
 const original = process.emitWarning;
 process.emitWarning = function (message, options) {
   if (
