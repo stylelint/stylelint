@@ -170,10 +170,7 @@ declare namespace stylelint {
 		severity?: Severity;
 		url?: string;
 		rule?: string;
-		fix?: {
-			range: [number, number];
-			text: string;
-		};
+		fix?: EditInfo;
 	};
 
 	/** @internal */
@@ -748,6 +745,11 @@ declare namespace stylelint {
 		source: string;
 	};
 
+	export type EditInfo = {
+		range: [number, number];
+		text: string;
+	};
+
 	/**
 	 * A lint warning.
 	 */
@@ -768,10 +770,7 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
-		fix?: {
-			range: [number, number];
-			text: string;
-		};
+		fix?: EditInfo;
 		rule: string;
 		severity: Severity;
 		text: string;
