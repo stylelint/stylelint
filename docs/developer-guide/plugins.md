@@ -137,8 +137,10 @@ For example, to quiet the deprecationg warning for `context.fix`:
 const original = process.emitWarning;
 process.emitWarning = function (message, options) {
   if (
-    options?.type === "DeprecationWarning" &&
-    options?.code === "stylelint:005"
+    options &&
+    typeof options === "object" &&
+    options.type === "DeprecationWarning" &&
+    options.code === "stylelint:005"
   ) {
     return;
   }
