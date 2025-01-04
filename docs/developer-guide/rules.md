@@ -130,9 +130,9 @@ Each approach has pros and cons concerning:
 - convenience - ease of use
 - narrowness - how well a location matches the issue
 - correctness - chance of bugs or incorrect locations
-- performance - the cost of calcuating the location
+- performance - the cost of calculating the location
 
-For example, it's often convenient to use only `node` or use `word` but that comes at the expense of narrownesst and correctness.
+For example, using only `node` or `word` is often convenient, but comes at the expense of narrowness and correctness.
 
 In the following example of using `word`, the location is the selector within the rule:
 
