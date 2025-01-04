@@ -396,7 +396,7 @@ When publishing such configurations, use the `stylelint-config` keyword within y
 
 We sometimes introduce deprecation warnings that impact plugin authors. You can individually quiet these in your plugin by handling the `emitWarning` event.
 
-For example, to quiet the deprecationg warning for `context.fix`:
+For example, to quiet the deprecation warning for `context.fix`:
 
 ```diff js
 const ruleName = "plugin/foo-bar-qux";
