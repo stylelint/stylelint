@@ -262,6 +262,8 @@ Ignore deprecation warnings.
 > [!TIP]
 > For Node.js 20.11.0+, you can disable individual deprecation warnings using the Node.js [`--disable-warning`](https://nodejs.org/api/cli.html#--disable-warningcode-or-type) mechanism, e.g.:
 >
-> `NODE_OPTIONS='--disable-warning=stylelint:005' npx stylelint "**/*.css"`
+> ```shell
+> NODE_OPTIONS='--disable-warning=stylelint:005' npx stylelint "**/*.css"
+> ```
 
 [1]: ../user-guide/ignore-code.md#parts-of-a-file
