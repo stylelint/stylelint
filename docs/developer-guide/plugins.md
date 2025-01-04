@@ -133,22 +133,23 @@ We sometimes introduce deprecation warnings that impact plugin authors. You can 
 
 For example, to quiet the deprecationg warning for `context.fix`:
 
-```js
-const ruleName = "foo-bar-qux";
-const original = process.emitWarning;
-process.emitWarning = function (message, options) {
-  if (
-    options &&
-    typeof options === "object" &&
-    options.type === "DeprecationWarning" &&
-    options.code === "stylelint:005" &&
-    options.detail.includes(ruleName)
-  ) {
-    return;
-  }
+```diff js
+const ruleName = "plugin/foo-bar-qux";
 
-  original.apply(process, arguments);
-};
++ const original = process.emitWarning;
++ process.emitWarning = function (message, options) {
++  if (
++    options &&
++    typeof options === "object" &&
++    options.type === "DeprecationWarning" &&
++    options.code === "stylelint:005" &&
++    options.detail.includes(ruleName)
++  ) {
++    return;
++  }
++
++  original.apply(process, arguments);
++ };
 ```
 
 > [!WARNING]
