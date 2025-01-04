@@ -150,6 +150,9 @@ process.emitWarning = function (message, options) {
 };
 ```
 
+> [!WARNING]
+> Note that this monkey patch might have side effects.
+
 ## Testing
 
 You can use either:
