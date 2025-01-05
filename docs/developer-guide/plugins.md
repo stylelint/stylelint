@@ -404,7 +404,7 @@ const ruleName = "plugin/foo-bar-qux";
 + const original = process.emitWarning;
 + process.emitWarning = function emitWarning(warning, type, code, ctor) {
 +   const options = arguments[1];
-+ 
++
 +  if (
 +    options &&
 +    typeof options === "object" &&
