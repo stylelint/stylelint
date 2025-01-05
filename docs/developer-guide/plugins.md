@@ -402,7 +402,9 @@ For example, to quiet the deprecation warning for `context.fix`:
 const ruleName = "plugin/foo-bar-qux";
 
 + const original = process.emitWarning;
-+ process.emitWarning = function (message, options) {
++ process.emitWarning = function emitWarning(warning, type, code, ctor) {
++   const options = arguments[1];
++ 
 +  if (
 +    options &&
 +    typeof options === "object" &&
