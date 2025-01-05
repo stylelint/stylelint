@@ -169,7 +169,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | [`at-rule-allowed-list`](../../lib/rules/at-rule-allowed-list/README.md)<br/>Specify a list of allowed at-rules. | | |
 | [`at-rule-disallowed-list`](../../lib/rules/at-rule-disallowed-list/README.md)<br/>Specify a list of disallowed at-rules. | | |
 | [`at-rule-no-vendor-prefix`](../../lib/rules/at-rule-no-vendor-prefix/README.md)<br/>Disallow vendor prefixes for at-rules. | ✅ | 🔧 |
-| [`at-rule-property-required-list`](../../lib/rules/at-rule-property-required-list/README.md)<br/>Specify a list of required descriptors for an at-rule. | | |
+| [`at-rule-property-required-list`](../../lib/rules/at-rule-property-required-list/README.md)<br/>Specify a list of required properties (or descriptors) for an at-rule. | | |
 <!-- prettier-ignore-end -->
 
 #### Color
