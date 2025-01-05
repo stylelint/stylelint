@@ -62,7 +62,7 @@ In addition to the [built-in rules](rules.md), there are custom rules that you c
 
 Custom rules are typically written by communities to support methodologies, toolsets, non-standard CSS features, or very specific use cases.
 
-You can add custom rules to your config by extending a shared config that includes them or by using a plugin directly. For example, you can order your properties by extending the [recess order config](https://www.npmjs.com/package/stylelint-config-recess-order), which includes the [order plugin](https://www.npmjs.com/package/stylelint-order):
+You can add custom rules to your config by extending a shared config that includes them or by using a plugin directly. For example, you can order your properties into groups by extending the [recess order config](https://www.npmjs.com/package/stylelint-config-recess-order):
 
 ```diff json
 {
@@ -73,14 +73,29 @@ You can add custom rules to your config by extending a shared config that includ
 }
 ```
 
-Or you can use [the plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to alphabetize your properties:
+Or alphabetize them by extending the [alphabetical order config](https://www.npmjs.com/package/stylelint-config-alphabetical-order):
+
+```diff json
+{
+  "extends": [
+    "stylelint-config-standard"
++   "stylelint-config-alphabetical-order"
+  ]
+}
+```
+
+Or you can use [the order plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to specify your own order:
 
 ```diff json
 {
   "extends": ["stylelint-config-standard"],
 + "plugins": ["stylelint-order"],
 + "rules": {
-+   "order/properties-alphabetical-order": true
++   "order/properties-order": [
++		  "transform",
++		  "top",
++		  "color"
++	  ]
 + }
 }
 ```
