@@ -67,7 +67,8 @@ You can add custom rules to your config by extending a shared config that includ
 ```diff json
 {
   "extends": [
-    "stylelint-config-standard"
+-   "stylelint-config-standard"
++   "stylelint-config-standard",
 +   "stylelint-config-recess-order"
   ]
 }
