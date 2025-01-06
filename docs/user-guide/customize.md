@@ -78,7 +78,8 @@ Or alphabetize them by extending the [alphabetical order config](https://www.npm
 ```diff json
 {
   "extends": [
-    "stylelint-config-standard"
+-   "stylelint-config-standard"
++   "stylelint-config-standard",
 +   "stylelint-config-alphabetical-order"
   ]
 }
