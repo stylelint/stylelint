@@ -152,9 +152,9 @@ root.walkRules((ruleNode) => {
 
 Using `word` is the slowest approach to finding a location within a node, especially on nodes with many children, e.g. at-rules.
 
-When using offsets and positions, you can use the `nodeFieldIndices` utilities, e.g. `declarationValueIndex`, to get the index of part of a node. These utilities account for the `raw` fields in the PostCSS AST.
+When using offsets and positions, you can use the `nodeFieldIndices` utilities, e.g. `declarationValueIndex()`, to get the index of part of a node. These utilities account for the `raw` fields in the PostCSS AST.
 
-In the following example of using `index`, `endIndex` and the `declarationValueIndex` utility, the location spans the value of the declaration:
+In the following example of using `index`, `endIndex` and the `declarationValueIndex()` utility, the location spans the value of the declaration:
 
 ```js
 root.walkDecls((declNode) => {
