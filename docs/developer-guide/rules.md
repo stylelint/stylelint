@@ -178,7 +178,7 @@ This approach also works well when using construct-specific parsers:
 
 ```js
 root.walkDecls((declNode) => {
-  const { prop, value as declValue } = declNode;
+  const { prop, value: declValue } = declNode;
 
   valueParser(declValue).walk(({ value, sourceIndex }) => {
 
