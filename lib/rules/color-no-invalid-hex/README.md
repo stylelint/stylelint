@@ -13,6 +13,13 @@ Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal charac
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
+This rule overlaps with:
+
+- [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
+- [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
+
+We recommend using these rules for CSS and this rule for CSS-like languages, such as SCSS and Less.
+
 ## Options
 
 ### `true`
