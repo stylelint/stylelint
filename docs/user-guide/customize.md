@@ -92,10 +92,10 @@ Or you can use the [order plugin](https://www.npmjs.com/package/stylelint-order)
 + "plugins": ["stylelint-order"],
 + "rules": {
 +   "order/properties-order": [
-+		  "transform",
-+		  "top",
-+		  "color"
-+	  ]
++     "transform",
++     "top",
++     "color"
++   ]
 + }
 }
 ```
