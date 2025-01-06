@@ -199,7 +199,7 @@
     "eslint-plugin-jest": "^28.10.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
-    "jest-preset-stylelint": "^7.1.0",
+    "jest-preset-stylelint": "^7.1.1",
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "^15.2.11",
     "np": "^10.1.0",
