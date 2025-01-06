@@ -84,7 +84,7 @@ Or alphabetize them by extending the [alphabetical order config](https://www.npm
 }
 ```
 
-Or you can use [the order plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to specify your own order:
+Or you can use the [order plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to specify your own order:
 
 ```diff json
 {
