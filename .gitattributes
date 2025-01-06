@@ -1,2 +1,5 @@
 * text eol=lf
 *.png binary
+
+# See https://github.com/github-linguist/linguist/blob/63cfd70d54ee8f76c41a73fe56689ed8229c9622/docs/overrides.md#generated-code
+lib/**/*.cjs linguist-generated
