@@ -18,8 +18,8 @@ Disallow deprecated things with these `no-deprecated` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | | 🔧 |
-| [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | | 🔧 |
+| [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | ✅ | 🔧 |
+| [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
@@ -66,8 +66,8 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)<br/>Disallow invalid preludes for at-rules. | | |
-| [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | ✅ | |
+| [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)<br/>Disallow invalid preludes for at-rules. | ✅ | |
+| [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | | |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅ | 🔧 |
 | [`keyframe-declaration-no-important`](../../lib/rules/keyframe-declaration-no-important/README.md)<br/>Disallow invalid `!important` within keyframe declarations. | ✅ | |
 | [`media-query-no-invalid`](../../lib/rules/media-query-no-invalid/README.md)<br/>Disallow invalid media queries. | ✅ | |
@@ -105,7 +105,7 @@ Disallow non-standard things with these `no-nonstandard` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md)<br/>Disallow non-standard direction values for linear gradient functions. | ✅ | |
+| [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md)<br/>Disallow non-standard direction values for linear gradient functions. | | |
 <!-- prettier-ignore-end -->
 
 ### Overrides
@@ -136,13 +136,13 @@ Disallow unknown things with these `no-unknown` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md)<br/>Disallow unknown annotations. | ✅ | |
-| [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)<br/>Disallow unknown at-rule descriptors. | | |
-| [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)<br/>Disallow unknown values for descriptors within at-rules. | | |
+| [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)<br/>Disallow unknown at-rule descriptors. | ✅ | |
+| [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)<br/>Disallow unknown values for descriptors within at-rules. | ✅ | |
 | [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)<br/>Disallow unknown at-rules. | ✅ | |
-| [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)<br/>Disallow unknown values for properties within declarations. | | |
-| [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md)<br/>Disallow unknown functions. | ✅ | |
+| [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)<br/>Disallow unknown values for properties within declarations. | ✅ | |
+| [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md)<br/>Disallow unknown functions. | | |
 | [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md)<br/>Disallow unknown media feature names. | ✅ | |
-| [`media-feature-name-value-no-unknown`](../../lib/rules/media-feature-name-value-no-unknown/README.md)<br/>Disallow unknown values for media features. | | |
+| [`media-feature-name-value-no-unknown`](../../lib/rules/media-feature-name-value-no-unknown/README.md)<br/>Disallow unknown values for media features. | ✅ | |
 | [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)<br/>Disallow unknown animations. | | |
 | [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)<br/>Disallow unknown custom media queries. | | |
 | [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)<br/>Disallow unknown custom properties. | | |
@@ -150,7 +150,7 @@ Disallow unknown things with these `no-unknown` rules.
 | [`selector-pseudo-class-no-unknown`](../../lib/rules/selector-pseudo-class-no-unknown/README.md)<br/>Disallow unknown pseudo-class selectors. | ✅ | |
 | [`selector-pseudo-element-no-unknown`](../../lib/rules/selector-pseudo-element-no-unknown/README.md)<br/>Disallow unknown pseudo-element selectors. | ✅ | |
 | [`selector-type-no-unknown`](../../lib/rules/selector-type-no-unknown/README.md)<br/>Disallow unknown type selectors. | ✅ | |
-| [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md)<br/>Disallow unknown units. | ✅ | |
+| [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md)<br/>Disallow unknown units. | | |
 <!-- prettier-ignore-end -->
 
 ## Enforce conventions
