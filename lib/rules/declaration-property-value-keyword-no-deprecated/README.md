@@ -19,8 +19,6 @@ This rule flags keywords that were removed or deprecated after being in the CSS 
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) accept arguments.
-
 Prior art:
 
 - [@isnotdefined/no-obsolete](https://www.npmjs.com/package/@isnotdefined/stylelint-plugin)
