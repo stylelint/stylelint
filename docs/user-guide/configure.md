@@ -128,7 +128,7 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
-Some rules support message arguments; for example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
+Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
 
 Via JavaScript:
 
