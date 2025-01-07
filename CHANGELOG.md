@@ -2,6 +2,12 @@
 
 ## 16.13.0 - 2025-01-07
 
+It adds 3 rules to help you write error-free at-rules and 2 rules to warn you about deprecated CSS features. We've turned these rules on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard/v/25.0.0).
+
+It also adds new rule options, a feature to time how long rules take, lax autofix and support for `messageArgs` in more rules. It fixes 7 bugs.
+
+Lastly, we've made a deprecation that may affect some plugins. We've updated our docs for [plugin authors](docs/developer-guide/plugins.md#quiet-deprecation-warnings) and [end users](docs/user-guide/options.md#quietdeprecationwarnings) on how to silence deprecation warnings.
+
 - Deprecated: ambiguous position arguments in `utils.report()` ([#8244](https://github.com/stylelint/stylelint/pull/8244)) ([@romainmenke](https://github.com/romainmenke)).
 - Added: `"ignore": ["at-rule-preludes", "declaration-values"]` to `string-no-newline` ([#8214](https://github.com/stylelint/stylelint/pull/8214)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `at-rule-descriptor-no-unknown` rule ([#8197](https://github.com/stylelint/stylelint/pull/8197)) ([@ryo-manba](https://github.com/ryo-manba)).
