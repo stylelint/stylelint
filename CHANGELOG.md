@@ -2,7 +2,7 @@
 
 ## 16.13.0 - 2025-01-07
 
-It adds 3 rules to help you write error-free at-rules and 2 rules to warn you about deprecated CSS features. We've turned these rules on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard/v/25.0.0).
+It adds 3 rules to help you write error-free at-rules and 2 rules to warn you about deprecated CSS features. We've turned these rules on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
 
 It also adds new rule options, a feature to time how long rules take, lax autofix and support for `messageArgs` in more rules. It fixes 7 bugs.
 
