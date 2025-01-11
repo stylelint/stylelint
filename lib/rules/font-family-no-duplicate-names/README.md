@@ -16,6 +16,8 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 > [!WARNING]
 > This rule will stumble on _unquoted_ multi-word font names and _unquoted_ font names containing escape sequences. Wrap these font names in quotation marks, and everything should be fine.
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
+
 ## Options
 
 ### `true`
