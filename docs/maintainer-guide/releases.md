@@ -27,10 +27,6 @@
    3. Check and merge a pull request created by the action.
    4. Confirm the deployment of the update to [stylelint.io](https://stylelint.io).
 8. Check that [stylelint.io/demo](https://stylelint.io/demo) installs the latest Stylelint and config versions.
-9. Compose a tweet that:
-   - announces the release
-   - communicates what has changed
-   - links to the appropriate heading in the changelog on [stylelint.io](https://stylelint.io)
 
 ## New release issue template
 
@@ -41,5 +37,4 @@
 - [ ] stylelint-config-standard update/release
 - [ ] stylelint.io update
 - [ ] stylelint-demo check
-- [ ] tweet
 ```
