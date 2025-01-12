@@ -4,7 +4,7 @@
 
 It adds 3 rules to help you write error-free at-rules and 2 rules to warn you about deprecated CSS features. We've turned these rules on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
 
-It also adds new rule options, a feature to time how long rules take, lax autofix and support for `messageArgs` in more rules. It fixes 7 bugs.
+It also adds new rule options, a feature to display how long rules take, lax autofix and support for `messageArgs` in more rules. It fixes 7 bugs.
 
 Lastly, we've made a deprecation that may affect some plugins. We've updated our docs for [plugin authors](docs/developer-guide/plugins.md#quiet-deprecation-warnings) and [end users](docs/user-guide/options.md#quietdeprecationwarnings) on how to silence deprecation warnings.
 
@@ -16,6 +16,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Added: `at-rule-prelude-no-invalid` rule ([#8268](https://github.com/stylelint/stylelint/pull/8268)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `declaration-property-value-keyword-no-deprecated` rule ([#8223](https://github.com/stylelint/stylelint/pull/8223)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `lax`/`strict` values to the `fix` Node.js API option and CLI flag ([#8106](https://github.com/stylelint/stylelint/pull/8106)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `messageArgs` to `declaration-property-value-no-unknown`, `font-family-name-quotes`, `font-family-no-duplicate-names`, `function-calc-no-unspaced-operator`, `import-notation` and `selector-attribute-quotes` ([#8285](https://github.com/stylelint/stylelint/pull/8285)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `messageArgs` to `selector-pseudo-element-colon-notation` and `media-feature-name-unit-allowed-list` ([#8252](https://github.com/stylelint/stylelint/pull/8252)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: support for profiling rule performance via the `TIMING` environment variable ([#8108](https://github.com/stylelint/stylelint/pull/8108)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `*-no-vendor-prefix` message ambiguity ([#8239](https://github.com/stylelint/stylelint/pull/8239)) ([@Mouvedia](https://github.com/Mouvedia)).
