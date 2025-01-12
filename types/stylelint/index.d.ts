@@ -88,33 +88,157 @@ declare namespace stylelint {
 	 * Configuration.
 	 */
 	export type Config = {
+		/**
+		 * Allows to extend an existing configuration. Configurations can bundle plugins, custom syntaxes,
+		 * options, and configure rules. They can also extend other configurations
+		 *
+		 * @see [extends](https://stylelint.io/user-guide/configure/#extends)
+		 */
 		extends?: ConfigExtends;
+		/**
+		 * Custom rules or sets of custom rules built to support methodologies, toolsets,
+		 * non-standard CSS features, or very specific use cases
+		 *
+		 * @see [plugins](https://stylelint.io/user-guide/configure/#plugins)
+		 */
 		plugins?: ConfigPlugins;
+		/**
+		 * Plugin functions
+		 *
+		 * @see [The anatomy of a plugin](https://stylelint.io/developer-guide/plugins/#the-anatomy-of-a-plugin)
+		 */
 		pluginFunctions?: {
 			[pluginName: string]: Rule;
 		};
+		/**
+		 * A glob or array of globs to ignore specific files
+		 *
+		 * @default 'node_modules'
+		 *
+		 * @see [ignorefiles](https://stylelint.io/user-guide/configure/#ignorefiles)
+		 */
 		ignoreFiles?: ConfigIgnoreFiles;
+		/**
+		 * Pattern of files to ignore
+		 */
 		ignorePatterns?: string;
+		/**
+		 * An object containing the configured rules
+		 *
+		 * @see [rules](https://stylelint.io/user-guide/configure/#rules)
+		 */
 		rules?: ConfigRules;
+		/**
+		 * Only register problems for rules with an "error"-level severity (ignore "warning"-level)
+		 *
+		 * @see [quiet](https://stylelint.io/user-guide/options/#quiet)
+		 */
 		quiet?: boolean;
+		/**
+		 * A string to specify the name of a formatter or a path to a custom formatter function
+		 *
+		 * @see [formatter](https://stylelint.io/user-guide/configure#formatter)
+		 */
 		formatter?: FormatterType | Formatter;
+		/**
+		 * A string to set the default severity level for all rules that do not have a severity
+		 * specified in their secondary options
+		 *
+		 * @see [defaultseverity](https://stylelint.io/user-guide/configure#defaultseverity)
+		 */
 		defaultSeverity?: Severity;
+		/**
+		 * A boolean value indicating if 'stylelint-disable' comments will be ignored
+		 *
+		 * @see [ignoredisables](https://stylelint.io/user-guide/configure#ignoredisables)
+		 */
 		ignoreDisables?: boolean;
+		/**
+		 * Report 'stylelint-disable' comments that don't match any lints that need to be disabled
+		 *
+		 * @see [reportneedlessdisables](https://stylelint.io/user-guide/configure#reportneedlessdisables)
+		 */
 		reportNeedlessDisables?: DisableSettings;
+		/**
+		 * Report 'stylelint-disable' comments that don't match rules that are specified in the configuration object
+		 *
+		 * @see [reportinvalidscopedisables](https://stylelint.io/user-guide/configure#reportinvalidscopedisables)
+		 */
 		reportInvalidScopeDisables?: DisableSettings;
+		/**
+		 * Report 'stylelint-disable' comments without a description
+		 *
+		 * @see [reportdescriptionlessdisables](https://stylelint.io/user-guide/configure#reportdescriptionlessdisables)
+		 */
 		reportDescriptionlessDisables?: DisableSettings;
+		/**
+		 * Report configuration comments that are not scoped to at least one rule
+		 *
+		 * @see [reportunscopeddisables](https://stylelint.io/user-guide/configure#reportunscopeddisables)
+		 */
 		reportUnscopedDisables?: DisableSettings;
+		/**
+		 * A string to set what configuration comments like 'stylelint-disable' start with.
+		 * Сan be useful when using multiple instances of Stylelint with different configurations.
+		 *
+		 * @see [configurationcomment](https://stylelint.io/user-guide/configure#configurationcomment)
+		 */
 		configurationComment?: string;
+		/**
+		 * An array of objects to specify what subset of files to apply a configuration to
+		 *
+		 * @see [overrides](https://stylelint.io/user-guide/configure#overrides)
+		 */
 		overrides?: ConfigOverride[];
+		/**
+		 * Allows to specify a custom syntax to use in code
+		 *
+		 * @see [customsyntax](https://stylelint.io/user-guide/configure#customsyntax)
+		 */
 		customSyntax?: CustomSyntax;
+		/**
+		 * Functions that allow to hook into Stylelint's pipeline
+		 *
+		 * @experimental
+		 *
+		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
+		 */
 		processors?: ConfigProcessors;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
+		/**
+		 * If true, Stylelint does not throw an error when the glob pattern matches no files.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @see [allowemptyinput](https://stylelint.io/user-guide/configure#allowemptyinput)
+		 */
 		allowEmptyInput?: boolean;
+		/**
+		 * If true, store the results of processed files so that Stylelint only operates on the changed ones.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @see [cache](https://stylelint.io/user-guide/configure#cache)
+		 */
 		cache?: boolean;
+		/**
+		 * If true, automatically fix, where possible, problems reported by rules.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
+		 */
 		fix?: boolean;
 		/** @experimental */
 		computeEditInfo?: boolean;
+		/**
+		 * Force enable/disable the validation of the rules' options
+		 *
+		 * @default true
+		 *
+		 * @see [validate](https://stylelint.io/user-guide/options/#validate)
+		 */
 		validate?: boolean;
 	};
 
