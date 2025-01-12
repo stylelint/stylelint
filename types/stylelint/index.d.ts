@@ -102,11 +102,6 @@ declare namespace stylelint {
 		 * @see [plugins](https://stylelint.io/user-guide/configure/#plugins)
 		 */
 		plugins?: ConfigPlugins;
-		/**
-		 * Plugin functions
-		 *
-		 * @see [The anatomy of a plugin](https://stylelint.io/developer-guide/plugins/#the-anatomy-of-a-plugin)
-		 */
 		pluginFunctions?: {
 			[pluginName: string]: Rule;
 		};
@@ -118,9 +113,6 @@ declare namespace stylelint {
 		 * @see [ignorefiles](https://stylelint.io/user-guide/configure/#ignorefiles)
 		 */
 		ignoreFiles?: ConfigIgnoreFiles;
-		/**
-		 * Pattern of files to ignore
-		 */
 		ignorePatterns?: string;
 		/**
 		 * An object containing the configured rules
@@ -154,19 +146,19 @@ declare namespace stylelint {
 		 */
 		ignoreDisables?: boolean;
 		/**
-		 * Report 'stylelint-disable' comments that don't match any lints that need to be disabled
+		 * Report configuration comments that don't match any lints that need to be disabled
 		 *
 		 * @see [reportneedlessdisables](https://stylelint.io/user-guide/configure#reportneedlessdisables)
 		 */
 		reportNeedlessDisables?: DisableSettings;
 		/**
-		 * Report 'stylelint-disable' comments that don't match rules that are specified in the configuration object
+		 * Report configuration comments that don't match rules that are specified in the configuration object
 		 *
 		 * @see [reportinvalidscopedisables](https://stylelint.io/user-guide/configure#reportinvalidscopedisables)
 		 */
 		reportInvalidScopeDisables?: DisableSettings;
 		/**
-		 * Report 'stylelint-disable' comments without a description
+		 * Report configuration comments without a description
 		 *
 		 * @see [reportdescriptionlessdisables](https://stylelint.io/user-guide/configure#reportdescriptionlessdisables)
 		 */
