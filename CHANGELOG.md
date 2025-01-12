@@ -1,5 +1,35 @@
 # Changelog
 
+## 16.13.0 - 2025-01-12
+
+It adds 3 rules to help you write error-free at-rules and 2 rules to warn you about deprecated CSS features. We've turned these rules on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+It also adds new rule options, a feature to display how long rules take, lax autofix and support for `messageArgs` in more rules. It fixes 7 bugs.
+
+Lastly, we've made a deprecation that may affect some plugins. We've updated our docs for [plugin authors](docs/developer-guide/plugins.md#quiet-deprecation-warnings) and [end users](docs/user-guide/options.md#quietdeprecationwarnings) on how to silence deprecation warnings.
+
+- Deprecated: ambiguous position arguments passed to `utils.report()` ([#8244](https://github.com/stylelint/stylelint/pull/8244)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `lax`/`strict` values to the `fix` Node.js API option and CLI flag ([#8106](https://github.com/stylelint/stylelint/pull/8106)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: support for profiling rule performance via the `TIMING` environment variable ([#8108](https://github.com/stylelint/stylelint/pull/8108)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `at-rule-descriptor-no-unknown` rule ([#8197](https://github.com/stylelint/stylelint/pull/8197)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `at-rule-descriptor-value-no-unknown` rule ([#8211](https://github.com/stylelint/stylelint/pull/8211)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `at-rule-no-deprecated` rule ([#8251](https://github.com/stylelint/stylelint/pull/8251)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `at-rule-prelude-no-invalid` rule ([#8268](https://github.com/stylelint/stylelint/pull/8268)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `declaration-property-value-keyword-no-deprecated` rule ([#8223](https://github.com/stylelint/stylelint/pull/8223)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `"ignore": ["at-rule-preludes", "declaration-values"]` to `string-no-newline` ([#8214](https://github.com/stylelint/stylelint/pull/8214)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `messageArgs` to `declaration-property-value-no-unknown`, `font-family-name-quotes`, `font-family-no-duplicate-names`, `function-calc-no-unspaced-operator`, `import-notation`, `media-feature-name-unit-allowed-list`, `selector-attribute-quotes` and `selector-pseudo-element-colon-notation` ([#8285](https://github.com/stylelint/stylelint/pull/8285) & [#8252](https://github.com/stylelint/stylelint/pull/8252)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: deprecation warnings to only display once per (custom) rule ([#8265](https://github.com/stylelint/stylelint/pull/8265)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `*-no-vendor-prefix` message ambiguity ([#8239](https://github.com/stylelint/stylelint/pull/8239)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `at-rule-(dis)allowed-list`, `at-rule-no-vendor-prefix`, `at-rule-property-required-list` message argument ([#8277](https://github.com/stylelint/stylelint/pull/8277)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `at-rule-property-required-list` message for inclusion of properties and descriptors ([#8207](https://github.com/stylelint/stylelint/pull/8207)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `at-rule-*` false positives and negatives for `@charset` rule ([#8215](https://github.com/stylelint/stylelint/pull/8215)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false positives for descriptors ([#8240](https://github.com/stylelint/stylelint/pull/8240)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-(dis)allowed-list` false negatives for custom properties, use `/^--/` to (dis)allow them ([#8209](https://github.com/stylelint/stylelint/pull/8209)) ([@fbasmaison-lucca](https://github.com/fbasmaison-lucca)).
+- Fixed: `property-no-unknown` false positives for descriptors ([#8203](https://github.com/stylelint/stylelint/pull/8203)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for deprecated pseudo-classes ([#8264](https://github.com/stylelint/stylelint/pull/8264)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-case` false positives for `hatchPath` ([#8264](https://github.com/stylelint/stylelint/pull/8264)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `shadow`, `hatch` and `hatchpath` ([#8264](https://github.com/stylelint/stylelint/pull/8264)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.12.0 - 2024-12-15
 
 - Added: `selector-pseudo-class-allowed-list` now checks `@page` pseudo-classes ([#8176](https://github.com/stylelint/stylelint/pull/8176)) ([@Mouvedia](https://github.com/Mouvedia)).
