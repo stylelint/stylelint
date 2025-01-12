@@ -21,7 +21,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Fixed: `*-no-vendor-prefix` message ambiguity ([#8239](https://github.com/stylelint/stylelint/pull/8239)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `at-rule-(dis)allowed-list`, `at-rule-no-vendor-prefix`, `at-rule-property-required-list` message argument ([#8277](https://github.com/stylelint/stylelint/pull/8277)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Fixed: `at-rule-property-required-list` message for inclusion of properties and descriptors ([#8207](https://github.com/stylelint/stylelint/pull/8207)) ([@jeddy3](https://github.com/jeddy3)).
-- Fixed: `atrule-*` false positives and negatives for `@charset` rule ([#8215](https://github.com/stylelint/stylelint/pull/8215)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `at-rule-*` false positives and negatives for `@charset` rule ([#8215](https://github.com/stylelint/stylelint/pull/8215)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `declaration-property-value-no-unknown` false positives for descriptors ([#8240](https://github.com/stylelint/stylelint/pull/8240)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `property-(dis)allowed-list` false negatives for custom properties, use `/^--/` to (dis)allow them ([#8209](https://github.com/stylelint/stylelint/pull/8209)) ([@fbasmaison-lucca](https://github.com/fbasmaison-lucca)).
 - Fixed: `property-no-unknown` false positives for descriptors ([#8203](https://github.com/stylelint/stylelint/pull/8203)) ([@jeddy3](https://github.com/jeddy3)).
