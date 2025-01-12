@@ -1,6 +1,7 @@
 import type * as PostCSS from 'postcss';
 import type { GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
+import type { Lexer } from 'css-tree';
 
 type ConfigExtends = string | string[];
 
@@ -84,6 +85,22 @@ declare namespace stylelint {
 		severity?: Severity;
 	};
 
+	type LanguageOptions = {
+		syntax?: {
+			atRules?: Record<
+				string,
+				{
+					comment?: string;
+					prelude?: string;
+					descriptors?: Record<string, string>;
+				}
+			>;
+			cssWideKeywords?: string[];
+			properties?: Record<string, string>;
+			types?: Record<string, string>;
+		};
+	};
+
 	/**
 	 * Configuration.
 	 */
@@ -108,6 +125,7 @@ declare namespace stylelint {
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
 		processors?: ConfigProcessors;
+		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
 		allowEmptyInput?: boolean;
@@ -158,6 +176,7 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
+		lexer: Lexer;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
