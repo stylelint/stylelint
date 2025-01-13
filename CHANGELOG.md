@@ -2,6 +2,8 @@
 
 ## 16.13.1 - 2025-01-13
 
+It fixes one bug due to an upstream change in our `ignore` dependency.
+
 - Fixed: `ignore.default is not a function` ([#8305](https://github.com/stylelint/stylelint/pull/8305)) ([@romainmenke](https://github.com/romainmenke)).
 
 ## 16.13.0 - 2025-01-12
