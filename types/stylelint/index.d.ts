@@ -9,10 +9,6 @@ type ConfigPlugins = string | stylelint.Plugin | (string | stylelint.Plugin)[];
 
 type ConfigIgnoreFiles = string | string[];
 
-type ConfigRules = {
-	[ruleName: string]: stylelint.ConfigRuleSettings<any, Object>;
-};
-
 type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
 	files: string | string[];
 	name?: string;
@@ -70,6 +66,11 @@ declare namespace stylelint {
 	export type Plugin =
 		| { default?: { ruleName: string; rule: Rule } }
 		| { ruleName: string; rule: Rule };
+
+	/** @internal */
+	export type ConfigRules = {
+		[ruleName: string]: stylelint.ConfigRuleSettings<any, Object>;
+	};
 
 	/** @internal */
 	export type ConfigRuleSettings<T, O extends Object> =
@@ -176,7 +177,7 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
-		lexer: Lexer;
+		lexer?: Lexer;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
