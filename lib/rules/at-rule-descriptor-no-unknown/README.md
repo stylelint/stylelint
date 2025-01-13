@@ -21,6 +21,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 This rule checks descriptors within at-rules. To check properties, you can use the [`property-no-unknown`](../property-no-unknown/README.md) rule.
 
+For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
+
 Prior art:
 
 - [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)

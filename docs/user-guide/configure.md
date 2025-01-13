@@ -1,4 +1,4 @@
-# Configuring
+## Configuring
 
 Stylelint expects a configuration object.
 
@@ -252,6 +252,119 @@ But the following pattern would be reported as a warning:
 <!-- prettier-ignore -->
 ```css
 a[data-auto="1"] {}
+```
+
+## `languageOptions`
+
+You can customize the syntax to define or extend the syntax for at-rules, properties, types, and CSS-wide keywords.
+
+### `syntax`
+
+You can extend or modify the default CSS syntax to customize the following aspects:
+
+- `atRules`: Define custom at-rules with specific `prelude` and `descriptors` syntax
+- `cssWideKeywords`: Extend the list of CSS-wide keywords with custom values
+- `properties`: Customize the syntax of specific properties
+- `types`: Extend or modify type definitions used in property values
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "example": {
+          "comment": "Example at-rule",
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "foo": "<number>",
+            "bar": "<color>"
+          }
+        }
+      },
+      "cssWideKeywords": ["my-global-value"],
+      "properties": { "top": "| <--foo()>" },
+      "types": { "--foo()": "--foo( <length-percentage> )" }
+    }
+  },
+  "rules": {
+    "at-rule-descriptor-no-unknown": true,
+    "at-rule-descriptor-value-no-unknown": true,
+    "at-rule-prelude-no-invalid": true,
+    "declaration-property-value-no-unknown": true
+  }
+}
+```
+
+The following rules are configured via the `languageOptions` property:
+
+- [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)
+- [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)
+- [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
+<!-- TODO: Add 'declaration-property-value-no-unknown' after options are deprecated -->
+
+#### `AtRules`
+
+You can customize at-rules by defining their expected prelude and descriptors.
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "example": {
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "foo": "<number>",
+            "bar": "<color>"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+#### `cssWideKeywords`
+
+You can add custom global keywords that are accepted as valid property values.
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "cssWideKeywords": ["my-global-value"]
+    }
+  }
+}
+```
+
+#### `properties`
+
+You can extend or modify the syntax for specific properties.
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "properties": { "size": "<length-percentage>" }
+    }
+  }
+}
+```
+
+#### `types`
+
+You can extend or modify the syntax for specific types.
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "properties": { "top": "| <--foo()>" },
+      "types": { "--foo()": "--foo( <length-percentage> )" }
+    }
+  }
+}
 ```
 
 ## `extends`
