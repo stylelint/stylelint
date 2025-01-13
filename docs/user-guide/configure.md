@@ -1,4 +1,4 @@
-## Configuring
+# Configuring
 
 Stylelint expects a configuration object.
 
