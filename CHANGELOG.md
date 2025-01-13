@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.13.1 - 2025-01-13
+
+- Fixed: `ignore.default is not a function` ([#8305](https://github.com/stylelint/stylelint/pull/8305)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.13.0 - 2025-01-12
 
 It adds 3 rules to help you write error-free at-rules and 2 rules to warn you about deprecated CSS features. We've turned these rules on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
