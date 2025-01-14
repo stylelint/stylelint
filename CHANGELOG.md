@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.13.2 - 2025-01-14
+
+- Fixed: `--fix` CLI flag raising unknown value error ([#8313](https://github.com/stylelint/stylelint/pull/8313)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.13.1 - 2025-01-13
 
 It fixes one bug due to an upstream change in our `ignore` dependency.
