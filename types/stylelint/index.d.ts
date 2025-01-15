@@ -113,6 +113,7 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
+		computeReplacementText?: boolean;
 		validate?: boolean;
 	};
 
@@ -149,6 +150,7 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
+		fixedRanges: Array<[number, number]>;
 		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -168,6 +170,7 @@ declare namespace stylelint {
 		severity?: Severity;
 		url?: string;
 		rule?: string;
+		fix?: EditInfo;
 	};
 
 	/** @internal */
@@ -699,6 +702,7 @@ declare namespace stylelint {
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
+		computeReplacementText?: boolean;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -741,6 +745,17 @@ declare namespace stylelint {
 		source: string;
 	};
 
+	export type EditInfo = {
+		/**
+		 * The start and end offset of the edit. This is the range that is expected to be sliced out.
+		 */
+		range: [number, number];
+		/**
+		 * The replacement text of the edit. This is expected to be inserted after slicing out `range`.
+		 */
+		text: string;
+	};
+
 	/**
 	 * A lint warning.
 	 */
@@ -761,6 +776,7 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
+		fix?: EditInfo;
 		rule: string;
 		severity: Severity;
 		text: string;
@@ -849,6 +865,13 @@ declare namespace stylelint {
 		column: number;
 	};
 
+	export type FixCallback = () => void | undefined | never;
+
+	export type FixObject = {
+		apply?: FixCallback;
+		node?: PostCSS.Node;
+	};
+
 	/**
 	 * A lint problem.
 	 */
@@ -887,7 +910,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		fix?: () => void | undefined | never;
+		fix?: FixCallback | FixObject;
 	};
 
 	/** @internal */

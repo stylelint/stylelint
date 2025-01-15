@@ -58,6 +58,7 @@ exports[`fs - errored state for reportNeedlessDisables 1`] = `
           "column": 1,
           "endColumn": 38,
           "endLine": 1,
+          "fix": undefined,
           "line": 1,
           "rule": "--report-needless-disables",
           "severity": "error",
