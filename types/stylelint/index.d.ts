@@ -1,16 +1,13 @@
 import type * as PostCSS from 'postcss';
 import type { GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
+import type { Lexer } from 'css-tree';
 
 type ConfigExtends = string | string[];
 
 type ConfigPlugins = string | stylelint.Plugin | (string | stylelint.Plugin)[];
 
 type ConfigIgnoreFiles = string | string[];
-
-type ConfigRules = {
-	[ruleName: string]: stylelint.ConfigRuleSettings<any, Object>;
-};
 
 type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
 	files: string | string[];
@@ -71,6 +68,11 @@ declare namespace stylelint {
 		| { ruleName: string; rule: Rule };
 
 	/** @internal */
+	export type ConfigRules = {
+		[ruleName: string]: stylelint.ConfigRuleSettings<any, Object>;
+	};
+
+	/** @internal */
 	export type ConfigRuleSettings<T, O extends Object> =
 		| null
 		| undefined
@@ -82,6 +84,22 @@ declare namespace stylelint {
 	export type DisableOptions = {
 		except?: Array<StringOrRegex>;
 		severity?: Severity;
+	};
+
+	type LanguageOptions = {
+		syntax?: {
+			atRules?: Record<
+				string,
+				{
+					comment?: string;
+					prelude?: string;
+					descriptors?: Record<string, string>;
+				}
+			>;
+			cssWideKeywords?: string[];
+			properties?: Record<string, string>;
+			types?: Record<string, string>;
+		};
 	};
 
 	/**
@@ -108,6 +126,7 @@ declare namespace stylelint {
 		overrides?: ConfigOverride[];
 		customSyntax?: CustomSyntax;
 		processors?: ConfigProcessors;
+		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
 		allowEmptyInput?: boolean;
@@ -158,6 +177,7 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
+		lexer?: Lexer;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';

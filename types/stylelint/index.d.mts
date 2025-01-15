@@ -1,6 +1,7 @@
 export {
 	default,
 	Config,
+	ConfigRules,
 	ConfigRuleSettings,
 	CosmiconfigResult,
 	CoreRules,
