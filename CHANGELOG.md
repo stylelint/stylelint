@@ -1,5 +1,17 @@
 # Changelog
 
+## 16.13.2 - 2025-01-14
+
+It fixes a regression bug with `--fix`.
+
+- Fixed: `--fix` CLI flag raising unknown value error ([#8313](https://github.com/stylelint/stylelint/pull/8313)) ([@ybiquitous](https://github.com/ybiquitous)).
+
+## 16.13.1 - 2025-01-13
+
+It fixes one bug due to an upstream change in our `ignore` dependency.
+
+- Fixed: `ignore.default is not a function` ([#8305](https://github.com/stylelint/stylelint/pull/8305)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.13.0 - 2025-01-12
 
 It adds 3 rules to help you write error-free at-rules and 2 rules to warn you about deprecated CSS features. We've turned these rules on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).

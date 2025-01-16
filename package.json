@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "16.13.0",
+  "version": "16.13.2",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -149,7 +149,7 @@
     "globby": "^11.1.0",
     "globjoin": "^0.1.4",
     "html-tags": "^3.3.1",
-    "ignore": "^7.0.0",
+    "ignore": "^7.0.1",
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
     "known-css-properties": "^0.35.0",
@@ -193,7 +193,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^9.17.0",
+    "eslint": "^9.18.0",
     "eslint-config-stylelint": "^23.0.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.10.0",
@@ -212,9 +212,9 @@
     "postcss-scss": "^4.0.9",
     "prettier": "^3.4.2",
     "remark-cli": "^12.0.1",
-    "rollup": "^4.30.0",
+    "rollup": "^4.30.1",
     "sugarss": "^5.0.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": ">=18.12.0"
