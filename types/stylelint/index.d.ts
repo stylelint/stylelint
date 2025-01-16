@@ -113,7 +113,7 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
-		computeReplacementText?: boolean;
+		computeEditInfo?: boolean;
 		validate?: boolean;
 	};
 
@@ -702,7 +702,7 @@ declare namespace stylelint {
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
-		computeReplacementText?: boolean;
+		computeEditInfo?: boolean;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
