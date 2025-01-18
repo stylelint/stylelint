@@ -150,7 +150,7 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
-		fixedRanges: Array<EditInfo['range']>;
+		rangesOfComputedEditInfos: Array<EditInfo['range']>;
 		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -747,11 +747,11 @@ declare namespace stylelint {
 
 	export type EditInfo = {
 		/**
-		 * The start and end offset of the edit. This is the range that is expected to be sliced out.
+		 * The pair of 0-based indices in source code text to remove.
 		 */
 		range: [number, number];
 		/**
-		 * The replacement text of the edit. This is expected to be inserted after slicing out `range`.
+		 * The text to add.
 		 */
 		text: string;
 	};
