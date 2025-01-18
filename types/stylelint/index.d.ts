@@ -150,7 +150,7 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
-		fixedRanges: Array<[number, number]>;
+		fixedRanges: Array<EditInfo['range']>;
 		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
