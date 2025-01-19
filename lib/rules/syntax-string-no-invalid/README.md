@@ -11,7 +11,7 @@ Disallow invalid syntax strings.
 }
 ```
 
-Syntax strings are used for the syntax descriptor value of the `@property` at-rule. This rule checks their grammar and flags unsupported type names.
+Syntax strings are used for the `syntax` descriptor value of the `@property` at-rule. This rule checks their grammar and flags unsupported type names.
 
 You can check [§5.1 “Supported Names” of the CSS Properties & Values API](https://drafts.css-houdini.org/css-properties-values-api/#supported-names) for a list of valid syntax component names.
 
