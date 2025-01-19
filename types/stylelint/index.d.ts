@@ -235,7 +235,7 @@ declare namespace stylelint {
 	 */
 	export type RuleContext = {
 		configurationComment?: string | undefined;
-		fix?: boolean | FixMode;
+		fix?: boolean | undefined;
 		newline?: string | undefined;
 	};
 
