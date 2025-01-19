@@ -332,7 +332,7 @@ You can add custom global keywords that are accepted as valid property values.
 {
   "languageOptions": {
     "syntax": {
-      "cssWideKeywords": ["my-global-value"]
+      "cssWideKeywords": ["-moz-initial"]
     }
   }
 }
