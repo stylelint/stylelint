@@ -149,7 +149,7 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
-		fixersData: { [ruleName: string]: Array<FixerData> };
+		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
 		disabledRanges: DisabledRangeObject;
@@ -231,7 +231,7 @@ declare namespace stylelint {
 	 */
 	export type RuleContext = {
 		configurationComment?: string | undefined;
-		fix?: boolean | FixMode;
+		fix?: boolean | undefined;
 		newline?: string | undefined;
 	};
 
@@ -253,11 +253,6 @@ declare namespace stylelint {
 	export type Range = {
 		start: Position;
 		end: Position;
-	};
-
-	type FixerData = {
-		range?: Range;
-		fixed: boolean;
 	};
 
 	/**
@@ -298,6 +293,7 @@ declare namespace stylelint {
 		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
 		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-descriptor-no-unknown': CoreRule<true>;
+		'at-rule-descriptor-value-no-unknown': CoreRule<true>;
 		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
@@ -319,8 +315,10 @@ declare namespace stylelint {
 				ignoreAtRules: OneOrMany<string>;
 			}
 		>;
+		'at-rule-no-deprecated': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-no-vendor-prefix': CoreRule<true>;
+		'at-rule-prelude-no-invalid': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-property-required-list': CoreRule<Record<string, OneOrMany<string>>>;
 		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
 		'color-function-notation': CoreRule<
@@ -405,6 +403,11 @@ declare namespace stylelint {
 		'declaration-property-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'declaration-property-value-disallowed-list': CoreRule<
 			Record<string, OneOrMany<StringOrRegex>>
+		>;
+		'declaration-property-value-keyword-no-deprecated': CoreRule<
+			true,
+			{ ignoreKeywords: OneOrMany<StringOrRegex> },
+			AutofixMessage & { rejected: (property: string, keyword: string) => string }
 		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,

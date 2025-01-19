@@ -113,7 +113,89 @@ Stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/ma
 Always use the:
 
 - `validateOptions()` utility to warn users about invalid options
-- `isStandardSyntax*` utilities before checking a node or string to ignore non-standard syntax
+- `isStandardSyntax*()` utilities before checking a node or string to ignore non-standard syntax
+- `report()` utility to report lint problems
+
+##### Location arguments for `report()`
+
+When using `report()`, you can specify the location of a problem in various ways:
+
+- only `node` - implicitly span the entire range of the given node
+- `word` - the first instance of a word in the serialized given node
+- `index` and `endIndex` offsets - an index range within the given node
+- `start` and `end` positions - a [range](https://postcss.org/api/#range) within the given node
+
+Each approach has pros and cons concerning:
+
+- convenience - ease of use
+- narrowness - how well a location matches the issue
+- correctness - chance of bugs or incorrect locations
+- performance - the cost of calculating the location
+
+For example, using only `node` or `word` is often convenient, but comes at the expense of narrowness and correctness.
+
+In the following example of using `word`, the location is the selector within the rule:
+
+```js
+root.walkRules((ruleNode) => {
+  const { selector } = ruleNode;
+
+  report({
+    result,
+    ruleName,
+    message: messages.rejected(),
+    node: ruleNode,
+    word: selector
+  });
+});
+```
+
+Using `word` is the slowest approach to finding a location within a node, especially on nodes with many children, e.g. at-rules.
+
+When using offsets and positions, you can use the `nodeFieldIndices` utilities, e.g. `declarationValueIndex()`, to get the index of part of a node. These utilities account for the `raw` fields in the PostCSS AST.
+
+In the following example of using `index`, `endIndex` and the `declarationValueIndex()` utility, the location spans the value of the declaration:
+
+```js
+root.walkDecls((declNode) => {
+  const { prop, value } = declNode;
+
+  const index = declarationValueIndex(decl);
+  const endIndex = index + value.length;
+
+  report({
+    result,
+    ruleName,
+    message: messages.rejected(),
+    node: declNode,
+    index,
+    endIndex:
+  });
+});
+```
+
+This approach also works well when using construct-specific parsers:
+
+```js
+root.walkDecls((declNode) => {
+  const { prop, value: declValue } = declNode;
+
+  valueParser(declValue).walk(({ value, sourceIndex }) => {
+
+    const index = declarationValueIndex(decl) + sourceIndex;
+    const endIndex = index + value.length;
+
+    report({
+      result,
+      ruleName,
+      message: messages.rejected(),
+      node: declNode,
+      index,
+      endIndex:
+    });
+  });
+});
+```
 
 ### Add options
 
@@ -303,7 +385,7 @@ You should:
 3. Change the rule's validation to allow for the new option.
 4. Add (as little as possible) logic to the rule to make the tests pass.
 5. Add documentation about the new option.
-6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts)
+6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts).
 
 ## Fix a bug in a rule
 

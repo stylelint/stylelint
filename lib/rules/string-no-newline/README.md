@@ -13,6 +13,15 @@ a {
 
 [The spec](https://www.w3.org/TR/CSS2/syndata.html#strings) says this: "A string cannot directly contain a newline. To include a newline in a string, use an escape representing the line feed character in ISO-10646 (U+000A), such as '\A' or '\00000a'." And also: "It is possible to break strings over several lines, for aesthetic or other reasons, but in such a case the newline itself has to be escaped with a backslash (\\)."
 
+This rule overlaps with:
+
+- [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
+- [`at-rule-prelude-no-invalid`](../at-rule-prelude-no-invalid/README.md)
+- [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
+- [`media-query-no-invalid`](../media-query-no-invalid/README.md)
+
+We recommend configuring this rule so that it doesn't overlap.
+
 ## Options
 
 ### `true`

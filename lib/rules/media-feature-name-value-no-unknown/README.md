@@ -11,7 +11,7 @@ Disallow unknown values for media features.
 
 This rule considers values for media features defined within the CSS specifications to be known.
 
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as Sass or Less, as they have their own syntaxes.
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 It sometimes overlaps with:
 

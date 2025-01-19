@@ -11,7 +11,7 @@ Disallow invalid media queries.
 
 Media queries must be grammatically valid according to the [Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/) specification.
 
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as Sass or Less, as they have their own syntaxes.
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 It works well with other rules that validate feature names and values:
 

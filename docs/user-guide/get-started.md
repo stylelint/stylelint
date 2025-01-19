@@ -43,7 +43,7 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 ```js
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ["stylelint-config-standard"]
+  extends: ["stylelint-config-standard-scss"]
 };
 ```
 

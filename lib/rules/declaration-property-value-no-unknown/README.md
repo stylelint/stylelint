@@ -13,16 +13,21 @@ This rule considers values for properties defined within the CSS specifications 
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property.
 
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as Sass or Less, as they have their own syntaxes.
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-It sometimes overlaps with:
+This rule checks property values. You can use [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md) to disallow unknown values for descriptors within at-rules.
+
+This rule overlaps with:
 
 - [`color-no-invalid-hex`](../color-no-invalid-hex/README.md)
+- [`function-linear-gradient-no-nonstandard-direction`](../function-linear-gradient-no-nonstandard-direction/README.md)
 - [`function-no-unknown`](../function-no-unknown/README.md)
 - [`string-no-newline`](../string-no-newline/README.md)
 - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
-If duplicate problems are flagged, you can turn off the corresponding rule.
+You can either turn off the rules or configure them to ignore the overlaps.
+
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
 
 Prior art:
 
