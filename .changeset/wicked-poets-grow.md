@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": minor
 ---
 
-Fixed: `declaration-property-value-keyword-no-deprecated` autofix for `border-color`
+Added: `declaration-property-value-keyword-no-deprecated` autofix for `border-color`, `overflow` and `scrollbar-color`
