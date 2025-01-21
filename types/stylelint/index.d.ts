@@ -267,6 +267,7 @@ declare namespace stylelint {
 		url: string;
 		deprecated?: boolean;
 		fixable?: boolean;
+		usesLexer?: boolean;
 	};
 
 	/** @internal */
