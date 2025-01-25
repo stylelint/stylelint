@@ -414,7 +414,6 @@ For example, to support a new function `--foo()` that accepts `<length-percentag
   "languageOptions": {
     "syntax": {
       "types": { "--foo()": "--foo( <length-percentage> )" },
-      // Types defined in `types` can be used in `properties`
       "properties": { "top": "| <--foo()>" }
     }
   }
