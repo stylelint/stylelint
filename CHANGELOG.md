@@ -1,5 +1,17 @@
 # Changelog
 
+## 16.14.0 - 2025-01-25
+
+- Added: replaced text and corresponding range to `Warning` type ([#8234](https://github.com/stylelint/stylelint/pull/8234)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` autofix of `border-color` and `overflow` ([#8346](https://github.com/stylelint/stylelint/pull/8346)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false negatives for `overflow-x` and `overflow-y` ([#8340](https://github.com/stylelint/stylelint/pull/8340)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false negatives for `scrollbar-color` ([#8346](https://github.com/stylelint/stylelint/pull/8346)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false positives for non-standard syntax values ([#8329](https://github.com/stylelint/stylelint/pull/8329)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `RuleContext['fix']` type ([#8309](https://github.com/stylelint/stylelint/pull/8309)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:has-slotted` ([#8332](https://github.com/stylelint/stylelint/pull/8332)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `SyntaxError: The requested module 'table'...` ([#8325](https://github.com/stylelint/stylelint/pull/8325)) ([@denisx](https://github.com/denisx)).
+- Fix: `declaration-property-value-keyword-no-deprecated` warning message for `overflow: <keyword> <keyword>` ([#8340](https://github.com/stylelint/stylelint/pull/8340)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.13.2 - 2025-01-14
 
 It fixes a regression bug with `--fix`.
