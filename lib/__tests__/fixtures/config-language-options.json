@@ -12,7 +12,7 @@
 				}
 			},
 			"cssWideKeywords": ["my-global-value"],
-			"properties": { "top": "| <--foo()>" },
+			"properties": { "top": "| <--foo()>", "bar": "<color>" },
 			"types": { "--foo()": "--foo( <length-percentage> )" }
 		}
 	},
