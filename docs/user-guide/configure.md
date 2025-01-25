@@ -300,11 +300,12 @@ The following rules are configured via the `languageOptions` property:
 - [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)
 - [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)
 - [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
-<!-- TODO: Add 'declaration-property-value-no-unknown' after options are deprecated -->
+- [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
 
 #### `AtRules`
 
 You can customize at-rules by defining their expected prelude and descriptors.
+For example, to support a new at-rule `@example` with specific descriptors:
 
 ```json
 {
@@ -324,9 +325,31 @@ You can customize at-rules by defining their expected prelude and descriptors.
 }
 ```
 
+When `at-rule-descriptor-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@example custom-ident { baz: 10; }
+```
+
+When `at-rule-descriptor-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@example custom-ident { foo: red; }
+```
+
+In both case, the following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@example custom-ident { foo: 10; bar: red; }
+```
+
 #### `cssWideKeywords`
 
 You can add custom global keywords that are accepted as valid property values.
+For example, to add `-moz-initial` to the wide keywords:
 
 ```json
 {
@@ -338,33 +361,78 @@ You can add custom global keywords that are accepted as valid property values.
 }
 ```
 
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: foo; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: my-global-value; }
+```
+
 #### `properties`
 
 You can extend or modify the syntax for specific properties.
+For example, to support a custom `bar` property that accepts `<color>` values:
 
 ```json
 {
   "languageOptions": {
     "syntax": {
-      "properties": { "size": "<length-percentage>" }
+      "properties": { "bar": "<color>" }
     }
   }
 }
 ```
 
+When `declaration-property-value-no-unknown` is enabled, The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { bar: 10px; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { bar: red; }
+```
+
 #### `types`
 
 You can extend or modify the syntax for specific types.
+For example, to support a new function `--foo()` that accepts `<length-percentage>` values and use it within the top property:
 
 ```json
 {
   "languageOptions": {
     "syntax": {
-      "properties": { "top": "| <--foo()>" },
-      "types": { "--foo()": "--foo( <length-percentage> )" }
+      "types": { "--foo()": "--foo( <length-percentage> )" },
+      // Types defined in `types` can be used in `properties`
+      "properties": { "top": "| <--foo()>" }
     }
   }
 }
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(red); }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(10px); }
 ```
 
 ## `extends`
