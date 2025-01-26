@@ -343,7 +343,7 @@ In both case, the following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@example custom-ident { foo: 10; bar: red; }
+@foo custom-ident { bar: 10; baz: red; }
 ```
 
 #### `cssWideKeywords`
