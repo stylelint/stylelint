@@ -1,0 +1,33 @@
+name: Publish to pkg.pr.new
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    tags: ['!**']
+
+jobs:
+  pkg-pr-new:
+    name: Publish to pkg.pr.new
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+      - name: Install Packages
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - run: npx pkg-pr-new publish --compact --json output.json --comment=off
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const output = JSON.parse(fs.readFileSync('output.json', 'utf8'));
+            const { postCustomComment } = await import('${{ github.workspace }}/scripts/pkg.pr.new-custom-comment.mjs')
+
+            await postCustomComment({github, context, core, output})
