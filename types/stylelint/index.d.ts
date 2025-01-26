@@ -113,6 +113,8 @@ declare namespace stylelint {
 		allowEmptyInput?: boolean;
 		cache?: boolean;
 		fix?: boolean;
+		/** @experimental */
+		computeEditInfo?: boolean;
 		validate?: boolean;
 	};
 
@@ -149,6 +151,7 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
+		rangesOfComputedEditInfos: Array<EditInfo['range']>;
 		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -168,6 +171,7 @@ declare namespace stylelint {
 		severity?: Severity;
 		url?: string;
 		rule?: string;
+		fix?: EditInfo;
 	};
 
 	/** @internal */
@@ -699,6 +703,7 @@ declare namespace stylelint {
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
+		computeEditInfo?: boolean;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
@@ -741,6 +746,17 @@ declare namespace stylelint {
 		source: string;
 	};
 
+	export type EditInfo = {
+		/**
+		 * The pair of 0-based indices in source code text to remove.
+		 */
+		range: [number, number];
+		/**
+		 * The text to add.
+		 */
+		text: string;
+	};
+
 	/**
 	 * A lint warning.
 	 */
@@ -761,6 +777,11 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
+		/**
+		 * The `EditInfo` object of autofix. This property is undefined if this message is not fixable.
+		 * @experimental
+		 */
+		fix?: EditInfo;
 		rule: string;
 		severity: Severity;
 		text: string;
@@ -881,6 +902,14 @@ declare namespace stylelint {
 		  }
 		| object;
 
+	export type FixCallback = () => void | undefined | never;
+
+	/** @experimental */
+	export type FixObject = {
+		apply?: FixCallback;
+		node?: PostCSS.Node;
+	};
+
 	/**
 	 * A lint problem.
 	 */
@@ -896,7 +925,7 @@ declare namespace stylelint {
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		fix?: () => void | undefined | never;
+		fix?: FixCallback | FixObject;
 	} & ProblemLocation;
 
 	/** @internal */
