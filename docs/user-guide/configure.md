@@ -336,7 +336,7 @@ When `at-rule-descriptor-value-no-unknown` is enabled, the following patterns ar
 
 <!-- prettier-ignore -->
 ```css
-@example custom-ident { foo: red; }
+@foo custom-ident { bar: red; }
 ```
 
 In both case, the following patterns are _not_ considered problems:
