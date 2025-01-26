@@ -394,7 +394,7 @@ When `declaration-property-value-no-unknown` is enabled, The following patterns 
 
 <!-- prettier-ignore -->
 ```css
-a { bar: 10px; }
+a { foo: 10px; }
 ```
 
 The following patterns are _not_ considered problems:
