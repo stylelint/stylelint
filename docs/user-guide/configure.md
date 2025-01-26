@@ -384,7 +384,7 @@ For example, to support a custom `bar` property that accepts `<color>` values:
 {
   "languageOptions": {
     "syntax": {
-      "properties": { "bar": "<color>" }
+      "properties": { "foo": "<color>" }
     }
   }
 }
