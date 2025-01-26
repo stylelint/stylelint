@@ -378,7 +378,7 @@ a { color: -moz-initial; }
 #### `properties`
 
 You can extend or modify the syntax for specific properties.
-For example, to support a custom `bar` property that accepts `<color>` values:
+For example, to support a custom `foo` property that accepts `<color>` values:
 
 ```json
 {
