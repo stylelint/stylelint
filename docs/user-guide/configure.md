@@ -312,11 +312,11 @@ For example, to support a new at-rule `@foo` with specific descriptors:
   "languageOptions": {
     "syntax": {
       "atRules": {
-        "example": {
+        "foo": {
           "prelude": "<custom-ident>",
           "descriptors": {
-            "foo": "<number>",
-            "bar": "<color>"
+            "bar": "<number>",
+            "baz": "<color>"
           }
         }
       }
