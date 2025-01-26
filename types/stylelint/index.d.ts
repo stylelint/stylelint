@@ -271,7 +271,7 @@ declare namespace stylelint {
 		url: string;
 		deprecated?: boolean;
 		fixable?: boolean;
-		usesLexer?: boolean;
+		lexer?: 'csstree';
 	};
 
 	/** @internal */
