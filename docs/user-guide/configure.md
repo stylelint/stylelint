@@ -305,7 +305,7 @@ The following rules are configured via the `languageOptions` property:
 #### `AtRules`
 
 You can customize at-rules by defining their expected prelude and descriptors.
-For example, to support a new at-rule `@example` with specific descriptors:
+For example, to support a new at-rule `@foo` with specific descriptors:
 
 ```json
 {
