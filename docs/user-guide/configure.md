@@ -329,7 +329,7 @@ When `at-rule-descriptor-no-unknown` is enabled, the following patterns are cons
 
 <!-- prettier-ignore -->
 ```css
-@example custom-ident { baz: 10; }
+@foo custom-ident { qux: 10; }
 ```
 
 When `at-rule-descriptor-value-no-unknown` is enabled, the following patterns are considered problems:
