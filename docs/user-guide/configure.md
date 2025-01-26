@@ -372,7 +372,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { color: my-global-value; }
+a { color: -moz-initial; }
 ```
 
 #### `properties`
