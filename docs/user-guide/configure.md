@@ -349,7 +349,7 @@ In both cases, the following pattern is _not_ considered a problem:
 #### `cssWideKeywords`
 
 You can add custom global keywords that are accepted as valid property values.
-For example, to add `-moz-initial` to the wide keywords:
+For example, to add `-moz-initial` to the [wide keywords](https://drafts.csswg.org/css-values-4/#css-wide-keywords):
 
 ```json
 {
