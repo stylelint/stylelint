@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Add `syntax-string-no-invalid`
+Added: `syntax-string-no-invalid` rule
