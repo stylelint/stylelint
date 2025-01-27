@@ -2,6 +2,8 @@
 
 ## 16.14.1 - 2025-01-27
 
+It fixes a bug with caching.
+
 - Fixed: incompatible cache file format ([#8359](https://github.com/stylelint/stylelint/pull/8359)) ([@romainmenke](https://github.com/romainmenke)).
 
 ## 16.14.0 - 2025-01-25
