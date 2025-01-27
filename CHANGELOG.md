@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.14.1 - 2025-01-27
+
+- Fixed: incompatible cache file format ([#8359](https://github.com/stylelint/stylelint/pull/8359)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.14.0 - 2025-01-25
 
 It fixes 8 bugs and adds features to our `Warning` type.
