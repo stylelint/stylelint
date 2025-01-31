@@ -6,6 +6,9 @@ on:
     branches: [main]
     tags: ['!**']
 
+permissions:
+  pull-requests: write
+
 jobs:
   pkg-pr-new:
     name: Publish to pkg.pr.new
