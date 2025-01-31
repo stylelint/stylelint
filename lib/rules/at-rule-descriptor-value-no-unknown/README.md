@@ -31,6 +31,8 @@ This rule overlaps with:
 
 You can either turn off the rules or configure them to ignore the overlaps.
 
+For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
+
 Prior art:
 
 - [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)
