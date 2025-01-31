@@ -620,6 +620,7 @@ declare namespace stylelint {
 			true,
 			{ ignore: OneOrMany<'at-rule-preludes' | 'declaration-values'> }
 		>;
+		'syntax-string-no-invalid': CoreRule<true>;
 		'time-min-milliseconds': CoreRule<number, { ignore: OneOrMany<'delay'> }>;
 		'unit-allowed-list': CoreRule<
 			OneOrMany<string>,
