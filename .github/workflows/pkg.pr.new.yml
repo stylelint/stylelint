@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   pkg-pr-new:
+    if: github.repository == 'stylelint/stylelint'
     name: Publish to pkg.pr.new
     runs-on: ubuntu-latest
 
