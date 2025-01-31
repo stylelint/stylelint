@@ -7,6 +7,7 @@ on:
     tags: ['!**']
 
 permissions:
+  issues: write
   pull-requests: write
 
 jobs:
