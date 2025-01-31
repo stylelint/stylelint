@@ -1,5 +1,10 @@
 # Changelog
 
+## 16.15.0 - 2025-01-31
+
+- Added: `declaration-block-no-duplicate-properties` support for computing `EditInfo` ([#8363](https://github.com/stylelint/stylelint/pull/8363)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `syntax-string-no-invalid` rule ([#8331](https://github.com/stylelint/stylelint/pull/8331)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.14.1 - 2025-01-27
 
 It fixes a bug with caching.
