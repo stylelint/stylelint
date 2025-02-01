@@ -73,3 +73,11 @@ a {
     -moz-linear-gradient(45deg, blue, red);
 }
 ```
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: darkseagreen;
+  color: hsla(170, 50%, 45%, 1);
+}
+```
