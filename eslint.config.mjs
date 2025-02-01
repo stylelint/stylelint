@@ -21,6 +21,12 @@ export default [
 		rules: {
 			'import/extensions': ['error', 'ignorePackages'],
 			'jest/no-standalone-expect': ['error', { additionalTestBlockFunctions: ['testFn'] }],
+			'n/no-extraneous-import': [
+				'error',
+				{
+					allowModules: ['js-yaml'],
+				},
+			],
 		},
 	},
 ];
