@@ -302,11 +302,12 @@ function rule(primary, secondary) {
 
 ### Context
 
-`context` is an object which could have three properties:
+`context` is an object that could have the following properties:
 
 - `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
 - `fix`(boolean): If `true`, your rule can apply autofixes.
 - `newline`(string): Line-ending used in current linted file.
+- `lexer`(object): The [CSSTree](https://github.com/csstree/csstree) lexer, which helps in parsing and validating CSS syntax dynamically. The lexer is initialized once per lint session and reused across rules.
 
 > [!WARNING]
 > The convention of restricting the appliance of fixes based on the `context.fix` property is deprecated in favour of recommending the `fix` callback which properly handles [configuration comments](../user-guide/ignore-code.md#parts-of-a-file).

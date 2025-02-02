@@ -179,7 +179,6 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
-		lexer?: Lexer;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
@@ -256,6 +255,7 @@ declare namespace stylelint {
 		configurationComment?: string | undefined;
 		fix?: boolean | undefined;
 		newline?: string | undefined;
+		lexer: Lexer;
 	};
 
 	/** @internal */
@@ -270,7 +270,6 @@ declare namespace stylelint {
 		url: string;
 		deprecated?: boolean;
 		fixable?: boolean;
-		lexer?: 'csstree';
 	};
 
 	/** @internal */
