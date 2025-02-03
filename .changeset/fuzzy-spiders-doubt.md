@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: languageOptions configuration property
+Added: `languageOptions` configuration property
