@@ -1548,7 +1548,7 @@ Changes:
   - `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
 - Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
 - Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
-- Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
+- Fixed: `configOverrides` now works with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
 - Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](https://github.com/stylelint/stylelint/pull/2287)).
 - Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
 - Fixed: `unit-no-unknown` accepts `fr` units ([#2308](https://github.com/stylelint/stylelint/pull/2308)).
@@ -1566,7 +1566,7 @@ Changes:
 - Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a nonexistent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
 - Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
 - Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when Stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/2171)).
-- Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
+- Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140)).
 - Fixed: false positives related to LESS detached rulesets ([#2089](https://github.com/stylelint/stylelint/pull/2089)).
 - Fixed: `color-named` now ignores SCSS maps, so map property names can be color names ([#2182](https://github.com/stylelint/stylelint/pull/2182)).
 - Fixed: `comment-whitespace-inside` no longer complains about `/*!` comments with non-space whitespace (e.g. newlines) ([#2121](https://github.com/stylelint/stylelint/pull/2121)).
@@ -1647,7 +1647,7 @@ Changes:
 - Added: `ignore: ["consecutive-duplicates-with-different-values"]` option to `declaration-block-no-duplicate-properties`.
 - Added: `ignore: ["comments"]` option to `max-line-length`.
 - Added: `ignoreAtRules` option to `max-nesting-depth`.
-- Added: `ignoreProperties` option to `unit-blacklist` and `unit-whitelist`
+- Added: `ignoreProperties` option to `unit-blacklist` and `unit-whitelist`.
 - Fixed: no longer parsing ignored files before ignoring them.
 - Fixed: `configFile` and `configBasedir` can now be used together.
 - Fixed: `max-line-length` now correctly handles Windows line endings.
@@ -1937,7 +1937,7 @@ Changes:
 
 ## 6.0.1 - 2016-04-19
 
-- Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX` etc) when the `lower` option is used.
+- Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX`, etc.) when the `lower` option is used.
 
 ## 6.0.0 - 2016-04-19
 
@@ -1956,7 +1956,7 @@ Changes:
 - Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
-- Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
+- Fixed: `number-zero-length-no-unit` now works with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units.
 
 ## 5.4.0 - 2016-04-09
 
@@ -2027,12 +2027,12 @@ Changes:
 - Removed: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
 - Removed: `rule-properties-order` rule. Use the new `declaration-block-properties-order` rule instead.
 - Removed: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
-- Removed `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option instead.
+- Removed: `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` options instead.
 - Removed: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option instead.
 - Added: support for overlapping `stylelint-disable` commands.
 - Fixed: `max-nesting-depth` does not warn about blockless at-rules.
 - Fixed: `function-comma-newline-after` and related rules consider input to be multi-line (applying to "always-multi-line", etc.) when the newlines are at the beginning or end of the input.
-- Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces e.g. `rgb(0, 0, 0)` -- but also removed the rule (see above).
+- Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces, e.g. `rgb(0, 0, 0)`—but also removed the rule (see above).
 - Fixed: `declaration-block-properties-order` no longer fails when an unspecified property comes before or after a specified property in a group with `emptyLineBefore: true`.
 - Fixed: `indentation` no longer has false positives when there are empty lines within multi-line values.
 - Fixed: `declaration-colon-*-after` no longer fail to do their job when you want a space or newline after the colon and instead there is no space at all.
@@ -2051,7 +2051,7 @@ Changes:
 - Deprecated: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
 - Deprecated: `rule-properties-order` rule. Use the new `declaration-block-properties-order` rule instead.
 - Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
-- Deprecated `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option instead.
+- Deprecated: `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` options instead.
 - Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option instead.
 - Added: universal `severity` secondary option as a replacement for `"warn": true` to alter a rule's severity.
 - Added: `block-no-single-line` rule.
@@ -2067,7 +2067,7 @@ Changes:
 - Added: `no-unsupported-browser-features` rule.
 - Added: `selector-max-specificity` rule.
 - Added: `string-no-newline` rule.
-- Added: `"always"` and `"never"` option to `rule-properties-order` `emptyLineBefore` when using property groups
+- Added: `"always"` and `"never"` options to `rule-properties-order`'s `emptyLineBefore` when using property groups.
 - Added: `named-where-possible` option to `font-weight-notation`.
 - Added: `unspecified: "bottomAlphabetical"` option to the `rule-properties-order` rule.
 - Added: `ignoreAtRules: []` option to the `block-opening-brace-space-before` and `block-closing-brace-newline-after` rules.
@@ -2140,10 +2140,8 @@ Changes:
 - Added: `codeFilename` option to Node.js API.
 - Added: exposed rules at `stylelint.rules` to make Stylelint even more extensible.
 - Added: brought `stylelint-rule-tester` into this repo, and exposed it at `stylelint.utils.ruleTester`.
-- Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
-  by some other whitespace.
-- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
-  with `rule-properties-order`.
+- Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated by some other whitespace.
+- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option with `rule-properties-order`.
 - Fixed: regard an empty string as a valid CSS code.
 - Fixed: `ignoreFiles` handling of absolute paths.
 - Fixed: `ignoreFiles` uses the `configBasedir` option to interpret relative paths.
@@ -2297,7 +2295,7 @@ Changes:
 - Added: `rule-single-line-max-declarations` rule.
 - Added: `max-line-length` rule.
 - Added: `first-nested` exception to `comment-empty-line-before`.
-- Added: single value options to `*-blacklist` & `-*whitelist` rules e.g. `{ "function-blacklist": "calc"}`
+- Added: single value options to `*-blacklist` & `-*whitelist` rules, e.g. `{ "function-blacklist": "calc"}`.
 - Added: support for flexible groups to `rule-properties-order`.
 - Added: support for an optional empty line between each group to `rule-properties-order`.
 - Added: support for mathematical signs in front of Sass and Less variables in `function-calc-no-unspaced-operator`.
@@ -2306,7 +2304,7 @@ Changes:
 - Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
 - Fixed: bug causing `{ unspecified: "bottom }"` option not to be applied within `rule-properties-order`.
 - Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
-- Fixed: bug when loading plugins from an extended config
+- Fixed: bug when loading plugins from an extended config.
 - Fixed: indentation for function arguments, by ignoring them.
 
 ## 2.0.0 - 2015-10-16
