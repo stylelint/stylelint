@@ -255,7 +255,7 @@ declare namespace stylelint {
 		configurationComment?: string | undefined;
 		fix?: boolean | undefined;
 		newline?: string | undefined;
-		lexer?: Lexer;
+		lexer?: Lexer | undefined;
 	};
 
 	/** @internal */
