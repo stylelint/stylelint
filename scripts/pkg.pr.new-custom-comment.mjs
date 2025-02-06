@@ -7,13 +7,10 @@ export async function postCustomComment({ github, context, output }) {
 	// eslint-disable-next-line no-console -- For debugging on github actions.
 	console.log('pkg-pr-new publish output:', JSON.stringify(output));
 
-	const sha =
-		context.eventName === 'pull_request'
-			? context.payload.pull_request.head.sha
-			: context.payload.after;
+	const sha = output.sha;
 	const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${sha}`;
 
-	const pullRequestNumber = await getPullRequestNumber();
+	const pullRequestNumber = getPullRequestNumber();
 
 	const packages = output.packages.map((p) => {
 		let normalizedUrl = p.url;
@@ -74,25 +71,8 @@ npm i -D ${packages.map((p) => p.url).join(' ')}
 		/* eslint-enable no-console -- For debugging on github actions. */
 	}
 
-	async function getPullRequestNumber() {
-		if (context.eventName === 'pull_request') {
-			if (context.issue.number) {
-				return context.issue.number;
-			}
-		} else if (context.eventName === 'push') {
-			const pullRequests = await github.rest.pulls.list({
-				owner: context.repo.owner,
-				repo: context.repo.repo,
-				state: 'open',
-				head: `${context.repo.owner}:${context.ref.replace('refs/heads/', '')}`,
-			});
-
-			if (pullRequests.data.length > 0) {
-				return pullRequests.data[0].number;
-			}
-		}
-
-		return null;
+	function getPullRequestNumber() {
+		return output.number;
 	}
 
 	async function findBotComment(issueNumber) {

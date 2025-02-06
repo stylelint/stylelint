@@ -27,12 +27,24 @@ jobs:
       - name: Build
         run: npm run build
       - run: npx pkg-pr-new publish --compact --json output.json --comment=off
-      - uses: actions/github-script@v7
+      - name: Add metadata to output
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const output = JSON.parse(fs.readFileSync('output.json', 'utf8'));
-            const { postCustomComment } = await import('${{ github.workspace }}/scripts/pkg.pr.new-custom-comment.mjs')
+            output.number = context.issue.number;
+            output.event_name = context.eventName;
+            output.ref = context.ref;
+            output.sha = context.eventName === 'pull_request'
+              ? context.payload.pull_request.head.sha
+              : context.payload.after;
+            fs.writeFileSync('output.json', JSON.stringify(output), 'utf8');
+      - name: Upload output
+        uses: actions/upload-artifact@v4
+        with:
+          name: output
+          path: ./output.json
 
-            await postCustomComment({github, context, core, output})
+      - run: ls -R .
