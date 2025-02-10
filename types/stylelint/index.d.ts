@@ -110,7 +110,7 @@ declare namespace stylelint {
 		 *
 		 * @default 'node_modules'
 		 *
-		 * @see [ignorefiles](https://stylelint.io/user-guide/configure/#ignorefiles)
+		 * @see [ignoreFiles](https://stylelint.io/user-guide/configure/#ignorefiles)
 		 */
 		ignoreFiles?: ConfigIgnoreFiles;
 		ignorePatterns?: string;
@@ -136,44 +136,44 @@ declare namespace stylelint {
 		 * A string to set the default severity level for all rules that do not have a severity
 		 * specified in their secondary options
 		 *
-		 * @see [defaultseverity](https://stylelint.io/user-guide/configure#defaultseverity)
+		 * @see [defaultSeverity](https://stylelint.io/user-guide/configure#defaultseverity)
 		 */
 		defaultSeverity?: Severity;
 		/**
 		 * A boolean value indicating if 'stylelint-disable' comments will be ignored
 		 *
-		 * @see [ignoredisables](https://stylelint.io/user-guide/configure#ignoredisables)
+		 * @see [ignoreDisables](https://stylelint.io/user-guide/configure#ignoredisables)
 		 */
 		ignoreDisables?: boolean;
 		/**
 		 * Report configuration comments that don't match any lints that need to be disabled
 		 *
-		 * @see [reportneedlessdisables](https://stylelint.io/user-guide/configure#reportneedlessdisables)
+		 * @see [reportNeedlessDisables](https://stylelint.io/user-guide/configure#reportneedlessdisables)
 		 */
 		reportNeedlessDisables?: DisableSettings;
 		/**
 		 * Report configuration comments that don't match rules that are specified in the configuration object
 		 *
-		 * @see [reportinvalidscopedisables](https://stylelint.io/user-guide/configure#reportinvalidscopedisables)
+		 * @see [reportInvalidScopeDisables](https://stylelint.io/user-guide/configure#reportinvalidscopedisables)
 		 */
 		reportInvalidScopeDisables?: DisableSettings;
 		/**
 		 * Report configuration comments without a description
 		 *
-		 * @see [reportdescriptionlessdisables](https://stylelint.io/user-guide/configure#reportdescriptionlessdisables)
+		 * @see [reportDescriptionlessDisables](https://stylelint.io/user-guide/configure#reportdescriptionlessdisables)
 		 */
 		reportDescriptionlessDisables?: DisableSettings;
 		/**
 		 * Report configuration comments that are not scoped to at least one rule
 		 *
-		 * @see [reportunscopeddisables](https://stylelint.io/user-guide/configure#reportunscopeddisables)
+		 * @see [reportUnscopedDisables](https://stylelint.io/user-guide/configure#reportunscopeddisables)
 		 */
 		reportUnscopedDisables?: DisableSettings;
 		/**
 		 * A string to set what configuration comments like 'stylelint-disable' start with.
 		 * Сan be useful when using multiple instances of Stylelint with different configurations.
 		 *
-		 * @see [configurationcomment](https://stylelint.io/user-guide/configure#configurationcomment)
+		 * @see [configurationComment](https://stylelint.io/user-guide/configure#configurationcomment)
 		 */
 		configurationComment?: string;
 		/**
@@ -185,7 +185,7 @@ declare namespace stylelint {
 		/**
 		 * Allows to specify a custom syntax to use in code
 		 *
-		 * @see [customsyntax](https://stylelint.io/user-guide/configure#customsyntax)
+		 * @see [customSyntax](https://stylelint.io/user-guide/configure#customsyntax)
 		 */
 		customSyntax?: CustomSyntax;
 		/**
@@ -203,7 +203,7 @@ declare namespace stylelint {
 		 *
 		 * Should not be overridden on a per-file basis
 		 *
-		 * @see [allowemptyinput](https://stylelint.io/user-guide/configure#allowemptyinput)
+		 * @see [allowEmptyInput](https://stylelint.io/user-guide/configure#allowemptyinput)
 		 */
 		allowEmptyInput?: boolean;
 		/**
