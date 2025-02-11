@@ -408,7 +408,7 @@ For example, with `"always"`.
 Given:
 
 ```json
-["namespace", "/^--my-/"]
+["namespace", "/^my-/"]
 ```
 
 The following patterns are _not_ considered problems:
