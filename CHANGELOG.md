@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.15.0 - 2025-02-12
+
+- Added: `declaration-block-no-duplicate-properties` support for computing `EditInfo` ([#8363](https://github.com/stylelint/stylelint/pull/8363)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `syntax-string-no-invalid` rule ([#8331](https://github.com/stylelint/stylelint/pull/8331)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: regex support to `ignoreAtRules` option of `at-rule-empty-line-before` ([#8385](https://github.com/stylelint/stylelint/pull/8385)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false negatives for `text-decoration: blink` ([#8351](https://github.com/stylelint/stylelint/pull/8351)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `selectmenu` and `popup` ([#8376](https://github.com/stylelint/stylelint/pull/8376)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `tap` formatter not escaping `#` and `\` in its test point descriptions ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `tap` formatter outputting invalid YAML blocks for rules containing double quotes in their warnings' messages ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.14.1 - 2025-01-27
 
 It fixes a bug with caching.
