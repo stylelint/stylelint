@@ -432,7 +432,7 @@ declare namespace stylelint {
 					| 'blockless-after-same-name-blockless'
 					| 'blockless-after-blockless'
 				>;
-				ignoreAtRules: OneOrMany<string>;
+				ignoreAtRules: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'at-rule-no-deprecated': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
