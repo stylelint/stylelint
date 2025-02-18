@@ -399,7 +399,7 @@ The following patterns are _not_ considered problems:
 @media print {}
 ```
 
-### `ignoreAtRules: ["array", "of", "at-rules"]`
+### `ignoreAtRules: ["/regex/", /regex/, "string"]`
 
 Ignore specified at-rules.
 
@@ -408,7 +408,7 @@ For example, with `"always"`.
 Given:
 
 ```json
-["namespace"]
+["namespace", "/^my-/"]
 ```
 
 The following patterns are _not_ considered problems:
@@ -417,4 +417,10 @@ The following patterns are _not_ considered problems:
 ```css
 @import "foo.css";
 @namespace svg url('http://www.w3.org/2000/svg');
+```
+
+<!-- prettier-ignore -->
+```css
+a {}
+@my-at-rule {}
 ```
