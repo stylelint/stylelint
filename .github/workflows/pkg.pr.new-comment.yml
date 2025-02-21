@@ -6,6 +6,10 @@ name: Update pkg.pr.new comment
 # does not have the permission to comment on the pull request,
 # so the workflow is split.
 
+permissions:
+  issues: write
+  pull-requests: write
+
 on:
   workflow_run:
     workflows: [Publish to pkg.pr.new]
