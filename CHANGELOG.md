@@ -1,5 +1,19 @@
 # Changelog
 
+## 16.15.0 - 2025-02-21
+
+- Added: `declaration-block-no-duplicate-properties` support for computing `EditInfo` ([#8363](https://github.com/stylelint/stylelint/pull/8363)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `syntax-string-no-invalid` rule ([#8331](https://github.com/stylelint/stylelint/pull/8331)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: regex support to `ignoreAtRules` option of `at-rule-empty-line-before` ([#8385](https://github.com/stylelint/stylelint/pull/8385)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false positives for properties with `!important` ([#8366](https://github.com/stylelint/stylelint/pull/8366)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false negatives for `text-decoration: blink` ([#8351](https://github.com/stylelint/stylelint/pull/8351)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false positives for styled components interpolated functions ([#8392](https://github.com/stylelint/stylelint/pull/8392)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `font-family-name-quotes` false positives due to vendor-prefixed font-size values ([#8393](https://github.com/stylelint/stylelint/pull/8393)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for `math`, `emoji` and `fangsong` ([#8395](https://github.com/stylelint/stylelint/pull/8395)) ([@ViachaslauIhnatsiuk](https://github.com/ViachaslauIhnatsiuk)).
+- Fixed: `selector-type-no-unknown` false positives for `selectmenu` and `popup` ([#8376](https://github.com/stylelint/stylelint/pull/8376)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `tap` formatter not escaping `#` and `\` in its test point descriptions ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `tap` formatter outputting invalid YAML blocks for rules containing double quotes in their warnings' messages ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.14.1 - 2025-01-27
 
 It fixes a bug with caching.
