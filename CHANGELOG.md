@@ -2,7 +2,7 @@
 
 ## 16.15.0 - 2025-02-28
 
-It adds 1 new rule, a `languageOptions` configuration property for configuring some of the new rules added in `16.13.0`, regex support to one option and support for computing `EditInfo` to 6 rules. It fixes 9 bugs, including 2 with the `tap` reporter.
+It adds 1 new rule, a `languageOptions` configuration property for configuring some of the new rules added in `16.13.0`, regex support to 1 option and support for computing `EditInfo` to 6 rules. It fixes 9 bugs, including 2 with the `tap` reporter.
 
 - Added: `syntax-string-no-invalid` rule ([#8331](https://github.com/stylelint/stylelint/pull/8331)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `languageOptions` configuration property ([#8297](https://github.com/stylelint/stylelint/pull/8297)) ([@ryo-manba](https://github.com/ryo-manba)).
