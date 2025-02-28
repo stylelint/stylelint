@@ -23,7 +23,6 @@ It adds 1 new rule, a `languageOptions` configuration property for configuring s
 - Fixed: `font-family-no-missing-generic-family-keyword` false positives for `math`, `emoji` and `fangsong` ([#8395](https://github.com/stylelint/stylelint/pull/8395)) ([@ViachaslauIhnatsiuk](https://github.com/ViachaslauIhnatsiuk)).
 - Fixed: `selector-type-no-unknown` false positives for `selectmenu` and `popup` ([#8376](https://github.com/stylelint/stylelint/pull/8376)) ([@Mouvedia](https://github.com/Mouvedia)).
 
-
 ## 16.14.1 - 2025-01-27
 
 It fixes a bug with caching.
