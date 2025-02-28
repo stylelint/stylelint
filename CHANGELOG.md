@@ -1,5 +1,26 @@
 # Changelog
 
+## 16.15.0 - 2025-02-28
+
+- Added: `alpha-value-notation` support for computing `EditInfo` ([#8369](https://github.com/stylelint/stylelint/pull/8369)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `color-hex-length` support for computing `EditInfo` ([#8415](https://github.com/stylelint/stylelint/pull/8415)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `comment-empty-line-before` support for computing `EditInfo` ([#8416](https://github.com/stylelint/stylelint/pull/8416)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `comment-whitespace-inside` support for computing `EditInfo` ([#8417](https://github.com/stylelint/stylelint/pull/8417)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `custom-property-empty-line-before` support for computing `EditInfo` ([#8418](https://github.com/stylelint/stylelint/pull/8418)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `declaration-block-no-duplicate-properties` support for computing `EditInfo` ([#8363](https://github.com/stylelint/stylelint/pull/8363)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `languageOptions` configuration property ([#8297](https://github.com/stylelint/stylelint/pull/8297)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `syntax-string-no-invalid` rule ([#8331](https://github.com/stylelint/stylelint/pull/8331)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: regex support to `ignoreAtRules` option of `at-rule-empty-line-before` ([#8385](https://github.com/stylelint/stylelint/pull/8385)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false positives for properties with `!important` ([#8366](https://github.com/stylelint/stylelint/pull/8366)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false negatives for `text-decoration: blink` ([#8351](https://github.com/stylelint/stylelint/pull/8351)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false positives for styled components interpolated functions ([#8392](https://github.com/stylelint/stylelint/pull/8392)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `EditInfo` missing semicolon in `text` field ([#8370](https://github.com/stylelint/stylelint/pull/8370)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `font-family-name-quotes` false positives due to vendor-prefixed font-size values ([#8393](https://github.com/stylelint/stylelint/pull/8393)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for `math`, `emoji` and `fangsong` ([#8395](https://github.com/stylelint/stylelint/pull/8395)) ([@ViachaslauIhnatsiuk](https://github.com/ViachaslauIhnatsiuk)).
+- Fixed: `selector-type-no-unknown` false positives for `selectmenu` and `popup` ([#8376](https://github.com/stylelint/stylelint/pull/8376)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `tap` formatter not escaping `#` and `\` in its test point descriptions ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `tap` formatter outputting invalid YAML blocks for rules containing double quotes in their warnings' messages ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.14.1 - 2025-01-27
 
 It fixes a bug with caching.
