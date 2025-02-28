@@ -41,7 +41,7 @@ export async function postCustomComment({ github, context, output }) {
 		deps[p.name] = p.url;
 	}
 
-	onlineUrl.hash = compress({ deps });
+	onlineUrl.hash = compress({ deps: JSON.stringify(deps, null, 2) });
 	const body = `${botCommentIdentifier}
 
 ## Try the Instant Preview in Online Demo
