@@ -1,0 +1,18 @@
+diff --git a/node_modules/@types/css-tree/index.d.ts b/node_modules/@types/css-tree/index.d.ts
+index b9c1d73..f3d9ba9 100644
+--- a/node_modules/@types/css-tree/index.d.ts
++++ b/node_modules/@types/css-tree/index.d.ts
+@@ -910,7 +910,12 @@ export class Lexer {
+ export const lexer: Lexer;
+ 
+ export function fork(extension: {
+-    atrules?: Record<string, string> | undefined;
++    atrules?: Record<
++        string, {
++            comment?: string | undefined;
++            prelude?: string | undefined;
++            descriptors?: Record<string, string> | undefined;
++        }> | undefined;
+     properties?: Record<string, string> | undefined;
+     types?: Record<string, string> | undefined;
+     cssWideKeywords?: Array<string> | undefined;

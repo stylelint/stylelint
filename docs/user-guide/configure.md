@@ -254,6 +254,186 @@ But the following pattern would be reported as a warning:
 a[data-auto="1"] {}
 ```
 
+## `languageOptions`
+
+You can customize the syntax to define or extend the syntax for at-rules, properties, types, and CSS-wide keywords.
+
+### `syntax`
+
+You can extend or modify the default CSS syntax to customize the following aspects:
+
+- `atRules`: Define custom at-rules with specific `prelude` and `descriptors` syntax
+- `cssWideKeywords`: Extend the list of CSS-wide keywords with custom values
+- `properties`: Customize the syntax of specific properties
+- `types`: Extend or modify type definitions used in property values
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "example": {
+          "comment": "Example at-rule",
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "foo": "<number>",
+            "bar": "<color>"
+          }
+        }
+      },
+      "cssWideKeywords": ["my-global-value"],
+      "properties": { "top": "| <--foo()>" },
+      "types": { "--foo()": "--foo( <length-percentage> )" }
+    }
+  },
+  "rules": {
+    "at-rule-descriptor-no-unknown": true,
+    "at-rule-descriptor-value-no-unknown": true,
+    "at-rule-prelude-no-invalid": true,
+    "declaration-property-value-no-unknown": true
+  }
+}
+```
+
+The following rules are configured via the `languageOptions` property:
+
+- [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)
+- [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)
+- [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
+- [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
+
+#### `AtRules`
+
+You can customize at-rules by defining their expected prelude and descriptors.
+For example, to support a new at-rule `@foo` with specific descriptors:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "foo": {
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "bar": "<number>",
+            "baz": "<color>"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+When `at-rule-descriptor-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { qux: 10; }
+```
+
+When `at-rule-descriptor-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { bar: red; }
+```
+
+In both cases, the following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { bar: 10; baz: red; }
+```
+
+#### `cssWideKeywords`
+
+You can add custom global keywords that are accepted as valid property values.
+For example, to add `-moz-initial` to the [wide keywords](https://drafts.csswg.org/css-values-4/#css-wide-keywords):
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "cssWideKeywords": ["-moz-initial"]
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: foo; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: -moz-initial; }
+```
+
+#### `properties`
+
+You can extend or modify the syntax for specific properties.
+For example, to support a custom `foo` property that accepts `<color>` values:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "properties": { "foo": "<color>" }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { foo: 10px; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { foo: red; }
+```
+
+#### `types`
+
+You can extend or modify the syntax for specific types.
+For example, to support a new function `--foo()` that accepts `<length-percentage>` values and use it within the top property:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "types": { "--foo()": "--foo( <length-percentage> )" },
+      "properties": { "top": "| <--foo()>" }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(red); }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(10px); }
+```
+
 ## `extends`
 
 You can extend an existing configuration (whether your own or a third-party one). Configurations can bundle plugins, custom syntaxes, options, and configure rules. They can also extend other configurations.
