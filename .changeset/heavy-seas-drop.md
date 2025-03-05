@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `at-rule-no-deprecated` support computing `EditInfo`.
+Added: `at-rule-no-deprecated` support for computing `EditInfo`
