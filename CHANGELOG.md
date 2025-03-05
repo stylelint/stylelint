@@ -1,5 +1,14 @@
 # Changelog
 
+## 16.16.0 - 2025-03-05
+
+- Added: `at-rule-empty-line-before` support for computing `EditInfo` ([#8425](https://github.com/stylelint/stylelint/pull/8425)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `at-rule-no-deprecated` support for computing `EditInfo` ([#8426](https://github.com/stylelint/stylelint/pull/8426)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `at-rule-no-vendor-prefix` support for computing `EditInfo` ([#8427](https://github.com/stylelint/stylelint/pull/8427)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `color-function-notation` support for computing `EditInfo` ([#8437](https://github.com/stylelint/stylelint/pull/8437)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `font-family-name-quotes` support for computing `EditInfo` ([#8419](https://github.com/stylelint/stylelint/pull/8419)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `font-weight-notation` support for computing `EditInfo` ([#8420](https://github.com/stylelint/stylelint/pull/8420)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.15.0 - 2025-02-28
 
 It adds 1 new rule, a `languageOptions` configuration property for configuring some of the new rules added in `16.13.0`, regex support to 1 option and support for computing `EditInfo` to 6 rules. It fixes 9 bugs, including 2 with the `tap` reporter.
