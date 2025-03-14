@@ -2,6 +2,8 @@
 
 ## 16.16.0 - 2025-03-14
 
+It adds support for computing `EditInfo` to 22 more rules and reverts a change that added `context.lexer` to our public API in the previous release.
+
 - Added: `at-rule-empty-line-before` support for computing `EditInfo` ([#8425](https://github.com/stylelint/stylelint/pull/8425)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `at-rule-no-deprecated` support for computing `EditInfo` ([#8426](https://github.com/stylelint/stylelint/pull/8426)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `at-rule-no-vendor-prefix` support for computing `EditInfo` ([#8427](https://github.com/stylelint/stylelint/pull/8427)) ([@pamelalozano16](https://github.com/pamelalozano16)).
@@ -17,6 +19,7 @@
 - Added: `keyframe-selector-notation` support for computing `EditInfo` ([#8457](https://github.com/stylelint/stylelint/pull/8457)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `length-zero-no-unit` support for computing `EditInfo` ([#8459](https://github.com/stylelint/stylelint/pull/8459)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `lightness-notation` support for computing `EditInfo` ([#8458](https://github.com/stylelint/stylelint/pull/8458)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `media-feature-name-no-vendor-prefix` support for computing `EditInfo` ([#8456](https://github.com/stylelint/stylelint/pull/8456)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `media-feature-range-notation` support for computing `EditInfo` ([#8455](https://github.com/stylelint/stylelint/pull/8455)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `property-no-vendor-prefix` support for computing `EditInfo` ([#8461](https://github.com/stylelint/stylelint/pull/8461)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `rule-empty-line-before` support for computing `EditInfo` ([#8460](https://github.com/stylelint/stylelint/pull/8460)) ([@pamelalozano16](https://github.com/pamelalozano16)).
@@ -28,7 +31,6 @@
 - Added: `value-keyword-case` support for computing `EditInfo` ([#8469](https://github.com/stylelint/stylelint/pull/8469)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `value-no-vendor-prefix` support for computing `EditInfo` ([#8470](https://github.com/stylelint/stylelint/pull/8470)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Fixed: `Could not find a declaration file for module 'css-tree'` type error ([#8452](https://github.com/stylelint/stylelint/pull/8452)) ([@danielrentz](https://github.com/danielrentz)).
-- Added `media-feature-name-no-vendor-prefix` support for computing `EditInfo` ([#8456](https://github.com/stylelint/stylelint/pull/8456)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 
 ## 16.15.0 - 2025-02-28
 
