@@ -1,7 +1,6 @@
 import type * as PostCSS from 'postcss';
 import type { GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
-import type { Lexer } from 'css-tree';
 
 type ConfigExtends = string | string[];
 
@@ -371,7 +370,8 @@ declare namespace stylelint {
 		configurationComment?: string | undefined;
 		fix?: boolean | undefined;
 		newline?: string | undefined;
-		lexer?: Lexer | undefined;
+		/** @internal */
+		lexer?: unknown | undefined;
 	};
 
 	/** @internal */

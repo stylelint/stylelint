@@ -1,5 +1,37 @@
 # Changelog
 
+## 16.16.0 - 2025-03-14
+
+It adds support for computing `EditInfo` to 22 more rules and reverts a change that added `context.lexer` to our public API in the previous release.
+
+- Added: `at-rule-empty-line-before` support for computing `EditInfo` ([#8425](https://github.com/stylelint/stylelint/pull/8425)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `at-rule-no-deprecated` support for computing `EditInfo` ([#8426](https://github.com/stylelint/stylelint/pull/8426)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `at-rule-no-vendor-prefix` support for computing `EditInfo` ([#8427](https://github.com/stylelint/stylelint/pull/8427)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `color-function-notation` support for computing `EditInfo` ([#8437](https://github.com/stylelint/stylelint/pull/8437)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `declaration-empty-line-before` support for computing `EditInfo` ([#8443](https://github.com/stylelint/stylelint/pull/8443)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `declaration-property-value-keyword-no-deprecated` support for computing `EditInfo`. ([#8439](https://github.com/stylelint/stylelint/pull/8439)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `font-family-name-quotes` support for computing `EditInfo` ([#8419](https://github.com/stylelint/stylelint/pull/8419)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `font-weight-notation` support for computing `EditInfo` ([#8420](https://github.com/stylelint/stylelint/pull/8420)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `function-calc-no-unspaced-operator` support for computing `EditInfo` ([#8440](https://github.com/stylelint/stylelint/pull/8440)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `function-name-case` support for support for computing `EditInfo`." ([#8442](https://github.com/stylelint/stylelint/pull/8442)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `hue-degree-notation` support for computing `EditInfo` ([#8444](https://github.com/stylelint/stylelint/pull/8444)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `import-notation` support for computing `EditInfo`. ([#8445](https://github.com/stylelint/stylelint/pull/8445)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `keyframe-selector-notation` support for computing `EditInfo` ([#8457](https://github.com/stylelint/stylelint/pull/8457)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `length-zero-no-unit` support for computing `EditInfo` ([#8459](https://github.com/stylelint/stylelint/pull/8459)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `lightness-notation` support for computing `EditInfo` ([#8458](https://github.com/stylelint/stylelint/pull/8458)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `media-feature-name-no-vendor-prefix` support for computing `EditInfo` ([#8456](https://github.com/stylelint/stylelint/pull/8456)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `media-feature-range-notation` support for computing `EditInfo` ([#8455](https://github.com/stylelint/stylelint/pull/8455)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `property-no-vendor-prefix` support for computing `EditInfo` ([#8461](https://github.com/stylelint/stylelint/pull/8461)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `rule-empty-line-before` support for computing `EditInfo` ([#8460](https://github.com/stylelint/stylelint/pull/8460)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-no-vendor-prefix` support for `EditInfo` ([#8462](https://github.com/stylelint/stylelint/pull/8462)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-not-notation` support for computing `EditInfo` ([#8463](https://github.com/stylelint/stylelint/pull/8463)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-pseudo-element-colon-notation` support for `EditInfo` ([#8464](https://github.com/stylelint/stylelint/pull/8464)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-type-case` support for computing `EditInfo` ([#8467](https://github.com/stylelint/stylelint/pull/8467)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `shorthand-property-no-redundant-values` support for computing `EditInfo` ([#8466](https://github.com/stylelint/stylelint/pull/8466)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `value-keyword-case` support for computing `EditInfo` ([#8469](https://github.com/stylelint/stylelint/pull/8469)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `value-no-vendor-prefix` support for computing `EditInfo` ([#8470](https://github.com/stylelint/stylelint/pull/8470)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `Could not find a declaration file for module 'css-tree'` type error ([#8452](https://github.com/stylelint/stylelint/pull/8452)) ([@danielrentz](https://github.com/danielrentz)).
+
 ## 16.15.0 - 2025-02-28
 
 It adds 1 new rule, a `languageOptions` configuration property for configuring some of the new rules added in `16.13.0`, regex support to 1 option and support for computing `EditInfo` to 6 rules. It fixes 9 bugs, including 2 with the `tap` reporter.
