@@ -181,5 +181,9 @@ exports[`CLI --help 1`] = `
     --help, -h
 
       Show the help.
+
+    --compute-edit-info, --cei
+
+      Compute edit information for fixable problems.
 "
 `;
