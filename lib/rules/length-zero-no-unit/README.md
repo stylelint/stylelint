@@ -87,3 +87,25 @@ a { top: var(--foo, 0px); }
 ```css
 a { top: --bar(0px); }
 ```
+
+### `ignoreAtRulePreludes: ["/regex/", /regex/, "string"]`
+
+Ignore units for zero lengths within the specified at-rule preludes.
+
+Given:
+
+```json
+["function", "/^mix/"]
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@mixin foo($x: 0px) { width: $x; }
+```
+
+<!-- prettier-ignore -->
+```css
+@function baz($x: 0px) { @return $x; }
+```
