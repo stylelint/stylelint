@@ -45,21 +45,11 @@ The following patterns are considered problems:
 @import "foo.css" layer(Bar);
 ```
 
-<!-- prettier-ignore -->
-```css
-@import "foo.css" layer(bar.Baz);
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
 @layer foo;
-```
-
-<!-- prettier-ignore -->
-```css
-@layer foo.bar {}
 ```
 
 <!-- prettier-ignore -->
@@ -70,9 +60,4 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 @import "foo.css" layer(bar);
-```
-
-<!-- prettier-ignore -->
-```css
-@import "foo.css" layer(bar.baz);
 ```
