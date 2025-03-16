@@ -13,6 +13,8 @@ This rule considers at-rules defined in the CSS Specifications, up to and includ
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
+For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
+
 ## Options
 
 ### `true`
