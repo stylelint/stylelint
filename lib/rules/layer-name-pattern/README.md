@@ -20,7 +20,7 @@ A string will be translated into a RegExp like so `new RegExp(yourString)` — s
 Given the string:
 
 ```json
-"^[a-z][a-z0-9-]*$"
+"^[a-z][a-z0-9.-]*$"
 ```
 
 The following patterns are considered problems:
@@ -55,6 +55,11 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 @layer foo, bar {}
+```
+
+<!-- prettier-ignore -->
+```css
+@layer foo.bar {}
 ```
 
 <!-- prettier-ignore -->
