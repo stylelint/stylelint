@@ -102,7 +102,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@mixin foo($x: 0px) { width: $x; }
+@--foo 0px {}
 ```
 
 <!-- prettier-ignore -->
