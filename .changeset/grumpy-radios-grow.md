@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `layer-name-pattern`
+Added: `layer-name-pattern` rule
