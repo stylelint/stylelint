@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `ignoreAtRulePreludes: []` to `length-zero-no-unit`
+Added: `ignorePreludeOfAtRules: []` to `length-zero-no-unit`
