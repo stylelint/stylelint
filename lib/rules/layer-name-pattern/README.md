@@ -54,12 +54,12 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@layer foo, bar {}
+@layer foo.bar {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@layer foo.bar {}
+@layer foo, bar {}
 ```
 
 <!-- prettier-ignore -->
