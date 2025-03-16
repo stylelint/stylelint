@@ -95,7 +95,7 @@ Ignore units for zero lengths within the specified at-rule preludes.
 Given:
 
 ```json
-["function", "/^mix/"]
+["--foo", "/^--bar/"]
 ```
 
 The following patterns are _not_ considered problems:
