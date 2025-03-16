@@ -88,9 +88,9 @@ a { top: var(--foo, 0px); }
 a { top: --bar(0px); }
 ```
 
-### `ignoreAtRulePreludes: ["/regex/", /regex/, "string"]`
+### `ignorePreludeOfAtRules: ["/regex/", /regex/, "string"]`
 
-Ignore units for zero lengths within the specified at-rule preludes.
+Ignore units for zero lengths within the preludes of the specified at-rules.
 
 Given:
 
