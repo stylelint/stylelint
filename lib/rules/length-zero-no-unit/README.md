@@ -107,5 +107,5 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@function baz($x: 0px) { @return $x; }
+@--bar-baz 0px;
 ```
