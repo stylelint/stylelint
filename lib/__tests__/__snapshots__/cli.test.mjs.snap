@@ -58,6 +58,10 @@ exports[`CLI --help 1`] = `
         lax          attempting to fix as much as possible even with syntax errors (default)
         strict       only fixing when there are no syntax errors
 
+    --compute-edit-info, --cei
+
+      Compute edit information for fixable problems.
+
     --custom-syntax <name_or_path>
 
       A module name or path to a JS file exporting a PostCSS-compatible syntax.
@@ -181,9 +185,5 @@ exports[`CLI --help 1`] = `
     --help, -h
 
       Show the help.
-
-    --compute-edit-info, --cei
-
-      Compute edit information for fixable problems.
 "
 `;
