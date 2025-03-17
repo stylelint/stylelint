@@ -64,7 +64,7 @@ Disable the default ignores. Stylelint will not automatically ignore the content
 
 Automatically fix, where possible, problems reported by rules. [More info](options.md#fix).
 
-### `--compute-edit-info`
+### `--compute-edit-info, --cei`
 
 Compute edit information for fixable problems.
 
