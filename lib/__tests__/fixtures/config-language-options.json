@@ -19,6 +19,7 @@
 	"rules": {
 		"at-rule-descriptor-no-unknown": true,
 		"at-rule-descriptor-value-no-unknown": true,
+		"at-rule-no-unknown": true,
 		"at-rule-prelude-no-invalid": true,
 		"declaration-property-value-no-unknown": true
 	}
