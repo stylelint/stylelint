@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `--compute-edit-info` flag
+Added: `--compute-edit-info` CLI flag
