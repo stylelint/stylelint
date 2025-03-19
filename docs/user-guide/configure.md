@@ -302,6 +302,7 @@ The following rules are configured via the `languageOptions` property:
 - [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)
 - [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
 - [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
+- [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)
 
 #### `AtRules`
 
