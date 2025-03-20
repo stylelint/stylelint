@@ -600,6 +600,7 @@ declare namespace stylelint {
 			{
 				ignore: OneOrMany<'custom-properties'>;
 				ignoreFunctions: OneOrMany<StringOrRegex>;
+				ignorePreludeOfAtRules: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'lightness-notation': CoreRule<'percentage' | 'number', {}, AutofixMessage>;
