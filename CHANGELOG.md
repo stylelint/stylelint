@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.17.0 - 2025-03-20
+
+- Added: `at-rule-no-unknown` support for `languageOptions` ([#8475](https://github.com/stylelint/stylelint/pull/8475)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `declaration-block-no-redundant-longhand-properties` support for computing `EditInfo` ([#8482](https://github.com/stylelint/stylelint/pull/8482)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `function-url-quotes` support for computing `EditInfo` ([#8483](https://github.com/stylelint/stylelint/pull/8483)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `ignorePreludeOfAtRules: []` to `length-zero-no-unit` ([#8472](https://github.com/stylelint/stylelint/pull/8472)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `property-no-unknown` support for `languageOptions` ([#8476](https://github.com/stylelint/stylelint/pull/8476)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `selector-attribute-quotes` support for computing `EditInfo` ([#8484](https://github.com/stylelint/stylelint/pull/8484)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `custom-property-pattern` false negatives for `@property` preludes ([#8468](https://github.com/stylelint/stylelint/pull/8468)) ([@rohitgs28](https://github.com/rohitgs28)).
+
 ## 16.16.0 - 2025-03-14
 
 It adds support for computing `EditInfo` to 22 more rules and reverts a change that added `context.lexer` to our public API in the previous release.
