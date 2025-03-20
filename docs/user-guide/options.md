@@ -51,6 +51,27 @@ When a rule relies on the deprecated [`context`](../developer-guide/rules.md#con
 - a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
 - an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
 
+## `computeEditInfo`
+
+CLI flag: `--compute-edit-info, --cei`
+
+Compute edit information for autofixable rules.
+
+When enabled, warnings from autofixable rules will include a `fix` property containing:
+
+- `range` - the start and end indices of the text to replace
+- `text` - the replacement text
+
+The edit information will not be computed when:
+
+- the `fix` option is enabled
+- a rule's fix is disabled:
+  - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
+  - using disable comments, e.g. `/* stylelint-disable rule-name */`
+- another edit has already been computed for the same code region
+
+See [Warning with EditInfo](errors.md#warning-with-editinfo) for examples.
+
 ## `customSyntax`
 
 CLI flag: `--custom-syntax`
@@ -265,26 +286,5 @@ Ignore deprecation warnings.
 > ```shell
 > NODE_OPTIONS='--disable-warning=stylelint:005' npx stylelint "**/*.css"
 > ```
-
-## `computeEditInfo`
-
-CLI flag: `--compute-edit-info, --cei`
-
-Compute edit information for autofixable rules.
-
-When enabled, warnings from autofixable rules will include a `fix` property containing:
-
-- `range` - the start and end indices of the text to replace
-- `text` - the replacement text
-
-The edit information will not be computed when:
-
-- the `fix` option is enabled
-- a rule's fix is disabled:
-  - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
-  - using disable comments, e.g. `/* stylelint-disable rule-name */`
-- another edit has already been computed for the same code region
-
-See [Warning with EditInfo](errors.md#warning-with-editinfo) for examples.
 
 [1]: ../user-guide/ignore-code.md#parts-of-a-file
