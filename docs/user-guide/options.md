@@ -266,4 +266,25 @@ Ignore deprecation warnings.
 > NODE_OPTIONS='--disable-warning=stylelint:005' npx stylelint "**/*.css"
 > ```
 
+## `computeEditInfo`
+
+CLI flag: `--compute-edit-info, --cei`
+
+Record edit information for autofixable rules without applying the fixes.
+
+When enabled, warnings from autofixable rules will include a `fix` property containing:
+
+- `range` - the start and end indices of the text to replace
+- `text` - the replacement text
+
+The edit information will not be recorded in these cases:
+
+- When `fix` option is enabled (`fix` takes precedence over `computeEditInfo`)
+- When the rule's fix is disabled:
+  - via configuration (`"rule-name": [true, { disableFix: true }]`)
+  - via disable comments (`/* stylelint-disable rule-name */`)
+- When another edit is already recorded for the same code region
+
+See [Warning with EditInfo](errors.md#warning-with-editinfo) for examples.
+
 [1]: ../user-guide/ignore-code.md#parts-of-a-file
