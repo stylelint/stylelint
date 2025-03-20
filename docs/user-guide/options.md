@@ -270,20 +270,20 @@ Ignore deprecation warnings.
 
 CLI flag: `--compute-edit-info, --cei`
 
-Record edit information for autofixable rules without applying the fixes.
+Compute edit information for autofixable rules.
 
 When enabled, warnings from autofixable rules will include a `fix` property containing:
 
 - `range` - the start and end indices of the text to replace
 - `text` - the replacement text
 
-The edit information will not be recorded in these cases:
+The edit information will not be computed when:
 
-- When `fix` option is enabled (`fix` takes precedence over `computeEditInfo`)
-- When the rule's fix is disabled:
-  - via configuration (`"rule-name": [true, { disableFix: true }]`)
-  - via disable comments (`/* stylelint-disable rule-name */`)
-- When another edit is already recorded for the same code region
+- the `fix` option is enabled
+- a rule's fix is disabled:
+  - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
+  - using disable comments, e.g. `/* stylelint-disable rule-name */`
+- another edit has already been computed for the same code region
 
 See [Warning with EditInfo](errors.md#warning-with-editinfo) for examples.
 
