@@ -114,26 +114,26 @@ The `EditInfo` value is information to edit text. It is included in warnings' `f
 - `text` (`string`)
   The text to add.
 
-For example, to change `a { color: #FFF; }` to `a { color: #FFFFFF; }`, the EditInfo might look like:
+For example, to change `a { opacity: 10%; }` to `a { opacity: 0.1; }`, the EditInfo might look like:
 
 ```js
 {
-  // Index for the last "F" in "#FFF"
-  range: [13, 14],
+  // Index of "10%"
+  range: [13, 16],
   // The replacement text
-  text: "FFFF"
+  text: "0.1"
 }
 ```
 
 To apply this edit, you would:
 
 ```js
-// Original: "a { color: #FFF; }"
+// Original: "a { opacity: 10%; }"
 const result =
-  sourceCodeText.slice(0, edit.range[0]) + // "a { color: #FF"
-  edit.text + // "FFFF"
+  sourceCodeText.slice(0, edit.range[0]) + // "a { opacity: "
+  edit.text + // "0.1"
   sourceCodeText.slice(edit.range[1]); // "; }"
-// Result: "a { color: #FFFFFF; }"
+// Result: "a { opacity: 0.1; }"
 ```
 
 Note: Only a single `EditInfo` will be recorded for a specific region in source code. If multiple report ranges overlap, only the first will contain `EditInfo`.
