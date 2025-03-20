@@ -95,14 +95,14 @@ Ignore units for zero lengths within the preludes of the specified at-rules.
 Given:
 
 ```json
-["--foo", "/^--bar/"]
+["media", "/^--bar/"]
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@--foo 0px {}
+@media (height > 0px) {}
 ```
 
 <!-- prettier-ignore -->
