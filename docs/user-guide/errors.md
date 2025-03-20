@@ -98,3 +98,42 @@ You should:
 - install the latest version of Stylelint (`npm i --save-dev stylelint`), as we may have recently added the option
 - check that the option exists and is correctly named by reading the rule's README
 - correctly configure the [`rules`](configure.md#rules) property in the configuration object
+
+## Warning with EditInfo
+
+When the `computeEditInfo` option is enabled and `fix` option is disabled, warnings may include a `fix` property that provides information about suggested fixes.
+This is useful for automated fixing tools and IDE integrations.
+
+### EditInfo type
+
+The `EditInfo` value is information to edit text. It is included in warnings' `fix` property. It has following properties:
+
+- `range` (`[number, number]`)
+  The pair of 0-based indices in source code text to remove.
+
+- `text` (`string`)
+  The text to add.
+
+For example, to change `a { color: #FFF; }` to `a { color: #FFFFFF; }`, the EditInfo might look like:
+
+```js
+{
+  // Index for the last "F" in "#FFF"
+  range: [13, 14],
+  // The replacement text
+  text: "FFFF"
+}
+```
+
+To apply this edit, you would:
+
+```js
+// Original: "a { color: #FFF; }"
+const result =
+  sourceCodeText.slice(0, edit.range[0]) + // "a { color: #FF"
+  edit.text + // "FFFF"
+  sourceCodeText.slice(edit.range[1]); // "; }"
+// Result: "a { color: #FFFFFF; }"
+```
+
+Note: Only a single `EditInfo` will be recorded for a specific region in source code. If multiple report ranges overlap, only the first will contain `EditInfo`.
