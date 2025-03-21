@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module';
 import { exec } from 'node:child_process';
 import fs from 'node:fs';
 import process from 'node:process';
@@ -7,8 +8,8 @@ import { Release, parser } from 'keep-a-changelog';
 import increment from 'semver/functions/inc.js';
 import read from '@changesets/read';
 
-import pkg from '../package.json' assert { type: 'json' };
-
+const require = createRequire(import.meta.url);
+const pkg = require('../package.json');
 const changesets = await read('./');
 const groups = { security: [], removed: [], changed: [], deprecated: [], added: [], fixed: [] };
 const execAsync = util.promisify(exec);
@@ -20,7 +21,7 @@ for (const {
 	summary,
 	id,
 } of changesets) {
-	const [change, item] = summary.split(': ');
+	const [change, item] = summary.split(/: (.+)/s);
 
 	let stdout;
 
