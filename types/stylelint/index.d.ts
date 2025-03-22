@@ -571,7 +571,12 @@ declare namespace stylelint {
 			'numeric' | 'named-where-possible',
 			{ ignore: OneOrMany<'relative'> }
 		>;
-		'function-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'function-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{
+				exceptWithoutPropertyFallback?: OneOrMany<StringOrRegex>;
+			}
+		>;
 		'function-calc-no-unspaced-operator': CoreRule<true>;
 		'function-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'function-linear-gradient-no-nonstandard-direction': CoreRule<true>;
