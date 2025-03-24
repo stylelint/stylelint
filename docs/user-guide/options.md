@@ -67,7 +67,7 @@ The edit information will not be computed when:
 - the `fix` option is enabled
 - a rule's fix is disabled:
   - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
-  - using disable comments, e.g. `/* stylelint-disable rule-name */`
+  - using configuration comments, e.g. `/* stylelint-disable rule-name */`
 - another edit has already been computed for the same code region
 
 See [Warning with EditInfo](errors.md#warning-with-editinfo) for examples.
