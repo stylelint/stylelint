@@ -64,7 +64,7 @@ When enabled, warnings from autofixable rules will include a `fix` property cont
 
 The edit information will not be computed when:
 
-- the `fix` option is enabled
+- the [`fix` option](#fix) is enabled
 - a rule's fix is disabled:
   - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
   - using configuration comments, e.g. `/* stylelint-disable rule-name */`
