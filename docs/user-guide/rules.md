@@ -369,6 +369,7 @@ Enforce naming conventions with these `pattern` rules.
 | [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md)<br/>Specify a pattern for custom media query names. | ✅ | |
 | [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md)<br/>Specify a pattern for custom properties. | ✅ | |
 | [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md)<br/>Specify a pattern for keyframe names. | ✅ | |
+| [`layer-name-pattern`](../../lib/rules/layer-name-pattern/README.md)<br/>Specify a pattern for layer names. | | |
 | [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md)<br/>Specify a pattern for class selectors. | ✅ | |
 | [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md)<br/>Specify a pattern for ID selectors. | ✅ | |
 | [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md)<br/>Specify a pattern for the selectors of rules nested within rules. | | |

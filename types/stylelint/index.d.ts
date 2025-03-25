@@ -595,6 +595,7 @@ declare namespace stylelint {
 			AutofixMessage
 		>;
 		'keyframes-name-pattern': CoreRule<StringOrRegex>;
+		'layer-name-pattern': CoreRule<StringOrRegex>;
 		'length-zero-no-unit': CoreRule<
 			true,
 			{
