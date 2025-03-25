@@ -82,6 +82,72 @@ An array containing all the Stylelint result objects (the objects that formatter
 
 An object containing the maximum number of warnings and the amount found, e.g. `{ maxWarnings: 0, foundWarnings: 12 }`.
 
+## Stylelint result object
+
+```jsonc
+{
+  "source": "path/to/file.css", // The filepath or PostCSS identifier like <input css 1>
+  "errored": true, // This is `true` if at least one rule with an "error"-level severity triggered a warning
+  "warnings": [
+    // Array of rule problem warning objects, each like the following ...
+    {
+      "line": 3,
+      "column": 12,
+      "endLine": 4,
+      "endColumn": 15,
+      "rule": "block-no-empty",
+      "severity": "error",
+      "text": "You should not have an empty block (block-no-empty)"
+    }
+  ],
+  "deprecations": [
+    // Array of deprecation warning objects, each like the following ...
+    {
+      "text": "Feature X has been deprecated and will be removed in the next major version.",
+      "reference": "https://stylelint.io/docs/feature-x.md"
+    }
+  ],
+  "invalidOptionWarnings": [
+    // Array of invalid option warning objects, each like the following ...
+    {
+      "text": "Invalid option X for rule Y"
+    }
+  ],
+  "ignored": false // This is `true` if the file's path matches a provided ignore pattern
+}
+```
+
+### `EditInfo` type
+
+When the [`computeEditInfo` option](options.md#computeeditinfo) is enabled, warnings may include a `fix` property that provides information about suggested fixes:
+
+- `range` (`[number, number]`) - the pair of 0-based indices in source code text to remove
+- `text` (`string`) - the text to add
+
+For example, to change `a { opacity: 10%; }` to `a { opacity: 0.1; }`, the `EditInfo` might look like:
+
+```js
+{
+  // Index of "10%"
+  range: [13, 16],
+  // The replacement text
+  text: "0.1"
+}
+```
+
+To apply this edit, you would:
+
+```js
+// Original: "a { opacity: 10%; }"
+const result =
+  sourceCodeText.slice(0, edit.range[0]) + // "a { opacity: "
+  edit.text + // "0.1"
+  sourceCodeText.slice(edit.range[1]); // "; }"
+// Result: "a { opacity: 0.1; }"
+```
+
+Only a single `EditInfo` will be recorded for a specific region in source code. If multiple report ranges overlap, only the first will contain `EditInfo`.
+
 ## Syntax errors
 
 `stylelint.lint()` does not reject the `Promise` when your CSS contains syntax errors.
