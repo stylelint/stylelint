@@ -70,8 +70,6 @@ The edit information will not be computed when:
   - using configuration comments, e.g. `/* stylelint-disable rule-name */`
 - another edit has already been computed for the same code region
 
-See [Warning with EditInfo](errors.md#warning-with-editinfo) for examples.
-
 ## `customSyntax`
 
 CLI flag: `--custom-syntax`
