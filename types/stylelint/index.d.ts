@@ -595,11 +595,13 @@ declare namespace stylelint {
 			AutofixMessage
 		>;
 		'keyframes-name-pattern': CoreRule<StringOrRegex>;
+		'layer-name-pattern': CoreRule<StringOrRegex>;
 		'length-zero-no-unit': CoreRule<
 			true,
 			{
 				ignore: OneOrMany<'custom-properties'>;
 				ignoreFunctions: OneOrMany<StringOrRegex>;
+				ignorePreludeOfAtRules: OneOrMany<StringOrRegex>;
 			}
 		>;
 		'lightness-notation': CoreRule<'percentage' | 'number', {}, AutofixMessage>;

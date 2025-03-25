@@ -87,3 +87,25 @@ a { top: var(--foo, 0px); }
 ```css
 a { top: --bar(0px); }
 ```
+
+### `ignorePreludeOfAtRules: ["/regex/", /regex/, "string"]`
+
+Ignore units for zero lengths within the preludes of the specified at-rules.
+
+Given:
+
+```json
+["media", "/^--bar/"]
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@media (height > 0px) {}
+```
+
+<!-- prettier-ignore -->
+```css
+@--bar-baz 0px;
+```
