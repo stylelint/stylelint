@@ -66,7 +66,7 @@ Automatically fix, where possible, problems reported by rules. [More info](optio
 
 ### `--compute-edit-info, --cei`
 
-Compute edit information for fixable problems.
+Compute edit information for fixable problems. [More info](options.md#computeeditinfo).
 
 ### `--formatter, -f` | `--custom-formatter`
 
