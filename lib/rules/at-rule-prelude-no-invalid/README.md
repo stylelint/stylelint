@@ -59,7 +59,7 @@ The following patterns are _not_ considered problems:
 @font-palette-values --foo {}
 ```
 
-## Secondary Options
+## Optional secondary options
 
 ### `ignoreAtRules: ["/regex/", /regex/, "string"]`
 
