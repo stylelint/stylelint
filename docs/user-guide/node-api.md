@@ -119,7 +119,7 @@ An object containing the maximum number of warnings and the amount found, e.g. `
 
 ### Edit info
 
-When the [`computeEditInfo` option](options.md#computeeditinfo) is enabled, warnings may include a `fix` property that provides information about suggested fixes:
+When the [`computeEditInfo` option](options.md#computeeditinfo) is enabled, a warning may include a `fix` property that provides information about suggested fixes:
 
 - `range` (`[number, number]`) - the pair of 0-based indices in source code text to remove
 - `text` (`string`) - the text to add
