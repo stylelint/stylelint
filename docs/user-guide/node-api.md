@@ -138,12 +138,12 @@ For example, to change `a { opacity: 10%; }` to `a { opacity: 0.1; }`, the `Edit
 To apply this edit, you would:
 
 ```js
-// Original: "a { opacity: 10%; }"
+const sourceCodeText = "a { opacity: 10%; }";
 const result =
   sourceCodeText.slice(0, edit.range[0]) + // "a { opacity: "
   edit.text + // "0.1"
   sourceCodeText.slice(edit.range[1]); // "; }"
-// Result: "a { opacity: 0.1; }"
+//=> "a { opacity: 0.1; }"
 ```
 
 Only a single `EditInfo` will be recorded for a specific region in source code. If multiple report ranges overlap, only the first will contain `EditInfo`.
