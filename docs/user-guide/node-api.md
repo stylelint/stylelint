@@ -82,7 +82,7 @@ An array containing all the Stylelint result objects (the objects that formatter
 
 An object containing the maximum number of warnings and the amount found, e.g. `{ maxWarnings: 0, foundWarnings: 12 }`.
 
-## Stylelint result object
+## Result object
 
 ```jsonc
 {
