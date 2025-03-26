@@ -57,11 +57,6 @@ CLI flag: `--compute-edit-info, --cei`
 
 Compute edit information for autofixable rules.
 
-When enabled, warnings from autofixable rules will include a `fix` property containing:
-
-- `range` - the start and end indices of the text to replace
-- `text` - the replacement text
-
 The edit information will not be computed when:
 
 - the [`fix` option](#fix) is enabled
@@ -69,6 +64,8 @@ The edit information will not be computed when:
   - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
   - using configuration comments, e.g. `/* stylelint-disable rule-name */`
 - another edit has already been computed for the same code region
+
+See [Node.js API Warning details](./node-api.md#edit-info).
 
 ## `customSyntax`
 
