@@ -65,7 +65,7 @@ The edit information will not be computed when:
   - using configuration comments, e.g. `/* stylelint-disable rule-name */`
 - another edit has already been computed for the same code region
 
-See [Node.js API Warning details](./node-api.md#editinfo-type).
+See [Node.js API Warning details](./node-api.md#edit-info).
 
 ## `customSyntax`
 

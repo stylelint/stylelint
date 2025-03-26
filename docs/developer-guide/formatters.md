@@ -11,7 +11,7 @@ export default function formatter(results, returnValue) {
 }
 ```
 
-Where the first argument (`results`) is an array of [Stylelint result objects (type `Array<StylelintResult>`)](../user-guide/node-api.md#stylelint-result-object).
+Where the first argument (`results`) is an array of [Stylelint result objects (type `Array<StylelintResult>`)](../user-guide/node-api.md#result-object).
 
 And the second argument (`returnValue`) is an object (type `LinterResult`) with one or more of the following keys:
 
