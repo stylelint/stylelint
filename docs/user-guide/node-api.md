@@ -117,7 +117,7 @@ An object containing the maximum number of warnings and the amount found, e.g. `
 }
 ```
 
-### `EditInfo` type
+### Edit info
 
 When the [`computeEditInfo` option](options.md#computeeditinfo) is enabled, warnings may include a `fix` property that provides information about suggested fixes:
 
