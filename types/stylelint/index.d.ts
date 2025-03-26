@@ -239,7 +239,6 @@ declare namespace stylelint {
 		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
 		 */
 		fix?: boolean;
-		/** @experimental */
 		computeEditInfo?: boolean;
 		/**
 		 * Force enable/disable the validation of the rules' options
@@ -917,7 +916,6 @@ declare namespace stylelint {
 		endColumn?: number;
 		/**
 		 * The `EditInfo` object of autofix. This property is undefined if this message is not fixable.
-		 * @experimental
 		 */
 		fix?: EditInfo;
 		rule: string;
@@ -1010,7 +1008,6 @@ declare namespace stylelint {
 
 	export type FixCallback = () => void | undefined | never;
 
-	/** @experimental */
 	export type FixObject = {
 		apply?: FixCallback;
 		node?: PostCSS.Node;
