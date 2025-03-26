@@ -914,6 +914,9 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
+		/**
+		 * The `EditInfo` object of autofix. This property is undefined if this message is not fixable.
+		 */
 		fix?: EditInfo;
 		rule: string;
 		severity: Severity;
