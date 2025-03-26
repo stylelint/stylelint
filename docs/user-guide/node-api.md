@@ -126,12 +126,13 @@ When the [`computeEditInfo` option](options.md#computeeditinfo) is enabled, a wa
 
 For example, to change `a { opacity: 10%; }` to `a { opacity: 0.1; }`, the `EditInfo` might look like:
 
-```js
+```jsonc
 {
-  // Index of "10%"
-  range: [13, 16],
-  // The replacement text
-  text: "0.1"
+  // "line", "column", "rule", ...
+  "fix": {
+    "range": [13, 16], // Indices of "10%"
+    "text": "0.1" // Replacement text
+  }
 }
 ```
 
