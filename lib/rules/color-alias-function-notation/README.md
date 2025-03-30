@@ -9,7 +9,7 @@ Specify functional notation for color-functions with or without alpha suffix.
  *             This notation */
 ```
 
-Color functions `rgb()` and `hsl()` have aliases `rgba()` and `hsla()`. Those are exactly equivalent, and it's preferable to use the first variant without `a`. This rule helps keeping color function names consistent. 
+Color functions `rgb()` and `hsl()` have aliases `rgba()` and `hsla()`. Those are exactly equivalent, and it's preferable to use the first variant without `a`. This rule helps keeping color function names consistent.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix the function name.
 
