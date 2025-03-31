@@ -37,7 +37,7 @@ a { container-name: bar; }
 
 <!-- prettier-ignore -->
 ```css
-@conainer FOO-bar {}
+a { container: baz / inline-size; }
 ```
 
 The following patterns are _not_ considered problems:
