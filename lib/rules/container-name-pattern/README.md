@@ -5,7 +5,7 @@ Specify a pattern for container names.
 <!-- prettier-ignore -->
 ```css
 @container foo (width > 400px) {}
-/**         ↑
+/**        ↑
  * The pattern of this */
 ```
 
