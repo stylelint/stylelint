@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Add color-alias-function-notation to keep color-function notations consistent
+Added: `color-function-alias-notation` rule
