@@ -1,4 +1,4 @@
-# color-alias-function-notation
+# color-function-alias-notation
 
 Specify alias notation for color-functions.
 

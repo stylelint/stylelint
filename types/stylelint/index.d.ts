@@ -459,7 +459,7 @@ declare namespace stylelint {
 		'at-rule-prelude-no-invalid': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-property-required-list': CoreRule<Record<string, OneOrMany<string>>>;
 		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
-		'color-alias-function-notation': CoreRule<'with-a' | 'without-a'>;
+		'color-function-alias-notation': CoreRule<'with-a' | 'without-a'>;
 		'color-function-notation': CoreRule<
 			'modern' | 'legacy',
 			{ ignore: OneOrMany<'with-var-inside'> }
