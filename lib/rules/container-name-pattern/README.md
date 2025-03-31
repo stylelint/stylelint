@@ -46,3 +46,13 @@ The following patterns are _not_ considered problems:
 ```css
 @container foo-bar {}
 ```
+
+<!-- prettier-ignore -->
+```css
+a { container-name: foo-bar; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { container: foo-baz / inline-size; }
+```
