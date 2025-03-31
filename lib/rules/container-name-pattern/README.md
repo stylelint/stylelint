@@ -32,7 +32,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@container bar {}
+a { container-name: bar; }
 ```
 
 <!-- prettier-ignore -->
