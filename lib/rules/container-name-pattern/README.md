@@ -4,8 +4,8 @@ Specify a pattern for container names.
 
 <!-- prettier-ignore -->
 ```css
-@container foo (max-width: 400px);
-/**         ↑
+@container foo (width > 400px) {}
+/**        ↑
  * The pattern of this */
 ```
 
@@ -32,12 +32,12 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@container bar {}
+a { container-name: bar; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-@conainer FOO-bar {}
+a { container: baz / inline-size; }
 ```
 
 The following patterns are _not_ considered problems:
