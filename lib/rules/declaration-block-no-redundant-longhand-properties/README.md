@@ -233,7 +233,7 @@ a {
 
 ### `ignoreShorthands: ["/regex/", /regex/, "string"]`
 
-Ignore the specified shorthand properties when checking for redundant longhands.
+Ignore the specified shorthand properties.
 
 Given:
 
