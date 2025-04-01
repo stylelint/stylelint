@@ -186,7 +186,8 @@ Given:
 ["text-decoration-thickness", "background-size", "background-origin", "background-clip"]
 ```
 
-### Patterns That Are Considered Problems:
+The following patterns are considered problems:
+
 <!-- prettier-ignore -->
 ```css
 a {
