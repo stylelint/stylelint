@@ -236,7 +236,8 @@ a {
 
 Ignore the specified shorthand properties when checking for redundant longhands.
 
-### Example Configuration:
+Given:
+
 ```json
 ["padding", "/border/"]
 ```
