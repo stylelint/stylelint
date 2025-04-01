@@ -173,7 +173,7 @@ a {
 }
 ```
 
-## Optional Secondary Options
+## Optional secondary options
 
 ### `ignoreLonghands: ["array", "of", "properties"]`
 
