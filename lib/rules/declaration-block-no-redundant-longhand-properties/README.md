@@ -178,7 +178,9 @@ a {
 ### `ignoreLonghands: ["array", "of", "properties"]`
 Ignore the specified longhand properties when checking for redundant longhands.
 
-### Example Configuration:
+Given:
+
+<!-- prettier-ignore -->
 ```json
 ["text-decoration-thickness", "background-size", "background-origin", "background-clip"]
 ```
