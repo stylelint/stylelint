@@ -1,24 +1,22 @@
-# selector-not-notation
+## selector-not-notation
 
 Enforce simple or complex notation for `:not()` pseudo-classes.
 
-<!-- prettier-ignore -->
 ```css
+/* simple notation */
 a:not([href]):not([class]) {}
-/**        ↑              ↑
- * These :not() pseudo-classes */
 ```
 
-This rule ensures consistency in how `:not()` pseudo-class selectors are written. There are two forms:
+```css
+/* complex notation */
+a:not([href], [class]) {}
+```
 
-1. **Simple notation**: Each selector appears in its own `:not()`.
-2. **Complex notation**: Multiple selectors are combined in one `:not()`.
+### Specificity Behavior
 
-## Specificity Behavior
+> [!NOTE]
+> The two notations can have different specificities. For example:
 
-⚠️ **Important**: The two forms have different specificity calculations in CSS:
-
-<!-- prettier-ignore -->
 ```css
 /* Simple form - specificity adds up (0-2-1) */
 a:not([href]):not([class]) {}
@@ -27,57 +25,46 @@ a:not([href]):not([class]) {}
 a:not([href], [class]) {}
 ```
 
-**Warning:** Converting to complex notation may reduce specificity and break style overrides.
+⚠️ **Warning**: Converting to complex notation may reduce specificity and break style overrides.
 
-## Options
+### Options
 
-`string`: `"simple"|"complex"`
+#### `"simple"` | `"complex"`
 
-- `"simple"`: Require each selector in a separate `:not()` pseudo-class.
-- `"complex"`: Require multiple selectors to be combined in a single `:not()`.
+- **`"simple"`**: Require each selector in a separate `:not()` pseudo-class.
+- **`"complex"`**: Require multiple selectors to be combined in a single `:not()`.
 
 For example, with `"complex"`:
 
-The following patterns are considered problems:
+The following patterns are **considered problems**:
 
-<!-- prettier-ignore -->
 ```css
 a:not([href]):not([class]) {}
-```
-
-<!-- prettier-ignore -->
-```css
 .foo:not(.bar):not(:hover) {}
 ```
 
-The following patterns are _not_ considered problems:
+The following patterns are **not considered problems**:
 
-<!-- prettier-ignore -->
 ```css
 a:not([href], [class]) {}
-```
-
-<!-- prettier-ignore -->
-```css
 .foo:not(.bar, :hover) {}
 ```
 
-## Optional Secondary Options
+### Optional Secondary Options
 
-### `ignoreSpecificity: true`
+#### `ignoreSpecificity: true`
 
 Disable specificity reduction warnings.
 
 For example, with `"complex"` and `ignoreSpecificity: true`:
 
-The following patterns are _not_ considered problems (even if specificity changes):
+The following patterns are **not considered problems** (even if specificity changes):
 
-<!-- prettier-ignore -->
 ```css
 a:not([href]):not([class]) {} /* converted to 0-1-1 specificity */
 ```
 
-### `ignore: ["pseudo-classes"]`
+#### `ignore: ["pseudo-classes"]`
 
 Ignore `:not()` pseudo-classes when they contain certain selectors.
 
@@ -87,43 +74,35 @@ For example, with `"complex"` and:
 { "ignore": ["pseudo-classes"] }
 ```
 
-The following patterns are _not_ considered problems:
+The following patterns are **not considered problems**:
 
-<!-- prettier-ignore -->
 ```css
 a:not(:hover):not(:focus) {} /* ignored */
-```
-
-<!-- prettier-ignore -->
-```css
 a:not([href]):not(:hover) {} /* only [href] part is checked */
 ```
 
-### `ignorePseudoElements: true`
+#### `ignorePseudoElements: true`
 
 Ignore `:not()` pseudo-classes containing pseudo-elements.
 
 For example, with `"complex"` and `ignorePseudoElements: true`:
 
-The following patterns are _not_ considered problems:
+The following patterns are **not considered problems**:
 
-<!-- prettier-ignore -->
 ```css
 a:not(::before):not(::after) {} /* ignored */
 ```
 
-## Real-world Example
+### Real-world Example
 
 This rule caught an issue where converting Bootstrap's:
 
-<!-- prettier-ignore -->
 ```css
 a:not([href]):not([class]) { color: inherit; } /* specificity 0-2-1 */
 ```
 
 to:
 
-<!-- prettier-ignore -->
 ```css
 a:not([href], [class]) { color: inherit; } /* specificity 0-1-1 */
 ```
