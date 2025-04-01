@@ -1,111 +1,89 @@
-## selector-not-notation
+# selector-not-notation
 
-Enforce simple or complex notation for `:not()` pseudo-classes.
+Specify simple or complex notation for `:not()` pseudo-class selectors.
 
+<!-- prettier-ignore -->
 ```css
-/* simple notation */
-a:not([href]):not([class]) {}
+    a:not(.foo, .bar) {}
+/**  ↑
+ * This notation */
 ```
 
-```css
-/* complex notation */
-a:not([href], [class]) {}
-```
+In Selectors Level 3, only a single _simple selector_ was allowed as the argument to `:not()`, whereas Selectors Level 4 allows a _selector list_.
 
-### Specificity Behavior
+Use:
+
+- `"complex"` to author modern Selectors Level 4 CSS
+- `"simple"` for backwards compatibility with older browsers
 
 > [!NOTE]
-> The two notations can have different specificities. For example:
+> The notations can have different specificities. For example:
 
+<!-- prettier-ignore -->
 ```css
-/* Simple form - specificity adds up (0-2-1) */
-a:not([href]):not([class]) {}
+/* this complex notation has a specificity of 0,1,1 */
+a:not(.foo, .bar) {}
 
-/* Complex form - takes highest specificity only (0-1-1) */
-a:not([href], [class]) {}
+/* this simple notation has a specificity of 0,2,1 */
+a:not(.foo):not(.bar) {}
 ```
 
-⚠️ **Warning**: Converting to complex notation may reduce specificity and break style overrides.
+The [`fix` option](../../../docs/user-guide/options.md#fix) option can automatically fix most of the problems reported by this rule.
 
-### Options
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
 
-#### `"simple"` | `"complex"`
+## Options
 
-- **`"simple"`**: Require each selector in a separate `:not()` pseudo-class.
-- **`"complex"`**: Require multiple selectors to be combined in a single `:not()`.
+`string`: `"simple"|"complex"`
 
-For example, with `"complex"`:
+### `"simple"`
 
-The following patterns are **considered problems**:
+The following patterns are considered problems:
 
+<!-- prettier-ignore -->
 ```css
-a:not([href]):not([class]) {}
-.foo:not(.bar):not(:hover) {}
+:not(a, div) {}
 ```
 
-The following patterns are **not considered problems**:
-
+<!-- prettier-ignore -->
 ```css
-a:not([href], [class]) {}
-.foo:not(.bar, :hover) {}
+:not(a.foo) {}
 ```
 
-### Optional Secondary Options
+The following patterns are _not_ considered problems:
 
-#### `ignoreSpecificity: true`
-
-Disable specificity reduction warnings.
-
-For example, with `"complex"` and `ignoreSpecificity: true`:
-
-The following patterns are **not considered problems** (even if specificity changes):
-
+<!-- prettier-ignore -->
 ```css
-a:not([href]):not([class]) {} /* converted to 0-1-1 specificity */
+:not(a):not(div) {}
 ```
 
-#### `ignore: ["pseudo-classes"]`
-
-Ignore `:not()` pseudo-classes when they contain certain selectors.
-
-For example, with `"complex"` and:
-
-```json
-{ "ignore": ["pseudo-classes"] }
-```
-
-The following patterns are **not considered problems**:
-
+<!-- prettier-ignore -->
 ```css
-a:not(:hover):not(:focus) {} /* ignored */
-a:not([href]):not(:hover) {} /* only [href] part is checked */
+:not(a) {}
 ```
 
-#### `ignorePseudoElements: true`
+### `"complex"`
 
-Ignore `:not()` pseudo-classes containing pseudo-elements.
+The following pattern is considered a problem:
 
-For example, with `"complex"` and `ignorePseudoElements: true`:
-
-The following patterns are **not considered problems**:
-
+<!-- prettier-ignore -->
 ```css
-a:not(::before):not(::after) {} /* ignored */
+:not(a):not(div) {}
 ```
 
-### Real-world Example
+The following patterns are _not_ considered problems:
 
-This rule caught an issue where converting Bootstrap's:
-
+<!-- prettier-ignore -->
 ```css
-a:not([href]):not([class]) { color: inherit; } /* specificity 0-2-1 */
+:not(a, div) {}
 ```
 
-to:
-
+<!-- prettier-ignore -->
 ```css
-a:not([href], [class]) { color: inherit; } /* specificity 0-1-1 */
+:not(a.foo) {}
 ```
 
-resulted in broken styles due to reduced specificity. Developers should carefully evaluate specificity changes before modifying selector notation.
-
+<!-- prettier-ignore -->
+```css
+:not(a).foo:not(:empty) {}
+```
