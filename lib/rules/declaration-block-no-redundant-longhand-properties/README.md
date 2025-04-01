@@ -242,7 +242,8 @@ Given:
 ["padding", "/border/"]
 ```
 
-### Patterns That Are *Not* Considered Problems:
+The following patterns are _not_ considered problems:
+
 <!-- prettier-ignore -->
 ```css
 a {
