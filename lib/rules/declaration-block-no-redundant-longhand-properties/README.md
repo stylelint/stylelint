@@ -175,7 +175,7 @@ a {
 
 ## Optional Secondary Options
 
-## `ignoreLonghands: ["array", "of", "properties"]`
+### `ignoreLonghands: ["array", "of", "properties"]`
 Ignore the specified longhand properties when checking for redundant longhands.
 
 ### Example Configuration:
