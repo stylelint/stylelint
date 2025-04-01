@@ -184,13 +184,17 @@ Ignore the specified longhand properties when checking for redundant longhands.
 ```
 
 ### Patterns That Are Considered Problems:
+<!-- prettier-ignore -->
 ```css
 a {
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-color: purple;
 }
+```
 
+<!-- prettier-ignore -->
+```css
 a {
   background-repeat: repeat;
   background-attachment: scroll;
@@ -204,12 +208,16 @@ a {
 ```
 
 ### Patterns That Are *Not* Considered Problems:
+<!-- prettier-ignore -->
 ```css
 a {
   text-decoration: underline solid purple;
   text-decoration-thickness: 1px;
 }
+```
 
+<!-- prettier-ignore -->
+```css
 a {
   background: none 0% 0% repeat scroll transparent;
   background-size: contain;
@@ -229,6 +237,7 @@ Ignore the specified shorthand properties when checking for redundant longhands.
 ```
 
 ### Patterns That Are *Not* Considered Problems:
+<!-- prettier-ignore -->
 ```css
 a {
   padding-top: 20px;
@@ -236,22 +245,23 @@ a {
   padding-bottom: 30px;
   padding-left: 10px;
 }
+```
 
+<!-- prettier-ignore -->
+```css
 a {
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-left-width: 1px;
   border-right-width: 1px;
 }
+```
 
+<!-- prettier-ignore -->
+```css
 a {
   border-top-color: green;
   border-top-style: double;
   border-top-width: 7px;
 }
 ```
-
-### Note:
-This rule won’t report any problems for the above cases because `padding` and `border` shorthands are ignored. Since `ignoreShorthands` makes the rule more permissive, **no invalid examples are included.**
-
----
