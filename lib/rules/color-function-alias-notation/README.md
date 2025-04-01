@@ -17,11 +17,11 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"without-a"|"with-a"`
+`string`: `"without-alpha"|"with-alpha"`
 
-### `"without-a"`
+### `"without-alpha"`
 
-Applicable color-functions _must always_ use the without "a" notation.
+Applicable color-functions _must always_ use the without alpha notation.
 
 The following patterns are considered problems:
 
@@ -47,9 +47,9 @@ a { color: rgb(0 0 0) }
 a { color: hsl(270 60% 50% / 15%) }
 ```
 
-### `"with-a"`
+### `"with-alpha"`
 
-Applicable color-functions _must always_ use with "a" notation.
+Applicable color-functions _must always_ use with alpha notation.
 
 The following patterns are considered problems:
 
