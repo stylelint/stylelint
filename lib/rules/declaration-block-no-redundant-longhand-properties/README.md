@@ -173,30 +173,24 @@ a {
 }
 ```
 
-## Optional secondary options
+# Optional Secondary Options
 
-### `ignoreLonghands: ["array", "of", "properties"]`
+## `ignoreLonghands: ["array", "of", "properties"]`
+Ignore the specified longhand properties when checking for redundant longhands.
 
-Given:
-
-<!-- prettier-ignore -->
+### Example Configuration:
 ```json
 ["text-decoration-thickness", "background-size", "background-origin", "background-clip"]
 ```
 
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
+### Patterns That Are Considered Problems:
 ```css
 a {
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-color: purple;
 }
-```
 
-<!-- prettier-ignore -->
-```css
 a {
   background-repeat: repeat;
   background-attachment: scroll;
@@ -209,18 +203,13 @@ a {
 }
 ```
 
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
+### Patterns That Are *Not* Considered Problems:
 ```css
 a {
   text-decoration: underline solid purple;
   text-decoration-thickness: 1px;
 }
-```
 
-<!-- prettier-ignore -->
-```css
 a {
   background: none 0% 0% repeat scroll transparent;
   background-size: contain;
@@ -229,17 +218,17 @@ a {
 }
 ```
 
-### `ignoreShorthands: ["/regex/", /regex/, "string"]`
+---
 
-Given:
+## `ignoreShorthands: ["/regex/", /regex/, "string"]`
+Ignore the specified shorthand properties when checking for redundant longhands.
 
+### Example Configuration:
 ```json
 ["padding", "/border/"]
 ```
 
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
+### Patterns That Are *Not* Considered Problems:
 ```css
 a {
   padding-top: 20px;
@@ -247,33 +236,22 @@ a {
   padding-bottom: 30px;
   padding-left: 10px;
 }
-```
 
-<!-- prettier-ignore -->
-```css
 a {
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-left-width: 1px;
   border-right-width: 1px;
 }
-```
 
-<!-- prettier-ignore -->
-```css
-a {
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-}
-```
-
-<!-- prettier-ignore -->
-```css
 a {
   border-top-color: green;
   border-top-style: double;
   border-top-width: 7px;
 }
 ```
+
+### Note:
+This rule won’t report any problems for the above cases because `padding` and `border` shorthands are ignored. Since `ignoreShorthands` makes the rule more permissive, **no invalid examples are included.**
+
+---
