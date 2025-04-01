@@ -173,30 +173,24 @@ a {
 }
 ```
 
-## Optional secondary options
+## **Optional secondary options**  
 
-### `ignoreLonghands: ["array", "of", "properties"]`
+### **`ignoreLonghands: ["array", "of", "properties"]`**  
+Ignore the specified longhand properties when checking for redundant longhands.  
 
-Given:
-
-<!-- prettier-ignore -->
-```json
+#### **Example configuration:**  
+```js
 ["text-decoration-thickness", "background-size", "background-origin", "background-clip"]
-```
+```  
 
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
+#### **Patterns that are considered problems:**  
 ```css
 a {
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-color: purple;
 }
-```
 
-<!-- prettier-ignore -->
-```css
 a {
   background-repeat: repeat;
   background-attachment: scroll;
@@ -207,39 +201,34 @@ a {
   background-origin: border-box;
   background-clip: text;
 }
-```
+```  
 
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
+#### **Patterns that are *not* considered problems:**  
 ```css
 a {
   text-decoration: underline solid purple;
   text-decoration-thickness: 1px;
 }
-```
 
-<!-- prettier-ignore -->
-```css
 a {
   background: none 0% 0% repeat scroll transparent;
   background-size: contain;
   background-origin: border-box;
   background-clip: text;
 }
-```
+```  
 
-### `ignoreShorthands: ["/regex/", /regex/, "string"]`
+---
 
-Given:
+### **`ignoreShorthands: ["/regex/", /regex/, "string"]`**  
+Ignore the specified shorthand properties when checking for redundant longhands.  
 
-```json
+#### **Example configuration:**  
+```js
 ["padding", "/border/"]
-```
+```  
 
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
+#### **Patterns that are *not* considered problems:**  
 ```css
 a {
   padding-top: 20px;
@@ -247,33 +236,17 @@ a {
   padding-bottom: 30px;
   padding-left: 10px;
 }
-```
 
-<!-- prettier-ignore -->
-```css
 a {
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-left-width: 1px;
   border-right-width: 1px;
 }
-```
 
-<!-- prettier-ignore -->
-```css
-a {
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-}
-```
-
-<!-- prettier-ignore -->
-```css
 a {
   border-top-color: green;
   border-top-style: double;
   border-top-width: 7px;
 }
-```
+```  
