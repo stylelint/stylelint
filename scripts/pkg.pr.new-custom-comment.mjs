@@ -43,20 +43,17 @@ export async function postCustomComment({ github, context, output }) {
 
 	onlineUrl.hash = compress({ deps: JSON.stringify(deps, null, 2) });
 	const body = `${botCommentIdentifier}
+PR packaged and instant preview available.
 
-## Try the Instant Preview in Online Demo
+[View demo website](${onlineUrl})
 
-[Stylelint Online Demo](${onlineUrl})
-
-## Install the Instant Preview to Your Local
+Install locally:
 
 \`\`\`
 npm i -D ${packages.map((p) => p.url).join(' ')}
 \`\`\`
 
----
-
-[View Commit](${commitUrl})`;
+([View Commit](${commitUrl}))`;
 
 	if (pullRequestNumber) {
 		await createOrUpdateComment(pullRequestNumber);

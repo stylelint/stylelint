@@ -51,6 +51,22 @@ When a rule relies on the deprecated [`context`](../developer-guide/rules.md#con
 - a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
 - an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
 
+## `computeEditInfo`
+
+CLI flag: `--compute-edit-info, --cei`
+
+Compute edit information for autofixable rules.
+
+The edit information will not be computed when:
+
+- the [`fix` option](#fix) is enabled
+- a rule's fix is disabled:
+  - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
+  - using configuration comments, e.g. `/* stylelint-disable rule-name */`
+- another edit has already been computed for the same code region
+
+See [Node.js API Warning details](./node-api.md#edit-info).
+
 ## `customSyntax`
 
 CLI flag: `--custom-syntax`
