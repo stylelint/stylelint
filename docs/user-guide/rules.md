@@ -75,7 +75,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
-| [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | | |
+| [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Irregular
@@ -370,7 +370,7 @@ Enforce naming conventions with these `pattern` rules.
 | [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md)<br/>Specify a pattern for custom media query names. | ✅ | |
 | [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md)<br/>Specify a pattern for custom properties. | ✅ | |
 | [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md)<br/>Specify a pattern for keyframe names. | ✅ | |
-| [`layer-name-pattern`](../../lib/rules/layer-name-pattern/README.md)<br/>Specify a pattern for layer names. | | |
+| [`layer-name-pattern`](../../lib/rules/layer-name-pattern/README.md)<br/>Specify a pattern for layer names. | ✅ | |
 | [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md)<br/>Specify a pattern for class selectors. | ✅ | |
 | [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md)<br/>Specify a pattern for ID selectors. | ✅ | |
 | [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md)<br/>Specify a pattern for the selectors of rules nested within rules. | | |
