@@ -318,7 +318,7 @@ function rule(primary, secondary) {
 
 +   const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
 
-+   languageCssWideKeywords.forEach(basicKeywords.add, basicKeywords);
++   const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
 
     /* .. */
   };
