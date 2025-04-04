@@ -488,6 +488,7 @@ declare namespace stylelint {
 		'comment-pattern': CoreRule<StringOrRegex>;
 		'comment-whitespace-inside': CoreRule<'always' | 'never'>;
 		'comment-word-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'container-name-pattern': CoreRule<StringOrRegex>;
 		'custom-media-pattern': CoreRule<StringOrRegex>;
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
