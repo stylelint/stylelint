@@ -16,6 +16,18 @@ Use:
 - `"complex"` to author modern Selectors Level 4 CSS
 - `"simple"` for backwards compatibility with older browsers
 
+> [!NOTE]
+> The notations can have different specificities. For example:
+
+<!-- prettier-ignore -->
+```css
+/* this complex notation has a specificity of 0,1,1 */
+a:not(.foo, .bar) {}
+
+/* this simple notation has a specificity of 0,2,1 */
+a:not(.foo):not(.bar) {}
+```
+
 The [`fix` option](../../../docs/user-guide/options.md#fix) option can automatically fix most of the problems reported by this rule.
 
 The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.

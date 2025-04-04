@@ -177,6 +177,8 @@ a {
 
 ### `ignoreLonghands: ["array", "of", "properties"]`
 
+Ignore the specified longhand properties.
+
 Given:
 
 <!-- prettier-ignore -->
@@ -231,6 +233,8 @@ a {
 
 ### `ignoreShorthands: ["/regex/", /regex/, "string"]`
 
+Ignore the specified shorthand properties.
+
 Given:
 
 ```json
@@ -246,16 +250,6 @@ a {
   padding-right: 10px;
   padding-bottom: 30px;
   padding-left: 10px;
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  border-right-width: 1px;
 }
 ```
 

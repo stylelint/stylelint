@@ -346,6 +346,7 @@ Enforce one representation of things that have multiple with these `notation` (s
 | | | |
 | :-- | :-: | :-: |
 | [`alpha-value-notation`](../../lib/rules/alpha-value-notation/README.md)<br/>Specify percentage or number notation for alpha-values. | ✅ | 🔧 |
+| [`color-function-alias-notation`](../../lib/rules/color-function-alias-notation/README.md)<br/>Specify alias notation for color-functions. | ✅ | 🔧 |
 | [`color-function-notation`](../../lib/rules/color-function-notation/README.md)<br/>Specify modern or legacy notation for color-functions. | ✅ | 🔧 |
 | [`color-hex-length`](../../lib/rules/color-hex-length/README.md)<br/>Specify short or long notation for hex colors. | ✅ | 🔧 |
 | [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md)<br/>Specify numeric or named notation for font weights. | | 🔧 |
