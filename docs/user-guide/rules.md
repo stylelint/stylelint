@@ -367,7 +367,7 @@ Enforce naming conventions with these `pattern` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`comment-pattern`](../../lib/rules/comment-pattern/README.md)<br/>Specify a pattern for comments. | | |
-| [`container-name-pattern`](../../lib/rules/container-name-pattern/README.md)<br/>Specify a pattern for container names. | | |
+| [`container-name-pattern`](../../lib/rules/container-name-pattern/README.md)<br/>Specify a pattern for container names. | ✅ | |
 | [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md)<br/>Specify a pattern for custom media query names. | ✅ | |
 | [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md)<br/>Specify a pattern for custom properties. | ✅ | |
 | [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md)<br/>Specify a pattern for keyframe names. | ✅ | |
