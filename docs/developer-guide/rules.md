@@ -55,6 +55,7 @@ You should:
 You should ask yourself how does your rule handle:
 
 - variables (e.g. `var(--custom-property)`)?
+- CSS-wide keywords (e.g. `initial`)?
 - CSS strings (e.g. `content: "anything goes";`)?
 - CSS comments (e.g. `/* anything goes */`)?
 - empty functions (e.g. `var()`)?
@@ -296,6 +297,30 @@ function rule(primary, secondary) {
       node,
 +     fix
     });
+  };
+}
+```
+
+### Add `languageOptions` support
+
+Depending on the rule, it may need to support the [`languageOptions`](../user-guide/configure.md#languageoptions) configuration property.
+
+For example:
+
+```diff js
+import { basicKeywords } from '../../reference/keywords.mjs';
+
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
+    if (!validOptions) return;
+
++   const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
+
++   languageCssWideKeywords.forEach(basicKeywords.add, basicKeywords);
+
+    /* .. */
   };
 }
 ```
