@@ -1,6 +1,8 @@
 # Changelog
 
-## 16.18.0 - 2025-04-05
+## 16.18.0 - 2025-04-06
+
+It adds 2 new rules and fixes 2 bugs. We've turned on these rules, and the `syntax-string-no-invalid` and `layer-name-pattern` ones from recent releases, in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
 
 - Added: `color-function-alias-notation` rule ([#8499](https://github.com/stylelint/stylelint/pull/8499)) ([@EduardAkhmetshin](https://github.com/EduardAkhmetshin)).
 - Added: `container-name-pattern` rule ([#8498](https://github.com/stylelint/stylelint/pull/8498)) ([@nate10j](https://github.com/nate10j)).
