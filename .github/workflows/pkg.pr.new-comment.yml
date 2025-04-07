@@ -29,20 +29,22 @@ jobs:
           cache: npm
       - name: Install Packages
         run: npm ci
+      - run: mkdir -p ${{ runner.temp }}/artifacts/
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: output
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
-      - run: ls -R .
+          path: ${{ runner.temp }}/artifacts/
+      - run: ls -R ${{ runner.temp }}/artifacts/
       - name: Post or update comment
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
-            const output = JSON.parse(fs.readFileSync('output.json', 'utf8'));
+            const output = JSON.parse(fs.readFileSync('${{ runner.temp }}/artifacts/output.json', 'utf8'));
             const { postCustomComment } = await import('${{ github.workspace }}/scripts/pkg.pr.new-custom-comment.mjs')
 
             await postCustomComment({github, context, core, output})
