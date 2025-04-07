@@ -144,7 +144,7 @@
     "debug": "^4.3.7",
     "fast-glob": "^3.3.3",
     "fastest-levenshtein": "^1.0.16",
-    "file-entry-cache": "^10.0.7",
+    "file-entry-cache": "^10.0.8",
     "global-modules": "^2.0.0",
     "globby": "^11.1.0",
     "globjoin": "^0.1.4",
