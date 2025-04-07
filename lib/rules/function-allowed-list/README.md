@@ -82,12 +82,6 @@ Disallow the matching functions when they are without a property fallback in the
 
 For example, with `["scale", "min", "/max/"]`.
 
-Given:
-
-```json
-["min", "/max/"]
-```
-
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -98,6 +92,11 @@ a { width: min(50%, 100px);}
 <!-- prettier-ignore -->
 ```css
 a { height: max(50%, 100px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transform: scale(1); }
 ```
 
 <!-- prettier-ignore -->
