@@ -78,8 +78,9 @@ a {
 
 ### `exceptWithoutPropertyFallback`: `["array", "of", "unprefixed", /functions/, "/regex/"]|"function"|"/regex/"|/regex/`
 
-Requires specified functions to have a fallback property declaration before them within the same selector.
-The function must be included in the primary option list to be affected by this option.
+Disallow the matching functions when they are without a property fallback in the same declaration block.
+
+For example, with `["scale", "min", "/max/"]`.
 
 Given:
 
