@@ -73,3 +73,52 @@ a {
     -moz-linear-gradient(45deg, blue, red);
 }
 ```
+
+## Optional secondary options
+
+### `exceptWithoutPropertyFallback`: `["array", "of", "unprefixed", /functions/, "/regex/"]|"function"|"/regex/"|/regex/`
+
+Disallow the matching functions when they are without a property fallback in the same declaration block.
+
+Given:
+
+```json
+["min", "/max/"]
+```
+
+For example, with `["scale", "min", "/max/"]` as the primary option.
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { width: min(50%, 100px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { height: max(50%, 100px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  width: max(50%, 100px);
+  width: 100px;
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { transform: scale(1); }
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  width: 100px;
+  width: min(50%, 100px);
+}
+```
