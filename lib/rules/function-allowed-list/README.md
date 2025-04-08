@@ -92,7 +92,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { width: min(50%, 100px);}
+a { width: min(50%, 100px); }
 ```
 
 <!-- prettier-ignore -->
