@@ -80,7 +80,13 @@ a {
 
 Disallow the matching functions when they are without a property fallback in the same declaration block.
 
-For example, with `["scale", "min", "/max/"]`.
+Given:
+
+```js
+["min", "/max/"]
+```
+
+For example, with `["scale", "min", "/max/"]` as the primary option.
 
 The following patterns are considered problems:
 
