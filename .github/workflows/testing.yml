@@ -10,6 +10,9 @@ on:
 env:
   FORCE_COLOR: 2
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     uses: stylelint/.github/.github/workflows/lint.yml@main
