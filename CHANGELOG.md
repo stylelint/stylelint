@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.19.0 - 2025-04-08
+
+- Added: `exceptWithoutPropertyFallback: []` to `function-allowed-list` ([#8488](https://github.com/stylelint/stylelint/pull/8488)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.18.0 - 2025-04-06
 
 It adds 2 new rules and fixes 2 bugs. We've turned on these rules, and the `syntax-string-no-invalid` and `layer-name-pattern` ones from recent releases, in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
