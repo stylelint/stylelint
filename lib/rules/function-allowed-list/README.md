@@ -82,7 +82,7 @@ Disallow the matching functions when they are without a property fallback in the
 
 Given:
 
-```js
+```json
 ["min", "/max/"]
 ```
 
@@ -99,7 +99,6 @@ a { width: min(50%, 100px);}
 ```css
 a { height: max(50%, 100px); }
 ```
-
 
 <!-- prettier-ignore -->
 ```css
