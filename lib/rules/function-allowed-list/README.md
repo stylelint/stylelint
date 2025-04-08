@@ -113,6 +113,11 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
+a { transform: scale(1); }
+```
+
+<!-- prettier-ignore -->
+```css
 a {
   width: 100px;
   width: min(50%, 100px);
