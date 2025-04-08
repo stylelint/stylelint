@@ -100,10 +100,6 @@ a { width: min(50%, 100px);}
 a { height: max(50%, 100px); }
 ```
 
-<!-- prettier-ignore -->
-```css
-a { transform: scale(1); }
-```
 
 <!-- prettier-ignore -->
 ```css
