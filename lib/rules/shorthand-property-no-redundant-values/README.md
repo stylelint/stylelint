@@ -96,14 +96,14 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 /* corner property */
-a { border-radius: 1px 2px 1px 2px; }
+a { border-radius: 1px 2px 3px 2px; }
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { margin: 1px 1px 1px 1px; }
+a { margin: 1px 2px 3px 2px; }
 ```
 
 <!-- prettier-ignore -->
