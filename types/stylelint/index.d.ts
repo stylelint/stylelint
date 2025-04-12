@@ -758,7 +758,13 @@ declare namespace stylelint {
 				ignoreTypes: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'shorthand-property-no-redundant-values': CoreRule<true, {}, AutofixMessage>;
+		'shorthand-property-no-redundant-values': CoreRule<
+			true,
+			{
+				ignore: OneOrMany<'four-into-three-edge-values'>;
+			},
+			AutofixMessage
+		>;
 		'string-no-newline': CoreRule<
 			true,
 			{ ignore: OneOrMany<'at-rule-preludes' | 'declaration-values'> }

@@ -84,3 +84,29 @@ a { padding: 1px 1em 1pt 1pc; }
 ```css
 a { border-radius: 10px / 5px; }
 ```
+
+## Optional secondary options
+
+### `ignore: ["four-into-three-edge-values"]`
+
+Ignore four-value shorthand declarations that could be shortened to three values when applied to edges.
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+/* corner property */
+a { border-radius: 1px 2px 1px 2px; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { margin: 1px 1px 1px 1px; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { inset: auto 0 0 0; }
+```
