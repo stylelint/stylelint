@@ -91,14 +91,6 @@ a { border-radius: 10px / 5px; }
 
 Ignore four-value shorthand declarations that could be shortened to three values when applied to edges.
 
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-/* corner property */
-a { border-radius: 1px 2px 3px 2px; }
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
