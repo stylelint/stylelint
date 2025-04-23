@@ -2,6 +2,8 @@
 
 ## 16.19.0 - 2025-04-23
 
+It adds 2 options to 2 rules and fixes 3 bugs.
+
 - Added: `exceptWithoutPropertyFallback: []` to `function-allowed-list` ([#8488](https://github.com/stylelint/stylelint/pull/8488)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `ignore: ["four-into-three-edge-values"]` to `shorthand-property-no-redundant-values` ([#8527](https://github.com/stylelint/stylelint/pull/8527)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Fixed: `compact` formatter with pnpm to newline the exit code ([#8534](https://github.com/stylelint/stylelint/pull/8534)) ([@konomae](https://github.com/konomae)).
