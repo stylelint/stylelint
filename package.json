@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "16.18.0",
+  "version": "16.19.0",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -171,7 +171,7 @@
     "write-file-atomic": "^5.0.1"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.28.1",
+    "@changesets/cli": "^2.29.2",
     "@changesets/get-github-info": "^0.6.0",
     "@jest/globals": "^29.7.0",
     "@stylelint/prettier-config": "^3.0.0",
@@ -193,7 +193,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^9.24.0",
+    "eslint": "^9.25.0",
     "eslint-config-stylelint": "^24.0.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.11.0",
