@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.19.1 - 2025-04-25
+
+- Fixed: `no-empty-source` false positives for non-standard syntaxes ([#8548](https://github.com/stylelint/stylelint/pull/8548)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.19.0 - 2025-04-23
 
 It adds 2 options to 2 rules and fixes 3 bugs.
