@@ -21,6 +21,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 Alpha-values _must always_ use the number notation.
 
+```json
+{
+  "alpha-value-notation": "number"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -48,6 +54,12 @@ a { color: rgb(0 0 0 / 0.5) }
 ### `"percentage"`
 
 Alpha-values _must always_ use percentage notation.
+
+```json
+{
+  "alpha-value-notation": "percentage"
+}
+```
 
 The following patterns are considered problems:
 
@@ -79,12 +91,12 @@ a { color: rgb(0 0 0 / 50%) }
 
 Reverse the primary option for matching properties.
 
-For example with `"percentage"`.
-
 Given:
 
 ```json
-["opacity"]
+{
+  "alpha-value-notation": ["percentage", { "exceptProperties": ["opacity"] }]
+}
 ```
 
 The following patterns are considered problems:
