@@ -13,7 +13,11 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "unprefixed-property-name": ["array", "of", "values", "/regex/", /regex/]|"value"|"/regex/"|/regex/ }`
+```json
+{ "unprefixed-property-name": ["array", "of", "values", "/regex/" }
+```
+
+You can also specify a single value or a regular expression instead of an array of them.
 
 If a property name is found in the object, only the listed property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
 
@@ -27,9 +31,11 @@ Given:
 
 ```json
 {
-  "transform": ["/scale/"],
-  "whitespace": "nowrap",
-  "/color/": ["/^green/"]
+  "declaration-property-value-allowed-list": {
+    "transform": ["/scale/"],
+    "whitespace": "nowrap",
+    "/color/": ["/^green/"]
+  }
 }
 ```
 

@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "declaration-block-no-duplicate-custom-properties": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -50,7 +56,12 @@ Ignore duplicates of specific properties.
 Given:
 
 ```json
-["--custom-property", "/ignored/"]
+{
+  "declaration-block-no-duplicate-custom-properties": [
+    true,
+    { "ignoreProperties": ["--custom-property", "/ignored/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:

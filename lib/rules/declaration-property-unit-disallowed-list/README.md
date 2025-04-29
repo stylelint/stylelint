@@ -13,7 +13,11 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "unprefixed-property-name": ["array", "of", "units"]|"unit" }`
+```json
+{ "unprefixed-property-name": ["array", "of", "units"] }
+```
+
+You can also specify a single unit instead of an array of them.
 
 If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
 
@@ -21,8 +25,10 @@ Given:
 
 ```json
 {
-  "font-size": ["em", "px"],
-  "/^animation/": "s"
+  "declaration-property-unit-disallowed-list": {
+    "font-size": ["em", "px"],
+    "/^animation/": "s"
+  }
 }
 ```
 

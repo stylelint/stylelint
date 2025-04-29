@@ -98,7 +98,7 @@ a { line-height: 1; }
 
 Ignore units that are inside a function.
 
-For example, given:
+Given:
 
 ```json
 {

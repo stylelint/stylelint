@@ -17,7 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ## Options
 
 ```json
-["array", "of", "words", "or", "/regex/"]
+["array", "of", "words", "/regex/"]
 ```
 
 If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.

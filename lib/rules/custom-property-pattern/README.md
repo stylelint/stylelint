@@ -17,10 +17,14 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
+If configuring this rule in JavaScript, you can use a regular expression directly, such as `/yourPattern/`.
+
 Given the string:
 
 ```json
-"foo-.+"
+{
+  "custom-property-pattern": "foo-.+"
+}
 ```
 
 The following patterns are considered problems:

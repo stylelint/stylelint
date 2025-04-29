@@ -21,6 +21,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "custom-property-no-missing-var-function": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

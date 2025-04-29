@@ -98,6 +98,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "declaration-block-no-redundant-longhand-properties": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -181,9 +187,20 @@ Ignore the specified longhand properties.
 
 Given:
 
-<!-- prettier-ignore -->
 ```json
-["text-decoration-thickness", "background-size", "background-origin", "background-clip"]
+{
+  "declaration-block-no-redundant-longhand-properties": [
+    true,
+    {
+      "ignoreLonghands": [
+        "text-decoration-thickness",
+        "background-size",
+        "background-origin",
+        "background-clip"
+      ]
+    }
+  ]
+}
 ```
 
 The following patterns are considered problems:
@@ -238,7 +255,12 @@ Ignore the specified shorthand properties.
 Given:
 
 ```json
-["padding", "/border/"]
+{
+  "declaration-block-no-redundant-longhand-properties": [
+    true,
+    { "ignoreShorthands": ["padding", "/border/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

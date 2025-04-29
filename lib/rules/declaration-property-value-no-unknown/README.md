@@ -37,6 +37,12 @@ Prior art:
 
 ### `true`
 
+```json
+{
+  "declaration-property-value-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -71,10 +77,14 @@ Given:
 
 ```json
 {
-  "top": ["unknown"],
-  "/^margin-/": "/^--foo/",
-  "padding": "/.+/",
-  "/.+/": "--unknown-value"
+  "declaration-property-value-no-unknown": [true, {
+    "ignoreProperties": {
+      "top": ["unknown"],
+      "/^margin-/": "/^--foo/",
+      "padding": "/.+/",
+      "/.+/": "--unknown-value"
+    }
+  }
 }
 ```
 
@@ -107,7 +117,12 @@ Extend or alter the properties syntax dictionary. [CSS Value Definition Syntax](
 Given:
 
 ```json
-{ "size": "<length-percentage>" }
+{
+  "declaration-property-value-no-unknown": [
+    true,
+    { "size": "<length-percentage>" }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -132,8 +147,13 @@ Given:
 
 ```json
 {
-  "propertiesSyntax": { "top": "| <--foo()>" },
-  "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
+  "declaration-property-value-no-unknown": [
+    true,
+    {
+      "propertiesSyntax": { "top": "| <--foo()>" },
+      "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
+    }
+  ]
 }
 ```
 
