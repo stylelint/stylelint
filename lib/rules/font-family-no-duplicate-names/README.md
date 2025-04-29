@@ -22,6 +22,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "font-family-no-duplicate-names": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -63,7 +69,12 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 Given:
 
 ```json
-["/^My Font /", "monospace"]
+{
+  "font-family-no-duplicate-names": [
+    true,
+    { "ignoreFontFamilyNames": ["/^My Font /", "monospace"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

@@ -19,6 +19,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "function-calc-no-unspaced-operator": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

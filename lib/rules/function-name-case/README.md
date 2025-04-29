@@ -17,9 +17,13 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"lower"|"upper"`
-
 ### `"lower"`
+
+```json
+{
+  "function-name-case": "lower"
+}
+```
 
 The following patterns are considered problems:
 
@@ -68,6 +72,12 @@ a {
 ```
 
 ### `"upper"`
+
+```json
+{
+  "function-name-case": "upper"
+}
+```
 
 The following patterns are considered problems:
 
@@ -121,12 +131,15 @@ a {
 
 Ignore case of function names.
 
-For example, with `"lower"`.
-
 Given:
 
 ```json
-["--some-function", "/^--get.*$/"]
+{
+  "function-name-case": [
+    "lower",
+    { "ignoreFunctions": ["--some-function", "/^--get.*$/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:

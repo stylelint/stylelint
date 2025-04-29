@@ -20,12 +20,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regex`: `["array", "of", /schemes/, "/regex/"]|"scheme"|"/regex/"|/regex/`
+```json
+["array", "of", "schemes", "/regex/"]
+```
+
+You can also specify a single scheme or a regular expression instead of an array of them.
 
 Given:
 
 ```json
-["data", "/^http/"]
+{
+  "function-url-scheme-allowed-list": ["data", "/^http/"]
+}
 ```
 
 The following patterns are considered problems:
