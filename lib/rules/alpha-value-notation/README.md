@@ -15,8 +15,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"number"|"percentage"`
-
 ### `"number"`
 
 Alpha-values _must always_ use the number notation.

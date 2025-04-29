@@ -13,13 +13,19 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "at-rule-name": ["array", "of", "properties or descriptors"]|"property or descriptor" }`
+```json
+{ "at-rule-name": ["array", "of", "properties or descriptors"] }
+```
+
+You can also specify a single property or descriptor instead of an array of them.
 
 Given:
 
 ```json
 {
-  "font-face": ["font-display", "font-family", "font-style"]
+  "at-rule-property-required-list": {
+    "font-face": ["font-display", "font-family", "font-style"]
+  }
 }
 ```
 

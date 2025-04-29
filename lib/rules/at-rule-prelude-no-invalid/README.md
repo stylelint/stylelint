@@ -35,6 +35,12 @@ Prior art:
 
 ### `true`
 
+```json
+{
+  "at-rule-prelude-no-invalid": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -66,7 +72,12 @@ The following patterns are _not_ considered problems:
 Given:
 
 ```json
-["property", "/^font-/"]
+{
+  "at-rule-prelude-no-invalid": [
+    true,
+    { "ignoreAtRules": ["property", "/^font-/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

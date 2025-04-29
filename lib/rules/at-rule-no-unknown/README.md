@@ -19,6 +19,12 @@ For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/con
 
 ### `true`
 
+```json
+{
+  "at-rule-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -47,7 +53,9 @@ The following patterns are _not_ considered problems:
 Given:
 
 ```json
-["/^--my-/", "--custom"]
+{
+  "at-rule-no-unknown": [true, { "ignoreAtRules": ["/^--my-/", "--custom"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
