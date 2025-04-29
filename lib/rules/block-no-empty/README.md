@@ -13,6 +13,12 @@ Disallow empty blocks.
 
 ### `true`
 
+```json
+{
+  "block-no-empty": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -55,6 +61,12 @@ a {
 ### `ignore: ["comments"]`
 
 Exclude comments from being treated as content inside of a block.
+
+```json
+{
+  "block-no-empty": [true, { "ignore": ["comments"] }]
+}
+```
 
 The following patterns are considered problems:
 

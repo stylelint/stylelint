@@ -16,14 +16,20 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regexp`: `["array", "of", "words", /or/, "/regex/"]|"word"|"/regex/"|/regex/`
+```json
+["array", "of", "words", "or", "/regex/"]
+```
 
 If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
+
+You can also specify a single word or a regular expression instead of an array of them.
 
 Given:
 
 ```json
-["/^TODO:/", "badword"]
+{
+  "comment-word-disallowed-list": ["/^TODO:/", "badword"]
+}
 ```
 
 The following patterns are considered problems:

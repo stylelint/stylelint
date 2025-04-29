@@ -24,6 +24,12 @@ We recommend using these rules for CSS and this rule for CSS-like languages, suc
 
 ### `true`
 
+```json
+{
+  "color-no-invalid-hex": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

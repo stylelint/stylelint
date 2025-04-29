@@ -22,11 +22,15 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"always"|"never"`
-
 ### `"always"`
 
 There _must always_ be an empty line before comments.
+
+```json
+{
+  "comment-empty-line-before": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -53,6 +57,12 @@ a {} /* comment */
 ### `"never"`
 
 There _must never_ be an empty line before comments.
+
+```json
+{
+  "comment-empty-line-before": "never"
+}
+```
 
 The following patterns are considered problems:
 
