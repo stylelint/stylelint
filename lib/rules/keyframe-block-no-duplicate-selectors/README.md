@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "keyframe-block-no-duplicate-selectors": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

@@ -17,11 +17,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"keyword"|"percentage"|"percentage-unless-within-keyword-only-block"`
-
 ### `"keyword"`
 
 Keyframe selectors _must always_ use the keyword notation.
+
+```json
+{
+  "keyframe-selector-notation": "keyword"
+}
+```
 
 The following pattern is considered a problem:
 
@@ -41,6 +45,12 @@ The following pattern is _not_ considered a problem:
 
 Keyframe selectors _must always_ use the percentage notation.
 
+```json
+{
+  "keyframe-selector-notation": "percentage"
+}
+```
+
 The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
@@ -58,6 +68,12 @@ The following pattern is _not_ considered a problem:
 ### `"percentage-unless-within-keyword-only-block"`
 
 Keyframe selectors _must_ use the percentage notation unless within a keyword-only block.
+
+```json
+{
+  "keyframe-selector-notation": "percentage-unless-within-keyword-only-block"
+}
+```
 
 The following pattern is considered a problem:
 

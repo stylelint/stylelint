@@ -19,6 +19,12 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ### `true`
 
+```json
+{
+  "length-zero-no-unit": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -59,7 +65,13 @@ a { top: 1.001vh }
 
 #### `"custom-properties"`
 
-Ignore units for zero length in custom properties.
+Ignore units for zero lengths in custom properties.
+
+```json
+{
+  "length-zero-no-unit": [true, { "ignore": ["custom-properties"] }]
+}
+```
 
 The following pattern is _not_ considered a problem:
 
@@ -70,10 +82,14 @@ a { --x: 0px; }
 
 ### `ignoreFunctions: ["/regex/", /regex/, "string"]`
 
+Ignore units for zero lengths within the specified functions.
+
 Given:
 
 ```json
-["var", "/^--/"]
+{
+  "length-zero-no-unit": [true, { "ignoreFunctions": ["var", "/^--/"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -95,7 +111,12 @@ Ignore units for zero lengths within the preludes of the specified at-rules.
 Given:
 
 ```json
-["media", "/^--bar/"]
+{
+  "length-zero-no-unit": [
+    true,
+    { "ignorePreludeOfAtRules": ["media", "/^--bar/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

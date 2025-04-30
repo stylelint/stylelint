@@ -52,9 +52,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum nesting depth allowed.
+Specify a maximum nesting depth allowed.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "max-nesting-depth": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -110,7 +116,13 @@ a .foo__foo .bar .baz {}
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
-For example, with `1`:
+Given:
+
+```json
+{
+  "max-nesting-depth": [1, { "ignore": ["blockless-at-rules"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -167,7 +179,13 @@ a {
 
 Ignore rules where the first selector in each selector list item is a pseudo-class
 
-For example, with `1`:
+Given:
+
+```json
+{
+  "max-nesting-depth": [1, { "ignore": ["pseudo-classes"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -285,10 +303,12 @@ a {
 
 Ignore the specified at-rules.
 
-For example, with `1` and given:
+Given:
 
 ```json
-["/^--my-/", "media"]
+{
+  "max-nesting-depth": [1, { "ignoreAtRules": ["/^--my-/", "media"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -361,10 +381,10 @@ a {
 
 Ignore the specified pseudo-classes.
 
-For example, with `1` and given:
-
 ```json
-["hover", "^focus-"]
+{
+  "max-nesting-depth": [1, { "ignorePseudoClasses": ["hover", "^focus-"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -419,10 +439,15 @@ a {
 
 Ignore rules matching with the specified selectors.
 
-For example, with `1` and given:
+Given:
 
 ```json
-[".my-selector", "/^.ignored-sel/"]
+{
+  "max-nesting-depth": [
+    1,
+    { "ignoreRules": [".my-selector", "/^.ignored-sel/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

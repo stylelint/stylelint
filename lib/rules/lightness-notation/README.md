@@ -17,11 +17,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"percentage"|"number"`
-
 ### `"percentage"`
 
 Lightness _must always_ use the percentage notation.
+
+```json
+{
+  "lightness-notation": "percentage"
+}
+```
 
 The following patterns are considered problems:
 
@@ -70,6 +74,12 @@ a { color: lab(86% 0.2 154) }
 ### `"number"`
 
 Lightness _must always_ use the number notation.
+
+```json
+{
+  "lightness-notation": "number"
+}
+```
 
 The following patterns are considered problems:
 
