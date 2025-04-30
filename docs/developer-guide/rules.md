@@ -170,7 +170,7 @@ root.walkDecls((declNode) => {
     message: messages.rejected(),
     node: declNode,
     index,
-    endIndex:
+    endIndex,
   });
 });
 ```
@@ -192,7 +192,7 @@ root.walkDecls((declNode) => {
       message: messages.rejected(),
       node: declNode,
       index,
-      endIndex:
+      endIndex,
     });
   });
 });
