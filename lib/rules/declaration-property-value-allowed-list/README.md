@@ -14,7 +14,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ## Options
 
 ```json
-{ "unprefixed-property-name": ["array", "of", "values", "/regex/" }
+{ "unprefixed-property-name": ["array", "of", "values", "/regex/"] }
 ```
 
 You can also specify a single value or a regular expression instead of an array of them.

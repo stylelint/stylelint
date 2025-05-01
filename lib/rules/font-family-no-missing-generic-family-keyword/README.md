@@ -78,9 +78,12 @@ Given:
 
 ```json
 {
-  "font-family-no-missing-generic-family-keyword": [true, {
-    "ignoreFontFamilies": ["custom-font"]
-  }
+  "font-family-no-missing-generic-family-keyword": [
+    true,
+    {
+      "ignoreFontFamilies": ["custom-font"]
+    }
+  ]
 }
 ```
 

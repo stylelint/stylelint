@@ -77,14 +77,17 @@ Given:
 
 ```json
 {
-  "declaration-property-value-no-unknown": [true, {
-    "ignoreProperties": {
-      "top": ["unknown"],
-      "/^margin-/": "/^--foo/",
-      "padding": "/.+/",
-      "/.+/": "--unknown-value"
+  "declaration-property-value-no-unknown": [
+    true,
+    {
+      "ignoreProperties": {
+        "top": ["unknown"],
+        "/^margin-/": "/^--foo/",
+        "padding": "/.+/",
+        "/.+/": "--unknown-value"
+      }
     }
-  }
+  ]
 }
 ```
 

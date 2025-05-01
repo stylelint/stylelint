@@ -13,12 +13,16 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /media-features/, "regex"]|"media-feature"|"/regex/"|/regex/`
+```json
+["array", "of", "unprefixed", "media-features", "/regex/"]
+```
 
 Given:
 
 ```json
-["max-width", "/^my-/"]
+{
+  "media-feature-name-disallowed-list": ["max-width", "/^my-/"]
+}
 ```
 
 The following patterns are considered problems:

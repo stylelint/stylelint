@@ -19,6 +19,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "media-feature-name-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -70,7 +76,12 @@ The following patterns are _not_ considered problems:
 Given:
 
 ```json
-["/^my-/", "custom"]
+{
+  "media-feature-name-no-unknown": [
+    true,
+    { "ignoreMediaFeatureNames": ["/^my-/", "custom"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

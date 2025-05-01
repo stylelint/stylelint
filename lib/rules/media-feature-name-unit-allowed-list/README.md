@@ -13,7 +13,11 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "name": ["array", "of", "units"]|"unit" }`
+```json
+{ "media-feature-name": ["array", "of", "units"] }
+```
+
+You can also specify a single unit instead of an array of them.
 
 If a feature name is surrounded with `"/"` (e.g. `"/height/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/height/` will match `height`, `min-height`, `max-height`, etc.
 
@@ -21,8 +25,10 @@ Given:
 
 ```json
 {
-  "width": "em",
-  "/height/": ["em", "rem"]
+  "media-feature-name-unit-allowed-list": {
+    "width": "em",
+    "/height/": ["em", "rem"]
+  }
 }
 ```
 
