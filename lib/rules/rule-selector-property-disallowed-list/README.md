@@ -13,7 +13,11 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "selector": ["array", "of", "properties", "/regex/", /regex/]|"property"|"/regex/"|/regex/`
+```json
+{ "selector": ["array", "of", "properties", "/regex/"] }
+```
+
+You can also specify a single property instead of an array of them.
 
 If a selector name is surrounded with `"/"` (e.g. `"/anchor/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of all the potential anchors: `/anchor/` will match `.anchor`, `[data-anchor]`, etc.
 
@@ -23,8 +27,10 @@ Given:
 
 ```json
 {
-  "a": ["color", "/margin/"],
-  "/foo/": "/size/"
+  "rule-selector-property-disallowed-list": {
+    "a": ["color", "/margin/"],
+    "/foo/": "/size/"
+  }
 }
 ```
 
@@ -71,7 +77,12 @@ Ignore keyframe selectors.
 Given:
 
 ```json
-[{ "/^[a-z]+$/": ["opacity"] }, { "ignore": ["keyframe-selectors"] }]
+{
+  "rule-selector-property-disallowed-list": [
+    { "/^[a-z]+$/": ["opacity"] },
+    { "ignore": ["keyframe-selectors"] }
+  ]
+}
 ```
 
 The following pattern is _not_ considered a problem:

@@ -15,7 +15,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
-If configuring this rule in JavaScript, you can use a regular expression directly, such as `/yourPattern/`.
+You can also use a regular expression directly in a JavaScript config, such as `/yourPattern/`.
 
 Given the string:
 

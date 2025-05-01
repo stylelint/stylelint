@@ -21,12 +21,16 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
+You can also use a regular expression directly in a JavaScript config, such as `/yourPattern/`.
+
 The selector value _after `.`_ will be checked. No need to include `.` in your pattern.
 
 Given the string:
 
 ```json
-"foo-[a-z]+"
+{
+  "selector-class-pattern": "foo-[a-z]+"
+}
 ```
 
 The following patterns are considered problems:
@@ -74,12 +78,12 @@ div > #zing + .foo-bar {}
 
 This option will resolve nested selectors with `&` interpolation.
 
-For example, with `true`.
-
 Given the string:
 
 ```json
-"^[A-Z]+$"
+{
+  "selector-class-pattern": ["^[A-Z]+$", { "resolveNestedSelectors": true }]
+}
 ```
 
 The following patterns are considered problems:

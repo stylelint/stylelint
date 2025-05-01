@@ -13,14 +13,20 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regexp`: `["array", "of", "selectors", /or/, "/regex/"]|"selector"|"/regex/"|/regex/`
+```json
+["array", "of", "selectors", "/regex/"]
+```
+
+You can also specify a single selector instead of an array of them.
 
 If a string is surrounded with `"/"` (e.g. `"/\.foo/"`), it is interpreted as a regular expression.
 
 Given:
 
 ```json
-["a > .foo", "/\\[data-.+]/"]
+{
+  "selector-disallowed-list": ["a > .foo", "/\\[data-.+]/"]
+}
 ```
 
 The following patterns are considered problems:
@@ -75,12 +81,12 @@ a[href] {}
 
 Split selector lists into individual selectors.
 
-For example, with `true`.
-
 Given:
 
 ```json
-[".foo", { "splitList": true }]
+{
+  "selector-disallowed-list": [".foo", { "splitList": true }]
+}
 ```
 
 The following pattern is considered a problem:
@@ -97,14 +103,18 @@ The following pattern is _not_ considered a problem:
 .bar .foo {}
 ```
 
-### `ignore: ["inside-block"]`
+### `ignore: ["inside-block", "keyframe-selectors"]`
+
+#### `"inside-block"`
 
 Ignore selectors that are inside a block.
 
 Given:
 
 ```json
-[".foo", { "ignore": ["inside-block"] }]
+{
+  "selector-disallowed-list": [".foo", { "ignore": ["inside-block"] }]
+}
 ```
 
 The following pattern is _not_ considered a problem:
@@ -116,14 +126,16 @@ The following pattern is _not_ considered a problem:
 }
 ```
 
-### `ignore: ["keyframe-selectors"]`
+#### `"keyframe-selectors"`
 
 Ignore keyframe selectors.
 
 Given:
 
 ```json
-["/from/", { "ignore": ["keyframe-selectors"] }]
+{
+  "selector-disallowed-list": ["/from/", { "ignore": ["keyframe-selectors"] }]
+}
 ```
 
 The following pattern is _not_ considered a problem:

@@ -17,11 +17,15 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"always"|"never"|"always-multi-line"|"never-multi-line"`
-
 ### `"always"`
 
 There _must always_ be an empty line before rules.
+
+```json
+{
+  "rule-empty-line-before": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -49,6 +53,12 @@ b {}
 
 There _must never_ be an empty line before rules.
 
+```json
+{
+  "rule-empty-line-before": "never"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -74,6 +84,12 @@ b {}
 ### `"always-multi-line"`
 
 There _must always_ be an empty line before multi-line rules.
+
+```json
+{
+  "rule-empty-line-before": "always-multi-line"
+}
+```
 
 The following patterns are considered problems:
 
@@ -103,6 +119,12 @@ b {
 ### `"never-multi-line"`
 
 There _must never_ be an empty line before multi-line rules.
+
+```json
+{
+  "rule-empty-line-before": "never-multi-line"
+}
+```
 
 The following patterns are considered problems:
 
@@ -137,7 +159,13 @@ b {
 
 Reverse the primary option for rules that follow another rule.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": ["always", { "except": ["after-rule"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -160,7 +188,16 @@ b {}
 
 Reverse the primary option for rules that follow a single-line comment.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": [
+    "always",
+    { "except": ["after-single-line-comment"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -183,7 +220,16 @@ a {}
 
 Reverse the primary option for rules that are inside a block and follow another rule.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": [
+    "always",
+    { "except": ["inside-block-and-after-rule"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -212,7 +258,13 @@ The following patterns are _not_ considered problems:
 
 Reverse the primary option for rules that are inside a block.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": ["always", { "except": ["inside-block"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -244,7 +296,13 @@ a {
 
 Reverse the primary option for rules that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": ["always", { "except": ["first-nested"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -275,7 +333,13 @@ The following patterns are _not_ considered problems:
 
 Ignore rules that follow a comment.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": ["always", { "ignore": ["after-comment"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -289,7 +353,13 @@ a {}
 
 Ignore rules that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": ["always", { "ignore": ["first-nested"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -306,7 +376,13 @@ The following patterns are _not_ considered problems:
 
 Ignore rules that are inside a block.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "rule-empty-line-before": ["always", { "ignore": ["inside-block"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
