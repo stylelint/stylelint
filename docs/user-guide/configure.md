@@ -94,7 +94,7 @@ You can also specify a single value in places where an array of multiple values 
 }
 ```
 
-Some rules and options accept a regular expression (regex). If a string is surrounded with `"/"`, it's interpreted as a regex. For example, For example, `"/.+/"` matches any strings. Instead of a string surrounded with `"/"`, you can also specify a regex literal in JavaScript, such as `{ ignore: /^foo/ }`.
+Some rules and options accept a regular expression (regex). If a string is surrounded with `"/"`, it's interpreted as a regex. For example, `"/.+/"` matches any strings. Instead of a string with `"/"`, you can also specify a regex literal in JavaScript, such as `/.+/`.
 
 You can enforce these common cases:
 
