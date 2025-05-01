@@ -8,7 +8,6 @@ export async function postCustomComment({ github, context, output }) {
 	console.log('pkg-pr-new publish output:', JSON.stringify(output));
 
 	const sha = output.sha;
-	const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${sha}`;
 
 	const pullRequestNumber = getPullRequestNumber();
 
@@ -43,17 +42,14 @@ export async function postCustomComment({ github, context, output }) {
 
 	onlineUrl.hash = compress({ deps: JSON.stringify(deps, null, 2) });
 	const body = `${botCommentIdentifier}
-PR packaged and instant preview available.
+This PR is packaged and the instant preview is available (${sha}). [View the demo website](${onlineUrl}).
 
-[View demo website](${onlineUrl})
+Install it locally:
 
-Install locally:
-
-\`\`\`
+\`\`\`shell
 npm i -D ${packages.map((p) => p.url).join(' ')}
 \`\`\`
-
-([View Commit](${commitUrl}))`;
+`;
 
 	if (pullRequestNumber) {
 		await createOrUpdateComment(pullRequestNumber);
