@@ -19,8 +19,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "unprefixed", "at-rules"]
 ```
 
-You can also specify a single at-rule instead of an array of them.
-
 Given:
 
 ```json

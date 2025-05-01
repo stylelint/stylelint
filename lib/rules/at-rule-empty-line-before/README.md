@@ -87,7 +87,11 @@ a {}
 
 ## Optional secondary options
 
-### `except: ["after-same-name", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "keywords"] }
+```
 
 #### `"after-same-name"`
 
@@ -309,7 +313,11 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "first-nested", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "keywords"] }
+```
 
 #### `"after-comment"`
 
@@ -483,7 +491,11 @@ The following patterns are _not_ considered problems:
 @media print {}
 ```
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Ignore specified at-rules.
 
@@ -511,3 +523,5 @@ The following patterns are _not_ considered problems:
 a {}
 @my-at-rule {}
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

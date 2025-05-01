@@ -19,8 +19,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "unprefixed", "at-rules"]
 ```
 
-You can also specify a single at-rule instead of an array of them.
-
 Given:
 
 ```json
@@ -58,3 +56,5 @@ The following patterns are _not_ considered problems:
 ```css
 @import "path/to/file.css";
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).
