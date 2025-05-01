@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "selector-no-qualifying-type": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -71,6 +77,12 @@ input {
 
 Allow attribute selectors qualified by type.
 
+```json
+{
+  "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }]
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -84,6 +96,12 @@ input[type='button'] {
 
 Allow class selectors qualified by type.
 
+```json
+{
+  "selector-no-qualifying-type": [true, { "ignore": ["class"] }]
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -96,6 +114,12 @@ a.foo {
 #### `"id"`
 
 Allow ID selectors qualified by type.
+
+```json
+{
+  "selector-no-qualifying-type": [true, { "ignore": ["id"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 

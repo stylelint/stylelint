@@ -20,9 +20,9 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "words", "/regex/"]
 ```
 
-If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
+You can also specify a single word instead of an array of them.
 
-You can also specify a single word or a regular expression instead of an array of them.
+If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
 
 Given:
 

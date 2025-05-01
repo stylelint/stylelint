@@ -15,10 +15,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 `array|string`: `["array", "of", "units"]|"unit"`
 
+```json
+["array", "of", "units"]
+```
+
+You can also specify a single unit instead of an array of them.
+
 Given:
 
 ```json
-["px", "em", "deg"]
+{
+  "unit-allowed-list": ["px", "em", "deg"]
+}
 ```
 
 The following patterns are considered problems:
@@ -71,14 +79,19 @@ a { transform: rotate(30deg); }
 
 Ignore units in the values of declarations with the specified properties.
 
-For example, with `["px", "em"]`.
-
 Given:
 
 ```json
 {
-  "rem": ["line-height", "/^border/"],
-  "%": ["width"]
+  "unit-allowed-list": [
+    ["px", "em"],
+    {
+      "ignoreProperties": {
+        "rem": ["line-height", "/^border/"],
+        "%": ["width"]
+      }
+    }
+  ]
 }
 ```
 
@@ -120,12 +133,12 @@ a { height: 100%; }
 
 Ignore units that are inside of the specified functions.
 
-For example, with `["px", "em"]`.
-
 Given:
 
 ```json
-["/^hsl/", "calc"]
+{
+  "unit-allowed-list": [["px", "em"], { "ignoreFunctions": ["/^hsl/", "calc"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

@@ -26,6 +26,12 @@ We recommend configuring this rule so that it doesn't overlap.
 
 ### `true`
 
+```json
+{
+  "string-no-newline": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -87,6 +93,12 @@ a {
 #### `"at-rule-preludes"`
 
 Ignore strings in at-rule preludes.
+
+```json
+{
+  "string-no-newline": [true, { "ignore": ["at-rule-preludes"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 

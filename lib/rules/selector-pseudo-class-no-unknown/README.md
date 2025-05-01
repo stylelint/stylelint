@@ -19,6 +19,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "selector-pseudo-class-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -65,7 +71,12 @@ input:-moz-placeholder {}
 Given:
 
 ```json
-["/^--my-/", "--pseudo-class"]
+{
+  "selector-pseudo-class-no-unknown": [
+    true,
+    { "ignorePseudoClasses": ["/^--my-/", "--pseudo-class"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

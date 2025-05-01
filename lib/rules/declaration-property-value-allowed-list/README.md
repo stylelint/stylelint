@@ -17,7 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "unprefixed-property-name": ["array", "of", "values", "/regex/"] }
 ```
 
-You can also specify a single value or a regular expression instead of an array of them.
+You can also specify a single value instead of an array of them.
 
 If a property name is found in the object, only the listed property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
 

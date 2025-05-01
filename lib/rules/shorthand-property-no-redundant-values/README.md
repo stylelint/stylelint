@@ -36,6 +36,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "shorthand-property-no-redundant-values": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

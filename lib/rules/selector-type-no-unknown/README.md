@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "selector-type-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -54,6 +60,12 @@ li > a {}
 
 Allow custom elements.
 
+```json
+{
+  "selector-type-no-unknown": [true, { "ignore": ["custom-elements"] }]
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -77,6 +89,12 @@ x-foo {}
 
 Allow unknown type selectors if they belong to the default namespace.
 
+```json
+{
+  "selector-type-no-unknown": [true, { "ignore": ["default-namespace"] }]
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -96,7 +114,12 @@ unknown {}
 Given:
 
 ```json
-["/^my-/", "custom-namespace"]
+{
+  "selector-type-no-unknown": [
+    true,
+    { "ignoreNamespaces": ["/^my-/", "custom-namespace"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -121,7 +144,12 @@ my-other-namespace|unknown {}
 Given:
 
 ```json
-["/^my-/", "custom-type"]
+{
+  "selector-type-no-unknown": [
+    true,
+    { "ignoreTypes": ["/^my-/", "custom-type"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

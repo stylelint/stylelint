@@ -13,12 +13,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string`: `["array", "of", "units"]|"unit"`
+```json
+["array", "of", "units"]
+```
+
+You can also specify a single unit instead of an array of them.
 
 Given:
 
 ```json
-["px", "em", "deg"]
+{
+  "unit-disallowed-list": ["px", "em", "deg"]
+}
 ```
 
 The following patterns are considered problems:
@@ -66,14 +72,19 @@ a { animation: animation-name 5s ease; }
 
 Ignore units in the values of declarations with the specified properties.
 
-For example, with `["px", "vmin"]`.
-
 Given:
 
 ```json
 {
-  "px": ["font-size", "/^border/"],
-  "vmin": "width"
+  "unit-disallowed-list": [
+    ["px", "vmin"],
+    {
+      "ignoreProperties": {
+        "px": ["font-size", "/^border/"],
+        "vmin": "width"
+      }
+    }
+  ]
 }
 ```
 
@@ -115,14 +126,19 @@ a { height: 100vmin; }
 
 Ignore units for specific feature names.
 
-For example, with `["px", "dpi"]`.
-
 Given:
 
 ```json
 {
-  "px": ["min-width", "/height$/"],
-  "dpi": "resolution"
+  "unit-disallowed-list": [
+    ["px", "dpi"],
+    {
+      "ignoreMediaFeatureNames": {
+        "px": ["min-width", "/height$/"],
+        "dpi": "resolution"
+      }
+    }
+  ]
 }
 ```
 
@@ -164,12 +180,15 @@ The following patterns are considered problems:
 
 Ignore units that are inside of the specified functions.
 
-For example, with `["px"]`.
-
 Given:
 
 ```json
-["calc", "/^translate/"]
+{
+  "unit-disallowed-list": [
+    ["px"],
+    { "ignoreFunctions": ["calc", "/^translate/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

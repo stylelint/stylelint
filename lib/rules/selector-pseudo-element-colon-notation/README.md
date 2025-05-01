@@ -19,11 +19,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"single"|"double"`
-
 ### `"single"`
 
 Applicable pseudo-elements _must always_ use the single colon notation.
+
+```json
+{
+  "selector-pseudo-element-colon-notation": "single"
+}
+```
 
 The following patterns are considered problems:
 
@@ -82,6 +86,12 @@ li::marker { font-variant-numeric: tabular-nums; }
 ### `"double"`
 
 Applicable pseudo-elements _must always_ use the double colon notation.
+
+```json
+{
+  "selector-pseudo-element-colon-notation": "double"
+}
+```
 
 The following patterns are considered problems:
 

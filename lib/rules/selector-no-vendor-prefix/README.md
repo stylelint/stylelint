@@ -19,6 +19,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "selector-no-vendor-prefix": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -52,7 +58,12 @@ Ignore vendor prefixes for selectors.
 Given:
 
 ```json
-["::-webkit-input-placeholder", "/-moz-.*/"]
+{
+  "selector-no-vendor-prefix": [
+    true,
+    { "ignoreSelectors": ["::-webkit-input-placeholder", "/-moz-.*/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

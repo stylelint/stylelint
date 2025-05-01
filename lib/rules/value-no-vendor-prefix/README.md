@@ -19,6 +19,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "value-no-vendor-prefix": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -60,7 +66,12 @@ a { background: linear-gradient(bottom, #000, #fff); }
 Given:
 
 ```json
-["grab", "max-content", "/^-moz-all$/"]
+{
+  "value-no-vendor-prefix": [
+    true,
+    { "ignoreValues": ["grab", "max-content", "/^-moz-all$/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

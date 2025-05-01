@@ -17,9 +17,9 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "unprefixed", "functions", "/regex/"]
 ```
 
-If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a regular expression.
+You can also specify a single function instead of an array of them.
 
-You can also specify a single function or a regular expression instead of an array of them.
+If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a regular expression.
 
 Given:
 
