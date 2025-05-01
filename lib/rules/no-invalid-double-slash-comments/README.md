@@ -19,6 +19,12 @@ If you are using a preprocessor that allows `//` single-line comments (e.g. Sass
 
 ### `true`
 
+```json
+{
+  "no-invalid-double-slash-comments": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

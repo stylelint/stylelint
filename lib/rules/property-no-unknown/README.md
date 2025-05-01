@@ -26,6 +26,12 @@ For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/con
 
 ### `true`
 
+```json
+{
+  "property-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -86,7 +92,9 @@ a {
 Given:
 
 ```json
-["/^my-/", "custom"]
+{
+  "property-no-unknown": [true, { "ignoreProperties": ["/^my-/", "custom"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -119,7 +127,9 @@ Skips checking properties of the given selectors against this rule.
 Given:
 
 ```json
-[":root"]
+{
+  "property-no-unknown": [true, { "ignoreSelectors": [":root"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -138,7 +148,9 @@ Ignores properties nested within specified at-rules.
 Given:
 
 ```json
-["supports"]
+{
+  "property-no-unknown": [true, { "ignoreAtRules": ["supports"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -156,7 +168,13 @@ The following patterns are _not_ considered problems:
 
 If `true`, this rule will check vendor-prefixed properties.
 
-For example with `true`:
+Given:
+
+```json
+{
+  "property-no-unknown": [true, { "checkPrefixed": true }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
