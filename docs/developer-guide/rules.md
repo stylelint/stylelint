@@ -170,7 +170,7 @@ root.walkDecls((declNode) => {
     message: messages.rejected(),
     node: declNode,
     index,
-    endIndex:
+    endIndex
   });
 });
 ```
@@ -182,7 +182,6 @@ root.walkDecls((declNode) => {
   const { prop, value: declValue } = declNode;
 
   valueParser(declValue).walk(({ value, sourceIndex }) => {
-
     const index = declarationValueIndex(decl) + sourceIndex;
     const endIndex = index + value.length;
 
@@ -192,7 +191,7 @@ root.walkDecls((declNode) => {
       message: messages.rejected(),
       node: declNode,
       index,
-      endIndex:
+      endIndex
     });
   });
 });
