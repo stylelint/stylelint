@@ -21,16 +21,22 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum compound selectors allowed.
+Specify a maximum compound selectors allowed.
 
-For example, with `3`:
+Given:
+
+```json
+{
+  "selector-max-compound-selectors": 3
+}
+```
 
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 .foo .bar .baz .lorem {}
-```
+````
 
 <!-- prettier-ignore -->
 ```css
@@ -67,12 +73,15 @@ div {}
 
 Ignore some compound selectors. This may be useful for deep selectors like Vue's `::v-deep` or Angular's `::ng-deep` that behave more like combinators than compound selectors.
 
-For example, with `2`.
-
 Given:
 
 ```json
-["::v-deep", "/ignored/", ":not"]
+{
+  "selector-max-compound-selectors": [
+    2,
+    { "ignoreSelectors": ["::v-deep", "/ignored/", ":not"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:

@@ -18,9 +18,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum classes allowed.
+Specify a maximum classes allowed.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-class": 2
+}
+```
 
 The following patterns are considered problems:
 

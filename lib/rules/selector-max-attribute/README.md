@@ -17,9 +17,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum attribute selectors allowed.
+Specify a maximum attribute selectors allowed.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-attribute": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -97,10 +103,10 @@ The following patterns are _not_ considered problems:
 Given:
 
 ```json
-["/^data-my-/", "dir"]
+{
+  "selector-max-attribute": [0, { "ignoreAttributes": ["/^data-my-/", "dir"] }]
+}
 ```
-
-For example, with `0`.
 
 The following patterns are _not_ considered problems:
 

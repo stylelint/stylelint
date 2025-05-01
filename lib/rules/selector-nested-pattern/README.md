@@ -17,16 +17,16 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`regex|string`
-
-A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
+A string will be translated into a regular expression like `new RegExp(yourString)`, so make sure to escape it properly. Alternatively, a regular expression literal in JavaScript is available, such as `/yourPattern/`.
 
 The selector value will be checked in its entirety. If you'd like to allow for combinators and commas, you must incorporate them into your pattern.
 
 Given the string:
 
 ```json
-"^&:(?:hover|focus)$"
+{
+  "selector-nested-pattern": "^&:(?:hover|focus)$"
+}
 ```
 
 The following patterns are considered problems:

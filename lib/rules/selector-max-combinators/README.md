@@ -15,9 +15,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum combinators selectors allowed.
+Specify a maximum combinators selectors allowed.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-combinators": 2
+}
+```
 
 The following patterns are considered problems:
 

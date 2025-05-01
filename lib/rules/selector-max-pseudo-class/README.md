@@ -18,9 +18,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum pseudo-classes allowed.
+Specify a maximum pseudo-classes allowed.
 
-For example, with `1`:
+Given:
+
+```json
+{
+  "selector-max-pseudo-class": 1
+}
+```
 
 The following patterns are considered problems:
 

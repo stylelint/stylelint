@@ -13,9 +13,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
-
-You can also use a regular expression directly in a JavaScript config, such as `/yourPattern/`.
+A string will be translated into a regular expression like `new RegExp(yourString)`, so make sure to escape it properly. Alternatively, a regular expression literal in JavaScript is available, such as `/yourPattern/`.
 
 Given the string:
 

@@ -17,9 +17,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum universal selectors allowed.
+Specify a maximum universal selectors allowed.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-universal": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -86,10 +92,10 @@ Ignore universal selectors that come after one of the specified combinators.
 Given:
 
 ```json
-[">", "+"]
+{
+  "selector-max-universal": [2, { "ignoreAfterCombinators": [">", "+"] }]
+}
 ```
-
-For example, with `2`.
 
 The following pattern is _not_ considered a problem:
 

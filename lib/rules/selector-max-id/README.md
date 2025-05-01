@@ -17,9 +17,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum universal selectors allowed.
+Specify a maximum universal selectors allowed.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-id": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -88,7 +94,9 @@ This option has a higher precedence than `ignoreContextFunctionalPseudoClasses`.
 Given:
 
 ```json
-[":--foo"]
+{
+  "selector-max-id": [2, { "checkContextFunctionalPseudoClasses": [":--foo"] }]
+}
 ```
 
 The following pattern is considered a problem:
@@ -112,7 +120,12 @@ Ignore selectors inside of the specified [functional pseudo-classes](https://dra
 Given:
 
 ```json
-[":not", "/^:(h|H)as$/"]
+{
+  "selector-max-id": [
+    0,
+    { "ignoreContextFunctionalPseudoClasses": [":not", "/^:(h|H)as$/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:
