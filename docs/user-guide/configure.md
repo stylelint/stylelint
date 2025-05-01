@@ -83,7 +83,7 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-You can also specify a single value in places where an array of multiple values is accepted. For example:
+You can also specify a single value in places where an array of multiple values is accepted. In this example, both values for `unit-allowed-list` are interpreted as equal:
 
 ```json
 {
