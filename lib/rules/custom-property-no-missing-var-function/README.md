@@ -60,3 +60,5 @@ a { color: var(--foo); }
 @property --foo {}
 a { transition-property: --foo; }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

@@ -13,9 +13,9 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-A string will be translated into a regular expression like `new RegExp(yourString)`, so make sure to escape it properly. Alternatively, a regular expression literal in JavaScript is available, such as `/yourPattern/`.
+Specify a regex string.
 
-Given the string:
+Given:
 
 ```json
 {
@@ -38,3 +38,5 @@ The following patterns are _not_ considered problems:
 /*foo at the beginning*/
 a { color: red; }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

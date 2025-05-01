@@ -56,3 +56,5 @@ The following patterns are _not_ considered problems:
  * Multi-line Comment
 **/
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

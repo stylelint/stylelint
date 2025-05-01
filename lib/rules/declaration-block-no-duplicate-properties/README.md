@@ -51,7 +51,13 @@ a { color: pink; background: orange; }
 
 ## Optional secondary options
 
-### `ignore: ["consecutive-duplicates"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "keywords"] }
+```
+
+#### `"consecutive-duplicates"`
 
 Ignore consecutive duplicated properties.
 
@@ -88,7 +94,7 @@ p {
 }
 ```
 
-### `ignore: ["consecutive-duplicates-with-different-values"]`
+#### `"consecutive-duplicates-with-different-values"`
 
 Ignore consecutive duplicated properties with different values.
 
@@ -136,7 +142,7 @@ p {
 }
 ```
 
-### `ignore: ["consecutive-duplicates-with-different-syntaxes"]`
+#### `"consecutive-duplicates-with-different-syntaxes"`
 
 Ignore consecutive duplicated properties with different value syntaxes (type and unit of value).
 
@@ -172,7 +178,7 @@ p {
 }
 ```
 
-### `ignore: ["consecutive-duplicates-with-same-prefixless-values"]`
+#### `"consecutive-duplicates-with-same-prefixless-values"`
 
 Ignore consecutive duplicated properties with identical values, when ignoring their prefix.
 
@@ -218,7 +224,11 @@ p {
 }
 ```
 
-### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore duplicates of specific properties.
 
@@ -256,3 +266,5 @@ a { color: pink; color: orange; background-color: orange; background-color: whit
 ```css
 a { color: pink; background-color: orange; color: orange; background-color: white; }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

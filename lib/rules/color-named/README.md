@@ -130,7 +130,13 @@ a { color: var(--white); }
 
 ## Optional secondary options
 
-### `ignore: ["inside-function"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "keywords"] }
+```
+
+#### `"inside-function"`
 
 Ignore colors that are inside a function.
 
@@ -158,7 +164,11 @@ a {
 }
 ```
 
-### `ignoreProperties: ["/regex/", /regex/, "string"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Given:
 
@@ -190,3 +200,5 @@ a {
   composes: red from './index.css';
 }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

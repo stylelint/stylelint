@@ -88,11 +88,23 @@ a {} /* comment */
 
 ## Optional secondary options
 
-### `except: ["first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "keywords"] }
+```
+
+#### `"first-nested"`
 
 Reverse the primary option for comments that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "comment-empty-line-before": ["always", { "except": ["first-nested"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -115,13 +127,23 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "stylelint-commands"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "keywords"] }
+```
 
 #### `"after-comment"`
 
 Ignore comments that follow another comment.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "comment-empty-line-before": ["always", { "ignore": ["after-comment"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -152,7 +174,13 @@ a {
 
 Ignore configuration comments, e.g. `/* stylelint-disable color-no-hex */`.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "comment-empty-line-before": ["always", { "ignore": ["stylelint-commands"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -176,14 +204,23 @@ a {
 }
 ```
 
-### `ignoreComments: ["/regex/", /regex/, "string"]`
+### `ignoreComments`
+
+```json
+{ "ignoreComments": ["array", "of", "comments", "/regex/"] }
+```
 
 Ignore comments matching the given regular expressions or strings.
 
-For example, with `"always"` and given:
+Given:
 
 ```json
-["/^ignore/", "string-ignore"]
+{
+  "comment-empty-line-before": [
+    "always",
+    { "ignoreComments": ["/^ignore/", "string-ignore"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -203,3 +240,5 @@ The following patterns are _not_ considered problems:
   color: pink;
 }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

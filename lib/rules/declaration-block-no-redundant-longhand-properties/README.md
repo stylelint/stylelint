@@ -181,7 +181,11 @@ a {
 
 ## Optional secondary options
 
-### `ignoreLonghands: ["array", "of", "properties"]`
+### `ignoreLonghands`
+
+```json
+{ "ignoreLonghands": ["array", "of", "properties"] }
+```
 
 Ignore the specified longhand properties.
 
@@ -248,7 +252,11 @@ a {
 }
 ```
 
-### `ignoreShorthands: ["/regex/", /regex/, "string"]`
+### `ignoreShorthands`
+
+```json
+{ "ignoreShorthands": ["array", "of", "shorthands", "/regex/"] }
+```
 
 Ignore the specified shorthand properties.
 
@@ -293,3 +301,5 @@ a {
   border-top-width: 7px;
 }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

@@ -56,3 +56,5 @@ a {
   top: 3px;
 }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

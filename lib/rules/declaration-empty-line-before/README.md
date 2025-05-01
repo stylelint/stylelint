@@ -115,7 +115,11 @@ a {
 
 ## Optional secondary options
 
-### `except: ["after-comment", "after-declaration", "first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "keywords"] }
+```
 
 #### `"after-comment"`
 
@@ -265,7 +269,11 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "after-declaration", "first-nested", "inside-single-line-block"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "keywords"] }
+```
 
 #### `"after-comment"`
 
@@ -381,3 +389,5 @@ The following patterns are _not_ considered problems:
 ```css
 a { bottom: 15px; top: 5px; }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

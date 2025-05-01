@@ -67,7 +67,11 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Given:
 
@@ -91,3 +95,5 @@ The following patterns are _not_ considered problems:
 ```css
 @font-palette-values foo {}
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

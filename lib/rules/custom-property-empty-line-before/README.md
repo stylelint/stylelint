@@ -100,7 +100,11 @@ a {
 
 ## Optional secondary options
 
-### `except: ["after-comment", "after-custom-property", "first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "keywords"] }
+```
 
 #### `"after-comment"`
 
@@ -262,6 +266,10 @@ a {
 
 ### `ignore: ["after-comment", "first-nested", "inside-single-line-block"]`
 
+```json
+{ "ignore": ["array", "of", "keywords"] }
+```
+
 #### `"after-comment"`
 
 Ignore custom properties that follow a comment.
@@ -334,3 +342,5 @@ The following patterns are _not_ considered problems:
 ```css
 a { --foo: pink; --bar: red; }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

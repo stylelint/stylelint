@@ -20,10 +20,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "words", "/regex/"]
 ```
 
-You can also specify a single word instead of an array of them.
-
-If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
-
 Given:
 
 ```json
@@ -55,3 +51,5 @@ The following patterns are _not_ considered problems:
 ```css
 /* comment */
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

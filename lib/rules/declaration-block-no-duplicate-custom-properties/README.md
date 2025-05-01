@@ -49,7 +49,11 @@ a { --custom-property: pink; --cUstOm-prOpErtY: orange; }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore duplicates of specific properties.
 
@@ -82,3 +86,5 @@ a { --custom-property: 1; --custom-property: 1; }
 ```css
 a { --custom-ignored-property: 1; --custom-ignored-property: 1; }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

@@ -94,7 +94,11 @@ You can also specify a single value in places where an array of multiple values 
 }
 ```
 
+### Handling regex
+
 Some rules and options accept a regular expression (regex). If a string is surrounded with `"/"`, it's interpreted as a regex. For example, `"/.+/"` matches any strings. Instead of a string with `"/"`, you can also specify a regex literal in JavaScript, such as `/.+/`.
+
+Also, rules ending with `-pattern` translates the given string without `"/"` into a regex, for example, `"^foo"` into `new RegExp("^foo")`. In this case, a regex literal in JavaScript is also available, such as `/^foo/`.
 
 You can enforce these common cases:
 

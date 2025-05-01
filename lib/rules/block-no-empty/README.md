@@ -58,7 +58,13 @@ a {
 
 ## Optional secondary options
 
-### `ignore: ["comments"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "keywords"] }
+```
+
+#### `"comments"`
 
 Exclude comments from being treated as content inside of a block.
 
@@ -85,3 +91,5 @@ a {
   }
 }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).
