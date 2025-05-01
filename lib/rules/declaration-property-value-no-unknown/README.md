@@ -69,9 +69,17 @@ a { top: var(--foo); }
 
 ## Optional secondary options
 
-### `ignoreProperties: { "property": ["/regex/", /regex/, "non-regex"]|"/regex/"|/regex/|"non-regex" }`
+### `ignoreProperties`
 
-Ignore the specified property and value pairs. Keys in the object indicate property names. If a string in the object is surrounded with `"/"`, it's interpreted as a regular expression. For example, `"/.+/"` matches any strings.
+```json
+{
+  "ignoreProperties": {
+    "property": ["array", "of", "property-values", "/regex/"]
+  }
+}
+```
+
+Ignore the specified property and value pairs. Keys in the object indicate property names.
 
 Given:
 
@@ -113,7 +121,11 @@ a { padding: invalid; }
 a { width: --unknown-value; }
 ```
 
-### `propertiesSyntax: { property: syntax }`
+### `propertiesSyntax`
+
+```json
+{ "propertiesSyntax": { "property": "syntax" } }
+```
 
 Extend or alter the properties syntax dictionary. [CSS Value Definition Syntax](https://github.com/csstree/csstree/blob/master/docs/definition-syntax.md) is used to define a value's syntax. If a definition starts with `|` it is added to the [existing definition value](https://csstree.github.io/docs/syntax/) if any.
 
@@ -123,7 +135,7 @@ Given:
 {
   "declaration-property-value-no-unknown": [
     true,
-    { "size": "<length-percentage>" }
+    { "propertiesSyntax": { "size": "<length-percentage>" } }
   ]
 }
 ```
@@ -140,7 +152,11 @@ a { size: 0; }
 a { size: 10px }
 ```
 
-### `typesSyntax: { type: syntax }`
+### `typesSyntax`
+
+```json
+{ "typesSyntax": { "type": "syntax" } }
+```
 
 Extend or alter the types syntax dictionary. [CSS Value Definition Syntax](https://github.com/csstree/csstree/blob/master/docs/definition-syntax.md) is used to define a value's syntax. If a definition starts with `|` it is added to the [existing definition value](https://csstree.github.io/docs/syntax/) if any.
 
@@ -171,3 +187,5 @@ a { top: --foo(0); }
 ```css
 a { top: --foo(10px); }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

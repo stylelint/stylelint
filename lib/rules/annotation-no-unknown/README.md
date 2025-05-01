@@ -43,7 +43,11 @@ a {
 
 ## Optional secondary options
 
-### `ignoreAnnotations: ["/regex/", /regex/, "string"]`
+### `ignoreAnnotations`
+
+```json
+{ "ignoreAnnotations": ["array", "of", "annotations", "/regex/"] }
+```
 
 Given:
 
@@ -71,3 +75,5 @@ a {
   color: green !--bar;
 }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

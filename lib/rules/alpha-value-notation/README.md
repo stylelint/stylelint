@@ -85,7 +85,11 @@ a { color: rgb(0 0 0 / 50%) }
 
 ## Optional secondary options
 
-### `exceptProperties: ["/regex/", /regex/, "string"]`
+### `exceptProperties`
+
+```json
+{ "exceptProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Reverse the primary option for matching properties.
 
@@ -120,3 +124,5 @@ a { opacity: 0.5 }
 ```css
 a { color: rgb(0 0 0 / 50%) }
 ```
+
+See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

@@ -83,12 +83,25 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-Some rules and options accept regex. You can enforce these common cases:
+You can also specify a single value in places where an array of multiple values is accepted. For example:
+
+```json
+{
+  "rules": {
+    "unit-allowed-list": "em",
+    "unit-allowed-list": ["em"]
+  }
+}
+```
+
+Some rules and options accept a regular expression (regex). If a string is surrounded with `"/"`, it's interpreted as a regex. For example, For example, `"/.+/"` matches any strings. Instead of a string surrounded with `"/"`, you can also specify a regex literal in JavaScript, such as `{ ignore: /^foo/ }`.
+
+You can enforce these common cases:
 
 <!-- prettier-ignore -->
 - kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
 - lowerCamelCase: `^[a-z][a-zA-Z0-9]+$`
-- snake\_case: `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
+- snake_case: `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
 - UpperCamelCase: `^[A-Z][a-zA-Z0-9]+$`
 
 Or enforce a prefix using a positive lookbehind regex. For example, `(?<=foo-)` to prefix with `foo-`.
