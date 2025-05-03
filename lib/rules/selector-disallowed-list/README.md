@@ -99,7 +99,7 @@ The following pattern is _not_ considered a problem:
 .bar .foo {}
 ```
 
-### `ignore: ["inside-block", "keyframe-selectors"]`
+### `ignore`
 
 ```json
 { "ignore": ["array", "of", "options"] }

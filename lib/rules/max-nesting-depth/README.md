@@ -395,6 +395,8 @@ a {
 
 Ignore the specified pseudo-classes.
 
+Given:
+
 ```json
 {
   "max-nesting-depth": [1, { "ignorePseudoClasses": ["hover", "^focus-"] }]
