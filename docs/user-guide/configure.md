@@ -89,7 +89,7 @@ Some rule options accept regular expressions (regex). If a string option surroun
 
 If allowed, the `"/regex/"` format is also available in object keys. For example, when `{ "/^margin/": ["px"] }` is given, the key matches `margin`, `margin-top`, `margin-inline`, etc.
 
-Also, rules ending with `-pattern` translates the given string without `"/"` into a regex, for example, `"^foo"` into `new RegExp("^foo")`. In this case, a regex literal in JavaScript is also available, such as `/^foo/`.
+Also, `*-pattern` rules translate the given string without `"/"` into a regex, like `"^foo"` into `new RegExp("^foo")`. In this case, you can directly specify a regex literal in JavaScript, such as `/^foo/`.
 
 You can enforce these common cases:
 
