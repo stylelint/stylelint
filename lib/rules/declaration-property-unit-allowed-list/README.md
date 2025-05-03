@@ -17,7 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "unprefixed-property-name": ["array", "of", "units"] }
 ```
 
-You can specify a regex for a property name, such as `"/^animation/"`.
+You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
 
 Given:
 
@@ -25,7 +25,7 @@ Given:
 {
   "declaration-property-unit-allowed-list": {
     "font-size": ["em", "px"],
-    "/^animation/": "s",
+    "/^animation/": ["s"],
     "line-height": []
   }
 }

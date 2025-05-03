@@ -17,11 +17,11 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-A string will be translated into a regular expression like `new RegExp(yourString)`, so make sure to escape it properly. Alternatively, a regular expression literal in JavaScript is available, such as `/yourPattern/`.
+Specify a regex string not surrounded with `"/"`.
 
 The selector value _after `.`_ will be checked. No need to include `.` in your pattern.
 
-Given the string:
+Given:
 
 ```json
 {
@@ -70,9 +70,9 @@ div > #zing + .foo-bar {}
 
 ## Optional secondary options
 
-### `resolveNestedSelectors: true | false` (default: `false`)
+### `resolveNestedSelectors`
 
-This option will resolve nested selectors with `&` interpolation.
+This option will resolve nested selectors with `&` interpolation. Defaults to `false`.
 
 Given the string:
 

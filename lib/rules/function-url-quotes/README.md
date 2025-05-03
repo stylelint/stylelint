@@ -98,7 +98,13 @@ a { background: url(x.jpg); }
 
 ## Optional secondary options
 
-### `except: ["empty"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "options"] }
+```
+
+#### `"empty"`
 
 Reverse the primary option for functions that have no arguments.
 

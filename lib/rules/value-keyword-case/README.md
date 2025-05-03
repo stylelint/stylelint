@@ -127,7 +127,11 @@ a {
 
 ## Optional secondary options
 
-### `ignoreKeywords: ["/regex/", /regex/, "non-regex"]`
+### `ignoreKeywords`
+
+```json
+{ "ignoreKeywords": ["array", "of", "keywords", "/regex/"] }
+```
 
 Ignore case of keywords values.
 
@@ -202,7 +206,11 @@ a {
 }
 ```
 
-### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore case of the values of the listed properties.
 
@@ -277,7 +285,11 @@ a {
 }
 ```
 
-### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore case of the values inside the listed functions.
 
@@ -341,9 +353,9 @@ a {
 }
 ```
 
-### `camelCaseSvgKeywords: true | false` (default: `false`)
+### `camelCaseSvgKeywords`
 
-If `true`, this rule expects SVG keywords to be camel case when the primary option is `"lower"`.
+If `true`, this rule expects SVG keywords to be camel case when the primary option is `"lower"`. Defaults to `false`.
 
 Given:
 

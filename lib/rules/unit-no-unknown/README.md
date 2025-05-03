@@ -81,7 +81,11 @@ a {
 
 ## Optional secondary options
 
-### `ignoreUnits: ["/regex/", /regex/, "string"]`
+### `ignoreUnits`
+
+```json
+{ "ignoreUnits": ["array", "of", "units", "/regex/"] }
+```
 
 Given:
 
@@ -107,7 +111,11 @@ a {
 }
 ```
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Given:
 

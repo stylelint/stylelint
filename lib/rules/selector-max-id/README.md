@@ -85,7 +85,18 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `checkContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
+### `checkContextFunctionalPseudoClasses`
+
+```json
+{
+  "checkContextFunctionalPseudoClasses": [
+    "array",
+    "of",
+    "pseudo-classes",
+    "/regex/"
+  ]
+}
+```
 
 Check selectors inside of the specified custom [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
 
@@ -113,7 +124,18 @@ The following pattern is _not_ considered a problem:
 :--foo() {}
 ```
 
-### `ignoreContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
+### `ignoreContextFunctionalPseudoClasses`
+
+```json
+{
+  "ignoreContextFunctionalPseudoClasses": [
+    "array",
+    "of",
+    "pseudo-classes",
+    "/regex/"
+  ]
+}
+```
 
 Ignore selectors inside of the specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
 

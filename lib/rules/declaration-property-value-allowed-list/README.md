@@ -17,7 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "unprefixed-property-name": ["array", "of", "values", "/regex/"] }
 ```
 
-You can specify a regex for a property name, such as `"/^animation/"`.
+You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
 
 If a property name is found in the object, only the listed property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
 
@@ -31,7 +31,7 @@ Given:
 {
   "declaration-property-value-allowed-list": {
     "transform": ["/scale/"],
-    "whitespace": "nowrap",
+    "whitespace": ["nowrap"],
     "/color/": ["/^green/"]
   }
 }

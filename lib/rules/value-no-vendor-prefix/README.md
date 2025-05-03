@@ -61,7 +61,11 @@ a { background: linear-gradient(bottom, #000, #fff); }
 
 ## Optional secondary options
 
-### `ignoreValues: ["/regex/", /regex/, "string"]`
+### `ignoreValues`
+
+```json
+{ "ignoreValues": ["array", "of", "values", "/regex/"] }
+```
 
 Given:
 

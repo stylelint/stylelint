@@ -85,7 +85,11 @@ div a .foo:not(span) {}
 
 ## Optional secondary options
 
-### `ignore: ["child", "compounded", "custom-elements", "descendant", "next-sibling"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"child"`
 
@@ -202,7 +206,11 @@ div a + span {}
 #bar + div + span + a + span {}
 ```
 
-### `ignoreTypes: ["/regex/", /regex/, "non-regex"]`
+### `ignoreTypes`
+
+```json
+{ "ignoreTypes": ["array", "of", "types", "/regex/"] }
+```
 
 Given:
 

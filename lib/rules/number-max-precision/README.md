@@ -54,7 +54,11 @@ a { top: 3.24px; }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "string"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore the precision of numbers for the specified properties.
 
@@ -80,7 +84,11 @@ The following patterns are _not_ considered problems:
 a { transition: all 4.5s ease; }
 ```
 
-### `ignoreUnits: ["/regex/", /regex/, "string"]`
+### `ignoreUnits`
+
+```json
+{ "ignoreUnits": ["array", "of", "units", "/regex/"] }
+```
 
 Ignore the precision of numbers for values with the specified units.
 
@@ -140,7 +148,13 @@ a {
 }
 ```
 
-### `insideFunctions: {"/regex/": int, /regex/: int, "string": int}`
+### `insideFunctions`
+
+```json
+{ "insideFunctions": { "function-name": 0 } }
+```
+
+You can specify a regex for a function name, such as `{ "/^(oklch|oklab)$/": 0 }`.
 
 The `insideFunctions` option can change a primary option value for specified functions.
 

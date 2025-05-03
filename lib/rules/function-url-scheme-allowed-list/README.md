@@ -24,8 +24,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "schemes", "/regex/"]
 ```
 
-You can also specify a single scheme or a regular expression instead of an array of them.
-
 Given:
 
 ```json

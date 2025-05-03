@@ -19,10 +19,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "unprefixed", "pseudo-classes", "/regex/"]
 ```
 
-You can also specify a single pseudo-class instead of an array of them.
-
-If a string is surrounded with `"/"` (e.g. `"/^nth-/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^nth-/` will match `nth-child`, `nth-last-child`, `nth-of-type`, etc.
-
 Given:
 
 ```json

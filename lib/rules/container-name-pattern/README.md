@@ -13,7 +13,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-Specify a regex string.
+Specify a regex string not surrounded with `"/"`.
 
 Given:
 

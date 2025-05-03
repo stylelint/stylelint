@@ -112,7 +112,13 @@ a .foo__foo .bar .baz {}
 
 ## Optional secondary options
 
-### `ignore: ["blockless-at-rules"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"blockless-at-rules"`
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
@@ -175,7 +181,7 @@ a {
 }
 ```
 
-### `ignore: ["pseudo-classes"]`
+#### `"pseudo-classes"`
 
 Ignore rules where the first selector in each selector list item is a pseudo-class
 
@@ -299,7 +305,11 @@ a {
 }
 ```
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Ignore the specified at-rules.
 
@@ -377,7 +387,11 @@ a {
 }
 ```
 
-### `ignorePseudoClasses: ["/regex/", /regex/, "string"]`
+### `ignorePseudoClasses`
+
+```json
+{ "ignorePseudoClasses": ["array", "of", "pseudo-classes", "/regex/"] }
+```
 
 Ignore the specified pseudo-classes.
 
@@ -435,7 +449,11 @@ a {
 }
 ```
 
-### `ignoreRules: ["/regex/", /regex/, "string"]`
+### `ignoreRules`
+
+```json
+{ "ignoreRules": ["array", "of", "selectors", "/regex/"] }
+```
 
 Ignore rules matching with the specified selectors.
 

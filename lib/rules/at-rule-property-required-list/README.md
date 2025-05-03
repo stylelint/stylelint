@@ -14,7 +14,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ## Options
 
 ```json
-{ "at-rule-name": ["array", "of", "properties or descriptors"] }
+{ "at-rule-name": ["array", "of", "properties", "or", "descriptors"] }
 ```
 
 You can also specify a single property or descriptor instead of an array of them.

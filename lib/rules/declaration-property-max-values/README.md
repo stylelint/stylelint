@@ -10,9 +10,9 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "unprefixed-property-name": 0 }
 ```
 
-In practice, you should specify any positive integers as values.
+Specify pairs of a property and a max value. In practice, you should specify any positive integers as max values.
 
-You can specify a regex for a property name, such as `"/^margin/"`.
+You can specify a regex for a property name, such as `{ "/^margin/": 0 }`.
 
 Given:
 

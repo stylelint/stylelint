@@ -66,7 +66,11 @@ input::-moz-placeholder {}
 
 ## Optional secondary options
 
-### `ignorePseudoElements: ["/regex/", /regex/, "non-regex"]`
+### `ignorePseudoElements`
+
+```json
+{ "ignorePseudoElements": ["array", "of", "pseudo-elements", "/regex/"] }
+```
 
 Given:
 

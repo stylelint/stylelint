@@ -192,7 +192,13 @@ a { top: 10px; }
 
 ## Optional secondary options
 
-### `ignore: ["selectors-within-list"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"selectors-within-list"`
 
 Ignores selectors within list of selectors.
 

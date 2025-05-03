@@ -13,9 +13,9 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-A string will be translated into a regular expression like `new RegExp(yourString)`, so make sure to escape it properly. Alternatively, a regular expression literal in JavaScript is available, such as `/yourPattern/`.
+Specify a regex string not surrounded with `"/"`.
 
-Given the string:
+Given:
 
 ```json
 {

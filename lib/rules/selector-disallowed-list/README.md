@@ -17,10 +17,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "selectors", "/regex/"]
 ```
 
-You can also specify a single selector instead of an array of them.
-
-If a string is surrounded with `"/"` (e.g. `"/\.foo/"`), it is interpreted as a regular expression.
-
 Given:
 
 ```json
@@ -77,9 +73,9 @@ a[href] {}
 
 ## Optional secondary options
 
-### `splitList: true | false` (default: `false`)
+### `splitList`
 
-Split selector lists into individual selectors.
+Split selector lists into individual selectors. Defaults to `false`.
 
 Given:
 
@@ -104,6 +100,10 @@ The following pattern is _not_ considered a problem:
 ```
 
 ### `ignore: ["inside-block", "keyframe-selectors"]`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"inside-block"`
 

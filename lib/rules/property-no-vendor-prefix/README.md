@@ -56,7 +56,11 @@ a { -webkit-touch-callout: none; }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "string"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Given:
 

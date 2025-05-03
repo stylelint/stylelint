@@ -88,7 +88,11 @@ a {
 
 ## Optional secondary options
 
-### `ignore: ["at-rule-preludes", "declaration-values"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"at-rule-preludes"`
 

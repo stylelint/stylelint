@@ -71,7 +71,13 @@ a { animation-delay: 1s; }
 
 ## Optional secondary options
 
-### `ignore: ["delay"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"delay"`
 
 Ignore time values for an animation or transition delay.
 

@@ -71,7 +71,11 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore the specified functions.
 

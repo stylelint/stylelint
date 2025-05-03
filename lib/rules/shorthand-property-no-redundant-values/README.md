@@ -93,7 +93,13 @@ a { border-radius: 10px / 5px; }
 
 ## Optional secondary options
 
-### `ignore: ["four-into-three-edge-values"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"four-into-three-edge-values"`
 
 Ignore four-value shorthand declarations that could be shortened to three values when applied to edges.
 

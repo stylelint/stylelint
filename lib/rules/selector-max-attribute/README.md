@@ -98,7 +98,11 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreAttributes: ["/regex/", /regex/, "non-regex"]`
+### `ignoreAttributes`
+
+```json
+{ "ignoreAttributes": ["array", "of", "attributes", "/regex/"] }
+```
 
 Given:
 

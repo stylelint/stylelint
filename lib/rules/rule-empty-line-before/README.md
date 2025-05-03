@@ -153,7 +153,11 @@ b {
 
 ## Optional secondary options
 
-### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "inside-block", "first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "options"] }
+```
 
 #### `"after-rule"`
 
@@ -327,7 +331,11 @@ The following patterns are _not_ considered problems:
 }
 ```
 
-### `ignore: ["after-comment", "first-nested", "inside-block"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"after-comment"`
 

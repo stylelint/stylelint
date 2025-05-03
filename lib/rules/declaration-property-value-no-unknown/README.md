@@ -73,13 +73,13 @@ a { top: var(--foo); }
 
 ```json
 {
-  "ignoreProperties": {
-    "property": ["array", "of", "property-values", "/regex/"]
-  }
+  "ignoreProperties": { "property-name": ["array", "of", "values", "/regex/"] }
 }
 ```
 
 Ignore the specified property and value pairs. Keys in the object indicate property names.
+
+You can specify a regex for a property name, such as `{ "/^margin/": [] }`.
 
 Given:
 
@@ -90,9 +90,9 @@ Given:
     {
       "ignoreProperties": {
         "top": ["unknown"],
-        "/^margin-/": "/^--foo/",
-        "padding": "/.+/",
-        "/.+/": "--unknown-value"
+        "/^margin-/": ["/^--foo/"],
+        "padding": ["/.+/"],
+        "/.+/": ["--unknown-value"]
       }
     }
   ]

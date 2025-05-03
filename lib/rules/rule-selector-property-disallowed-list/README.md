@@ -17,11 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "selector": ["array", "of", "properties", "/regex/"] }
 ```
 
-You can also specify a single property instead of an array of them.
-
-If a selector name is surrounded with `"/"` (e.g. `"/anchor/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of all the potential anchors: `/anchor/` will match `.anchor`, `[data-anchor]`, etc.
-
-The same goes for properties. Keep in mind that a regular expression value is matched against the entire property name, not specific parts of it. For example, a value like `"animation-duration"` will _not_ match `"/^duration/"` (notice beginning of the line boundary) but _will_ match `"/duration/"`.
+You can specify a regex for a selector, such as `{ "/foo-/": [] }`.
 
 Given:
 
@@ -29,7 +25,7 @@ Given:
 {
   "rule-selector-property-disallowed-list": {
     "a": ["color", "/margin/"],
-    "/foo/": "/size/"
+    "/foo/": ["/size/"]
   }
 }
 ```
@@ -70,7 +66,13 @@ html[data-foo] { color: red; }
 
 ## Optional secondary options
 
-### `ignore: ["keyframe-selectors"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"keyframe-selectors"`
 
 Ignore keyframe selectors.
 

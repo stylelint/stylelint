@@ -17,7 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "unprefixed-property-name": ["array", "of", "values", "/regex/"] }
 ```
 
-You can specify a regex for a property name, such as `"/^animation/"`.
+You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
 
 The same goes for values. Keep in mind that a regular expression value is matched against the entire value of the declaration, not specific parts of it. For example, a value like `"10px solid rgba( 255 , 0 , 0 , 0.5 )"` will _not_ match `"/^solid/"` (notice beginning of the line boundary) but _will_ match `"/\\s+solid\\s+/"` or `"/\\bsolid\\b/"`.
 
@@ -29,7 +29,7 @@ Given:
 {
   "declaration-property-value-disallowed-list": {
     "transform": ["/scale3d/", "/rotate3d/", "/translate3d/"],
-    "position": "fixed",
+    "position": ["fixed"],
     "color": ["/^green/"],
     "/^animation/": ["/ease/"]
   }

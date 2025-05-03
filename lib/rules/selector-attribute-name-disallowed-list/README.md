@@ -17,8 +17,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "attribute-names", "/regex/"]
 ```
 
-You can also specify a single attribute name instead of an array of them.
-
 Given:
 
 ```json

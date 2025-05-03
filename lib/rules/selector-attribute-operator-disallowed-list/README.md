@@ -17,8 +17,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "attribute-operators"]
 ```
 
-You can also specify a single attribute operator instead of an array of them.
-
 Given:
 
 ```json

@@ -17,8 +17,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "units"]
 ```
 
-You can also specify a single unit instead of an array of them.
-
 Given:
 
 ```json
@@ -68,7 +66,11 @@ a { animation: animation-name 5s ease; }
 
 ## Optional secondary options
 
-### `ignoreProperties: { "unit": ["property", "/regex/", /regex/]|"property"|"/regex/"|/regex/ }`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": { "unit": ["array", "of", "properties", "/regex/"] } }
+```
 
 Ignore units in the values of declarations with the specified properties.
 
@@ -122,7 +124,15 @@ a { -moz-border-radius-topright: 40px; }
 a { height: 100vmin; }
 ```
 
-### `ignoreMediaFeatureNames: { "unit": ["property", "/regex/", /regex/]|"property"|"/regex/"|/regex/ }`
+### `ignoreMediaFeatureNames`
+
+```json
+{
+  "ignoreMediaFeatureNames": {
+    "unit": ["array", "of", "feature-names", "/regex/"]
+  }
+}
+```
 
 Ignore units for specific feature names.
 
@@ -176,7 +186,11 @@ The following patterns are considered problems:
 @media print and (max-resolution: 100dpi) {}
 ```
 
-### `ignoreFunctions: ["function", "/regex/", /regex/]|"function"|"/regex/"|/regex/`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": { "unit": ["array", "of", "functions", "/regex/"] } }
+```
 
 Ignore units that are inside of the specified functions.
 

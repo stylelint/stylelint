@@ -21,8 +21,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "combinators"]
 ```
 
-You can also specify a single combinator instead of an array of them.
-
 Given:
 
 ```json

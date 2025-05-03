@@ -105,9 +105,17 @@ a { font: italic normal 20px sans-serif; }
 
 ## Optional secondary options
 
-### `ignore: ["relative"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"relative"`
 
 Ignore the [_relative_](https://drafts.csswg.org/css-fonts/#font-weight-prop) keyword names of `bolder` and `lighter`.
+
+Given:
 
 ```json
 {

@@ -71,7 +71,11 @@ input {
 
 ## Optional secondary options
 
-### `ignore: ["attribute", "class", "id"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"attribute"`
 

@@ -123,9 +123,9 @@ a {
 
 ## Optional secondary options
 
-### `disallowInList: true | false` (default: `false`)
+### `disallowInList`
 
-This option will also disallow duplicate selectors within selector lists.
+This option will also disallow duplicate selectors within selector lists. Defaults to `false`.
 
 Given:
 

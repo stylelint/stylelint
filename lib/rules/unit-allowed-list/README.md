@@ -13,13 +13,9 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string`: `["array", "of", "units"]|"unit"`
-
 ```json
 ["array", "of", "units"]
 ```
-
-You can also specify a single unit instead of an array of them.
 
 Given:
 
@@ -75,7 +71,11 @@ a { transform: rotate(30deg); }
 
 ## Optional secondary options
 
-### `ignoreProperties: { "unit": ["property", "/regex/", /regex/]|"property"|"/regex/"|/regex/ }`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": { "unit": ["array", "of", "properties", "/regex/"] } }
+```
 
 Ignore units in the values of declarations with the specified properties.
 
@@ -129,7 +129,11 @@ a { -moz-border-radius-topright: 20rem; }
 a { height: 100%; }
 ```
 
-### `ignoreFunctions: ["function", "/regex/", /regex/]|"function"|"/regex/"|/regex/`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore units that are inside of the specified functions.
 

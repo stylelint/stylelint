@@ -17,13 +17,10 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "unprefixed-media-feature-name": ["array", "of", "values", "/regex/"] }
 ```
 
-You can also specify a single value instead of an array of them.
+You can specify a regex for a media feature name, such as `{ "/width$/": [] }`.
 
 If a media feature name is found in the object, only its allowed-listed values are
 allowed. If the media feature name is not included in the object, anything goes.
-
-If a name or value is surrounded with `/` (e.g. `"/width$/"`), it is interpreted
-as a regular expression. For example, `/width$/` will match `max-width` and `min-width`.
 
 Given:
 
@@ -31,7 +28,7 @@ Given:
 {
   "media-feature-name-value-allowed-list": {
     "min-width": ["768px", "1024px"],
-    "/resolution/": "/dpcm$/"
+    "/resolution/": ["/dpcm$/"]
   }
 }
 ```

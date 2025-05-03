@@ -61,7 +61,11 @@ a { top: 1.001vh }
 
 ## Optional secondary options
 
-### `ignore: ["custom-properties"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"custom-properties"`
 
@@ -80,7 +84,11 @@ The following pattern is _not_ considered a problem:
 a { --x: 0px; }
 ```
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore units for zero lengths within the specified functions.
 
@@ -104,7 +112,13 @@ a { top: var(--foo, 0px); }
 a { top: --bar(0px); }
 ```
 
-### `ignorePreludeOfAtRules: ["/regex/", /regex/, "string"]`
+### `ignorePreludeOfAtRules`
+
+```json
+{
+  "ignorePreludeOfAtRules": ["array", "of", "at-rules", "/regex/"]
+}
+```
 
 Ignore units for zero lengths within the preludes of the specified at-rules.
 

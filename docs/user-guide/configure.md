@@ -83,17 +83,6 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-You can also specify a single value in places where an array of multiple values is accepted. In this example, both values for `unit-allowed-list` are interpreted as equal:
-
-```json
-{
-  "rules": {
-    "unit-allowed-list": "em",
-    "unit-allowed-list": ["em"]
-  }
-}
-```
-
 ### Handling regex
 
 Some rules and options accept a regular expression (regex). If a string is surrounded with `"/"`, it's interpreted as a regex. For example, `"/.+/"` matches any strings. Instead of a string with `"/"`, you can also specify a regex literal in JavaScript, such as `/.+/`.

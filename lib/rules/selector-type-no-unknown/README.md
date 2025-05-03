@@ -54,7 +54,11 @@ li > a {}
 
 ## Optional secondary options
 
-### `ignore: ["custom-elements", "default-namespace"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"custom-elements"`
 
@@ -109,7 +113,11 @@ The following patterns are _not_ considered problems:
 unknown {}
 ```
 
-### `ignoreNamespaces: ["/regex/", /regex/, "string"]`
+### `ignoreNamespaces`
+
+```json
+{ "ignoreNamespaces": ["array", "of", "namespaces", "/regex/"] }
+```
 
 Given:
 
@@ -139,7 +147,11 @@ my-namespace|unknown {}
 my-other-namespace|unknown {}
 ```
 
-### `ignoreTypes: ["/regex/", /regex/, "string"]`
+### `ignoreTypes`
+
+```json
+{ "ignoreTypes": ["array", "of", "types", "/regex/"] }
+```
 
 Given:
 

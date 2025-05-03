@@ -81,7 +81,11 @@ LI {}
 
 ## Optional secondary options
 
-### `ignoreTypes: ["/regex/", /regex/, "non-regex"]`
+### `ignoreTypes`
+
+```json
+{ "ignoreTypes": ["array", "of", "types", "/regex/"] }
+```
 
 Given:
 

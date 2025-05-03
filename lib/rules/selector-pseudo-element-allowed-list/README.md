@@ -22,8 +22,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 ["array", "of", "unprefixed", "pseudo-elements", "/regex/"]
 ```
 
-You can also specify a single pseudo-element instead of an array of them.
-
 Given:
 
 ```json

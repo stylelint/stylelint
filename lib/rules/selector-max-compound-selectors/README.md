@@ -69,7 +69,11 @@ div {}
 
 ## Optional secondary options
 
-### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
+### `ignoreSelectors`
+
+```json
+{ "ignoreSelectors": ["array", "of", "selectors", "/regex/"] }
+```
 
 Ignore some compound selectors. This may be useful for deep selectors like Vue's `::v-deep` or Angular's `::ng-deep` that behave more like combinators than compound selectors.
 

@@ -17,11 +17,11 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-A string will be translated into a regular expression like `new RegExp(yourString)`, so make sure to escape it properly. Alternatively, a regular expression literal in JavaScript is available, such as `/yourPattern/`.
+Specify a regex string not surrounded with `"/"`.
 
 The selector value will be checked in its entirety. If you'd like to allow for combinators and commas, you must incorporate them into your pattern.
 
-Given the string:
+Given:
 
 ```json
 {
@@ -79,16 +79,16 @@ a {
 
 ## Optional secondary options
 
-### `splitList: true | false` (default: `false`)
+### `splitList`
 
-Split selector lists into individual selectors.
+Split selector lists into individual selectors. Defaults to `false`.
 
-For example, with `true`.
-
-Given the string:
+Given:
 
 ```json
-"^&:(?:hover|focus)$"
+{
+  "selector-nested-pattern": ["^&:(?:hover|focus)$", { "splitList": true }]
+}
 ```
 
 The following patterns are considered problems:

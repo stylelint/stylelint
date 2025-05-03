@@ -72,7 +72,11 @@ a { font-family: Helvetica, var(--font-family-common); }
 
 ## Optional secondary options
 
-### `ignoreFontFamilies: ["/regex/", /regex/, "string"]`
+### `ignoreFontFamilies`
+
+```json
+{ "ignoreFontFamilies": ["array", "of", "font-families", "/regex/"] }
+```
 
 Given:
 

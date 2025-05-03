@@ -87,7 +87,11 @@ a {
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "string"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Given:
 
@@ -120,7 +124,11 @@ a {
 }
 ```
 
-### `ignoreSelectors: ["/regex/", /regex/, "string"]`
+### `ignoreSelectors`
+
+```json
+{ "ignoreSelectors": ["array", "of", "selectors", "/regex/"] }
+```
 
 Skips checking properties of the given selectors against this rule.
 
@@ -141,7 +149,11 @@ The following patterns are _not_ considered problems:
 }
 ```
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Ignores properties nested within specified at-rules.
 
@@ -164,9 +176,9 @@ The following patterns are _not_ considered problems:
 }
 ```
 
-### `checkPrefixed: true | false` (default: `false`)
+### `checkPrefixed`
 
-If `true`, this rule will check vendor-prefixed properties.
+If `true`, this rule will check vendor-prefixed properties. Defaults to `false`.
 
 Given:
 

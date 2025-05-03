@@ -71,7 +71,11 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreMediaFeatureNames: ["/regex/", /regex/, "string"]`
+### `ignoreMediaFeatureNames`
+
+```json
+{ "ignoreMediaFeatureNames": ["array", "of", "media-features", "/regex/"] }
+```
 
 Given:
 
