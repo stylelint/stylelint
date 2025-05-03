@@ -76,5 +76,3 @@ a { color: #fff; }
 ```css
 a { color: #ffffff; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

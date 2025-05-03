@@ -118,7 +118,7 @@ a {
 ### `except`
 
 ```json
-{ "except": ["array", "of", "keywords"] }
+{ "except": ["array", "of", "options"] }
 ```
 
 #### `"after-comment"`
@@ -272,7 +272,7 @@ a {
 ### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"after-comment"`
@@ -389,5 +389,3 @@ The following patterns are _not_ considered problems:
 ```css
 a { bottom: 15px; top: 5px; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

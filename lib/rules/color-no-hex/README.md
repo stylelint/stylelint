@@ -66,5 +66,3 @@ a { color: rgb(0, 0, 0); }
 ```css
 a { color: rgba(0, 0, 0, 1); }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

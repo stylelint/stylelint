@@ -71,5 +71,3 @@ a { @extend placeholder; }
   to { top: 20px; }
 }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

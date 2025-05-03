@@ -75,5 +75,3 @@ a { transition-property: opacity; } a { transition: opacity 1s linear; }
 ```css
 a { transition-property: opacity; -webkit-transition: opacity 1s linear; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

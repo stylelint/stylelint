@@ -59,5 +59,3 @@ The following patterns are _not_ considered problems:
     src: url('./fonts/foo.woff2') format('woff2');
 }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

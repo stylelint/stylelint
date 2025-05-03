@@ -59,7 +59,11 @@ a { text-justify: inter-character; }
 
 ## Optional secondary options
 
-### `ignoreKeywords: ["/regex/", /regex/, "string"]`
+### `ignoreKeywords`
+
+```json
+{ "ignoreKeywords": ["array", "of", "keywords", "/regex/"] }
+```
 
 Given:
 

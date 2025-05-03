@@ -12,7 +12,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 In practice, you should specify any positive integers as values.
 
-If a property name is surrounded with `"/"` (e.g. `"/^margin/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^margin/` will match `margin`, `margin-top`, `margin-inline`, etc.
+You can specify a regex for a property name, such as `"/^margin/"`.
 
 Given:
 

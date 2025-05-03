@@ -36,5 +36,3 @@ The following patterns are _not_ considered problems:
 ```css
 :root { --foo-bar: 0; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

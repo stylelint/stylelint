@@ -38,5 +38,3 @@ The following patterns are _not_ considered problems:
 /*foo at the beginning*/
 a { color: red; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

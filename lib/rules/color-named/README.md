@@ -133,7 +133,7 @@ a { color: var(--white); }
 ### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"inside-function"`
@@ -200,5 +200,3 @@ a {
   composes: red from './index.css';
 }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

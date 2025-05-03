@@ -91,7 +91,7 @@ a {} /* comment */
 ### `except`
 
 ```json
-{ "except": ["array", "of", "keywords"] }
+{ "except": ["array", "of", "options"] }
 ```
 
 #### `"first-nested"`
@@ -130,7 +130,7 @@ a {
 ### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"after-comment"`
@@ -240,5 +240,3 @@ The following patterns are _not_ considered problems:
   color: pink;
 }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

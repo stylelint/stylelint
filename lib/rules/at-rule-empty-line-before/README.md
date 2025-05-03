@@ -90,7 +90,7 @@ a {}
 ### `except`
 
 ```json
-{ "except": ["array", "of", "keywords"] }
+{ "except": ["array", "of", "options"] }
 ```
 
 #### `"after-same-name"`
@@ -316,7 +316,7 @@ b {
 ### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"after-comment"`
@@ -523,5 +523,3 @@ The following patterns are _not_ considered problems:
 a {}
 @my-at-rule {}
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

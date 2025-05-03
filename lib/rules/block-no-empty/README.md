@@ -61,7 +61,7 @@ a {
 ### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"comments"`
@@ -91,5 +91,3 @@ a {
   }
 }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

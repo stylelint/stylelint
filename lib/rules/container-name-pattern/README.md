@@ -56,5 +56,3 @@ a { container-name: foo-bar; }
 ```css
 a { container: foo-baz / inline-size; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

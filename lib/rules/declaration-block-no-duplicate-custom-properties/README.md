@@ -86,5 +86,3 @@ a { --custom-property: 1; --custom-property: 1; }
 ```css
 a { --custom-ignored-property: 1; --custom-ignored-property: 1; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

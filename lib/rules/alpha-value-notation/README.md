@@ -124,5 +124,3 @@ a { opacity: 0.5 }
 ```css
 a { color: rgb(0 0 0 / 50%) }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

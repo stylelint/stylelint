@@ -95,5 +95,3 @@ The following patterns are _not_ considered problems:
 ```css
 @font-palette-values foo {}
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

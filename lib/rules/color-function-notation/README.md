@@ -132,7 +132,7 @@ a { color: hsl(.75turn, 60%, 70%) }
 ### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"with-var-inside"`
@@ -170,5 +170,3 @@ a {
   color: rgba(var(--foo) / 0.5);
 }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

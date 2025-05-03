@@ -54,7 +54,7 @@ a { color: pink; background: orange; }
 ### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"consecutive-duplicates"`
@@ -266,5 +266,3 @@ a { color: pink; color: orange; background-color: orange; background-color: whit
 ```css
 a { color: pink; background-color: orange; color: orange; background-color: white; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

@@ -301,5 +301,3 @@ a {
   border-top-width: 7px;
 }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

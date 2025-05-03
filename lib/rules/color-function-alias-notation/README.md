@@ -84,5 +84,3 @@ a { color: rgba(0 0 0) }
 ```css
 a { color: hsla(270 60% 50% / 15%) }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

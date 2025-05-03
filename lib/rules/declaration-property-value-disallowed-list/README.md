@@ -17,9 +17,7 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 { "unprefixed-property-name": ["array", "of", "values", "/regex/"] }
 ```
 
-You can also specify a single value instead of an array of them.
-
-If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
+You can specify a regex for a property name, such as `"/^animation/"`.
 
 The same goes for values. Keep in mind that a regular expression value is matched against the entire value of the declaration, not specific parts of it. For example, a value like `"10px solid rgba( 255 , 0 , 0 , 0.5 )"` will _not_ match `"/^solid/"` (notice beginning of the line boundary) but _will_ match `"/\\s+solid\\s+/"` or `"/\\bsolid\\b/"`.
 

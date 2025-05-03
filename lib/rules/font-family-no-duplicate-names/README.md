@@ -64,7 +64,11 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 
 ## Optional secondary options
 
-### `ignoreFontFamilyNames: ["/regex/", /regex/, "string"]`
+### `ignoreFontFamilyNames`
+
+```json
+{ "ignoreFontFamilyNames": ["array", "of", "font-family-names", "/regex/"] }
+```
 
 Given:
 

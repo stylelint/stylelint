@@ -78,5 +78,3 @@ The following patterns are _not_ considered problems:
 ```css
 @--custom {}
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

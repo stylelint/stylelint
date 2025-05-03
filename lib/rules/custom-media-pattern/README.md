@@ -36,5 +36,3 @@ The following patterns are _not_ considered problems:
 ```css
 @custom-media --foo-bar (min-width: 30em);
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

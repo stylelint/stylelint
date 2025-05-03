@@ -44,5 +44,3 @@ The following patterns are _not_ considered problems:
 ```css
 a { color: pink; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).

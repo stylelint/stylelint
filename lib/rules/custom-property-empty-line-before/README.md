@@ -103,7 +103,7 @@ a {
 ### `except`
 
 ```json
-{ "except": ["array", "of", "keywords"] }
+{ "except": ["array", "of", "options"] }
 ```
 
 #### `"after-comment"`
@@ -264,10 +264,10 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "first-nested", "inside-single-line-block"]`
+### `ignore`
 
 ```json
-{ "ignore": ["array", "of", "keywords"] }
+{ "ignore": ["array", "of", "options"] }
 ```
 
 #### `"after-comment"`
@@ -342,5 +342,3 @@ The following patterns are _not_ considered problems:
 ```css
 a { --foo: pink; --bar: red; }
 ```
-
-See also [how to configure rules](../../../docs/user-guide/configure.md#rules).
