@@ -74,6 +74,25 @@ exports[`CLI --help 1`] = `
 
       A filename to assign stdin input.
 
+    Suppressing Violations:
+
+      --suppress-all
+
+        Suppress all current violations and write them to "stylelint-suppressions.json".
+
+      --suppress-rule <rule>
+
+        Suppress violations only for the specified rule.
+
+      --suppressions-location <path>
+
+        Specify the location of the suppressions file.
+
+      --prune-suppressions
+
+        Remove entries for violations that no longer exist in the
+        codebase from the suppressions file.
+
     --ignore-disables, --id
 
       Ignore "stylelint-disable" comments.

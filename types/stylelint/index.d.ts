@@ -858,10 +858,23 @@ declare namespace stylelint {
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
 		validate?: boolean;
+		suppressAll?: boolean;
+		suppressRule?: string[];
+		suppressionsLocation?: string;
+		pruneSuppressions?: boolean;
 	};
 
 	/** @internal */
 	export type FixMode = 'lax' | 'strict';
+
+	/** @internal */
+	export type SuppressedViolations = {
+		[ruleName: string]: {
+			[message: string]: {
+				count: number;
+			};
+		};
+	};
 
 	/**
 	 * A CSS syntax error.
