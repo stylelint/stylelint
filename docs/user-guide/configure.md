@@ -83,8 +83,6 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-### `"/regex/"` format
-
 Some rules accept regular expressions (regex) with the `"/regex/"` format. If a string option surrounded with `"/"` is specified where allowed, it's interpreted as a regex. For example, `"/.+/"` matches any strings. Instead of a string with `"/"`, you can also specify a regex literal in JavaScript, such as `/.+/`.
 
 If allowed, the `"/regex/"` format is also available in object keys. For example, when `{ "/^margin/": ["px"] }` is given, the key matches `margin`, `margin-top`, `margin-inline`, etc.
