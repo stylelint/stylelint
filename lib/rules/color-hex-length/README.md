@@ -15,9 +15,13 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"short"|"long"`
-
 ### `"short"`
+
+```json
+{
+  "color-hex-length": "short"
+}
+```
 
 The following patterns are considered problems:
 
@@ -49,6 +53,12 @@ a { color: #a4a4a4; }
 ```
 
 ### `"long"`
+
+```json
+{
+  "color-hex-length": "long"
+}
+```
 
 The following patterns are considered problems:
 

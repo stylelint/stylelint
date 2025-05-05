@@ -13,13 +13,13 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `Object<string, Array<string>>`
+
 ```json
 { "unprefixed-property-name": ["array", "of", "units"] }
 ```
 
-You can also specify a single unit instead of an array of them.
-
-If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
+You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
 
 Given:
 
@@ -27,7 +27,7 @@ Given:
 {
   "declaration-property-unit-allowed-list": {
     "font-size": ["em", "px"],
-    "/^animation/": "s",
+    "/^animation/": ["s"],
     "line-height": []
   }
 }
@@ -94,11 +94,17 @@ a { line-height: 1; }
 
 ## Optional secondary options
 
-### `ignore: ["inside-function"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"inside-function"`
 
 Ignore units that are inside a function.
 
-For example, given:
+Given:
 
 ```json
 {

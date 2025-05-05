@@ -30,6 +30,12 @@ Prior art:
 
 ### `true`
 
+```json
+{
+  "at-rule-no-deprecated": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -56,12 +62,18 @@ a { @layer {} }
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^view/", "apply"]
+{
+  "at-rule-no-deprecated": [true, { "ignoreAtRules": ["/^view/", "apply"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

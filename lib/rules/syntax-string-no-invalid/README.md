@@ -21,6 +21,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "syntax-string-no-invalid": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

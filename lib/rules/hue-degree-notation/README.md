@@ -17,11 +17,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"angle"|"number"`
-
 ### `"angle"`
 
 Degree hues _must always_ use angle notation.
+
+```json
+{
+  "hue-degree-notation": "angle"
+}
+```
 
 The following patterns are considered problems:
 
@@ -50,6 +54,12 @@ a { color: lch(56.29% 19.86 10deg / 15%) }
 ### `"number"`
 
 Degree hues _must always_ use the number notation.
+
+```json
+{
+  "hue-degree-notation": "number"
+}
+```
 
 The following patterns are considered problems:
 

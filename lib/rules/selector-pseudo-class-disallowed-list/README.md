@@ -15,14 +15,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /pseudo-classes/, "/regex/"]|"pseudo-class"|"/regex/"|/regex/`
+### `Array<string>`
 
-If a string is surrounded with `"/"` (e.g. `"/^nth-/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^nth-/` will match `nth-child`, `nth-last-child`, `nth-of-type`, etc.
+```json
+["array", "of", "unprefixed", "pseudo-classes", "/regex/"]
+```
 
 Given:
 
 ```json
-["hover", "/^nth-/"]
+{
+  "selector-pseudo-class-disallowed-list": ["hover", "/^nth-/"]
+}
 ```
 
 The following patterns are considered problems:

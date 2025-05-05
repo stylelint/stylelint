@@ -37,6 +37,12 @@ Prior art:
 
 ### `true`
 
+```json
+{
+  "declaration-property-value-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -63,18 +69,33 @@ a { top: var(--foo); }
 
 ## Optional secondary options
 
-### `ignoreProperties: { "property": ["/regex/", /regex/, "non-regex"]|"/regex/"|/regex/|"non-regex" }`
+### `ignoreProperties`
 
-Ignore the specified property and value pairs. Keys in the object indicate property names. If a string in the object is surrounded with `"/"`, it's interpreted as a regular expression. For example, `"/.+/"` matches any strings.
+```json
+{
+  "ignoreProperties": { "property-name": ["array", "of", "values", "/regex/"] }
+}
+```
+
+Ignore the specified property and value pairs. Keys in the object indicate property names.
+
+You can specify a regex for a property name, such as `{ "/^margin/": [] }`.
 
 Given:
 
 ```json
 {
-  "top": ["unknown"],
-  "/^margin-/": "/^--foo/",
-  "padding": "/.+/",
-  "/.+/": "--unknown-value"
+  "declaration-property-value-no-unknown": [
+    true,
+    {
+      "ignoreProperties": {
+        "top": ["unknown"],
+        "/^margin-/": ["/^--foo/"],
+        "padding": ["/.+/"],
+        "/.+/": ["--unknown-value"]
+      }
+    }
+  ]
 }
 ```
 
@@ -100,14 +121,23 @@ a { padding: invalid; }
 a { width: --unknown-value; }
 ```
 
-### `propertiesSyntax: { property: syntax }`
+### `propertiesSyntax`
+
+```json
+{ "propertiesSyntax": { "property": "syntax" } }
+```
 
 Extend or alter the properties syntax dictionary. [CSS Value Definition Syntax](https://github.com/csstree/csstree/blob/master/docs/definition-syntax.md) is used to define a value's syntax. If a definition starts with `|` it is added to the [existing definition value](https://csstree.github.io/docs/syntax/) if any.
 
 Given:
 
 ```json
-{ "size": "<length-percentage>" }
+{
+  "declaration-property-value-no-unknown": [
+    true,
+    { "propertiesSyntax": { "size": "<length-percentage>" } }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -122,7 +152,11 @@ a { size: 0; }
 a { size: 10px }
 ```
 
-### `typesSyntax: { type: syntax }`
+### `typesSyntax`
+
+```json
+{ "typesSyntax": { "type": "syntax" } }
+```
 
 Extend or alter the types syntax dictionary. [CSS Value Definition Syntax](https://github.com/csstree/csstree/blob/master/docs/definition-syntax.md) is used to define a value's syntax. If a definition starts with `|` it is added to the [existing definition value](https://csstree.github.io/docs/syntax/) if any.
 
@@ -132,8 +166,13 @@ Given:
 
 ```json
 {
-  "propertiesSyntax": { "top": "| <--foo()>" },
-  "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
+  "declaration-property-value-no-unknown": [
+    true,
+    {
+      "propertiesSyntax": { "top": "| <--foo()>" },
+      "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
+    }
+  ]
 }
 ```
 

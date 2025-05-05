@@ -28,6 +28,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "no-duplicate-selectors": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -117,11 +123,17 @@ a {
 
 ## Optional secondary options
 
-### `disallowInList: true | false` (default: `false`)
+### `disallowInList`
 
-This option will also disallow duplicate selectors within selector lists.
+This option will also disallow duplicate selectors within selector lists. Defaults to `false`.
 
-For example, with `true`.
+Given:
+
+```json
+{
+  "no-duplicate-selectors": [true, { "disallowInList": true }]
+}
+```
 
 The following patterns are considered problems:
 

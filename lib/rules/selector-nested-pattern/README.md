@@ -17,16 +17,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`regex|string`
+### `string`
 
-A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
+Specify a regex string not surrounded with `"/"`.
 
 The selector value will be checked in its entirety. If you'd like to allow for combinators and commas, you must incorporate them into your pattern.
 
-Given the string:
+Given:
 
 ```json
-"^&:(?:hover|focus)$"
+{
+  "selector-nested-pattern": "^&:(?:hover|focus)$"
+}
 ```
 
 The following patterns are considered problems:
@@ -79,16 +81,16 @@ a {
 
 ## Optional secondary options
 
-### `splitList: true | false` (default: `false`)
+### `splitList`
 
-Split selector lists into individual selectors.
+Split selector lists into individual selectors. Defaults to `false`.
 
-For example, with `true`.
-
-Given the string:
+Given:
 
 ```json
-"^&:(?:hover|focus)$"
+{
+  "selector-nested-pattern": ["^&:(?:hover|focus)$", { "splitList": true }]
+}
 ```
 
 The following patterns are considered problems:

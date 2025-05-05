@@ -27,6 +27,12 @@ We recommend using these rules for CSS and this rule for CSS-like languages, suc
 
 ### `true`
 
+```json
+{
+  "unit-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -75,12 +81,18 @@ a {
 
 ## Optional secondary options
 
-### `ignoreUnits: ["/regex/", /regex/, "string"]`
+### `ignoreUnits`
+
+```json
+{ "ignoreUnits": ["array", "of", "units", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--foo-/", "--bar"]
+{
+  "unit-no-unknown": [true, { "ignoreUnits": ["/^--foo-/", "--bar"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -99,12 +111,21 @@ a {
 }
 ```
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Given:
 
 ```json
-["foo", "/^my-/", "/^YOUR-/i"]
+{
+  "unit-no-unknown": [
+    true,
+    { "ignoreFunctions": ["foo", "/^my-/", "/^YOUR-/i"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

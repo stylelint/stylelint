@@ -25,6 +25,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "media-feature-name-value-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

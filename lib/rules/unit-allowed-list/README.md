@@ -13,12 +13,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string`: `["array", "of", "units"]|"unit"`
+### `Array<string>`
+
+```json
+["array", "of", "units"]
+```
 
 Given:
 
 ```json
-["px", "em", "deg"]
+{
+  "unit-allowed-list": ["px", "em", "deg"]
+}
 ```
 
 The following patterns are considered problems:
@@ -67,18 +73,27 @@ a { transform: rotate(30deg); }
 
 ## Optional secondary options
 
-### `ignoreProperties: { "unit": ["property", "/regex/", /regex/]|"property"|"/regex/"|/regex/ }`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": { "unit": ["array", "of", "properties", "/regex/"] } }
+```
 
 Ignore units in the values of declarations with the specified properties.
-
-For example, with `["px", "em"]`.
 
 Given:
 
 ```json
 {
-  "rem": ["line-height", "/^border/"],
-  "%": ["width"]
+  "unit-allowed-list": [
+    ["px", "em"],
+    {
+      "ignoreProperties": {
+        "rem": ["line-height", "/^border/"],
+        "%": ["width"]
+      }
+    }
+  ]
 }
 ```
 
@@ -116,16 +131,20 @@ a { -moz-border-radius-topright: 20rem; }
 a { height: 100%; }
 ```
 
-### `ignoreFunctions: ["function", "/regex/", /regex/]|"function"|"/regex/"|/regex/`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore units that are inside of the specified functions.
-
-For example, with `["px", "em"]`.
 
 Given:
 
 ```json
-["/^hsl/", "calc"]
+{
+  "unit-allowed-list": [["px", "em"], { "ignoreFunctions": ["/^hsl/", "calc"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

@@ -13,11 +13,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "unprefixed-property-name": ["array", "of", "values", "/regex/", /regex/]|"value"|"/regex/"|/regex/ }`
+### `Object<string, Array<string>>`
+
+```json
+{ "unprefixed-property-name": ["array", "of", "values", "/regex/"] }
+```
+
+You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
 
 If a property name is found in the object, only the listed property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
-
-If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
 
 The same goes for values. Keep in mind that a regular expression value is matched against the entire value of the declaration, not specific parts of it. For example, a value like `"10px solid rgba( 255 , 0 , 0 , 0.5 )"` will _not_ match `"/^solid/"` (notice beginning of the line boundary) but _will_ match `"/\\s+solid\\s+/"` or `"/\\bsolid\\b/"`.
 
@@ -27,9 +31,11 @@ Given:
 
 ```json
 {
-  "transform": ["/scale/"],
-  "whitespace": "nowrap",
-  "/color/": ["/^green/"]
+  "declaration-property-value-allowed-list": {
+    "transform": ["/scale/"],
+    "whitespace": ["nowrap"],
+    "/color/": ["/^green/"]
+  }
 }
 ```
 

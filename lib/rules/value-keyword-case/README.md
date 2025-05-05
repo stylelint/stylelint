@@ -17,9 +17,13 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"lower"|"upper"`
-
 ### `"lower"`
+
+```json
+{
+  "value-keyword-case": "lower"
+}
+```
 
 The following patterns are considered problems:
 
@@ -69,6 +73,12 @@ a {
 
 ### `"upper"`
 
+```json
+{
+  "value-keyword-case": "upper"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -117,16 +127,23 @@ a {
 
 ## Optional secondary options
 
-### `ignoreKeywords: ["/regex/", /regex/, "non-regex"]`
+### `ignoreKeywords`
+
+```json
+{ "ignoreKeywords": ["array", "of", "keywords", "/regex/"] }
+```
 
 Ignore case of keywords values.
-
-For example, with `"lower"`.
 
 Given:
 
 ```json
-["Block", "/^(f|F)lex$/"]
+{
+  "value-keyword-case": [
+    "lower",
+    { "ignoreKeywords": ["Block", "/^(f|F)lex$/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:
@@ -189,14 +206,23 @@ a {
 }
 ```
 
-### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore case of the values of the listed properties.
 
-For example, with `"lower"`.
+Given:
 
-```js
-["/^(b|B)ackground$/", "display"];
+```json
+{
+  "value-keyword-case": [
+    "lower",
+    { "ignoreProperties": ["/^(b|B)ackground$/", "display"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:
@@ -259,14 +285,20 @@ a {
 }
 ```
 
-### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore case of the values inside the listed functions.
 
-For example, with `"upper"`.
+Given:
 
-```js
-["/^(f|F)oo$/", "t"];
+```json
+{
+  "value-keyword-case": ["upper", { "ignoreFunctions": ["/^(f|F)oo$/", "t"] }]
+}
 ```
 
 The following patterns are considered problems:
@@ -321,11 +353,17 @@ a {
 }
 ```
 
-### `camelCaseSvgKeywords: true | false` (default: `false`)
+### `camelCaseSvgKeywords`
 
-If `true`, this rule expects SVG keywords to be camel case when the primary option is `"lower"`.
+If `true`, this rule expects SVG keywords to be camel case when the primary option is `"lower"`. Defaults to `false`.
 
-For example with `true`:
+Given:
+
+```json
+{
+  "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }]
+}
+```
 
 The following pattern is _not_ considered a problem:
 

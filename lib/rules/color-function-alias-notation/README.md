@@ -17,11 +17,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"without-alpha"|"with-alpha"`
-
 ### `"without-alpha"`
 
 Applicable color-functions _must always_ use the without alpha notation.
+
+```json
+{
+  "color-function-alias-notation": "without-alpha"
+}
+```
 
 The following patterns are considered problems:
 
@@ -50,6 +54,12 @@ a { color: hsl(270 60% 50% / 15%) }
 ### `"with-alpha"`
 
 Applicable color-functions _must always_ use with alpha notation.
+
+```json
+{
+  "color-function-alias-notation": "with-alpha"
+}
+```
 
 The following patterns are considered problems:
 

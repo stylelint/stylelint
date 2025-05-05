@@ -26,6 +26,12 @@ We recommend using these rules for CSS and this rule for CSS-like languages, suc
 
 ### `true`
 
+```json
+{
+  "function-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -47,16 +53,20 @@ a { transform: --custom-function(1); }
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore the specified functions.
-
-For example, with `true`.
 
 Given:
 
 ```json
-["theme", "/^foo-/"]
+{
+  "function-no-unknown": [true, { "ignoreFunctions": ["theme", "/^foo-/"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

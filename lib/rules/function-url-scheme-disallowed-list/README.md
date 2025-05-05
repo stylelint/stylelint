@@ -20,12 +20,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regex`: `["array", "of", /schemes/, "/regex/"]|"scheme"|"/regex/"|/regex/`
+### `Array<string>`
+
+```json
+["array", "of", "schemes", "/regex/"]
+```
 
 Given:
 
 ```json
-["ftp", "/^http/"]
+{
+  "function-url-scheme-disallowed-list": ["ftp", "/^http/"]
+}
 ```
 
 The following patterns are considered problems:

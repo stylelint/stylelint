@@ -19,11 +19,19 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: Maximum specificity allowed.
+### `string`
 
-Format is `"id,class,type"`, as laid out in the [W3C selector spec](https://drafts.csswg.org/selectors/#specificity-rules).
+Specify a maximum specificity allowed.
 
-For example, with `"0,2,0"`:
+The format is `"id,class,type"`, as laid out in the [W3C selector spec](https://drafts.csswg.org/selectors/#specificity-rules).
+
+Given:
+
+```json
+{
+  "selector-max-specificity": "0,2,0"
+}
+```
 
 The following patterns are considered problems:
 
@@ -92,17 +100,23 @@ div {}
 
 ## Optional secondary options
 
-### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
+### `ignoreSelectors`
+
+```json
+{ "ignoreSelectors": ["array", "of", "selectors", "/regex/"] }
+```
 
 Given:
 
 ```json
-[
-  "0,2,0",
-  {
-    "ignoreSelectors": [":host", ":host-context", "/^my-/"]
-  }
-]
+{
+  "selector-max-specificity": [
+    "0,2,0",
+    {
+      "ignoreSelectors": [":host", ":host-context", "/^my-/"]
+    }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

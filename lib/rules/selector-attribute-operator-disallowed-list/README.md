@@ -13,12 +13,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string`: `["array", "of", "operators"]|"operator"`
+### `Array<string>`
+
+```json
+["array", "of", "attribute-operators"]
+```
 
 Given:
 
 ```json
-["*="]
+{
+  "selector-attribute-operator-disallowed-list": ["*="]
+}
 ```
 
 The following patterns are considered problems:

@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "selector-type-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -48,11 +54,21 @@ li > a {}
 
 ## Optional secondary options
 
-### `ignore: ["custom-elements", "default-namespace"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"custom-elements"`
 
 Allow custom elements.
+
+```json
+{
+  "selector-type-no-unknown": [true, { "ignore": ["custom-elements"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -77,6 +93,12 @@ x-foo {}
 
 Allow unknown type selectors if they belong to the default namespace.
 
+```json
+{
+  "selector-type-no-unknown": [true, { "ignore": ["default-namespace"] }]
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -91,12 +113,21 @@ The following patterns are _not_ considered problems:
 unknown {}
 ```
 
-### `ignoreNamespaces: ["/regex/", /regex/, "string"]`
+### `ignoreNamespaces`
+
+```json
+{ "ignoreNamespaces": ["array", "of", "namespaces", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^my-/", "custom-namespace"]
+{
+  "selector-type-no-unknown": [
+    true,
+    { "ignoreNamespaces": ["/^my-/", "custom-namespace"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -116,12 +147,21 @@ my-namespace|unknown {}
 my-other-namespace|unknown {}
 ```
 
-### `ignoreTypes: ["/regex/", /regex/, "string"]`
+### `ignoreTypes`
+
+```json
+{ "ignoreTypes": ["array", "of", "types", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^my-/", "custom-type"]
+{
+  "selector-type-no-unknown": [
+    true,
+    { "ignoreTypes": ["/^my-/", "custom-type"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

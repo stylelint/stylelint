@@ -15,11 +15,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"string"|"url"`
-
 ### `"string"`
 
 `@import` rules _must always_ use string notation.
+
+```json
+{
+  "import-notation": "string"
+}
+```
 
 The following patterns are considered problems:
 
@@ -53,6 +57,12 @@ The following patterns are _not_ considered problems:
 ### `"url"`
 
 `@import` rules _must always_ use URL notation.
+
+```json
+{
+  "import-notatin": "url"
+}
+```
 
 The following patterns are considered problems:
 

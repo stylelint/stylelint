@@ -19,6 +19,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "property-no-vendor-prefix": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -50,12 +56,21 @@ a { -webkit-touch-callout: none; }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "string"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Given:
 
 ```json
-["transform", "columns"]
+{
+  "property-no-vendor-prefix": [
+    true,
+    { "ignoreProperties": ["transform", "columns"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

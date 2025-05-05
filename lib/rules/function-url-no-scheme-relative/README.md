@@ -17,6 +17,12 @@ This rule ignores url arguments that are variables (`$sass`, `@less`, `--custom-
 
 ### `true`
 
+```json
+{
+  "function-url-no-scheme-relative": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

@@ -18,6 +18,12 @@ Using `!important` within keyframes declarations is [completely ignored in some 
 
 ### `true`
 
+```json
+{
+  "keyframe-declaration-no-important": true
+}
+```
+
 The following pattern is considered a problem:
 
 <!-- prettier-ignore -->

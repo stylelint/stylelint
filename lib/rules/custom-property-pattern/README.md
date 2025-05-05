@@ -13,14 +13,16 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`regex|string`
+### `string`
 
-A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
+Specify a regex string not surrounded with `"/"`.
 
-Given the string:
+Given:
 
 ```json
-"foo-.+"
+{
+  "custom-property-pattern": "foo-.+"
+}
 ```
 
 The following patterns are considered problems:

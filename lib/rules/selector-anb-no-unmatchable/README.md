@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "selector-anb-no-unmatchable": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

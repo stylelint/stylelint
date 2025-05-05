@@ -19,6 +19,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "declaration-block-no-duplicate-properties": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -45,9 +51,24 @@ a { color: pink; background: orange; }
 
 ## Optional secondary options
 
-### `ignore: ["consecutive-duplicates"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"consecutive-duplicates"`
 
 Ignore consecutive duplicated properties.
+
+```json
+{
+  "declaration-block-no-duplicate-properties": [
+    true,
+    { "ignore": ["consecutive-duplicates"] }
+  ]
+}
+```
 
 They can prove to be useful fallbacks for older browsers.
 
@@ -73,9 +94,18 @@ p {
 }
 ```
 
-### `ignore: ["consecutive-duplicates-with-different-values"]`
+#### `"consecutive-duplicates-with-different-values"`
 
 Ignore consecutive duplicated properties with different values.
+
+```json
+{
+  "declaration-block-no-duplicate-properties": [
+    true,
+    { "ignore": ["consecutive-duplicates-with-different-values"] }
+  ]
+}
+```
 
 Including duplicate properties (fallbacks) is useful to deal with older browsers support for CSS properties. E.g. using `px` units when `rem` isn't available.
 
@@ -112,9 +142,18 @@ p {
 }
 ```
 
-### `ignore: ["consecutive-duplicates-with-different-syntaxes"]`
+#### `"consecutive-duplicates-with-different-syntaxes"`
 
 Ignore consecutive duplicated properties with different value syntaxes (type and unit of value).
+
+```json
+{
+  "declaration-block-no-duplicate-properties": [
+    true,
+    { "ignore": ["consecutive-duplicates-with-different-syntaxes"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -139,9 +178,18 @@ p {
 }
 ```
 
-### `ignore: ["consecutive-duplicates-with-same-prefixless-values"]`
+#### `"consecutive-duplicates-with-same-prefixless-values"`
 
 Ignore consecutive duplicated properties with identical values, when ignoring their prefix.
+
+```json
+{
+  "declaration-block-no-duplicate-properties": [
+    true,
+    { "ignore": ["consecutive-duplicates-with-same-prefixless-values"] }
+  ]
+}
+```
 
 This option is useful to deal with draft CSS values while still being future proof. E.g. using `fit-content` and `-moz-fit-content`.
 
@@ -176,14 +224,23 @@ p {
 }
 ```
 
-### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore duplicates of specific properties.
 
 Given:
 
 ```json
-["color", "/background-/"]
+{
+  "declaration-block-no-duplicate-properties": [
+    true,
+    { "ignoreProperties": ["color", "/background-/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:

@@ -13,9 +13,13 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"always"|"never"`
-
 ### `"always"`
+
+```json
+{
+  "color-hex-alpha": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -42,6 +46,12 @@ a { color: #ffffffaa; }
 ```
 
 ### `"never"`
+
+```json
+{
+  "color-hex-alpha": "never"
+}
+```
 
 The following patterns are considered problems:
 

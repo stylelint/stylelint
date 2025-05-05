@@ -13,18 +13,22 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "selector": ["array", "of", "properties", "/regex/", /regex/]|"property"|"/regex/"|/regex/`
+### `Object<string, Array<string>>`
 
-If a selector name is surrounded with `"/"` (e.g. `"/anchor/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of all the potential anchors: `/anchor/` will match `.anchor`, `[data-anchor]`, etc.
+```json
+{ "selector": ["array", "of", "properties", "/regex/"] }
+```
 
-The same goes for properties. Keep in mind that a regular expression value is matched against the entire property name, not specific parts of it. For example, a value like `"animation-duration"` will _not_ match `"/^duration/"` (notice beginning of the line boundary) but _will_ match `"/duration/"`.
+You can specify a regex for a selector, such as `{ "/foo-/": [] }`.
 
 Given:
 
 ```json
 {
-  "a": ["color", "/margin/"],
-  "/foo/": "/size/"
+  "rule-selector-property-disallowed-list": {
+    "a": ["color", "/margin/"],
+    "/foo/": ["/size/"]
+  }
 }
 ```
 
@@ -64,14 +68,25 @@ html[data-foo] { color: red; }
 
 ## Optional secondary options
 
-### `ignore: ["keyframe-selectors"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"keyframe-selectors"`
 
 Ignore keyframe selectors.
 
 Given:
 
 ```json
-[{ "/^[a-z]+$/": ["opacity"] }, { "ignore": ["keyframe-selectors"] }]
+{
+  "rule-selector-property-disallowed-list": [
+    { "/^[a-z]+$/": ["opacity"] },
+    { "ignore": ["keyframe-selectors"] }
+  ]
+}
 ```
 
 The following pattern is _not_ considered a problem:

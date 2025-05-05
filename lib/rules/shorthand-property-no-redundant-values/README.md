@@ -36,6 +36,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "shorthand-property-no-redundant-values": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -87,7 +93,13 @@ a { border-radius: 10px / 5px; }
 
 ## Optional secondary options
 
-### `ignore: ["four-into-three-edge-values"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"four-into-three-edge-values"`
 
 Ignore four-value shorthand declarations that could be shortened to three values when applied to edges.
 

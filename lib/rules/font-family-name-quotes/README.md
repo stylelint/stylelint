@@ -19,8 +19,6 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"always-where-required"|"always-where-recommended"|"always-unless-keyword"`
-
 _Please read the following to understand these options_:
 
 - The `font` and `font-family` properties accept a short list of special **keywords**: `inherit`, `serif`, `sans-serif`, `cursive`, `fantasy`, `system-ui`, `monospace`, `ui-serif`, `ui-sans-serif`, `ui-monospace`, `ui-rounded`, `emoji`, `math` and `fangsong`. If you wrap these words in quotes, the browser will not interpret them as keywords, but will instead look for a font by that name (e.g. will look for a `"sans-serif"` font) -- which is almost _never_ what you want. Instead, you use these keywords to point to the built-in, generic fallbacks (right?). Therefore, _all of the options below enforce no quotes around these keywords_. (If you actually want to use a font named `"sans-serif"`, turn this rule off.)
@@ -36,6 +34,12 @@ For more on these subtleties, read ["Unquoted font family names in CSS"](https:/
 ### `"always-unless-keyword"`
 
 Expect quotes around every font family name that is not a keyword.
+
+```json
+{
+  "font-family-name-quotes": "always-unless-keyword"
+}
+```
 
 The following patterns are considered problems:
 
@@ -74,6 +78,12 @@ a { font: 1em 'Arial', sans-serif; }
 ### `"always-where-required"`
 
 Expect quotes only when quotes are _required_ according to the criteria above, and disallow quotes in all other cases.
+
+```json
+{
+  "font-family-name-quotes": "always-where-required"
+}
+```
 
 The following patterns are considered problems:
 
@@ -117,6 +127,12 @@ a { font: 1em Arial, sans-serif; }
 ### `"always-where-recommended"`
 
 Expect quotes only when quotes are _recommended_ according to the criteria above, and disallow quotes in all other cases. (This includes all cases where quotes are _required_, as well.)
+
+```json
+{
+  "font-family-name-quotes": "always-where-recommended"
+}
+```
 
 The following patterns are considered problems:
 

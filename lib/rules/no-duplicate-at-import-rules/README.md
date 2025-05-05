@@ -16,6 +16,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "no-duplicate-at-import-rules": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

@@ -17,12 +17,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string`: `["array", "of", "combinators"]|"combinator"`
+### `Array<string>`
+
+```json
+["array", "of", "combinators"]
+```
 
 Given:
 
 ```json
-[">", " "]
+{
+  "selector-combinator-allowed-list": [">", " "]
+}
 ```
 
 The following patterns are considered problems:

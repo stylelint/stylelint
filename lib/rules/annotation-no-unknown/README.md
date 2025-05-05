@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "annotation-no-unknown": true
+}
+```
+
 The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
@@ -37,12 +43,21 @@ a {
 
 ## Optional secondary options
 
-### `ignoreAnnotations: ["/regex/", /regex/, "string"]`
+### `ignoreAnnotations`
+
+```json
+{ "ignoreAnnotations": ["array", "of", "annotations", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--foo-/", "--bar"]
+{
+  "annotation-no-unknown": [
+    true,
+    { "ignoreAnnotations": ["/^--foo-/", "--bar"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

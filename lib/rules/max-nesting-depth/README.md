@@ -52,9 +52,17 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum nesting depth allowed.
+### `number`
 
-For example, with `2`:
+Specify a maximum nesting depth allowed.
+
+Given:
+
+```json
+{
+  "max-nesting-depth": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -106,11 +114,23 @@ a .foo__foo .bar .baz {}
 
 ## Optional secondary options
 
-### `ignore: ["blockless-at-rules"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"blockless-at-rules"`
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
-For example, with `1`:
+Given:
+
+```json
+{
+  "max-nesting-depth": [1, { "ignore": ["blockless-at-rules"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -163,11 +183,17 @@ a {
 }
 ```
 
-### `ignore: ["pseudo-classes"]`
+#### `"pseudo-classes"`
 
 Ignore rules where the first selector in each selector list item is a pseudo-class
 
-For example, with `1`:
+Given:
+
+```json
+{
+  "max-nesting-depth": [1, { "ignore": ["pseudo-classes"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -281,14 +307,20 @@ a {
 }
 ```
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Ignore the specified at-rules.
 
-For example, with `1` and given:
+Given:
 
 ```json
-["/^--my-/", "media"]
+{
+  "max-nesting-depth": [1, { "ignoreAtRules": ["/^--my-/", "media"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -357,14 +389,20 @@ a {
 }
 ```
 
-### `ignorePseudoClasses: ["/regex/", /regex/, "string"]`
+### `ignorePseudoClasses`
+
+```json
+{ "ignorePseudoClasses": ["array", "of", "pseudo-classes", "/regex/"] }
+```
 
 Ignore the specified pseudo-classes.
 
-For example, with `1` and given:
+Given:
 
 ```json
-["hover", "^focus-"]
+{
+  "max-nesting-depth": [1, { "ignorePseudoClasses": ["hover", "^focus-"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -415,14 +453,23 @@ a {
 }
 ```
 
-### `ignoreRules: ["/regex/", /regex/, "string"]`
+### `ignoreRules`
+
+```json
+{ "ignoreRules": ["array", "of", "selectors", "/regex/"] }
+```
 
 Ignore rules matching with the specified selectors.
 
-For example, with `1` and given:
+Given:
 
 ```json
-[".my-selector", "/^.ignored-sel/"]
+{
+  "max-nesting-depth": [
+    1,
+    { "ignoreRules": [".my-selector", "/^.ignored-sel/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

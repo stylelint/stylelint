@@ -13,12 +13,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string`: `["array", "of", "units"]|"unit"`
+### `Array<string>`
+
+```json
+["array", "of", "units"]
+```
 
 Given:
 
 ```json
-["px", "em", "deg"]
+{
+  "unit-disallowed-list": ["px", "em", "deg"]
+}
 ```
 
 The following patterns are considered problems:
@@ -62,18 +68,27 @@ a { animation: animation-name 5s ease; }
 
 ## Optional secondary options
 
-### `ignoreProperties: { "unit": ["property", "/regex/", /regex/]|"property"|"/regex/"|/regex/ }`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": { "unit": ["array", "of", "properties", "/regex/"] } }
+```
 
 Ignore units in the values of declarations with the specified properties.
-
-For example, with `["px", "vmin"]`.
 
 Given:
 
 ```json
 {
-  "px": ["font-size", "/^border/"],
-  "vmin": "width"
+  "unit-disallowed-list": [
+    ["px", "vmin"],
+    {
+      "ignoreProperties": {
+        "px": ["font-size", "/^border/"],
+        "vmin": "width"
+      }
+    }
+  ]
 }
 ```
 
@@ -111,18 +126,31 @@ a { -moz-border-radius-topright: 40px; }
 a { height: 100vmin; }
 ```
 
-### `ignoreMediaFeatureNames: { "unit": ["property", "/regex/", /regex/]|"property"|"/regex/"|/regex/ }`
+### `ignoreMediaFeatureNames`
+
+```json
+{
+  "ignoreMediaFeatureNames": {
+    "unit": ["array", "of", "feature-names", "/regex/"]
+  }
+}
+```
 
 Ignore units for specific feature names.
-
-For example, with `["px", "dpi"]`.
 
 Given:
 
 ```json
 {
-  "px": ["min-width", "/height$/"],
-  "dpi": "resolution"
+  "unit-disallowed-list": [
+    ["px", "dpi"],
+    {
+      "ignoreMediaFeatureNames": {
+        "px": ["min-width", "/height$/"],
+        "dpi": "resolution"
+      }
+    }
+  ]
 }
 ```
 
@@ -160,16 +188,23 @@ The following patterns are considered problems:
 @media print and (max-resolution: 100dpi) {}
 ```
 
-### `ignoreFunctions: ["function", "/regex/", /regex/]|"function"|"/regex/"|/regex/`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": { "unit": ["array", "of", "functions", "/regex/"] } }
+```
 
 Ignore units that are inside of the specified functions.
-
-For example, with `["px"]`.
 
 Given:
 
 ```json
-["calc", "/^translate/"]
+{
+  "unit-disallowed-list": [
+    ["px"],
+    { "ignoreFunctions": ["calc", "/^translate/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

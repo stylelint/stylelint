@@ -96,6 +96,12 @@ This may lead to confusion because both rules contain different declarations and
 
 ### `true`
 
+```json
+{
+  "no-descending-specificity": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -186,9 +192,21 @@ a { top: 10px; }
 
 ## Optional secondary options
 
-### `ignore: ["selectors-within-list"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"selectors-within-list"`
 
 Ignores selectors within list of selectors.
+
+```json
+{
+  "no-descending-specificity": [true, { "ignore": ["selectors-within-list"] }]
+}
+```
 
 The following patterns are considered problems:
 

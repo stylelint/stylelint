@@ -6,16 +6,24 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`object`: `{ "unprefixed-property-name": int }`
+### `Object<string, number>`
 
-If a property name is surrounded with `"/"` (e.g. `"/^margin/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^margin/` will match `margin`, `margin-top`, `margin-inline`, etc.
+```json
+{ "unprefixed-property-name": 0 }
+```
+
+Specify pairs of a property and a max value. In practice, you should specify any positive integers as max values.
+
+You can specify a regex for a property name, such as `{ "/^margin/": 0 }`.
 
 Given:
 
 ```json
 {
-  "border": 2,
-  "/^margin/": 1
+  "declaration-property-max-values": {
+    "border": 2,
+    "/^margin/": 1
+  }
 }
 ```
 

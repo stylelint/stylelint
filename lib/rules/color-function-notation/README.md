@@ -19,11 +19,15 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"modern"|"legacy"`
-
 ### `"modern"`
 
 Applicable color-functions _must always_ use modern notation.
+
+```json
+{
+  "color-function-notation": "modern"
+}
+```
 
 The following patterns are considered problems:
 
@@ -73,6 +77,12 @@ a { color: hsl(.75turn 60% 70%) }
 
 Applicable color-functions _must always_ use the legacy notation.
 
+```json
+{
+  "color-function-notation": "legacy"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -119,14 +129,22 @@ a { color: hsl(.75turn, 60%, 70%) }
 
 ## Optional secondary options
 
-### `ignore: ["with-var-inside"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"with-var-inside"`
 
 Ignore color functions containing variables.
 
 Given:
 
 ```json
-["modern", { "ignore": ["with-var-inside"] }]
+{
+  "color-function-notation": ["modern", { "ignore": ["with-var-inside"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -140,7 +158,9 @@ a {
 Given:
 
 ```json
-["legacy", { "ignore": ["with-var-inside"] }]
+{
+  "color-function-notation": ["legacy", { "ignore": ["with-var-inside"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

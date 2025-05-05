@@ -41,6 +41,12 @@ Prior art:
 
 ### `true`
 
+```json
+{
+  "at-rule-descriptor-value-no-unknown": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

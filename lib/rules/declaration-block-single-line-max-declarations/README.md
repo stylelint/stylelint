@@ -13,9 +13,17 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Maximum number of declarations allowed.
+### `number`
 
-For example, with `1`:
+Specify a maximum number of declarations allowed.
+
+Given:
+
+```json
+{
+  "declaration-block-single-line-max-declarations": 1
+}
+```
 
 The following patterns are considered problems:
 

@@ -15,12 +15,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
+### `Array<string>`
+
+```json
+["array", "of", "unprefixed", "at-rules"]
+```
 
 Given:
 
 ```json
-["extend", "keyframes"]
+{
+  "at-rule-disallowed-list": ["extend", "keyframes"]
+}
 ```
 
 The following patterns are considered problems:

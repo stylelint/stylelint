@@ -24,6 +24,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "media-query-no-invalid": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -65,14 +71,23 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore the specified functions.
 
 Given:
 
 ```json
-["theme", "/^get.*$/"]
+{
+  "media-query-no-invalid": [
+    true,
+    { "ignoreFunctions": ["theme", "/^get.*$/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

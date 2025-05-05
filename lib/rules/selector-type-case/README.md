@@ -15,9 +15,13 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`string`: `"lower"|"upper"`
-
 ### `"lower"`
+
+```json
+{
+  "selector-type-case": "lower"
+}
+```
 
 The following patterns are considered problems:
 
@@ -45,6 +49,12 @@ li {}
 
 ### `"upper"`
 
+```json
+{
+  "selector-type-case": "upper"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -71,12 +81,21 @@ LI {}
 
 ## Optional secondary options
 
-### `ignoreTypes: ["/regex/", /regex/, "non-regex"]`
+### `ignoreTypes`
+
+```json
+{ "ignoreTypes": ["array", "of", "types", "/regex/"] }
+```
 
 Given:
 
 ```json
-["$childClass", "/(p|P)arent.*/"]
+{
+  "selector-type-case": [
+    "lower",
+    { "ignoreTypes": ["$childClass", "/(p|P)arent.*/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

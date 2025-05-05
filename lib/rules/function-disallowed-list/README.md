@@ -13,14 +13,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /functions/, "regex"]|"function"|"/regex/"|/regex/`
+### `Array<string>`
 
-If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a regular expression.
+```json
+["array", "of", "unprefixed", "functions", "/regex/"]
+```
 
 Given:
 
 ```json
-["scale", "rgba", "linear-gradient"]
+{
+  "function-disallowed-list": ["scale", "rgba", "/linear-gradient/"]
+}
 ```
 
 The following patterns are considered problems:

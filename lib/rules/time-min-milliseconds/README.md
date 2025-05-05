@@ -15,9 +15,17 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`int`: Minimum number of milliseconds for time values.
+### `number`
 
-For example, with `100`:
+Specify a minimum number of milliseconds for time values.
+
+Given:
+
+```json
+{
+  "time-min-milliseconds": 100
+}
+```
 
 The following patterns are considered problems:
 
@@ -65,11 +73,23 @@ a { animation-delay: 1s; }
 
 ## Optional secondary options
 
-### `ignore: ["delay"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"delay"`
 
 Ignore time values for an animation or transition delay.
 
-For example, with a minimum of `200` milliseconds.
+Given:
+
+```json
+{
+  "time-min-milliseconds": [200, { "ignore": ["delay"] }]
+}
+```
 
 The following pattern is _not_ considered a problem:
 

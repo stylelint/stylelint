@@ -15,14 +15,23 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regex`: `["array", "of", /properties/, "regex"]|"property"|"/regex/"|/regex/`
+### `Array<string>`
 
-If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
+```json
+["array", "of", "properties", "/regex/"]
+```
 
 Given:
 
 ```json
-["text-rendering", "animation", "/^background/", "--foo"]
+{
+  "property-disallowed-list": [
+    "text-rendering",
+    "animation",
+    "/^background/",
+    "--foo"
+  ]
+}
 ```
 
 The following patterns are considered problems:

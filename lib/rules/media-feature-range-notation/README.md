@@ -19,11 +19,15 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"context"|"prefix"`
-
 ### `"context"`
 
 Media feature ranges _must always_ use context notation.
+
+```json
+{
+  "media-feature-range-notation": "context"
+}
+```
 
 The following patterns are considered problems:
 
@@ -52,6 +56,12 @@ The following patterns are _not_ considered problems:
 ### `"prefix"`
 
 Media feature ranges _must always_ use prefix notation.
+
+```json
+{
+  "media-feature-range-notation": "prefix"
+}
+```
 
 The following patterns are considered problems:
 

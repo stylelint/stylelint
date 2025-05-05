@@ -98,6 +98,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "declaration-block-no-redundant-longhand-properties": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -175,15 +181,30 @@ a {
 
 ## Optional secondary options
 
-### `ignoreLonghands: ["array", "of", "properties"]`
+### `ignoreLonghands`
+
+```json
+{ "ignoreLonghands": ["array", "of", "properties"] }
+```
 
 Ignore the specified longhand properties.
 
 Given:
 
-<!-- prettier-ignore -->
 ```json
-["text-decoration-thickness", "background-size", "background-origin", "background-clip"]
+{
+  "declaration-block-no-redundant-longhand-properties": [
+    true,
+    {
+      "ignoreLonghands": [
+        "text-decoration-thickness",
+        "background-size",
+        "background-origin",
+        "background-clip"
+      ]
+    }
+  ]
+}
 ```
 
 The following patterns are considered problems:
@@ -231,14 +252,23 @@ a {
 }
 ```
 
-### `ignoreShorthands: ["/regex/", /regex/, "string"]`
+### `ignoreShorthands`
+
+```json
+{ "ignoreShorthands": ["array", "of", "shorthands", "/regex/"] }
+```
 
 Ignore the specified shorthand properties.
 
 Given:
 
 ```json
-["padding", "/border/"]
+{
+  "declaration-block-no-redundant-longhand-properties": [
+    true,
+    { "ignoreShorthands": ["padding", "/border/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

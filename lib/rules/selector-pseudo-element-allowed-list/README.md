@@ -18,12 +18,18 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /pseudo-elements/, "/regex/"]|"pseudo-element"|"/regex/"|/regex/`
+### `Array<string>`
+
+```json
+["array", "of", "unprefixed", "pseudo-elements", "/regex/"]
+```
 
 Given:
 
 ```json
-["before", "/^--my-/i"]
+{
+  "selector-pseudo-element-allowed-list": ["before", "/^--my-/i"]
+}
 ```
 
 The following patterns are considered problems:

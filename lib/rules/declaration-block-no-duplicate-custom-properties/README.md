@@ -17,6 +17,12 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ### `true`
 
+```json
+{
+  "declaration-block-no-duplicate-custom-properties": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -43,14 +49,23 @@ a { --custom-property: pink; --cUstOm-prOpErtY: orange; }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore duplicates of specific properties.
 
 Given:
 
 ```json
-["--custom-property", "/ignored/"]
+{
+  "declaration-block-no-duplicate-custom-properties": [
+    true,
+    { "ignoreProperties": ["--custom-property", "/ignored/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:
