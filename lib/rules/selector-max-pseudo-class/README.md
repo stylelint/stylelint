@@ -18,6 +18,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `number`
+
 Specify a maximum pseudo-classes allowed.
 
 Given:

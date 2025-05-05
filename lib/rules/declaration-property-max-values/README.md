@@ -6,6 +6,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `Object<string, number>`
+
 ```json
 { "unprefixed-property-name": 0 }
 ```

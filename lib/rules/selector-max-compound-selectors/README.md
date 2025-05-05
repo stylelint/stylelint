@@ -21,6 +21,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `number`
+
 Specify a maximum compound selectors allowed.
 
 Given:

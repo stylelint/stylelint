@@ -15,6 +15,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `number`
+
 Specify a minimum number of milliseconds for time values.
 
 Given:

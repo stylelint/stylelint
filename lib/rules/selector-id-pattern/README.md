@@ -13,6 +13,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `string`
+
 Specify a regex string not surrounded with `"/"`.
 
 The selector value _after `#`_ will be checked. No need to include `#` in your pattern.

@@ -17,6 +17,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `string`
+
 Specify a regex string not surrounded with `"/"`.
 
 The selector value will be checked in its entirety. If you'd like to allow for combinators and commas, you must incorporate them into your pattern.

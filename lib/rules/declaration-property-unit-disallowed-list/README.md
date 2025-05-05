@@ -13,6 +13,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `Object<string, Array<string>>`
+
 ```json
 { "unprefixed-property-name": ["array", "of", "units"] }
 ```

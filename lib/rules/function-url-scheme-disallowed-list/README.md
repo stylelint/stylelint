@@ -20,6 +20,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `Array<string>`
+
 ```json
 ["array", "of", "schemes", "/regex/"]
 ```

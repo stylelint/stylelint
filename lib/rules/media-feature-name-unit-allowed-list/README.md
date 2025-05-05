@@ -13,6 +13,8 @@ The [`message` secondary option](../../../docs/user-guide/configure.md#message) 
 
 ## Options
 
+### `Array<string>`
+
 ```json
 { "media-feature-name": ["array", "of", "units"] }
 ```
