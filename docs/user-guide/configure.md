@@ -83,11 +83,11 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-Some rules accept regular expressions (regex) with the `"/regex/"` format. If a string option surrounded with `"/"` is specified where allowed, it's interpreted as a regex. For example, `"/.+/"` matches any strings. Instead of a string with `"/"`, you can also specify a regex literal in JavaScript, such as `/.+/`.
+Some rules accept regular expressions (regex) in the `"/regex/"` format. If you surround a string option with `"/"`, it'll be interpreted as a regex. For example, `"/.+/"` matches any string. You can specify a regex literal in JavaScript, such as `/.+/`, rather than a string with `"/"`.
 
-If allowed, the `"/regex/"` format is also available in object keys. For example, when `{ "/^margin/": ["px"] }` is given, the key matches `margin`, `margin-top`, `margin-inline`, etc.
+The `"/regex/"` format is also available in some object keys. For example, when `{ "/^margin/": ["px"] }` is given, the key matches `margin`, `margin-top`, `margin-inline`, etc.
 
-Also, `*-pattern` rules translate the given string without `"/"` into a regex, like `"^foo"` into `new RegExp("^foo")`. In this case, you can directly specify a regex literal in JavaScript, such as `/^foo/`.
+The `*-pattern` rules translate the given string without `"/"` into a regex, like `"^foo"` into `new RegExp("^foo")`. In this case, you can directly specify a regex literal in JavaScript, such as `/^foo/`.
 
 You can enforce these common cases:
 
