@@ -37,19 +37,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Get changeset status
-        id: get-changeset-status
+      - name: Get new version
+        id: get-version
         run: |
           npx changeset status --output .changeset/status.json
           new_version=$(jq -r '.releases[0].newVersion' < .changeset/status.json)
           rm -v .changeset/status.json
           echo "new-version=${new_version}" >> "$GITHUB_OUTPUT"
 
-      - name: Create release pull request
+      - name: Create Prepare PR
         uses: changesets/action@v1
         with:
-          commit: Prepare ${{ steps.get-changeset-status.outputs.new-version }}
-          title: Prepare ${{ steps.get-changeset-status.outputs.new-version }}
-          version: npm run changeset
+          commit: Prepare ${{ steps.get-version.outputs.new-version }}
+          title: Prepare ${{ steps.get-version.outputs.new-version }}
+          version: npm run changesets-to-changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
