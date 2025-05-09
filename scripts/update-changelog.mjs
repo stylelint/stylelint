@@ -28,7 +28,7 @@ for (const {
 	try {
 		({ stdout } = await execAsync(`git log --pretty=format:"%ae %s" .changeset/${id}.md`));
 	} catch (e) {
-		console.error(e.message);
+		throw new Error(e.message);
 	}
 
 	const [email, message] = stdout.split(/ (.*)/s);
@@ -36,10 +36,12 @@ for (const {
 	const [issue] = message.match(/#[0-9]{4,}/);
 	const PR = `https://github.com/stylelint/stylelint/pull/${issue.slice(1)}`;
 	const account = `https://github.com/${user}`;
+	const isAlreadyMinor = releaseType === 'minor' && type === 'minor';
+	const bumpLevel = releaseType !== 'major' && !isAlreadyMinor && type !== 'patch';
 
 	groups[change.toLowerCase()].push(`${item} ([${issue}](${PR})) ([@${user}](${account})).`);
 
-	if (releaseType !== 'major' && type !== 'patch') releaseType = type;
+	if (bumpLevel) releaseType = type;
 }
 
 class CustomRelease extends Release {
@@ -76,7 +78,7 @@ changelog.description = `The format is based on [Keep a Changelog](https://keepa
 and this project adheres to [Semantic Versioning](https://semver.org/).`;
 
 fs.writeFileSync(path, changelog.toString(), 'utf8');
-console.info(`release added`); // eslint-disable-line no-console
+console.info('CHANGELOG updated ✓'); // eslint-disable-line no-console
 
 function formatDate(date) {
 	return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split('T')[0];
