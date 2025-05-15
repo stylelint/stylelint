@@ -9,6 +9,13 @@ a { background-image: url('//www.google.com/file.jpg'); }
  *  This scheme-relative url */
 ```
 
+<!-- prettier-ignore -->
+```css
+@import url('//www.google.com/file.jpg');
+/**         ↑
+ *  This scheme-relative url */
+```
+
 A [scheme-relative url](https://url.spec.whatwg.org/#syntax-url-scheme-relative) is a url that begins with `//` followed by a host.
 
 This rule ignores url arguments that are variables (`$sass`, `@less`, `--custom-property`).
@@ -32,6 +39,11 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+@import url("//www.google.com/file.jpg");
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -53,4 +65,14 @@ a {
 a {
   background: url("/path/to/file.jpg");
 }
+```
+
+<!-- prettier-ignore -->
+```css
+@import url("http://www.google.com/file.jpg");
+```
+
+<!-- prettier-ignore -->
+```css
+@import url("/path/to/file.jpg");
 ```
