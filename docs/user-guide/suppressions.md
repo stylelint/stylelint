@@ -19,7 +19,7 @@ This JSON file records which rules are being ignored in which files, so that sub
 
 After adding or promoting a rule to `"error"` in your configuration, capture the current violations and write a suppressions file with:
 
-```bash
+```shell
 npx stylelint "**/*.css" --fix --suppress-all
 ```
 
@@ -35,7 +35,7 @@ Commit the suppressions file so it’s shared with your team.
 
 Want to mute only certain rules? Use `--suppress-rule` one or more times:
 
-```bash
+```shell
 npx stylelint "**/*.css" --fix \
   --suppress-rule block-no-empty \
   --suppress-rule color-no-invalid-hex
@@ -47,11 +47,11 @@ Each flag adds or updates the counter for that rule in the suppressions file.
 
 You can keep the file elsewhere with `--suppressions-location`, but you **must supply the same flag every time you run Stylelint**, even during routine linting, so the tool can locate and maintain the file.
 
-```bash
+```shell
 # Suppress existing errors and write the file into .github/
 npx stylelint "**/*.css" \
   --suppress-all \
-  --suppressions-location .github/stylelint-suppressions.json
+  --suppressions-location .stylelint-suppressions-example.json
 
 # Later runs need the same flag
 npx stylelint "**/*.css" \
@@ -62,19 +62,15 @@ npx stylelint "**/*.css" \
 
 Fixing a muted problem leaves an _unused_ counter behind. On the next run Stylelint warns:
 
-```bash
+```shell
 > npx stylelint "**/*.css"
 There are suppressions left that do not occur anymore. Consider re-running the command with `--prune-suppressions`.
 ```
 
 Clean things up with:
 
-```bash
+```shell
 npx stylelint "**/*.css" --prune-suppressions
 ```
 
 The command removes (or decrements) counters whose violations disappeared, keeping the file tidy.
-
----
-
-For the full list of CLI flags, see the [Command-line interface](./cli.md) reference.
