@@ -15,7 +15,7 @@ npm init stylelint
 2\. Run Stylelint on all the CSS files in your project:
 
 ```shell
-npx stylelint "**/*.css"
+stylelint "**/*.css"
 ```
 
 Once you're up and running, you can [customize](./customize.md) Stylelint.
@@ -50,7 +50,7 @@ export default {
 3\. Run Stylelint on all the SCSS files in your project:
 
 ```shell
-npx stylelint "**/*.scss"
+stylelint "**/*.scss"
 ```
 
 You'll find more community configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
@@ -80,7 +80,7 @@ export default {
 3\. Run Stylelint on all the JavaScript files in your project:
 
 ```shell
-npx stylelint "**/*.js"
+stylelint "**/*.js"
 ```
 
 You'll find more custom syntaxes in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#custom-syntaxes).
@@ -107,5 +107,5 @@ export default {
 And then run Stylelint on both your CSS and JavaScript files:
 
 ```shell
-npx stylelint "**/*.{css,js}"
+stylelint "**/*.{css,js}"
 ```
