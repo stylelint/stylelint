@@ -15,8 +15,12 @@ npm init stylelint
 2\. Run Stylelint on all the CSS files in your project:
 
 ```shell
-stylelint "**/*.css"
+npx stylelint "**/*.css"
 ```
+
+> [!NOTE]
+> The [`npx`](https://docs.npmjs.com/cli/commands/npx) command, which is bundled with npm, allows you to run locally installed tools.
+> We'll omit `npx` in the rest of this guide, but you can use it to run Stylelint if you don't want to install it globally.
 
 Once you're up and running, you can [customize](./customize.md) Stylelint.
 
