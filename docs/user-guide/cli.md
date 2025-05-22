@@ -3,7 +3,7 @@
 You can use Stylelint on the command line. For example:
 
 ```shell
-npx stylelint "**/*.css"
+stylelint "**/*.css"
 ```
 
 _You should include quotation marks around file globs._
@@ -18,7 +18,7 @@ If you are using [npm scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts),
 }
 ```
 
-Use `npx stylelint --help` to print the CLI documentation.
+Use `stylelint --help` to print the CLI documentation.
 
 ## Options
 
@@ -147,7 +147,7 @@ The `TIMING` environment variable allows you to profile the performance of indiv
 When `TIMING` is set to `all` or a positive integer (`n >= 1`), it displays the execution time of the longest-running rules upon linting completion. This includes both rule creation and execution time, as well as each rule's relative impact as a percentage of the total rule processing time.
 
 ```console
-$ TIMING=10 npx stylelint "**/*.css"
+$ TIMING=10 stylelint "**/*.css"
 ╔════╤════════════════════════════════════════════════════╤═══════════╤══════════╗
 ║  # │ Rule                                               │ Time (ms) │ Relative ║
 ╟────┼────────────────────────────────────────────────────┼───────────┼──────────╢

@@ -18,6 +18,10 @@ npm init stylelint
 npx stylelint "**/*.css"
 ```
 
+> [!NOTE]
+> The [`npx`](https://docs.npmjs.com/cli/commands/npx) command, which is bundled with npm, allows you to run locally installed tools.
+> We'll omit `npx` in the rest of this guide, but you can use it to run Stylelint if you don't want to install it globally.
+
 Once you're up and running, you can [customize](./customize.md) Stylelint.
 
 ## Linting CSS-like languages and CSS within containers
@@ -50,7 +54,7 @@ export default {
 3\. Run Stylelint on all the SCSS files in your project:
 
 ```shell
-npx stylelint "**/*.scss"
+stylelint "**/*.scss"
 ```
 
 You'll find more community configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
@@ -80,7 +84,7 @@ export default {
 3\. Run Stylelint on all the JavaScript files in your project:
 
 ```shell
-npx stylelint "**/*.js"
+stylelint "**/*.js"
 ```
 
 You'll find more custom syntaxes in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#custom-syntaxes).
@@ -107,5 +111,5 @@ export default {
 And then run Stylelint on both your CSS and JavaScript files:
 
 ```shell
-npx stylelint "**/*.{css,js}"
+stylelint "**/*.{css,js}"
 ```
