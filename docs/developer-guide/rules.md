@@ -42,6 +42,7 @@ You should use:
 - the `color` property by default
 - the `red` value by default
 - the `(min-)width` media feature by default
+- the `example.org` URL by default
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
 You should:
