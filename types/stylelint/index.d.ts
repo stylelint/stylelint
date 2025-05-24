@@ -859,9 +859,9 @@ declare namespace stylelint {
 		quietDeprecationWarnings?: boolean;
 		validate?: boolean;
 		suppressAll?: boolean;
+		suppressLocation?: string;
+		suppressPrune?: boolean;
 		suppressRule?: string[];
-		suppressionsLocation?: string;
-		pruneSuppressions?: boolean;
 	};
 
 	/** @internal */

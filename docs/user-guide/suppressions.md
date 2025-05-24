@@ -9,53 +9,60 @@ Stylelint lets you _suppress_ those legacy violations so the rule is enforced **
 
 ## Suppressions file
 
-The first time you run Stylelint with `--suppress-all` (or `--suppress-rule`), the tool creates a file called `stylelint-suppressions.json` in the current working directory.
-This JSON file records which rules are being ignored in which files, so that subsequent runs only report new problems.
+The first time you run Stylelint with `--suppress` (or `--suppress=<rule>`), the tool creates a file called `stylelint-suppressions.json` in the current working directory.
+This JSON file records which rules are being ignored in which files.
+
+If more violations are found for the same rule in the same file, Stylelint will report all of them. For example, if a file originally had 2 suppressed violations but now has 5, Stylelint will display all 5 violations.
 
 > [!TIP]
-> Commit the file. Keeping `stylelint-suppressions.json` in version control ensures every developer on the project shares the same baseline.
+> Commit the suppressions file to your repository so all team members share the same baseline.
 
 ## Creating the suppressions file
 
 After adding or promoting a rule to `"error"` in your configuration, capture the current violations and write a suppressions file with:
 
 ```shell
-npx stylelint "**/*.css" --fix --suppress-all
+npx stylelint "**/*.css" --fix --suppress
 ```
 
 This command:
 
-1. Creates or updates `stylelint-suppressions.json` (or the path given by `--suppressions-location`) at the project root.
+1. Creates or updates `stylelint-suppressions.json` (or the path given by `--suppress-location`) at the project root.
 2. Removes auto-fixable problems (`--fix` is optional but recommended).
 3. Mutes every remaining violation so subsequent runs start clean.
 
-Commit the suppressions file so it’s shared with your team.
-
 ## Targeting specific rules
 
-Want to mute only certain rules? Use `--suppress-rule` one or more times:
+Want to mute only certain rules? Use `--suppress=<rule>` one or more times:
 
 ```shell
 npx stylelint "**/*.css" --fix \
-  --suppress-rule block-no-empty \
-  --suppress-rule color-no-invalid-hex
+  --suppress=block-no-empty \
+  --suppress=color-no-invalid-hex
 ```
 
 Each flag adds or updates the counter for that rule in the suppressions file.
 
 ### Changing the location
 
-You can keep the file elsewhere with `--suppressions-location`, but you **must supply the same flag every time you run Stylelint**, even during routine linting, so the tool can locate and maintain the file.
+You can keep the file elsewhere with `--suppress-location`, but you **must supply the same flag every time you run Stylelint**, even during routine linting, so the tool can locate and maintain the file.
+
+If you specify a directory path, Stylelint will create a file named `stylelint-suppressions.json` in that directory. If you specify a file path, Stylelint will use that exact filename.
 
 ```shell
-# Suppress existing errors and write the file into .github/
+# Suppress existing errors and write the file into a subdirectory
 npx stylelint "**/*.css" \
-  --suppress-all \
-  --suppressions-location .stylelint-suppressions-example.json
+  --suppress \
+  --suppress-location foo/
+
+# Or specify a custom filename
+npx stylelint "**/*.css" \
+  --suppress \
+  --suppress-location .stylelint-suppressions-foo.json
 
 # Later runs need the same flag
 npx stylelint "**/*.css" \
-  --suppressions-location .github/stylelint-suppressions.json
+  --suppress-location .stylelint-suppressions-foo.json
 ```
 
 ## Pruning obsolete suppressions
@@ -64,13 +71,13 @@ Fixing a muted problem leaves an _unused_ counter behind. On the next run Stylel
 
 ```shell
 > npx stylelint "**/*.css"
-There are suppressions left that do not occur anymore. Consider re-running the command with `--prune-suppressions`.
+There are suppressions left that do not occur anymore. Consider re-running the command with `--suppress-prune`.
 ```
 
 Clean things up with:
 
 ```shell
-npx stylelint "**/*.css" --prune-suppressions
+npx stylelint "**/*.css" --suppress-prune
 ```
 
 The command removes (or decrements) counters whose violations disappeared, keeping the file tidy.

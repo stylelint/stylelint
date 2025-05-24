@@ -76,19 +76,21 @@ exports[`CLI --help 1`] = `
 
     Suppressing Violations:
 
-      --suppress-all
+      --suppress
 
         Suppress all current violations and write them to "stylelint-suppressions.json".
 
-      --suppress-rule <rule>
+      --suppress=<rule>
 
-        Suppress violations only for the specified rule.
+        Suppress violations only for the specified rule. Multiple rules can be specified.
 
-      --suppressions-location <path>
+      --suppress-location <path>
 
-        Specify the location of the suppressions file.
+        A path to a file or directory to be used for the suppressions file location. If a
+        directory is specified, a suppressions file will be created inside the specified
+        folder, with the name "stylelint-suppressions.json".
 
-      --prune-suppressions
+      --suppress-prune
 
         Remove entries for violations that no longer exist in the
         codebase from the suppressions file.
