@@ -74,7 +74,7 @@ exports[`CLI --help 1`] = `
 
       A filename to assign stdin input.
 
-    Suppressing Violations:
+    Suppressing Violations (Experimental):
 
       --suppress
 
