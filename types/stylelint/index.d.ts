@@ -867,7 +867,7 @@ declare namespace stylelint {
 	/** @internal */
 	export type FixMode = 'lax' | 'strict';
 
-	/** @internal */
+	/** @experimental */
 	export type SuppressedViolations = {
 		[ruleName: string]: {
 			[message: string]: {

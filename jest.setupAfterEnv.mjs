@@ -1,7 +1,5 @@
-import { clearEmittedDeprecationWarnings } from './lib/utils/emitDeprecationWarning.mjs';
-import { clearEmittedExperimentalWarnings } from './lib/utils/emitExperimentalWarning.mjs';
+import { clearEmittedWarnings } from './lib/utils/emitWarning.mjs';
 
 afterEach(() => {
-	clearEmittedDeprecationWarnings();
-	clearEmittedExperimentalWarnings();
+	clearEmittedWarnings();
 });
