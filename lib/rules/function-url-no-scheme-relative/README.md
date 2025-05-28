@@ -67,5 +67,5 @@ a {
 
 <!-- prettier-ignore -->
 ```css
-@import url("/path/to/foo.scss");
+@import url("/path/to/foo.css");
 ```
