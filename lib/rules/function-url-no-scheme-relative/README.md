@@ -62,7 +62,7 @@ a {
 
 <!-- prettier-ignore -->
 ```css
-@import url("http://www.google.com/foo.scss");
+@import url("http://www.google.com/foo.css");
 ```
 
 <!-- prettier-ignore -->
