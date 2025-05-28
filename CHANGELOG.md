@@ -1,5 +1,10 @@
 # Changelog
 
+## 16.20.0 - 2025-05-28
+
+- Fixed: `function-url-no-scheme-relative` false negatives for `@import` ([#8576](https://github.com/stylelint/stylelint/pull/8576)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `shorthand-property-no-redundant-values` false negatives for additional radius ([#8539](https://github.com/stylelint/stylelint/pull/8539)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.19.1 - 2025-04-25
 
 - Fixed: `no-empty-source` false positives for non-standard syntaxes ([#8548](https://github.com/stylelint/stylelint/pull/8548)) ([@ybiquitous](https://github.com/ybiquitous)).
