@@ -34,7 +34,7 @@ a {
 
 <!-- prettier-ignore -->
 ```css
-@import url("//www.google.com/foo.scss");
+@import url("//www.google.com/foo.css");
 ```
 
 The following patterns are _not_ considered problems:
@@ -62,10 +62,10 @@ a {
 
 <!-- prettier-ignore -->
 ```css
-@import url("http://www.google.com/foo.scss");
+@import url("http://www.google.com/foo.css");
 ```
 
 <!-- prettier-ignore -->
 ```css
-@import url("/path/to/foo.scss");
+@import url("/path/to/foo.css");
 ```
