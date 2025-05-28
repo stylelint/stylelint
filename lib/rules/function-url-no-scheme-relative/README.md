@@ -32,6 +32,11 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+@import url("//www.google.com/foo.css");
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -53,4 +58,14 @@ a {
 a {
   background: url("/path/to/file.jpg");
 }
+```
+
+<!-- prettier-ignore -->
+```css
+@import url("http://www.google.com/foo.css");
+```
+
+<!-- prettier-ignore -->
+```css
+@import url("/path/to/foo.css");
 ```
