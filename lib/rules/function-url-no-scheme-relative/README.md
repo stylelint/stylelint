@@ -34,7 +34,7 @@ a {
 
 <!-- prettier-ignore -->
 ```css
-@import url("//www.google.com/foo.scss");
+@import url("//www.google.com/foo.css");
 ```
 
 The following patterns are _not_ considered problems:
