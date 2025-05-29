@@ -9,8 +9,6 @@ Specify a list of disallowed media feature names.
  * This media feature name */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `Array<string>`

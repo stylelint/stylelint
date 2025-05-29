@@ -134,7 +134,7 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
-Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
+Some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
 
 Via JavaScript:
 
@@ -225,7 +225,7 @@ For example:
 
 Reporters may use these severity levels to display problems or exit the process differently.
 
-Experimental feature: some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
+Some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
 
 This function must return `"error"`, `"warning"`, or `null`. When it would return `null`, the `defaultSeverity` would be used.
 

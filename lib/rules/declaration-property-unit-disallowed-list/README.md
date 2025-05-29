@@ -9,8 +9,6 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `Object<string, Array<string>>`

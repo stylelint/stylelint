@@ -12,8 +12,6 @@ Specify a list of disallowed words within comments.
 > [!WARNING]
 > Comments within _selector and value lists_ are currently ignored.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `Array<string>`

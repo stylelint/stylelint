@@ -15,8 +15,6 @@ a { color: var(--foo, var(--bar)); }
 
 This rule considers custom properties defined within the same source to be known.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`

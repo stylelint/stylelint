@@ -13,8 +13,6 @@ This rule considers functions defined in the CSS Specifications to be known.
 
 This rule ignores double-dashed custom functions, e.g. `--custom-function()`.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 This rule overlaps with:
 
 - [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)

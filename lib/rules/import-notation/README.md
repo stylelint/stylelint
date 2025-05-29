@@ -11,8 +11,6 @@ Specify string or URL notation for `@import` rules.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
-
 ## Options
 
 ### `"string"`

@@ -17,8 +17,6 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 This rule checks descriptor values within at-rules. You can use [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md) to disallow unknown values for properties within declarations, and [`at-rule-descriptor-no-unknown`](../at-rule-descriptor-no-unknown/README.md) to disallow unknown descriptors for at-rules.
 
 This rule overlaps with:
