@@ -18,8 +18,6 @@ This rule ignores:
 
 Use option `checkPrefixed` described below to turn on checking of vendor-prefixed properties.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 
 ## Options

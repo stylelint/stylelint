@@ -9,8 +9,6 @@ a { color: pink; top: 0; }
  * The number of these declarations */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `number`

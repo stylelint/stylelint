@@ -15,8 +15,6 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
-
 ## Options
 
 _Please read the following to understand these options_:

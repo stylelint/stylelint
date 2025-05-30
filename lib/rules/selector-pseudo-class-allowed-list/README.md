@@ -11,8 +11,6 @@ Specify a list of allowed pseudo-class selectors.
 
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `Array<string>`

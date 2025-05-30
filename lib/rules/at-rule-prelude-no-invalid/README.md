@@ -15,8 +15,6 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 This rule overlaps with:
 
 - [`media-query-no-invalid`](../media-query-no-invalid/README.md)

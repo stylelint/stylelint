@@ -11,8 +11,6 @@ a { color: red; }
 
 This rule ignores preprocessor variables (e.g. `$sass`, `@less`).
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `Array<string>`

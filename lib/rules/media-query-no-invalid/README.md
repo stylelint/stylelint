@@ -18,8 +18,6 @@ It works well with other rules that validate feature names and values:
 - [`media-feature-name-no-unknown`](../media-feature-name-no-unknown/README.md)
 - [`media-feature-name-value-no-unknown`](../media-feature-name-value-no-unknown/README.md)
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`

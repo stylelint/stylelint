@@ -27,8 +27,6 @@ This rule overlaps with:
 
 You can either turn off the rules or configure them to ignore the overlaps.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
-
 Prior art:
 
 - [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)

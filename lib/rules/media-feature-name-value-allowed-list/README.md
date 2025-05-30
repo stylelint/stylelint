@@ -9,8 +9,6 @@ Specify a list of allowed media feature name and value pairs.
  *    These features and values */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `Object<string, Array<string>>`

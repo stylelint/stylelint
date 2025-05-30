@@ -9,8 +9,6 @@ a { top: 3.245634px; }
  * This decimal place */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `number`
