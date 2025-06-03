@@ -187,6 +187,8 @@ a {
 
 Ignore the specified longhand properties.
 
+Ignore the specified longhand properties.
+
 Given:
 
 ```json
@@ -255,6 +257,8 @@ a {
 ```json
 { "ignoreShorthands": ["array", "of", "shorthands", "/regex/"] }
 ```
+
+Ignore the specified shorthand properties.
 
 Ignore the specified shorthand properties.
 
