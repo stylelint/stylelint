@@ -83,7 +83,13 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-Some rules and options accept regex. You can enforce these common cases:
+Some rules accept regular expressions (regex) in the `"/regex/"` format. If you surround a string option with `"/"`, it'll be interpreted as a regex. For example, `"/.+/"` matches any string. You can specify a regex literal in JavaScript, such as `/.+/`, rather than a string with `"/"`.
+
+The `"/regex/"` format is also available in some object keys. For example, when `{ "/^margin/": ["px"] }` is given, the key matches `margin`, `margin-top`, `margin-inline`, etc.
+
+The `*-pattern` rules translate the given string without `"/"` into a regex, like `"^foo"` into `new RegExp("^foo")`. In this case, you can directly specify a regex literal in JavaScript, such as `/^foo/`.
+
+You can enforce these common cases:
 
 <!-- prettier-ignore -->
 - kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
@@ -128,7 +134,7 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
-Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
+Some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
 
 Via JavaScript:
 
@@ -219,7 +225,7 @@ For example:
 
 Reporters may use these severity levels to display problems or exit the process differently.
 
-Experimental feature: some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
+Some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
 
 This function must return `"error"`, `"warning"`, or `null`. When it would return `null`, the `defaultSeverity` would be used.
 

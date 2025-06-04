@@ -13,15 +13,17 @@ Color functions `rgb()` and `hsl()` have aliases `rgba()` and `hsla()`. Those ar
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
-
-`string`: `"without-alpha"|"with-alpha"`
 
 ### `"without-alpha"`
 
 Applicable color-functions _must always_ use the without alpha notation.
+
+```json
+{
+  "color-function-alias-notation": "without-alpha"
+}
+```
 
 The following patterns are considered problems:
 
@@ -50,6 +52,12 @@ a { color: hsl(270 60% 50% / 15%) }
 ### `"with-alpha"`
 
 Applicable color-functions _must always_ use with alpha notation.
+
+```json
+{
+  "color-function-alias-notation": "with-alpha"
+}
+```
 
 The following patterns are considered problems:
 

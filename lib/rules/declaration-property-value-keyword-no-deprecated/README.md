@@ -27,6 +27,12 @@ Prior art:
 
 ### `true`
 
+```json
+{
+  "declaration-property-value-keyword-no-deprecated": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -53,12 +59,21 @@ a { text-justify: inter-character; }
 
 ## Optional secondary options
 
-### `ignoreKeywords: ["/regex/", /regex/, "string"]`
+### `ignoreKeywords`
+
+```json
+{ "ignoreKeywords": ["array", "of", "keywords", "/regex/"] }
+```
 
 Given:
 
 ```json
-["ActiveBorder", "/caption/i"]
+{
+  "declaration-property-value-keyword-no-deprecated": [
+    true,
+    { "ignoreKeywords": ["ActiveBorder", "/caption/i"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

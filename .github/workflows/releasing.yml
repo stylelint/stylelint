@@ -46,7 +46,7 @@ jobs:
           echo "new-version=${new_version}" >> "$GITHUB_OUTPUT"
 
       - name: Create release pull request
-        uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
+        uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1.5.3
         with:
           commit: Prepare ${{ steps.get-changeset-status.outputs.new-version }}
           title: Prepare ${{ steps.get-changeset-status.outputs.new-version }}

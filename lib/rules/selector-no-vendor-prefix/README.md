@@ -13,11 +13,15 @@ This rule ignores non-standard vendor-prefixed selectors that aren't handled by 
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule. However, it will not remove duplicate selectors produced when the prefixes are removed. You can use [Autoprefixer](https://github.com/postcss/autoprefixer) itself, with the [`add` option off and the `remove` option on](https://github.com/postcss/autoprefixer#options), in these situations.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "selector-no-vendor-prefix": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -45,14 +49,23 @@ input::placeholder {}
 
 ## Optional secondary options
 
-### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
+### `ignoreSelectors`
+
+```json
+{ "ignoreSelectors": ["array", "of", "selectors", "/regex/"] }
+```
 
 Ignore vendor prefixes for selectors.
 
 Given:
 
 ```json
-["::-webkit-input-placeholder", "/-moz-.*/"]
+{
+  "selector-no-vendor-prefix": [
+    true,
+    { "ignoreSelectors": ["::-webkit-input-placeholder", "/-moz-.*/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

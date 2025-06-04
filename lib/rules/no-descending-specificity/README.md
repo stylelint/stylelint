@@ -15,8 +15,6 @@ The clashes of these two mechanisms for prioritization, source order and specifi
 
 This rule enforces that practice _as best it can_, reporting fewer errors than it should. It cannot catch every _actual_ overriding selector, but it can catch certain common mistakes.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## How it works
 
 **This rule looks at the last _compound selector_ in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.**
@@ -95,6 +93,12 @@ This may lead to confusion because both rules contain different declarations and
 ## Options
 
 ### `true`
+
+```json
+{
+  "no-descending-specificity": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -186,9 +190,21 @@ a { top: 10px; }
 
 ## Optional secondary options
 
-### `ignore: ["selectors-within-list"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"selectors-within-list"`
 
 Ignores selectors within list of selectors.
+
+```json
+{
+  "no-descending-specificity": [true, { "ignore": ["selectors-within-list"] }]
+}
+```
 
 The following patterns are considered problems:
 

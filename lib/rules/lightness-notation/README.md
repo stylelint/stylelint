@@ -13,15 +13,17 @@ This rule supports `oklch`, `oklab`, `lch` and `lab` functions.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
-
-`string`: `"percentage"|"number"`
 
 ### `"percentage"`
 
 Lightness _must always_ use the percentage notation.
+
+```json
+{
+  "lightness-notation": "percentage"
+}
+```
 
 The following patterns are considered problems:
 
@@ -70,6 +72,12 @@ a { color: lab(86% 0.2 154) }
 ### `"number"`
 
 Lightness _must always_ use the number notation.
+
+```json
+{
+  "lightness-notation": "number"
+}
+```
 
 The following patterns are considered problems:
 

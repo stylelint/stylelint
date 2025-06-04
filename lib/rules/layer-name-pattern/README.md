@@ -9,18 +9,18 @@ Specify a pattern for layer names.
  * This layer name */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`regex|string`
+### `string`
 
-A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
+Specify a regex string not surrounded with `"/"`.
 
-Given the string:
+Given:
 
 ```json
-"^[a-z][a-z0-9.-]*$"
+{
+  "layer-name-pattern": "^[a-z][a-z0-9.-]*$"
+}
 ```
 
 The following patterns are considered problems:

@@ -21,11 +21,15 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"always"|"never"`
-
 ### `"always"`
 
 There _must always_ be an empty line before at-rules.
+
+```json
+{
+  "at-rule-empty-line-before": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -53,6 +57,12 @@ a {}
 
 There _must never_ be an empty line before at-rules.
 
+```json
+{
+  "at-rule-empty-line-before": "never"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -77,7 +87,11 @@ a {}
 
 ## Optional secondary options
 
-### `except: ["after-same-name", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "options"] }
+```
 
 #### `"after-same-name"`
 
@@ -85,7 +99,13 @@ Reverse the primary option for at-rules that follow another at-rule with the sam
 
 This means that you can group your at-rules by name.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": ["always", { "except": ["after-same-name"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -114,7 +134,13 @@ a {
 
 Reverse the primary option for at-rules that are inside a block.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": ["always", { "except": ["inside-block"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -156,7 +182,16 @@ This means that you can group your blockless at-rules by name.
 
 Shared-line comments do not affect this option.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": [
+    "always",
+    { "except": ["blockless-after-same-name-blockless"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -194,7 +229,16 @@ Reverse the primary option for blockless at-rules that follow another blockless 
 
 Shared-line comments do not affect this option.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": [
+    "always",
+    { "except": ["blockless-after-blockless"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -229,7 +273,13 @@ The following patterns are _not_ considered problems:
 
 Reverse the primary option for at-rules that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": ["always", { "except": ["first-nested"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -263,13 +313,25 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "first-nested", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"after-comment"`
 
 Ignore at-rules that follow a comment.
 
 Shared-line comments do not trigger this option.
+
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": ["always", { "ignore": ["after-comment"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -297,7 +359,13 @@ The following patterns are _not_ considered problems:
 
 Ignore at-rules that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": ["always", { "ignore": ["first-nested"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -314,7 +382,13 @@ The following patterns are _not_ considered problems:
 
 Ignore at-rules that are inside a block.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": ["always", { "ignore": ["inside-block"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -349,7 +423,16 @@ Ignore blockless at-rules that follow another blockless at-rule with the same na
 
 This means that you can group your blockless at-rules by name.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": [
+    "always",
+    { "ignore": ["blockless-after-same-name-blockless"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -378,7 +461,16 @@ a {
 
 Ignore blockless at-rules that follow another blockless at-rule.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "at-rule-empty-line-before": [
+    "always",
+    { "ignore": ["blockless-after-blockless"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -399,16 +491,23 @@ The following patterns are _not_ considered problems:
 @media print {}
 ```
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Ignore specified at-rules.
-
-For example, with `"always"`.
 
 Given:
 
 ```json
-["namespace", "/^my-/"]
+{
+  "at-rule-empty-line-before": [
+    "always",
+    { "ignoreAtRules": ["namespace", "/^my-/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

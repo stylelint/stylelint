@@ -11,11 +11,15 @@ Disallow qualifying a selector by type.
 
 A type selector is "qualifying" when it is compounded with (chained to) another selector (e.g. `a.foo`, `a#foo`). This rule does not regulate type selectors that are combined with other selectors via a combinator (e.g. `a > .foo`, `a #foo`).
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "selector-no-qualifying-type": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -65,11 +69,21 @@ input {
 
 ## Optional secondary options
 
-### `ignore: ["attribute", "class", "id"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"attribute"`
 
 Allow attribute selectors qualified by type.
+
+```json
+{
+  "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -84,6 +98,12 @@ input[type='button'] {
 
 Allow class selectors qualified by type.
 
+```json
+{
+  "selector-no-qualifying-type": [true, { "ignore": ["class"] }]
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -96,6 +116,12 @@ a.foo {
 #### `"id"`
 
 Allow ID selectors qualified by type.
+
+```json
+{
+  "selector-no-qualifying-type": [true, { "ignore": ["id"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 

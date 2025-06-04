@@ -13,11 +13,15 @@ This rule considers pseudo-class selectors defined in the CSS Specifications, up
 
 This rule ignores vendor-prefixed pseudo-class selectors.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "selector-pseudo-class-no-unknown": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -60,12 +64,21 @@ input:-moz-placeholder {}
 
 ## Optional secondary options
 
-### `ignorePseudoClasses: ["/regex/", /regex/, "non-regex"]`
+### `ignorePseudoClasses`
+
+```json
+{ "ignorePseudoClasses": ["array", "of", "pseudo-classes", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--my-/", "--pseudo-class"]
+{
+  "selector-pseudo-class-no-unknown": [
+    true,
+    { "ignorePseudoClasses": ["/^--my-/", "--pseudo-class"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

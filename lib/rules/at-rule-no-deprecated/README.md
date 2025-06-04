@@ -19,8 +19,6 @@ This rule flags at-rules that were removed or deprecated after being in the CSS 
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) accept arguments.
-
 Prior art:
 
 - [@csstools/stylelint-no-at-nest-rule](https://www.npmjs.com/package/@csstools/stylelint-no-at-nest-rule)
@@ -29,6 +27,12 @@ Prior art:
 ## Options
 
 ### `true`
+
+```json
+{
+  "at-rule-no-deprecated": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -56,12 +60,18 @@ a { @layer {} }
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^view/", "apply"]
+{
+  "at-rule-no-deprecated": [true, { "ignoreAtRules": ["/^view/", "apply"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

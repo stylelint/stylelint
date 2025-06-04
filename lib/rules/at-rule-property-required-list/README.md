@@ -9,17 +9,21 @@ Specify a list of required properties (or descriptors) for an at-rule.
  *  At-rule and required descriptor names */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`object`: `{ "at-rule-name": ["array", "of", "properties or descriptors"]|"property or descriptor" }`
+### `Array<string>`
+
+```json
+{ "at-rule-name": ["array", "of", "properties", "or", "descriptors"] }
+```
 
 Given:
 
 ```json
 {
-  "font-face": ["font-display", "font-family", "font-style"]
+  "at-rule-property-required-list": {
+    "font-face": ["font-display", "font-family", "font-style"]
+  }
 }
 ```
 

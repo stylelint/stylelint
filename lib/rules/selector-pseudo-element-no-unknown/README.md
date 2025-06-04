@@ -13,11 +13,15 @@ This rule considers pseudo-element selectors defined in the CSS Specifications, 
 
 This rule ignores vendor-prefixed pseudo-element selectors.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "selector-pseudo-element-no-unknown": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -60,12 +64,21 @@ input::-moz-placeholder {}
 
 ## Optional secondary options
 
-### `ignorePseudoElements: ["/regex/", /regex/, "non-regex"]`
+### `ignorePseudoElements`
+
+```json
+{ "ignorePseudoElements": ["array", "of", "pseudo-elements", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--my-/", "--pseudo-element"]
+{
+  "selector-pseudo-element-no-unknown": [
+    true,
+    { "ignorePseudoElements": ["/^--my-/", "--pseudo-element"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

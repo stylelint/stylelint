@@ -9,21 +9,25 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`object`: `{ "unprefixed-property-name": ["array", "of", "units"]|"unit" }`
+### `Object<string, Array<string>>`
 
-If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
+```json
+{ "unprefixed-property-name": ["array", "of", "units"] }
+```
+
+You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
 
 Given:
 
 ```json
 {
-  "font-size": ["em", "px"],
-  "/^animation/": "s",
-  "line-height": []
+  "declaration-property-unit-allowed-list": {
+    "font-size": ["em", "px"],
+    "/^animation/": ["s"],
+    "line-height": []
+  }
 }
 ```
 
@@ -88,22 +92,30 @@ a { line-height: 1; }
 
 ## Optional secondary options
 
-### `ignore: ["inside-function"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"inside-function"`
 
 Ignore units that are inside a function.
 
-For example, given:
+Given:
 
 ```json
-[
-  {
-    "/^border/": ["px"],
-    "/^background/": ["%"]
-  },
-  {
-    "ignore": ["inside-function"]
-  }
-]
+{
+  "declaration-property-unit-allowed-list": [
+    {
+      "/^border/": ["px"],
+      "/^background/": ["%"]
+    },
+    {
+      "ignore": ["inside-function"]
+    }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

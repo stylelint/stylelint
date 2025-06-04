@@ -30,13 +30,15 @@ a:not(.foo):not(.bar) {}
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) option can automatically fix most of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`string`: `"simple"|"complex"`
-
 ### `"simple"`
+
+```json
+{
+  "selector-not-notation": "simple"
+}
+```
 
 The following patterns are considered problems:
 
@@ -63,6 +65,12 @@ The following patterns are _not_ considered problems:
 ```
 
 ### `"complex"`
+
+```json
+{
+  "selector-not-notation": "complex"
+}
+```
 
 The following pattern is considered a problem:
 

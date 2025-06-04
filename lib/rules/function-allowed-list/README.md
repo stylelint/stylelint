@@ -9,18 +9,20 @@ a { transform: scale(1); }
  * This function */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /functions/, "/regex/"]|"function"|"/regex/"|/regex/`
+### `Array<string>`
 
-If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a regular expression.
+```json
+["array", "of", "unprefixed", "functions", "/regex/"]
+```
 
 Given:
 
 ```json
-["scale", "rgba", "/linear-gradient/"]
+{
+  "function-allowed-list": ["scale", "rgba", "/linear-gradient/"]
+}
 ```
 
 The following patterns are considered problems:
@@ -76,17 +78,32 @@ a {
 
 ## Optional secondary options
 
-### `exceptWithoutPropertyFallback`: `["array", "of", "unprefixed", /functions/, "/regex/"]|"function"|"/regex/"|/regex/`
+### `exceptWithoutPropertyFallback`
+
+```json
+{
+  "exceptWithoutPropertyFallback": [
+    "array",
+    "of",
+    "unprefixed",
+    "functions",
+    "/regex/"
+  ]
+}
+```
 
 Disallow the matching functions when they are without a property fallback in the same declaration block.
 
 Given:
 
 ```json
-["min", "/max/"]
+{
+  "function-allowed-list": [
+    ["scale", "min", "/max/"],
+    { "exceptWithoutPropertyFallback": ["min", "/max/"] }
+  ]
+}
 ```
-
-For example, with `["scale", "min", "/max/"]` as the primary option.
 
 The following patterns are considered problems:
 

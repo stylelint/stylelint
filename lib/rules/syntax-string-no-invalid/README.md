@@ -15,11 +15,15 @@ Syntax strings are used for the `syntax` descriptor value of the `@property` at-
 
 You can check [§5.1 “Supported Names” of the CSS Properties & Values API](https://drafts.css-houdini.org/css-properties-values-api/#supported-names) for a list of valid syntax component names.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "syntax-string-no-invalid": true
+}
+```
 
 The following patterns are considered problems:
 

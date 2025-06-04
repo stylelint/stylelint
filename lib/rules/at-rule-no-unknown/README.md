@@ -11,13 +11,17 @@ Disallow unknown at-rules.
 
 This rule considers at-rules defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 
 ## Options
 
 ### `true`
+
+```json
+{
+  "at-rule-no-unknown": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -42,12 +46,18 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--my-/", "--custom"]
+{
+  "at-rule-no-unknown": [true, { "ignoreAtRules": ["/^--my-/", "--custom"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

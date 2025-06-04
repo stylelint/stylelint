@@ -13,11 +13,15 @@ This rule ignores `$sass` and `@less` variable syntaxes.
 
 ## Options
 
-`string`: `"always-where-possible"|"never"`
-
 ### `"always-where-possible"`
 
 Colors _must always_, where possible, be named.
+
+```json
+{
+  "color-named": "always-where-possible"
+}
+```
 
 This will complain if a hex (3, 4, 6 and 8 digit), `rgb()`, `rgba()`, `hsl()`, `hsla()`, `hwb()` or `gray()` color can be represented as a named color.
 
@@ -89,6 +93,12 @@ a { color: rgb(0, 0, 0, 0.5); }
 
 Colors _must never_ be named.
 
+```json
+{
+  "color-named": "never"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -120,11 +130,23 @@ a { color: var(--white); }
 
 ## Optional secondary options
 
-### `ignore: ["inside-function"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"inside-function"`
 
 Ignore colors that are inside a function.
 
-For example, with `"never"`.
+Given:
+
+```json
+{
+  "color-named": ["never", { "ignore": ["inside-function"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -142,14 +164,18 @@ a {
 }
 ```
 
-### `ignoreProperties: ["/regex/", /regex/, "string"]`
+### `ignoreProperties`
 
-For example with `"never"`.
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^my-/", "composes"]
+{
+  "color-named": ["never", { "ignoreProperties": ["/^my-/", "composes"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

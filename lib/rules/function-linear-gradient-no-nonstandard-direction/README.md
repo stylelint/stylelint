@@ -27,6 +27,12 @@ We recommend using these rules for CSS and this rule for CSS-like languages, suc
 
 ### `true`
 
+```json
+{
+  "function-linear-gradient-no-nonstandard-direction": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

@@ -13,17 +13,19 @@ Media features of the range type can be written using prefixes or the more moder
 
 Because `min-` and `max-` both equate to range comparisons that include the value, they may be [limiting in certain situations](https://drafts.csswg.org/mediaqueries/#mq-min-max).
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
 ## Options
 
-`string`: `"context"|"prefix"`
-
 ### `"context"`
 
 Media feature ranges _must always_ use context notation.
+
+```json
+{
+  "media-feature-range-notation": "context"
+}
+```
 
 The following patterns are considered problems:
 
@@ -52,6 +54,12 @@ The following patterns are _not_ considered problems:
 ### `"prefix"`
 
 Media feature ranges _must always_ use prefix notation.
+
+```json
+{
+  "media-feature-range-notation": "prefix"
+}
+```
 
 The following patterns are considered problems:
 

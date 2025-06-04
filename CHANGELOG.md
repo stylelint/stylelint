@@ -1,5 +1,18 @@
 # Changelog
 
+## 16.20.0 - 2025-05-29
+
+It fixes 2 bugs with the built-in rules.
+
+- Fixed: `function-url-no-scheme-relative` false negatives for `@import` ([#8576](https://github.com/stylelint/stylelint/pull/8576)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `shorthand-property-no-redundant-values` false negatives for additional radius ([#8539](https://github.com/stylelint/stylelint/pull/8539)) ([@ryo-manba](https://github.com/ryo-manba)).
+
+## 16.19.1 - 2025-04-25
+
+It fixes 1 bug with the `no-empty-source` rule.
+
+- Fixed: `no-empty-source` false positives for non-standard syntaxes ([#8548](https://github.com/stylelint/stylelint/pull/8548)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.19.0 - 2025-04-23
 
 It adds 2 options to 2 rules and fixes 3 bugs.

@@ -15,8 +15,6 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 This rule overlaps with:
 
 - [`media-query-no-invalid`](../media-query-no-invalid/README.md)
@@ -34,6 +32,12 @@ Prior art:
 ## Options
 
 ### `true`
+
+```json
+{
+  "at-rule-prelude-no-invalid": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -61,12 +65,21 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Given:
 
 ```json
-["property", "/^font-/"]
+{
+  "at-rule-prelude-no-invalid": [
+    true,
+    { "ignoreAtRules": ["property", "/^font-/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

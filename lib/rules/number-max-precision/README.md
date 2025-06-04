@@ -9,13 +9,19 @@ a { top: 3.245634px; }
  * This decimal place */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`int`: Maximum number of decimal places allowed.
+### `number`
 
-For example, with `2`:
+Specify a maximum number of decimal places allowed.
+
+Given:
+
+```json
+{
+  "number-max-precision": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -48,16 +54,20 @@ a { top: 3.24px; }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", /regex/, "string"]`
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Ignore the precision of numbers for the specified properties.
-
-For example, with `0`.
 
 Given:
 
 ```json
-["transition"]
+{
+  "number-max-precision": [0, { "ignoreProperties": ["transition"] }]
+}
 ```
 
 The following patterns are considered problems:
@@ -74,16 +84,20 @@ The following patterns are _not_ considered problems:
 a { transition: all 4.5s ease; }
 ```
 
-### `ignoreUnits: ["/regex/", /regex/, "string"]`
+### `ignoreUnits`
+
+```json
+{ "ignoreUnits": ["array", "of", "units", "/regex/"] }
+```
 
 Ignore the precision of numbers for values with the specified units.
-
-For example, with `2`.
 
 Given:
 
 ```json
-["/^my-/", "%"]
+{
+  "number-max-precision": [2, { "ignoreUnits": ["/^my-/", "%"] }]
+}
 ```
 
 The following patterns are considered problems:
@@ -134,16 +148,25 @@ a {
 }
 ```
 
-### `insideFunctions: {"/regex/": int, /regex/: int, "string": int}`
+### `insideFunctions`
+
+```json
+{ "insideFunctions": { "function-name": 0 } }
+```
+
+You can specify a regex for a function name, such as `{ "/^(oklch|oklab)$/": 0 }`.
 
 The `insideFunctions` option can change a primary option value for specified functions.
-
-For example, with `2`.
 
 Given:
 
 ```json
-{ "/^(oklch|oklab|lch|lab)$/": 4 }
+{
+  "number-max-precision": [
+    2,
+    { "insideFunctions": { "/^(oklch|oklab|lch|lab)$/": 4 } }
+  ]
+}
 ```
 
 The following patterns are considered problems:

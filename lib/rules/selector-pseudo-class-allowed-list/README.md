@@ -11,18 +11,20 @@ Specify a list of allowed pseudo-class selectors.
 
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /pseudo-classes/, "/regex/"]|"pseudo-class"|"/regex/"|/regex/`
+### `Array<string>`
 
-If a string is surrounded with `"/"` (e.g. `"/^nth-/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^nth-/` will match `nth-child`, `nth-last-child`, `nth-of-type`, etc.
+```json
+["array", "of", "unprefixed", "pseudo-classes", "/regex/"]
+```
 
 Given:
 
 ```json
-["hover", "/^nth-/"]
+{
+  "selector-pseudo-class-allowed-list": ["hover", "/^nth-/"]
+}
 ```
 
 The following patterns are considered problems:
