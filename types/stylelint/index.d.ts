@@ -14,6 +14,7 @@ type ConfigRules = {
 
 type ConfigOverride = Omit<stylelint.Config, 'overrides'> & {
 	files: string | string[];
+	name?: string;
 };
 
 type ConfigProcessors = string[];
@@ -22,6 +23,7 @@ type DisableSettings = stylelint.ConfigRuleSettings<boolean, stylelint.DisableOp
 
 // A meta-type that returns a union over all properties of `T` whose values
 // have type `U`.
+// see sindresorhus/type-fest#630
 type PropertyNamesOfType<T, U> = {
 	[K in keyof T]-?: T[K] extends U ? K : never;
 }[keyof T];
@@ -82,35 +84,169 @@ declare namespace stylelint {
 		severity?: Severity;
 	};
 
+	type LanguageOptions = {
+		syntax?: {
+			atRules?: Record<
+				string,
+				{
+					comment?: string;
+					prelude?: string;
+					descriptors?: Record<string, string>;
+				}
+			>;
+			cssWideKeywords?: string[];
+			properties?: Record<string, string>;
+			types?: Record<string, string>;
+		};
+	};
+
 	/**
 	 * Configuration.
 	 */
 	export type Config = {
+		/**
+		 * Allows to extend an existing configuration. Configurations can bundle plugins, custom syntaxes,
+		 * options, and configure rules. They can also extend other configurations
+		 *
+		 * @see [extends](https://stylelint.io/user-guide/configure/#extends)
+		 */
 		extends?: ConfigExtends;
+		/**
+		 * Custom rules or sets of custom rules built to support methodologies, toolsets,
+		 * non-standard CSS features, or very specific use cases
+		 *
+		 * @see [plugins](https://stylelint.io/user-guide/configure/#plugins)
+		 */
 		plugins?: ConfigPlugins;
 		pluginFunctions?: {
 			[pluginName: string]: Rule;
 		};
+		/**
+		 * A glob or array of globs to ignore specific files
+		 *
+		 * @default 'node_modules'
+		 *
+		 * @see [ignoreFiles](https://stylelint.io/user-guide/configure/#ignorefiles)
+		 */
 		ignoreFiles?: ConfigIgnoreFiles;
 		ignorePatterns?: string;
+		/**
+		 * An object containing the configured rules
+		 *
+		 * @see [rules](https://stylelint.io/user-guide/configure/#rules)
+		 */
 		rules?: ConfigRules;
+		/**
+		 * Only register problems for rules with an "error"-level severity (ignore "warning"-level)
+		 *
+		 * @see [quiet](https://stylelint.io/user-guide/options/#quiet)
+		 */
 		quiet?: boolean;
+		/**
+		 * A string to specify the name of a formatter or a path to a custom formatter function
+		 *
+		 * @see [formatter](https://stylelint.io/user-guide/configure#formatter)
+		 */
 		formatter?: FormatterType | Formatter;
+		/**
+		 * A string to set the default severity level for all rules that do not have a severity
+		 * specified in their secondary options
+		 *
+		 * @see [defaultSeverity](https://stylelint.io/user-guide/configure#defaultseverity)
+		 */
 		defaultSeverity?: Severity;
+		/**
+		 * A boolean value indicating if 'stylelint-disable' comments will be ignored
+		 *
+		 * @see [ignoreDisables](https://stylelint.io/user-guide/configure#ignoredisables)
+		 */
 		ignoreDisables?: boolean;
+		/**
+		 * Report configuration comments that don't match any lints that need to be disabled
+		 *
+		 * @see [reportNeedlessDisables](https://stylelint.io/user-guide/configure#reportneedlessdisables)
+		 */
 		reportNeedlessDisables?: DisableSettings;
+		/**
+		 * Report configuration comments that don't match rules that are specified in the configuration object
+		 *
+		 * @see [reportInvalidScopeDisables](https://stylelint.io/user-guide/configure#reportinvalidscopedisables)
+		 */
 		reportInvalidScopeDisables?: DisableSettings;
+		/**
+		 * Report configuration comments without a description
+		 *
+		 * @see [reportDescriptionlessDisables](https://stylelint.io/user-guide/configure#reportdescriptionlessdisables)
+		 */
 		reportDescriptionlessDisables?: DisableSettings;
+		/**
+		 * Report configuration comments that are not scoped to at least one rule
+		 *
+		 * @see [reportUnscopedDisables](https://stylelint.io/user-guide/configure#reportunscopeddisables)
+		 */
 		reportUnscopedDisables?: DisableSettings;
+		/**
+		 * A string to set what configuration comments like 'stylelint-disable' start with.
+		 * Сan be useful when using multiple instances of Stylelint with different configurations.
+		 *
+		 * @see [configurationComment](https://stylelint.io/user-guide/configure#configurationcomment)
+		 */
 		configurationComment?: string;
+		/**
+		 * An array of objects to specify what subset of files to apply a configuration to
+		 *
+		 * @see [overrides](https://stylelint.io/user-guide/configure#overrides)
+		 */
 		overrides?: ConfigOverride[];
+		/**
+		 * Allows to specify a custom syntax to use in code
+		 *
+		 * @see [customSyntax](https://stylelint.io/user-guide/configure#customsyntax)
+		 */
 		customSyntax?: CustomSyntax;
+		/**
+		 * Functions that allow to hook into Stylelint's pipeline
+		 *
+		 * @experimental
+		 *
+		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
+		 */
 		processors?: ConfigProcessors;
+		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
+		/**
+		 * If true, Stylelint does not throw an error when the glob pattern matches no files.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @see [allowEmptyInput](https://stylelint.io/user-guide/configure#allowemptyinput)
+		 */
 		allowEmptyInput?: boolean;
+		/**
+		 * If true, store the results of processed files so that Stylelint only operates on the changed ones.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @see [cache](https://stylelint.io/user-guide/configure#cache)
+		 */
 		cache?: boolean;
+		/**
+		 * If true, automatically fix, where possible, problems reported by rules.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
+		 */
 		fix?: boolean;
+		computeEditInfo?: boolean;
+		/**
+		 * Force enable/disable the validation of the rules' options
+		 *
+		 * @default true
+		 *
+		 * @see [validate](https://stylelint.io/user-guide/options/#validate)
+		 */
 		validate?: boolean;
 	};
 
@@ -147,8 +283,10 @@ declare namespace stylelint {
 		customMessages: { [ruleName: string]: RuleMessage };
 		customUrls: { [ruleName: string]: string };
 		ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
-		fixersData: { [ruleName: string]: Array<FixerData> };
+		rangesOfComputedEditInfos: Array<EditInfo['range']>;
+		fixersData: { [ruleName: string]: number };
 		quiet?: boolean;
+		quietDeprecationWarnings?: boolean;
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
@@ -165,6 +303,7 @@ declare namespace stylelint {
 		severity?: Severity;
 		url?: string;
 		rule?: string;
+		fix?: EditInfo;
 	};
 
 	/** @internal */
@@ -230,6 +369,8 @@ declare namespace stylelint {
 		configurationComment?: string | undefined;
 		fix?: boolean | undefined;
 		newline?: string | undefined;
+		/** @internal */
+		lexer?: unknown | undefined;
 	};
 
 	/** @internal */
@@ -252,17 +393,12 @@ declare namespace stylelint {
 		end: Position;
 	};
 
-	type FixerData = {
-		range?: Range;
-		fixed: boolean;
-	};
-
 	/**
 	 * A rule.
 	 */
-	export type Rule<P = any, S = any> = RuleBase<P, S> & {
+	export type Rule<P = any, S = any, M = RuleMessages> = RuleBase<P, S> & {
 		ruleName: string;
-		messages: RuleMessages;
+		messages: M;
 		primaryOptionArray?: boolean;
 		meta?: RuleMeta;
 	};
@@ -271,16 +407,31 @@ declare namespace stylelint {
 	type OneOrMany<S> = S | S[];
 	type Primary = number | true | OneOrMany<StringOrRegex> | Record<string, any>;
 	type Secondary = Record<string, any>;
-	type CoreRule<P extends Primary, S extends Secondary = any> = Rule<P, S>;
+
+	// see sindresorhus/type-fest#821
+	type Messages = {
+		[key in `expected${string}` | `rejected${string}`]: RuleMessage;
+	};
+
+	type AutofixMessage = { expected: (actual: string, expected: string) => string };
+
+	type CoreRule<
+		P extends Primary,
+		S extends Secondary = Secondary,
+		M extends Messages = Messages,
+	> = Rule<P, S, M>;
 
 	/** @internal */
 	export type CoreRules = {
 		'alpha-value-notation': CoreRule<
 			'number' | 'percentage',
-			{ exceptProperties: OneOrMany<StringOrRegex> }
+			{ exceptProperties: OneOrMany<StringOrRegex> },
+			AutofixMessage
 		>;
 		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
 		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
+		'at-rule-descriptor-no-unknown': CoreRule<true>;
+		'at-rule-descriptor-value-no-unknown': CoreRule<true>;
 		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
@@ -299,22 +450,29 @@ declare namespace stylelint {
 					| 'blockless-after-same-name-blockless'
 					| 'blockless-after-blockless'
 				>;
-				ignoreAtRules: OneOrMany<string>;
+				ignoreAtRules: OneOrMany<StringOrRegex>;
 			}
 		>;
+		'at-rule-no-deprecated': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-no-vendor-prefix': CoreRule<true>;
+		'at-rule-prelude-no-invalid': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
 		'at-rule-property-required-list': CoreRule<Record<string, OneOrMany<string>>>;
 		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
+		'color-function-alias-notation': CoreRule<'with-alpha' | 'without-alpha'>;
 		'color-function-notation': CoreRule<
 			'modern' | 'legacy',
 			{ ignore: OneOrMany<'with-var-inside'> }
 		>;
 		'color-hex-alpha': CoreRule<'always' | 'never'>;
-		'color-hex-length': CoreRule<'short' | 'long'>;
+		'color-hex-length': CoreRule<'short' | 'long', {}, AutofixMessage>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> }
+			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> },
+			{
+				expected: (expected: string, actual: string) => string;
+				rejected: (keyword: string) => string;
+			}
 		>;
 		'color-no-hex': CoreRule<true>;
 		'color-no-invalid-hex': CoreRule<true>;
@@ -330,6 +488,7 @@ declare namespace stylelint {
 		'comment-pattern': CoreRule<StringOrRegex>;
 		'comment-whitespace-inside': CoreRule<'always' | 'never'>;
 		'comment-word-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'container-name-pattern': CoreRule<StringOrRegex>;
 		'custom-media-pattern': CoreRule<StringOrRegex>;
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
@@ -385,6 +544,11 @@ declare namespace stylelint {
 		'declaration-property-value-disallowed-list': CoreRule<
 			Record<string, OneOrMany<StringOrRegex>>
 		>;
+		'declaration-property-value-keyword-no-deprecated': CoreRule<
+			true,
+			{ ignoreKeywords: OneOrMany<StringOrRegex> },
+			AutofixMessage & { rejected: (property: string, keyword: string) => string }
+		>;
 		'declaration-property-value-no-unknown': CoreRule<
 			true,
 			{
@@ -408,35 +572,45 @@ declare namespace stylelint {
 			'numeric' | 'named-where-possible',
 			{ ignore: OneOrMany<'relative'> }
 		>;
-		'function-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'function-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{
+				exceptWithoutPropertyFallback?: OneOrMany<StringOrRegex>;
+			}
+		>;
 		'function-calc-no-unspaced-operator': CoreRule<true>;
 		'function-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'function-linear-gradient-no-nonstandard-direction': CoreRule<true>;
 		'function-name-case': CoreRule<
 			'lower' | 'upper',
-			{ ignoreFunctions: OneOrMany<StringOrRegex> }
+			{ ignoreFunctions: OneOrMany<StringOrRegex> },
+			AutofixMessage
 		>;
 		'function-no-unknown': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
 		'function-url-no-scheme-relative': CoreRule<true>;
 		'function-url-quotes': CoreRule<'always' | 'never', { except: OneOrMany<'empty'> }>;
 		'function-url-scheme-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'function-url-scheme-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'hue-degree-notation': CoreRule<'angle' | 'number'>;
-		'import-notation': CoreRule<'string' | 'url'>;
+		'hue-degree-notation': CoreRule<'angle' | 'number', {}, AutofixMessage>;
+		'import-notation': CoreRule<'string' | 'url', {}, AutofixMessage>;
 		'keyframe-block-no-duplicate-selectors': CoreRule<true>;
 		'keyframe-declaration-no-important': CoreRule<true>;
 		'keyframe-selector-notation': CoreRule<
-			'keyword' | 'percentage' | 'percentage-unless-within-keyword-only-block'
+			'keyword' | 'percentage' | 'percentage-unless-within-keyword-only-block',
+			{},
+			AutofixMessage
 		>;
 		'keyframes-name-pattern': CoreRule<StringOrRegex>;
+		'layer-name-pattern': CoreRule<StringOrRegex>;
 		'length-zero-no-unit': CoreRule<
 			true,
 			{
 				ignore: OneOrMany<'custom-properties'>;
 				ignoreFunctions: OneOrMany<StringOrRegex>;
+				ignorePreludeOfAtRules: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'lightness-notation': CoreRule<'percentage' | 'number'>;
+		'lightness-notation': CoreRule<'percentage' | 'number', {}, AutofixMessage>;
 		'max-nesting-depth': CoreRule<
 			number,
 			{
@@ -457,7 +631,7 @@ declare namespace stylelint {
 		'media-feature-name-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
 		'media-feature-name-value-no-unknown': CoreRule<true>;
 		'media-feature-range-notation': CoreRule<'prefix' | 'context'>;
-		'media-query-no-invalid': CoreRule<true>;
+		'media-query-no-invalid': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
 		'no-descending-specificity': CoreRule<true, { ignore: OneOrMany<'selectors-within-list'> }>;
 		'no-duplicate-at-import-rules': CoreRule<true>;
@@ -478,7 +652,8 @@ declare namespace stylelint {
 				ignoreProperties: OneOrMany<StringOrRegex>;
 				ignoreUnits: OneOrMany<StringOrRegex>;
 				insideFunctions: Record<string, number>;
-			}
+			},
+			AutofixMessage
 		>;
 		'property-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
 		'property-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
@@ -570,7 +745,11 @@ declare namespace stylelint {
 			true,
 			{ ignorePseudoElements: OneOrMany<StringOrRegex> }
 		>;
-		'selector-type-case': CoreRule<'lower' | 'upper', { ignoreTypes: OneOrMany<StringOrRegex> }>;
+		'selector-type-case': CoreRule<
+			'lower' | 'upper',
+			{ ignoreTypes: OneOrMany<StringOrRegex> },
+			AutofixMessage
+		>;
 		'selector-type-no-unknown': CoreRule<
 			true,
 			{
@@ -579,8 +758,18 @@ declare namespace stylelint {
 				ignoreTypes: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'shorthand-property-no-redundant-values': CoreRule<true>;
-		'string-no-newline': CoreRule<true>;
+		'shorthand-property-no-redundant-values': CoreRule<
+			true,
+			{
+				ignore: OneOrMany<'four-into-three-edge-values'>;
+			},
+			AutofixMessage
+		>;
+		'string-no-newline': CoreRule<
+			true,
+			{ ignore: OneOrMany<'at-rule-preludes' | 'declaration-values'> }
+		>;
+		'syntax-string-no-invalid': CoreRule<true>;
 		'time-min-milliseconds': CoreRule<number, { ignore: OneOrMany<'delay'> }>;
 		'unit-allowed-list': CoreRule<
 			OneOrMany<string>,
@@ -611,7 +800,8 @@ declare namespace stylelint {
 				ignoreKeywords: OneOrMany<StringOrRegex>;
 				ignoreFunctions: OneOrMany<StringOrRegex>;
 				camelCaseSvgKeywords: boolean;
-			}
+			},
+			AutofixMessage
 		>;
 		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: OneOrMany<StringOrRegex> }>;
 	};
@@ -662,12 +852,16 @@ declare namespace stylelint {
 		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
 		disableDefaultIgnores?: boolean;
-		fix?: boolean;
+		fix?: boolean | FixMode;
+		computeEditInfo?: boolean;
 		allowEmptyInput?: boolean;
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
 		validate?: boolean;
 	};
+
+	/** @internal */
+	export type FixMode = 'lax' | 'strict';
 
 	/**
 	 * A CSS syntax error.
@@ -702,6 +896,17 @@ declare namespace stylelint {
 		source: string;
 	};
 
+	export type EditInfo = {
+		/**
+		 * The pair of 0-based indices in source code text to remove.
+		 */
+		range: [number, number];
+		/**
+		 * The text to add.
+		 */
+		text: string;
+	};
+
 	/**
 	 * A lint warning.
 	 */
@@ -722,6 +927,10 @@ declare namespace stylelint {
 		 * The column of the exclusive end position of the warning.
 		 */
 		endColumn?: number;
+		/**
+		 * The `EditInfo` object of autofix. This property is undefined if this message is not fixable.
+		 */
+		fix?: EditInfo;
 		rule: string;
 		severity: Severity;
 		text: string;
@@ -810,6 +1019,13 @@ declare namespace stylelint {
 		column: number;
 	};
 
+	export type FixCallback = () => void | undefined | never;
+
+	export type FixObject = {
+		apply?: FixCallback;
+		node?: PostCSS.Node;
+	};
+
 	/**
 	 * A lint problem.
 	 */
@@ -842,12 +1058,13 @@ declare namespace stylelint {
 		 */
 		end?: Position;
 		word?: string;
+		/** @deprecated */
 		line?: number;
 		/**
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
-		fix?: () => void | undefined | never;
+		fix?: FixCallback | FixObject;
 	};
 
 	/** @internal */

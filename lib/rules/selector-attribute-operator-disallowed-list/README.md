@@ -9,16 +9,20 @@ Specify a list of disallowed attribute operators.
  * This operator */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`array|string`: `["array", "of", "operators"]|"operator"`
+### `Array<string>`
+
+```json
+["array", "of", "attribute-operators"]
+```
 
 Given:
 
 ```json
-["*="]
+{
+  "selector-attribute-operator-disallowed-list": ["*="]
+}
 ```
 
 The following patterns are considered problems:

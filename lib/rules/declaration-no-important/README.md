@@ -15,6 +15,12 @@ If you always want `!important` in your declarations, e.g. if you're writing [us
 
 ### `true`
 
+```json
+{
+  "declaration-no-important": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

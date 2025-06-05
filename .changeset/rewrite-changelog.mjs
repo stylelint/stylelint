@@ -40,13 +40,16 @@ let latestVersion = undefined;
 let stoppedIndex = -1;
 let subHeader = false;
 
+// Get today's date in YYYY-MM-DD format
+const today = new Date().toISOString().split('T')[0];
+
 for (const line of currentLines) {
 	stoppedIndex++;
 
 	if (line.startsWith('## ')) {
 		if (!latestVersion) {
 			latestVersion = line.replace('## ', '');
-			newLines.push(line);
+			newLines.push(`## ${latestVersion} - ${today}`);
 			continue;
 		} else {
 			entries.sort(byPrefixOrder);

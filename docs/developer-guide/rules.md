@@ -16,7 +16,7 @@ A rule must be:
 And have a:
 
 - unambiguous finished state
-- singular purpose that doesn't overlap with other rules
+- singular purpose
 
 Its name is split into two parts:
 
@@ -42,6 +42,7 @@ You should use:
 - the `color` property by default
 - the `red` value by default
 - the `(min-)width` media feature by default
+- the `example.org` URL by default
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
 You should:
@@ -55,6 +56,7 @@ You should:
 You should ask yourself how does your rule handle:
 
 - variables (e.g. `var(--custom-property)`)?
+- CSS-wide keywords (e.g. `initial`)?
 - CSS strings (e.g. `content: "anything goes";`)?
 - CSS comments (e.g. `/* anything goes */`)?
 - empty functions (e.g. `var()`)?
@@ -110,10 +112,91 @@ There are significant benefits to using these parsers instead of regular express
 
 Stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/main/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
 
-Use the:
+Always use the:
 
 - `validateOptions()` utility to warn users about invalid options
-- `isStandardSyntax*` utilities to ignore non-standard syntax
+- `isStandardSyntax*()` utilities before checking a node or string to ignore non-standard syntax
+- `report()` utility to report lint problems
+
+##### Location arguments for `report()`
+
+When using `report()`, you can specify the location of a problem in various ways:
+
+- only `node` - implicitly span the entire range of the given node
+- `word` - the first instance of a word in the serialized given node
+- `index` and `endIndex` offsets - an index range within the given node
+- `start` and `end` positions - a [range](https://postcss.org/api/#range) within the given node
+
+Each approach has pros and cons concerning:
+
+- convenience - ease of use
+- narrowness - how well a location matches the issue
+- correctness - chance of bugs or incorrect locations
+- performance - the cost of calculating the location
+
+For example, using only `node` or `word` is often convenient, but comes at the expense of narrowness and correctness.
+
+In the following example of using `word`, the location is the selector within the rule:
+
+```js
+root.walkRules((ruleNode) => {
+  const { selector } = ruleNode;
+
+  report({
+    result,
+    ruleName,
+    message: messages.rejected(),
+    node: ruleNode,
+    word: selector
+  });
+});
+```
+
+Using `word` is the slowest approach to finding a location within a node, especially on nodes with many children, e.g. at-rules.
+
+When using offsets and positions, you can use the `nodeFieldIndices` utilities, e.g. `declarationValueIndex()`, to get the index of part of a node. These utilities account for the `raw` fields in the PostCSS AST.
+
+In the following example of using `index`, `endIndex` and the `declarationValueIndex()` utility, the location spans the value of the declaration:
+
+```js
+root.walkDecls((declNode) => {
+  const { prop, value } = declNode;
+
+  const index = declarationValueIndex(decl);
+  const endIndex = index + value.length;
+
+  report({
+    result,
+    ruleName,
+    message: messages.rejected(),
+    node: declNode,
+    index,
+    endIndex
+  });
+});
+```
+
+This approach also works well when using construct-specific parsers:
+
+```js
+root.walkDecls((declNode) => {
+  const { prop, value: declValue } = declNode;
+
+  valueParser(declValue).walk(({ value, sourceIndex }) => {
+    const index = declarationValueIndex(decl) + sourceIndex;
+    const endIndex = index + value.length;
+
+    report({
+      result,
+      ruleName,
+      message: messages.rejected(),
+      node: declNode,
+      index,
+      endIndex
+    });
+  });
+});
+```
 
 ### Add options
 
@@ -218,9 +301,33 @@ function rule(primary, secondary) {
 }
 ```
 
+### Add `languageOptions` support
+
+Depending on the rule, it may need to support the [`languageOptions`](../user-guide/configure.md#languageoptions) configuration property.
+
+For example:
+
+```diff js
+import { basicKeywords } from '../../reference/keywords.mjs';
+
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
+    if (!validOptions) return;
+
++   const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
+
++   const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
+
+    /* .. */
+  };
+}
+```
+
 ### Context
 
-`context` is an object which could have three properties:
+`context` is an object that could have the following properties:
 
 - `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
 - `fix`(boolean): If `true`, your rule can apply autofixes.
@@ -271,6 +378,7 @@ You should:
 - add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
 - use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
+- include a bulleted list of prior art in the expanded description
 - align the arrows within the prototypical code example with the beginning of the highlighted construct
 - align the text within the prototypical code example as far to the left as possible
 
@@ -302,6 +410,7 @@ You should:
 3. Change the rule's validation to allow for the new option.
 4. Add (as little as possible) logic to the rule to make the tests pass.
 5. Add documentation about the new option.
+6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts).
 
 ## Fix a bug in a rule
 

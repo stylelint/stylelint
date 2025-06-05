@@ -18,6 +18,10 @@ npm init stylelint
 npx stylelint "**/*.css"
 ```
 
+> [!NOTE]
+> The [`npx`](https://docs.npmjs.com/cli/commands/npx) command, which is bundled with npm, allows you to run locally installed tools.
+> We'll omit `npx` in the rest of this guide, but you can use it to run Stylelint if you don't want to install it globally.
+
 Once you're up and running, you can [customize](./customize.md) Stylelint.
 
 ## Linting CSS-like languages and CSS within containers
@@ -38,18 +42,19 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 npm install --save-dev stylelint stylelint-config-standard-scss
 ```
 
-2\. Create a `.stylelintrc.json` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
 
-```json
-{
-  "extends": "stylelint-config-standard-scss"
-}
+```js
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ["stylelint-config-standard-scss"]
+};
 ```
 
 3\. Run Stylelint on all the SCSS files in your project:
 
 ```shell
-npx stylelint "**/*.scss"
+stylelint "**/*.scss"
 ```
 
 You'll find more community configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
@@ -66,19 +71,20 @@ For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 npm install --save-dev stylelint stylelint-config-standard postcss-lit
 ```
 
-2\. Create a `.stylelintrc.json` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
 
-```json
-{
-  "extends": "stylelint-config-standard",
-  "customSyntax": "postcss-lit"
-}
+```js
+/** @type {import('stylelint').Config} */
+export default {
+  extends: "stylelint-config-standard",
+  customSyntax: "postcss-lit"
+};
 ```
 
 3\. Run Stylelint on all the JavaScript files in your project:
 
 ```shell
-npx stylelint "**/*.js"
+stylelint "**/*.js"
 ```
 
 You'll find more custom syntaxes in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#custom-syntaxes).
@@ -89,20 +95,21 @@ If you want to lint more than one language or container, you can use the [`overr
 
 For example, to lint CSS files and the CSS within Lit Elements you can update your configuration to:
 
-```json
-{
-  "extends": ["stylelint-config-standard"],
-  "overrides": [
+```js
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ["stylelint-config-standard"],
+  overrides: [
     {
-      "files": ["*.js"],
-      "customSyntax": "postcss-lit"
+      files: ["*.js"],
+      customSyntax: "postcss-lit"
     }
   ]
-}
+};
 ```
 
 And then run Stylelint on both your CSS and JavaScript files:
 
 ```shell
-npx stylelint "**/*.{css,js}"
+stylelint "**/*.{css,js}"
 ```

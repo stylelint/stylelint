@@ -9,16 +9,22 @@ Specify a list of allowed at-rules.
  * At-rules like this */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+This rule ignores the `@charset` rule.
 
 ## Options
 
-`array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
+### `Array<string>`
+
+```json
+["array", "of", "unprefixed", "at-rules"]
+```
 
 Given:
 
 ```json
-["extend", "keyframes"]
+{
+  "at-rule-allowed-list": ["extend", "keyframes"]
+}
 ```
 
 The following patterns are considered problems:

@@ -9,20 +9,24 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`object`: `{ "unprefixed-property-name": ["array", "of", "units"]|"unit" }`
+### `Object<string, Array<string>>`
 
-If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
+```json
+{ "unprefixed-property-name": ["array", "of", "units"] }
+```
+
+You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
 
 Given:
 
 ```json
 {
-  "font-size": ["em", "px"],
-  "/^animation/": "s"
+  "declaration-property-unit-disallowed-list": {
+    "font-size": ["em", "px"],
+    "/^animation/": ["s"]
+  }
 }
 ```
 

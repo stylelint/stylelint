@@ -1,0 +1,50 @@
+name: Update pkg.pr.new comment
+
+# This workflow is used to comment a pull request with a package created in pkg.pr.new.yml.
+#
+# The GITHUB_TOKEN for the workflow from a pull request
+# does not have the permission to comment on the pull request,
+# so the workflow is split.
+
+permissions:
+  issues: write
+  pull-requests: write
+
+on:
+  workflow_run:
+    workflows: [Publish to pkg.pr.new]
+    types:
+      - completed
+
+jobs:
+  build:
+    if: github.repository == 'stylelint/stylelint'
+    name: Update comment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+      - name: Install Packages
+        run: npm ci
+      - run: mkdir -p ${{ runner.temp }}/artifacts/
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: output
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          path: ${{ runner.temp }}/artifacts/
+      - run: ls -R ${{ runner.temp }}/artifacts/
+      - name: Post or update comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const output = JSON.parse(fs.readFileSync('${{ runner.temp }}/artifacts/output.json', 'utf8'));
+            const { postCustomComment } = await import('${{ github.workspace }}/scripts/pkg.pr.new-custom-comment.mjs')
+
+            await postCustomComment({github, context, core, output})

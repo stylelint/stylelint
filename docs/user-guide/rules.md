@@ -11,6 +11,17 @@ We turn on most of the rules in our [standard config](https://www.npmjs.com/pack
 
 You can avoid errors with these `no` rules.
 
+### Deprecated
+
+Disallow deprecated things with these `no-deprecated` rules.
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | ✅ | 🔧 |
+| [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
+<!-- prettier-ignore-end -->
+
 ### Descending
 
 Disallow descending things with these `no-descending` rules.
@@ -55,7 +66,8 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | ✅ | |
+| [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)<br/>Disallow invalid preludes for at-rules. | ✅ | |
+| [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | | |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅ | 🔧 |
 | [`keyframe-declaration-no-important`](../../lib/rules/keyframe-declaration-no-important/README.md)<br/>Disallow invalid `!important` within keyframe declarations. | ✅ | |
 | [`media-query-no-invalid`](../../lib/rules/media-query-no-invalid/README.md)<br/>Disallow invalid media queries. | ✅ | |
@@ -63,6 +75,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
+| [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Irregular
@@ -93,7 +106,7 @@ Disallow non-standard things with these `no-nonstandard` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md)<br/>Disallow non-standard direction values for linear gradient functions. | ✅ | |
+| [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md)<br/>Disallow non-standard direction values for linear gradient functions. | | |
 <!-- prettier-ignore-end -->
 
 ### Overrides
@@ -124,11 +137,13 @@ Disallow unknown things with these `no-unknown` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md)<br/>Disallow unknown annotations. | ✅ | |
+| [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)<br/>Disallow unknown at-rule descriptors. | ✅ | |
+| [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)<br/>Disallow unknown values for descriptors within at-rules. | ✅ | |
 | [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)<br/>Disallow unknown at-rules. | ✅ | |
-| [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)<br/>Disallow unknown values for properties within declarations. | | |
-| [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md)<br/>Disallow unknown functions. | ✅ | |
+| [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)<br/>Disallow unknown values for properties within declarations. | ✅ | |
+| [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md)<br/>Disallow unknown functions. | | |
 | [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md)<br/>Disallow unknown media feature names. | ✅ | |
-| [`media-feature-name-value-no-unknown`](../../lib/rules/media-feature-name-value-no-unknown/README.md)<br/>Disallow unknown values for media features. | | |
+| [`media-feature-name-value-no-unknown`](../../lib/rules/media-feature-name-value-no-unknown/README.md)<br/>Disallow unknown values for media features. | ✅ | |
 | [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)<br/>Disallow unknown animations. | | |
 | [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)<br/>Disallow unknown custom media queries. | | |
 | [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)<br/>Disallow unknown custom properties. | | |
@@ -136,7 +151,7 @@ Disallow unknown things with these `no-unknown` rules.
 | [`selector-pseudo-class-no-unknown`](../../lib/rules/selector-pseudo-class-no-unknown/README.md)<br/>Disallow unknown pseudo-class selectors. | ✅ | |
 | [`selector-pseudo-element-no-unknown`](../../lib/rules/selector-pseudo-element-no-unknown/README.md)<br/>Disallow unknown pseudo-element selectors. | ✅ | |
 | [`selector-type-no-unknown`](../../lib/rules/selector-type-no-unknown/README.md)<br/>Disallow unknown type selectors. | ✅ | |
-| [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md)<br/>Disallow unknown units. | ✅ | |
+| [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md)<br/>Disallow unknown units. | | |
 <!-- prettier-ignore-end -->
 
 ## Enforce conventions
@@ -155,7 +170,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | [`at-rule-allowed-list`](../../lib/rules/at-rule-allowed-list/README.md)<br/>Specify a list of allowed at-rules. | | |
 | [`at-rule-disallowed-list`](../../lib/rules/at-rule-disallowed-list/README.md)<br/>Specify a list of disallowed at-rules. | | |
 | [`at-rule-no-vendor-prefix`](../../lib/rules/at-rule-no-vendor-prefix/README.md)<br/>Disallow vendor prefixes for at-rules. | ✅ | 🔧 |
-| [`at-rule-property-required-list`](../../lib/rules/at-rule-property-required-list/README.md)<br/>Specify a list of required properties for an at-rule. | | |
+| [`at-rule-property-required-list`](../../lib/rules/at-rule-property-required-list/README.md)<br/>Specify a list of required properties (or descriptors) for an at-rule. | | |
 <!-- prettier-ignore-end -->
 
 #### Color
@@ -331,6 +346,7 @@ Enforce one representation of things that have multiple with these `notation` (s
 | | | |
 | :-- | :-: | :-: |
 | [`alpha-value-notation`](../../lib/rules/alpha-value-notation/README.md)<br/>Specify percentage or number notation for alpha-values. | ✅ | 🔧 |
+| [`color-function-alias-notation`](../../lib/rules/color-function-alias-notation/README.md)<br/>Specify alias notation for color-functions. | ✅ | 🔧 |
 | [`color-function-notation`](../../lib/rules/color-function-notation/README.md)<br/>Specify modern or legacy notation for color-functions. | ✅ | 🔧 |
 | [`color-hex-length`](../../lib/rules/color-hex-length/README.md)<br/>Specify short or long notation for hex colors. | ✅ | 🔧 |
 | [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md)<br/>Specify numeric or named notation for font weights. | | 🔧 |
@@ -351,9 +367,11 @@ Enforce naming conventions with these `pattern` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`comment-pattern`](../../lib/rules/comment-pattern/README.md)<br/>Specify a pattern for comments. | | |
+| [`container-name-pattern`](../../lib/rules/container-name-pattern/README.md)<br/>Specify a pattern for container names. | ✅ | |
 | [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md)<br/>Specify a pattern for custom media query names. | ✅ | |
 | [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md)<br/>Specify a pattern for custom properties. | ✅ | |
 | [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md)<br/>Specify a pattern for keyframe names. | ✅ | |
+| [`layer-name-pattern`](../../lib/rules/layer-name-pattern/README.md)<br/>Specify a pattern for layer names. | ✅ | |
 | [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md)<br/>Specify a pattern for class selectors. | ✅ | |
 | [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md)<br/>Specify a pattern for ID selectors. | ✅ | |
 | [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md)<br/>Specify a pattern for the selectors of rules nested within rules. | | |

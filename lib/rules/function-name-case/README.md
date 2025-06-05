@@ -13,13 +13,15 @@ Camel case function names, e.g. `translateX`, are accounted for when the `lower`
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`string`: `"lower"|"upper"`
-
 ### `"lower"`
+
+```json
+{
+  "function-name-case": "lower"
+}
+```
 
 The following patterns are considered problems:
 
@@ -69,6 +71,12 @@ a {
 
 ### `"upper"`
 
+```json
+{
+  "function-name-case": "upper"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -117,16 +125,23 @@ a {
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore case of function names.
-
-For example, with `"lower"`.
 
 Given:
 
 ```json
-["--some-function", "/^--get.*$/"]
+{
+  "function-name-case": [
+    "lower",
+    { "ignoreFunctions": ["--some-function", "/^--get.*$/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:

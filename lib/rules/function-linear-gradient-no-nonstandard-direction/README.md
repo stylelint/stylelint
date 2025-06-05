@@ -16,9 +16,22 @@ A valid and standard direction value is one of the following:
 
 A common mistake (matching outdated non-standard syntax) is to use just a side-or-corner without the preceding `to`.
 
+This rule overlaps with:
+
+- [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
+- [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
+
+We recommend using these rules for CSS and this rule for CSS-like languages, such as SCSS and Less.
+
 ## Options
 
 ### `true`
+
+```json
+{
+  "function-linear-gradient-no-nonstandard-direction": true
+}
+```
 
 The following patterns are considered problems:
 

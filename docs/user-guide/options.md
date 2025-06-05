@@ -36,7 +36,13 @@ CLI flag: `--fix`
 
 Automatically fix, where possible, problems reported by rules.
 
-For CSS with standard syntax, Stylelint uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix syntax errors.
+Options are:
+
+- `"lax"` (default) - uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix as much as possible, even when there are syntax errors
+- `"strict"` - uses [PostCSS Parser](https://postcss.org/api/#postcss-parser) and only fixes problems when there are no syntax errors
+
+> [!TIP]
+> If you don't care about strictness now, we recommend using `--fix` without any option because `"strict"` may become the default in the future.
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
@@ -44,6 +50,22 @@ When a rule relies on the deprecated [`context`](../developer-guide/rules.md#con
 
 - a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
 - an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
+
+## `computeEditInfo`
+
+CLI flag: `--compute-edit-info, --cei`
+
+Compute edit information for autofixable rules.
+
+The edit information will not be computed when:
+
+- the [`fix` option](#fix) is enabled
+- a rule's fix is disabled:
+  - in the configuration object, e.g. `"rule-name": [true, { disableFix: true }]`
+  - using configuration comments, e.g. `/* stylelint-disable rule-name */`
+- another edit has already been computed for the same code region
+
+See [Node.js API Warning details](./node-api.md#edit-info).
 
 ## `customSyntax`
 
@@ -252,5 +274,12 @@ Only register problems for rules with an "error"-level severity (ignore "warning
 CLI flag: `--quiet-deprecation-warnings`
 
 Ignore deprecation warnings.
+
+> [!TIP]
+> For Node.js 20.11.0+, you can disable individual deprecation warnings using the Node.js [`--disable-warning`](https://nodejs.org/api/cli.html#--disable-warningcode-or-type) mechanism, e.g.:
+>
+> ```shell
+> NODE_OPTIONS='--disable-warning=stylelint:005' stylelint "**/*.css"
+> ```
 
 [1]: ../user-guide/ignore-code.md#parts-of-a-file

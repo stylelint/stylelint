@@ -17,6 +17,12 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ### `true`
 
+```json
+{
+  "function-calc-no-unspaced-operator": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

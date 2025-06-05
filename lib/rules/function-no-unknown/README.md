@@ -13,11 +13,22 @@ This rule considers functions defined in the CSS Specifications to be known.
 
 This rule ignores double-dashed custom functions, e.g. `--custom-function()`.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+This rule overlaps with:
+
+- [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
+- [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
+
+We recommend using these rules for CSS and this rule for CSS-like languages, such as SCSS and Less.
 
 ## Options
 
 ### `true`
+
+```json
+{
+  "function-no-unknown": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -40,16 +51,20 @@ a { transform: --custom-function(1); }
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore the specified functions.
-
-For example, with `true`.
 
 Given:
 
 ```json
-["theme", "/^foo-/"]
+{
+  "function-no-unknown": [true, { "ignoreFunctions": ["theme", "/^foo-/"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:

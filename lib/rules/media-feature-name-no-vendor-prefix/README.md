@@ -17,6 +17,12 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ### `true`
 
+```json
+{
+  "media-feature-name-no-vendor-prefix": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

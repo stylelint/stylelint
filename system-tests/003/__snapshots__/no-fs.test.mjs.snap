@@ -462,6 +462,7 @@ footer a:link, footer a:visited {
           "column": 25,
           "endColumn": 32,
           "endLine": 102,
+          "fix": undefined,
           "line": 102,
           "rule": "font-family-no-missing-generic-family-keyword",
           "severity": "error",

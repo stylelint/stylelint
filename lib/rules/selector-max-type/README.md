@@ -13,13 +13,19 @@ This rule resolves nested selectors before counting the number of type selectors
 
 The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`int`: Maximum type selectors allowed.
+### `number`
 
-For example, with `2`:
+Specify a maximum type selectors allowed.
+
+Given:
+
+```json
+{
+  "selector-max-type": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -79,13 +85,23 @@ div a .foo:not(span) {}
 
 ## Optional secondary options
 
-### `ignore: ["child", "compounded", "custom-elements", "descendant", "next-sibling"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"child"`
 
 Discount child type selectors.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-type": [2, { "ignore": ["child"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -103,7 +119,13 @@ div span > a {}
 
 Discount compounded type selectors -- i.e. type selectors chained with other selectors.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-type": [2, { "ignore": ["compounded"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -121,7 +143,13 @@ div span a#bar {}
 
 Discount custom elements.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-type": [2, { "ignore": ["custom-elements"] }]
+}
+```
 
 The following pattern is _not_ considered a problem:
 
@@ -134,7 +162,13 @@ div a foo-bar {}
 
 Discount descendant type selectors.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-type": [2, { "ignore": ["descendant"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -152,7 +186,13 @@ The following patterns are _not_ considered problems:
 
 Discount next-sibling type selectors.
 
-For example, with `2`:
+Given:
+
+```json
+{
+  "selector-max-type": [2, { "ignore": ["next-sibling"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -166,15 +206,19 @@ div a + span {}
 #bar + div + span + a + span {}
 ```
 
-### `ignoreTypes: ["/regex/", /regex/, "non-regex"]`
+### `ignoreTypes`
+
+```json
+{ "ignoreTypes": ["array", "of", "types", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^my-/", "custom"]
+{
+  "selector-max-type": [2, { "ignoreTypes": ["/^my-/", "custom"] }]
+}
 ```
-
-For example, with `2`.
 
 The following patterns are _not_ considered problems:
 

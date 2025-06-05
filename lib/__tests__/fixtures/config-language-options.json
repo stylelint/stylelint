@@ -1,0 +1,27 @@
+{
+	"languageOptions": {
+		"syntax": {
+			"atRules": {
+				"example": {
+					"comment": "Example at-rule",
+					"prelude": "<custom-ident>",
+					"descriptors": {
+						"foo": "<number>",
+						"bar": "<color>"
+					}
+				}
+			},
+			"cssWideKeywords": ["my-global-value"],
+			"properties": { "top": "| <--foo()>", "bar": "<color>" },
+			"types": { "--foo()": "--foo( <length-percentage> )" }
+		}
+	},
+	"rules": {
+		"at-rule-descriptor-no-unknown": true,
+		"at-rule-descriptor-value-no-unknown": true,
+		"at-rule-no-unknown": true,
+		"at-rule-prelude-no-invalid": true,
+		"declaration-property-value-no-unknown": true,
+		"property-no-unknown": true
+	}
+}

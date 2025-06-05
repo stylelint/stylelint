@@ -10,13 +10,15 @@
    2. [stylelint/stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
    3. [stylelint/stylelint.io](https://github.com/stylelint/stylelint.io)
 5. Release Stylelint:
-   1. If necessary, reorder the changelog entries in the "Prepare x.y.z" pull request so that the widest-reaching changes come first.
-   2. Merge the "Prepare x.y.z" pull request.
-   3. Open a terminal window in the `stylelint` repository.
-   4. Run `npm run release`.
-   5. Select the version from the [`np`](https://github.com/sindresorhus/np) prompt that matches the one in the changelog.
-   6. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
-   7. Confirm the creation of the release at [stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases).
+   1. Ensure `CHANGELOG.md` has the correct date (UTC) for the latest release.
+   2. Add a summary about what's changed including if there's a new config.
+   3. If necessary, reorder the changelog entries in the "Prepare x.y.z" pull request so that the widest-reaching changes come first.
+   4. Merge the "Prepare x.y.z" pull request.
+   5. Open a terminal window in the `stylelint` repository.
+   6. Run `npm run release`.
+   7. Select the version from the [`np`](https://github.com/sindresorhus/np) prompt that matches the one in the changelog.
+   8. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
+   9. Confirm the creation of the release at [stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases).
 6. If necessary, release `stylelint-config-*`:
    1. Change to the `stylelint-config-*` repository.
    2. Repeat steps 5 to 8 above for that repository.
@@ -26,10 +28,6 @@
    3. Check and merge a pull request created by the action.
    4. Confirm the deployment of the update to [stylelint.io](https://stylelint.io).
 8. Check that [stylelint.io/demo](https://stylelint.io/demo) installs the latest Stylelint and config versions.
-9. Compose a tweet that:
-   - announces the release
-   - communicates what has changed
-   - links to the appropriate heading in the changelog on [stylelint.io](https://stylelint.io)
 
 ## New release issue template
 
@@ -40,5 +38,4 @@
 - [ ] stylelint-config-standard update/release
 - [ ] stylelint.io update
 - [ ] stylelint-demo check
-- [ ] tweet
 ```

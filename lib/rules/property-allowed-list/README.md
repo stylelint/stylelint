@@ -4,45 +4,52 @@ Specify a list of allowed properties.
 
 <!-- prettier-ignore -->
 ```css
-a { display: block; }
+a { color: red; }
 /** ↑
  * This property */
 ```
 
-This rule ignores variables (`$sass`, `@less`, `--custom-property`).
-
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+This rule ignores preprocessor variables (e.g. `$sass`, `@less`).
 
 ## Options
 
-`array|string|regex`: `["array", "of", /properties/, "regex"]|"property"|"/regex/"|/regex/`
+### `Array<string>`
 
-If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
+```json
+["array", "of", "properties", "/regex/"]
+```
 
 Given:
 
 ```json
-["display", "animation", "/^background/"]
+{
+  "property-allowed-list": ["display", "animation", "/^background/", "--foo"]
+}
 ```
 
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { color: pink; }
+a { color: red; }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
   animation: my-animation 2s;
-  color: pink;
+  color: red;
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a { borkgrund: orange; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { --bar: red; }
 ```
 
 The following patterns are _not_ considered problems:
@@ -68,10 +75,15 @@ a {
 
 <!-- prettier-ignore -->
 ```css
-a { background: pink; }
+a { background: red; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { background-color: pink; }
+a { background-color: red; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { --foo: red; }
 ```

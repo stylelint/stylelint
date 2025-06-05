@@ -11,11 +11,25 @@ a { width: 100pixels; }
 
 This rule considers units defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+This rule overlaps with:
+
+- [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
+- [`at-rule-prelude-no-invalid`](../at-rule-prelude-no-invalid/README.md)
+- [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
+- [`media-feature-name-value-no-unknown`](../media-feature-name-value-no-unknown/README.md)
+- [`media-query-no-invalid`](../media-query-no-invalid/README.md)
+
+We recommend using these rules for CSS and this rule for CSS-like languages, such as SCSS and Less.
 
 ## Options
 
 ### `true`
+
+```json
+{
+  "unit-no-unknown": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -65,12 +79,18 @@ a {
 
 ## Optional secondary options
 
-### `ignoreUnits: ["/regex/", /regex/, "string"]`
+### `ignoreUnits`
+
+```json
+{ "ignoreUnits": ["array", "of", "units", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--foo-/", "--bar"]
+{
+  "unit-no-unknown": [true, { "ignoreUnits": ["/^--foo-/", "--bar"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
@@ -89,12 +109,21 @@ a {
 }
 ```
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Given:
 
 ```json
-["foo", "/^my-/", "/^YOUR-/i"]
+{
+  "unit-no-unknown": [
+    true,
+    { "ignoreFunctions": ["foo", "/^my-/", "/^YOUR-/i"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

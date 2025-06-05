@@ -23,11 +23,15 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"numeric"|"named-where-possible"`
-
 ### `"numeric"`
 
 `font-weight` values _must always_ be numbers.
+
+```json
+{
+  "font-weight-notation": "numeric"
+}
+```
 
 The following patterns are considered problems:
 
@@ -67,6 +71,12 @@ a { font: italic 400 20px; }
 
 `font-weight` values _must always_ be keywords when an appropriate keyword is available.
 
+```json
+{
+  "font-weight-notation": "named-where-possible"
+}
+```
+
 This means that only `400` and `700` will be rejected, because those are the only numbers with keyword equivalents (`normal` and `bold`).
 
 The following patterns are considered problems:
@@ -95,9 +105,23 @@ a { font: italic normal 20px sans-serif; }
 
 ## Optional secondary options
 
-### `ignore: ["relative"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"relative"`
 
 Ignore the [_relative_](https://drafts.csswg.org/css-fonts/#font-weight-prop) keyword names of `bolder` and `lighter`.
+
+Given:
+
+```json
+{
+  "font-weight-notation": ["numeric", { "ignore": ["relative"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 

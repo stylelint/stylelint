@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Prepare release
-        uses: stylelint/changelog-to-github-release-action@main
+        uses: stylelint/changelog-to-github-release-action@4c981d6bca2ec40fd7c25b43e4e5ad75ba07fc5a # 0.3.1
         with:
           tag: ${{ github.ref_name }}
           draft: true

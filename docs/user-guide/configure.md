@@ -1,17 +1,12 @@
 # Configuring
 
-Stylelint expects a configuration object, and looks for one in a:
+Stylelint expects a configuration object.
 
-- `stylelint.config.js` or `.stylelintrc.js` file
-  - Which module system to use depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js (e.g., `"type": "module"` in `package.json`).
-- `stylelint.config.mjs` or `.stylelintrc.mjs` file using `export default` (ES module)
-- `stylelint.config.cjs` or `.stylelintrc.cjs` file using `module.exports` (CommonJS)
-- `.stylelintrc.json`, `.stylelintrc.yml`, or `.stylelintrc.yaml` file
-- `.stylelintrc` file in JSON or YAML format
-  - We recommend adding an extension (e.g., `.json`) to help your editor provide syntax checking and highlighting.
-- `stylelint` property in `package.json`
+Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` file that exports one. You can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) options to short-circuit the search.
 
-ES module example:
+The style of export depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js, e.g., `"type": "module"` in your `package.json` file. You can use the `stylelint.config.mjs` or `stylelint.config.cjs` filename to be explicit.
+
+Example `stylelint.config.js` file:
 
 ```js
 /** @type {import('stylelint').Config} */
@@ -23,29 +18,15 @@ export default {
 ```
 
 > [!NOTE]
-> The `@type` JSDoc annotation enables Typescript to autocomplete and type-check.
-
-CommonJS example:
-
-```js
-module.exports = {
-  rules: {
-    "block-no-empty": true
-  }
-};
-```
-
-JSON example:
-
-```json
-{
-  "rules": {
-    "block-no-empty": true
-  }
-}
-```
-
-Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) option to short-circuit the search.
+> Stylelint currently supports other configuration locations and formats, but we may remove these in the future:
+>
+> - `.stylelintrc.js` file using `export default` or `module.exports`
+> - `.stylelintrc.mjs` file using `export default`
+> - `.stylelintrc.cjs` file using `module.exports`
+> - `.stylelintrc` file in YAML or JSON format
+> - `.stylelintrc.yml` or `.stylelintrc.yaml` file
+> - `.stylelintrc.json` file
+> - `stylelint` property in `package.json`
 
 The configuration object has the following properties:
 
@@ -102,7 +83,13 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-Some rules and options accept regex. You can enforce these common cases:
+Some rules accept regular expressions (regex) in the `"/regex/"` format. If you surround a string option with `"/"`, it'll be interpreted as a regex. For example, `"/.+/"` matches any string. You can specify a regex literal in JavaScript, such as `/.+/`, rather than a string with `"/"`.
+
+The `"/regex/"` format is also available in some object keys. For example, when `{ "/^margin/": ["px"] }` is given, the key matches `margin`, `margin-top`, `margin-inline`, etc.
+
+The `*-pattern` rules translate the given string without `"/"` into a regex, like `"^foo"` into `new RegExp("^foo")`. In this case, you can directly specify a regex literal in JavaScript, such as `/^foo/`.
+
+You can enforce these common cases:
 
 <!-- prettier-ignore -->
 - kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
@@ -147,7 +134,7 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
-Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
+Some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
 
 Via JavaScript:
 
@@ -238,7 +225,7 @@ For example:
 
 Reporters may use these severity levels to display problems or exit the process differently.
 
-Experimental feature: some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
+Some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
 
 This function must return `"error"`, `"warning"`, or `null`. When it would return `null`, the `defaultSeverity` would be used.
 
@@ -271,6 +258,188 @@ But the following pattern would be reported as a warning:
 <!-- prettier-ignore -->
 ```css
 a[data-auto="1"] {}
+```
+
+## `languageOptions`
+
+You can customize the syntax to define or extend the syntax for at-rules, properties, types, and CSS-wide keywords.
+
+### `syntax`
+
+You can extend or modify the default CSS syntax to customize the following aspects:
+
+- `atRules`: Define custom at-rules with specific `prelude` and `descriptors` syntax
+- `cssWideKeywords`: Extend the list of CSS-wide keywords with custom values
+- `properties`: Customize the syntax of specific properties
+- `types`: Extend or modify type definitions used in property values
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "example": {
+          "comment": "Example at-rule",
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "foo": "<number>",
+            "bar": "<color>"
+          }
+        }
+      },
+      "cssWideKeywords": ["my-global-value"],
+      "properties": { "top": "| <--foo()>" },
+      "types": { "--foo()": "--foo( <length-percentage> )" }
+    }
+  },
+  "rules": {
+    "at-rule-descriptor-no-unknown": true,
+    "at-rule-descriptor-value-no-unknown": true,
+    "at-rule-prelude-no-invalid": true,
+    "declaration-property-value-no-unknown": true
+  }
+}
+```
+
+The following rules are configured via the `languageOptions` property:
+
+- [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)
+- [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)
+- [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)
+- [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
+- [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
+- [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)
+
+#### `AtRules`
+
+You can customize at-rules by defining their expected prelude and descriptors.
+For example, to support a new at-rule `@foo` with specific descriptors:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "foo": {
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "bar": "<number>",
+            "baz": "<color>"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+When `at-rule-descriptor-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { qux: 10; }
+```
+
+When `at-rule-descriptor-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { bar: red; }
+```
+
+In both cases, the following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { bar: 10; baz: red; }
+```
+
+#### `cssWideKeywords`
+
+You can add custom global keywords that are accepted as valid property values.
+For example, to add `-moz-initial` to the [wide keywords](https://drafts.csswg.org/css-values-4/#css-wide-keywords):
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "cssWideKeywords": ["-moz-initial"]
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: foo; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: -moz-initial; }
+```
+
+#### `properties`
+
+You can extend or modify the syntax for specific properties.
+For example, to support a custom `foo` property that accepts `<color>` values:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "properties": { "foo": "<color>" }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { foo: 10px; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { foo: red; }
+```
+
+#### `types`
+
+You can extend or modify the syntax for specific types.
+For example, to support a new function `--foo()` that accepts `<length-percentage>` values and use it within the top property:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "types": { "--foo()": "--foo( <length-percentage> )" },
+      "properties": { "top": "| <--foo()>" }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(red); }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(10px); }
 ```
 
 ## `extends`
@@ -391,6 +560,7 @@ The value of the `overrides` property is an array of objects. Each object:
 
 - must contain a `files` property, which is an array of glob patterns that specify which files the configuration should be applied to
 - should contain at least one other regular configuration property, such as `customSyntax`, `rules`, `extends`, etc.
+- may contain a `name` property to provide a description of the override's purpose
 
 The `customSyntax` property will be replaced, whereas `plugins`, `extends`, `rules`, etc. will be appended.
 

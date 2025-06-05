@@ -15,7 +15,7 @@ There's a lot you can do. For example, if you only want to allow:
 - `px` for borders
 - `rem` for paddings and gaps
 
-You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list) and [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list) rules:
+You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md) and [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list/README.md) rules:
 
 ```diff json
 {
@@ -30,7 +30,7 @@ You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list) and [`d
 }
 ```
 
-Or you can enforce the `hsl()` color notation using the [`color-named`](../../lib/rules/color-named), [`color-no-hex`](../../lib/rules/color-no-hex),[`function-disallowed-list`](../../lib/rules/function-disallowed-list) rules:
+Or you can enforce the `hsl()` color notation using the [`color-named`](../../lib/rules/color-named/README.md), [`color-no-hex`](../../lib/rules/color-no-hex/README.md),[`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md) rules:
 
 ```diff json
 {
@@ -62,25 +62,42 @@ In addition to the [built-in rules](rules.md), there are custom rules that you c
 
 Custom rules are typically written by communities to support methodologies, toolsets, non-standard CSS features, or very specific use cases.
 
-You can add custom rules to your config by extending a shared config that includes them or by using a plugin directly. For example, you can order your properties by extending the [recess order config](https://www.npmjs.com/package/stylelint-config-recess-order), which includes the [order plugin](https://www.npmjs.com/package/stylelint-order):
+You can add custom rules to your config by extending a shared config that includes them or by using a plugin directly. For example, you can order your properties into groups by extending the [recess order config](https://www.npmjs.com/package/stylelint-config-recess-order):
 
 ```diff json
 {
   "extends": [
-    "stylelint-config-standard"
+-   "stylelint-config-standard"
++   "stylelint-config-standard",
 +   "stylelint-config-recess-order"
   ]
 }
 ```
 
-Or you can use [the plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to alphabetize your properties:
+Or alphabetize them by extending the [alphabetical order config](https://www.npmjs.com/package/stylelint-config-alphabetical-order):
+
+```diff json
+{
+  "extends": [
+-   "stylelint-config-standard"
++   "stylelint-config-standard",
++   "stylelint-config-alphabetical-order"
+  ]
+}
+```
+
+Or you can use the [order plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to specify your own order:
 
 ```diff json
 {
   "extends": ["stylelint-config-standard"],
 + "plugins": ["stylelint-order"],
 + "rules": {
-+   "order/properties-alphabetical-order": true
++   "order/properties-order": [
++     "transform",
++     "top",
++     "color"
++   ]
 + }
 }
 ```
@@ -117,7 +134,7 @@ You don't have to use the [CLI](./cli.md) either; we also provide a [Node.js API
 Whichever you choose, there are [many options](./options.md) in Stylelint that you can use to customize how Stylelint works. For example, you'll likely want to use the [`--fix` option](options.md#fix) to automatically fix as many problems as possible:
 
 ```shell
-npx stylelint "**/*.css" --fix
+stylelint "**/*.css" --fix
 ```
 
 You may also want to look into the:

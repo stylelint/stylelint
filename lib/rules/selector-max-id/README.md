@@ -13,13 +13,19 @@ This rule resolves nested selectors before counting the number of ID selectors. 
 
 The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`int`: Maximum universal selectors allowed.
+### `number`
 
-For example, with `2`:
+Specify a maximum universal selectors allowed.
+
+Given:
+
+```json
+{
+  "selector-max-id": 2
+}
+```
 
 The following patterns are considered problems:
 
@@ -79,7 +85,18 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `checkContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
+### `checkContextFunctionalPseudoClasses`
+
+```json
+{
+  "checkContextFunctionalPseudoClasses": [
+    "array",
+    "of",
+    "pseudo-classes",
+    "/regex/"
+  ]
+}
+```
 
 Check selectors inside of the specified custom [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
 
@@ -88,7 +105,9 @@ This option has a higher precedence than `ignoreContextFunctionalPseudoClasses`.
 Given:
 
 ```json
-[":--foo"]
+{
+  "selector-max-id": [2, { "checkContextFunctionalPseudoClasses": [":--foo"] }]
+}
 ```
 
 The following pattern is considered a problem:
@@ -105,14 +124,30 @@ The following pattern is _not_ considered a problem:
 :--foo() {}
 ```
 
-### `ignoreContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
+### `ignoreContextFunctionalPseudoClasses`
+
+```json
+{
+  "ignoreContextFunctionalPseudoClasses": [
+    "array",
+    "of",
+    "pseudo-classes",
+    "/regex/"
+  ]
+}
+```
 
 Ignore selectors inside of the specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
 
 Given:
 
 ```json
-[":not", "/^:(h|H)as$/"]
+{
+  "selector-max-id": [
+    0,
+    { "ignoreContextFunctionalPseudoClasses": [":not", "/^:(h|H)as$/"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:

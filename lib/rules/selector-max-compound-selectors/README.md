@@ -17,20 +17,26 @@ This rule resolves nested selectors before counting the depth of a selector. Eac
 > [!WARNING]
 > The `:not()` pseudo-class is considered one compound selector irrespective to the complexity of the selector inside it. The rule _does_ process that inner selector, but does so separately, independent of the main selector.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`int`: Maximum compound selectors allowed.
+### `number`
 
-For example, with `3`:
+Specify a maximum compound selectors allowed.
+
+Given:
+
+```json
+{
+  "selector-max-compound-selectors": 3
+}
+```
 
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 .foo .bar .baz .lorem {}
-```
+````
 
 <!-- prettier-ignore -->
 ```css
@@ -63,16 +69,23 @@ div {}
 
 ## Optional secondary options
 
-### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
+### `ignoreSelectors`
+
+```json
+{ "ignoreSelectors": ["array", "of", "selectors", "/regex/"] }
+```
 
 Ignore some compound selectors. This may be useful for deep selectors like Vue's `::v-deep` or Angular's `::ng-deep` that behave more like combinators than compound selectors.
-
-For example, with `2`.
 
 Given:
 
 ```json
-["::v-deep", "/ignored/", ":not"]
+{
+  "selector-max-compound-selectors": [
+    2,
+    { "ignoreSelectors": ["::v-deep", "/ignored/", ":not"] }
+  ]
+}
 ```
 
 The following patterns are considered problems:

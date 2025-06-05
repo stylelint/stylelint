@@ -11,11 +11,15 @@ Disallow duplicate selectors within keyframe blocks.
 
 This rule is case-insensitive.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "keyframe-block-no-duplicate-selectors": true
+}
+```
 
 The following patterns are considered problems:
 

@@ -16,6 +16,12 @@ Any `@import` rules must precede all other valid at-rules and style rules in a s
 
 ### `true`
 
+```json
+{
+  "no-invalid-position-at-import-rule": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -58,12 +64,21 @@ a {}
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--my-/", "--custom"]
+{
+  "no-invalid-position-at-import-rule": [
+    true,
+    { "ignoreAtRules": ["/^--my-/", "--custom"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:
