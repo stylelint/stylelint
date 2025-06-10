@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.21.0 - 2025-06-10
+
+- Added: non-experimental support for functional `message` secondary option ([#8595](https://github.com/stylelint/stylelint/pull/8595)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.20.0 - 2025-05-29
 
 It fixes 2 bugs with the built-in rules.
