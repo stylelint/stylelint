@@ -280,7 +280,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "except": ["after-comment"] }
+    { "ignore": ["after-comment"] }
   ]
 }
 ```
@@ -292,6 +292,32 @@ The following patterns are _not_ considered problems:
 a {
   /* comment */
   --foo: pink;
+}
+```
+
+#### `"after-custom-property"`
+
+Ignore custom properties that follow another custom property.
+
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "ignore": ["after-custom-property"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+
+  --foo: pink;
+  --bar: red;
 }
 ```
 
