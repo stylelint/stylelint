@@ -280,7 +280,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "except": ["after-comment"] }
+    { "ignore": ["after-comment"] }
   ]
 }
 ```
@@ -305,7 +305,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "except": ["first-nested"] }
+    { "ignore": ["first-nested"] }
   ]
 }
 ```
@@ -331,7 +331,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "except": ["inside-single-line-block"] }
+    { "ignore": ["inside-single-line-block"] }
   ]
 }
 ```
