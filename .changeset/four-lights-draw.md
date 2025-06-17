@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Fixed: `selector-pseudo-element-no-unknown` false positive for `::picker-icon` and `::picker`
+Fixed: `selector-pseudo-*-no-unknown` false positive for form control styling selectors
