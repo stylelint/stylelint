@@ -280,7 +280,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "ignore": ["after-comment"] }
+    { "except": ["after-comment"] }
   ]
 }
 ```
