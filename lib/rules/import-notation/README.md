@@ -58,7 +58,7 @@ The following patterns are _not_ considered problems:
 
 ```json
 {
-  "import-notatin": "url"
+  "import-notation": "url"
 }
 ```
 
