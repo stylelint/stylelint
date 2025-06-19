@@ -1,5 +1,16 @@
 # Changelog
 
+## 16.21.0 - 2025-06-19
+
+It rounds out the `message` secondary option and marks it as stable, adds 1 new option to a rule, and fixes 4 bugs.
+
+- Added: non-experimental support for functional `message` secondary option ([#8595](https://github.com/stylelint/stylelint/pull/8595)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `ignore: ["after-custom-property"]` to `custom-property-empty-line-before` ([#8627](https://github.com/stylelint/stylelint/pull/8627)) ([@imkesin](https://github.com/imkesin)).
+- Fixed: `cache` configuration property not being respected ([#8599](https://github.com/stylelint/stylelint/pull/8599)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `fastest-levenshtein` import when bundling ([#8621](https://github.com/stylelint/stylelint/pull/8621)) ([@onigoetz](https://github.com/onigoetz)).
+- Fixed: `named-grid-areas-no-invalid` false positives for interpolated grid-template-areas in CSS-in-JS ([#8606](https://github.com/stylelint/stylelint/pull/8606)) ([@shahana308](https://github.com/shahana308)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives for the missing form control styling selectors ([#8623](https://github.com/stylelint/stylelint/pull/8623)) ([@tyrann0us](https://github.com/tyrann0us)).
+
 ## 16.20.0 - 2025-05-29
 
 It fixes 2 bugs with the built-in rules.
