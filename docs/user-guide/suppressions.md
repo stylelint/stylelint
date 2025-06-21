@@ -25,7 +25,7 @@ If more violations are found for the same rule in the same file, Stylelint will 
 After adding or promoting a rule to `"error"` in your configuration, capture the current violations and write a suppressions file with:
 
 ```shell
-npx stylelint "**/*.css" --fix --suppress
+stylelint "**/*.css" --fix --suppress
 ```
 
 This command:
@@ -39,7 +39,7 @@ This command:
 Want to mute only certain rules? Use `--suppress=<rule>` one or more times:
 
 ```shell
-npx stylelint "**/*.css" --fix \
+stylelint "**/*.css" --fix \
   --suppress=block-no-empty \
   --suppress=color-no-invalid-hex
 ```
@@ -54,17 +54,17 @@ If you specify a directory path, Stylelint will create a file named `stylelint-s
 
 ```shell
 # Suppress existing errors and write the file into a subdirectory
-npx stylelint "**/*.css" \
+stylelint "**/*.css" \
   --suppress \
   --suppress-location foo/
 
 # Or specify a custom filename
-npx stylelint "**/*.css" \
+stylelint "**/*.css" \
   --suppress \
   --suppress-location .stylelint-suppressions-foo.json
 
 # Later runs need the same flag
-npx stylelint "**/*.css" \
+stylelint "**/*.css" \
   --suppress-location .stylelint-suppressions-foo.json
 ```
 
@@ -73,14 +73,14 @@ npx stylelint "**/*.css" \
 Fixing a muted problem leaves an _unused_ counter behind. On the next run Stylelint warns:
 
 ```shell
-> npx stylelint "**/*.css"
+> stylelint "**/*.css"
 There are suppressions left that do not occur anymore. Consider re-running the command with `--suppress-prune`.
 ```
 
 Clean things up with:
 
 ```shell
-npx stylelint "**/*.css" --suppress-prune
+stylelint "**/*.css" --suppress-prune
 ```
 
 The command removes (or decrements) counters whose violations disappeared, keeping the file tidy.
