@@ -46,7 +46,7 @@ stylelint "**/*.css" --fix \
 
 Each flag adds or updates the counter for that rule in the suppressions file.
 
-### Changing the location
+## Changing the location
 
 You can keep the file elsewhere with `--suppress-location`, but you **must supply the same flag every time you run Stylelint**, even during routine linting, so the tool can locate and maintain the file.
 
