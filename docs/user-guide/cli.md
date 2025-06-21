@@ -132,6 +132,29 @@ A filename to assign the input. [More info](options.md#codefilename).
 
 Accept stdin input even if it is empty.
 
+### `--suppress`
+
+Suppresses all current violations and writes them to the default `stylelint-suppressions.json`.
+
+### `--suppress=<rule>`
+
+Suppresses violations for only the specified rule. You can repeat the flag to target multiple rules.
+
+### `--suppress-location`
+
+Sets an explicit path for reading and writing the suppressions file.
+
+### `--suppress-prune`
+
+Removes entries from the suppressions file that no longer correspond to violations in the codebase.
+
+> [!NOTE]
+>
+> - `--suppress` cannot be used together with either `--suppress=<rule>` or `--suppress-prune`.
+> - `--suppress`, `--suppress=<rule>`, and `--suppress-prune` cannot be combined with stdin input (`--stdin`).
+
+For more details, see the [Bulk suppressions documentation](suppressions.md).
+
 ### `--validate, --no-validate`
 
 Force enable/disable the validation of the rules' options. [More info](options.md#validate).

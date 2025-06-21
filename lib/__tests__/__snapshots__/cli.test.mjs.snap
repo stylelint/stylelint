@@ -174,6 +174,25 @@ exports[`CLI --help 1`] = `
 
       When a glob pattern matches no files, the process will exit without throwing an error.
 
+    --suppress
+
+      Suppress all current violations and write them to "stylelint-suppressions.json".
+
+    --suppress=<rule>
+
+      Suppress violations only for the specified rule. Multiple rules can be specified.
+
+    --suppress-location <path>
+
+      A path to a file or directory to be used for the suppressions file location. If a
+      directory is specified, a suppressions file will be created inside the specified
+      folder, with the name "stylelint-suppressions.json".
+
+    --suppress-prune
+
+      Remove entries for violations that no longer exist in the
+      codebase from the suppressions file.
+
     --globby-options, --go <json>
 
       Options in JSON format passed to globby.

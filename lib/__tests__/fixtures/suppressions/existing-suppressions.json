@@ -1,0 +1,7 @@
+{
+	"tests/fixtures/suppressions/empty-block.css": {
+		"empty-block": {
+			"count": 1
+		}
+	}
+}
