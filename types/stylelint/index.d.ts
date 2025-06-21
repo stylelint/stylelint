@@ -493,8 +493,10 @@ declare namespace stylelint {
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: OneOrMany<'first-nested' | 'after-comment' | 'after-custom-property'>;
-				ignore: OneOrMany<'after-comment' | 'first-nested' | 'inside-single-line-block'>;
+				except: OneOrMany<'after-comment' | 'after-custom-property' | 'first-nested'>;
+				ignore: OneOrMany<
+					'after-comment' | 'after-custom-property' | 'first-nested' | 'inside-single-line-block'
+				>;
 			}
 		>;
 		'custom-property-no-missing-var-function': CoreRule<true>;
