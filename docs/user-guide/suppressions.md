@@ -72,8 +72,8 @@ stylelint "**/*.css" \
 
 Fixing a muted problem leaves an _unused_ counter behind. On the next run Stylelint warns:
 
-```shell
-> stylelint "**/*.css"
+```sh-session
+$ stylelint "**/*.css"
 There are suppressions left that do not occur anymore. Consider re-running the command with `--suppress-prune`.
 ```
 
