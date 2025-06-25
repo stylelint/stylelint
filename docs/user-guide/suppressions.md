@@ -1,7 +1,7 @@
 # Bulk suppressions
 
 > [!WARNING]
-> This feature is still experimental. It might change significantly.
+> This feature is still **experimental**. It might change significantly.
 
 Enabling a rule as `"error"` can be difficult when an established code-base already contains many violations that cannot be auto-fixed.
 Stylelint lets you _suppress_ those legacy violations so the rule is enforced **only** for new code. You can then clear the backlog at your own pace.
