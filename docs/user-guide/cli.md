@@ -137,6 +137,12 @@ Accept stdin input even if it is empty.
 Suppresses all current violations and writes them to the default `stylelint-suppressions.json`.
 
 If a rule is specified as an argument (e.g., `--suppress=block-no-empty`), it suppresses violations for only the specified rule. You can repeat the flag to target multiple rules.
+
+> [!NOTE]
+>
+> - `--suppress` cannot be used together with `--suppress-prune`.
+> - `--suppress` cannot be combined with stdin input (e.g., piping code via `echo "..." | stylelint`).
+
 ### `--suppress-location`
 
 Sets an explicit path for reading and writing the suppressions file.
@@ -147,8 +153,8 @@ Removes entries from the suppressions file that no longer correspond to violatio
 
 > [!NOTE]
 >
-> - `--suppress` cannot be used together with either `--suppress=<rule>` or `--suppress-prune`.
-> - `--suppress`, `--suppress=<rule>`, and `--suppress-prune` cannot be combined with stdin input (`--stdin`).
+> - `--suppress-prune` cannot be used together with `--suppress`.
+> - `--suppress-prune` cannot be combined with stdin input (e.g., piping code via `echo "..." | stylelint`).
 
 For more details, see the [Bulk suppressions documentation](suppressions.md).
 
