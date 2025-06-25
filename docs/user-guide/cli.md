@@ -136,10 +136,7 @@ Accept stdin input even if it is empty.
 
 Suppresses all current violations and writes them to the default `stylelint-suppressions.json`.
 
-### `--suppress=<rule>`
-
-Suppresses violations for only the specified rule. You can repeat the flag to target multiple rules.
-
+If a rule is specified as an argument (e.g., `--suppress=block-no-empty`), it suppresses violations for only the specified rule. You can repeat the flag to target multiple rules.
 ### `--suppress-location`
 
 Sets an explicit path for reading and writing the suppressions file.
