@@ -1,5 +1,9 @@
 # Changelog
 
+## 16.21.1 - 2025-06-26
+
+- Fixed: unexpected change of syntax in computed `EditInfo` ([#8638](https://github.com/stylelint/stylelint/pull/8638)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.21.0 - 2025-06-19
 
 It rounds out the `message` secondary option and marks it as stable, adds 1 new option to a rule, and fixes 4 bugs.
