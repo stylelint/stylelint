@@ -481,7 +481,7 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
 - a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
-You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
+You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-config).
 
 ## `plugins`
 
@@ -521,7 +521,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
-You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
+You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-plugin).
 
 ## `customSyntax`
 
@@ -870,5 +870,7 @@ Options are:
     }
   };
   ```
+
+You'll find more formatters in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#formatters) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-formatter).
 
 [More info](options.md#formatter).
