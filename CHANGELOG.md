@@ -1,5 +1,13 @@
 # Changelog
 
+## 16.21.1 - 2025-07-03
+
+It fixes 3 bugs.
+
+- Fixed: unexpected change of syntax in computed `EditInfo` ([#8638](https://github.com/stylelint/stylelint/pull/8638)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for CSS variables' names containing a direction substring ([#8643](https://github.com/stylelint/stylelint/pull/8643)) ([@Solomon-mithra](https://github.com/Solomon-mithra)).
+- Fixed: `media-feature-range-notation` autofix for exact values ([#8651](https://github.com/stylelint/stylelint/pull/8651)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.21.0 - 2025-06-19
 
 It rounds out the `message` secondary option and marks it as stable, adds 1 new option to a rule, and fixes 4 bugs.
