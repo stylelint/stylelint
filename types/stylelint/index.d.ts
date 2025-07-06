@@ -871,8 +871,8 @@ declare namespace stylelint {
 
 	/** @experimental */
 	export type SuppressedViolations = {
-		[ruleName: string]: {
-			[message: string]: {
+		[path: string]: {
+			[ruleName: string]: {
 				count: number;
 			};
 		};
