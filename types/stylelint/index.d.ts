@@ -417,7 +417,7 @@ declare namespace stylelint {
 	type RejectedMessage<T extends unknown[]> = { rejected: (...args: T) => string };
 	type AutofixMessage = ExpectedMessage<[actual: string, expected: string]>;
 	type PatternMessage = ExpectedMessage<[input: string, pattern: StringOrRegex]>;
-	type MaximumMessage = ExpectedMessage<[object: string, maximum: number]>;
+	type MaximumMessage = ExpectedMessage<[selector: string, maximum: number]>;
 
 	type CoreRule<
 		P extends Primary,
@@ -594,7 +594,11 @@ declare namespace stylelint {
 			}
 		>;
 		'declaration-no-important': CoreRule<true>;
-		'declaration-property-max-values': CoreRule<Record<string, number>, {}, MaximumMessage>;
+		'declaration-property-max-values': CoreRule<
+			Record<string, number>,
+			{},
+			ExpectedMessage<[property: string, maximum: number]>
+		>;
 		'declaration-property-unit-allowed-list': CoreRule<
 			Record<string, OneOrMany<string>>,
 			{ ignore: OneOrMany<'inside-function'> },
