@@ -511,7 +511,8 @@ declare namespace stylelint {
 		'color-hex-length': CoreRule<'short' | 'long', {}, AutofixMessage>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> }
+			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> },
+			AutofixMessage & RejectedMessage<[keyword: string]>
 		>;
 		'color-no-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
 		'color-no-invalid-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
