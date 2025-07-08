@@ -413,13 +413,24 @@ declare namespace stylelint {
 		[key in `expected${string}` | `rejected${string}`]: RuleMessage;
 	};
 
-	type AutofixMessage = { expected: (actual: string, expected: string) => string };
+	type ExpectedMessage<T extends unknown[]> = { expected: (...args: T) => string };
+	type RejectedMessage<T extends unknown[]> = { rejected: (...args: T) => string };
+	type AutofixMessage = ExpectedMessage<[actual: string, expected: string]>;
+	type PatternMessage = ExpectedMessage<[input: string, pattern: StringOrRegex]>;
+	type MaximumMessage = ExpectedMessage<[selector: string, maximum: number]>;
 
 	type CoreRule<
 		P extends Primary,
 		S extends Secondary = Secondary,
 		M extends Messages = Messages,
 	> = Rule<P, S, M>;
+	type NotationRule<P extends string, S extends object = {}> = CoreRule<
+		P,
+		S,
+		ExpectedMessage<[primary: P]>
+	>;
+	type PatternRule<S extends object = {}> = CoreRule<StringOrRegex, S, PatternMessage>;
+	type MaxRule<S extends object = {}> = CoreRule<number, S, MaximumMessage>;
 
 	/** @internal */
 	export type CoreRules = {
@@ -428,11 +439,23 @@ declare namespace stylelint {
 			{ exceptProperties: OneOrMany<StringOrRegex> },
 			AutofixMessage
 		>;
-		'annotation-no-unknown': CoreRule<true, { ignoreAnnotations: OneOrMany<StringOrRegex> }>;
-		'at-rule-allowed-list': CoreRule<OneOrMany<string>>;
-		'at-rule-descriptor-no-unknown': CoreRule<true>;
-		'at-rule-descriptor-value-no-unknown': CoreRule<true>;
-		'at-rule-disallowed-list': CoreRule<OneOrMany<string>>;
+		'annotation-no-unknown': CoreRule<
+			true,
+			{ ignoreAnnotations: OneOrMany<StringOrRegex> },
+			RejectedMessage<[annotation: string]>
+		>;
+		'at-rule-allowed-list': CoreRule<OneOrMany<string>, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-descriptor-no-unknown': CoreRule<
+			true,
+			{},
+			RejectedMessage<[atRule: string, descriptor: string]>
+		>;
+		'at-rule-descriptor-value-no-unknown': CoreRule<
+			true,
+			{},
+			RejectedMessage<[descriptor: string, value: string]>
+		>;
+		'at-rule-disallowed-list': CoreRule<OneOrMany<string>, {}, RejectedMessage<[atRule: string]>>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -453,29 +476,45 @@ declare namespace stylelint {
 				ignoreAtRules: OneOrMany<StringOrRegex>;
 			}
 		>;
-		'at-rule-no-deprecated': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
-		'at-rule-no-unknown': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
-		'at-rule-no-vendor-prefix': CoreRule<true>;
-		'at-rule-prelude-no-invalid': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
-		'at-rule-property-required-list': CoreRule<Record<string, OneOrMany<string>>>;
+		'at-rule-no-deprecated': CoreRule<
+			true,
+			{ ignoreAtRules: OneOrMany<StringOrRegex> },
+			RejectedMessage<[atRule: string]>
+		>;
+		'at-rule-no-unknown': CoreRule<
+			true,
+			{ ignoreAtRules: OneOrMany<StringOrRegex> },
+			RejectedMessage<[atRule: string]>
+		>;
+		'at-rule-no-vendor-prefix': CoreRule<true, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-prelude-no-invalid': CoreRule<
+			true,
+			{ ignoreAtRules: OneOrMany<StringOrRegex> },
+			RejectedMessage<[atRule: string, prelude: string]>
+		>;
+		'at-rule-property-required-list': CoreRule<
+			Record<string, OneOrMany<string>>,
+			{},
+			ExpectedMessage<[atRule: string, property: string] | [atRule: string, descriptor: string]>
+		>;
 		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
-		'color-function-alias-notation': CoreRule<'with-alpha' | 'without-alpha'>;
+		'color-function-alias-notation': CoreRule<'with-alpha' | 'without-alpha', {}, AutofixMessage>;
 		'color-function-notation': CoreRule<
 			'modern' | 'legacy',
 			{ ignore: OneOrMany<'with-var-inside'> }
 		>;
-		'color-hex-alpha': CoreRule<'always' | 'never'>;
+		'color-hex-alpha': CoreRule<
+			'always' | 'never',
+			{},
+			ExpectedMessage<[hex: string]> & RejectedMessage<[hex: string]>
+		>;
 		'color-hex-length': CoreRule<'short' | 'long', {}, AutofixMessage>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> },
-			{
-				expected: (expected: string, actual: string) => string;
-				rejected: (keyword: string) => string;
-			}
+			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> }
 		>;
-		'color-no-hex': CoreRule<true>;
-		'color-no-invalid-hex': CoreRule<true>;
+		'color-no-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
+		'color-no-invalid-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
 		'comment-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -485,11 +524,15 @@ declare namespace stylelint {
 			}
 		>;
 		'comment-no-empty': CoreRule<true>;
-		'comment-pattern': CoreRule<StringOrRegex>;
+		'comment-pattern': CoreRule<StringOrRegex, {}, ExpectedMessage<[pattern: StringOrRegex]>>;
 		'comment-whitespace-inside': CoreRule<'always' | 'never'>;
-		'comment-word-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'container-name-pattern': CoreRule<StringOrRegex>;
-		'custom-media-pattern': CoreRule<StringOrRegex>;
+		'comment-word-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[pattern: StringOrRegex]>
+		>;
+		'container-name-pattern': PatternRule;
+		'custom-media-pattern': PatternRule;
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -499,11 +542,16 @@ declare namespace stylelint {
 				>;
 			}
 		>;
-		'custom-property-no-missing-var-function': CoreRule<true>;
-		'custom-property-pattern': CoreRule<StringOrRegex>;
+		'custom-property-no-missing-var-function': CoreRule<
+			true,
+			{},
+			RejectedMessage<[property: string]>
+		>;
+		'custom-property-pattern': PatternRule;
 		'declaration-block-no-duplicate-custom-properties': CoreRule<
 			true,
-			{ ignoreProperties: OneOrMany<StringOrRegex> }
+			{ ignoreProperties: OneOrMany<StringOrRegex> },
+			RejectedMessage<[property: string]>
 		>;
 		'declaration-block-no-duplicate-properties': CoreRule<
 			true,
@@ -515,17 +563,27 @@ declare namespace stylelint {
 					| 'consecutive-duplicates-with-same-prefixless-values'
 				>;
 				ignoreProperties: OneOrMany<StringOrRegex>;
-			}
+			},
+			RejectedMessage<[property: string]>
 		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
 			{
 				ignoreShorthands: OneOrMany<StringOrRegex>;
 				ignoreLonghands: OneOrMany<string>;
-			}
+			},
+			ExpectedMessage<[property: string]>
 		>;
-		'declaration-block-no-shorthand-property-overrides': CoreRule<true>;
-		'declaration-block-single-line-max-declarations': CoreRule<number>;
+		'declaration-block-no-shorthand-property-overrides': CoreRule<
+			true,
+			{},
+			RejectedMessage<[shorthand: string, property: string]>
+		>;
+		'declaration-block-single-line-max-declarations': CoreRule<
+			number,
+			{},
+			ExpectedMessage<[maximum: number]>
+		>;
 		'declaration-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -536,15 +594,30 @@ declare namespace stylelint {
 			}
 		>;
 		'declaration-no-important': CoreRule<true>;
-		'declaration-property-max-values': CoreRule<Record<string, number>>;
+		'declaration-property-max-values': CoreRule<
+			Record<string, number>,
+			{},
+			ExpectedMessage<[property: string, maximum: number]>
+		>;
 		'declaration-property-unit-allowed-list': CoreRule<
 			Record<string, OneOrMany<string>>,
-			{ ignore: OneOrMany<'inside-function'> }
+			{ ignore: OneOrMany<'inside-function'> },
+			RejectedMessage<[property: string, unit: string]>
 		>;
-		'declaration-property-unit-disallowed-list': CoreRule<Record<string, OneOrMany<string>>>;
-		'declaration-property-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
+		'declaration-property-unit-disallowed-list': CoreRule<
+			Record<string, OneOrMany<string>>,
+			{},
+			RejectedMessage<[property: string, unit: string]>
+		>;
+		'declaration-property-value-allowed-list': CoreRule<
+			Record<string, OneOrMany<StringOrRegex>>,
+			{},
+			RejectedMessage<[property: string, value: string]>
+		>;
 		'declaration-property-value-disallowed-list': CoreRule<
-			Record<string, OneOrMany<StringOrRegex>>
+			Record<string, OneOrMany<StringOrRegex>>,
+			{},
+			RejectedMessage<[property: string, value: string]>
 		>;
 		'declaration-property-value-keyword-no-deprecated': CoreRule<
 			true,
@@ -557,14 +630,20 @@ declare namespace stylelint {
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 				propertiesSyntax: Record<string, string>;
 				typesSyntax: Record<string, string>;
+			},
+			RejectedMessage<[property: string, value: string]> & {
+				rejectedParseError: (property: string, value: string) => string;
 			}
 		>;
 		'font-family-name-quotes': CoreRule<
-			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword'
+			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
+			{},
+			ExpectedMessage<[name: string]> & RejectedMessage<[name: string]>
 		>;
 		'font-family-no-duplicate-names': CoreRule<
 			true,
-			{ ignoreFontFamilyNames: OneOrMany<StringOrRegex> }
+			{ ignoreFontFamilyNames: OneOrMany<StringOrRegex> },
+			RejectedMessage<[name: string]>
 		>;
 		'font-family-no-missing-generic-family-keyword': CoreRule<
 			true,
@@ -576,34 +655,60 @@ declare namespace stylelint {
 		>;
 		'function-allowed-list': CoreRule<
 			OneOrMany<StringOrRegex>,
+			{ exceptWithoutPropertyFallback: OneOrMany<StringOrRegex> },
+			RejectedMessage<[name: string]>
+		>;
+		'function-calc-no-unspaced-operator': CoreRule<
+			true,
+			{},
 			{
-				exceptWithoutPropertyFallback?: OneOrMany<StringOrRegex>;
+				expectedAfter: (operator: string) => string;
+				expectedBefore: (operator: string) => string;
 			}
 		>;
-		'function-calc-no-unspaced-operator': CoreRule<true>;
-		'function-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'function-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[name: string]>
+		>;
 		'function-linear-gradient-no-nonstandard-direction': CoreRule<true>;
 		'function-name-case': CoreRule<
 			'lower' | 'upper',
 			{ ignoreFunctions: OneOrMany<StringOrRegex> },
 			AutofixMessage
 		>;
-		'function-no-unknown': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
+		'function-no-unknown': CoreRule<
+			true,
+			{ ignoreFunctions: OneOrMany<StringOrRegex> },
+			RejectedMessage<[name: string]>
+		>;
 		'function-url-no-scheme-relative': CoreRule<true>;
 		'function-url-quotes': CoreRule<'always' | 'never', { except: OneOrMany<'empty'> }>;
-		'function-url-scheme-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'function-url-scheme-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'function-url-scheme-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[scheme: string]>
+		>;
+		'function-url-scheme-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[scheme: string]>
+		>;
 		'hue-degree-notation': CoreRule<'angle' | 'number', {}, AutofixMessage>;
 		'import-notation': CoreRule<'string' | 'url', {}, AutofixMessage>;
-		'keyframe-block-no-duplicate-selectors': CoreRule<true>;
+		'keyframe-block-no-duplicate-selectors': CoreRule<
+			true,
+			{},
+			RejectedMessage<[selector: string]>
+		>;
 		'keyframe-declaration-no-important': CoreRule<true>;
 		'keyframe-selector-notation': CoreRule<
 			'keyword' | 'percentage' | 'percentage-unless-within-keyword-only-block',
 			{},
 			AutofixMessage
 		>;
-		'keyframes-name-pattern': CoreRule<StringOrRegex>;
-		'layer-name-pattern': CoreRule<StringOrRegex>;
+		'keyframes-name-pattern': PatternRule;
+		'layer-name-pattern': PatternRule;
 		'length-zero-no-unit': CoreRule<
 			true,
 			{
@@ -620,24 +725,58 @@ declare namespace stylelint {
 				ignoreAtRules: OneOrMany<StringOrRegex>;
 				ignoreRules: OneOrMany<StringOrRegex>;
 				ignorePseudoClasses: OneOrMany<StringOrRegex>;
-			}
+			},
+			ExpectedMessage<[depth: number]>
 		>;
-		'media-feature-name-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'media-feature-name-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'media-feature-name-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[name: string]>
+		>;
+		'media-feature-name-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[name: string]>
+		>;
 		'media-feature-name-no-unknown': CoreRule<
 			true,
-			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> }
+			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> },
+			RejectedMessage<[name: string]>
 		>;
 		'media-feature-name-no-vendor-prefix': CoreRule<true>;
-		'media-feature-name-unit-allowed-list': CoreRule<Record<string, OneOrMany<string>>>;
-		'media-feature-name-value-allowed-list': CoreRule<Record<string, OneOrMany<StringOrRegex>>>;
-		'media-feature-name-value-no-unknown': CoreRule<true>;
-		'media-feature-range-notation': CoreRule<'prefix' | 'context'>;
-		'media-query-no-invalid': CoreRule<true, { ignoreFunctions: OneOrMany<StringOrRegex> }>;
+		'media-feature-name-unit-allowed-list': CoreRule<
+			Record<string, OneOrMany<string>>,
+			{},
+			RejectedMessage<[unit: string, name: string]>
+		>;
+		'media-feature-name-value-allowed-list': CoreRule<
+			Record<string, OneOrMany<StringOrRegex>>,
+			{},
+			RejectedMessage<[name: string, value: string]>
+		>;
+		'media-feature-name-value-no-unknown': CoreRule<
+			true,
+			{},
+			RejectedMessage<[name: string, value: string]>
+		>;
+		'media-feature-range-notation': NotationRule<'prefix' | 'context'>;
+		'media-query-no-invalid': CoreRule<
+			true,
+			{ ignoreFunctions: OneOrMany<StringOrRegex> },
+			RejectedMessage<[query: string, reason: string]>
+		>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
-		'no-descending-specificity': CoreRule<true, { ignore: OneOrMany<'selectors-within-list'> }>;
-		'no-duplicate-at-import-rules': CoreRule<true>;
-		'no-duplicate-selectors': CoreRule<true, { disallowInList: boolean }>;
+		'no-descending-specificity': CoreRule<
+			true,
+			{ ignore: OneOrMany<'selectors-within-list'> },
+			ExpectedMessage<[selector: string, selector: string]>
+		>;
+		'no-duplicate-at-import-rules': CoreRule<true, {}, RejectedMessage<[url: string]>>;
+		'no-duplicate-selectors': CoreRule<
+			true,
+			{ disallowInList: boolean },
+			RejectedMessage<[selector: string, line: number]>
+		>;
 		'no-empty-source': CoreRule<true>;
 		'no-invalid-double-slash-comments': CoreRule<true>;
 		'no-invalid-position-at-import-rule': CoreRule<
@@ -645,9 +784,9 @@ declare namespace stylelint {
 			{ ignoreAtRules: OneOrMany<StringOrRegex> }
 		>;
 		'no-irregular-whitespace': CoreRule<true>;
-		'no-unknown-animations': CoreRule<true>;
-		'no-unknown-custom-media': CoreRule<true>;
-		'no-unknown-custom-properties': CoreRule<true>;
+		'no-unknown-animations': CoreRule<true, {}, RejectedMessage<[name: string]>>;
+		'no-unknown-custom-media': CoreRule<true, {}, RejectedMessage<[name: string]>>;
+		'no-unknown-custom-properties': CoreRule<true, {}, RejectedMessage<[property: string]>>;
 		'number-max-precision': CoreRule<
 			number,
 			{
@@ -657,8 +796,16 @@ declare namespace stylelint {
 			},
 			AutofixMessage
 		>;
-		'property-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'property-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'property-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[property: string]>
+		>;
+		'property-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[property: string]>
+		>;
 		'property-no-unknown': CoreRule<
 			true,
 			{
@@ -666,9 +813,14 @@ declare namespace stylelint {
 				ignoreAtRules: OneOrMany<StringOrRegex>;
 				ignoreProperties: OneOrMany<StringOrRegex>;
 				ignoreSelectors: OneOrMany<StringOrRegex>;
-			}
+			},
+			RejectedMessage<[property: string]>
 		>;
-		'property-no-vendor-prefix': CoreRule<true, { ignoreProperties: OneOrMany<StringOrRegex> }>;
+		'property-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreProperties: OneOrMany<StringOrRegex> },
+			RejectedMessage<[property: string]>
+		>;
 		'rule-empty-line-before': CoreRule<
 			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
 			{
@@ -686,66 +838,108 @@ declare namespace stylelint {
 			Record<string, OneOrMany<StringOrRegex>>,
 			{
 				ignore: OneOrMany<'keyframe-selectors'>;
-			}
+			},
+			RejectedMessage<[selector: string, property: string]>
 		>;
-		'selector-anb-no-unmatchable': CoreRule<true>;
-		'selector-attribute-name-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'selector-attribute-operator-allowed-list': CoreRule<OneOrMany<string>>;
-		'selector-attribute-operator-disallowed-list': CoreRule<OneOrMany<string>>;
-		'selector-attribute-quotes': CoreRule<'always' | 'never'>;
-		'selector-class-pattern': CoreRule<StringOrRegex, { resolveNestedSelectors: boolean }>;
-		'selector-combinator-allowed-list': CoreRule<OneOrMany<string>>;
-		'selector-combinator-disallowed-list': CoreRule<OneOrMany<string>>;
+		'selector-anb-no-unmatchable': CoreRule<true, {}, RejectedMessage<[selector: string]>>;
+		'selector-attribute-name-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[name: string]>
+		>;
+		'selector-attribute-operator-allowed-list': CoreRule<
+			OneOrMany<string>,
+			{},
+			RejectedMessage<[operator: string]>
+		>;
+		'selector-attribute-operator-disallowed-list': CoreRule<
+			OneOrMany<string>,
+			{},
+			RejectedMessage<[operator: string]>
+		>;
+		'selector-attribute-quotes': CoreRule<
+			'always' | 'never',
+			{},
+			ExpectedMessage<[value: string]> & RejectedMessage<[value: string]>
+		>;
+		'selector-class-pattern': PatternRule<{ resolveNestedSelectors: boolean }>;
+		'selector-combinator-allowed-list': CoreRule<
+			OneOrMany<string>,
+			{},
+			RejectedMessage<[combinator: string]>
+		>;
+		'selector-combinator-disallowed-list': CoreRule<
+			OneOrMany<string>,
+			{},
+			RejectedMessage<[combinator: string]>
+		>;
 		'selector-disallowed-list': CoreRule<
 			OneOrMany<StringOrRegex>,
-			{ splitList: boolean; ignore: OneOrMany<'inside-block' | 'keyframe-selectors'> }
+			{ splitList: boolean; ignore: OneOrMany<'inside-block' | 'keyframe-selectors'> },
+			RejectedMessage<[selector: string]>
 		>;
-		'selector-id-pattern': CoreRule<StringOrRegex>;
-		'selector-max-attribute': CoreRule<number, { ignoreAttributes: OneOrMany<StringOrRegex> }>;
-		'selector-max-class': CoreRule<number>;
-		'selector-max-combinators': CoreRule<number>;
-		'selector-max-compound-selectors': CoreRule<
-			number,
-			{ ignoreSelectors: OneOrMany<StringOrRegex> }
+		'selector-id-pattern': PatternRule;
+		'selector-max-attribute': MaxRule<{ ignoreAttributes: OneOrMany<StringOrRegex> }>;
+		'selector-max-class': MaxRule;
+		'selector-max-combinators': MaxRule;
+		'selector-max-compound-selectors': MaxRule<{ ignoreSelectors: OneOrMany<StringOrRegex> }>;
+		'selector-max-id': MaxRule<{
+			ignoreContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
+			checkContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
+		}>;
+		'selector-max-pseudo-class': MaxRule;
+		'selector-max-specificity': CoreRule<
+			string,
+			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[selector: string, specificity: string]>
 		>;
-		'selector-max-id': CoreRule<
-			number,
-			{
-				ignoreContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
-				checkContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
-			}
-		>;
-		'selector-max-pseudo-class': CoreRule<number>;
-		'selector-max-specificity': CoreRule<string, { ignoreSelectors: OneOrMany<StringOrRegex> }>;
-		'selector-max-type': CoreRule<
-			number,
-			{
-				ignore: OneOrMany<
-					'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'
-				>;
-				ignoreTypes: OneOrMany<StringOrRegex>;
-			}
-		>;
-		'selector-max-universal': CoreRule<number, { ignoreAfterCombinators: OneOrMany<string> }>;
-		'selector-nested-pattern': CoreRule<StringOrRegex, { splitList: boolean }>;
+		'selector-max-type': MaxRule<{
+			ignore: OneOrMany<'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'>;
+			ignoreTypes: OneOrMany<StringOrRegex>;
+		}>;
+		'selector-max-universal': MaxRule<{ ignoreAfterCombinators: OneOrMany<string> }>;
+		'selector-nested-pattern': PatternRule<{ splitList: boolean }>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
-			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> }
+			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
+			RejectedMessage<[selector: string]>
 		>;
-		'selector-no-vendor-prefix': CoreRule<true, { ignoreSelectors: OneOrMany<StringOrRegex> }>;
-		'selector-not-notation': CoreRule<'simple' | 'complex'>;
-		'selector-pseudo-class-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'selector-pseudo-class-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'selector-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			RejectedMessage<[selector: string]>
+		>;
+		'selector-not-notation': NotationRule<'simple' | 'complex'>;
+		'selector-pseudo-class-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[selector: string]>
+		>;
+		'selector-pseudo-class-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[selector: string]>
+		>;
 		'selector-pseudo-class-no-unknown': CoreRule<
 			true,
-			{ ignorePseudoClasses: OneOrMany<StringOrRegex> }
+			{ ignorePseudoClasses: OneOrMany<StringOrRegex> },
+			RejectedMessage<[selector: string]>
 		>;
-		'selector-pseudo-element-allowed-list': CoreRule<OneOrMany<StringOrRegex>>;
-		'selector-pseudo-element-colon-notation': CoreRule<'single' | 'double'>;
-		'selector-pseudo-element-disallowed-list': CoreRule<OneOrMany<StringOrRegex>>;
+		'selector-pseudo-element-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[selector: string]>
+		>;
+		'selector-pseudo-element-colon-notation': NotationRule<'single' | 'double'>;
+		'selector-pseudo-element-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[selector: string]>
+		>;
 		'selector-pseudo-element-no-unknown': CoreRule<
 			true,
-			{ ignorePseudoElements: OneOrMany<StringOrRegex> }
+			{ ignorePseudoElements: OneOrMany<StringOrRegex> },
+			RejectedMessage<[selector: string]>
 		>;
 		'selector-type-case': CoreRule<
 			'lower' | 'upper',
@@ -758,7 +952,8 @@ declare namespace stylelint {
 				ignore: OneOrMany<'custom-elements' | 'default-namespace'>;
 				ignoreNamespaces: OneOrMany<StringOrRegex>;
 				ignoreTypes: OneOrMany<StringOrRegex>;
-			}
+			},
+			RejectedMessage<[selector: string]>
 		>;
 		'shorthand-property-no-redundant-values': CoreRule<
 			true,
@@ -771,14 +966,19 @@ declare namespace stylelint {
 			true,
 			{ ignore: OneOrMany<'at-rule-preludes' | 'declaration-values'> }
 		>;
-		'syntax-string-no-invalid': CoreRule<true>;
-		'time-min-milliseconds': CoreRule<number, { ignore: OneOrMany<'delay'> }>;
+		'syntax-string-no-invalid': CoreRule<true, {}, RejectedMessage<[component: string]>>;
+		'time-min-milliseconds': CoreRule<
+			number,
+			{ ignore: OneOrMany<'delay'> },
+			ExpectedMessage<[ms: number]>
+		>;
 		'unit-allowed-list': CoreRule<
 			OneOrMany<string>,
 			{
 				ignoreFunctions: OneOrMany<StringOrRegex>;
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
-			}
+			},
+			RejectedMessage<[unit: string]>
 		>;
 		'unit-disallowed-list': CoreRule<
 			OneOrMany<string>,
@@ -786,14 +986,16 @@ declare namespace stylelint {
 				ignoreFunctions: OneOrMany<StringOrRegex>;
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 				ignoreMediaFeatureNames: Record<string, OneOrMany<StringOrRegex>>;
-			}
+			},
+			RejectedMessage<[unit: string]>
 		>;
 		'unit-no-unknown': CoreRule<
 			true,
 			{
 				ignoreUnits: OneOrMany<StringOrRegex>;
 				ignoreFunctions: OneOrMany<StringOrRegex>;
-			}
+			},
+			RejectedMessage<[unit: string]>
 		>;
 		'value-keyword-case': CoreRule<
 			'lower' | 'upper',
@@ -805,7 +1007,11 @@ declare namespace stylelint {
 			},
 			AutofixMessage
 		>;
-		'value-no-vendor-prefix': CoreRule<true, { ignoreValues: OneOrMany<StringOrRegex> }>;
+		'value-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreValues: OneOrMany<StringOrRegex> },
+			RejectedMessage<[value: string]>
+		>;
 	};
 
 	/** @internal */
