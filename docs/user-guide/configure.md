@@ -46,7 +46,7 @@ The `rules` property is _an object whose keys are rule names and values are rule
 
 Each rule configuration fits one of the following formats:
 
-- `null` (to turn the rule off)
+- `null` or `undefined` (to turn the rule off)
 - a single value (the primary option)
 - an array with two values (`[primary option, secondary options]`)
 
