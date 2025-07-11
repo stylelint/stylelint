@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `no-descending-specificity` line number to the referenced selector in message
+Added: `no-descending-specificity` report message includes line number of the anchoring selector
