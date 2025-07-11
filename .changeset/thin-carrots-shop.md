@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": minor
 ---
 
 Added: `no-descending-specificity` line number to the referenced selector in message
