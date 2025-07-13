@@ -1076,14 +1076,12 @@ declare namespace stylelint {
 	/** @internal */
 	export type FixMode = 'lax' | 'strict';
 
-	/** @experimental */
-	export type SuppressedViolations = {
-		[path: string]: {
-			[ruleName: string]: {
-				count: number;
-			};
-		};
-	};
+	/**
+	 * @experimental
+	 *
+	 * file path -> rule name -> { count: number }
+	 */
+	export type SuppressedViolations = Map<string, Map<string, { count: number }>>;
 
 	/**
 	 * A CSS syntax error.
