@@ -56,15 +56,21 @@ The following patterns are _not_ considered problems:
 
 ## Reference of deprecated media types
 
-```
-tty
-tv
-projection
-handheld
-braille
-embossed
-aural
-speech
-```
+Several CSS media types defined in earlier specifications have been deprecated and should no longer be used. According to the CSS [Media Queries Level 4 specification](https://www.w3.org/TR/mediaqueries-4/#media-types), the following media types are deprecated:
 
-For more details, see the [Media Types](https://drafts.csswg.org/mediaqueries/#media-types) section.
+- `tty`
+- `tv`
+- `projection`
+- `handheld`
+- `braille`
+- `embossed`
+- `aural`
+- `speech`
+
+Currently, the recommended media types are:
+
+- `all`
+- `screen`
+- `print`
+
+The deprecated media types were removed because they were either never widely implemented or their use cases are now better handled by media features rather than broad device categories.
