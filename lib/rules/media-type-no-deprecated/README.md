@@ -56,7 +56,7 @@ The following patterns are _not_ considered problems:
 
 ## Reference of deprecated media types
 
-Several CSS media types defined in earlier specifications have been deprecated and should no longer be used. According to the CSS [Media Queries Level 4 specification](https://www.w3.org/TR/mediaqueries-4/#media-types), the following media types are deprecated:
+Several CSS media types defined in earlier specifications have been deprecated and should no longer be used. According to the CSS [media queries specification](https://drafts.csswg.org/mediaqueries-5/#media-types), the following media types are recognized as valid but match nothing:
 
 - `tty`
 - `tv`
