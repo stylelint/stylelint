@@ -33,6 +33,12 @@ color: red;
 --foo: red;
 ```
 
+<!-- prettier-ignore -->
+```css
+@media (width > 10em) {
+  color: red;
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -54,4 +60,3 @@ a { --foo: red; }
   }
 }
 ```
-
