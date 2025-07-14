@@ -9,7 +9,7 @@ color: red;
  * This declaration */
 ```
 
-Declarations must be nested inside rules and at-rules. Declarations at the root level are not valid CSS.
+Declarations can only be positioned within the `<declaration-list>`, `<declaration-rule-list>` and `<block-contents>` productions.
 
 ## Options
 
@@ -30,48 +30,28 @@ color: red;
 
 <!-- prettier-ignore -->
 ```css
---custom-prop: red;
+--foo: red;
 ```
 
-<!-- prettier-ignore -->
-```css
-margin: 10px;
-padding: 5px;
-```
-
-<!-- prettier-ignore -->
-```css
-.selector { color: blue; }
-margin: 10px;
-```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-.selector { color: red; }
+a { color: red; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-.selector { --custom-prop: red; }
-```
-
-<!-- prettier-ignore -->
-```css
-:root { --custom-prop: red; }
+a { --foo: red; }
 ```
 
 <!-- prettier-ignore -->
 ```css
 @media screen {
-  color: red;
+  a {
+    color: red;
+  }
 }
 ```
 
-<!-- prettier-ignore -->
-```css
-@supports (display: grid) {
-  .component { color: red; }
-}
-```
