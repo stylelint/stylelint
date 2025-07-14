@@ -20,7 +20,7 @@ The following pattern is considered a problem:
 @media tty {}
 ```
 
-The following patterns are _not_ considered problems:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
