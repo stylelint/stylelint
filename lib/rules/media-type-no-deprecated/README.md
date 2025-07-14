@@ -9,6 +9,25 @@ Disallow deprecated media types.
  * Deprecated media type */
 ```
 
+Several CSS media types defined in earlier specifications have been deprecated and should no longer be used. According to the CSS [media queries specification](https://drafts.csswg.org/mediaqueries-5/#media-types), the following media types are recognized as valid but match nothing:
+
+- `tty`
+- `tv`
+- `projection`
+- `handheld`
+- `braille`
+- `embossed`
+- `aural`
+- `speech`
+
+Currently, the recommended media types are:
+
+- `all`
+- `screen`
+- `print`
+
+The deprecated media types were removed because they were either never widely implemented or their use cases are now better handled by media features rather than broad device categories.
+
 ## Options
 
 ### `true`
@@ -53,24 +72,3 @@ The following patterns are _not_ considered problems:
 ```css
 @media speech {}
 ```
-
-## Reference of deprecated media types
-
-Several CSS media types defined in earlier specifications have been deprecated and should no longer be used. According to the CSS [media queries specification](https://drafts.csswg.org/mediaqueries-5/#media-types), the following media types are recognized as valid but match nothing:
-
-- `tty`
-- `tv`
-- `projection`
-- `handheld`
-- `braille`
-- `embossed`
-- `aural`
-- `speech`
-
-Currently, the recommended media types are:
-
-- `all`
-- `screen`
-- `print`
-
-The deprecated media types were removed because they were either never widely implemented or their use cases are now better handled by media features rather than broad device categories.
