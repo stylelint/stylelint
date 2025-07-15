@@ -1,5 +1,13 @@
 # Changelog
 
+## 16.22.0 - 2025-07-15
+
+- Added: `messageArgs` to `color-named` ([#8663](https://github.com/stylelint/stylelint/pull/8663)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `messageArgs` to `declaration-property-value-keyword-no-deprecated` ([#8654](https://github.com/stylelint/stylelint/pull/8654)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `no-descending-specificity` report message includes line number of the anchoring selector ([#8666](https://github.com/stylelint/stylelint/pull/8666)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `at-rule-no-deprecated` false positives for `@apply` ([#8630](https://github.com/stylelint/stylelint/pull/8630)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `lightness-notation` crash with `"number"` option and single-digit percentage ([#8661](https://github.com/stylelint/stylelint/pull/8661)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.21.1 - 2025-07-03
 
 It fixes 3 bugs.
