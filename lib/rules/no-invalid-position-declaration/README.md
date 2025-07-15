@@ -5,7 +5,7 @@ Disallow invalid position declarations.
 <!-- prettier-ignore -->
 ```css
 color: red;
-/**
+/** ↑
  * This declaration */
 ```
 
