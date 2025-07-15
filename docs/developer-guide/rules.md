@@ -45,7 +45,7 @@ By default, you should use the:
 - `color` property
 - `red` value
 - `@media` at-rule name
-- `all` media feature
+- `all` media type
 - `width > 10em` container query
 - `example.org` URL
 
