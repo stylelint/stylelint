@@ -35,7 +35,7 @@ color: red;
 
 <!-- prettier-ignore -->
 ```css
-@media (width > 10em) {
+@media all {
   color: red;
 }
 ```
@@ -54,7 +54,7 @@ a { --foo: red; }
 
 <!-- prettier-ignore -->
 ```css
-@media screen {
+@media all {
   a {
     color: red;
   }
