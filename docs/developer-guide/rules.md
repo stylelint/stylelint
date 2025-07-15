@@ -47,7 +47,7 @@ By default, you should use the:
 - `@media` at-rule name
 - `all` media type
 - `width > 10em` container query
-- `example.org` URL
+- `example.com` URL
 
 You should also:
 
