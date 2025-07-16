@@ -768,7 +768,7 @@ declare namespace stylelint {
 		>;
 		'media-type-no-deprecated': CoreRule<
 			true,
-			{ ignoreMediaType: OneOrMany<StringOrRegex> },
+			{ ignoreMediaTypes: OneOrMany<StringOrRegex> },
 			RejectedMessage<[name: string]>
 		>;
 		'named-grid-areas-no-invalid': CoreRule<true>;

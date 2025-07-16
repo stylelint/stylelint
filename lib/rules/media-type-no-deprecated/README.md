@@ -54,10 +54,10 @@ The following pattern is _not_ considered a problem:
 
 ## Optional secondary options
 
-### `ignoreMediaType`
+### `ignoreMediaTypes`
 
 ```json
-{ "ignoreMediaType": ["array", "of", "types", "/regex/"] }
+{ "ignoreMediaTypes": ["array", "of", "types", "/regex/"] }
 ```
 
 Ignore the specified media types.
@@ -66,7 +66,7 @@ Given:
 
 ```json
 {
-  "media-type-no-deprecated": [true, { "ignoreMediaType": ["/^t/", "speech"] }]
+  "media-type-no-deprecated": [true, { "ignoreMediaTypes": ["/^t/", "speech"] }]
 }
 ```
 
