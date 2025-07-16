@@ -32,6 +32,12 @@ The deprecated media types were removed because they were either never widely im
 
 ### `true`
 
+```json
+{
+  "media-type-no-deprecated": true
+}
+```
+
 The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
@@ -48,12 +54,20 @@ The following pattern is _not_ considered a problem:
 
 ## Optional secondary options
 
-### `ignoreMediaType: ["/regex/", /regex/, "string"]`
+### `ignoreMediaType`
+
+```json
+{ "ignoreMediaType": ["array", "of", "types", "/regex/"] }
+```
+
+Ignore the specified media types.
 
 Given:
 
 ```json
-["/^t/", "speech"]
+{
+  "media-type-no-deprecated": [true, { "ignoreMediaType": ["/^t/", "speech"] }]
+}
 ```
 
 The following patterns are _not_ considered problems:
