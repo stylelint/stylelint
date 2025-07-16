@@ -97,6 +97,7 @@ Disallow missing things with these `no-missing` rules.
 | :-- | :-: | :-: |
 | [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md)<br/>Disallow missing `var` function for custom properties. | ✅ | |
 | [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md)<br/>Disallow a missing generic family keyword within font families. | ✅ | |
+| [`nesting-selector-no-missing-scoping-root`](../../lib/rules/nesting-selector-no-missing-scoping-root/README.md)<br/>Disallow missing scoping root for nesting selectors. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Non-standard
