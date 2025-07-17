@@ -15,6 +15,12 @@ CSS nesting selectors (`&`) represent the parent selector in nested CSS. When us
 
 ### `true`
 
+```json
+{
+  "nesting-selector-no-missing-scoping-root": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
