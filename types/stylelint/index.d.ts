@@ -767,6 +767,7 @@ declare namespace stylelint {
 			RejectedMessage<[query: string, reason: string]>
 		>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
+		'nesting-selector-no-missing-scoping-root': CoreRule<true>;
 		'no-descending-specificity': CoreRule<
 			true,
 			{ ignore: OneOrMany<'selectors-within-list'> },
