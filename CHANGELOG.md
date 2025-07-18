@@ -1,6 +1,8 @@
 # Changelog
 
-## 16.22.0 - 2025-07-15
+## 16.22.0 - 2025-07-18
+
+It adds 3 rule features and fixes 2 bugs.
 
 - Added: `messageArgs` to `color-named` ([#8663](https://github.com/stylelint/stylelint/pull/8663)) ([@Mouvedia](https://github.com/Mouvedia)).
 - Added: `messageArgs` to `declaration-property-value-keyword-no-deprecated` ([#8654](https://github.com/stylelint/stylelint/pull/8654)) ([@Mouvedia](https://github.com/Mouvedia)).
