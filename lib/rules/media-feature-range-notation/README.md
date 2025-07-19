@@ -84,3 +84,35 @@ The following patterns are _not_ considered problems:
 ```css
 @media (min-width: 1px) and (max-width: 2px) {}
 ```
+
+## Optional secondary options
+
+### `except`
+
+```json
+{ "except": ["array", "of", "options"] }
+```
+
+#### `"exact-value"`
+
+Ignore media features with exact values when the `context` option is selected.
+
+Given:
+
+```json
+{
+  "media-feature-range-notation": ["context", { "except": ["exact-value"] }]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@media (width: 1px) {}
+```
+
+<!-- prettier-ignore -->
+```css
+@media (width >= 1px) {}
+```
