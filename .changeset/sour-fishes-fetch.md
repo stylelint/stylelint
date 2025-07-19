@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Added: `except: ["exact-value"]` option to `media-feature-range-notation`
+Added: `except: ["exact-value"]` to `media-feature-range-notation`
