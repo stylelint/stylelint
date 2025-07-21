@@ -95,7 +95,7 @@ The following patterns are _not_ considered problems:
 
 #### `"exact-value"`
 
-Ignore media features with exact values when the `context` option is selected.
+Reverse the primary option for media features with exact values.
 
 Given:
 
@@ -105,14 +105,16 @@ Given:
 }
 ```
 
-The following patterns are _not_ considered problems:
+The following pattern is considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@media (min-width: 1px) {}
+```
+
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
 @media (width: 1px) {}
-```
-
-<!-- prettier-ignore -->
-```css
-@media (width >= 1px) {}
 ```
