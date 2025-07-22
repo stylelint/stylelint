@@ -196,6 +196,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`declaration-block-nesting-at-rule-required-list`](../../lib/rules/declaration-block-nesting-at-rule-required-list/README.md)<br/>Require specific at-rules to be present around CSS declarations. | | |
 | [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md)<br/>Disallow `!important` within declarations. | | |
 | [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list/README.md)<br/>Specify a list of allowed property and unit pairs within declarations. | | |
 | [`declaration-property-unit-disallowed-list`](../../lib/rules/declaration-property-unit-disallowed-list/README.md)<br/>Specify a list of disallowed property and unit pairs within declarations. | | |
