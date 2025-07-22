@@ -569,7 +569,8 @@ declare namespace stylelint {
 		>;
 		'declaration-block-nesting-at-rule-required-list': CoreRule<
 			OneOrMany<StringOrRegex>,
-			Record<string, never>
+			{},
+			ExpectedMessage<[atRule: string]>
 		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
