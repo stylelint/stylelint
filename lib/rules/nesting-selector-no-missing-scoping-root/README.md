@@ -35,6 +35,11 @@ The following patterns are considered problems:
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+@scope (&) {}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -50,5 +55,12 @@ a {
   @media all {
     & {}
   }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  @scope (&) {}
 }
 ```
