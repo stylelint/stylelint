@@ -567,7 +567,7 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[property: string]>
 		>;
-		'declaration-block-nesting-at-rule-required-list': CoreRule<
+		'rule-nesting-at-rule-required-list': CoreRule<
 			OneOrMany<StringOrRegex>,
 			{},
 			ExpectedMessage<[atRule: string]>

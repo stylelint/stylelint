@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `declaration-block-nesting-at-rule-required-list` rule
+Added: `rule-nesting-at-rule-required-list` rule

@@ -1,22 +1,24 @@
-# declaration-block-nesting-at-rule-required-list
+# rule-nesting-at-rule-required-list
 
-Require specific at-rules to be present around CSS declarations.
+Require rules to be nested in specific at-rules.
 
 <!-- prettier-ignore -->
 ```css
 a { color: red; }
-/**    ↑
- * This declaration */
+/** ↑
+ * This rule */
 ```
 
 ## Options
 
-`array|string|regex`: `["layer"]`
+### `Array<string | RegExp>`
 
 Given:
 
 ```json
-["layer"]
+{
+  "rule-nesting-at-rule-required-list": ["layer"]
+}
 ```
 
 The following patterns are considered problems:
@@ -33,6 +35,15 @@ a { color: red; }
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+a {
+  @layer {
+    color: red;
+  }
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -44,9 +55,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a {
-  @layer {
-    color: red;
-  }
+@font-face {
+  font-family: "foo";
 }
 ```
