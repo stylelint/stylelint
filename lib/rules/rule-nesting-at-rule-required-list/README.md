@@ -17,7 +17,7 @@ Given:
 
 ```json
 {
-  "rule-nesting-at-rule-required-list": ["layer"]
+  "rule-nesting-at-rule-required-list": ["layer", "/^s/"]
 }
 ```
 
@@ -44,11 +44,32 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+a {
+  @supports (color: red) { a { color: red; } }
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
 @layer {
+  a { color: red; }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+@supports (color: red) {
+  a { color: red; }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+@scope (a) {
   a { color: red; }
 }
 ```

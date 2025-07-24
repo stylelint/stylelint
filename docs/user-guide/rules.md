@@ -197,7 +197,6 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`rule-nesting-at-rule-required-list`](../../lib/rules/rule-nesting-at-rule-required-list/README.md)<br/>Require rules to be nested in specific at-rules. | | |
 | [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md)<br/>Disallow `!important` within declarations. | | |
 | [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list/README.md)<br/>Specify a list of allowed property and unit pairs within declarations. | | |
 | [`declaration-property-unit-disallowed-list`](../../lib/rules/declaration-property-unit-disallowed-list/README.md)<br/>Specify a list of disallowed property and unit pairs within declarations. | | |
@@ -252,6 +251,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`rule-nesting-at-rule-required-list`](../../lib/rules/rule-nesting-at-rule-required-list/README.md)<br/>Require rules to be nested in specific at-rules. | | |
 | [`rule-selector-property-disallowed-list`](../../lib/rules/rule-selector-property-disallowed-list/README.md)<br/>Specify a list of disallowed properties for selectors within rules. | | |
 <!-- prettier-ignore-end -->
 
