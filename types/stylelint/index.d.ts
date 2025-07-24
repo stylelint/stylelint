@@ -771,6 +771,11 @@ declare namespace stylelint {
 			{ ignoreFunctions: OneOrMany<StringOrRegex> },
 			RejectedMessage<[query: string, reason: string]>
 		>;
+		'media-type-no-deprecated': CoreRule<
+			true,
+			{ ignoreMediaTypes: OneOrMany<StringOrRegex> },
+			RejectedMessage<[name: string]>
+		>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
 		'no-descending-specificity': CoreRule<
 			true,
