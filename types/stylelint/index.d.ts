@@ -761,11 +761,19 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[name: string, value: string]>
 		>;
-		'media-feature-range-notation': NotationRule<'prefix' | 'context'>;
+		'media-feature-range-notation': NotationRule<
+			'prefix' | 'context',
+			{ except: OneOrMany<'exact-value'> }
+		>;
 		'media-query-no-invalid': CoreRule<
 			true,
 			{ ignoreFunctions: OneOrMany<StringOrRegex> },
 			RejectedMessage<[query: string, reason: string]>
+		>;
+		'media-type-no-deprecated': CoreRule<
+			true,
+			{ ignoreMediaTypes: OneOrMany<StringOrRegex> },
+			RejectedMessage<[name: string]>
 		>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
 		'no-descending-specificity': CoreRule<
