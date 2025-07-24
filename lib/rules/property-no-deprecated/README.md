@@ -37,7 +37,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { clip: auto; }
+a { clip: rect(0, 0, 0, 0); }
 ```
 
 <!-- prettier-ignore -->
@@ -49,7 +49,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { clip-path: auto; }
+a { clip-path: rect(0, 0, 0, 0); }
 ```
 
 <!-- prettier-ignore -->
@@ -77,7 +77,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { clip: auto; }
+a { clip: rect(0, 0, 0, 0); }
 ```
 
 <!-- prettier-ignore -->
