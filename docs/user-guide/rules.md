@@ -20,6 +20,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 | :-- | :-: | :-: |
 | [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | ✅ | 🔧 |
 | [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
+| [`media-type-no-deprecated`](../../lib/rules/media-type-no-deprecated/README.md)<br/>Disallow deprecated media types. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Descending
