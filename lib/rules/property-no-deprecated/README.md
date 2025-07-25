@@ -4,7 +4,7 @@ Disallow deprecated properties.
 
 <!-- prettier-ignore -->
 ```css
-  a { box-flex: 1; }
+  a { word-wrap: break-word; }
 /**      ↑
  * Deprecated property */
 ```
