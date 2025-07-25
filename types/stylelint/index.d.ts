@@ -498,7 +498,7 @@ declare namespace stylelint {
 			ExpectedMessage<[atRule: string, property: string] | [atRule: string, descriptor: string]>
 		>;
 		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
-		'block-no-redundant-nesting': CoreRule<true>;
+		'block-no-redundant-nested-style-rules': CoreRule<true>;
 		'color-function-alias-notation': CoreRule<'with-alpha' | 'without-alpha', {}, AutofixMessage>;
 		'color-function-notation': CoreRule<
 			'modern' | 'legacy',
