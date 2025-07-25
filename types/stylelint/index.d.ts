@@ -817,6 +817,11 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[property: string]>
 		>;
+		'property-layout-mappings': CoreRule<
+			'logical' | 'physical',
+			{ exceptProperties: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]>
+		>;
 		'property-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
