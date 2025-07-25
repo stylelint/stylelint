@@ -75,6 +75,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`named-grid-areas-no-invalid`](../../lib/rules/named-grid-areas-no-invalid/README.md)<br/>Disallow invalid named grid areas. | ✅ | |
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
+| [`no-invalid-position-declaration`](../../lib/rules/no-invalid-position-declaration/README.md)<br/>Disallow invalid position declarations. | ✅ | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
 | [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
 <!-- prettier-ignore-end -->
@@ -98,6 +99,7 @@ Disallow missing things with these `no-missing` rules.
 | :-- | :-: | :-: |
 | [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md)<br/>Disallow missing `var` function for custom properties. | ✅ | |
 | [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md)<br/>Disallow a missing generic family keyword within font families. | ✅ | |
+| [`nesting-selector-no-missing-scoping-root`](../../lib/rules/nesting-selector-no-missing-scoping-root/README.md)<br/>Disallow missing scoping root for nesting selectors. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Non-standard

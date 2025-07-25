@@ -776,6 +776,7 @@ declare namespace stylelint {
 			RejectedMessage<[name: string]>
 		>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
+		'nesting-selector-no-missing-scoping-root': CoreRule<true>;
 		'no-descending-specificity': CoreRule<
 			true,
 			{ ignore: OneOrMany<'selectors-within-list'> },
@@ -793,6 +794,7 @@ declare namespace stylelint {
 			true,
 			{ ignoreAtRules: OneOrMany<StringOrRegex> }
 		>;
+		'no-invalid-position-declaration': CoreRule<true>;
 		'no-irregular-whitespace': CoreRule<true>;
 		'no-unknown-animations': CoreRule<true, {}, RejectedMessage<[name: string]>>;
 		'no-unknown-custom-media': CoreRule<true, {}, RejectedMessage<[name: string]>>;
