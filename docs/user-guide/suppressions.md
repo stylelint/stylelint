@@ -77,6 +77,10 @@ $ stylelint "**/*.css"
 There are suppressions left that do not occur anymore. Consider re-running the command with `--suppress-prune`.
 ```
 
+### Why use --suppress-prune instead of --suppress?
+
+While `--suppress` would update the suppressions file, it would also **add new violations** to the baseline, potentially hiding regressions. Use `--suppress-prune` to **only remove** obsolete suppressions without affecting new violations.
+
 Clean things up with:
 
 ```shell
