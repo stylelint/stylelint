@@ -399,6 +399,7 @@ Disallow redundancy with these `no-redundant` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`block-no-redundant-nested-style-rules`](../../lib/rules/block-no-redundant-nested-style-rules/README.md)<br/>Disallow redundant nested style rules within blocks. | | |
 | [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md)<br/>Disallow redundant longhand properties within declaration-block. | ✅ | 🔧 |
 | [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md)<br/>Disallow redundant values within shorthand properties. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
