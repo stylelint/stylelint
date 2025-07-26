@@ -568,6 +568,11 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[property: string]>
 		>;
+		'rule-nesting-at-rule-required-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			ExpectedMessage<[atRule: string]>
+		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
 			{
