@@ -17,7 +17,7 @@ Given:
 
 ```json
 {
-  "rule-nesting-at-rule-required-list": ["layer", "/^(supports|scope)/"]
+  "rule-nesting-at-rule-required-list": ["layer", "/^--foo-/"]
 }
 ```
 
@@ -55,14 +55,14 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@supports (color: red) {
+@--foo-bar {
   a { color: red; }
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
-@scope (a) {
+@--foo-baz {
   a { color: red; }
 }
 ```
