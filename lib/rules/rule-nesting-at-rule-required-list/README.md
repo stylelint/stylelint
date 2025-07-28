@@ -17,7 +17,7 @@ Given:
 
 ```json
 {
-  "rule-nesting-at-rule-required-list": ["layer", "/^s/"]
+  "rule-nesting-at-rule-required-list": ["layer", "/^(supports|scope)/"]
 }
 ```
 
