@@ -823,6 +823,13 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[property: string]>
 		>;
+		'property-no-deprecated': CoreRule<
+			true,
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+			},
+			AutofixMessage & RejectedMessage<[property: string]>
+		>;
 		'property-no-unknown': CoreRule<
 			true,
 			{
