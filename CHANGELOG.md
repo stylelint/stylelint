@@ -1,5 +1,17 @@
 # Changelog
 
+## 16.23.0 - 2025-07-29
+
+- Added: `block-no-redundant-nested-style-rules` rule ([#8684](https://github.com/stylelint/stylelint/pull/8684)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `except: ["exact-value"]` to `media-feature-range-notation` ([#8675](https://github.com/stylelint/stylelint/pull/8675)) ([@immitsu](https://github.com/immitsu)).
+- Added: `media-type-no-deprecated` rule ([#8668](https://github.com/stylelint/stylelint/pull/8668)) ([@immitsu](https://github.com/immitsu)).
+- Added: `nesting-selector-no-missing-scoping-root` rule ([#8674](https://github.com/stylelint/stylelint/pull/8674)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `no-invalid-position-declaration` rule ([#8669](https://github.com/stylelint/stylelint/pull/8669)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `property-no-deprecated` rule ([#8682](https://github.com/stylelint/stylelint/pull/8682)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `declaration-block-no-duplicate-properties` false negatives for named colors with `ignore: ['consecutive-duplicates-with-different-syntaxes']` ([#8665](https://github.com/stylelint/stylelint/pull/8665)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `function-no-unknown` false positives ([#8677](https://github.com/stylelint/stylelint/pull/8677)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-irregular-whitespace` false positives for strings ([#8667](https://github.com/stylelint/stylelint/pull/8667)) ([@immitsu](https://github.com/immitsu)).
+
 ## 16.22.0 - 2025-07-18
 
 It adds 3 rule features and fixes 2 bugs.
