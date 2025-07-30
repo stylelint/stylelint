@@ -4,7 +4,7 @@ Disallow deprecated selectors.
 
 <!-- prettier-ignore -->
 ```css
-applet {}
+nobr {}
 /** ↑
  * This selector */
 ```
