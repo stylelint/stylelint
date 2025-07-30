@@ -502,6 +502,7 @@ declare namespace stylelint {
 			ExpectedMessage<[atRule: string, property: string] | [atRule: string, descriptor: string]>
 		>;
 		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
+		'block-no-redundant-nested-style-rules': CoreRule<true>;
 		'color-function-alias-notation': CoreRule<'with-alpha' | 'without-alpha', {}, AutofixMessage>;
 		'color-function-notation': CoreRule<
 			'modern' | 'legacy',
@@ -820,6 +821,13 @@ declare namespace stylelint {
 			OneOrMany<StringOrRegex>,
 			{},
 			RejectedMessage<[property: string]>
+		>;
+		'property-no-deprecated': CoreRule<
+			true,
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+			},
+			AutofixMessage & RejectedMessage<[property: string]>
 		>;
 		'property-no-unknown': CoreRule<
 			true,

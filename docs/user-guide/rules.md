@@ -21,6 +21,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 | [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | ✅ | 🔧 |
 | [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
 | [`media-type-no-deprecated`](../../lib/rules/media-type-no-deprecated/README.md)<br/>Disallow deprecated media types. | ✅ | |
+| [`property-no-deprecated`](../../lib/rules/property-no-deprecated/README.md)<br/>Disallow deprecated properties. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
@@ -407,6 +408,7 @@ Disallow redundancy with these `no-redundant` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`block-no-redundant-nested-style-rules`](../../lib/rules/block-no-redundant-nested-style-rules/README.md)<br/>Disallow redundant nested style rules within blocks. | ✅ | |
 | [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md)<br/>Disallow redundant longhand properties within declaration-block. | ✅ | 🔧 |
 | [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md)<br/>Disallow redundant values within shorthand properties. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->

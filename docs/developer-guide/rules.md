@@ -120,6 +120,7 @@ Always use the:
 
 - `validateOptions()` utility to warn users about invalid options
 - `isStandardSyntax*()` utilities before checking a node or string to ignore non-standard syntax
+- `is*` type guard utilities to check a node's type
 - `report()` utility to report lint problems
 
 ##### Location arguments for `report()`
