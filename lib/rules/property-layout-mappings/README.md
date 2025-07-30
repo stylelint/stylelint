@@ -1,19 +1,39 @@
 # property-layout-mappings
 
-Require either physical or logical layout mappings in CSS.
+Enforce either physical or logical layout mappings in CSS.
 
 <!-- prettier-ignore -->
 ```css
 a { margin-left: 10px; }
-/**   ↑
- * This physical property should be logical */
+/** ↑
+ * This property */
 ```
 
-The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when the primary option is `"logical"` and `languageOptions.directionality` is configured.
+
+## Language Options
+
+This rule supports the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#languageoptions) configuration to enable safe autofixing for logical properties.
+
+```json
+{
+  "languageOptions": {
+    "directionality": {
+      "block": "top-to-bottom",
+      "inline": "left-to-right"
+    }
+  },
+  "rules": {
+    "property-layout-mappings": "logical"
+  }
+}
+```
+
+**Note**: Without `languageOptions.directionality` configuration, the rule will report problems but not autofix them to prevent unintended layout changes.
 
 ## Options
 
-### `"logical"` or `"physical"`
+### `"logical"`
 
 Given:
 
@@ -35,11 +55,6 @@ a { margin-left: 10px; }
 a { width: 200px; }
 ```
 
-<!-- prettier-ignore -->
-```css
-a { border-top-left-radius: 5px; }
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -52,10 +67,7 @@ a { margin-inline-start: 10px; }
 a { inline-size: 200px; }
 ```
 
-<!-- prettier-ignore -->
-```css
-a { border-start-start-radius: 5px; }
-```
+### `"physical"`
 
 Given:
 
@@ -93,6 +105,8 @@ a { width: 200px; }
 
 ### `exceptProperties`
 
+Reverse the primary option for matching properties.
+
 ```json
 { "exceptProperties": ["array", "of", "properties", "/regex/"] }
 ```
@@ -119,3 +133,25 @@ a { margin-left: 10px; }
 ```css
 a { width: 200px; }
 ```
+
+### `dir`
+
+```json
+{ "dir": "ltr" | "rtl" | "auto" }
+```
+
+Specify the writing direction context. This option helps provide better warnings about logical property usage but does not change the rule's behavior.
+
+- `"ltr"` (default) - Left-to-right writing direction
+- `"rtl"` - Right-to-left writing direction
+- `"auto"` - Direction determined by content
+
+Given:
+
+```json
+{
+  "property-layout-mappings": ["logical", { "dir": "rtl" }]
+}
+```
+
+This provides context that the code will be used in a right-to-left writing environment.

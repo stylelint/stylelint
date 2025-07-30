@@ -218,6 +218,14 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | [`function-url-scheme-disallowed-list`](../../lib/rules/function-url-scheme-disallowed-list/README.md)<br/>Specify a list of disallowed URL schemes. | | |
 <!-- prettier-ignore-end -->
 
+#### Layout mappings
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Enforce either physical or logical layout mappings in CSS. | | 🔧 |
+<!-- prettier-ignore-end -->
+
 #### Length
 
 <!-- prettier-ignore-start -->
@@ -245,7 +253,6 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | :-- | :-: | :-: |
 | [`property-allowed-list`](../../lib/rules/property-allowed-list/README.md)<br/>Specify a list of allowed properties. | | |
 | [`property-disallowed-list`](../../lib/rules/property-disallowed-list/README.md)<br/>Specify a list of disallowed properties. | | |
-| [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Enforce either physical or logical layout mappings in CSS. | | 🔧 |
 | [`property-no-vendor-prefix`](../../lib/rules/property-no-vendor-prefix/README.md)<br/>Disallow vendor prefixes for properties. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
 
