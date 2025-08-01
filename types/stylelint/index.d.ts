@@ -840,7 +840,7 @@ declare namespace stylelint {
 			RejectedMessage<[property: string]>
 		>;
 		'property-layout-mappings': CoreRule<
-			'logical' | 'physical',
+			'flow-relative' | 'physical',
 			{ exceptProperties: OneOrMany<StringOrRegex>; dir: 'ltr' | 'rtl' | 'auto' },
 			ExpectedMessage<[unfixed: string, fixed: string]>
 		>;

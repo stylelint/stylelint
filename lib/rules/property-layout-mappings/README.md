@@ -1,6 +1,6 @@
 # property-layout-mappings
 
-Enforce either physical or logical layout mappings in CSS.
+Enforce either physical or flow-relative layout mappings in CSS.
 
 <!-- prettier-ignore -->
 ```css
@@ -9,11 +9,11 @@ a { margin-left: 10px; }
  * This property */
 ```
 
-The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when the primary option is `"logical"` and `languageOptions.directionality` is configured.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when the primary option is `"flow-relative"` and `languageOptions.directionality` is configured.
 
 ## Language Options
 
-This rule supports the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#languageoptions) configuration to enable safe autofixing for logical properties.
+This rule supports the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#languageoptions) configuration to enable safe autofixing for flow-relative properties.
 
 ```json
 {
@@ -24,7 +24,7 @@ This rule supports the [`languageOptions.directionality`](../../../docs/user-gui
     }
   },
   "rules": {
-    "property-layout-mappings": "logical"
+    "property-layout-mappings": "flow-relative"
   }
 }
 ```
@@ -33,13 +33,13 @@ This rule supports the [`languageOptions.directionality`](../../../docs/user-gui
 
 ## Options
 
-### `"logical"`
+### `"flow-relative"`
 
 Given:
 
 ```json
 {
-  "property-layout-mappings": "logical"
+  "property-layout-mappings": "flow-relative"
 }
 ```
 
@@ -116,7 +116,7 @@ Given:
 ```json
 {
   "property-layout-mappings": [
-    "logical",
+    "flow-relative",
     { "exceptProperties": ["margin-left", "width"] }
   ]
 }
@@ -150,7 +150,7 @@ Given:
 
 ```json
 {
-  "property-layout-mappings": ["logical", { "dir": "rtl" }]
+  "property-layout-mappings": ["flow-relative", { "dir": "rtl" }]
 }
 ```
 
