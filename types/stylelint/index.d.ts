@@ -43,11 +43,11 @@ type FileCache = {
 // be found here: https://stackoverflow.com/questions/52667959/what-is-the-purpose-of-bivariancehack-in-typescript-types.
 // and in the original discussion: https://github.com/stylelint/stylelint/pull/6147#issuecomment-1155337016.
 type RuleMessageFunc = {
-	bivariance(...args: (string | number | boolean | RegExp)[]): string;
+	bivariance(...args: (string | number | boolean | RegExp | string[])[]): string;
 }['bivariance'];
 
 type RuleSeverityFunc = {
-	bivariance(...args: (string | number | boolean | RegExp)[]): stylelint.Severity | null;
+	bivariance(...args: (string | number | boolean | RegExp | string[])[]): stylelint.Severity | null;
 }['bivariance'];
 
 type RuleOptionsPossibleFunc = (value: unknown) => boolean;
@@ -571,7 +571,7 @@ declare namespace stylelint {
 		'rule-nesting-at-rule-required-list': CoreRule<
 			OneOrMany<StringOrRegex>,
 			{},
-			ExpectedMessage<[patterns: string]>
+			ExpectedMessage<[patterns: string[]]>
 		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
