@@ -49,7 +49,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { clip-path: rect(0, 0, 0, 0); }
+a { clip-path: rect(0 0 0 0); }
 ```
 
 <!-- prettier-ignore -->
