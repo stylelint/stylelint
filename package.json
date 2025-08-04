@@ -148,7 +148,7 @@
     "global-modules": "^2.0.0",
     "globby": "^11.1.0",
     "globjoin": "^0.1.4",
-    "html-tags": "^3.3.1",
+    "html-tags": "^5.1.0",
     "ignore": "^7.0.5",
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
