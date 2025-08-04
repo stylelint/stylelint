@@ -201,7 +201,7 @@
     "jest": "^30.0.5",
     "jest-preset-stylelint": "^8.0.0",
     "jest-watch-typeahead": "^3.0.1",
-    "lint-staged": "^16.1.2",
+    "lint-staged": "^16.1.4",
     "lz-string": "^1.5.0",
     "np": "^10.2.0",
     "npm-run-all": "^4.1.5",
