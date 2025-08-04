@@ -215,7 +215,7 @@
     "remark-cli": "^12.0.1",
     "rollup": "^4.46.2",
     "sugarss": "^5.0.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "engines": {
     "node": ">=18.12.0"
