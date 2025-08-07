@@ -254,6 +254,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`rule-nesting-at-rule-required-list`](../../lib/rules/rule-nesting-at-rule-required-list/README.md)<br/>Require rules to be nested in specific at-rules. | | |
 | [`rule-selector-property-disallowed-list`](../../lib/rules/rule-selector-property-disallowed-list/README.md)<br/>Specify a list of disallowed properties for selectors within rules. | | |
 <!-- prettier-ignore-end -->
 

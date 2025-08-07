@@ -36,6 +36,8 @@ type FileCache = {
 	removeEntry: (absoluteFilepath: string) => void;
 };
 
+type RuleFuncArgs = (string | RegExp | number | boolean | (string | RegExp)[])[];
+
 // Note: With strict function types enabled, function signatures are checked contravariantly.
 // This means that it would not be possible for rule authors to narrow the message function
 // parameters to e.g. just `string`. Declaring the type for rule message functions through
@@ -43,11 +45,11 @@ type FileCache = {
 // be found here: https://stackoverflow.com/questions/52667959/what-is-the-purpose-of-bivariancehack-in-typescript-types.
 // and in the original discussion: https://github.com/stylelint/stylelint/pull/6147#issuecomment-1155337016.
 type RuleMessageFunc = {
-	bivariance(...args: (string | number | boolean | RegExp)[]): string;
+	bivariance(...args: RuleFuncArgs): string;
 }['bivariance'];
 
 type RuleSeverityFunc = {
-	bivariance(...args: (string | number | boolean | RegExp)[]): stylelint.Severity | null;
+	bivariance(...args: RuleFuncArgs): stylelint.Severity | null;
 }['bivariance'];
 
 type RuleOptionsPossibleFunc = (value: unknown) => boolean;
@@ -567,6 +569,11 @@ declare namespace stylelint {
 				ignoreProperties: OneOrMany<StringOrRegex>;
 			},
 			RejectedMessage<[property: string]>
+		>;
+		'rule-nesting-at-rule-required-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			ExpectedMessage<[patterns: StringOrRegex[]]>
 		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
