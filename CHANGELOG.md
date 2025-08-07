@@ -2,6 +2,8 @@
 
 ## 16.23.1 - 2025-08-07
 
+It fixes 7 bugs.
+
 - Fixed: `no-invalid-position-declaration` false positives for embedded styles ([#8701](https://github.com/stylelint/stylelint/pull/8701)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
 - Fixed: `property-no-deprecated` erroneously autofixing `clip` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
 - Fixed: `property-no-deprecated` false positives for `-webkit-box-orient: vertical;` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
