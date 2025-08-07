@@ -1,5 +1,17 @@
 # Changelog
 
+## 16.23.1 - 2025-08-07
+
+It fixes 7 bugs.
+
+- Fixed: `no-invalid-position-declaration` false positives for embedded styles ([#8701](https://github.com/stylelint/stylelint/pull/8701)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `property-no-deprecated` erroneously autofixing `clip` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `property-no-deprecated` false positives for `-webkit-box-orient: vertical;` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives for some meter pseudo classes/elements ([#8708](https://github.com/stylelint/stylelint/pull/8708)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:unchecked` ([#8705](https://github.com/stylelint/stylelint/pull/8705)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::search-text` ([#8707](https://github.com/stylelint/stylelint/pull/8707)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `selectedcontent` ([#8716](https://github.com/stylelint/stylelint/pull/8716)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.23.0 - 2025-07-29
 
 It adds 5 new rules, 1 option to a rule and fixes 3 bugs. We've turned on the new rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
