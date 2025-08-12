@@ -11,13 +11,13 @@ npm create stylelint
 ```
 
 > [!NOTE]
-> Stylelint is compatible with different package managers and runtimes. You can use your perferred one to setup Stylelint, e.g. `bun create stylelint` or `pnpm create stylelint`.
+> Stylelint is compatible with different package managers and runtimes. You can use your preferred one to setup Stylelint, e.g. `bun create stylelint` or `pnpm create stylelint`.
 
 ### Manual setup
 
 Alternatively, you can manually setup Stylelint to lint CSS.
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your perferred package manager) to add Stylelint and the config:
+1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add Stylelint and the config:
 
 ```shell
 npm add --save-dev stylelint stylelint-config-standard
@@ -57,7 +57,7 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 - [SCSS syntax](https://www.npmjs.com/package/postcss-scss) - a custom syntax to parse SCSS
 - [SCSS plugin](https://www.npmjs.com/package/stylelint-scss) - a set of custom rules for SCSS
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your perferred package manager) to add Stylelint and the config:
+1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add Stylelint and the config:
 
 ```shell
 npm add --save-dev stylelint stylelint-config-standard-scss
@@ -86,7 +86,7 @@ If a shared config isn't available for your preferred language or container, you
 
 For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) (our your perferred package manager) to install Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) (our your preferred package manager) to install Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard postcss-lit
