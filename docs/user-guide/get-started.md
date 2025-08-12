@@ -1,26 +1,47 @@
 # Getting started
 
-You can quickly get started by extending a shared config.
+You can quickly get started by extending an appropriate shared config.
 
 ## Linting CSS
 
-You can extend our [standard config](https://www.npmjs.com/package/stylelint-config-standard) to lint CSS.
-
-1\. Use [npm](https://docs.npmjs.com/about-npm/) and [our `init` tool](https://www.npmjs.com/package/create-stylelint) to install Stylelint and the config:
+Use [npm](https://docs.npmjs.com/about-npm/) and [our `create` tool](https://www.npmjs.com/package/create-stylelint) to automatically setup Stylelint and extend [our standard config](https://www.npmjs.com/package/stylelint-config-standard):
 
 ```shell
-npm init stylelint
+npm create stylelint
 ```
 
-2\. Run Stylelint on all the CSS files in your project:
+> [!NOTE]
+> Stylelint is compatible with different package managers and runtimes. You can use your perferred one to setup Stylelint, e.g. `bun create stylelint` or `pnpm create stylelint`.
+
+### Manual setup
+
+Alternatively, you can manually setup Stylelint to lint CSS.
+
+1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your perferred package manager) to add Stylelint and the config:
+
+```shell
+npm add --save-dev stylelint stylelint-config-standard
+```
+
+2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
+
+```js
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ["stylelint-config-standard"]
+};
+```
+
+3\. Run Stylelint on all the CSS files in your project:
 
 ```shell
 npx stylelint "**/*.css"
 ```
 
 > [!NOTE]
-> The [`npx`](https://docs.npmjs.com/cli/commands/npx) command, which is bundled with npm, allows you to run locally installed tools.
-> We'll omit `npx` in the rest of this guide, but you can use it to run Stylelint if you don't want to install it globally.
+> The [`npx`](https://docs.npmjs.com/cli/commands/npx) command allows you to run locally installed tools.
+> You can also use your preferred package manager's equivalent, e.g. `bunx stylelint "**/*.css"` or `pnpm dlx stylelint "**/*.css"`.
+> We'll omit `npx` in the rest of this guide.
 
 Once you're up and running, you can [customize](./customize.md) Stylelint.
 
@@ -36,13 +57,13 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 - [SCSS syntax](https://www.npmjs.com/package/postcss-scss) - a custom syntax to parse SCSS
 - [SCSS plugin](https://www.npmjs.com/package/stylelint-scss) - a set of custom rules for SCSS
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the config:
+1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your perferred package manager) to add Stylelint and the config:
 
 ```shell
-npm install --save-dev stylelint stylelint-config-standard-scss
+npm add --save-dev stylelint stylelint-config-standard-scss
 ```
 
-2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
 /** @type {import('stylelint').Config} */
@@ -65,13 +86,13 @@ If a shared config isn't available for your preferred language or container, you
 
 For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) (our your perferred package manager) to install Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard postcss-lit
 ```
 
-2\. Create a `stylelint.config.js` configuration file in the root of your project with the following content:
+2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
 /** @type {import('stylelint').Config} */
