@@ -20,7 +20,7 @@ Alternatively, you can manually setup Stylelint to lint CSS.
 1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add Stylelint and the config:
 
 ```shell
-npm add --save-dev stylelint stylelint-config-standard
+npm add -D stylelint stylelint-config-standard
 ```
 
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
@@ -60,7 +60,7 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add Stylelint and the config:
 
 ```shell
-npm add --save-dev stylelint stylelint-config-standard-scss
+npm add -D stylelint stylelint-config-standard-scss
 ```
 
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
@@ -89,7 +89,7 @@ For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 1\. Use [npm](https://docs.npmjs.com/about-npm/) (our your preferred package manager) to add Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
 
 ```shell
-npm add --save-dev stylelint stylelint-config-standard postcss-lit
+npm add -D stylelint stylelint-config-standard postcss-lit
 ```
 
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
