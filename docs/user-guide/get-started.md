@@ -11,7 +11,7 @@ npm create stylelint
 ```
 
 > [!NOTE]
-> Stylelint is compatible with different package managers and runtimes. You can use your preferred one to setup Stylelint, e.g. `bun create stylelint` or `pnpm create stylelint`.
+> Stylelint is also compatible with the [Bun](https://bun.sh/package-manager), [pNPm](https://pnpm.io/), and [Yarn](https://yarnpkg.com/) package managers. You can use your preferred one to setup Stylelint, e.g. `bun create stylelint` or `pnpm create stylelint`.
 
 ### Manual setup
 
@@ -86,10 +86,10 @@ If a shared config isn't available for your preferred language or container, you
 
 For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) (our your preferred package manager) to install Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) (our your preferred package manager) to add Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
 
 ```shell
-npm install --save-dev stylelint stylelint-config-standard postcss-lit
+npm add --save-dev stylelint stylelint-config-standard postcss-lit
 ```
 
 2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
