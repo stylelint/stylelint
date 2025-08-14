@@ -359,6 +359,7 @@ Enforce one representation of things that have multiple with these `notation` (s
 | [`keyframe-selector-notation`](../../lib/rules/keyframe-selector-notation/README.md)<br/>Specify keyword or percentage notation for keyframe selectors. | ✅ | 🔧 |
 | [`lightness-notation`](../../lib/rules/lightness-notation/README.md)<br/>Specify number or percentage notation for lightness. | ✅ | 🔧 |
 | [`media-feature-range-notation`](../../lib/rules/media-feature-range-notation/README.md)<br/>Specify context or prefix notation for media feature ranges. | ✅ | 🔧 |
+| [`selector-nesting-notation`](../../lib/rules/selector-nesting-notation/README.md)<br/>Specify explicit or implicit notation for nesting selectors. | ✅ | 🔧 |
 | [`selector-not-notation`](../../lib/rules/selector-not-notation/README.md)<br/>Specify simple or complex notation for `:not()` pseudo-class selectors. | ✅ | 🔧 |
 | [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md)<br/>Specify single or double colon notation for applicable pseudo-element selectors. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
