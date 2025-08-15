@@ -17,19 +17,19 @@ npm create stylelint
 
 Alternatively, you can manually setup Stylelint to lint CSS.
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add Stylelint and the config:
-
-```shell
-npm add -D stylelint stylelint-config-standard
-```
-
-2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
+1\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
 /** @type {import('stylelint').Config} */
 export default {
   extends: ["stylelint-config-standard"]
 };
+```
+
+2\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add the related dependencies:
+
+```shell
+npm add -D stylelint stylelint-config-standard
 ```
 
 3\. Run Stylelint on all the CSS files in your project:
@@ -57,19 +57,19 @@ For example, to lint SCSS you can extend the [SCSS community config](https://www
 - [SCSS syntax](https://www.npmjs.com/package/postcss-scss) - a custom syntax to parse SCSS
 - [SCSS plugin](https://www.npmjs.com/package/stylelint-scss) - a set of custom rules for SCSS
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add Stylelint and the config:
-
-```shell
-npm add -D stylelint stylelint-config-standard-scss
-```
-
-2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
+1\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
 /** @type {import('stylelint').Config} */
 export default {
   extends: ["stylelint-config-standard-scss"]
 };
+```
+
+2\. Use [npm](https://docs.npmjs.com/about-npm/) (or your preferred package manager) to add the related dependencies:
+
+```shell
+npm add -D stylelint stylelint-config-standard-scss
 ```
 
 3\. Run Stylelint on all the SCSS files in your project:
@@ -84,15 +84,9 @@ You'll find more community configs in [Awesome Stylelint](https://github.com/sty
 
 If a shared config isn't available for your preferred language or container, you can install the appropriate custom syntax and use the [`customSyntax` option](../user-guide/options.md#customsyntax) yourself.
 
-For example, to lint CSS inside of [Lit elements](https://lit.dev/).
+For example, to lint CSS inside of [Lit elements](https://lit.dev/) using the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit).
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) (our your preferred package manager) to add Stylelint, our [standard config](https://www.npmjs.com/package/stylelint-config-standard) and the [Lit custom syntax](https://www.npmjs.com/package/postcss-lit):
-
-```shell
-npm add -D stylelint stylelint-config-standard postcss-lit
-```
-
-2\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
+1\. Create a `stylelint.config.mjs` configuration file in the root of your project with the following content:
 
 ```js
 /** @type {import('stylelint').Config} */
@@ -100,6 +94,12 @@ export default {
   extends: "stylelint-config-standard",
   customSyntax: "postcss-lit"
 };
+```
+
+2\. Use [npm](https://docs.npmjs.com/about-npm/) (our your preferred package manager) to add the related dependencies:
+
+```shell
+npm add -D stylelint stylelint-config-standard postcss-lit
 ```
 
 3\. Run Stylelint on all the JavaScript files in your project:
