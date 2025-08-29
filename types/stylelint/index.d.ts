@@ -36,6 +36,8 @@ type FileCache = {
 	removeEntry: (absoluteFilepath: string) => void;
 };
 
+type RuleFuncArgs = (string | RegExp | number | boolean | (string | RegExp)[])[];
+
 // Note: With strict function types enabled, function signatures are checked contravariantly.
 // This means that it would not be possible for rule authors to narrow the message function
 // parameters to e.g. just `string`. Declaring the type for rule message functions through
@@ -43,11 +45,11 @@ type FileCache = {
 // be found here: https://stackoverflow.com/questions/52667959/what-is-the-purpose-of-bivariancehack-in-typescript-types.
 // and in the original discussion: https://github.com/stylelint/stylelint/pull/6147#issuecomment-1155337016.
 type RuleMessageFunc = {
-	bivariance(...args: (string | number | boolean | RegExp)[]): string;
+	bivariance(...args: RuleFuncArgs): string;
 }['bivariance'];
 
 type RuleSeverityFunc = {
-	bivariance(...args: (string | number | boolean | RegExp)[]): stylelint.Severity | null;
+	bivariance(...args: RuleFuncArgs): stylelint.Severity | null;
 }['bivariance'];
 
 type RuleOptionsPossibleFunc = (value: unknown) => boolean;
@@ -498,6 +500,7 @@ declare namespace stylelint {
 			ExpectedMessage<[atRule: string, property: string] | [atRule: string, descriptor: string]>
 		>;
 		'block-no-empty': CoreRule<true, { ignore: OneOrMany<'comments'> }>;
+		'block-no-redundant-nested-style-rules': CoreRule<true>;
 		'color-function-alias-notation': CoreRule<'with-alpha' | 'without-alpha', {}, AutofixMessage>;
 		'color-function-notation': CoreRule<
 			'modern' | 'legacy',
@@ -566,6 +569,11 @@ declare namespace stylelint {
 				ignoreProperties: OneOrMany<StringOrRegex>;
 			},
 			RejectedMessage<[property: string]>
+		>;
+		'rule-nesting-at-rule-required-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			ExpectedMessage<[patterns: StringOrRegex[]]>
 		>;
 		'declaration-block-no-redundant-longhand-properties': CoreRule<
 			true,
@@ -760,17 +768,26 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[name: string, value: string]>
 		>;
-		'media-feature-range-notation': NotationRule<'prefix' | 'context'>;
+		'media-feature-range-notation': NotationRule<
+			'prefix' | 'context',
+			{ except: OneOrMany<'exact-value'> }
+		>;
 		'media-query-no-invalid': CoreRule<
 			true,
 			{ ignoreFunctions: OneOrMany<StringOrRegex> },
 			RejectedMessage<[query: string, reason: string]>
 		>;
+		'media-type-no-deprecated': CoreRule<
+			true,
+			{ ignoreMediaTypes: OneOrMany<StringOrRegex> },
+			RejectedMessage<[name: string]>
+		>;
 		'named-grid-areas-no-invalid': CoreRule<true>;
+		'nesting-selector-no-missing-scoping-root': CoreRule<true>;
 		'no-descending-specificity': CoreRule<
 			true,
 			{ ignore: OneOrMany<'selectors-within-list'> },
-			ExpectedMessage<[selector: string, selector: string]>
+			ExpectedMessage<[selector: string, selector: string, line: number]>
 		>;
 		'no-duplicate-at-import-rules': CoreRule<true, {}, RejectedMessage<[url: string]>>;
 		'no-duplicate-selectors': CoreRule<
@@ -784,6 +801,7 @@ declare namespace stylelint {
 			true,
 			{ ignoreAtRules: OneOrMany<StringOrRegex> }
 		>;
+		'no-invalid-position-declaration': CoreRule<true>;
 		'no-irregular-whitespace': CoreRule<true>;
 		'no-unknown-animations': CoreRule<true, {}, RejectedMessage<[name: string]>>;
 		'no-unknown-custom-media': CoreRule<true, {}, RejectedMessage<[name: string]>>;
@@ -806,6 +824,13 @@ declare namespace stylelint {
 			OneOrMany<StringOrRegex>,
 			{},
 			RejectedMessage<[property: string]>
+		>;
+		'property-no-deprecated': CoreRule<
+			true,
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+			},
+			AutofixMessage & RejectedMessage<[property: string]>
 		>;
 		'property-no-unknown': CoreRule<
 			true,

@@ -1,5 +1,41 @@
 # Changelog
 
+## 16.23.1 - 2025-08-07
+
+It fixes 7 bugs.
+
+- Fixed: `no-invalid-position-declaration` false positives for embedded styles ([#8701](https://github.com/stylelint/stylelint/pull/8701)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `property-no-deprecated` erroneously autofixing `clip` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `property-no-deprecated` false positives for `-webkit-box-orient: vertical;` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives for some meter pseudo classes/elements ([#8708](https://github.com/stylelint/stylelint/pull/8708)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:unchecked` ([#8705](https://github.com/stylelint/stylelint/pull/8705)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::search-text` ([#8707](https://github.com/stylelint/stylelint/pull/8707)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `selectedcontent` ([#8716](https://github.com/stylelint/stylelint/pull/8716)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.23.0 - 2025-07-29
+
+It adds 5 new rules, 1 option to a rule and fixes 3 bugs. We've turned on the new rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+- Added: `block-no-redundant-nested-style-rules` rule ([#8684](https://github.com/stylelint/stylelint/pull/8684)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `media-type-no-deprecated` rule ([#8668](https://github.com/stylelint/stylelint/pull/8668)) ([@immitsu](https://github.com/immitsu)).
+- Added: `nesting-selector-no-missing-scoping-root` rule ([#8674](https://github.com/stylelint/stylelint/pull/8674)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `no-invalid-position-declaration` rule ([#8669](https://github.com/stylelint/stylelint/pull/8669)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `property-no-deprecated` rule ([#8682](https://github.com/stylelint/stylelint/pull/8682)) ([@immitsu](https://github.com/immitsu)).
+- Added: `except: ["exact-value"]` to `media-feature-range-notation` ([#8675](https://github.com/stylelint/stylelint/pull/8675)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `declaration-block-no-duplicate-properties` false negatives for named colors with `ignore: ['consecutive-duplicates-with-different-syntaxes']` ([#8665](https://github.com/stylelint/stylelint/pull/8665)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `function-no-unknown` false positives ([#8677](https://github.com/stylelint/stylelint/pull/8677)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-irregular-whitespace` false positives for strings ([#8667](https://github.com/stylelint/stylelint/pull/8667)) ([@immitsu](https://github.com/immitsu)).
+
+## 16.22.0 - 2025-07-18
+
+It adds 3 rule features and fixes 2 bugs.
+
+- Added: `messageArgs` to `color-named` ([#8663](https://github.com/stylelint/stylelint/pull/8663)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `messageArgs` to `declaration-property-value-keyword-no-deprecated` ([#8654](https://github.com/stylelint/stylelint/pull/8654)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `no-descending-specificity` report message includes line number of the anchoring selector ([#8666](https://github.com/stylelint/stylelint/pull/8666)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `at-rule-no-deprecated` false positives for `@apply` ([#8630](https://github.com/stylelint/stylelint/pull/8630)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `lightness-notation` crash with `"number"` option and single-digit percentage ([#8661](https://github.com/stylelint/stylelint/pull/8661)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 16.21.1 - 2025-07-03
 
 It fixes 3 bugs.
