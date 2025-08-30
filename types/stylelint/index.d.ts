@@ -1094,7 +1094,6 @@ declare namespace stylelint {
 		validate?: boolean;
 		suppressAll?: boolean;
 		suppressLocation?: string;
-		suppressPrune?: boolean;
 		suppressRule?: string[];
 	};
 

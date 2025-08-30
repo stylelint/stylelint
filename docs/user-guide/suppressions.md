@@ -68,23 +68,8 @@ stylelint "**/*.css" \
   --suppress-location .stylelint-suppressions-foo.json
 ```
 
-## Pruning obsolete suppressions
+## Automatic pruning of obsolete suppressions
 
-Fixing a muted problem leaves an _unused_ counter behind. On the next run Stylelint warns:
+When you use `--suppress` or `--suppress=<rule>`, Stylelint automatically removes obsolete suppressions from the suppressions file. This ensures that the suppressions file always reflects the current state of your codebase.
 
-```sh-session
-$ stylelint "**/*.css"
-There are suppressions left that do not occur anymore. Consider re-running the command with `--suppress-prune`.
-```
-
-### Why use `--suppress-prune` instead of `--suppress`?
-
-While `--suppress` would update the suppressions file, it would also **add new violations** to the baseline, potentially hiding regressions. Use `--suppress-prune` to **only remove** obsolete suppressions without affecting new violations.
-
-Clean things up with:
-
-```shell
-stylelint "**/*.css" --suppress-prune
-```
-
-The command removes (or decrements) counters whose violations disappeared, keeping the file tidy.
+For example, if you fix all violations for a rule in a file, running `--suppress` again will automatically remove that rule's entry from the suppressions file, keeping it clean and up to date.

@@ -140,21 +140,12 @@ If a rule is specified as an argument (e.g., `--suppress=block-no-empty`), it su
 
 > [!NOTE]
 >
-> - `--suppress` cannot be used together with `--suppress-prune`.
 > - `--suppress` cannot be combined with stdin input (e.g., piping code via `echo "..." | stylelint`).
+> - `--suppress` now automatically removes obsolete suppressions from the suppressions file.
 
 ### `--suppress-location`
 
 Sets an explicit path for reading and writing the suppressions file.
-
-### `--suppress-prune`
-
-Removes entries from the suppressions file that no longer correspond to violations in the codebase.
-
-> [!NOTE]
->
-> - `--suppress-prune` cannot be used together with `--suppress`.
-> - `--suppress-prune` cannot be combined with stdin input (e.g., piping code via `echo "..." | stylelint`).
 
 For more details, see the [Bulk suppressions documentation](suppressions.md).
 
