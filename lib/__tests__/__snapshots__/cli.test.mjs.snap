@@ -186,11 +186,6 @@ exports[`CLI --help 1`] = `
       directory is specified, a suppressions file will be created inside the specified
       folder, with the name "stylelint-suppressions.json".
 
-    --suppress-prune
-
-      Remove entries for violations that no longer exist in the
-      codebase from the suppressions file.
-
     --globby-options, --go <json>
 
       Options in JSON format passed to globby.
