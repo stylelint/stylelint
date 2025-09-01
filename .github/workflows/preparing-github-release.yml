@@ -18,7 +18,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Prepare release
         uses: stylelint/changelog-to-github-release-action@4c981d6bca2ec40fd7c25b43e4e5ad75ba07fc5a # 0.3.1
         with:

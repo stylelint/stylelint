@@ -22,7 +22,7 @@ jobs:
     name: Update comment
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
@@ -31,7 +31,7 @@ jobs:
         run: npm ci
       - run: mkdir -p ${{ runner.temp }}/artifacts/
       - name: Download artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: output
           github-token: ${{ secrets.GITHUB_TOKEN }}
