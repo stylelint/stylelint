@@ -90,13 +90,8 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```scss
-@mixin test() {
-  &:before {
-    content: "a";
-  }
-  &:hover:before {
-    content: "b";
-  }
+@--foo {
+  & {}
 }
 ```
 
