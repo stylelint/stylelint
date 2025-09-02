@@ -64,3 +64,47 @@ a {
   @scope (&) {}
 }
 ```
+
+## Optional secondary options
+
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
+
+Ignore nesting selectors within specified at-rules.
+
+Given:
+
+```json
+{
+  "nesting-selector-no-missing-scoping-root": [
+    true,
+    { "ignoreAtRules": ["mixin", "utility"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```scss
+@mixin test() {
+  &:before {
+    content: "a";
+  }
+  &:hover:before {
+    content: "b";
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+```
