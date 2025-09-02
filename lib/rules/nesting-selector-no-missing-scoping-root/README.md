@@ -81,7 +81,7 @@ Given:
 {
   "nesting-selector-no-missing-scoping-root": [
     true,
-    { "ignoreAtRules": ["mixin", "utility"] }
+    { "ignoreAtRules": ["--foo", "/^--bar-/"] }
   ]
 }
 ```
