@@ -97,9 +97,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@utility scrollbar-hidden {
-  &::-webkit-scrollbar {
-    display: none;
-  }
+@--bar-baz qux {
+  & {}
 }
 ```
