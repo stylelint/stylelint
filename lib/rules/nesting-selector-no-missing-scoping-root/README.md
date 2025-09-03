@@ -89,7 +89,7 @@ Given:
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
-```scss
+```css
 @--foo {
   & {}
 }
