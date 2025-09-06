@@ -1095,10 +1095,20 @@ declare namespace stylelint {
 		quiet?: boolean;
 		quietDeprecationWarnings?: boolean;
 		validate?: boolean;
+		suppressAll?: boolean;
+		suppressLocation?: string;
+		suppressRule?: string[];
 	};
 
 	/** @internal */
 	export type FixMode = 'lax' | 'strict';
+
+	/**
+	 * @experimental
+	 *
+	 * file path -> rule name -> { count: number }
+	 */
+	export type SuppressedViolations = Map<string, Map<string, { count: number }>>;
 
 	/**
 	 * A CSS syntax error.
