@@ -2,6 +2,8 @@
 
 ## 16.24.0 - 2025-09-07
 
+It adds 1 new rule, adds 1 option to a rule and fixes 2 bugs.
+
 - Added: `rule-nesting-at-rule-required-list` rule ([#8680](https://github.com/stylelint/stylelint/pull/8680)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
 - Added: `ignoreAtRules: []` to `nesting-selector-no-missing-scoping-root` ([#8743](https://github.com/stylelint/stylelint/pull/8743)) ([@karlhorky](https://github.com/karlhorky)).
 - Fixed: `function-no-unknown` false positives for `contrast-color()` and `sibling-*()` ([#8729](https://github.com/stylelint/stylelint/pull/8729)) ([@Mouvedia](https://github.com/Mouvedia)).
