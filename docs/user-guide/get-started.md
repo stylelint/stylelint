@@ -11,7 +11,7 @@ npm create stylelint
 ```
 
 > [!NOTE]
-> Stylelint is also compatible with the [Bun](https://bun.sh/package-manager), [pnpm](https://pnpm.io/), and [Yarn](https://yarnpkg.com/) package managers. You can use your preferred one to setup Stylelint, e.g. `bun create stylelint` or `pnpm create stylelint`.
+> Stylelint is also compatible with the [Bun](https://bun.sh/package-manager), [pnpm](https://pnpm.io/), and [Yarn](https://yarnpkg.com/) package managers. You can use your preferred one to set up Stylelint, e.g. `bun create stylelint` or `pnpm create stylelint`.
 
 ### Manual setup
 
