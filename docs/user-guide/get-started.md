@@ -7,7 +7,7 @@ You can quickly get started by extending an appropriate shared config.
 Use [npm](https://docs.npmjs.com/about-npm/) and [our `create` tool](https://www.npmjs.com/package/create-stylelint) to automatically setup Stylelint and extend [our standard config](https://www.npmjs.com/package/stylelint-config-standard):
 
 ```shell
-npm create stylelint
+npm create stylelint@latest
 ```
 
 > [!NOTE]
