@@ -174,11 +174,11 @@ exports[`CLI --help 1`] = `
 
       When a glob pattern matches no files, the process will exit without throwing an error.
 
-    --suppress [<rule-name>]
-      Suppress violations. By default the violations are stored in "./stylelint-suppressions.json".
-      To adjust this, use "--suppress-location".
-      If no rule is specified, it applies to all the currently enabled rules.
-      Multiple can be set.
+    --suppress [<rule>]
+      Suppress problems and record them in a file. If no rule is specified,
+      all problems are suppressed. Otherwise, only problems with the given 
+      rules are suppressed, e.g., "--suppress rule1 --suppress rule2".
+      See also "--suppress-location".
 
     --suppress-location <path>
 
