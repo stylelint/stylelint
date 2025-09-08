@@ -10,6 +10,10 @@ Stylelint lets you _suppress_ those legacy violations so the rule is enforced **
 > Only rules configured with severity `"error"` are suppressed.
 > Violations reported as `"warning"` are **not** suppressed.
 
+## CLI options
+
+- `--suppress [<rule>]`: Suppress problems and record them in a suppressions file.
+- `--suppress-location <path>`: Path to a suppressions file or directory. Defaults to `stylelint-suppressions.json`.
 ## Suppressions file
 
 The first time you run Stylelint with `--suppress` (or `--suppress=<rule>`), the tool creates a file called `stylelint-suppressions.json` in the current working directory.
