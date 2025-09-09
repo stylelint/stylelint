@@ -132,6 +132,21 @@ A filename to assign the input. [More info](options.md#codefilename).
 
 Accept stdin input even if it is empty.
 
+### `--suppress`
+
+Suppress all current problems and record them in a suppressions file. [More info](suppressions.md).
+
+If a rule is specified as an argument (e.g., `--suppress=block-no-empty`), it suppresses violations for only the specified rule. You can repeat the flag to target multiple rules.
+
+> [!NOTE]
+>
+> - `--suppress` cannot be combined with stdin input (e.g., piping code via `echo "..." | stylelint`).
+> - `--suppress` now automatically removes obsolete suppressions from the suppressions file.
+
+### `--suppress-location`
+
+Path to a suppressions file or directory. [More info](suppressions.md).
+
 ### `--validate, --no-validate`
 
 Force enable/disable the validation of the rules' options. [More info](options.md#validate).
