@@ -1104,7 +1104,7 @@ declare namespace stylelint {
 	export type FixMode = 'lax' | 'strict';
 
 	/**
-	 * @experimental
+	 * @internal
 	 *
 	 * file path -> rule name -> { count: number }
 	 */
