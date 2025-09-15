@@ -1108,7 +1108,7 @@ declare namespace stylelint {
 	 *
 	 * file path -> rule name -> { count: number }
 	 */
-	export type SuppressedViolations = Map<string, Map<string, { count: number }>>;
+	export type SuppressedProblems = Map<string, Map<string, { count: number }>>;
 
 	/**
 	 * A CSS syntax error.

@@ -3,12 +3,12 @@
 > [!WARNING]
 > This feature is still **experimental**. It might change significantly.
 
-Enabling a rule as `"error"` can be difficult when an established code-base already contains many violations that cannot be auto-fixed.
-Stylelint lets you _suppress_ those legacy violations so the rule is enforced **only** for new code. You can then clear the backlog at your own pace.
+Enabling a rule as `"error"` can be difficult when an established code-base already contains many problems that cannot be auto-fixed.
+Stylelint lets you _suppress_ those legacy problems so the rule is enforced **only** for new code. You can then clear the backlog at your own pace.
 
 > [!IMPORTANT]
 > Only rules configured with severity `"error"` are suppressed.
-> Violations reported as `"warning"` are **not** suppressed.
+> Problems reported as `"warning"` are **not** suppressed.
 
 ## CLI options
 
@@ -20,14 +20,14 @@ Stylelint lets you _suppress_ those legacy violations so the rule is enforced **
 The first time you run Stylelint with `--suppress` (or `--suppress=<rule>`), the tool creates a file called `stylelint-suppressions.json` in the current working directory.
 This JSON file records which rules are being ignored in which files.
 
-If more violations are found for the same rule in the same file, Stylelint will report all of them. For example, if a file originally had 2 suppressed violations but now has 5, Stylelint will display all 5 violations.
+If more problems are found for the same rule in the same file, Stylelint will report all of them. For example, if a file originally had 2 suppressed problems but now has 5, Stylelint will display all 5 problems.
 
 > [!TIP]
 > Commit the suppressions file to your repository so all team members share the same baseline.
 
 ## Creating the suppressions file
 
-After adding or promoting a rule to `"error"` in your configuration, capture the current violations and write a suppressions file with:
+After adding or promoting a rule to `"error"` in your configuration, capture the current problems and write a suppressions file with:
 
 ```shell
 stylelint "**/*.css" --fix --suppress
@@ -37,7 +37,7 @@ This command:
 
 1. Creates or updates `stylelint-suppressions.json` (or the path given by `--suppress-location`) at the project root.
 2. Removes auto-fixable problems (`--fix` is optional but recommended).
-3. Mutes every remaining violation so subsequent runs start clean.
+3. Mutes every remaining problem so subsequent runs start clean.
 
 ## Targeting specific rules
 
@@ -77,4 +77,4 @@ stylelint "**/*.css" \
 
 When you use `--suppress` or `--suppress=<rule>`, Stylelint automatically removes obsolete suppressions from the suppressions file. This ensures that the suppressions file always reflects the current state of your codebase.
 
-For example, if you fix all violations for a rule in a file, running `--suppress` again will automatically remove that rule's entry from the suppressions file, keeping it clean and up to date.
+For example, if you fix all problems for a rule in a file, running `--suppress` again will automatically remove that rule's entry from the suppressions file, keeping it clean and up to date.
