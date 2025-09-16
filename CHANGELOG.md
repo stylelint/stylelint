@@ -645,7 +645,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Fixed: `overrides.extends` order when including same rules ([#6660](https://github.com/stylelint/stylelint/pull/6660)) ([@kuoruan](https://github.com/kuoruan)).
 - Fixed: `annotation-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `declaration-property-value-no-unknown` false positives for at-rule descriptors ([#6669](https://github.com/stylelint/stylelint/pull/6669)) ([@FloEdelmann](https://github.com/FloEdelmann)).
-- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as violation ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as a problem ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `function-name-case` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `function-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `unit-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
