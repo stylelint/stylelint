@@ -96,7 +96,7 @@ A big thank you to everyone who sponsors us on [Open Collective](https://opencol
 
 And thank you to all our Open Collective backers, GitHub sponsors and one-off donors.
 
-[Contribute via Open Collective](hhttps://opencollective.com/stylelint/contribute) or [sponsor us on GitHub](https://github.com/sponsors/stylelint).
+[Contribute via Open Collective](https://opencollective.com/stylelint/contribute) or [sponsor us on GitHub](https://github.com/sponsors/stylelint).
 
 #### Website hosting
 
