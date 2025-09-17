@@ -64,3 +64,40 @@ a {
   @scope (&) {}
 }
 ```
+
+## Optional secondary options
+
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
+
+Ignore nesting selectors within specified at-rules.
+
+Given:
+
+```json
+{
+  "nesting-selector-no-missing-scoping-root": [
+    true,
+    { "ignoreAtRules": ["--foo", "/^--bar-/"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@--foo {
+  & {}
+}
+```
+
+<!-- prettier-ignore -->
+```css
+@--bar-baz qux {
+  & {}
+}
+```
