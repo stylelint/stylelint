@@ -27,6 +27,8 @@ updates:
     ignore:
       - dependency-name: 'eslint'
         update-types: ['version-update:semver-major']
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: github-actions
     directory: '/'
@@ -35,3 +37,5 @@ updates:
     open-pull-requests-limit: 5
     labels:
       - 'pr: dependencies'
+    cooldown:
+      default-days: 7
