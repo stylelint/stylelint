@@ -43,6 +43,7 @@ export {
 	Severity,
 	ShorthandProperties,
 	StylelintPostcssResult,
+	SuppressedProblems,
 	Utils,
 	Warning,
 	WarningOptions,
