@@ -1,80 +1,29 @@
 # Bulk suppressions
 
 > [!WARNING]
-> This feature is still **experimental**. It might change significantly.
+> This feature is **experimental**, and might change significantly.
 
-Enabling a rule as `"error"` can be difficult when an established code-base already contains many problems that cannot be auto-fixed.
-Stylelint lets you _suppress_ those legacy problems so the rule is enforced **only** for new code. You can then clear the backlog at your own pace.
+Turning on a rule with the severity of `error` can be difficult when an established codebase already contains many problems that can't be auto-fixed. You can suppress those legacy problems so the rule is enforced only for new code, and then clear the backlog at your own pace.
 
-> [!IMPORTANT]
-> Only rules configured with severity `"error"` are suppressed.
-> Problems reported as `"warning"` are **not** suppressed.
+## `--suppress [<rule>]`
 
-## CLI options
+Suppress problems that have the severity of `error` and record them in a file.
 
-- `--suppress [<rule>]`: Suppress problems and record them in a suppressions file.
-- `--suppress-location <path>`: Path to a suppressions file or directory. Defaults to `stylelint-suppressions.json`.
+If no rule is specified, all problems are suppressed. Otherwise, only problems with the given rules are suppressed, e.g., `--suppress rule1 --suppress rule2`.
 
-## Suppressions file
-
-The first time you run Stylelint with `--suppress` (or `--suppress=<rule>`), the tool creates a file called `stylelint-suppressions.json` in the current working directory.
-This JSON file records which rules are being ignored in which files.
-
-If more problems are found for the same rule in the same file, Stylelint will report all of them. For example, if a file originally had 2 suppressed problems but now has 5, Stylelint will display all 5 problems.
+Subsequent runs without the `--suppress` flag will not report these problems, unless there are more problems for the same rule in the same file.
 
 > [!TIP]
-> Commit the suppressions file to your repository so all team members share the same baseline.
+> We recommend committing the suppressions file to your repository and using the `--fix` option alongside the `--suppress`.
 
-## Creating the suppressions file
+> [!NOTE]
+> `--suppress` can't be combined with stdin input (e.g., piping code via `echo "..." | stylelint`).
 
-After adding or promoting a rule to `"error"` in your configuration, capture the current problems and write a suppressions file with:
+## `--suppress-location <path>`
 
-```shell
-stylelint "**/*.css" --fix --suppress
-```
+Path to a suppressions file or directory. Defaults to `stylelint-suppressions.json`.
 
-This command:
+If you specify a directory path, Stylelint will create a file named `stylelint-suppressions.json` in that directory.
 
-1. Creates or updates `stylelint-suppressions.json` (or the path given by `--suppress-location`) at the project root.
-2. Removes auto-fixable problems (`--fix` is optional but recommended).
-3. Mutes every remaining problem so subsequent runs start clean.
-
-## Targeting specific rules
-
-Want to mute only certain rules? Use `--suppress=<rule>` one or more times:
-
-```shell
-stylelint "**/*.css" --fix \
-  --suppress=block-no-empty \
-  --suppress=color-no-invalid-hex
-```
-
-Each flag adds or updates the counter for that rule in the suppressions file.
-
-## Changing the location
-
-You can keep the file elsewhere with `--suppress-location`, but you **must supply the same flag every time you run Stylelint**, even during routine linting, so the tool can locate and maintain the file.
-
-If you specify a directory path, Stylelint will create a file named `stylelint-suppressions.json` in that directory. If you specify a file path, Stylelint will use that exact filename.
-
-```shell
-# Suppress existing errors and write the file into a subdirectory
-stylelint "**/*.css" \
-  --suppress \
-  --suppress-location foo/
-
-# Or specify a custom filename
-stylelint "**/*.css" \
-  --suppress \
-  --suppress-location .stylelint-suppressions-foo.json
-
-# Later runs need the same flag
-stylelint "**/*.css" \
-  --suppress-location .stylelint-suppressions-foo.json
-```
-
-## Automatic pruning of obsolete suppressions
-
-When you use `--suppress` or `--suppress=<rule>`, Stylelint automatically removes obsolete suppressions from the suppressions file. This ensures that the suppressions file always reflects the current state of your codebase.
-
-For example, if you fix all problems for a rule in a file, running `--suppress` again will automatically remove that rule's entry from the suppressions file, keeping it clean and up to date.
+> [!IMPORTANT]
+> You must use `--suppress-location` on all subsequent runs, even when not using the `--suppress` flag.
