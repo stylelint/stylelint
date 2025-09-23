@@ -134,14 +134,7 @@ Accept stdin input even if it is empty.
 
 ### `--suppress`
 
-Suppress all current problems and record them in a suppressions file. [More info](suppressions.md).
-
-If a rule is specified as an argument (e.g., `--suppress=block-no-empty`), it suppresses problems for only the specified rule. You can repeat the flag to target multiple rules.
-
-> [!NOTE]
->
-> - `--suppress` cannot be combined with stdin input (e.g., piping code via `echo "..." | stylelint`).
-> - `--suppress` now automatically removes obsolete suppressions from the suppressions file.
+Suppress problems that have the severity of `error` and record them in a file. [More info](suppressions.md#suppress).
 
 ### `--suppress-location`
 
