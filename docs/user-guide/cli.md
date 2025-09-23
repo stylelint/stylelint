@@ -145,7 +145,7 @@ If a rule is specified as an argument (e.g., `--suppress=block-no-empty`), it su
 
 ### `--suppress-location`
 
-Path to a suppressions file or directory. [More info](suppressions.md).
+Path to a file or directory for the suppressions location. [More info](suppressions.md#suppress-location).
 
 ### `--validate, --no-validate`
 
