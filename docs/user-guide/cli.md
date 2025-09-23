@@ -134,11 +134,11 @@ Accept stdin input even if it is empty.
 
 ### `--suppress`
 
-Suppress problems that have the severity of `error` and record them in a file. [More info](suppressions.md#suppress).
+Suppress problems that have the severity of `error` and record them in a file. [More info](suppressions.md#--suppress-rule).
 
 ### `--suppress-location`
 
-Path to a file or directory for the suppressions location. [More info](suppressions.md#suppress-location).
+Path to a file or directory for the suppressions location. [More info](suppressions.md#--suppress-location-path).
 
 ### `--validate, --no-validate`
 
