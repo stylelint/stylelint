@@ -105,8 +105,8 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 @--bar-baz qux {
-  @layer base {
-    block-size: 100%;
+  @layer foo {
+    color: red;
   }
 }
 ```
