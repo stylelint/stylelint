@@ -60,3 +60,53 @@ a { --foo: red; }
   }
 }
 ```
+
+<!-- prettier-ignore -->
+```css
+a {
+  @media all {
+    color: red;
+  }
+}
+```
+
+## Optional secondary options
+
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at-rules", "/regex/"] }
+```
+
+Ignore nesting at-rules within specified at-rules.
+
+Given:
+
+```json
+{
+  "no-invalid-position-declaration": [
+    true,
+    { "ignoreAtRules": ["--foo", "/^--bar-/"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@--foo {
+  @media all {
+    color: red;
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+@--bar-baz qux {
+  @layer base {
+    block-size: 100%;
+  }
+}
+```
