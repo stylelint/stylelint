@@ -1457,6 +1457,7 @@ declare namespace stylelint {
 				root: PostCSS.Root;
 				result?: PostcssResult;
 				context?: RuleContext;
+				config?: Config;
 			},
 			callback: (warning: PostCSS.Warning) => void,
 		) => Promise<void>;
