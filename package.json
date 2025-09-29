@@ -165,7 +165,7 @@
     "postcss-value-parser": "^4.2.0",
     "resolve-from": "^5.0.0",
     "string-width": "^4.2.3",
-    "supports-hyperlinks": "^3.2.0",
+    "supports-hyperlinks": "^4.3.0",
     "svg-tags": "^1.0.0",
     "table": "^6.9.0",
     "write-file-atomic": "^5.0.1"
