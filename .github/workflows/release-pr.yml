@@ -2,18 +2,79 @@ name: Release PR
 
 on:
   workflow_dispatch:
-    inputs:
-      new-version:
-        description: New version to release
-        required: true
-        type: choice
-        options: [patch, minor, major]
 
 jobs:
+  get-new-version:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      new-version: ${{ steps.get-changeset-status.outputs.new-version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - name: Set up Node.js LTS
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 'lts/*'
+
+      - name: Install latest npm
+        run: npm install --global npm@latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Get changeset status
+        id: get-changeset-status
+        run: |
+          npx changeset status --output .changeset/status.json
+          new_version=$(jq -r '.releases[0].newVersion' .changeset/status.json)
+          rm -v .changeset/status.json
+          echo "new-version=${new_version}" >> "${GITHUB_OUTPUT}"
+
   release-pr:
+    needs: get-new-version
     uses: stylelint/.github/.github/workflows/call-release-pr.yml@ba1d7222b8b3c30030607fd70c0f1b37bf712acb # 0.2.1
     with:
-      new-version: ${{ github.event.inputs.new-version }}
+      new-version: ${{ needs.get-new-version.outputs.new-version }}
     permissions:
       contents: write
       pull-requests: write
+
+  update-changelog:
+    needs: [get-new-version, release-pr]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          ref: 'release/${{ needs.get-new-version.outputs.new-version }}'
+
+      - name: Set up Node.js LTS
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 'lts/*'
+
+      - name: Install latest npm
+        run: npm install --global npm@latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update changelog
+        run: |
+          npm run changeset
+
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
+
+          git commit -am "Update changelog"
+          git push
