@@ -1,4 +1,4 @@
-name: Commenting on old issues
+name: Comment on old issues
 
 on:
   schedule:
