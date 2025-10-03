@@ -7,7 +7,7 @@ jobs:
   release-pr:
     uses: stylelint/.github/.github/workflows/call-release-pr.yml@fix-call-release-pr # TODO: Fix the ref name to a newly published tag later.
     with:
-      new-version-command: npm run changeset
+      new-version-command: 'GITHUB_TOKEN=${{ github.token }} npm run changeset'
     permissions:
       contents: write
       pull-requests: write
