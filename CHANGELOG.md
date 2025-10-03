@@ -2,6 +2,8 @@
 
 ## 16.25.0 - 2025-10-03
 
+It adds 3 new features, including experimental support for bulk suppressions. It's also our first [immutable release](https://github.blog/changelog/2025-08-26-releases-now-support-immutability-in-public-preview/), with the package published to npm using [trusted publishing](https://github.blog/changelog/2025-07-31-npm-trusted-publishing-with-oidc-is-generally-available/) and our dependencies updated on a [cool down](https://github.blog/changelog/2025-07-01-dependabot-supports-configuration-of-a-minimum-package-age/) for improved supply chain security.
+
 - Added: support for bulk suppressions ([#8564](https://github.com/stylelint/stylelint/pull/8564)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `ignoreAtRules: []` to `no-invalid-position-declaration` ([#8781](https://github.com/stylelint/stylelint/pull/8781)) ([@jrmlt](https://github.com/jrmlt)).
 - Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
