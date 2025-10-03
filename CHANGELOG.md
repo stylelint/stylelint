@@ -2,8 +2,9 @@
 
 ## 16.25.0 - 2025-10-03
 
-- Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
 - Added: support for bulk suppressions ([#8564](https://github.com/stylelint/stylelint/pull/8564)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `ignoreAtRules: []` to `no-invalid-position-declaration` ([#8781](https://github.com/stylelint/stylelint/pull/8781)) ([@jrmlt](https://github.com/jrmlt)).
+- Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
 
 ## 16.24.0 - 2025-09-07
 
