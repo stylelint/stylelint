@@ -72,7 +72,6 @@
     "lint:types": "tsc",
     "prepare": "husky && npm run build",
     "postprepare": "patch-package",
-    "release": "np --no-release-draft",
     "pretest": "npm run lint",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
