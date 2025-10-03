@@ -15,8 +15,8 @@
    3. If necessary, reorder the changelog entries so that the widest-reaching changes come first.
    4. Merge the PR to start the `release` workflow.
    5. Approve the pending release job to publish to npm and create a draft GitHub release.
-   6. Review and publish the draft GitHub release.
-   7. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
+   6. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
+   7. Review and publish the draft GitHub release.
 6. If necessary, release `stylelint-config-*` using the [release workflow](https://github.com/stylelint/.github?tab=readme-ov-file#release-workflow).
 7. Update the website:
    1. Go to the [releasing action page](https://github.com/stylelint/stylelint.io/actions/workflows/release-stylelint.yml) in the `stylelint.io` repository.
