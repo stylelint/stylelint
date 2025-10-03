@@ -77,7 +77,8 @@
     "test-coverage": "npm test --ignore-scripts -- --coverage",
     "test-only": "npm test --ignore-scripts",
     "watch": "npm test --ignore-scripts -- --watch",
-    "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md"
+    "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
+    "postchangeset": "npm install --ignore-scripts"
   },
   "lint-staged": {
     "*.{js,mjs}": "eslint --cache --fix",
