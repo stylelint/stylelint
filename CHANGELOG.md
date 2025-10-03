@@ -1,5 +1,10 @@
 # Changelog
 
+## 16.25.0 - 2025-09-30
+
+- Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
+- Added: support for bulk suppressions ([#8564](https://github.com/stylelint/stylelint/pull/8564)) ([@ryo-manba](https://github.com/ryo-manba)).
+
 ## 16.24.0 - 2025-09-07
 
 It adds 1 new rule, adds 1 option to a rule and fixes 2 bugs.
