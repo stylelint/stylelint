@@ -10,11 +10,14 @@
    2. [stylelint/stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
    3. [stylelint/stylelint.io](https://github.com/stylelint/stylelint.io)
 5. Release Stylelint:
-   1. Follow the [release workflow](https://github.com/stylelint/.github?tab=readme-ov-file#release-workflow); when reviewing the release PR:
-      1. Add a summary about what's changed including if there's a new config.
-      2. If necessary, reorder the changelog entries so that the widest-reaching changes come first.
-   2. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
-   3. Confirm the creation of the release at [stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases).
+   1. Trigger the `release-pr` workflow to create a release PR.
+   2. Add a summary to the changelog about what's changed, including if there's a new standard config.
+   3. If necessary, reorder the changelog entries so that the widest-reaching changes come first.
+   4. Merge the PR to start the `release` workflow.
+   5. Approve the pending release job to published to npm and create a draft GitHub release.
+   6. Review and publish the draft GitHub release.
+   7. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
+   8. Confirm the creation of the release at [stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases).
 6. If necessary, release `stylelint-config-*` using the [release workflow](https://github.com/stylelint/.github?tab=readme-ov-file#release-workflow).
 7. Update the website:
    1. Go to the [releasing action page](https://github.com/stylelint/stylelint.io/actions/workflows/release-stylelint.yml) in the `stylelint.io` repository.
