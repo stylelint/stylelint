@@ -132,6 +132,21 @@ For example, the following rule configuration would substitute in custom message
 }
 ```
 
+#### Example: using `message` with declaration-property-value-disallowed-list
+
+You can also use a message for disallowed property values in `declaration-property-value-disallowed-list`. For example:
+
+```json
+{
+  "rules": {
+    "declaration-property-value-disallowed-list": {
+      "color": ["red", { "message": "Unexpected color 'red'" }],
+      "font-weight": ["bold", { "message": "Unexpected font-weight 'bold'" }]
+    }
+  }
+}
+```
+
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
 Some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
