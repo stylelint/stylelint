@@ -15,12 +15,12 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/call-lint.yml@34f1c0ac91f245ee4ee5ce725bb844328c17ccf5 # 0.3.0
+    uses: stylelint/.github/.github/workflows/call-lint.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
     permissions:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@34f1c0ac91f245ee4ee5ce725bb844328c17ccf5 # 0.3.0
+    uses: stylelint/.github/.github/workflows/call-test.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
     with:
       node-version: '["18", "20", "22"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
