@@ -874,3 +874,18 @@ Options are:
 You'll find more formatters in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#formatters) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-formatter).
 
 [More info](options.md#formatter).
+
+## Easy Configuration Example
+
+Here’s a super-simple `stylelint.config.js` you can start with:
+
+module.exports = {
+"rules": {
+"color-no-invalid-hex": true,
+"block-no-empty": true
+}
+};
+
+
+Don’t worry—add more rules as you need them! Start simple, then grow your config as your project grows.
+

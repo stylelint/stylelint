@@ -121,3 +121,12 @@ And then run Stylelint on both your CSS and JavaScript files:
 ```shell
 stylelint "**/*.{css,js}"
 ```
+## Quick Start: Stylelint in Under 2 Minutes
+
+Want to lint your styles right now? Copy these commands:
+
+npm install stylelint --save-dev
+npx stylelint "**/*.css"
+
+That’s it! You’ll see instant feedback on your CSS, helping you catch mistakes and keep your code tidy.
+
