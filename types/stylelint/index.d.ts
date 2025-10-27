@@ -1546,7 +1546,7 @@ declare namespace stylelint {
 		/**
 		 * Define a Stylelint configuration.
 		 */
-		defineConfig: (config: Config) => Config;
+		defineConfig: <T = Config>(config: T) => T;
 	};
 }
 
