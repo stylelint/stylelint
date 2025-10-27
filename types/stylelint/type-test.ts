@@ -16,7 +16,7 @@ import type {
 	RuleMeta,
 	Warning,
 } from 'stylelint';
-import {defineConfig} from 'stylelint';
+import { defineConfig } from 'stylelint';
 import stylelint = require('stylelint');
 
 import('stylelint').then((module) => {
