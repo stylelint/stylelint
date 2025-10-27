@@ -16,6 +16,7 @@ import type {
 	RuleMeta,
 	Warning,
 } from 'stylelint';
+import {defineConfig} from 'stylelint';
 import stylelint = require('stylelint');
 
 import('stylelint').then((module) => {
@@ -62,6 +63,18 @@ stylelint.lint(options).then((x: LinterResult) => {
 });
 
 stylelint.resolveConfig('path').then((config) => stylelint.lint({ config }));
+
+stylelint.resolveConfig('path').then((config) => {
+	if (config) {
+		stylelint.lint({ config: stylelint.defineConfig(config) })
+	}
+});
+
+stylelint.resolveConfig('path').then((config) => {
+	if (config) {
+		stylelint.lint({ config: defineConfig(config) })
+	}
+});
 
 // Override fix to match Config type.
 stylelint

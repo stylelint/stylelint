@@ -48,3 +48,10 @@ export {
 	Warning,
 	WarningOptions,
 } from './index.js';
+
+import {Config} from './index.js';
+
+/**
+ * Define a Stylelint configuration.
+ */
+export function defineConfig(config: Config): Config;
