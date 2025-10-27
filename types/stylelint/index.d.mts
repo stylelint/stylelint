@@ -54,4 +54,4 @@ import type {Config} from './index.js';
 /**
  * Define a Stylelint configuration.
  */
-export function defineConfig<T = Config>(config: T): T;
+export function defineConfig(config: Config): Config;
