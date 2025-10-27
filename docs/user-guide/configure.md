@@ -9,7 +9,7 @@ The style of export depends on your [default module system configuration](https:
 Example using a `stylelint.config.js` file:
 
 ```js
-import {defineConfig} from "stylelint";
+import { defineConfig } from "stylelint";
 
 export default defineConfig({
   rules: {
