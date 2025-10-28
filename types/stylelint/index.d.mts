@@ -49,7 +49,7 @@ export {
 	WarningOptions,
 } from './index.js';
 
-import type {Config} from './index.js';
+import type { Config } from './index.js';
 
 /**
  * Define a Stylelint configuration.

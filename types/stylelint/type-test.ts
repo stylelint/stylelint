@@ -66,13 +66,13 @@ stylelint.resolveConfig('path').then((config) => stylelint.lint({ config }));
 
 stylelint.resolveConfig('path').then((config) => {
 	if (config) {
-		stylelint.lint({ config: stylelint.defineConfig(config) })
+		stylelint.lint({ config: stylelint.defineConfig(config) });
 	}
 });
 
 stylelint.resolveConfig('path').then((config) => {
 	if (config) {
-		stylelint.lint({ config: defineConfig(config) })
+		stylelint.lint({ config: defineConfig(config) });
 	}
 });
 
