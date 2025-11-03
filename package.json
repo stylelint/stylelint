@@ -64,6 +64,8 @@
     "benchmark-rule": "node scripts/benchmark-rule.mjs",
     "build": "rollup -c",
     "build-check": "node scripts/build-check.mjs",
+    "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
+    "postchangeset": "npm install --ignore-scripts",
     "format": "prettier . --write --cache",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check --cache",
@@ -76,9 +78,7 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
     "test-only": "npm test --ignore-scripts",
-    "watch": "npm test --ignore-scripts -- --watch",
-    "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
-    "postchangeset": "npm install --ignore-scripts"
+    "watch": "npm test --ignore-scripts -- --watch"
   },
   "lint-staged": {
     "*.{js,mjs}": "eslint --cache --fix",
