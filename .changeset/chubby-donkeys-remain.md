@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Support `customSyntax` with function export
+Added: support for `customSyntax` with function export
