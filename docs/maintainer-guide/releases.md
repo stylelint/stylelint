@@ -10,18 +10,14 @@
    2. [stylelint/stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
    3. [stylelint/stylelint.io](https://github.com/stylelint/stylelint.io)
 5. Release Stylelint:
-   1. Ensure `CHANGELOG.md` has the correct date (UTC) for the latest release.
-   2. Add a summary about what's changed including if there's a new config.
-   3. If necessary, reorder the changelog entries in the "Prepare x.y.z" pull request so that the widest-reaching changes come first.
-   4. Merge the "Prepare x.y.z" pull request.
-   5. Open a terminal window in the `stylelint` repository.
-   6. Run `npm run release`.
-   7. Select the version from the [`np`](https://github.com/sindresorhus/np) prompt that matches the one in the changelog.
-   8. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
-   9. Confirm the creation of the release at [stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases).
-6. If necessary, release `stylelint-config-*`:
-   1. Change to the `stylelint-config-*` repository.
-   2. Repeat steps 5 to 8 above for that repository.
+   1. Trigger the `release-pr` workflow to create a release PR.
+   2. Add a summary to the changelog about what's changed, including if there's a new standard config.
+   3. If necessary, reorder the changelog entries so that the widest-reaching changes come first.
+   4. Merge the PR to start the `release` workflow.
+   5. Approve the pending release job to publish to npm and create a draft GitHub release.
+   6. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
+   7. Review and publish the draft GitHub release.
+6. If necessary, release `stylelint-config-*` using the same steps.
 7. Update the website:
    1. Go to the [releasing action page](https://github.com/stylelint/stylelint.io/actions/workflows/release-stylelint.yml) in the `stylelint.io` repository.
    2. Click **Run workflow**.

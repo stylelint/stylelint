@@ -1,5 +1,22 @@
 # Changelog
 
+## 16.25.0 - 2025-10-03
+
+It adds 3 new features, including experimental support for bulk suppressions. It's also our first [immutable release](https://github.blog/changelog/2025-08-26-releases-now-support-immutability-in-public-preview/), with the package published to npm using [trusted publishing](https://github.blog/changelog/2025-07-31-npm-trusted-publishing-with-oidc-is-generally-available/) and our dependencies updated on a [cool down](https://github.blog/changelog/2025-07-01-dependabot-supports-configuration-of-a-minimum-package-age/) for improved supply chain security.
+
+- Added: support for bulk suppressions ([#8564](https://github.com/stylelint/stylelint/pull/8564)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `ignoreAtRules: []` to `no-invalid-position-declaration` ([#8781](https://github.com/stylelint/stylelint/pull/8781)) ([@jrmlt](https://github.com/jrmlt)).
+- Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
+
+## 16.24.0 - 2025-09-07
+
+It adds 1 new rule, adds 1 option to a rule and fixes 2 bugs.
+
+- Added: `rule-nesting-at-rule-required-list` rule ([#8680](https://github.com/stylelint/stylelint/pull/8680)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `ignoreAtRules: []` to `nesting-selector-no-missing-scoping-root` ([#8743](https://github.com/stylelint/stylelint/pull/8743)) ([@karlhorky](https://github.com/karlhorky)).
+- Fixed: `function-no-unknown` false positives for `contrast-color()` and `sibling-*()` ([#8729](https://github.com/stylelint/stylelint/pull/8729)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:heading` ([#8749](https://github.com/stylelint/stylelint/pull/8749)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 16.23.1 - 2025-08-07
 
 It fixes 7 bugs.
@@ -636,7 +653,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Fixed: `overrides.extends` order when including same rules ([#6660](https://github.com/stylelint/stylelint/pull/6660)) ([@kuoruan](https://github.com/kuoruan)).
 - Fixed: `annotation-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `declaration-property-value-no-unknown` false positives for at-rule descriptors ([#6669](https://github.com/stylelint/stylelint/pull/6669)) ([@FloEdelmann](https://github.com/FloEdelmann)).
-- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as violation ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as a problem ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `function-name-case` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `function-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `unit-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
