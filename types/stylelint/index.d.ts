@@ -928,6 +928,11 @@ declare namespace stylelint {
 		}>;
 		'selector-max-universal': MaxRule<{ ignoreAfterCombinators: OneOrMany<string> }>;
 		'selector-nested-pattern': PatternRule<{ splitList: boolean }>;
+		'selector-no-deprecated': CoreRule<
+			true,
+			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			AutofixMessage & RejectedMessage<[selector: string]>
+		>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
