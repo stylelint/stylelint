@@ -1542,6 +1542,11 @@ declare namespace stylelint {
 		reference: {
 			longhandSubPropertiesOfShorthandProperties: LonghandSubPropertiesOfShorthandProperties;
 		};
+
+		/**
+		 * Define a Stylelint configuration.
+		 */
+		defineConfig: (config: Config) => Config;
 	};
 }
 
