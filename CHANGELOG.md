@@ -2,6 +2,8 @@
 
 ## 16.26.0 - 2025-11-21
 
+It adds 1 feature and fixes 2 bugs.
+
 - Added: support for `customSyntax` with function export ([#8834](https://github.com/stylelint/stylelint/pull/8834)) ([@silverwind](https://github.com/silverwind)).
 - Fixed: `custom-property-no-missing-var-function` false positives for style query in `if()` function ([#8813](https://github.com/stylelint/stylelint/pull/8813)) ([@sajdakabir](https://github.com/sajdakabir)).
 - Fixed: `media-feature-range-notation` false positives for multiple queries and `except: exact-value` ([#8832](https://github.com/stylelint/stylelint/pull/8832)) ([@jeddy3](https://github.com/jeddy3)).
