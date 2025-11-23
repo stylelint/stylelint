@@ -1,8 +1,8 @@
 diff --git a/node_modules/@types/css-tree/index.d.ts b/node_modules/@types/css-tree/index.d.ts
-index b9c1d73..f3d9ba9 100644
+index c005ef3..eb6e819 100644
 --- a/node_modules/@types/css-tree/index.d.ts
 +++ b/node_modules/@types/css-tree/index.d.ts
-@@ -910,7 +910,12 @@ export class Lexer {
+@@ -911,7 +911,12 @@ export class Lexer {
  export const lexer: Lexer;
  
  export function fork(extension: {
