@@ -640,9 +640,7 @@ declare namespace stylelint {
 				propertiesSyntax: Record<string, string>;
 				typesSyntax: Record<string, string>;
 			},
-			RejectedMessage<[property: string, value: string]> & {
-				rejectedParseError: (property: string, value: string) => string;
-			}
+			RejectedMessage<[property: string, value: string]>
 		>;
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
