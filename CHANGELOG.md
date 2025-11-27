@@ -1,6 +1,8 @@
 # Changelog
 
-## 16.26.1 - 2025-11-27
+## 16.26.1 - 2025-11-28
+
+It fixes numerous false positive bugs, including many in the `declaration-property-value-no-unknown` rule for the latest CSS specifications.
 
 - Fixed: `*-no-unknown` false positives for latest specs by integrating `@csstools/css-syntax-patches-for-csstree` ([#8850](https://github.com/stylelint/stylelint/pull/8850)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `at-rule-no-unknown` false positives for `@function` ([#8851](https://github.com/stylelint/stylelint/pull/8851)) ([@jeddy3](https://github.com/jeddy3)).
