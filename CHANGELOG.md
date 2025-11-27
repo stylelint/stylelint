@@ -1,5 +1,12 @@
 # Changelog
 
+## 16.26.1 - 2025-11-27
+
+- Fixed: `*-no-unknown` false positives for latest specs by integrating `@csstools/css-syntax-patches-for-csstree` ([#8850](https://github.com/stylelint/stylelint/pull/8850)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `at-rule-no-unknown` false positives for `@function` ([#8851](https://github.com/stylelint/stylelint/pull/8851)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `attr()`, `if()` and custom functions ([#8853](https://github.com/stylelint/stylelint/pull/8853)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-url-quotes` false positives when URLs require quoting ([#8804](https://github.com/stylelint/stylelint/pull/8804)) ([@taearls](https://github.com/taearls)).
+
 ## 16.26.0 - 2025-11-21
 
 It adds 1 feature and fixes 2 bugs.
