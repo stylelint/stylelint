@@ -100,6 +100,7 @@ declare namespace stylelint {
 			properties?: Record<string, string>;
 			types?: Record<string, string>;
 		};
+		nestingMode?: 'native' | 'legacy';
 	};
 
 	/**
