@@ -132,11 +132,7 @@ For example, the following rule configuration would substitute in custom message
 }
 ```
 
-Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
-
-Some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
-
-Via JavaScript:
+Some rules support message arguments. For example, the `color-no-hex` rule has one argument:
 
 ```js
 export default {
@@ -151,7 +147,34 @@ export default {
 };
 ```
 
-Via JSON:
+And the `declaration-property-value-disallowed-list` rule has two:
+
+```js
+export default {
+  rules: {
+    "declaration-property-value-disallowed-list": [
+      {
+        "font-weight": ["normal", "bold"],
+        "font-style": ["italic", "oblique"]
+      },
+      {
+        message: (property, value) => {
+          switch (property) {
+            case "font-weight":
+              return `Use "var(--font-weight-${value})" instead`;
+            case "font-style":
+              return `Use "class: 'italic'" instead`;
+            default:
+              return `Unexpected value "${value}" for property "${property}"`;
+          }
+        }
+      }
+    ]
+  }
+};
+```
+
+With config formats that don't support a function, like JSON, you can use a simplifed `printf`-like format (e.g., `%s`).
 
 ```json
 {
@@ -166,7 +189,9 @@ Via JSON:
 }
 ```
 
-With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`). On the other hand, with JS format, you can use both a `printf`-like format and a function.
+With the JavaScript format, you can use both a `printf`-like format and a function.
+
+Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
 ### `url`
 
@@ -481,7 +506,7 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
 - a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
-You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
+You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#configs) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-config).
 
 ## `plugins`
 
@@ -521,7 +546,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
-You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
+You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-plugin).
 
 ## `customSyntax`
 
@@ -870,5 +895,7 @@ Options are:
     }
   };
   ```
+
+You'll find more formatters in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#formatters) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-formatter).
 
 [More info](options.md#formatter).

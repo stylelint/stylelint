@@ -132,6 +132,14 @@ A filename to assign the input. [More info](options.md#codefilename).
 
 Accept stdin input even if it is empty.
 
+### `--suppress`
+
+Suppress problems that have the severity of `error` and record them in a file. [More info](suppressions.md#--suppress-rule).
+
+### `--suppress-location`
+
+Path to a file or directory for the suppressions location. [More info](suppressions.md#--suppress-location-path).
+
 ### `--validate, --no-validate`
 
 Force enable/disable the validation of the rules' options. [More info](options.md#validate).

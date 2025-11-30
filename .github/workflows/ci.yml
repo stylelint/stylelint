@@ -1,4 +1,4 @@
-name: Testing
+name: CI
 
 on:
   push:
@@ -15,14 +15,18 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/lint.yml@main
+    uses: stylelint/.github/.github/workflows/call-lint.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
+    permissions:
+      contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/test.yml@main
+    uses: stylelint/.github/.github/workflows/call-test.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
     with:
       node-version: '["18", "20", "22"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
       exclude: '[{"node-version": "20", "os": "ubuntu-latest"}]' # for coverage
+    permissions:
+      contents: read
 
   test-coverage:
     name: Test on Node.js 20 and ubuntu-latest with coverage
@@ -30,10 +34,10 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version: '20'
           cache: npm
@@ -51,7 +55,7 @@ jobs:
           NODE_OPTIONS: '--max-old-space-size=4096'
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
+        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
         with:
           files: ./.coverage/lcov.info
           fail_ci_if_error: true
@@ -61,10 +65,10 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version: 'lts/*'
           cache: npm
@@ -86,7 +90,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Install codespell
         run: pip install codespell

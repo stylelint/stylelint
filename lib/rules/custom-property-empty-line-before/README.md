@@ -280,7 +280,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "except": ["after-comment"] }
+    { "ignore": ["after-comment"] }
   ]
 }
 ```
@@ -295,6 +295,32 @@ a {
 }
 ```
 
+#### `"after-custom-property"`
+
+Ignore custom properties that follow another custom property.
+
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "ignore": ["after-custom-property"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+
+  --foo: pink;
+  --bar: red;
+}
+```
+
 #### `"first-nested"`
 
 Ignore custom properties that are nested and the first child of their parent node.
@@ -305,7 +331,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "except": ["first-nested"] }
+    { "ignore": ["first-nested"] }
   ]
 }
 ```
@@ -331,7 +357,7 @@ Given:
 {
   "custom-property-empty-line-before": [
     "always",
-    { "except": ["inside-single-line-block"] }
+    { "ignore": ["inside-single-line-block"] }
   ]
 }
 ```

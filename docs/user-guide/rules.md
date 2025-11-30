@@ -20,6 +20,8 @@ Disallow deprecated things with these `no-deprecated` rules.
 | :-- | :-: | :-: |
 | [`at-rule-no-deprecated`](../../lib/rules/at-rule-no-deprecated/README.md)<br/>Disallow deprecated at-rules. | ✅ | 🔧 |
 | [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
+| [`media-type-no-deprecated`](../../lib/rules/media-type-no-deprecated/README.md)<br/>Disallow deprecated media types. | ✅ | |
+| [`property-no-deprecated`](../../lib/rules/property-no-deprecated/README.md)<br/>Disallow deprecated properties. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
@@ -74,6 +76,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`named-grid-areas-no-invalid`](../../lib/rules/named-grid-areas-no-invalid/README.md)<br/>Disallow invalid named grid areas. | ✅ | |
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
+| [`no-invalid-position-declaration`](../../lib/rules/no-invalid-position-declaration/README.md)<br/>Disallow invalid position declarations. | ✅ | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
 | [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
 <!-- prettier-ignore-end -->
@@ -97,6 +100,7 @@ Disallow missing things with these `no-missing` rules.
 | :-- | :-: | :-: |
 | [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md)<br/>Disallow missing `var` function for custom properties. | ✅ | |
 | [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md)<br/>Disallow a missing generic family keyword within font families. | ✅ | |
+| [`nesting-selector-no-missing-scoping-root`](../../lib/rules/nesting-selector-no-missing-scoping-root/README.md)<br/>Disallow missing scoping root for nesting selectors. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Non-standard
@@ -250,6 +254,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`rule-nesting-at-rule-required-list`](../../lib/rules/rule-nesting-at-rule-required-list/README.md)<br/>Require rules to be nested in specific at-rules. | | |
 | [`rule-selector-property-disallowed-list`](../../lib/rules/rule-selector-property-disallowed-list/README.md)<br/>Specify a list of disallowed properties for selectors within rules. | | |
 <!-- prettier-ignore-end -->
 
@@ -396,6 +401,7 @@ Disallow redundancy with these `no-redundant` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`block-no-redundant-nested-style-rules`](../../lib/rules/block-no-redundant-nested-style-rules/README.md)<br/>Disallow redundant nested style rules within blocks. | ✅ | |
 | [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md)<br/>Disallow redundant longhand properties within declaration-block. | ✅ | 🔧 |
 | [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md)<br/>Disallow redundant values within shorthand properties. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->

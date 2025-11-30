@@ -35,17 +35,22 @@ You should add test cases for all patterns that are:
 You should use:
 
 - realistic CSS, avoiding the use of ellipses
-- the minimum amount of code possible, e.g. use an empty rule if targeting selectors
+- the minimum amount of valid CSS possible, e.g. use an empty rule if targeting selectors and avoid optional names
 - `{}` for empty rules, rather than `{ }`
-- the `a` type selector by default
-- the `@media` at-rules by default
-- the `color` property by default
-- the `red` value by default
-- the `(min-)width` media feature by default
-- the `example.org` URL by default
+- trailing semicolons within declaration blocks
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
-You should:
+By default, you should use the:
+
+- `a` selector
+- `color` property
+- `red` value
+- `@media` at-rule name
+- `all` media type
+- `width > 10em` container query
+- `example.com` URL
+
+You should also:
 
 - vary column and line positions across your tests
 - include at least one test that has 2 warnings
@@ -116,6 +121,7 @@ Always use the:
 
 - `validateOptions()` utility to warn users about invalid options
 - `isStandardSyntax*()` utilities before checking a node or string to ignore non-standard syntax
+- `is*` type guard utilities to check a node's type
 - `report()` utility to report lint problems
 
 ##### Location arguments for `report()`

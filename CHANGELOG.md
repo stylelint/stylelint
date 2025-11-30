@@ -1,5 +1,95 @@
 # Changelog
 
+## 16.26.1 - 2025-11-28
+
+It fixes numerous false positive bugs, including many in the `declaration-property-value-no-unknown` rule for the latest CSS specifications.
+
+- Fixed: `*-no-unknown` false positives for latest specs by integrating `@csstools/css-syntax-patches-for-csstree` ([#8850](https://github.com/stylelint/stylelint/pull/8850)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `at-rule-no-unknown` false positives for `@function` ([#8851](https://github.com/stylelint/stylelint/pull/8851)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `attr()`, `if()` and custom functions ([#8853](https://github.com/stylelint/stylelint/pull/8853)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-url-quotes` false positives when URLs require quoting ([#8804](https://github.com/stylelint/stylelint/pull/8804)) ([@taearls](https://github.com/taearls)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::scroll-button()` ([#8856](https://github.com/stylelint/stylelint/pull/8856)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.26.0 - 2025-11-21
+
+It adds 1 feature and fixes 2 bugs.
+
+- Added: support for `customSyntax` with function export ([#8834](https://github.com/stylelint/stylelint/pull/8834)) ([@silverwind](https://github.com/silverwind)).
+- Fixed: `custom-property-no-missing-var-function` false positives for style query in `if()` function ([#8813](https://github.com/stylelint/stylelint/pull/8813)) ([@sajdakabir](https://github.com/sajdakabir)).
+- Fixed: `media-feature-range-notation` false positives for multiple queries and `except: exact-value` ([#8832](https://github.com/stylelint/stylelint/pull/8832)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 16.25.0 - 2025-10-03
+
+It adds 3 new features, including experimental support for bulk suppressions. It's also our first [immutable release](https://github.blog/changelog/2025-08-26-releases-now-support-immutability-in-public-preview/), with the package published to npm using [trusted publishing](https://github.blog/changelog/2025-07-31-npm-trusted-publishing-with-oidc-is-generally-available/) and our dependencies updated on a [cool down](https://github.blog/changelog/2025-07-01-dependabot-supports-configuration-of-a-minimum-package-age/) for improved supply chain security.
+
+- Added: support for bulk suppressions ([#8564](https://github.com/stylelint/stylelint/pull/8564)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `ignoreAtRules: []` to `no-invalid-position-declaration` ([#8781](https://github.com/stylelint/stylelint/pull/8781)) ([@jrmlt](https://github.com/jrmlt)).
+- Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
+
+## 16.24.0 - 2025-09-07
+
+It adds 1 new rule, adds 1 option to a rule and fixes 2 bugs.
+
+- Added: `rule-nesting-at-rule-required-list` rule ([#8680](https://github.com/stylelint/stylelint/pull/8680)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `ignoreAtRules: []` to `nesting-selector-no-missing-scoping-root` ([#8743](https://github.com/stylelint/stylelint/pull/8743)) ([@karlhorky](https://github.com/karlhorky)).
+- Fixed: `function-no-unknown` false positives for `contrast-color()` and `sibling-*()` ([#8729](https://github.com/stylelint/stylelint/pull/8729)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:heading` ([#8749](https://github.com/stylelint/stylelint/pull/8749)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.23.1 - 2025-08-07
+
+It fixes 7 bugs.
+
+- Fixed: `no-invalid-position-declaration` false positives for embedded styles ([#8701](https://github.com/stylelint/stylelint/pull/8701)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `property-no-deprecated` erroneously autofixing `clip` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `property-no-deprecated` false positives for `-webkit-box-orient: vertical;` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives for some meter pseudo classes/elements ([#8708](https://github.com/stylelint/stylelint/pull/8708)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:unchecked` ([#8705](https://github.com/stylelint/stylelint/pull/8705)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::search-text` ([#8707](https://github.com/stylelint/stylelint/pull/8707)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `selectedcontent` ([#8716](https://github.com/stylelint/stylelint/pull/8716)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.23.0 - 2025-07-29
+
+It adds 5 new rules, 1 option to a rule and fixes 3 bugs. We've turned on the new rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+- Added: `block-no-redundant-nested-style-rules` rule ([#8684](https://github.com/stylelint/stylelint/pull/8684)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `media-type-no-deprecated` rule ([#8668](https://github.com/stylelint/stylelint/pull/8668)) ([@immitsu](https://github.com/immitsu)).
+- Added: `nesting-selector-no-missing-scoping-root` rule ([#8674](https://github.com/stylelint/stylelint/pull/8674)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `no-invalid-position-declaration` rule ([#8669](https://github.com/stylelint/stylelint/pull/8669)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `property-no-deprecated` rule ([#8682](https://github.com/stylelint/stylelint/pull/8682)) ([@immitsu](https://github.com/immitsu)).
+- Added: `except: ["exact-value"]` to `media-feature-range-notation` ([#8675](https://github.com/stylelint/stylelint/pull/8675)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `declaration-block-no-duplicate-properties` false negatives for named colors with `ignore: ['consecutive-duplicates-with-different-syntaxes']` ([#8665](https://github.com/stylelint/stylelint/pull/8665)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `function-no-unknown` false positives ([#8677](https://github.com/stylelint/stylelint/pull/8677)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-irregular-whitespace` false positives for strings ([#8667](https://github.com/stylelint/stylelint/pull/8667)) ([@immitsu](https://github.com/immitsu)).
+
+## 16.22.0 - 2025-07-18
+
+It adds 3 rule features and fixes 2 bugs.
+
+- Added: `messageArgs` to `color-named` ([#8663](https://github.com/stylelint/stylelint/pull/8663)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `messageArgs` to `declaration-property-value-keyword-no-deprecated` ([#8654](https://github.com/stylelint/stylelint/pull/8654)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `no-descending-specificity` report message includes line number of the anchoring selector ([#8666](https://github.com/stylelint/stylelint/pull/8666)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `at-rule-no-deprecated` false positives for `@apply` ([#8630](https://github.com/stylelint/stylelint/pull/8630)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `lightness-notation` crash with `"number"` option and single-digit percentage ([#8661](https://github.com/stylelint/stylelint/pull/8661)) ([@ybiquitous](https://github.com/ybiquitous)).
+
+## 16.21.1 - 2025-07-03
+
+It fixes 3 bugs.
+
+- Fixed: unexpected change of syntax in computed `EditInfo` ([#8638](https://github.com/stylelint/stylelint/pull/8638)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for CSS variables' names containing a direction substring ([#8643](https://github.com/stylelint/stylelint/pull/8643)) ([@Solomon-mithra](https://github.com/Solomon-mithra)).
+- Fixed: `media-feature-range-notation` autofix for exact values ([#8651](https://github.com/stylelint/stylelint/pull/8651)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.21.0 - 2025-06-19
+
+It rounds out the `message` secondary option and marks it as stable, adds 1 new option to a rule, and fixes 4 bugs.
+
+- Added: non-experimental support for functional `message` secondary option ([#8595](https://github.com/stylelint/stylelint/pull/8595)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `ignore: ["after-custom-property"]` to `custom-property-empty-line-before` ([#8627](https://github.com/stylelint/stylelint/pull/8627)) ([@imkesin](https://github.com/imkesin)).
+- Fixed: `cache` configuration property not being respected ([#8599](https://github.com/stylelint/stylelint/pull/8599)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `fastest-levenshtein` import when bundling ([#8621](https://github.com/stylelint/stylelint/pull/8621)) ([@onigoetz](https://github.com/onigoetz)).
+- Fixed: `named-grid-areas-no-invalid` false positives for interpolated grid-template-areas in CSS-in-JS ([#8606](https://github.com/stylelint/stylelint/pull/8606)) ([@shahana308](https://github.com/shahana308)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives for the missing form control styling selectors ([#8623](https://github.com/stylelint/stylelint/pull/8623)) ([@tyrann0us](https://github.com/tyrann0us)).
+
 ## 16.20.0 - 2025-05-29
 
 It fixes 2 bugs with the built-in rules.
@@ -581,7 +671,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Fixed: `overrides.extends` order when including same rules ([#6660](https://github.com/stylelint/stylelint/pull/6660)) ([@kuoruan](https://github.com/kuoruan)).
 - Fixed: `annotation-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `declaration-property-value-no-unknown` false positives for at-rule descriptors ([#6669](https://github.com/stylelint/stylelint/pull/6669)) ([@FloEdelmann](https://github.com/FloEdelmann)).
-- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as violation ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as a problem ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `function-name-case` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `function-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `unit-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
