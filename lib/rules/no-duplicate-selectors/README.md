@@ -22,11 +22,15 @@ The same selector _is_ allowed to repeat in the following circumstances:
 
 This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a problem, because the resolved selectors end up with a duplicate.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "no-duplicate-selectors": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -117,11 +121,17 @@ a {
 
 ## Optional secondary options
 
-### `disallowInList: true | false` (default: `false`)
+### `disallowInList`
 
-This option will also disallow duplicate selectors within selector lists.
+This option will also disallow duplicate selectors within selector lists. Defaults to `false`.
 
-For example, with `true`.
+Given:
+
+```json
+{
+  "no-duplicate-selectors": [true, { "disallowInList": true }]
+}
+```
 
 The following patterns are considered problems:
 

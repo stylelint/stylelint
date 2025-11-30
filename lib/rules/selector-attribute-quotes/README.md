@@ -11,15 +11,17 @@ Require or disallow quotes for attribute values.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
-
 ## Options
-
-`string`: `"always"|"never"`
 
 ### `"always"`
 
 Attribute values _must always_ be quoted.
+
+```json
+{
+  "selector-attribute-quotes": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -63,6 +65,12 @@ The following patterns are _not_ considered problems:
 ### `"never"`
 
 Attribute values _must never_ be quoted.
+
+```json
+{
+  "selector-attribute-quotes": "never"
+}
+```
 
 The following patterns are considered problems:
 

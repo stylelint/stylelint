@@ -35,16 +35,22 @@ You should add test cases for all patterns that are:
 You should use:
 
 - realistic CSS, avoiding the use of ellipses
-- the minimum amount of code possible, e.g. use an empty rule if targeting selectors
+- the minimum amount of valid CSS possible, e.g. use an empty rule if targeting selectors and avoid optional names
 - `{}` for empty rules, rather than `{ }`
-- the `a` type selector by default
-- the `@media` at-rules by default
-- the `color` property by default
-- the `red` value by default
-- the `(min-)width` media feature by default
+- trailing semicolons within declaration blocks
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
-You should:
+By default, you should use the:
+
+- `a` selector
+- `color` property
+- `red` value
+- `@media` at-rule name
+- `all` media type
+- `width > 10em` container query
+- `example.com` URL
+
+You should also:
 
 - vary column and line positions across your tests
 - include at least one test that has 2 warnings
@@ -55,6 +61,7 @@ You should:
 You should ask yourself how does your rule handle:
 
 - variables (e.g. `var(--custom-property)`)?
+- CSS-wide keywords (e.g. `initial`)?
 - CSS strings (e.g. `content: "anything goes";`)?
 - CSS comments (e.g. `/* anything goes */`)?
 - empty functions (e.g. `var()`)?
@@ -114,6 +121,7 @@ Always use the:
 
 - `validateOptions()` utility to warn users about invalid options
 - `isStandardSyntax*()` utilities before checking a node or string to ignore non-standard syntax
+- `is*` type guard utilities to check a node's type
 - `report()` utility to report lint problems
 
 ##### Location arguments for `report()`
@@ -169,7 +177,7 @@ root.walkDecls((declNode) => {
     message: messages.rejected(),
     node: declNode,
     index,
-    endIndex:
+    endIndex
   });
 });
 ```
@@ -181,7 +189,6 @@ root.walkDecls((declNode) => {
   const { prop, value: declValue } = declNode;
 
   valueParser(declValue).walk(({ value, sourceIndex }) => {
-
     const index = declarationValueIndex(decl) + sourceIndex;
     const endIndex = index + value.length;
 
@@ -191,7 +198,7 @@ root.walkDecls((declNode) => {
       message: messages.rejected(),
       node: declNode,
       index,
-      endIndex:
+      endIndex
     });
   });
 });
@@ -300,9 +307,33 @@ function rule(primary, secondary) {
 }
 ```
 
+### Add `languageOptions` support
+
+Depending on the rule, it may need to support the [`languageOptions`](../user-guide/configure.md#languageoptions) configuration property.
+
+For example:
+
+```diff js
+import { basicKeywords } from '../../reference/keywords.mjs';
+
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
+    if (!validOptions) return;
+
++   const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
+
++   const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
+
+    /* .. */
+  };
+}
+```
+
 ### Context
 
-`context` is an object which could have three properties:
+`context` is an object that could have the following properties:
 
 - `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
 - `fix`(boolean): If `true`, your rule can apply autofixes.

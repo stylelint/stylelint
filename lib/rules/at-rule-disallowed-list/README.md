@@ -11,16 +11,20 @@ Specify a list of disallowed at-rules.
 
 This rule ignores the `@charset` rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
+### `Array<string>`
+
+```json
+["array", "of", "unprefixed", "at-rules"]
+```
 
 Given:
 
 ```json
-["extend", "keyframes"]
+{
+  "at-rule-disallowed-list": ["extend", "keyframes"]
+}
 ```
 
 The following patterns are considered problems:

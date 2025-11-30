@@ -83,7 +83,13 @@ You can add any number of keys to the object. For example, you can:
 }
 ```
 
-Some rules and options accept regex. You can enforce these common cases:
+Some rules accept regular expressions (regex) in the `"/regex/"` format. If you surround a string option with `"/"`, it'll be interpreted as a regex. For example, `"/.+/"` matches any string. You can specify a regex literal in JavaScript, such as `/.+/`, rather than a string with `"/"`.
+
+The `"/regex/"` format is also available in some object keys. For example, when `{ "/^margin/": ["px"] }` is given, the key matches `margin`, `margin-top`, `margin-inline`, etc.
+
+The `*-pattern` rules translate the given string without `"/"` into a regex, like `"^foo"` into `new RegExp("^foo")`. In this case, you can directly specify a regex literal in JavaScript, such as `/^foo/`.
+
+You can enforce these common cases:
 
 <!-- prettier-ignore -->
 - kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
@@ -126,11 +132,7 @@ For example, the following rule configuration would substitute in custom message
 }
 ```
 
-Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
-
-Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
-
-Via JavaScript:
+Some rules support message arguments. For example, the `color-no-hex` rule has one argument:
 
 ```js
 export default {
@@ -145,7 +147,34 @@ export default {
 };
 ```
 
-Via JSON:
+And the `declaration-property-value-disallowed-list` rule has two:
+
+```js
+export default {
+  rules: {
+    "declaration-property-value-disallowed-list": [
+      {
+        "font-weight": ["normal", "bold"],
+        "font-style": ["italic", "oblique"]
+      },
+      {
+        message: (property, value) => {
+          switch (property) {
+            case "font-weight":
+              return `Use "var(--font-weight-${value})" instead`;
+            case "font-style":
+              return `Use "class: 'italic'" instead`;
+            default:
+              return `Unexpected value "${value}" for property "${property}"`;
+          }
+        }
+      }
+    ]
+  }
+};
+```
+
+With config formats that don't support a function, like JSON, you can use a simplifed `printf`-like format (e.g., `%s`).
 
 ```json
 {
@@ -160,7 +189,9 @@ Via JSON:
 }
 ```
 
-With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`). On the other hand, with JS format, you can use both a `printf`-like format and a function.
+With the JavaScript format, you can use both a `printf`-like format and a function.
+
+Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
 ### `url`
 
@@ -219,7 +250,7 @@ For example:
 
 Reporters may use these severity levels to display problems or exit the process differently.
 
-Experimental feature: some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
+Some rules support [message arguments](#message). For these rules, it is possible to use a function for `severity`, which would accept these arguments, allowing you to adjust the severity based on these arguments.
 
 This function must return `"error"`, `"warning"`, or `null`. When it would return `null`, the `defaultSeverity` would be used.
 
@@ -252,6 +283,188 @@ But the following pattern would be reported as a warning:
 <!-- prettier-ignore -->
 ```css
 a[data-auto="1"] {}
+```
+
+## `languageOptions`
+
+You can customize the syntax to define or extend the syntax for at-rules, properties, types, and CSS-wide keywords.
+
+### `syntax`
+
+You can extend or modify the default CSS syntax to customize the following aspects:
+
+- `atRules`: Define custom at-rules with specific `prelude` and `descriptors` syntax
+- `cssWideKeywords`: Extend the list of CSS-wide keywords with custom values
+- `properties`: Customize the syntax of specific properties
+- `types`: Extend or modify type definitions used in property values
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "example": {
+          "comment": "Example at-rule",
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "foo": "<number>",
+            "bar": "<color>"
+          }
+        }
+      },
+      "cssWideKeywords": ["my-global-value"],
+      "properties": { "top": "| <--foo()>" },
+      "types": { "--foo()": "--foo( <length-percentage> )" }
+    }
+  },
+  "rules": {
+    "at-rule-descriptor-no-unknown": true,
+    "at-rule-descriptor-value-no-unknown": true,
+    "at-rule-prelude-no-invalid": true,
+    "declaration-property-value-no-unknown": true
+  }
+}
+```
+
+The following rules are configured via the `languageOptions` property:
+
+- [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)
+- [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)
+- [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)
+- [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
+- [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
+- [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)
+
+#### `AtRules`
+
+You can customize at-rules by defining their expected prelude and descriptors.
+For example, to support a new at-rule `@foo` with specific descriptors:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "atRules": {
+        "foo": {
+          "prelude": "<custom-ident>",
+          "descriptors": {
+            "bar": "<number>",
+            "baz": "<color>"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+When `at-rule-descriptor-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { qux: 10; }
+```
+
+When `at-rule-descriptor-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { bar: red; }
+```
+
+In both cases, the following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@foo custom-ident { bar: 10; baz: red; }
+```
+
+#### `cssWideKeywords`
+
+You can add custom global keywords that are accepted as valid property values.
+For example, to add `-moz-initial` to the [wide keywords](https://drafts.csswg.org/css-values-4/#css-wide-keywords):
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "cssWideKeywords": ["-moz-initial"]
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: foo; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: -moz-initial; }
+```
+
+#### `properties`
+
+You can extend or modify the syntax for specific properties.
+For example, to support a custom `foo` property that accepts `<color>` values:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "properties": { "foo": "<color>" }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { foo: 10px; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { foo: red; }
+```
+
+#### `types`
+
+You can extend or modify the syntax for specific types.
+For example, to support a new function `--foo()` that accepts `<length-percentage>` values and use it within the top property:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "types": { "--foo()": "--foo( <length-percentage> )" },
+      "properties": { "top": "| <--foo()>" }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(red); }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: --foo(10px); }
 ```
 
 ## `extends`
@@ -293,7 +506,7 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
 - a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
-You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
+You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#configs) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-config).
 
 ## `plugins`
 
@@ -333,7 +546,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
-You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
+You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-plugin).
 
 ## `customSyntax`
 
@@ -682,5 +895,7 @@ Options are:
     }
   };
   ```
+
+You'll find more formatters in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#formatters) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-formatter).
 
 [More info](options.md#formatter).

@@ -20,6 +20,12 @@ This rule checks the `font` and `font-family` properties.
 
 ### `true`
 
+```json
+{
+  "font-family-no-missing-generic-family-keyword": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -66,12 +72,23 @@ a { font-family: Helvetica, var(--font-family-common); }
 
 ## Optional secondary options
 
-### `ignoreFontFamilies: ["/regex/", /regex/, "string"]`
+### `ignoreFontFamilies`
+
+```json
+{ "ignoreFontFamilies": ["array", "of", "font-families", "/regex/"] }
+```
 
 Given:
 
 ```json
-["custom-font"]
+{
+  "font-family-no-missing-generic-family-keyword": [
+    true,
+    {
+      "ignoreFontFamilies": ["custom-font"]
+    }
+  ]
+}
 ```
 
 The following pattern is _not_ considered a problem:

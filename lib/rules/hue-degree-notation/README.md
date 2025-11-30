@@ -13,15 +13,17 @@ Because hues are so often given in degrees, a hue can also be given as a number,
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
-
-`string`: `"angle"|"number"`
 
 ### `"angle"`
 
 Degree hues _must always_ use angle notation.
+
+```json
+{
+  "hue-degree-notation": "angle"
+}
+```
 
 The following patterns are considered problems:
 
@@ -50,6 +52,12 @@ a { color: lch(56.29% 19.86 10deg / 15%) }
 ### `"number"`
 
 Degree hues _must always_ use the number notation.
+
+```json
+{
+  "hue-degree-notation": "number"
+}
+```
 
 The following patterns are considered problems:
 

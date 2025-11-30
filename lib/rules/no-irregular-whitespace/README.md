@@ -13,6 +13,12 @@ Disallow irregular whitespaces.
 
 ### `true`
 
+```json
+{
+  "no-irregular-whitespace": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

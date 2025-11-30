@@ -18,11 +18,15 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"always"|"never"`
-
 ### `"always"`
 
 There _must always_ be whitespace inside the markers.
+
+```json
+{
+  "comment-whitespace-inside": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -69,6 +73,12 @@ The following patterns are _not_ considered problems:
 ### `"never"`
 
 There _must never_ be whitespace on the inside the markers.
+
+```json
+{
+  "comment-whitespace-inside": "never"
+}
+```
 
 The following patterns are considered problems:
 

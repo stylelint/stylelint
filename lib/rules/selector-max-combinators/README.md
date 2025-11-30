@@ -11,13 +11,19 @@ Limit the number of combinators in a selector.
 
 This rule resolves nested selectors before counting the number of combinators selectors. Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`int`: Maximum combinators selectors allowed.
+### `number`
 
-For example, with `2`:
+Specify a maximum combinators selectors allowed.
+
+Given:
+
+```json
+{
+  "selector-max-combinators": 2
+}
+```
 
 The following patterns are considered problems:
 

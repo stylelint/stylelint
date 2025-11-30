@@ -19,11 +19,15 @@ It sometimes overlaps with:
 
 If duplicate problems are flagged, you can turn off the corresponding rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "media-feature-name-value-no-unknown": true
+}
+```
 
 The following patterns are considered problems:
 

@@ -19,9 +19,13 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"always"|"never"`
-
 ### `"always"`
+
+```json
+{
+  "declaration-empty-line-before": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -64,6 +68,12 @@ a {
 
 ### `"never"`
 
+```json
+{
+  "declaration-empty-line-before": "never"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -105,7 +115,11 @@ a {
 
 ## Optional secondary options
 
-### `except: ["after-comment", "after-declaration", "first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "options"] }
+```
 
 #### `"after-comment"`
 
@@ -113,7 +127,13 @@ Reverse the primary option for declarations that follow a comment.
 
 Shared-line comments do not trigger this option.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["always", { "except": ["after-comment"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -161,7 +181,16 @@ Reverse the primary option for declarations that follow another declaration.
 
 Shared-line comments do not affect this option.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "declaration-empty-line-before": [
+    "always",
+    { "except": ["after-declaration"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -209,7 +238,13 @@ a {
 
 Reverse the primary option for declarations that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["always", { "except": ["first-nested"] }]
+}
+```
 
 The following patterns are considered problems:
 
@@ -234,13 +269,23 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "after-declaration", "first-nested", "inside-single-line-block"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"after-comment"`
 
 Ignore declarations that follow a comment.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["always", { "ignore": ["after-comment"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -256,7 +301,16 @@ a {
 
 Ignore declarations that follow another declaration.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "declaration-empty-line-before": [
+    "always",
+    { "ignore": ["after-declaration"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -295,7 +349,13 @@ a {
 
 Ignore declarations that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["always", { "ignore": ["first-nested"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -312,7 +372,16 @@ a {
 
 Ignore declarations that are inside single-line blocks.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "declaration-empty-line-before": [
+    "always",
+    { "ignore": ["inside-single-line-block"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 

@@ -9,13 +9,19 @@ a { color: pink; top: 0; }
  * The number of these declarations */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`int`: Maximum number of declarations allowed.
+### `number`
 
-For example, with `1`:
+Specify a maximum number of declarations allowed.
+
+Given:
+
+```json
+{
+  "declaration-block-single-line-max-declarations": 1
+}
+```
 
 The following patterns are considered problems:
 

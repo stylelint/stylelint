@@ -15,15 +15,11 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
-
 ## Options
-
-`string`: `"always-where-required"|"always-where-recommended"|"always-unless-keyword"`
 
 _Please read the following to understand these options_:
 
-- The `font` and `font-family` properties accept a short list of special **keywords**: `inherit`, `serif`, `sans-serif`, `cursive`, `fantasy`, `system-ui`, `monospace`, `ui-serif`, `ui-sans-serif`, `ui-monospace`, and `ui-rounded`. If you wrap these words in quotes, the browser will not interpret them as keywords, but will instead look for a font by that name (e.g. will look for a `"sans-serif"` font) -- which is almost _never_ what you want. Instead, you use these keywords to point to the built-in, generic fallbacks (right?). Therefore, _all of the options below enforce no quotes around these keywords_. (If you actually want to use a font named `"sans-serif"`, turn this rule off.)
+- The `font` and `font-family` properties accept a short list of special **keywords**: `inherit`, `serif`, `sans-serif`, `cursive`, `fantasy`, `system-ui`, `monospace`, `ui-serif`, `ui-sans-serif`, `ui-monospace`, `ui-rounded`, `emoji`, `math` and `fangsong`. If you wrap these words in quotes, the browser will not interpret them as keywords, but will instead look for a font by that name (e.g. will look for a `"sans-serif"` font) -- which is almost _never_ what you want. Instead, you use these keywords to point to the built-in, generic fallbacks (right?). Therefore, _all of the options below enforce no quotes around these keywords_. (If you actually want to use a font named `"sans-serif"`, turn this rule off.)
 - Quotes are **recommended** [in the spec](https://www.w3.org/TR/CSS2/fonts.html#font-family-prop) with "font family names that contain white space, digits, or punctuation characters other than hyphens".
 - Quotes are **required** around font-family names when they are not [valid CSS identifiers](https://www.w3.org/TR/CSS2/syndata.html#value-def-identifier). For example, a font family name requires quotes around it if it contains `$`, `!` or `/`, but does not require quotes just because it contains spaces or a (non-initial) number or underscore. _You can probably bet that almost every font family name you use **will** be a valid CSS identifier_.
 - Quotes should **never** be used around vendor prefixed system fonts such as `-apple-system` and `BlinkMacSystemFont`.
@@ -36,6 +32,12 @@ For more on these subtleties, read ["Unquoted font family names in CSS"](https:/
 ### `"always-unless-keyword"`
 
 Expect quotes around every font family name that is not a keyword.
+
+```json
+{
+  "font-family-name-quotes": "always-unless-keyword"
+}
+```
 
 The following patterns are considered problems:
 
@@ -74,6 +76,12 @@ a { font: 1em 'Arial', sans-serif; }
 ### `"always-where-required"`
 
 Expect quotes only when quotes are _required_ according to the criteria above, and disallow quotes in all other cases.
+
+```json
+{
+  "font-family-name-quotes": "always-where-required"
+}
+```
 
 The following patterns are considered problems:
 
@@ -117,6 +125,12 @@ a { font: 1em Arial, sans-serif; }
 ### `"always-where-recommended"`
 
 Expect quotes only when quotes are _recommended_ according to the criteria above, and disallow quotes in all other cases. (This includes all cases where quotes are _required_, as well.)
+
+```json
+{
+  "font-family-name-quotes": "always-where-recommended"
+}
+```
 
 The following patterns are considered problems:
 

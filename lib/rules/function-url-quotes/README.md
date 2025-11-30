@@ -13,11 +13,15 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"always"|"never"`
-
 ### `"always"`
 
 Urls _must always_ be quoted.
+
+```json
+{
+  "function-url-quotes": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -51,6 +55,12 @@ a { background: url('x.jpg'); }
 ### `"never"`
 
 Urls _must never_ be quoted.
+
+```json
+{
+  "function-url-quotes": "never"
+}
+```
 
 The following patterns are considered problems:
 
@@ -88,11 +98,23 @@ a { background: url(x.jpg); }
 
 ## Optional secondary options
 
-### `except: ["empty"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "options"] }
+```
+
+#### `"empty"`
 
 Reverse the primary option for functions that have no arguments.
 
-For example, with `"always"`.
+Given:
+
+```json
+{
+  "function-url-quotes": ["always", { "except": ["empty"] }]
+}
+```
 
 The following patterns are _not_ considered problems:
 

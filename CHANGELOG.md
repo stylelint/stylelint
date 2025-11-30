@@ -1,5 +1,202 @@
 # Changelog
 
+## 16.26.1 - 2025-11-28
+
+It fixes numerous false positive bugs, including many in the `declaration-property-value-no-unknown` rule for the latest CSS specifications.
+
+- Fixed: `*-no-unknown` false positives for latest specs by integrating `@csstools/css-syntax-patches-for-csstree` ([#8850](https://github.com/stylelint/stylelint/pull/8850)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `at-rule-no-unknown` false positives for `@function` ([#8851](https://github.com/stylelint/stylelint/pull/8851)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `attr()`, `if()` and custom functions ([#8853](https://github.com/stylelint/stylelint/pull/8853)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-url-quotes` false positives when URLs require quoting ([#8804](https://github.com/stylelint/stylelint/pull/8804)) ([@taearls](https://github.com/taearls)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::scroll-button()` ([#8856](https://github.com/stylelint/stylelint/pull/8856)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.26.0 - 2025-11-21
+
+It adds 1 feature and fixes 2 bugs.
+
+- Added: support for `customSyntax` with function export ([#8834](https://github.com/stylelint/stylelint/pull/8834)) ([@silverwind](https://github.com/silverwind)).
+- Fixed: `custom-property-no-missing-var-function` false positives for style query in `if()` function ([#8813](https://github.com/stylelint/stylelint/pull/8813)) ([@sajdakabir](https://github.com/sajdakabir)).
+- Fixed: `media-feature-range-notation` false positives for multiple queries and `except: exact-value` ([#8832](https://github.com/stylelint/stylelint/pull/8832)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 16.25.0 - 2025-10-03
+
+It adds 3 new features, including experimental support for bulk suppressions. It's also our first [immutable release](https://github.blog/changelog/2025-08-26-releases-now-support-immutability-in-public-preview/), with the package published to npm using [trusted publishing](https://github.blog/changelog/2025-07-31-npm-trusted-publishing-with-oidc-is-generally-available/) and our dependencies updated on a [cool down](https://github.blog/changelog/2025-07-01-dependabot-supports-configuration-of-a-minimum-package-age/) for improved supply chain security.
+
+- Added: support for bulk suppressions ([#8564](https://github.com/stylelint/stylelint/pull/8564)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `ignoreAtRules: []` to `no-invalid-position-declaration` ([#8781](https://github.com/stylelint/stylelint/pull/8781)) ([@jrmlt](https://github.com/jrmlt)).
+- Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
+
+## 16.24.0 - 2025-09-07
+
+It adds 1 new rule, adds 1 option to a rule and fixes 2 bugs.
+
+- Added: `rule-nesting-at-rule-required-list` rule ([#8680](https://github.com/stylelint/stylelint/pull/8680)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `ignoreAtRules: []` to `nesting-selector-no-missing-scoping-root` ([#8743](https://github.com/stylelint/stylelint/pull/8743)) ([@karlhorky](https://github.com/karlhorky)).
+- Fixed: `function-no-unknown` false positives for `contrast-color()` and `sibling-*()` ([#8729](https://github.com/stylelint/stylelint/pull/8729)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:heading` ([#8749](https://github.com/stylelint/stylelint/pull/8749)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.23.1 - 2025-08-07
+
+It fixes 7 bugs.
+
+- Fixed: `no-invalid-position-declaration` false positives for embedded styles ([#8701](https://github.com/stylelint/stylelint/pull/8701)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `property-no-deprecated` erroneously autofixing `clip` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `property-no-deprecated` false positives for `-webkit-box-orient: vertical;` ([#8699](https://github.com/stylelint/stylelint/pull/8699)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives for some meter pseudo classes/elements ([#8708](https://github.com/stylelint/stylelint/pull/8708)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:unchecked` ([#8705](https://github.com/stylelint/stylelint/pull/8705)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::search-text` ([#8707](https://github.com/stylelint/stylelint/pull/8707)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `selectedcontent` ([#8716](https://github.com/stylelint/stylelint/pull/8716)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.23.0 - 2025-07-29
+
+It adds 5 new rules, 1 option to a rule and fixes 3 bugs. We've turned on the new rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+- Added: `block-no-redundant-nested-style-rules` rule ([#8684](https://github.com/stylelint/stylelint/pull/8684)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `media-type-no-deprecated` rule ([#8668](https://github.com/stylelint/stylelint/pull/8668)) ([@immitsu](https://github.com/immitsu)).
+- Added: `nesting-selector-no-missing-scoping-root` rule ([#8674](https://github.com/stylelint/stylelint/pull/8674)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `no-invalid-position-declaration` rule ([#8669](https://github.com/stylelint/stylelint/pull/8669)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `property-no-deprecated` rule ([#8682](https://github.com/stylelint/stylelint/pull/8682)) ([@immitsu](https://github.com/immitsu)).
+- Added: `except: ["exact-value"]` to `media-feature-range-notation` ([#8675](https://github.com/stylelint/stylelint/pull/8675)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `declaration-block-no-duplicate-properties` false negatives for named colors with `ignore: ['consecutive-duplicates-with-different-syntaxes']` ([#8665](https://github.com/stylelint/stylelint/pull/8665)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Fixed: `function-no-unknown` false positives ([#8677](https://github.com/stylelint/stylelint/pull/8677)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `no-irregular-whitespace` false positives for strings ([#8667](https://github.com/stylelint/stylelint/pull/8667)) ([@immitsu](https://github.com/immitsu)).
+
+## 16.22.0 - 2025-07-18
+
+It adds 3 rule features and fixes 2 bugs.
+
+- Added: `messageArgs` to `color-named` ([#8663](https://github.com/stylelint/stylelint/pull/8663)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `messageArgs` to `declaration-property-value-keyword-no-deprecated` ([#8654](https://github.com/stylelint/stylelint/pull/8654)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Added: `no-descending-specificity` report message includes line number of the anchoring selector ([#8666](https://github.com/stylelint/stylelint/pull/8666)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `at-rule-no-deprecated` false positives for `@apply` ([#8630](https://github.com/stylelint/stylelint/pull/8630)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `lightness-notation` crash with `"number"` option and single-digit percentage ([#8661](https://github.com/stylelint/stylelint/pull/8661)) ([@ybiquitous](https://github.com/ybiquitous)).
+
+## 16.21.1 - 2025-07-03
+
+It fixes 3 bugs.
+
+- Fixed: unexpected change of syntax in computed `EditInfo` ([#8638](https://github.com/stylelint/stylelint/pull/8638)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for CSS variables' names containing a direction substring ([#8643](https://github.com/stylelint/stylelint/pull/8643)) ([@Solomon-mithra](https://github.com/Solomon-mithra)).
+- Fixed: `media-feature-range-notation` autofix for exact values ([#8651](https://github.com/stylelint/stylelint/pull/8651)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.21.0 - 2025-06-19
+
+It rounds out the `message` secondary option and marks it as stable, adds 1 new option to a rule, and fixes 4 bugs.
+
+- Added: non-experimental support for functional `message` secondary option ([#8595](https://github.com/stylelint/stylelint/pull/8595)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `ignore: ["after-custom-property"]` to `custom-property-empty-line-before` ([#8627](https://github.com/stylelint/stylelint/pull/8627)) ([@imkesin](https://github.com/imkesin)).
+- Fixed: `cache` configuration property not being respected ([#8599](https://github.com/stylelint/stylelint/pull/8599)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `fastest-levenshtein` import when bundling ([#8621](https://github.com/stylelint/stylelint/pull/8621)) ([@onigoetz](https://github.com/onigoetz)).
+- Fixed: `named-grid-areas-no-invalid` false positives for interpolated grid-template-areas in CSS-in-JS ([#8606](https://github.com/stylelint/stylelint/pull/8606)) ([@shahana308](https://github.com/shahana308)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives for the missing form control styling selectors ([#8623](https://github.com/stylelint/stylelint/pull/8623)) ([@tyrann0us](https://github.com/tyrann0us)).
+
+## 16.20.0 - 2025-05-29
+
+It fixes 2 bugs with the built-in rules.
+
+- Fixed: `function-url-no-scheme-relative` false negatives for `@import` ([#8576](https://github.com/stylelint/stylelint/pull/8576)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `shorthand-property-no-redundant-values` false negatives for additional radius ([#8539](https://github.com/stylelint/stylelint/pull/8539)) ([@ryo-manba](https://github.com/ryo-manba)).
+
+## 16.19.1 - 2025-04-25
+
+It fixes 1 bug with the `no-empty-source` rule.
+
+- Fixed: `no-empty-source` false positives for non-standard syntaxes ([#8548](https://github.com/stylelint/stylelint/pull/8548)) ([@ybiquitous](https://github.com/ybiquitous)).
+
+## 16.19.0 - 2025-04-23
+
+It adds 2 options to 2 rules and fixes 3 bugs.
+
+- Added: `exceptWithoutPropertyFallback: []` to `function-allowed-list` ([#8488](https://github.com/stylelint/stylelint/pull/8488)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `ignore: ["four-into-three-edge-values"]` to `shorthand-property-no-redundant-values` ([#8527](https://github.com/stylelint/stylelint/pull/8527)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `compact` formatter with pnpm to newline the exit code ([#8534](https://github.com/stylelint/stylelint/pull/8534)) ([@konomae](https://github.com/konomae)).
+- Fixed: `declaration-property-value-no-unknown` range and message for invalid syntax within known functions ([#8528](https://github.com/stylelint/stylelint/pull/8528)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Fixed: `no-empty-source` false positives for `--report-needless-disables` ([#8536](https://github.com/stylelint/stylelint/pull/8536)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 16.18.0 - 2025-04-06
+
+It adds 2 new rules and fixes 2 bugs. We've turned on these rules, and the `syntax-string-no-invalid` and `layer-name-pattern` ones from recent releases, in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+- Added: `color-function-alias-notation` rule ([#8499](https://github.com/stylelint/stylelint/pull/8499)) ([@EduardAkhmetshin](https://github.com/EduardAkhmetshin)).
+- Added: `container-name-pattern` rule ([#8498](https://github.com/stylelint/stylelint/pull/8498)) ([@nate10j](https://github.com/nate10j)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `math` of `font-size` ([#8495](https://github.com/stylelint/stylelint/pull/8495)) ([@otomad](https://github.com/otomad)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for `math` ([#8489](https://github.com/stylelint/stylelint/pull/8489)) ([@otomad](https://github.com/otomad)).
+
+## 16.17.0 - 2025-03-26
+
+It adds 1 new rule, support for `languageOptions` to 2 rules, 1 option to a rule, the `--compute-edit-info` CLI flag (along with support for `EditInfo` in 3 rules), and fixes 1 bug. `EditInfo` is useful for automated fixing tools and editor integrations.
+
+- Added: `layer-name-pattern` rule ([#8474](https://github.com/stylelint/stylelint/pull/8474)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `--compute-edit-info` CLI flag ([#8473](https://github.com/stylelint/stylelint/pull/8473)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `ignorePreludeOfAtRules: []` to `length-zero-no-unit` ([#8472](https://github.com/stylelint/stylelint/pull/8472)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `at-rule-no-unknown` support for `languageOptions` ([#8475](https://github.com/stylelint/stylelint/pull/8475)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `property-no-unknown` support for `languageOptions` ([#8476](https://github.com/stylelint/stylelint/pull/8476)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `declaration-block-no-redundant-longhand-properties` support for computing `EditInfo` ([#8482](https://github.com/stylelint/stylelint/pull/8482)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `function-url-quotes` support for computing `EditInfo` ([#8483](https://github.com/stylelint/stylelint/pull/8483)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-attribute-quotes` support for computing `EditInfo` ([#8484](https://github.com/stylelint/stylelint/pull/8484)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `custom-property-pattern` false negatives for `@property` preludes ([#8468](https://github.com/stylelint/stylelint/pull/8468)) ([@rohitgs28](https://github.com/rohitgs28)).
+
+## 16.16.0 - 2025-03-14
+
+It adds support for computing `EditInfo` to 22 more rules and reverts a change that added `context.lexer` to our public API in the previous release.
+
+- Added: `at-rule-empty-line-before` support for computing `EditInfo` ([#8425](https://github.com/stylelint/stylelint/pull/8425)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `at-rule-no-deprecated` support for computing `EditInfo` ([#8426](https://github.com/stylelint/stylelint/pull/8426)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `at-rule-no-vendor-prefix` support for computing `EditInfo` ([#8427](https://github.com/stylelint/stylelint/pull/8427)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `color-function-notation` support for computing `EditInfo` ([#8437](https://github.com/stylelint/stylelint/pull/8437)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `declaration-empty-line-before` support for computing `EditInfo` ([#8443](https://github.com/stylelint/stylelint/pull/8443)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `declaration-property-value-keyword-no-deprecated` support for computing `EditInfo`. ([#8439](https://github.com/stylelint/stylelint/pull/8439)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `font-family-name-quotes` support for computing `EditInfo` ([#8419](https://github.com/stylelint/stylelint/pull/8419)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `font-weight-notation` support for computing `EditInfo` ([#8420](https://github.com/stylelint/stylelint/pull/8420)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `function-calc-no-unspaced-operator` support for computing `EditInfo` ([#8440](https://github.com/stylelint/stylelint/pull/8440)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `function-name-case` support for support for computing `EditInfo`." ([#8442](https://github.com/stylelint/stylelint/pull/8442)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `hue-degree-notation` support for computing `EditInfo` ([#8444](https://github.com/stylelint/stylelint/pull/8444)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `import-notation` support for computing `EditInfo`. ([#8445](https://github.com/stylelint/stylelint/pull/8445)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `keyframe-selector-notation` support for computing `EditInfo` ([#8457](https://github.com/stylelint/stylelint/pull/8457)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `length-zero-no-unit` support for computing `EditInfo` ([#8459](https://github.com/stylelint/stylelint/pull/8459)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `lightness-notation` support for computing `EditInfo` ([#8458](https://github.com/stylelint/stylelint/pull/8458)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `media-feature-name-no-vendor-prefix` support for computing `EditInfo` ([#8456](https://github.com/stylelint/stylelint/pull/8456)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `media-feature-range-notation` support for computing `EditInfo` ([#8455](https://github.com/stylelint/stylelint/pull/8455)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `property-no-vendor-prefix` support for computing `EditInfo` ([#8461](https://github.com/stylelint/stylelint/pull/8461)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `rule-empty-line-before` support for computing `EditInfo` ([#8460](https://github.com/stylelint/stylelint/pull/8460)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-no-vendor-prefix` support for `EditInfo` ([#8462](https://github.com/stylelint/stylelint/pull/8462)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-not-notation` support for computing `EditInfo` ([#8463](https://github.com/stylelint/stylelint/pull/8463)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-pseudo-element-colon-notation` support for `EditInfo` ([#8464](https://github.com/stylelint/stylelint/pull/8464)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `selector-type-case` support for computing `EditInfo` ([#8467](https://github.com/stylelint/stylelint/pull/8467)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `shorthand-property-no-redundant-values` support for computing `EditInfo` ([#8466](https://github.com/stylelint/stylelint/pull/8466)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `value-keyword-case` support for computing `EditInfo` ([#8469](https://github.com/stylelint/stylelint/pull/8469)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `value-no-vendor-prefix` support for computing `EditInfo` ([#8470](https://github.com/stylelint/stylelint/pull/8470)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `Could not find a declaration file for module 'css-tree'` type error ([#8452](https://github.com/stylelint/stylelint/pull/8452)) ([@danielrentz](https://github.com/danielrentz)).
+
+## 16.15.0 - 2025-02-28
+
+It adds 1 new rule, a `languageOptions` configuration property for configuring some of the new rules added in `16.13.0`, regex support to 1 option and support for computing `EditInfo` to 6 rules. It fixes 9 bugs, including 2 with the `tap` reporter.
+
+- Added: `syntax-string-no-invalid` rule ([#8331](https://github.com/stylelint/stylelint/pull/8331)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `languageOptions` configuration property ([#8297](https://github.com/stylelint/stylelint/pull/8297)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: regex support to `ignoreAtRules` option of `at-rule-empty-line-before` ([#8385](https://github.com/stylelint/stylelint/pull/8385)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `alpha-value-notation` support for computing `EditInfo` ([#8369](https://github.com/stylelint/stylelint/pull/8369)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `color-hex-length` support for computing `EditInfo` ([#8415](https://github.com/stylelint/stylelint/pull/8415)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `comment-empty-line-before` support for computing `EditInfo` ([#8416](https://github.com/stylelint/stylelint/pull/8416)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `comment-whitespace-inside` support for computing `EditInfo` ([#8417](https://github.com/stylelint/stylelint/pull/8417)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `custom-property-empty-line-before` support for computing `EditInfo` ([#8418](https://github.com/stylelint/stylelint/pull/8418)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `declaration-block-no-duplicate-properties` support for computing `EditInfo` ([#8363](https://github.com/stylelint/stylelint/pull/8363)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `tap` formatter not escaping `#` and `\` in its test point descriptions ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `tap` formatter outputting invalid YAML blocks for rules containing double quotes in their warnings' messages ([#8334](https://github.com/stylelint/stylelint/pull/8334)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false positives for properties with `!important` ([#8366](https://github.com/stylelint/stylelint/pull/8366)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `EditInfo` missing semicolon in `text` field ([#8370](https://github.com/stylelint/stylelint/pull/8370)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false negatives for `text-decoration: blink` ([#8351](https://github.com/stylelint/stylelint/pull/8351)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false positives for styled components interpolated functions ([#8392](https://github.com/stylelint/stylelint/pull/8392)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `font-family-name-quotes` false positives due to vendor-prefixed font-size values ([#8393](https://github.com/stylelint/stylelint/pull/8393)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for `math`, `emoji` and `fangsong` ([#8395](https://github.com/stylelint/stylelint/pull/8395)) ([@ViachaslauIhnatsiuk](https://github.com/ViachaslauIhnatsiuk)).
+- Fixed: `selector-type-no-unknown` false positives for `selectmenu` and `popup` ([#8376](https://github.com/stylelint/stylelint/pull/8376)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.14.1 - 2025-01-27
+
+It fixes a bug with caching.
+
+- Fixed: incompatible cache file format ([#8359](https://github.com/stylelint/stylelint/pull/8359)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 16.14.0 - 2025-01-25
 
 It fixes 8 bugs and adds features to our `Warning` type.
@@ -474,7 +671,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Fixed: `overrides.extends` order when including same rules ([#6660](https://github.com/stylelint/stylelint/pull/6660)) ([@kuoruan](https://github.com/kuoruan)).
 - Fixed: `annotation-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `declaration-property-value-no-unknown` false positives for at-rule descriptors ([#6669](https://github.com/stylelint/stylelint/pull/6669)) ([@FloEdelmann](https://github.com/FloEdelmann)).
-- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as violation ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` parse error for `alpha(opacity=n)` to report as a problem ([#6650](https://github.com/stylelint/stylelint/pull/6650)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `function-name-case` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `function-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
 - Fixed: `unit-no-unknown` false positives for CSS-in-JS template literals ([#6666](https://github.com/stylelint/stylelint/pull/6666)) ([@hudochenkov](https://github.com/hudochenkov)).
@@ -1542,7 +1739,7 @@ Changes:
   - `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
 - Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
 - Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
-- Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
+- Fixed: `configOverrides` now works with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
 - Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](https://github.com/stylelint/stylelint/pull/2287)).
 - Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
 - Fixed: `unit-no-unknown` accepts `fr` units ([#2308](https://github.com/stylelint/stylelint/pull/2308)).
@@ -1560,7 +1757,7 @@ Changes:
 - Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a nonexistent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
 - Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
 - Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when Stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/2171)).
-- Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
+- Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140)).
 - Fixed: false positives related to LESS detached rulesets ([#2089](https://github.com/stylelint/stylelint/pull/2089)).
 - Fixed: `color-named` now ignores SCSS maps, so map property names can be color names ([#2182](https://github.com/stylelint/stylelint/pull/2182)).
 - Fixed: `comment-whitespace-inside` no longer complains about `/*!` comments with non-space whitespace (e.g. newlines) ([#2121](https://github.com/stylelint/stylelint/pull/2121)).
@@ -1641,7 +1838,7 @@ Changes:
 - Added: `ignore: ["consecutive-duplicates-with-different-values"]` option to `declaration-block-no-duplicate-properties`.
 - Added: `ignore: ["comments"]` option to `max-line-length`.
 - Added: `ignoreAtRules` option to `max-nesting-depth`.
-- Added: `ignoreProperties` option to `unit-blacklist` and `unit-whitelist`
+- Added: `ignoreProperties` option to `unit-blacklist` and `unit-whitelist`.
 - Fixed: no longer parsing ignored files before ignoring them.
 - Fixed: `configFile` and `configBasedir` can now be used together.
 - Fixed: `max-line-length` now correctly handles Windows line endings.
@@ -1931,7 +2128,7 @@ Changes:
 
 ## 6.0.1 - 2016-04-19
 
-- Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX` etc) when the `lower` option is used.
+- Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX`, etc.) when the `lower` option is used.
 
 ## 6.0.0 - 2016-04-19
 
@@ -1950,7 +2147,7 @@ Changes:
 - Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
-- Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
+- Fixed: `number-zero-length-no-unit` now works with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units.
 
 ## 5.4.0 - 2016-04-09
 
@@ -2021,12 +2218,12 @@ Changes:
 - Removed: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
 - Removed: `rule-properties-order` rule. Use the new `declaration-block-properties-order` rule instead.
 - Removed: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
-- Removed `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option instead.
+- Removed: `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` options instead.
 - Removed: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option instead.
 - Added: support for overlapping `stylelint-disable` commands.
 - Fixed: `max-nesting-depth` does not warn about blockless at-rules.
 - Fixed: `function-comma-newline-after` and related rules consider input to be multi-line (applying to "always-multi-line", etc.) when the newlines are at the beginning or end of the input.
-- Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces e.g. `rgb(0, 0, 0)` -- but also removed the rule (see above).
+- Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces, e.g. `rgb(0, 0, 0)`—but also removed the rule (see above).
 - Fixed: `declaration-block-properties-order` no longer fails when an unspecified property comes before or after a specified property in a group with `emptyLineBefore: true`.
 - Fixed: `indentation` no longer has false positives when there are empty lines within multi-line values.
 - Fixed: `declaration-colon-*-after` no longer fail to do their job when you want a space or newline after the colon and instead there is no space at all.
@@ -2045,7 +2242,7 @@ Changes:
 - Deprecated: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
 - Deprecated: `rule-properties-order` rule. Use the new `declaration-block-properties-order` rule instead.
 - Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
-- Deprecated `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option instead.
+- Deprecated: `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` options instead.
 - Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option instead.
 - Added: universal `severity` secondary option as a replacement for `"warn": true` to alter a rule's severity.
 - Added: `block-no-single-line` rule.
@@ -2061,7 +2258,7 @@ Changes:
 - Added: `no-unsupported-browser-features` rule.
 - Added: `selector-max-specificity` rule.
 - Added: `string-no-newline` rule.
-- Added: `"always"` and `"never"` option to `rule-properties-order` `emptyLineBefore` when using property groups
+- Added: `"always"` and `"never"` options to `rule-properties-order`'s `emptyLineBefore` when using property groups.
 - Added: `named-where-possible` option to `font-weight-notation`.
 - Added: `unspecified: "bottomAlphabetical"` option to the `rule-properties-order` rule.
 - Added: `ignoreAtRules: []` option to the `block-opening-brace-space-before` and `block-closing-brace-newline-after` rules.
@@ -2134,10 +2331,8 @@ Changes:
 - Added: `codeFilename` option to Node.js API.
 - Added: exposed rules at `stylelint.rules` to make Stylelint even more extensible.
 - Added: brought `stylelint-rule-tester` into this repo, and exposed it at `stylelint.utils.ruleTester`.
-- Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
-  by some other whitespace.
-- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
-  with `rule-properties-order`.
+- Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated by some other whitespace.
+- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option with `rule-properties-order`.
 - Fixed: regard an empty string as a valid CSS code.
 - Fixed: `ignoreFiles` handling of absolute paths.
 - Fixed: `ignoreFiles` uses the `configBasedir` option to interpret relative paths.
@@ -2291,7 +2486,7 @@ Changes:
 - Added: `rule-single-line-max-declarations` rule.
 - Added: `max-line-length` rule.
 - Added: `first-nested` exception to `comment-empty-line-before`.
-- Added: single value options to `*-blacklist` & `-*whitelist` rules e.g. `{ "function-blacklist": "calc"}`
+- Added: single value options to `*-blacklist` & `-*whitelist` rules, e.g. `{ "function-blacklist": "calc"}`.
 - Added: support for flexible groups to `rule-properties-order`.
 - Added: support for an optional empty line between each group to `rule-properties-order`.
 - Added: support for mathematical signs in front of Sass and Less variables in `function-calc-no-unspaced-operator`.
@@ -2300,7 +2495,7 @@ Changes:
 - Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
 - Fixed: bug causing `{ unspecified: "bottom }"` option not to be applied within `rule-properties-order`.
 - Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
-- Fixed: bug when loading plugins from an extended config
+- Fixed: bug when loading plugins from an extended config.
 - Fixed: indentation for function arguments, by ignoring them.
 
 ## 2.0.0 - 2015-10-16

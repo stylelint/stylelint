@@ -9,24 +9,27 @@ Specify a list of allowed media feature name and value pairs.
  *    These features and values */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`object`: `{ "unprefixed-media-feature-name": ["array", "of", "values", "/regex/", /regex/]|"value"|"/regex/"|/regex/ }`
+### `Object<string, Array<string>>`
+
+```json
+{ "unprefixed-media-feature-name": ["array", "of", "values", "/regex/"] }
+```
+
+You can specify a regex for a media feature name, such as `{ "/width$/": [] }`.
 
 If a media feature name is found in the object, only its allowed-listed values are
 allowed. If the media feature name is not included in the object, anything goes.
-
-If a name or value is surrounded with `/` (e.g. `"/width$/"`), it is interpreted
-as a regular expression. For example, `/width$/` will match `max-width` and `min-width`.
 
 Given:
 
 ```json
 {
-  "min-width": ["768px", "1024px"],
-  "/resolution/": "/dpcm$/"
+  "media-feature-name-value-allowed-list": {
+    "min-width": ["768px", "1024px"],
+    "/resolution/": ["/dpcm$/"]
+  }
 }
 ```
 

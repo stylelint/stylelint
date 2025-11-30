@@ -11,15 +11,17 @@ Specify string or URL notation for `@import` rules.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
-
 ## Options
-
-`string`: `"string"|"url"`
 
 ### `"string"`
 
 `@import` rules _must always_ use string notation.
+
+```json
+{
+  "import-notation": "string"
+}
+```
 
 The following patterns are considered problems:
 
@@ -53,6 +55,12 @@ The following patterns are _not_ considered problems:
 ### `"url"`
 
 `@import` rules _must always_ use URL notation.
+
+```json
+{
+  "import-notation": "url"
+}
+```
 
 The following patterns are considered problems:
 

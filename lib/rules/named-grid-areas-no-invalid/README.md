@@ -22,6 +22,12 @@ And all named grid areas that spans multiple grid cells must form a single fille
 
 ### `true`
 
+```json
+{
+  "named-grid-areas-no-invalid": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

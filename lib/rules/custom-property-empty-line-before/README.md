@@ -17,9 +17,13 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 ## Options
 
-`string`: `"always"|"never"`
-
 ### `"always"`
+
+```json
+{
+  "custom-property-empty-line-before": "always"
+}
+```
 
 The following patterns are considered problems:
 
@@ -46,6 +50,12 @@ a {
 ```
 
 ### `"never"`
+
+```json
+{
+  "custom-property-empty-line-before": "never"
+}
+```
 
 The following patterns are considered problems:
 
@@ -90,7 +100,11 @@ a {
 
 ## Optional secondary options
 
-### `except: ["after-comment", "after-custom-property", "first-nested"]`
+### `except`
+
+```json
+{ "except": ["array", "of", "options"] }
+```
 
 #### `"after-comment"`
 
@@ -98,7 +112,16 @@ Reverse the primary option for custom properties that follow a comment.
 
 Shared-line comments do not trigger this option.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "except": ["after-comment"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -150,7 +173,16 @@ Reverse the primary option for custom properties that follow another custom prop
 
 Shared-line comments do not affect this option.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "except": ["after-custom-property"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -198,7 +230,16 @@ a {
 
 Reverse the primary option for custom properties that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "except": ["first-nested"] }
+  ]
+}
+```
 
 The following patterns are considered problems:
 
@@ -223,13 +264,26 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "first-nested", "inside-single-line-block"]`
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
 
 #### `"after-comment"`
 
 Ignore custom properties that follow a comment.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "ignore": ["after-comment"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -241,11 +295,46 @@ a {
 }
 ```
 
+#### `"after-custom-property"`
+
+Ignore custom properties that follow another custom property.
+
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "ignore": ["after-custom-property"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+
+  --foo: pink;
+  --bar: red;
+}
+```
+
 #### `"first-nested"`
 
 Ignore custom properties that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "ignore": ["first-nested"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 
@@ -262,7 +351,16 @@ a {
 
 Ignore custom properties that are inside single-line blocks.
 
-For example, with `"always"`:
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": [
+    "always",
+    { "ignore": ["inside-single-line-block"] }
+  ]
+}
+```
 
 The following patterns are _not_ considered problems:
 

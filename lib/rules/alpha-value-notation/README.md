@@ -11,15 +11,17 @@ Specify percentage or number notation for alpha-values.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
-
-`string`: `"number"|"percentage"`
 
 ### `"number"`
 
 Alpha-values _must always_ use the number notation.
+
+```json
+{
+  "alpha-value-notation": "number"
+}
+```
 
 The following patterns are considered problems:
 
@@ -49,6 +51,12 @@ a { color: rgb(0 0 0 / 0.5) }
 
 Alpha-values _must always_ use percentage notation.
 
+```json
+{
+  "alpha-value-notation": "percentage"
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
@@ -75,16 +83,20 @@ a { color: rgb(0 0 0 / 50%) }
 
 ## Optional secondary options
 
-### `exceptProperties: ["/regex/", /regex/, "string"]`
+### `exceptProperties`
+
+```json
+{ "exceptProperties": ["array", "of", "properties", "/regex/"] }
+```
 
 Reverse the primary option for matching properties.
-
-For example with `"percentage"`.
 
 Given:
 
 ```json
-["opacity"]
+{
+  "alpha-value-notation": ["percentage", { "exceptProperties": ["opacity"] }]
+}
 ```
 
 The following patterns are considered problems:

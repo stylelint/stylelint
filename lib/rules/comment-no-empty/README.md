@@ -18,6 +18,12 @@ This rule ignores SCSS-like comments.
 
 ### `true`
 
+```json
+{
+  "comment-no-empty": true
+}
+```
+
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->

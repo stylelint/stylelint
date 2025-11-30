@@ -9,16 +9,20 @@ Specify a list of allowed media feature names.
  * This media feature name */
 ```
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /media-features/, "regex"]|"media-feature"|"/regex/"|/regex/`
+### `Array<string>`
+
+```json
+["array", "of", "unprefixed", "media-features", "/regex/"]
+```
 
 Given:
 
 ```json
-["max-width", "/^my-/"]
+{
+  "media-feature-name-allowed-list": ["max-width", "/^my-/"]
+}
 ```
 
 The following patterns are considered problems:

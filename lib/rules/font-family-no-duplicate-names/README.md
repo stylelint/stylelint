@@ -16,11 +16,15 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 > [!WARNING]
 > This rule will stumble on _unquoted_ multi-word font names and _unquoted_ font names containing escape sequences. Wrap these font names in quotation marks, and everything should be fine.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept arguments.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "font-family-no-duplicate-names": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -58,12 +62,21 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 
 ## Optional secondary options
 
-### `ignoreFontFamilyNames: ["/regex/", /regex/, "string"]`
+### `ignoreFontFamilyNames`
+
+```json
+{ "ignoreFontFamilyNames": ["array", "of", "font-family-names", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^My Font /", "monospace"]
+{
+  "font-family-no-duplicate-names": [
+    true,
+    { "ignoreFontFamilyNames": ["/^My Font /", "monospace"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

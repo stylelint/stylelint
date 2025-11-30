@@ -1,4 +1,7 @@
 # https://help.github.com/articles/about-codeowners/
 
-# All proposed file changes under the `.github/` folder must be approved by the stylelint owners team prior to merging 
+# All proposed file changes under the `.github/` folder must be approved by the owners team prior to merging.
 .github/ @stylelint/owners
+
+# Require approvals by the owners team when updating dependencies or package metadata.
+package.json @stylelint/owners

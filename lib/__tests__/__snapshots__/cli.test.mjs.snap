@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`CLI --help 1`] = `
 "
@@ -57,6 +57,10 @@ exports[`CLI --help 1`] = `
 
         lax          attempting to fix as much as possible even with syntax errors (default)
         strict       only fixing when there are no syntax errors
+
+    --compute-edit-info, --cei
+
+      Compute edit information for fixable problems.
 
     --custom-syntax <name_or_path>
 
@@ -169,6 +173,18 @@ exports[`CLI --help 1`] = `
     --allow-empty-input, --aei
 
       When a glob pattern matches no files, the process will exit without throwing an error.
+
+    --suppress [<rule>]
+      Suppress problems and record them in a file. If no rule is specified,
+      all problems are suppressed. Otherwise, only problems with the given 
+      rules are suppressed, e.g., "--suppress rule1 --suppress rule2".
+      See also "--suppress-location".
+
+    --suppress-location <path>
+
+      A path to a file or directory to be used for the suppressions file location. If a
+      directory is specified, a suppressions file will be created inside the specified
+      folder, with the name "stylelint-suppressions.json".
 
     --globby-options, --go <json>
 

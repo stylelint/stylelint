@@ -30,11 +30,15 @@ This rule checks the following shorthand properties:
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "shorthand-property-no-redundant-values": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -83,4 +87,28 @@ a { padding: 1px 1em 1pt 1pc; }
 <!-- prettier-ignore -->
 ```css
 a { border-radius: 10px / 5px; }
+```
+
+## Optional secondary options
+
+### `ignore`
+
+```json
+{ "ignore": ["array", "of", "options"] }
+```
+
+#### `"four-into-three-edge-values"`
+
+Ignore four-value shorthand declarations that could be shortened to three values when applied to edges.
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { margin: 1px 2px 3px 2px; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { inset: auto 0 0 0; }
 ```

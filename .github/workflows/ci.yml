@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
+
+env:
+  FORCE_COLOR: 2
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    uses: stylelint/.github/.github/workflows/call-lint.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
+    permissions:
+      contents: read
+
+  test:
+    uses: stylelint/.github/.github/workflows/call-test.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
+    with:
+      node-version: '["18", "20", "22"]'
+      os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
+      exclude: '[{"node-version": "20", "os": "ubuntu-latest"}]' # for coverage
+    permissions:
+      contents: read
+
+  test-coverage:
+    name: Test on Node.js 20 and ubuntu-latest with coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install latest npm
+        run: npm install --global npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test with coverage
+        run: npm run test-coverage
+        env:
+          # https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes
+          NODE_OPTIONS: '--max-old-space-size=4096'
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
+        with:
+          files: ./.coverage/lcov.info
+          fail_ci_if_error: true
+
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: 'lts/*'
+          cache: npm
+
+      - name: Install latest npm
+        run: npm install --global npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Check built files
+        run: npm run build-check
+
+  spellcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Install codespell
+        run: pip install codespell
+
+      - name: Spellcheck
+        # Ignore a CI failure because there are false positives.
+        run: codespell || echo 'Fix misspells via "codespell" on your console, or ignore false positives.'

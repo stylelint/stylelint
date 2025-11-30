@@ -3,7 +3,7 @@
 You can use Stylelint on the command line. For example:
 
 ```shell
-npx stylelint "**/*.css"
+stylelint "**/*.css"
 ```
 
 _You should include quotation marks around file globs._
@@ -18,7 +18,7 @@ If you are using [npm scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts),
 }
 ```
 
-Use `npx stylelint --help` to print the CLI documentation.
+Use `stylelint --help` to print the CLI documentation.
 
 ## Options
 
@@ -63,6 +63,10 @@ Disable the default ignores. Stylelint will not automatically ignore the content
 ### `--fix`
 
 Automatically fix, where possible, problems reported by rules. [More info](options.md#fix).
+
+### `--compute-edit-info, --cei`
+
+Compute edit information for fixable problems. [More info](options.md#computeeditinfo).
 
 ### `--formatter, -f` | `--custom-formatter`
 
@@ -128,6 +132,14 @@ A filename to assign the input. [More info](options.md#codefilename).
 
 Accept stdin input even if it is empty.
 
+### `--suppress`
+
+Suppress problems that have the severity of `error` and record them in a file. [More info](suppressions.md#--suppress-rule).
+
+### `--suppress-location`
+
+Path to a file or directory for the suppressions location. [More info](suppressions.md#--suppress-location-path).
+
 ### `--validate, --no-validate`
 
 Force enable/disable the validation of the rules' options. [More info](options.md#validate).
@@ -143,7 +155,7 @@ The `TIMING` environment variable allows you to profile the performance of indiv
 When `TIMING` is set to `all` or a positive integer (`n >= 1`), it displays the execution time of the longest-running rules upon linting completion. This includes both rule creation and execution time, as well as each rule's relative impact as a percentage of the total rule processing time.
 
 ```console
-$ TIMING=10 npx stylelint "**/*.css"
+$ TIMING=10 stylelint "**/*.css"
 ╔════╤════════════════════════════════════════════════════╤═══════════╤══════════╗
 ║  # │ Rule                                               │ Time (ms) │ Relative ║
 ╟────┼────────────────────────────────────────────────────┼───────────┼──────────╢

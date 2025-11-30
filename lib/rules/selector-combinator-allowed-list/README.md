@@ -13,16 +13,20 @@ This rule normalizes the whitespace descendant combinator to be a single space.
 
 This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idref-combinators) e.g. `/for/`.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`array|string`: `["array", "of", "combinators"]|"combinator"`
+### `Array<string>`
+
+```json
+["array", "of", "combinators"]
+```
 
 Given:
 
 ```json
-[">", " "]
+{
+  "selector-combinator-allowed-list": [">", " "]
+}
 ```
 
 The following patterns are considered problems:

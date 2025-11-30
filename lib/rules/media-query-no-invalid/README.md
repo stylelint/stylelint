@@ -18,11 +18,15 @@ It works well with other rules that validate feature names and values:
 - [`media-feature-name-no-unknown`](../media-feature-name-no-unknown/README.md)
 - [`media-feature-name-value-no-unknown`](../media-feature-name-value-no-unknown/README.md)
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "media-query-no-invalid": true
+}
+```
 
 The following patterns are considered problems:
 
@@ -65,14 +69,23 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
 
 Ignore the specified functions.
 
 Given:
 
 ```json
-["theme", "/^get.*$/"]
+{
+  "media-query-no-invalid": [
+    true,
+    { "ignoreFunctions": ["theme", "/^get.*$/"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

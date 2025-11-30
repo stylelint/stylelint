@@ -11,11 +11,15 @@ a { color: green !imprtant; }
 
 This rule considers annotations defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
 ### `true`
+
+```json
+{
+  "annotation-no-unknown": true
+}
+```
 
 The following pattern is considered a problem:
 
@@ -37,12 +41,21 @@ a {
 
 ## Optional secondary options
 
-### `ignoreAnnotations: ["/regex/", /regex/, "string"]`
+### `ignoreAnnotations`
+
+```json
+{ "ignoreAnnotations": ["array", "of", "annotations", "/regex/"] }
+```
 
 Given:
 
 ```json
-["/^--foo-/", "--bar"]
+{
+  "annotation-no-unknown": [
+    true,
+    { "ignoreAnnotations": ["/^--foo-/", "--bar"] }
+  ]
+}
 ```
 
 The following patterns are _not_ considered problems:

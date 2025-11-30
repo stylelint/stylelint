@@ -14,13 +14,19 @@ This rule resolves nested selectors before counting the number of classes in a s
 
 The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
-The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
-
 ## Options
 
-`int`: Maximum classes allowed.
+### `number`
 
-For example, with `2`:
+Specify a maximum classes allowed.
+
+Given:
+
+```json
+{
+  "selector-max-class": 2
+}
+```
 
 The following patterns are considered problems:
 
