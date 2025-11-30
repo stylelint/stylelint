@@ -1317,8 +1317,6 @@ declare namespace stylelint {
 		message: RuleMessage;
 		messageArgs?: Parameters<RuleMessageFunc> | undefined;
 		node: PostCSS.Node;
-		/** @deprecated */
-		line?: number;
 		/**
 		 * Optional severity override for the problem.
 		 */
