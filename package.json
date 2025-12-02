@@ -68,11 +68,11 @@
     "postprepare": "patch-package",
     "pretest": "npm run lint",
     "test": "npm-run-all --sequential test:jest test:node",
+    "test-coverage": "npm run test:jest --ignore-scripts -- --coverage",
+    "test-only": "npm run test:jest --ignore-scripts",
     "test:jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:node": "node --test node-tests/*.mjs",
-    "test-coverage": "npm test --ignore-scripts -- --coverage",
-    "test-only": "npm test --ignore-scripts",
-    "watch": "npm test --ignore-scripts -- --watch"
+    "watch": "npm run test:jest --ignore-scripts -- --watch"
   },
   "lint-staged": {
     "*.{js,mjs}": "eslint --cache --fix",
