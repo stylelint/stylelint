@@ -67,7 +67,9 @@
     "prepare": "husky",
     "postprepare": "patch-package",
     "pretest": "npm run lint",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "npm-run-all --sequential test:jest test:node",
+    "test:jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:node": "node --test node-tests/*.mjs",
     "test-coverage": "npm test --ignore-scripts -- --coverage",
     "test-only": "npm test --ignore-scripts",
     "watch": "npm test --ignore-scripts -- --watch"
@@ -206,8 +208,7 @@
     "prettier": "^3.6.2",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.14"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=18.12.0"
