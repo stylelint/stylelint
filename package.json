@@ -67,10 +67,12 @@
     "prepare": "husky",
     "postprepare": "patch-package",
     "pretest": "npm run lint",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test-coverage": "npm test --ignore-scripts -- --coverage",
-    "test-only": "npm test --ignore-scripts",
-    "watch": "npm test --ignore-scripts -- --watch"
+    "test": "npm-run-all --sequential test-jest test-vitest",
+    "test-coverage": "npm run test-jest --ignore-scripts -- --coverage",
+    "test-jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test-only": "npm run test-jest --ignore-scripts",
+    "test-vitest": "vitest run vitest-tests",
+    "watch": "npm run test-jest --ignore-scripts -- --watch"
   },
   "lint-staged": {
     "*.{js,mjs}": "eslint --cache --fix",
