@@ -1,12 +1,11 @@
-import assert from 'node:assert/strict';
+import { expect, it } from 'vitest';
 import { createRequire } from 'node:module';
-import test from 'node:test'; /* eslint-disable-line n/no-unsupported-features/node-builtins */
 
 const require = createRequire(import.meta.url);
 
 const stylelint = require('../lib/index.mjs').default;
 
-test('require(ESM) in CommonJS plugin', async () => {
+it('require(ESM) in CommonJS plugin', async () => {
 	const result = await stylelint.lint({
 		code: '.foo {}',
 		config: {
@@ -19,7 +18,7 @@ test('require(ESM) in CommonJS plugin', async () => {
 	});
 	const warnings = result.results[0].warnings;
 
-	assert.strictEqual(warnings.length, 2);
-	assert.strictEqual(warnings[0].text, 'found .foo (plugin/warn-about-foo)');
-	assert.strictEqual(warnings[1].text, 'Unexpected empty block (block-no-empty)');
+	expect(warnings).toHaveLength(2);
+	expect(warnings[0].text).toBe('found .foo (plugin/warn-about-foo)');
+	expect(warnings[1].text).toBe('Unexpected empty block (block-no-empty)');
 });
