@@ -1,14 +1,14 @@
+// NOTE: This test uses the `node:test` module to avoid the Jest issue
+// that has not supported `require(ESM)` yet.
+// Ref https://github.com/jestjs/jest/issues/15275
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
 const path = require('node:path');
-const process = require('node:process');
 
-const stylelint = require('../../lib/index.cjs');
+const stylelint = require('../../lib/index.mjs').default;
 
-// TODO: This test fails due to SIGSEGV on Node.js 18 for some reason.
-// Remove the skip when dropping the support for Node.js 18.
-const [nodeMajorVersion] = process.versions.node.split('.', 1);
-const testFn = Number(nodeMajorVersion) >= 20 ? test : test.skip;
-
-testFn(
+test(
 	'CommonJS API and config',
 	async () => {
 		const result = await stylelint.lint({
@@ -16,9 +16,12 @@ testFn(
 			configFile: caseFilePath('config.cjs'),
 		});
 
-		expect(normalizeResult(result)).toMatchSnapshot();
+		assert.deepEqual(
+			normalizeResult(result),
+			require('./__snapshots__/commonjs.test.cjs.snap.mjs').default,
+		);
 	},
-	20000,
+	{ timeout: 20000 },
 );
 
 function caseFilePath(basename) {

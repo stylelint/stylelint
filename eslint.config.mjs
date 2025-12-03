@@ -4,7 +4,7 @@ import stylelintJestConfig from 'eslint-config-stylelint/jest';
 
 export default [
 	{
-		ignores: ['lib/**/*.cjs', '.coverage/*'],
+		ignores: ['.coverage/*'],
 	},
 	...stylelintConfig,
 	...stylelintJestConfig,
