@@ -61,9 +61,10 @@
     "prepare": "husky",
     "postprepare": "patch-package",
     "pretest": "npm run lint",
-    "test": "npm-run-all --sequential test-jest test-vitest",
+    "test": "npm-run-all --sequential test-jest test-vitest test-node",
     "test-coverage": "npm run test-jest --ignore-scripts -- --coverage",
     "test-jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test-node": "node --test system-tests/005/commonjs.test.cjs",
     "test-only": "npm run test-jest --ignore-scripts",
     "test-vitest": "vitest run vitest-tests",
     "watch": "npm run test-jest --ignore-scripts -- --watch"
@@ -112,7 +113,7 @@
       "<rootDir>/jest.setupAfterEnv.mjs"
     ],
     "testEnvironment": "node",
-    "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$|system-tests/.*\\.test\\.cjs$",
+    "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$",
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
