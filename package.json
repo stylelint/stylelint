@@ -42,7 +42,6 @@
     "./package.json": "./package.json",
     "./lib/utils/*": "./lib/utils/*"
   },
-  "types": "types/stylelint/index.d.ts",
   "bin": {
     "stylelint": "bin/stylelint.mjs"
   },
