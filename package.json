@@ -35,7 +35,8 @@
         "default": "./lib/index.mjs"
       },
       "require": {
-        "types": "./types/stylelint/index.d.ts"
+        "types": "./types/stylelint/index.d.ts",
+        "default": "./lib/index.mjs"
       }
     },
     "./package.json": "./package.json",
