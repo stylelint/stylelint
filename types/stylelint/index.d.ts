@@ -1542,6 +1542,11 @@ declare namespace stylelint {
 		reference: {
 			longhandSubPropertiesOfShorthandProperties: LonghandSubPropertiesOfShorthandProperties;
 		};
+
+		/**
+		 * For CommonJS default import compatibility.
+		 */
+		default: PublicApi;
 	};
 }
 
