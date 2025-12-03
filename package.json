@@ -61,12 +61,11 @@
     "prepare": "husky",
     "postprepare": "patch-package",
     "pretest": "npm run lint",
-    "test": "npm-run-all --sequential test-jest test-vitest test-node",
+    "test": "npm-run-all --sequential test-jest test-node",
     "test-coverage": "npm run test-jest --ignore-scripts -- --coverage",
     "test-jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-node": "node --test lib/__tests__/require.test.cjs system-tests/005/commonjs.test.cjs",
     "test-only": "npm run test-jest --ignore-scripts",
-    "test-vitest": "vitest run vitest-tests",
     "watch": "npm run test-jest --ignore-scripts -- --watch"
   },
   "lint-staged": {
@@ -203,8 +202,7 @@
     "prettier": "^3.6.2",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.14"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=20.19.0 || >=22.13.0"
