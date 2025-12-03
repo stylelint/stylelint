@@ -56,16 +56,6 @@ The directory used as the working directory for the linting operation.
 
 Boolean. If `true`, at least one rule with an "error"-level severity registered a problem.
 
-### `output`
-
-> [!WARNING]
-> This property is deprecated and will be removed in the next major version. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide](../migration-guide/to-16.md).
-
-A string that contains either the:
-
-- formatted problems (using the default formatter or whichever you passed)
-- or the autofixed code, if the `fix` option is set to `true`
-
 ### `postcssResults`
 
 An array containing all the accumulated [PostCSS LazyResults](https://postcss.org/api/#lazyresult).
