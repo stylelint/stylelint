@@ -59,7 +59,7 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 ### `output`
 
 > [!WARNING]
-> This property has been removed. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide](../migration-guide/to-16.md).
+> This property has been removed in 17.0.0. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide to 16.0.0](../migration-guide/to-16.md).
 
 ### `postcssResults`
 
