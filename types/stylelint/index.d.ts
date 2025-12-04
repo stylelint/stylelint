@@ -319,8 +319,6 @@ declare namespace stylelint {
 
 	type Formatters = {
 		readonly compact: Promise<Formatter>;
-		/** @deprecated */
-		readonly github: Promise<Formatter>;
 		readonly json: Promise<Formatter>;
 		readonly string: Promise<Formatter>;
 		readonly tap: Promise<Formatter>;
