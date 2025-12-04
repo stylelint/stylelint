@@ -13,7 +13,7 @@ export default [
 			import: importPlugin,
 		},
 		languageOptions: {
-			ecmaVersion: '2025',
+			ecmaVersion: 2025,
 			globals: {
 				testRule: 'readonly',
 				testRuleConfigs: 'readonly',
