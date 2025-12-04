@@ -28,11 +28,10 @@ function caseFilePath(basename) {
 	return path.join(__dirname, basename).replaceAll('\\', '/');
 }
 
-function normalizeResult({ cwd, output, report, results, ...rest }) {
+function normalizeResult({ cwd, report, results, ...rest }) {
 	const dummySource = '/path/to/dummy.css';
 
 	cwd = '/path/to/cwd';
-	output = JSON.parse(output).map((entry) => ({ ...entry, source: dummySource }));
 	report = JSON.parse(report).map((entry) => ({ ...entry, source: dummySource }));
 
 	results = results.map((entry) => {
@@ -41,5 +40,5 @@ function normalizeResult({ cwd, output, report, results, ...rest }) {
 		return { ...entry, source: dummySource };
 	});
 
-	return { cwd, output, report, results, ...rest };
+	return { cwd, report, results, ...rest };
 }

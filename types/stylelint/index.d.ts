@@ -1233,15 +1233,6 @@ declare namespace stylelint {
 		results: LintResult[];
 		errored: boolean;
 		/**
-		 * @deprecated Use `report` for the formatted problems, or use `code`
-		 *   for the autofixed code instead. This will be removed in the next major version.
-		 */
-		output: string;
-		/** @internal To show the deprecation warning. */
-		_output?: string;
-		/** @internal To show the deprecation warning. */
-		_outputWarned?: boolean;
-		/**
 		 * A string that contains the formatted problems.
 		 */
 		report: string;
