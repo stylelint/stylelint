@@ -795,7 +795,10 @@ declare namespace stylelint {
 		'no-duplicate-at-import-rules': CoreRule<true, {}, RejectedMessage<[url: string]>>;
 		'no-duplicate-selectors': CoreRule<
 			true,
-			{ disallowInList: boolean },
+			{
+				disallowInList: boolean;
+				ignoreSelectors: OneOrMany<StringOrRegex>;
+			},
 			RejectedMessage<[selector: string, line: number]>
 		>;
 		'no-empty-source': CoreRule<true>;
