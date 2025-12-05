@@ -319,8 +319,6 @@ declare namespace stylelint {
 
 	type Formatters = {
 		readonly compact: Promise<Formatter>;
-		/** @deprecated */
-		readonly github: Promise<Formatter>;
 		readonly json: Promise<Formatter>;
 		readonly string: Promise<Formatter>;
 		readonly tap: Promise<Formatter>;
@@ -795,7 +793,10 @@ declare namespace stylelint {
 		'no-duplicate-at-import-rules': CoreRule<true, {}, RejectedMessage<[url: string]>>;
 		'no-duplicate-selectors': CoreRule<
 			true,
-			{ disallowInList: boolean },
+			{
+				disallowInList: boolean;
+				ignoreSelectors: OneOrMany<StringOrRegex>;
+			},
 			RejectedMessage<[selector: string, line: number]>
 		>;
 		'no-empty-source': CoreRule<true>;
@@ -1233,15 +1234,6 @@ declare namespace stylelint {
 		results: LintResult[];
 		errored: boolean;
 		/**
-		 * @deprecated Use `report` for the formatted problems, or use `code`
-		 *   for the autofixed code instead. This will be removed in the next major version.
-		 */
-		output: string;
-		/** @internal To show the deprecation warning. */
-		_output?: string;
-		/** @internal To show the deprecation warning. */
-		_outputWarned?: boolean;
-		/**
 		 * A string that contains the formatted problems.
 		 */
 		report: string;
@@ -1545,6 +1537,11 @@ declare namespace stylelint {
 	};
 }
 
-declare const stylelint: stylelint.PublicApi;
+declare const stylelint: stylelint.PublicApi & {
+	/**
+	 * For CommonJS default import compatibility.
+	 */
+	default: stylelint.PublicApi;
+};
 
 export = stylelint;
