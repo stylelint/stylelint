@@ -13,13 +13,13 @@ export default [
 			import: importPlugin,
 		},
 		languageOptions: {
-			ecmaVersion: 2025,
 			globals: {
 				testRule: 'readonly',
 				testRuleConfigs: 'readonly',
 			},
 		},
 		rules: {
+			'import/enforce-node-protocol-usage': ['error', 'always'],
 			'import/extensions': ['error', 'ignorePackages'],
 			'jest/no-standalone-expect': ['error', { additionalTestBlockFunctions: ['testFn'] }],
 		},
