@@ -38,7 +38,7 @@ You should use:
 - the minimum amount of valid CSS possible, e.g. use an empty rule if targeting selectors and avoid optional names
 - `{}` for empty rules, rather than `{ }`
 - trailing semicolons within declaration blocks
-- _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
+- _foo_, _bar_, _baz_ and _qux_ for names, e.g. `.foo`, `#bar`, `--baz` and `/* qux */`
 
 By default, you should use the:
 
