@@ -1,6 +1,2 @@
 * text eol=lf
 *.png binary
-
-# See https://docs.github.com/en/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github
-lib/**/*.cjs linguist-generated
-lib/**/__tests__/**/*.cjs -linguist-generated
