@@ -144,3 +144,31 @@ textarea {
   border: 1px;
 }
 ```
+
+### `ignoreSelectors`
+
+```json
+{ "ignoreSelectors": ["array", "of", "selectors", "/regex/"] }
+```
+
+Given:
+
+```json
+{
+  "no-duplicate-selectors": [true, { "ignoreSelectors": ["a", "/foo/"] }]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {}
+a {}
+```
+
+<!-- prettier-ignore -->
+```css
+.foo {}
+.foo {}
+```
