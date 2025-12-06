@@ -72,6 +72,9 @@ div > #zing + .foo-bar {}
 
 ### `resolveNestedSelectors`
 
+> [!WARNING]
+> This option has been deprecated and will be removed in future major versions. Please avoid using the option in new configurations.
+
 This option will resolve nested selectors with `&` interpolation. Defaults to `false`.
 
 Given the string:
