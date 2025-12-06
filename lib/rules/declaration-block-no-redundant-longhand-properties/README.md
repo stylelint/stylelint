@@ -171,7 +171,8 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  inset: 0 5px 10px 5px;
+  margin: 1px;
+  margin-left: 2px;
 }
 ```
 
