@@ -1,6 +1,6 @@
 {
 	"extends": "./plugin-and-one-rule.json",
-	"plugins": ["../plugin-warn-about-bar.cjs"],
+	"plugins": ["../plugin-warn-about-bar.mjs"],
 	"rules": {
 		"plugin/warn-about-bar": "always"
 	},

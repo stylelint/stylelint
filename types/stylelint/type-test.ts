@@ -53,7 +53,7 @@ const options: Partial<LinterOptions> = {
 
 stylelint.lint(options).then((x: LinterResult) => {
 	const err: boolean = x.errored;
-	const output: string = x.output;
+	const report: string = x.report;
 	const results: LintResult[] = x.results;
 	const firstResult: LintResult | undefined = results[0];
 	if (firstResult) {
@@ -118,9 +118,31 @@ const testRule: RuleBase = (option) => {
 					result,
 					message: messages.warning(warning.text),
 					node: root,
-					index: 1,
 					word: 'foo',
-					line: 2,
+				});
+
+				stylelint.utils.report({
+					ruleName,
+					result,
+					message: messages.warning(warning.text),
+					node: root,
+					index: 1,
+					endIndex: 2,
+				});
+
+				stylelint.utils.report({
+					ruleName,
+					result,
+					message: messages.warning(warning.text),
+					node: root,
+					start: {
+						line: 1,
+						column: 1,
+					},
+					end: {
+						line: 1,
+						column: 2,
+					},
 				});
 			},
 		);

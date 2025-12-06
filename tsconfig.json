@@ -1,8 +1,7 @@
 {
 	"compilerOptions": {
-		"module": "Node16",
-		"moduleResolution": "Node16",
-		"target": "ES2022",
+		"module": "nodenext",
+		"target": "es2023",
 		"lib": ["ES2023"],
 		"checkJs": true,
 		"noEmit": true,
@@ -15,7 +14,7 @@
 		"noUncheckedIndexedAccess": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-		"skipLibCheck": false
+		"skipLibCheck": true
 	},
 	"include": ["lib/**/*.mjs", "types/**/*.ts", "rollup.config.*", ".changeset/*.mjs"],
 	"exclude": ["**/__tests__/**"]

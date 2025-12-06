@@ -59,12 +59,7 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 ### `output`
 
 > [!WARNING]
-> This property is deprecated and will be removed in the next major version. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide](../migration-guide/to-16.md).
-
-A string that contains either the:
-
-- formatted problems (using the default formatter or whichever you passed)
-- or the autofixed code, if the `fix` option is set to `true`
+> This property has been removed in 17.0.0. Use [`report`](#report) or [`code`](#code-1) instead. See [the migration guide to 16.0.0](../migration-guide/to-16.md).
 
 ### `postcssResults`
 
