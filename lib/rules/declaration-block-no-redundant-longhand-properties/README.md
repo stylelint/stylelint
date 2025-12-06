@@ -137,6 +137,16 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+a {
+  top: 0;
+  right: 5px;
+  bottom: 10px;
+  left: 5px;
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -157,6 +167,13 @@ a {
 ```css
 a {
   -webkit-transition: top 2s ease 0.5s;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  inset: 0 5px 10px 5px;
 }
 ```
 
