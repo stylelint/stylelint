@@ -140,10 +140,8 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  top: 0;
-  right: 5px;
-  bottom: 10px;
-  left: 5px;
+  margin: 1px;
+  margin-left: 1px;
 }
 ```
 
