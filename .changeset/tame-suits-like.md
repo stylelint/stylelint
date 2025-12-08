@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": minor
 ---
 
-Fix `no-invalid-position-declaration` false negatives for embedded blocks
+Fixed: `no-invalid-position-declaration` false negatives for embedded blocks
