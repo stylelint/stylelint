@@ -171,14 +171,6 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  margin: 1px;
-  margin-left: 2px;
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
   margin-top: 1px;
   margin-right: 2px;
 }
@@ -190,6 +182,14 @@ a {
   margin-top: 1px;
   margin-right: 2px;
   margin-bottom: 3px;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  margin: 1px;
+  margin-left: 2px;
 }
 ```
 
