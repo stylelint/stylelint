@@ -142,6 +142,7 @@
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
     "known-css-properties": "^0.37.0",
+    "local-pkg": "^1.1.2",
     "mathml-tag-names": "^4.0.0",
     "meow": "^14.0.0",
     "micromatch": "^4.0.8",
