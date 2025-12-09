@@ -137,6 +137,14 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+a {
+  margin: 1px;
+  margin-left: 1px;
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -174,6 +182,14 @@ a {
   margin-top: 1px;
   margin-right: 2px;
   margin-bottom: 3px;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  margin: 1px;
+  margin-left: 2px;
 }
 ```
 
