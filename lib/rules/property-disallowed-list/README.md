@@ -25,7 +25,7 @@ Given:
 {
   "property-disallowed-list": [
     "text-rendering",
-    "animation",
+    "/^(-webkit-)?animation/",
     "/^background/",
     "--foo"
   ]
