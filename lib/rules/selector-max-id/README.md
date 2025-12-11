@@ -9,9 +9,10 @@ Limit the number of ID selectors in a selector.
  * This type of selector */
 ```
 
-This rule resolves nested selectors before counting the number of ID selectors. Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
+Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
 
-The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
+> [!NOTE]
+> In versions prior to `17.0.0`, this rule would evaluate the `:not()` pseudo-class separately and resolve nested selectors in a nonstandard way before counting ID selectors.
 
 ## Options
 
@@ -77,52 +78,7 @@ The following patterns are _not_ considered problems:
 #baz #quux {}
 ```
 
-<!-- prettier-ignore -->
-```css
-/* `#bar` is inside `:not()`, so it is evaluated separately */
-#foo #bar:not(#baz) {}
-```
-
 ## Optional secondary options
-
-### `checkContextFunctionalPseudoClasses`
-
-```json
-{
-  "checkContextFunctionalPseudoClasses": [
-    "array",
-    "of",
-    "pseudo-classes",
-    "/regex/"
-  ]
-}
-```
-
-Check selectors inside of the specified custom [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
-
-This option has a higher precedence than `ignoreContextFunctionalPseudoClasses`.
-
-Given:
-
-```json
-{
-  "selector-max-id": [2, { "checkContextFunctionalPseudoClasses": [":--foo"] }]
-}
-```
-
-The following pattern is considered a problem:
-
-<!-- prettier-ignore -->
-```css
-:--foo(#foo #bar #baz) {}
-```
-
-The following pattern is _not_ considered a problem:
-
-<!-- prettier-ignore -->
-```css
-:--foo() {}
-```
 
 ### `ignoreContextFunctionalPseudoClasses`
 
@@ -137,7 +93,7 @@ The following pattern is _not_ considered a problem:
 }
 ```
 
-Ignore selectors inside of the specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
+Ignore selectors inside of the specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes).
 
 Given:
 

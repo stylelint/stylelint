@@ -915,7 +915,6 @@ declare namespace stylelint {
 		'selector-max-compound-selectors': MaxRule<{ ignoreSelectors: OneOrMany<StringOrRegex> }>;
 		'selector-max-id': MaxRule<{
 			ignoreContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
-			checkContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
 		}>;
 		'selector-max-pseudo-class': MaxRule;
 		'selector-max-specificity': CoreRule<
