@@ -17,6 +17,18 @@ export default {
 };
 ```
 
+For `stylelint.config.ts` files, you can use the `satisfies` operator to ensure type safety:
+
+```ts
+import type { Config } from "stylelint";
+
+export default {
+  rules: {
+    "block-no-empty": true
+  }
+} satisfies Config;
+```
+
 > [!NOTE]
 > Stylelint currently supports other configuration locations and formats, but we may remove these in the future:
 >
