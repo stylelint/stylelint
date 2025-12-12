@@ -17,7 +17,7 @@ export default {
 };
 ```
 
-For `stylelint.config.ts` file, you can use the `satisfies` operator to ensure type safety:
+For TypeScript codebases, you can also use the `stylelint.config.ts` filename and the `satisfies` operator to ensure type safety:
 
 ```ts
 import type { Config } from "stylelint";
