@@ -123,7 +123,7 @@ a {
 
 #### `"after-block"`
 
-Ignore declarations that follow a block.
+Reverse the primary option for declarations that follow a block.
 
 Given:
 
@@ -138,9 +138,7 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css 
 a {
-  a {
-    color: red;
-  }
+  a {}
   color: red;
 }
 ```
@@ -148,9 +146,7 @@ a {
 <!-- prettier-ignore -->
 ```css 
 a {
-  @media all {
-    color: red;
-  }
+  @media all {}
   color: red;
 }
 ```
