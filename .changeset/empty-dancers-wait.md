@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": minor
 ---
 
-Added: `except: ["after-block"]` for `declaration-empty-line-before`
+Added: `except: ["after-block"]` to `declaration-empty-line-before`
