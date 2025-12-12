@@ -19,6 +19,8 @@ This rule adheres to [CSS Nesting specification](https://drafts.csswg.org/css-ne
 
 Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
 
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
+
 ## Options
 
 ### `string`
