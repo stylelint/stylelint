@@ -121,6 +121,40 @@ a {
 { "except": ["array", "of", "options"] }
 ```
 
+#### `"after-block"`
+
+Ignore declarations that follow a block.
+
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["always", { "except": ["after-block"] }]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css 
+a {
+  a {
+    color: red;
+  }
+  color: red;
+}
+```
+
+<!-- prettier-ignore -->
+```css 
+a {
+  @media all {
+    color: red;
+  }
+  color: red;
+}
+```
+
 #### `"after-comment"`
 
 Reverse the primary option for declarations that follow a comment.
@@ -273,39 +307,6 @@ a {
 
 ```json
 { "ignore": ["array", "of", "options"] }
-```
-
-#### `"after-block"`
-
-Ignore declarations that follow a block.
-
-Given:
-
-```json
-{
-  "declaration-empty-line-before": ["always", { "ignore": ["after-block"] }]
-}
-```
-
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css 
-a {
-  a {
-    color: red;
-  }
-  color: red;
-}
-```
-
-<!-- prettier-ignore -->
-```css {
-  @media all {
-    color: red;
-  }
-  color: red;
-}
 ```
 
 #### `"after-comment"`
