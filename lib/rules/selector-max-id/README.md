@@ -12,7 +12,7 @@ Limit the number of ID selectors in a selector.
 Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
 
 > [!NOTE]
-> In versions prior to `17.0.0`, this rule would evaluate the `:not()` pseudo-class separately and resolve nested selectors (in a nonstandard way) before counting ID selectors.
+> In versions prior to `17.0.0`, this rule would evaluate functional pseudo-classes separately, such as `:not()` and `:is()`, and resolve nested selectors (in a nonstandard way) before counting.
 
 ## Options
 
@@ -28,25 +28,11 @@ Given:
 }
 ```
 
-The following patterns are considered problems:
+The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
 ```css
 #foo #bar #baz {}
-```
-
-<!-- prettier-ignore -->
-```css
-#foo #bar {
-  & #baz {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-#foo #bar {
-  & > #bar {}
-}
 ```
 
 The following patterns are _not_ considered problems:
@@ -69,13 +55,6 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 #foo.foo #bar {}
-```
-
-<!-- prettier-ignore -->
-```css
-/* each selector in a selector list is evaluated separately */
-#foo,
-#baz #quux {}
 ```
 
 ## Optional secondary options
