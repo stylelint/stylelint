@@ -23,7 +23,7 @@ Given:
 
 ```json
 {
-  "at-rule-allowed-list": ["extend", "/^(-webkit-|-moz-)?keyframes$/"]
+  "at-rule-allowed-list": ["extend", "/^(-webkit-|-moz-)?keyframes$/i"]
 }
 ```
 
