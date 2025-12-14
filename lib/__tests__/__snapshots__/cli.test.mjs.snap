@@ -23,8 +23,8 @@ exports[`CLI --help 1`] = `
 
         - a "stylelint" property in "package.json"
         - a ".stylelintrc" file
-        - a ".stylelintrc.{cjs,mjs,js,json,yaml,yml}" file
-        - a "stylelint.config.{cjs,mjs,js}" file
+        - a ".stylelintrc.{cjs,mjs,js,ts,json,yaml,yml}" file
+        - a "stylelint.config.{cjs,mjs,js,ts}" file
 
       The search will begin in the working directory and move up the directory
       tree until a configuration file is found.

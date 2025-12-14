@@ -16,7 +16,7 @@ This rule ignores selectors that use variable interpolation e.g. `:#{$variable} 
 ### `Array<string>`
 
 ```json
-["array", "of", "unprefixed", "pseudo-classes", "/regex/"]
+["array", "of", "pseudo-classes", "/regex/"]
 ```
 
 Given:

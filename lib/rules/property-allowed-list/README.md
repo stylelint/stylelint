@@ -23,7 +23,12 @@ Given:
 
 ```json
 {
-  "property-allowed-list": ["display", "animation", "/^background/", "--foo"]
+  "property-allowed-list": [
+    "display",
+    "/^(-webkit-)?animation/",
+    "/^background/",
+    "--foo"
+  ]
 }
 ```
 

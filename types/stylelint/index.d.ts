@@ -444,7 +444,11 @@ declare namespace stylelint {
 			{ ignoreAnnotations: OneOrMany<StringOrRegex> },
 			RejectedMessage<[annotation: string]>
 		>;
-		'at-rule-allowed-list': CoreRule<OneOrMany<string>, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[atRule: string]>
+		>;
 		'at-rule-descriptor-no-unknown': CoreRule<
 			true,
 			{},
@@ -455,7 +459,11 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[descriptor: string, value: string]>
 		>;
-		'at-rule-disallowed-list': CoreRule<OneOrMany<string>, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[atRule: string]>
+		>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
 			{

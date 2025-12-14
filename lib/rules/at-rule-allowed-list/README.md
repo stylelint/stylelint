@@ -16,14 +16,14 @@ This rule ignores the `@charset` rule.
 ### `Array<string>`
 
 ```json
-["array", "of", "unprefixed", "at-rules"]
+["array", "of", "at-rules", "/regex/"]
 ```
 
 Given:
 
 ```json
 {
-  "at-rule-allowed-list": ["extend", "keyframes"]
+  "at-rule-allowed-list": ["extend", "/^(-webkit-|-moz-)?keyframes$/i"]
 }
 ```
 
