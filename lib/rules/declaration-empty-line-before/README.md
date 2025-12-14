@@ -129,7 +129,7 @@ Given:
 
 ```json
 {
-  "declaration-empty-line-before": ["always", { "except": ["after-block"] }]
+  "declaration-empty-line-before": ["never", { "except": ["after-block"] }]
 }
 ```
 
