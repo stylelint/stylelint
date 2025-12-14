@@ -139,7 +139,9 @@ The following patterns are _not_ considered problems:
 ```css 
 a {
   a {}
+  
   color: red;
+  top: 5px;
 }
 ```
 
