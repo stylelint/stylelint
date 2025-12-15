@@ -106,6 +106,38 @@ a {
 { "except": ["array", "of", "options"] }
 ```
 
+#### `"after-block"`
+
+Reverse the primary option for custom properties that follow a block.
+
+Given:
+
+```json
+{
+  "custom-property-empty-line-before": ["never", { "except": ["after-block"] }]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+```css
+a {
+  a {
+  }
+
+  --foo: pink;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  @media all {}
+
+  --foo: pink;
+}
+```
+
 #### `"after-comment"`
 
 Reverse the primary option for custom properties that follow a comment.
