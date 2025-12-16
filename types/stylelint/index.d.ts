@@ -546,7 +546,9 @@ declare namespace stylelint {
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: OneOrMany<'after-comment' | 'after-custom-property' | 'first-nested'>;
+				except: OneOrMany<
+					'after-block' | 'after-comment' | 'after-custom-property' | 'first-nested'
+				>;
 				ignore: OneOrMany<
 					'after-comment' | 'after-custom-property' | 'first-nested' | 'inside-single-line-block'
 				>;
