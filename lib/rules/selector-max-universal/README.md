@@ -9,7 +9,7 @@ Limit the number of universal selectors in a selector.
  * This universal selector */
 ```
 
-Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
+Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
 > [!NOTE]
 > In versions prior to `17.0.0`, this rule would evaluate functional pseudo-classes separately, such as `:not()` and `:is()`, and resolve nested selectors (in a nonstandard way) before counting.

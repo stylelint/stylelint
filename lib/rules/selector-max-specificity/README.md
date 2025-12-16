@@ -17,7 +17,7 @@ This rule adheres to [CSS Nesting specification](https://drafts.csswg.org/css-ne
 
 > The [specificity](https://drafts.csswg.org/selectors-4/#specificity) of the [nesting selector](https://drafts.csswg.org/css-nesting/#nesting-selector) is equal to the largest specificity among the complex selectors in the parent style rule’s selector list (identical to the behavior of [:is()](https://drafts.csswg.org/selectors-4/#matches-pseudo)), or zero if no such selector list exists.
 
-Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
+Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
