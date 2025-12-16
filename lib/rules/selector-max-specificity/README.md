@@ -13,9 +13,7 @@ Visit the [Specificity Calculator](https://specificity.keegan.st) for visual rep
 
 This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).
 
-This rule adheres to [CSS Nesting specification](https://drafts.csswg.org/css-nesting/#nest-selector):
-
-> The [specificity](https://drafts.csswg.org/selectors-4/#specificity) of the [nesting selector](https://drafts.csswg.org/css-nesting/#nesting-selector) is equal to the largest specificity among the complex selectors in the parent style rule’s selector list (identical to the behavior of [:is()](https://drafts.csswg.org/selectors-4/#matches-pseudo)), or zero if no such selector list exists.
+This rule adheres to the [CSS Nesting specification](https://drafts.csswg.org/css-nesting/) when calculating specificity. The [specificity](https://drafts.csswg.org/selectors-4/#specificity-rules) of the [nesting selector](https://drafts.csswg.org/css-nesting/#nest-selector) (`&`) is equal to the largest specificity among the complex selectors in the parent's selector list (identical to the behavior of [`:is()`](https://drafts.csswg.org/selectors-4/#matches)).
 
 Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
