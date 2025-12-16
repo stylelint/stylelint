@@ -930,7 +930,7 @@ declare namespace stylelint {
 		'selector-max-specificity': CoreRule<
 			string,
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
-			ExpectedMessage<[selector: string, specificity: string]>
+			ExpectedMessage<[selector: string, specificity: string, selector: string]>
 		>;
 		'selector-max-type': MaxRule<{
 			ignore: OneOrMany<'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'>;
