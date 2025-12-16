@@ -602,7 +602,7 @@ declare namespace stylelint {
 		'declaration-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: OneOrMany<'first-nested' | 'after-comment' | 'after-declaration'>;
+				except: OneOrMany<'first-nested' | 'after-block' | 'after-comment' | 'after-declaration'>;
 				ignore: OneOrMany<
 					'after-comment' | 'after-declaration' | 'first-nested' | 'inside-single-line-block'
 				>;
