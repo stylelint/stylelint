@@ -66,7 +66,7 @@ Given:
 {
   "property-no-vendor-prefix": [
     true,
-    { "ignoreProperties": ["transform", "columns"] }
+    { "ignoreProperties": ["-webkit-transform", "/^-moz-col/"] }
   ]
 }
 ```
