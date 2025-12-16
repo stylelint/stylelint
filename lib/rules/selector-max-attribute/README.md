@@ -57,6 +57,13 @@ The following patterns are _not_ considered problems:
 [type="text"][disabled] {}
 ```
 
+<!-- prettier-ignore -->
+```css
+[type="text"][name="message"] {
+  & [disabled] {}
+}
+```
+
 ## Optional secondary options
 
 ### `ignoreAttributes`
