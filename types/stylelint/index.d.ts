@@ -796,7 +796,9 @@ declare namespace stylelint {
 		'no-descending-specificity': CoreRule<
 			true,
 			{ ignore: OneOrMany<'selectors-within-list'> },
-			ExpectedMessage<[selector: string, selector: string, line: number]>
+			ExpectedMessage<
+				[selector: string, selector: string, line: number, selector: string, selector: string]
+			>
 		>;
 		'no-duplicate-at-import-rules': CoreRule<true, {}, RejectedMessage<[url: string]>>;
 		'no-duplicate-selectors': CoreRule<
