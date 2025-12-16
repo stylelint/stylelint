@@ -125,7 +125,7 @@ a {
   a {
   }
 
-  --foo: pink;
+  --foo: red;
 }
 ```
 
@@ -134,7 +134,7 @@ a {
 a {
   @media all {}
 
-  --foo: pink;
+  --foo: red;
 }
 ```
 
