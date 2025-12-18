@@ -30,20 +30,12 @@
   "author": "stylelint",
   "exports": {
     ".": {
-      "import": {
-        "types": "./types/stylelint/index.d.mts",
-        "default": "./lib/index.mjs"
-      },
-      "require": {
-        "types": "./types/stylelint/index.d.ts",
-        "default": "./lib/index.cjs"
-      }
+      "types": "./types/stylelint/index.d.ts",
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json",
     "./lib/utils/*": "./lib/utils/*"
   },
-  "main": "lib/index.cjs",
-  "types": "types/stylelint/index.d.ts",
   "bin": {
     "stylelint": "bin/stylelint.mjs"
   },
