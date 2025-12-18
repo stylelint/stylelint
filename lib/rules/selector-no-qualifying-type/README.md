@@ -11,6 +11,10 @@ Disallow qualifying a selector by type.
 
 A type selector is "qualifying" when it is compounded with (chained to) another selector (e.g. `a.foo`, `a#foo`). This rule does not regulate type selectors that are combined with other selectors via a combinator (e.g. `a > .foo`, `a #foo`).
 
+This rule resolves nested selectors according the [CSS Nesting specification](https://drafts.csswg.org/css-nesting/).
+
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
+
 ## Options
 
 ### `true`

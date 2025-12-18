@@ -20,7 +20,15 @@ The same selector _is_ allowed to repeat in the following circumstances:
 - The duplicates are determined to originate in different stylesheets, e.g. you have concatenated or compiled files in a way that produces sourcemaps for PostCSS to read, e.g. postcss-import.
 - The duplicates are in rules with different parent nodes, e.g. inside and outside of a media query.
 
-This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a problem, because the resolved selectors end up with a duplicate.
+This rule resolves nested selectors according to the [CSS Nesting specification](https://drafts.csswg.org/css-nesting/). So the following two selectors count as a problem, because the resolved selectors end up with a duplicate:
+
+<!-- prettier-ignore -->
+```css
+:is(a, b) c {}  /* without nesting */
+a, b { & c {} } /* with nesting */
+```
+
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 ## Options
 

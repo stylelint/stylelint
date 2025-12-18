@@ -27,7 +27,9 @@ Selectors targeting pseudo-elements are not considered comparable to similar sel
 
 This rule only compares rules that are within the same media context. So `a {top: 10px; } @media print { #baz a { top: 10px; } }` is fine.
 
-This rule resolves nested selectors before calculating the specificity of the selectors.
+This rule adheres to the [CSS Nesting specification](https://drafts.csswg.org/css-nesting/) when calculating specificity. The [specificity](https://drafts.csswg.org/selectors-4/#specificity-rules) of the [nesting selector](https://drafts.csswg.org/css-nesting/#nest-selector) (`&`) is equal to the largest specificity among the complex selectors in the parent's selector list (identical to the behavior of [`:is()`](https://drafts.csswg.org/selectors-4/#matches)).
+
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 ## Limitations
 

@@ -9,9 +9,10 @@ Limit the number of attribute selectors in a selector.
  * This type of selector */
 ```
 
-This rule resolves nested selectors before counting the number of attribute selectors. Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
+Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
-The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
+> [!NOTE]
+> In versions prior to `17.0.0`, this rule would evaluate functional pseudo-classes separately, such as `:not()` and `:is()`, and resolve nested selectors (in a nonstandard way) before counting.
 
 ## Options
 
@@ -39,33 +40,6 @@ The following patterns are considered problems:
 [type="number"][name="quality"][disabled] {}
 ```
 
-<!-- prettier-ignore -->
-```css
-[type="number"][name="quality"] {
-  & [data-attribute="value"] {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-[type="number"][name="quality"] {
-  & [disabled] {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-[type="number"][name="quality"] {
-  & > [data-attribute="value"] {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-/* `[type="text"][data-attribute="value"][disabled]` is inside `:not()`, so it is evaluated separately */
-input:not([type="text"][data-attribute="value"][disabled]) {}
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -85,15 +59,9 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-/* each selector in a selector list is evaluated separately */
-[type="text"][name="message"],
-[type="number"][name="quality"] {}
-```
-
-<!-- prettier-ignore -->
-```css
-/* `[disabled]` is inside `:not()`, so it is evaluated separately */
-[type="text"][name="message"]:not([disabled]) {}
+[type="text"][name="message"] {
+  & [disabled] {}
+}
 ```
 
 ## Optional secondary options
