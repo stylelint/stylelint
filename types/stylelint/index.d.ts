@@ -1555,6 +1555,11 @@ declare namespace stylelint {
 	};
 }
 
-declare const stylelint: stylelint.PublicApi;
+declare const stylelint: stylelint.PublicApi & {
+	/**
+	 * For CommonJS default import compatibility.
+	 */
+	default: stylelint.PublicApi;
+};
 
 export = stylelint;
