@@ -32,7 +32,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
         },
         {
           "column": 3,
-          "endColumn": 4,
+          "endColumn": 15,
           "endLine": 123,
           "line": 123,
           "rule": "selector-no-qualifying-type",
@@ -76,7 +76,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
         },
         {
           "column": 3,
-          "endColumn": 4,
+          "endColumn": 15,
           "endLine": 123,
           "fix": undefined,
           "line": 123,
