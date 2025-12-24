@@ -943,7 +943,7 @@ declare namespace stylelint {
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
-			RejectedMessage<[tag: string, selector: string]>
+			RejectedMessage<[type: string, selector: string]>
 		>;
 		'selector-no-vendor-prefix': CoreRule<
 			true,
