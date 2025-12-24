@@ -48,6 +48,22 @@ input[type='button'] {
 }
 ```
 
+<!-- prettier-ignore -->
+```css
+a:is(#foo, #bar) {
+  margin: 0
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  #foo {
+    margin: 0
+  }
+}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
