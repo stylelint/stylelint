@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - v17 # TODO: Remove this setting after v17.0.0 is released.
   pull_request:
   merge_group:
 
