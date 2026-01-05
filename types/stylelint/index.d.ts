@@ -798,7 +798,9 @@ declare namespace stylelint {
 		'no-descending-specificity': CoreRule<
 			true,
 			{ ignore: OneOrMany<'selectors-within-list'> },
-			ExpectedMessage<[selector: string, selector: string, line: number]>
+			ExpectedMessage<
+				[selector: string, selector: string, line: number, selector: string, selector: string]
+			>
 		>;
 		'no-duplicate-at-import-rules': CoreRule<true, {}, RejectedMessage<[url: string]>>;
 		'no-duplicate-selectors': CoreRule<
@@ -925,13 +927,12 @@ declare namespace stylelint {
 		'selector-max-compound-selectors': MaxRule<{ ignoreSelectors: OneOrMany<StringOrRegex> }>;
 		'selector-max-id': MaxRule<{
 			ignoreContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
-			checkContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
 		}>;
 		'selector-max-pseudo-class': MaxRule;
 		'selector-max-specificity': CoreRule<
 			string,
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
-			ExpectedMessage<[selector: string, specificity: string]>
+			ExpectedMessage<[selector: string, specificity: string, selector: string]>
 		>;
 		'selector-max-type': MaxRule<{
 			ignore: OneOrMany<'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'>;
@@ -942,7 +943,7 @@ declare namespace stylelint {
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
-			RejectedMessage<[selector: string]>
+			RejectedMessage<[selector: string, type: string]>
 		>;
 		'selector-no-vendor-prefix': CoreRule<
 			true,
@@ -1554,6 +1555,11 @@ declare namespace stylelint {
 	};
 }
 
-declare const stylelint: stylelint.PublicApi;
+declare const stylelint: stylelint.PublicApi & {
+	/**
+	 * For CommonJS default import compatibility.
+	 */
+	default: stylelint.PublicApi;
+};
 
 export = stylelint;

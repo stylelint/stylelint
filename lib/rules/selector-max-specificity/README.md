@@ -13,7 +13,11 @@ Visit the [Specificity Calculator](https://specificity.keegan.st) for visual rep
 
 This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).
 
-This rule resolves nested selectors before counting the specificity of a selector. Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
+This rule adheres to the [CSS Nesting specification](https://drafts.csswg.org/css-nesting/) when calculating specificity. The [specificity](https://drafts.csswg.org/selectors-4/#specificity-rules) of the [nesting selector](https://drafts.csswg.org/css-nesting/#nest-selector) (`&`) is equal to the largest specificity among the complex selectors in the parent's selector list (identical to the behavior of [`:is()`](https://drafts.csswg.org/selectors-4/#matches)).
+
+Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
+
+This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 ## Options
 
@@ -50,16 +54,6 @@ The following patterns are considered problems:
 }
 ```
 
-<!-- prettier-ignore -->
-```css
-.foo {
-  color: red;
-  @nest .baz .bar & {
-    color: blue;
-  }
-}
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -83,16 +77,6 @@ div {}
 ```css
 .foo {
   & .baz {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-.foo {
-  color: red;
-  @nest .baz & {
-    color: blue;
-  }
 }
 ```
 

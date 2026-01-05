@@ -21,7 +21,14 @@ export default [
 		rules: {
 			'import/enforce-node-protocol-usage': ['error', 'always'],
 			'import/extensions': ['error', 'ignorePackages'],
-			'jest/no-standalone-expect': ['error', { additionalTestBlockFunctions: ['testFn'] }],
+			'jest/no-standalone-expect': [
+				'error',
+				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
+			],
+			'jest/expect-expect': [
+				'error',
+				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
+			],
 		},
 	},
 ];
