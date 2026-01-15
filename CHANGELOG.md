@@ -2,6 +2,8 @@
 
 ## 17.0.0 - 2026-01-15
 
+It contains 14 breaking changes, which we've detailed in the [migrating to `17.0.0` guide](docs/migration-guide/to-17.md). Additionally, it adds 3 options to the rules and fixes 9 bugs. We've also released compatible versions of our [shared config](https://www.npmjs.com/package/stylelint-config-standard), [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), [Node.js Rule Tester](https://www.npmjs.com/package/stylelint-test-rule-node) and [Jest preset](https://www.npmjs.com/package/jest-preset-stylelint).
+
 - Removed: CommonJS Node.js API ([#8859](https://github.com/stylelint/stylelint/pull/8859)) ([@jeddy3](https://github.com/jeddy3)).
 - Removed: `output` property in the Node.js API returned resolved object ([#8878](https://github.com/stylelint/stylelint/pull/8878)) ([@jeddy3](https://github.com/jeddy3)).
 - Removed: support for Node.js less than 20.19.0 ([#8867](https://github.com/stylelint/stylelint/pull/8867)) ([@jeddy3](https://github.com/jeddy3)).
