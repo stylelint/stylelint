@@ -1,5 +1,36 @@
 # Changelog
 
+## 17.0.0 - 2026-01-15
+
+It contains 14 breaking changes, which we've detailed in the [migrating to `17.0.0` guide](docs/migration-guide/to-17.md). Additionally, it adds 3 options to the rules and fixes 9 bugs. We've also released compatible versions of our [shared config](https://www.npmjs.com/package/stylelint-config-standard), [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), [Node.js Rule Tester](https://www.npmjs.com/package/stylelint-test-rule-node) and [Jest preset](https://www.npmjs.com/package/jest-preset-stylelint).
+
+- Removed: CommonJS Node.js API ([#8859](https://github.com/stylelint/stylelint/pull/8859)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `output` property in the Node.js API returned resolved object ([#8878](https://github.com/stylelint/stylelint/pull/8878)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: support for Node.js less than 20.19.0 ([#8867](https://github.com/stylelint/stylelint/pull/8867)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: GitHub formatter ([#8888](https://github.com/stylelint/stylelint/pull/8888)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `resolveNestedSelectors` option from `selector-class-pattern` ([#8931](https://github.com/stylelint/stylelint/pull/8931)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `checkContextFunctionalPseudoClasses` option from `selector-max-id` ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: default `fix` mode to `strict` ([#8889](https://github.com/stylelint/stylelint/pull/8889)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `report` to be consistent and predictable in how it handles the provided position arguments ([#8217](https://github.com/stylelint/stylelint/pull/8217)) ([@romainmenke](https://github.com/romainmenke)).
+- Changed: `selector-max-*` syntax rules for standard CSS nesting and modern functional pseudo-classes ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `*-specificity` semantic rules for standard CSS nesting ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `no-duplicate-selectors` and `selector-no-qualifying-type` for standard CSS nesting ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `*-list` rules to have consistent behaviour for vendor prefixes and case ([#8912](https://github.com/stylelint/stylelint/pull/8912)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `*-no-vendor-prefix` rules to have consistent behaviour for their `ignore*: []` secondary options ([#8924](https://github.com/stylelint/stylelint/pull/8924)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `declaration-property-max-values` rule to have consistent behaviour for vendor prefixes ([#8926](https://github.com/stylelint/stylelint/pull/8926)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `except: ["after-block"]` to `custom-property-empty-line-before` ([#8921](https://github.com/stylelint/stylelint/pull/8921)) ([@kovsu](https://github.com/kovsu)).
+- Added: `except: ["after-block"]` to `declaration-empty-line-before` ([#8910](https://github.com/stylelint/stylelint/pull/8910)) ([@kovsu](https://github.com/kovsu)).
+- Added: `ignoreSelectors: []` to `no-duplicate-selectors` ([#8883](https://github.com/stylelint/stylelint/pull/8883)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: Windows drive letter casing inconsistencies when matching patterns against file paths ([#8941](https://github.com/stylelint/stylelint/pull/8941)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: CLI help to include TypeScript config files ([#8908](https://github.com/stylelint/stylelint/pull/8908)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `at-rule-descriptor-no-unknown` false positives for declarations within feature-value-blocks ([#8868](https://github.com/stylelint/stylelint/pull/8868)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false negatives for short and long combinations ([#8892](https://github.com/stylelint/stylelint/pull/8892)) ([@nathannewyen](https://github.com/nathannewyen)).
+- Fixed: `media-feature-name-no-unknown` false positives for namespaced dollar variables and range context queries ([#8890](https://github.com/stylelint/stylelint/pull/8890)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `nesting-selector-no-missing-scoping-root` false positives for CSS-in-JS ([#8905](https://github.com/stylelint/stylelint/pull/8905)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `no-invalid-position-declaration` false negatives for embedded blocks ([#8907](https://github.com/stylelint/stylelint/pull/8907)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `selector-no-qualifying-type` false negatives for `:is/where()` ([#8940](https://github.com/stylelint/stylelint/pull/8940)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for MathML 4 tags ([#8874](https://github.com/stylelint/stylelint/pull/8874)) ([@jeddy3](https://github.com/jeddy3)).
+
 ## 16.26.1 - 2025-11-28
 
 It fixes numerous false positive bugs, including many in the `declaration-property-value-no-unknown` rule for the latest CSS specifications.
