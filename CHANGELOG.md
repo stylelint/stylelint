@@ -27,6 +27,7 @@
 - Fixed: `nesting-selector-no-missing-scoping-root` false positives for CSS-in-JS ([#8905](https://github.com/stylelint/stylelint/pull/8905)) ([@kovsu](https://github.com/kovsu)).
 - Fixed: `no-invalid-position-declaration` false negatives for embedded blocks ([#8907](https://github.com/stylelint/stylelint/pull/8907)) ([@kovsu](https://github.com/kovsu)).
 - Fixed: `selector-no-qualifying-type` false negatives for `:is/where()` ([#8940](https://github.com/stylelint/stylelint/pull/8940)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for MathML 4 tags ([#8874](https://github.com/stylelint/stylelint/pull/8874)) ([@jeddy3](https://github.com/jeddy3)).
 
 ## 16.26.1 - 2025-11-28
 
