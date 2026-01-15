@@ -19,7 +19,7 @@ This rule ignores:
 ### `Array<string>`
 
 ```json
-["array", "of", "unprefixed", "pseudo-elements", "/regex/"]
+["array", "of", "pseudo-elements", "/regex/"]
 ```
 
 Given:

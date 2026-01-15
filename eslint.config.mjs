@@ -4,7 +4,7 @@ import stylelintJestConfig from 'eslint-config-stylelint/jest';
 
 export default [
 	{
-		ignores: ['lib/**/*.cjs', '.coverage/*'],
+		ignores: ['.coverage/**', 'tmp/**'],
 	},
 	...stylelintConfig,
 	...stylelintJestConfig,
@@ -19,8 +19,16 @@ export default [
 			},
 		},
 		rules: {
+			'import/enforce-node-protocol-usage': ['error', 'always'],
 			'import/extensions': ['error', 'ignorePackages'],
-			'jest/no-standalone-expect': ['error', { additionalTestBlockFunctions: ['testFn'] }],
+			'jest/no-standalone-expect': [
+				'error',
+				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
+			],
+			'jest/expect-expect': [
+				'error',
+				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
+			],
 		},
 	},
 ];

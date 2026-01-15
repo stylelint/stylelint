@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - v17 # TODO: Remove this setting after v17.0.0 is released.
   pull_request:
   merge_group:
 
@@ -15,31 +16,31 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/call-lint.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
+    uses: stylelint/.github/.github/workflows/call-lint.yml@ce9130c0ded2a1f42fdcb64a0f1f64dd20959795 # 0.5.1
     permissions:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@f34faf02df201c8c204df4ae2543523ad54ceb07 # 0.3.1
+    uses: stylelint/.github/.github/workflows/call-test.yml@ce9130c0ded2a1f42fdcb64a0f1f64dd20959795 # 0.5.1
     with:
-      node-version: '["18", "20", "22"]'
+      node-version: '["20", "22", "24"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
-      exclude: '[{"node-version": "20", "os": "ubuntu-latest"}]' # for coverage
+      exclude: '[{"node-version": "24", "os": "ubuntu-latest"}]' # for coverage
     permissions:
       contents: read
 
   test-coverage:
-    name: Test on Node.js 20 and ubuntu-latest with coverage
+    name: Test on Node.js 24 and ubuntu-latest with coverage
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Set up Node.js
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
 
       - name: Install latest npm
@@ -55,42 +56,17 @@ jobs:
           NODE_OPTIONS: '--max-old-space-size=4096'
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
         with:
           files: ./.coverage/lcov.info
           fail_ci_if_error: true
-
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - name: Checkout
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version: 'lts/*'
-          cache: npm
-
-      - name: Install latest npm
-        run: npm install --global npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Check built files
-        run: npm run build-check
 
   spellcheck:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Install codespell
         run: pip install codespell

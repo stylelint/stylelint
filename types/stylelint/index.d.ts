@@ -319,8 +319,6 @@ declare namespace stylelint {
 
 	type Formatters = {
 		readonly compact: Promise<Formatter>;
-		/** @deprecated */
-		readonly github: Promise<Formatter>;
 		readonly json: Promise<Formatter>;
 		readonly string: Promise<Formatter>;
 		readonly tap: Promise<Formatter>;
@@ -446,7 +444,11 @@ declare namespace stylelint {
 			{ ignoreAnnotations: OneOrMany<StringOrRegex> },
 			RejectedMessage<[annotation: string]>
 		>;
-		'at-rule-allowed-list': CoreRule<OneOrMany<string>, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-allowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[atRule: string]>
+		>;
 		'at-rule-descriptor-no-unknown': CoreRule<
 			true,
 			{},
@@ -457,7 +459,11 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[descriptor: string, value: string]>
 		>;
-		'at-rule-disallowed-list': CoreRule<OneOrMany<string>, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-disallowed-list': CoreRule<
+			OneOrMany<StringOrRegex>,
+			{},
+			RejectedMessage<[atRule: string]>
+		>;
 		'at-rule-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -540,7 +546,9 @@ declare namespace stylelint {
 		'custom-property-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: OneOrMany<'after-comment' | 'after-custom-property' | 'first-nested'>;
+				except: OneOrMany<
+					'after-block' | 'after-comment' | 'after-custom-property' | 'first-nested'
+				>;
 				ignore: OneOrMany<
 					'after-comment' | 'after-custom-property' | 'first-nested' | 'inside-single-line-block'
 				>;
@@ -596,7 +604,7 @@ declare namespace stylelint {
 		'declaration-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
-				except: OneOrMany<'first-nested' | 'after-comment' | 'after-declaration'>;
+				except: OneOrMany<'first-nested' | 'after-block' | 'after-comment' | 'after-declaration'>;
 				ignore: OneOrMany<
 					'after-comment' | 'after-declaration' | 'first-nested' | 'inside-single-line-block'
 				>;
@@ -790,12 +798,17 @@ declare namespace stylelint {
 		'no-descending-specificity': CoreRule<
 			true,
 			{ ignore: OneOrMany<'selectors-within-list'> },
-			ExpectedMessage<[selector: string, selector: string, line: number]>
+			ExpectedMessage<
+				[selector: string, selector: string, line: number, selector: string, selector: string]
+			>
 		>;
 		'no-duplicate-at-import-rules': CoreRule<true, {}, RejectedMessage<[url: string]>>;
 		'no-duplicate-selectors': CoreRule<
 			true,
-			{ disallowInList: boolean },
+			{
+				disallowInList: boolean;
+				ignoreSelectors: OneOrMany<StringOrRegex>;
+			},
 			RejectedMessage<[selector: string, line: number]>
 		>;
 		'no-empty-source': CoreRule<true>;
@@ -914,13 +927,12 @@ declare namespace stylelint {
 		'selector-max-compound-selectors': MaxRule<{ ignoreSelectors: OneOrMany<StringOrRegex> }>;
 		'selector-max-id': MaxRule<{
 			ignoreContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
-			checkContextFunctionalPseudoClasses: OneOrMany<StringOrRegex>;
 		}>;
 		'selector-max-pseudo-class': MaxRule;
 		'selector-max-specificity': CoreRule<
 			string,
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
-			ExpectedMessage<[selector: string, specificity: string]>
+			ExpectedMessage<[selector: string, specificity: string, selector: string]>
 		>;
 		'selector-max-type': MaxRule<{
 			ignore: OneOrMany<'descendant' | 'child' | 'compounded' | 'next-sibling' | 'custom-elements'>;
@@ -931,7 +943,7 @@ declare namespace stylelint {
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
-			RejectedMessage<[selector: string]>
+			RejectedMessage<[selector: string, type: string]>
 		>;
 		'selector-no-vendor-prefix': CoreRule<
 			true,
@@ -1233,15 +1245,6 @@ declare namespace stylelint {
 		results: LintResult[];
 		errored: boolean;
 		/**
-		 * @deprecated Use `report` for the formatted problems, or use `code`
-		 *   for the autofixed code instead. This will be removed in the next major version.
-		 */
-		output: string;
-		/** @internal To show the deprecation warning. */
-		_output?: string;
-		/** @internal To show the deprecation warning. */
-		_outputWarned?: boolean;
-		/**
 		 * A string that contains the formatted problems.
 		 */
 		report: string;
@@ -1269,6 +1272,38 @@ declare namespace stylelint {
 		column: number;
 	};
 
+	export type ProblemLocation =
+		| {
+				/**
+				 * The inclusive start position of the problem, relative to the
+				 * node's source text. If provided, this will be used instead of
+				 * `index`.
+				 */
+				start: Position;
+				/**
+				 * The exclusive end position of the problem, relative to the
+				 * node's source text. If provided, this will be used instead of
+				 * `endIndex`.
+				 */
+				end: Position;
+		  }
+		| {
+				/**
+				 * The inclusive start index of the problem, relative to the node's
+				 * source text.
+				 */
+				index: number;
+				/**
+				 * The exclusive end index of the problem, relative to the node's
+				 * source text.
+				 */
+				endIndex: number;
+		  }
+		| {
+				word: string;
+		  }
+		| object;
+
 	export type FixCallback = () => void | undefined | never;
 
 	export type FixObject = {
@@ -1286,36 +1321,11 @@ declare namespace stylelint {
 		messageArgs?: Parameters<RuleMessageFunc> | undefined;
 		node: PostCSS.Node;
 		/**
-		 * The inclusive start index of the problem, relative to the node's
-		 * source text.
-		 */
-		index?: number;
-		/**
-		 * The exclusive end index of the problem, relative to the node's
-		 * source text.
-		 */
-		endIndex?: number;
-		/**
-		 * The inclusive start position of the problem, relative to the
-		 * node's source text. If provided, this will be used instead of
-		 * `index`.
-		 */
-		start?: Position;
-		/**
-		 * The exclusive end position of the problem, relative to the
-		 * node's source text. If provided, this will be used instead of
-		 * `endIndex`.
-		 */
-		end?: Position;
-		word?: string;
-		/** @deprecated */
-		line?: number;
-		/**
 		 * Optional severity override for the problem.
 		 */
 		severity?: RuleSeverity;
 		fix?: FixCallback | FixObject;
-	};
+	} & ProblemLocation;
 
 	/** @internal */
 	export type ShorthandProperties =
@@ -1545,6 +1555,11 @@ declare namespace stylelint {
 	};
 }
 
-declare const stylelint: stylelint.PublicApi;
+declare const stylelint: stylelint.PublicApi & {
+	/**
+	 * For CommonJS default import compatibility.
+	 */
+	default: stylelint.PublicApi;
+};
 
 export = stylelint;

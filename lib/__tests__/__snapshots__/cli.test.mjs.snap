@@ -23,8 +23,8 @@ exports[`CLI --help 1`] = `
 
         - a "stylelint" property in "package.json"
         - a ".stylelintrc" file
-        - a ".stylelintrc.{cjs,mjs,js,json,yaml,yml}" file
-        - a "stylelint.config.{cjs,mjs,js}" file
+        - a ".stylelintrc.{cjs,mjs,js,ts,json,yaml,yml}" file
+        - a "stylelint.config.{cjs,mjs,js,ts}" file
 
       The search will begin in the working directory and move up the directory
       tree until a configuration file is found.
@@ -55,8 +55,8 @@ exports[`CLI --help 1`] = `
 
       Automatically fix problems of certain rules. The modes are as follows:
 
-        lax          attempting to fix as much as possible even with syntax errors (default)
-        strict       only fixing when there are no syntax errors
+        strict       only fixing when there are no syntax errors (default)
+        lax          attempting to fix as much as possible even with syntax errors
 
     --compute-edit-info, --cei
 
@@ -117,7 +117,6 @@ exports[`CLI --help 1`] = `
 
         string       human-readable strings (default)
         compact      similar to ESLint's compact formatter
-        github       workflow commands for GitHub Actions (DEPRECATED)
         json         JSON format
         tap          TAP format
         unix         C compiler-like format

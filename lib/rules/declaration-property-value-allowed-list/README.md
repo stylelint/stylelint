@@ -14,7 +14,7 @@ a { text-transform: uppercase; }
 ### `Object<string, Array<string>>`
 
 ```json
-{ "unprefixed-property-name": ["array", "of", "values", "/regex/"] }
+{ "property-name": ["array", "of", "values", "/regex/"] }
 ```
 
 You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
@@ -30,7 +30,7 @@ Given:
 ```json
 {
   "declaration-property-value-allowed-list": {
-    "transform": ["/scale/"],
+    "/^(-webkit-)?transform$/": ["/scale/"],
     "whitespace": ["nowrap"],
     "/color/": ["/^green/"]
   }

@@ -67,35 +67,3 @@ div > #zing + .foo-bar {}
 ```css
 [foo='bar'] {}
 ```
-
-## Optional secondary options
-
-### `resolveNestedSelectors`
-
-This option will resolve nested selectors with `&` interpolation. Defaults to `false`.
-
-Given the string:
-
-```json
-{
-  "selector-class-pattern": ["^[A-Z]+$", { "resolveNestedSelectors": true }]
-}
-```
-
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-.A {
-  &__B {} /* resolved to ".A__B" */
-}
-```
-
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css
-.A {
-  &B {} /* resolved to ".AB" */
-}
-```
