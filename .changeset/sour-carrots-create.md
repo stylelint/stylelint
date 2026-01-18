@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `selector-type-no-unknown` regressions for `rb`, `rtc` and `menuitem`
+Fixed: `selector-type-no-unknown` false positives for `rb`, `rtc` and `menuitem`
