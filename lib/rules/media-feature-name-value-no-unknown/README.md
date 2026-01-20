@@ -58,7 +58,9 @@ The following patterns are _not_ considered problems:
 @media (width: 10px) { top: 1px; }
 ```
 
-### `ignoreMediaFeatureNameValues`
+### Optional secondary options
+
+#### `ignoreMediaFeatureNameValues`
 
 ```json
 {
@@ -80,7 +82,7 @@ Given:
     true,
     {
       "ignoreMediaFeatureNameValues": {
-        "display-mode": ["/^my-/", "custom"]
+        "color": ["/^my-/", "custom"]
       }
     }
   ]
@@ -91,10 +93,10 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (display-mode: my-feature) {}
+@media (color: my-feature) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (display-mode: custom) {}
+@media (color: custom) {}
 ```

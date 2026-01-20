@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Add `ignoreMediaFeatureNameValues` to `media-feature-name-value-no-unknown`
+Added: `ignoreMediaFeatureNameValues` to `media-feature-name-value-no-unknown`
