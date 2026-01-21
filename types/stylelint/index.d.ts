@@ -560,6 +560,13 @@ declare namespace stylelint {
 			RejectedMessage<[property: string]>
 		>;
 		'custom-property-pattern': PatternRule;
+		'display-notation': CoreRule<
+			'short' | 'full',
+			{
+				except: OneOrMany<'legacy-values'>;
+				ignore: OneOrMany<'non-legacy-values'>;
+			}
+		>;
 		'declaration-block-no-duplicate-custom-properties': CoreRule<
 			true,
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
