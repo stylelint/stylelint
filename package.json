@@ -131,11 +131,9 @@
     "css-functions-list": "^3.2.3",
     "css-tree": "^3.1.0",
     "debug": "^4.4.3",
-    "fast-glob": "^3.3.3",
     "fastest-levenshtein": "^1.0.16",
     "file-entry-cache": "^11.1.1",
     "global-modules": "^2.0.0",
-    "globby": "^16.1.0",
     "globjoin": "^0.1.4",
     "html-tags": "^5.1.0",
     "ignore": "^7.0.5",
@@ -156,6 +154,7 @@
     "supports-hyperlinks": "^4.4.0",
     "svg-tags": "^1.0.0",
     "table": "^6.9.0",
+    "tinyglobby": "^0.2.15",
     "write-file-atomic": "^7.0.0"
   },
   "devDependencies": {
