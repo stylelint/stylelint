@@ -14,7 +14,7 @@ const skip = process.env.STYLELINT_TEST_YARN_PNP !== 'true';
 describe('Yarn PnP integration', { skip }, () => {
 	before(async () => {
 		await fs.writeFile(path.join(CASE_DIR, 'yarn.lock'), '', 'utf8'); // need an empty yarn.lock for PnP
-		await execFileAsync('yarn', ['install'], { cwd: CASE_DIR });
+		await execFileAsync('yarn', ['install', '--no-immutable'], { cwd: CASE_DIR });
 	});
 
 	test('successful linting', async () => {
