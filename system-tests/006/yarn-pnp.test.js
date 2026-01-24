@@ -9,10 +9,11 @@ import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
 const CASE_DIR = import.meta.dirname; // eslint-disable-line n/no-unsupported-features/node-builtins
+const skip = process.env.STYLELINT_TEST_YARN_PNP !== 'true';
 
-describe('Yarn PnP integration', () => {
+describe('Yarn PnP integration', { skip }, () => {
 	before(async () => {
-		await fs.writeFile('yarn.lock', '', 'utf8'); // need an empty yarn.lock for PnP
+		await fs.writeFile(path.join(CASE_DIR, 'yarn.lock'), '', 'utf8'); // need an empty yarn.lock for PnP
 		await execFileAsync('yarn', ['install'], { cwd: CASE_DIR });
 	});
 

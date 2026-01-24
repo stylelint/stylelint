@@ -60,6 +60,13 @@ jobs:
           files: ./.coverage/lcov.info
           fail_ci_if_error: true
 
+      - name: Run test for Yarn PnP
+        run: |
+          npm install --global corepack
+          npm run test-node
+        env:
+          STYLELINT_TEST_YARN_PNP: 'true'
+
   spellcheck:
     runs-on: ubuntu-latest
     timeout-minutes: 30
