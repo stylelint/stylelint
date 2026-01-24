@@ -9,6 +9,8 @@ import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
 const CASE_DIR = import.meta.dirname; // eslint-disable-line n/no-unsupported-features/node-builtins
+
+// NOTE: Disabled by default, since it requires Yarn PnP environment to run.
 const skip = process.env.STYLELINT_TEST_YARN_PNP !== 'true';
 
 describe('Yarn PnP integration', { skip }, () => {
