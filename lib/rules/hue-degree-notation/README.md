@@ -11,6 +11,8 @@ Specify number or angle notation for degree hues.
 
 Because hues are so often given in degrees, a hue can also be given as a number, which is interpreted as a number of degrees.
 
+This rule supports [CSS relative color syntax](https://drafts.csswg.org/css-color-5/#relative-colors), correctly identifying hue values in colors created with the `from` keyword.
+
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
@@ -47,6 +49,11 @@ a { color: hsl(198deg 28% 50%) }
 <!-- prettier-ignore -->
 ```css
 a { color: lch(56.29% 19.86 10deg / 15%) }
+```
+
+<!-- prettier-ignore -->
+```css
+a { color: oklch(from blue l c 180deg) }
 ```
 
 ### `"number"`
