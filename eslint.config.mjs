@@ -1,8 +1,9 @@
+import { defineConfig } from 'eslint/config';
 import importPlugin from 'eslint-plugin-import';
 import stylelintConfig from 'eslint-config-stylelint';
 import stylelintJestConfig from 'eslint-config-stylelint/jest';
 
-export default [
+export default defineConfig([
 	{
 		ignores: ['.coverage/**', 'tmp/**'],
 	},
@@ -31,4 +32,4 @@ export default [
 			],
 		},
 	},
-];
+]);

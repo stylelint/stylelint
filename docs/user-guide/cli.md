@@ -72,9 +72,9 @@ Compute edit information for fixable problems. [More info](options.md#computeedi
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
-### `--globbyOptions, --go`
+### `--tinyglobbyOptions, --go`
 
-Options in JSON format passed to [globby](https://github.com/sindresorhus/globby). [More info](options.md#globbyoptions).
+Options in JSON format passed to [tinyglobby](https://github.com/SuperchupuDev/tinyglobby). [More info](options.md#tinyglobbyoptions).
 
 ### `--ignore-disables, --id`
 
@@ -190,7 +190,7 @@ For example:
 
 ## Usage examples
 
-The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stderr`.
+The CLI expects input as either a [file glob](https://github.com/SuperchupuDev/tinyglobby) or `process.stdin`. It outputs formatted results into `process.stderr`.
 
 _You should include quotation marks around file globs._
 

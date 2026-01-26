@@ -26,19 +26,19 @@ The directory from which Stylelint will look for files. Defaults to the current 
 
 ### `files`
 
-A file glob, or array of [file globs](https://github.com/sindresorhus/globby).
+A file glob, or array of [file globs](https://github.com/SuperchupuDev/tinyglobby).
 
-Relative globs are considered relative to `globbyOptions.cwd`.
+Relative globs are considered relative to `tinyglobbyOptions.cwd`.
 
 Though both `files` and `code` are "optional", you _must_ have one and _cannot_ have both.
 
-### `globbyOptions`
+### `tinyglobbyOptions`
 
 The options that are passed with `files`.
 
-For example, you can set a specific `cwd` to use when globbing paths. Relative globs in `files` are considered relative to this path. By default, `globbyOptions.cwd` will be set by `cwd`.
+For example, you can set a specific `cwd` to use when globbing paths. Relative globs in `files` are considered relative to this path. By default, `tinyglobbyOptions.cwd` will be set by `cwd`.
 
-For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby#options).
+For more detail usage, see [tinyglobby Guide](https://github.com/SuperchupuDev/tinyglobby#options).
 
 ## The returned promise
 

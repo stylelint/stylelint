@@ -1,5 +1,5 @@
 import type * as PostCSS from 'postcss';
-import type { GlobbyOptions } from 'globby';
+import type { GlobOptions } from 'tinyglobby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
 type ConfigExtends = string | string[];
@@ -1074,7 +1074,7 @@ declare namespace stylelint {
 	 */
 	export type LinterOptions = {
 		files?: OneOrMany<string>;
-		globbyOptions?: GlobbyOptions;
+		globbyOptions?: GlobOptions;
 		cache?: boolean;
 		cacheLocation?: string;
 		cacheStrategy?: string;
