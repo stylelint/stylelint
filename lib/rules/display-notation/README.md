@@ -9,8 +9,7 @@ a { display: block; }
  *           This notation */
 ```
 
-Modern `display` property values allow you to define both the [outer and inner display type](https://drafts.csswg.org/css-display-3/#the-display-properties) separately (e.g. `inline flex`).
-While CSS 2 used a single-keyword, precomposed syntax for the display property (e.g. `inline-flex`).
+Modern `display` property values allow you to define both the [outer and inner display type](https://drafts.csswg.org/css-display-3/#the-display-properties) separately (e.g. `inline flex`). While CSS 2 used a single-keyword, precomposed syntax for the display property (e.g. `inline-flex`).
 
 In the [Display Module Level 3 specification](https://drafts.csswg.org/css-display-3/) the following precomposed values are defined as legacy:
 
@@ -130,7 +129,6 @@ a { display: list-item; }
 #### `"non-legacy-values"`
 
 Ignore display values that are not legacy values.
-Legacy values are `inline-block`, `inline-flex`, `inline-grid`, `inline-table`.
 
 Given:
 
@@ -183,7 +181,6 @@ a {
 #### `"legacy-values"`
 
 Reverse the primary option for legacy values.
-Legacy values are `inline-block`, `inline-flex`, `inline-grid`, `inline-table`.
 
 Given:
 
