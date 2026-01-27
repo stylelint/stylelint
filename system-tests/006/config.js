@@ -1,3 +1,3 @@
 export default {
-	extends: ['stylelint-config-recommended'],
+	extends: ['stylelint-config-standard'],
 };
