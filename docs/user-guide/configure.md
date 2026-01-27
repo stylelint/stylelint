@@ -520,24 +520,6 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 
 You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#configs) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-config).
 
-### Yarn Plug'n'Play
-
-Stylelint works with [Yarn PnP](https://yarnpkg.com/features/pnp) out of the box for most packages.
-
-However, if you see an error like this when resolving an ESM-only package, i.e. one without a fallback to CommonJS:
-
-```
-Could not find "some-package". Do you need to install the package or use the "configBasedir" option?
-```
-
-You may need to enable Node.js's native module resolution by passing the `--experimental-import-meta-resolve` flag:
-
-```shell
-NODE_OPTIONS="--experimental-import-meta-resolve" yarn stylelint "**/*.css"
-```
-
-This applies to configs, plugins, processors, and custom syntaxes. See [#8971](https://github.com/stylelint/stylelint/issues/8971) for more details.
-
 ## `plugins`
 
 Plugins are custom rules or sets of custom rules built to support methodologies, toolsets, _non-standard_ CSS features, or very specific use cases.
