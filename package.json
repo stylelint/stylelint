@@ -64,7 +64,7 @@
     "test": "npm-run-all --sequential test-jest test-node",
     "test-coverage": "npm run test-jest --ignore-scripts -- --coverage",
     "test-jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test-node": "node --test lib/__tests__/require.test.cjs system-tests/005/commonjs.test.cjs",
+    "test-node": "node --test lib/__tests__/require.test.cjs system-tests/005/commonjs.test.cjs system-tests/006/yarn-pnp.test.js",
     "test-only": "npm run test-jest --ignore-scripts",
     "watch": "npm run test-jest --ignore-scripts -- --watch"
   },
