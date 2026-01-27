@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `display-notation`
+Added: `display-notation` rule

@@ -12,11 +12,18 @@ a { display: block; }
 Modern `display` property values allow you to define both the [outer and inner display type](https://drafts.csswg.org/css-display-3/#the-display-properties) separately (e.g. `inline flex`).
 While CSS 2 used a single-keyword, precomposed syntax for the display property (e.g. `inline-flex`).
 
-More recent and future inner display types (e.g. `grid-lanes`) can only be combined with the modern, multi-keyword syntax.
+In the [Display Module Level 3 specification](https://drafts.csswg.org/css-display-3/) the following precomposed values are defined as legacy:
+
+- `inline-block`
+- `inline-flex`
+- `inline-grid`
+- `inline-table`.
+
+More recent and future inner display types (e.g. `grid-lanes`) can only be combined with the [modern, multi-keyword syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Multi-keyword_syntax).
 
 The full notation explicitly describes the inner and outer display types of elements. This notation makes it easier to understand how an element will behave and to learn about the various display types.
 
-The short notation omits defaults or switches to legacy values.
+The short notation omits defaults or switches to legacy values, and doesn't follow the modern principle of value composition.
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
 
@@ -175,7 +182,7 @@ a {
 
 #### `"legacy-values"`
 
-Except display values that are legacy values.
+Reverse the primary option for legacy values.
 Legacy values are `inline-block`, `inline-flex`, `inline-grid`, `inline-table`.
 
 Given:
