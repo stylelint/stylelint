@@ -3,7 +3,7 @@
   "type": "module",
   "dependencies": {
     "stylelint": "portal:../..",
-    "stylelint-config-recommended": "latest"
+    "stylelint-config-standard": "latest"
   },
   "packageManager": "yarn@4.12.0"
 }
