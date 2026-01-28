@@ -1,0 +1,9 @@
+{
+  "name": "stylelint-test-yarn-pnp",
+  "type": "module",
+  "dependencies": {
+    "stylelint": "portal:../..",
+    "stylelint-config-standard": "latest"
+  },
+  "packageManager": "yarn@4.12.0"
+}
