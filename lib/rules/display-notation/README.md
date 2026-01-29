@@ -1,6 +1,6 @@
 # display-notation
 
-Specify short or full notation for the display property.
+Specify short or full notation for the `display` property.
 
 <!-- prettier-ignore -->
 ```css
