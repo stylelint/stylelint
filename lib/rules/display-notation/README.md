@@ -16,7 +16,7 @@ In the [Display Module Level 3 specification](https://drafts.csswg.org/css-displ
 - `inline-block`
 - `inline-flex`
 - `inline-grid`
-- `inline-table`.
+- `inline-table`
 
 More recent and future inner display types (e.g. `grid-lanes`) can only be combined with the [modern, multi-keyword syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Multi-keyword_syntax).
 
