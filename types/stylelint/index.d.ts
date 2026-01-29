@@ -1,5 +1,5 @@
 import type * as PostCSS from 'postcss';
-import type { GlobbyOptions } from 'globby';
+import type { Options as GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
 type ConfigExtends = string | string[];
