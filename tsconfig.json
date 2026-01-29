@@ -14,7 +14,7 @@
 		"noUncheckedIndexedAccess": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-		"skipLibCheck": true
+		"skipLibCheck": false
 	},
 	"include": ["lib/**/*.mjs", "types/**/*.ts", "rollup.config.*", ".changeset/*.mjs"],
 	"exclude": ["**/__tests__/**"]
