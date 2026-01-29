@@ -354,7 +354,7 @@ Enforce one representation of things that have multiple with these `notation` (s
 | [`color-function-alias-notation`](../../lib/rules/color-function-alias-notation/README.md)<br/>Specify alias notation for color-functions. | ✅ | 🔧 |
 | [`color-function-notation`](../../lib/rules/color-function-notation/README.md)<br/>Specify modern or legacy notation for color-functions. | ✅ | 🔧 |
 | [`color-hex-length`](../../lib/rules/color-hex-length/README.md)<br/>Specify short or long notation for hex colors. | ✅ | 🔧 |
-| [`display-notation`](../../lib/rules/display-notation/README.md)<br/>Specify short or full notation for the display property. | | 🔧 |
+| [`display-notation`](../../lib/rules/display-notation/README.md)<br/>Specify short or full notation for the `display` property. | | 🔧 |
 | [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md)<br/>Specify numeric or named notation for font weights. | | 🔧 |
 | [`hue-degree-notation`](../../lib/rules/hue-degree-notation/README.md)<br/>Specify number or angle notation for degree hues. | ✅ | 🔧 |
 | [`import-notation`](../../lib/rules/import-notation/README.md)<br/>Specify string or URL notation for `@import` rules. | ✅ | 🔧 |
