@@ -4,11 +4,7 @@ node_modules
 *.log
 .coverage
 .eslintcache
+yarn.lock
 .vscode/settings.json
 .idea
 tmp/
-
-# Yarn
-yarn.lock
-.pnp.*
-**/.yarn/*
