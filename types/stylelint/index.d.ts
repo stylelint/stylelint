@@ -565,7 +565,8 @@ declare namespace stylelint {
 			{
 				except: OneOrMany<'legacy-values'>;
 				ignore: OneOrMany<'non-legacy-values'>;
-			}
+			},
+			ExpectedMessage<[unexpected: string, expected: string]>
 		>;
 		'declaration-block-no-duplicate-custom-properties': CoreRule<
 			true,
