@@ -11,7 +11,7 @@ a { display: block; }
 
 Modern `display` property values allow you to define both the [outer and inner display type](https://drafts.csswg.org/css-display-3/#the-display-properties) separately (e.g. `inline flex`). While CSS 2 used a single-keyword, precomposed syntax for the `display` property (e.g. `inline-flex`).
 
-In the [Display Module Level 3 specification](https://drafts.csswg.org/css-display-3/) the following precomposed values are defined as legacy:
+In the [Display Module Level 3 specification](https://drafts.csswg.org/css-display-3/) the following precomposed values are defined:
 
 - `inline-block`
 - `inline-flex`
@@ -22,7 +22,7 @@ More recent and future inner display types (e.g. `grid-lanes`) can only be combi
 
 The full notation explicitly describes the inner and outer display types of elements. This notation makes it easier to understand how an element will behave and to learn about the various display types.
 
-The short notation omits defaults or switches to legacy values, and doesn't follow the modern principle of value composition.
+The short notation omits defaults or switches to precomposed values, and doesn't follow the modern principle of value composition.
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
 
@@ -116,110 +116,4 @@ a { display: grid; }
 <!-- prettier-ignore -->
 ```css
 a { display: list-item; }
-```
-
-## Optional secondary options
-
-### `ignore`
-
-```json
-{ "ignore": ["array", "of", "options"] }
-```
-
-#### `"non-legacy-values"`
-
-Ignore display values that are not legacy values.
-
-Given:
-
-```json
-{
-  "display-notation": ["full", { "ignore": ["non-legacy-values"] }]
-}
-```
-
-The following patterns are considered problems:
-
-```css
-a {
-  display: inline-block;
-}
-```
-
-```css
-a {
-  display: inline-flex;
-}
-```
-
-The following patterns are _not_ considered problems:
-
-```css
-a {
-  display: inline;
-}
-```
-
-```css
-a {
-  display: grid;
-}
-```
-
-```css
-a {
-  display: inline flow-root;
-}
-```
-
-### `except`
-
-```json
-{ "except": ["array", "of", "options"] }
-```
-
-#### `"legacy-values"`
-
-Reverse the primary option for legacy values.
-
-Given:
-
-```json
-{
-  "display-notation": ["short", { "except": ["legacy-values"] }]
-}
-```
-
-The following patterns are considered problems:
-
-```css
-a {
-  display: inline-block;
-}
-```
-
-```css
-a {
-  display: inline-flex;
-}
-```
-
-The following patterns are _not_ considered problems:
-
-```css
-a {
-  display: block;
-}
-```
-
-```css
-a {
-  display: inline flow-root;
-}
-```
-
-```css
-a {
-  display: inline list-root;
-}
 ```
