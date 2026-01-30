@@ -2,7 +2,7 @@
 
 ## 17.1.0 - 2026-01-30
 
-It fixes 5 bugs and adds the `display-notation` rule. Before we turn it on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard), we'd like to [hear the community's thoughts](https://github.com/stylelint/stylelint-config-standard/issues/387) on which options we should use.
+It fixes 5 bugs and adds the `display-notation` rule. Before we turn it on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard), we'd like to [hear the community's thoughts](https://github.com/stylelint/stylelint-config-standard/issues/387) on which options to use.
 
 - Added: `display-notation` rule ([#8981](https://github.com/stylelint/stylelint/pull/8981)) ([@romainmenke](https://github.com/romainmenke)).
 - Fixed: `GlobbyOptions` TypeScript errors ([#8992](https://github.com/stylelint/stylelint/pull/8992)) ([@zalishchuk](https://github.com/zalishchuk)).
