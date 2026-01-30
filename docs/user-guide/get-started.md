@@ -38,13 +38,6 @@ Alternatively, you can manually setup Stylelint to lint CSS.
 > You can also use your preferred package manager's equivalent, e.g. `bunx stylelint "**/*.css"` or `pnpm dlx stylelint "**/*.css"`.
 > We'll omit `npx` in the rest of this guide.
 
-> [!NOTE]
-> If you encounter any `Could not find "some-package"` errors while using Yarn PnP, you may need to enable Node.js's native module resolution:
->
-> ```shell
-> NODE_OPTIONS="--experimental-import-meta-resolve" yarn stylelint "**/*.css"
-> ```
-
 Once you're up and running, you can [customize](./customize.md) Stylelint.
 
 ## Linting CSS-like languages and CSS within containers
