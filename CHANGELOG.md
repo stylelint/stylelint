@@ -1,5 +1,14 @@
 # Changelog
 
+## 17.1.0 - 2026-01-30
+
+- Added: `display-notation` rule ([#8981](https://github.com/stylelint/stylelint/pull/8981)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `GlobbyOptions` TypeScript errors ([#8992](https://github.com/stylelint/stylelint/pull/8992)) ([@zalishchuk](https://github.com/zalishchuk)).
+- Fixed: `hue-degree-notation` false negatives and positives for relative colors ([#8985](https://github.com/stylelint/stylelint/pull/8985)) ([@jamesnw](https://github.com/jamesnw)).
+- Fixed: `lightness-notation` false negatives for relative colors ([#8987](https://github.com/stylelint/stylelint/pull/8987)) ([@jamesnw](https://github.com/jamesnw)).
+- Fixed: `selector-type-no-unknown` false negatives for `geolocation` and `usermedia` ([#9004](https://github.com/stylelint/stylelint/pull/9004)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `rb`, `rtc` and `menuitem` ([#8972](https://github.com/stylelint/stylelint/pull/8972)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 17.0.0 - 2026-01-15
 
 It contains 14 breaking changes, which we've detailed in the [migrating to `17.0.0` guide](docs/migration-guide/to-17.md). Additionally, it adds 3 options to the rules and fixes 9 bugs. We've also released compatible versions of our [shared config](https://www.npmjs.com/package/stylelint-config-standard), [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), [Node.js Rule Tester](https://www.npmjs.com/package/stylelint-test-rule-node) and [Jest preset](https://www.npmjs.com/package/jest-preset-stylelint).
