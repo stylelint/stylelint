@@ -60,6 +60,16 @@ jobs:
           files: ./.coverage/lcov.info
           fail_ci_if_error: true
 
+      # This test is only enabled when the relevant environment variable is set,
+      # so it is run here, separately from the main test matrix.
+      - name: Run test for Yarn PnP
+        run: |
+          npm install --global corepack
+          npm run test-node
+        env:
+          STYLELINT_TEST_YARN_PNP: 'true'
+          YARN_ENABLE_HARDENED_MODE: 0 # https://yarnpkg.com/features/security#hardened-mode
+
   spellcheck:
     runs-on: ubuntu-latest
     timeout-minutes: 30
