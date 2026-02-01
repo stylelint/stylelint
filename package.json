@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -134,7 +134,7 @@
     "debug": "^4.4.3",
     "fast-glob": "^3.3.3",
     "fastest-levenshtein": "^1.0.16",
-    "file-entry-cache": "^11.1.1",
+    "file-entry-cache": "^11.1.2",
     "global-modules": "^2.0.0",
     "globby": "^16.1.0",
     "globjoin": "^0.1.4",
@@ -198,7 +198,7 @@
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.9",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.1",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
     "typescript": "^5.9.3"
