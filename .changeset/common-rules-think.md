@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix: `lightness-notation` floating point edge case
+Fixed: `lightness-notation` autofix for decimals
