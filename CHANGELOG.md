@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.1.1 - 2026-02-03
+
+It fixes 2 bugs.
+
+- Fixed: resolution of configs, plugins, processors, and custom syntaxes in Yarn PnP environments ([#9010](https://github.com/stylelint/stylelint/pull/9010)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `lightness-notation` autofix for decimals ([#9009](https://github.com/stylelint/stylelint/pull/9009)) ([@IlyaSemenov](https://github.com/IlyaSemenov)).
+
 ## 17.1.0 - 2026-01-30
 
 It fixes 5 bugs and adds the `display-notation` rule. Before we turn it on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard), we'd like to [hear the community's thoughts](https://github.com/stylelint/stylelint-config-standard/issues/387) on which options to use.
