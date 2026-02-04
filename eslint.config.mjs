@@ -29,6 +29,12 @@ export default [
 				'error',
 				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
 			],
+
+			// TODO: Remove this config after dropping the Node.js 20 support, since newer versions support them officially.
+			'n/no-unsupported-features/node-builtins': [
+				'error',
+				{ ignores: ['import.meta.dirname', 'import.meta.filename'] },
+			],
 		},
 	},
 ];
