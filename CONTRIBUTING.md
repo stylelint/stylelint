@@ -24,6 +24,7 @@ Then:
 
 1. [Fork and clone](https://guides.github.com/activities/forking/) the Stylelint repository.
 2. Install all the dependencies with `npm ci`.
+3. Patch packages with `npx patch-package`.
 
 ### Run tests
 

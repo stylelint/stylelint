@@ -24,9 +24,6 @@ updates:
         patterns: ['@stylelint/*']
       typescript:
         patterns: ['typescript', '@types/*']
-    ignore:
-      - dependency-name: 'eslint'
-        update-types: ['version-update:semver-major']
     cooldown:
       default-days: 7
     target-branch: v17 # TODO: Remove after 17.0.0 is released.

@@ -26,11 +26,11 @@ const changelogFunctions = {
 		/**
 		 * @type {string[]}
 		 */
-		let usersFromSummary = [];
+		const usersFromSummary = [];
 
 		const replacedChangelog = changeset.summary
 			.replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
-				let num = Number(pr);
+				const num = Number(pr);
 
 				if (!isNaN(num)) prFromSummary = num;
 
@@ -70,7 +70,7 @@ const changelogFunctions = {
 			const commitToFetchFrom = commitFromSummary || changeset.commit;
 
 			if (commitToFetchFrom) {
-				let { links: resultLinks } = await getInfo({
+				const { links: resultLinks } = await getInfo({
 					repo: options.repo,
 					commit: commitToFetchFrom,
 				});

@@ -1,5 +1,5 @@
 import type * as PostCSS from 'postcss';
-import type { GlobbyOptions } from 'globby';
+import type { Options as GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
 type ConfigExtends = string | string[];
@@ -560,6 +560,11 @@ declare namespace stylelint {
 			RejectedMessage<[property: string]>
 		>;
 		'custom-property-pattern': PatternRule;
+		'display-notation': CoreRule<
+			'short' | 'full',
+			{},
+			ExpectedMessage<[unexpected: string, expected: string]>
+		>;
 		'declaration-block-no-duplicate-custom-properties': CoreRule<
 			true,
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
