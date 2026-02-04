@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "17.1.0",
+  "version": "17.1.1",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -64,7 +64,7 @@
     "test": "npm-run-all --sequential test-jest test-node",
     "test-coverage": "npm run test-jest --ignore-scripts -- --coverage",
     "test-jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test-node": "node --test lib/__tests__/require.test.cjs system-tests/005/commonjs.test.cjs",
+    "test-node": "node --test lib/__tests__/require.test.cjs system-tests/005/commonjs.test.cjs system-tests/006/yarn-pnp.test.mjs",
     "test-only": "npm run test-jest --ignore-scripts",
     "watch": "npm run test-jest --ignore-scripts -- --watch"
   },
@@ -112,6 +112,10 @@
       "<rootDir>/jest.setupAfterEnv.mjs"
     ],
     "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/system-tests/006/"
+    ],
     "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$",
     "watchPlugins": [
       "jest-watch-typeahead/filename",
@@ -121,7 +125,7 @@
   "dependencies": {
     "@csstools/css-calc": "^3.0.0",
     "@csstools/css-parser-algorithms": "^4.0.0",
-    "@csstools/css-syntax-patches-for-csstree": "^1.0.25",
+    "@csstools/css-syntax-patches-for-csstree": "^1.0.26",
     "@csstools/css-tokenizer": "^4.0.0",
     "@csstools/media-query-list-parser": "^5.0.0",
     "@csstools/selector-resolve-nested": "^4.0.0",
