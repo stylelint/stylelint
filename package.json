@@ -124,7 +124,7 @@
   },
   "dependencies": {
     "@csstools/css-parser-algorithms": "^4.0.0",
-    "@csstools/css-syntax-patches-for-csstree": "^1.0.25",
+    "@csstools/css-syntax-patches-for-csstree": "^1.0.26",
     "@csstools/css-tokenizer": "^4.0.0",
     "@csstools/media-query-list-parser": "^5.0.0",
     "@csstools/selector-resolve-nested": "^4.0.0",
