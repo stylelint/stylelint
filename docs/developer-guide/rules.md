@@ -449,42 +449,4 @@ result.warn(
 
 ## Improve the performance of a rule
 
-You can run a benchmark on any given rule with any valid config using:
-
-```shell
-npm run benchmark-rule -- ruleName ruleOptions [config]
-```
-
-If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
-
-```shell
-npm run benchmark-rule -- value-keyword-case lower
-```
-
-```shell
-npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
-```
-
-If the `config` argument is specified, the same procedure would apply:
-
-```shell
-npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'
-```
-
-The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.
-
-It will end up printing some simple stats like this:
-
-```shell
-Warnings: 1441
-Mean: 74.17598357142856 ms
-Deviation: 16.63969674310928 ms
-```
-
-When writing new rules or refactoring existing rules, use these measurements to determine the efficiency of your code.
-
-A Stylelint rule can repeat its core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
-
-**Improving the performance of a rule is a great way to contribute if you want a quick little project.** Try picking a rule and seeing if there's anything you can do to speed it up.
-
-Make sure you include benchmark measurements in your pull request!
+See [benchmarking](../maintainer-guide/benchmarking.md#rule-benchmarking).
