@@ -26,7 +26,6 @@ updates:
         patterns: ['typescript', '@types/*']
     cooldown:
       default-days: 7
-    target-branch: v17 # TODO: Remove after 17.0.0 is released.
 
   - package-ecosystem: github-actions
     directory: '/'
@@ -37,4 +36,3 @@ updates:
       - 'pr: dependencies'
     cooldown:
       default-days: 7
-    target-branch: v17 # TODO: Remove after 17.0.0 is released.
