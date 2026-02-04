@@ -6,7 +6,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('node:path');
 
-const stylelint = require('../../lib/index.mjs').default;
+const stylelint = require('../../lib/index.mjs');
 
 test(
 	'CommonJS API and config',

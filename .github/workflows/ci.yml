@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - v17 # TODO: Remove this setting after v17.0.0 is released.
   pull_request:
   merge_group:
 
@@ -16,12 +15,12 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/call-lint.yml@2844df54744d5b95507c6df844b1422478dd3cc1 # 0.5.0
+    uses: stylelint/.github/.github/workflows/call-lint.yml@ce9130c0ded2a1f42fdcb64a0f1f64dd20959795 # 0.5.1
     permissions:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@2844df54744d5b95507c6df844b1422478dd3cc1 # 0.5.0
+    uses: stylelint/.github/.github/workflows/call-test.yml@ce9130c0ded2a1f42fdcb64a0f1f64dd20959795 # 0.5.1
     with:
       node-version: '["20", "22", "24"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
@@ -35,10 +34,10 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Set up Node.js
-        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: '24'
           cache: npm
@@ -61,12 +60,22 @@ jobs:
           files: ./.coverage/lcov.info
           fail_ci_if_error: true
 
+      # This test is only enabled when the relevant environment variable is set,
+      # so it is run here, separately from the main test matrix.
+      - name: Run test for Yarn PnP
+        run: |
+          npm install --global corepack
+          npm run test-node
+        env:
+          STYLELINT_TEST_YARN_PNP: 'true'
+          YARN_ENABLE_HARDENED_MODE: 0 # https://yarnpkg.com/features/security#hardened-mode
+
   spellcheck:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Install codespell
         run: pip install codespell
