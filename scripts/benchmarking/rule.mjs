@@ -4,7 +4,7 @@ import { argv, exit } from 'node:process';
 import Benchmark from 'benchmark';
 import picocolors from 'picocolors';
 
-import stylelint from '../lib/index.mjs';
+import stylelint from '../../lib/index.mjs';
 
 const { bold, red, yellow } = picocolors;
 

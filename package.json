@@ -49,8 +49,8 @@
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
-    "benchmark": "node --expose-gc scripts/benchmarking/run.mjs",
-    "benchmark-rule": "node scripts/benchmark-rule.mjs",
+    "benchmark": "node --expose-gc scripts/benchmarking/system.mjs",
+    "benchmark-rule": "node scripts/benchmarking/rule.mjs",
     "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
     "postchangeset": "npm install --ignore-scripts",
     "format": "prettier . --write --cache",

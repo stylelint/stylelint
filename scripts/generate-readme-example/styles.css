@@ -1,0 +1,14 @@
+.foo {
+  grid-template-areas: "a b" "a";
+}
+
+.foo {
+  colr: red;
+  block-size: 10px;
+  --Foo: 0;
+}
+
+.foo.bar {
+  color: rgb(0, 0, 0);
+}
+
