@@ -4,7 +4,13 @@ import stylelintJestConfig from 'eslint-config-stylelint/jest';
 
 export default [
 	{
-		ignores: ['.coverage/**', 'tmp/**', '**/.pnp.*', '**/.yarn/**'],
+		ignores: [
+			'.coverage/**',
+			'tmp/**',
+			'**/.pnp.*',
+			'**/.yarn/**',
+			'scripts/benchmarking/.workspaces/**',
+		],
 	},
 	...stylelintConfig,
 	...stylelintJestConfig,

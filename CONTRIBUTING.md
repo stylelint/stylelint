@@ -8,7 +8,7 @@ To help out, you can:
 - create, enhance and debug rules using [our guide](docs/developer-guide/rules.md)
 - improve the [documentation](docs/)
 - add [new tests](https://github.com/stylelint/stylelint/issues?q=is%3Aopen+is%3Aissue+label%3A%22type%3A+tests%22) to _absolutely anything_
-- improve the [performance of rules](docs/developer-guide/rules.md#improve-the-performance-of-a-rule)
+- improve the [performance of rules](docs/maintainer-guide/benchmarking.md)
 - open [new issues](https://github.com/stylelint/stylelint/issues/new/choose) about your ideas for making Stylelint better
 
 Not only will you help Stylelint thrive, but you may learn a thing or two — about CSS, PostCSS, Node.js, unit testing, open-source software, and more. We want to encourage contributions! If you want to participate but couldn't, please [give us feedback](https://github.com/stylelint/stylelint/issues/new) about what we could do better.
@@ -49,7 +49,7 @@ You can write code to:
 - [add a rule](docs/developer-guide/rules.md#add-a-rule)
 - [add an option to a rule](docs/developer-guide/rules.md#add-an-option-to-a-rule)
 - [fix a bug in a rule](docs/developer-guide/rules.md#fix-a-bug-in-a-rule)
-- [improve the performance of a rule](docs/developer-guide/rules.md#improve-the-performance-of-a-rule)
+- [improve the performance of a rule](docs/maintainer-guide/benchmarking.md#rule-benchmarking)
 
 ### Format code
 
