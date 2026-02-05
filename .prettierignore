@@ -15,6 +15,7 @@ system-tests/**/*.css
 system-tests/**/*.scss
 **/.pnp.*
 tmp/
+scripts/benchmarking/.workspaces/
 
 # This unit test required a parent directory structure and therefore is not inside /fixtures/globs
 **/standalone-glob-parent-test/**/*.css
