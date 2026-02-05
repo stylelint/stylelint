@@ -287,7 +287,7 @@ const meta = {
 };
 ```
 
-Pass `fix` callback to the [`report` utility](./plugins.md#stylelintutilsreport):
+Pass `fix` callback to the [`report` utility](../developer-guide/plugins.md#stylelintutilsreport):
 
 ```diff js
 function rule(primary, secondary) {
@@ -356,6 +356,10 @@ function rule(primary, secondary, context) {
   };
 }
 ```
+
+### Benchmark the rule
+
+You should [benchmark the rule](./benchmarks.md#rule-benchmarking) to ensure its performance is compareable to that of a similar rule.
 
 ### Write the README
 
@@ -446,7 +450,3 @@ result.warn(
   }
 );
 ```
-
-## Improve the performance of a rule
-
-See [benchmarking](../maintainer-guide/benchmarking.md#rule-benchmarking).

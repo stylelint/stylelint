@@ -1,13 +1,19 @@
 # Benchmarking
 
-[Performance](../about/vision.md#performant) is one of the key aspects of [our vision](../about/vision.md). The more people who are aware of and use our benchmarking tools when contributing to Stylelint, the better.
+You can use our benchmarking tools to measure the impact of your performance-related code changes or to ensure you don't introduce any performance regressions when making other changes.
 
-There are two benchmarking tools:
+Use the:
 
-- [Rule benchmarking](#rule-benchmarking), for measuring the performance of individual rules.
-- [System benchmarking](#system-benchmarking), for measuring overall performance across realistic workspaces.
+- [rule benchmarking](#rule-benchmarking) to measure the performance of individual rules
+- [system benchmarking](#system-benchmarking) to measure overall performance across realistic workspaces
 
 ## Rule benchmarking
+
+A Stylelint rule can repeat its core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
+
+Improving the performance of a rule is a great way to contribute if you want a quick little project. Try picking a rule and seeing if there's anything you can do to speed it up. Make sure you include benchmark measurements in your pull request!
+
+### Getting started
 
 You can run a benchmark on any given rule with any valid config using:
 
@@ -15,23 +21,19 @@ You can run a benchmark on any given rule with any valid config using:
 npm run benchmark-rule -- ruleName ruleOptions [config]
 ```
 
-If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
+For example:
 
 ```shell
 npm run benchmark-rule -- value-keyword-case lower
 ```
 
-```shell
-npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
-```
-
-If the `config` argument is specified, the same procedure would apply:
+If the `ruleOptions` or `config` arguments are anything other than a string or a boolean, they must be valid JSON wrapped in quotation marks. For example:
 
 ```shell
 npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'
 ```
 
-The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.
+### Interpreting results
 
 It will end up printing some simple stats like this:
 
@@ -41,19 +43,22 @@ Mean: 74.17598357142856 ms
 Deviation: 16.63969674310928 ms
 ```
 
-When writing new rules or refactoring existing rules, use these measurements to determine the efficiency of your code.
+Compare the results with those of:
 
-A Stylelint rule can repeat its core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
+- a similar rule when writing new rules
+- the `main` branch when changing existing rules
 
-**Improving the performance of a rule is a great way to contribute if you want a quick little project.** Try picking a rule and seeing if there's anything you can do to speed it up.
+### Implementation details
 
-Make sure you include benchmark measurements in your pull request!
+The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.
 
 ## System benchmarking
 
-The system benchmarking tool measures overall Stylelint performance across realistic workspaces of varying sizes. It tests both the API and CLI modes to help identify performance regressions.
+The system benchmarking tool measures Stylelint's overall CLI and Node.js API performance across realistic workspaces of varying sizes.
 
-### Quick start
+### Getting started
+
+You can compare against a baseline using:
 
 ```shell
 # Run benchmarks and save a baseline result.
@@ -123,11 +128,26 @@ X-Large   5.63s       5.72s       +97.60ms    +1.7%     ≈ Same
 
 The significance threshold is dynamic based on the coefficient of variation (CV) of both baseline and current runs. If the CV is high, indicating noisy measurements, the threshold is raised to avoid false positives.
 
-- **✓ Faster**: improvement beyond the CV-based threshold.
-- **✗ Slower**: regression beyond the CV-based threshold.
-- **≈ Same**: within measurement noise.
+- **✓ Faster**: improvement beyond the CV-based threshold
+- **✗ Slower**: regression beyond the CV-based threshold
+- **≈ Same**: within measurement noise
 
-### Workspace sizes
+### Tips
+
+You can:
+
+- close other applications and avoid running on battery power for the most reliable results
+- increase `--iterations` or reduce system load if you see a high CV of over 15%, which indicates noisy measurements
+- use `--sizes=small,medium,large` for faster feedback (the `xlarge` size is useful for stress testing, but takes longer to run)
+
+### Implementation details
+
+The tool:
+
+- discards warmup iterations to account for JIT compilation and cache warming
+- removes the top and bottom 10% of iterations using a trimmed mean to reduce the impact of outliers
+
+And simulates the following workspace sizes:
 
 | Size   | Files | Rules | Overrides | Plugins | Simulates                                     |
 | ------ | ----- | ----- | --------- | ------- | --------------------------------------------- |
@@ -135,11 +155,3 @@ The significance threshold is dynamic based on the coefficient of variation (CV)
 | medium | 100   | 25    | 10        | 2       | Moderately-sized product or component library |
 | large  | 500   | 50    | 50        | 5       | Enterprise app or design system               |
 | xlarge | 1000  | 80    | 200       | 8       | Huge, sprawling monorepo                      |
-
-### Tips
-
-- The `xlarge` size is useful for stress testing, but takes longer to run. For faster feedback, use `--sizes=small,medium,large`.
-- Warmup iterations are discarded to account for JIT compilation and cache warming.
-- The trimmed mean removes the top and bottom 10% of iterations to reduce impact of outliers.
-- A high CV of over 15% indicates noisy measurements. Consider increasing `--iterations` or reducing system load.
-- For the most reliable results, close other applications and avoid running on battery power.

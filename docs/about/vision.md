@@ -31,7 +31,7 @@ Provide options to [customize the linter](../user-guide/customize.md) to specifi
 
 ## Robust
 
-Provide a robust tool with a [comprehensive test suite](../developer-guide/rules.md#write-tests), including:
+Provide a robust tool with a [comprehensive test suite](../contributor-guide/rules.md#write-tests), including:
 
 - high coverage, currently over 95%
 - a wide range of fixtures for rules
@@ -42,4 +42,4 @@ Provide consistency throughout, including consistent conventions for our rules a
 
 ## Performant
 
-Provide a fast tool and the means to test and improve performance, including [benchmarking](../developer-guide/rules.md#improve-the-performance-of-a-rule) of an individual rule's performance.
+Provide a fast linter and the means [to benchmark](../contributor-guide/benchmarks.md) and improve its performance.
