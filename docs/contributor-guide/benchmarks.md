@@ -2,7 +2,7 @@
 
 You can use our benchmarking tools to measure the impact of your performance-related code changes or to ensure you don't introduce any performance regressions when making other changes.
 
-Use the:
+Use:
 
 - [rule benchmarking](#rule-benchmarking) to measure the performance of individual rules
 - [system benchmarking](#system-benchmarking) to measure overall performance across realistic workspaces
