@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `calc` support to `declaration-property-value-no-unknown`
+Fixed: `declaration-property-value-no-unknown` false negatives for math functions
