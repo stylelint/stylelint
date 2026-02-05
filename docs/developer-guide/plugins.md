@@ -2,7 +2,7 @@
 
 Plugins are custom rules and sets of custom rules. They might support a particular methodology or toolset, apply to non-standard constructs and features, or be for specific use cases.
 
-We recommend your custom rules adhere to [our built-inrule conventions](../contributor-guide/rules.md) for:
+We recommend your custom rules adhere to [our built-in rule conventions](../contributor-guide/rules.md) for:
 
 - names
 - options
