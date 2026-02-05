@@ -1487,7 +1487,17 @@ declare namespace stylelint {
 		_extendExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
 		_postcssResultCache: Map<string, PostCSS.Result>;
+		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
+	};
+
+	/**
+	 * Pre-compiled override matcher for efficient reuse.
+	 * @internal
+	 */
+	export type CompiledOverride = {
+		configOverrides: Omit<ConfigOverride, 'files'>;
+		matches: (filePath: string) => boolean;
 	};
 
 	/** @internal */
