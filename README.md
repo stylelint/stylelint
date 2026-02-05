@@ -40,7 +40,7 @@ And **enforce conventions**, for example:
 
 We recommend using a pretty printer like Prettier alongside Stylelint. Linters and pretty printers are complementary tools that work together to help you write consistent and error-free code.
 
-## Example output
+### Example output
 
 ![Example](example.png)
 
