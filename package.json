@@ -49,10 +49,12 @@
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
-    "benchmark-rule": "node scripts/benchmark-rule.mjs",
+    "benchmark": "node --expose-gc scripts/benchmarking/run-system.mjs",
+    "benchmark-rule": "node scripts/benchmarking/run-rule.mjs",
     "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
     "postchangeset": "npm install --ignore-scripts",
     "format": "prettier . --write --cache",
+    "generate-example-output": "node scripts/generate-example-output/run.mjs",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check --cache",
     "lint:js": "eslint . --cache --max-warnings=0",
@@ -196,6 +198,7 @@
     "lz-string": "^1.5.0",
     "npm-run-all": "^4.1.5",
     "patch-package": "^8.0.1",
+    "pidusage": "^4.0.1",
     "postcss-html": "^1.8.1",
     "postcss-import": "^16.1.1",
     "postcss-less": "^6.0.0",
