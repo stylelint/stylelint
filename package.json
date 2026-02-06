@@ -49,11 +49,12 @@
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
-    "benchmark": "node --expose-gc scripts/benchmarking/run.mjs",
-    "benchmark-rule": "node scripts/benchmark-rule.mjs",
+    "benchmark": "node --expose-gc scripts/benchmarking/run-system.mjs",
+    "benchmark-rule": "node scripts/benchmarking/run-rule.mjs",
     "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
     "postchangeset": "npm install --ignore-scripts",
     "format": "prettier . --write --cache",
+    "generate-example-output": "node scripts/generate-example-output/run.mjs",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check --cache",
     "lint:js": "eslint . --cache --max-warnings=0",
