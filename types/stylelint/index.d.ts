@@ -1487,6 +1487,7 @@ declare namespace stylelint {
 		_options: LinterOptions & { cwd: string };
 		_extendExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
+		_augmentedConfigCache: Map<string, CosmiconfigResult>;
 		_postcssResultCache: Map<string, PostCSS.Result>;
 		_fileCache: FileCache;
 	};
