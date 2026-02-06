@@ -12,7 +12,12 @@ import { performance } from 'node:perf_hooks';
 import process from 'node:process';
 
 /**
- * The result sent from child processes.
+ * The result for a single benchmark iteration, before aggregation. Either
+ * returned directly from the child process or parsed from its output. Duration
+ * is only included if reported directly by the child process, otherwise it will
+ * be measured based on the time between process start and exit.
+ *
+ * See {@link runChildProcess} for details.
  *
  * @typedef {Object} ParsedResult
  * @property {number} filesLinted
