@@ -1,5 +1,5 @@
 {
-	"extends": "./simple-rule",
+	"extends": "./simple-rule.json",
 	"rules": {
 		"block-no-empty": true
 	},
