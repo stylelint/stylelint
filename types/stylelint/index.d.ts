@@ -655,6 +655,7 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[property: string, value: string]> & {
 				rejectedParseError: (property: string, value: string) => string;
+				rejectedMath: (property: string, expression: string) => string;
 			}
 		>;
 		'font-family-name-quotes': CoreRule<
