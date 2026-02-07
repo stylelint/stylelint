@@ -236,11 +236,11 @@ async function main() {
 		log(sectionHeader('Running Benchmarks'));
 		log(`  Modes: ${pc.cyan(args.modes.map((m) => m.toUpperCase()).join(', '))}`);
 		log(`  Warmup: ${args.warmup}, Iterations: ${args.iterations}`);
-		log('');
 
 		const allResults = {};
 
 		for (const mode of args.modes) {
+			log('');
 			log(`  ${pc.cyan(mode.toUpperCase())} mode...`);
 
 			const results = await runAllBenchmarks(workspaces, {
@@ -285,6 +285,10 @@ async function main() {
 
 	log(pc.green('Done!'));
 	log('');
+
+	// Native modules from workers may keep handles open, force exit to ensure
+	// the process doesn't hang after completion.
+	process.exit(0);
 }
 
 main().catch((error) => {

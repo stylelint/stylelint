@@ -49,7 +49,7 @@
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
-    "benchmark": "node --expose-gc scripts/benchmarking/run-system.mjs",
+    "benchmark": "node scripts/benchmarking/run-system.mjs",
     "benchmark-rule": "node scripts/benchmarking/run-rule.mjs",
     "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
     "postchangeset": "npm install --ignore-scripts",
@@ -183,6 +183,7 @@
     "@types/postcss-safe-parser": "^5.0.4",
     "@types/svg-tags": "^1.0.2",
     "@types/write-file-atomic": "^4.0.3",
+    "@vscode/windows-process-tree": "^0.6.3",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
