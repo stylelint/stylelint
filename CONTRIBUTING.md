@@ -63,6 +63,8 @@ Alternatively, you can:
 
 When you have something to share, it's time to [open a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
+We'll review your pull request and give you feedback. Please don't force-push after the review has started to help us keep track of changes. Once it's ready, we'll squash the commits and merge it.
+
 ## Financial contributions
 
 We welcome financial contributions in full transparency on our [Open Collective](https://opencollective.com/stylelint) or [GitHub Sponsor](https://github.com/sponsors/stylelint).
