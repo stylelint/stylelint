@@ -10,8 +10,8 @@ import { join } from 'node:path';
 
 import pc from 'picocolors';
 
-import { AVAILABLE_RULES, CSS_TEMPLATES, FILE_EXTENSIONS, WORKSPACE_SIZES } from './config.mjs';
-import { generateExtendedConfig, generatePlugins } from './generatePlugins.mjs';
+import { AVAILABLE_RULES, CSS_TEMPLATES, WORKSPACE_SIZES } from './config.mjs';
+import { generateExtendedConfig, generatePlugins, generateSyntaxes } from './generatePlugins.mjs';
 
 /**
  * Seeded pseudo-random number generator, using the mulberry32 algorithm.
@@ -36,6 +36,9 @@ function createSeededRandom(seed) {
 
 /** Default seed for benchmarks. */
 const DEFAULT_SEED = 0x6c696e74; // "lint" in hex.
+
+/** Directory names used for workspace structure. */
+const DIR_NAMES = ['components', 'layouts', 'pages', 'features', 'shared', 'utils', 'styles'];
 
 /** Seeded random number generator. */
 const random = createSeededRandom(DEFAULT_SEED);
@@ -103,10 +106,8 @@ async function generateDirectoryTree(baseDir, depth, maxDepth, dirsPerLevel) {
 		return dirs;
 	}
 
-	const dirNames = ['components', 'layouts', 'pages', 'features', 'shared', 'utils', 'styles'];
-
-	for (let i = 0; i < dirsPerLevel && i < dirNames.length; i++) {
-		const dirName = dirNames[i];
+	for (let i = 0; i < dirsPerLevel && i < DIR_NAMES.length; i++) {
+		const dirName = DIR_NAMES[i];
 		const dirPath = join(baseDir, dirName);
 
 		await mkdir(dirPath, { recursive: true });
@@ -125,12 +126,22 @@ async function generateDirectoryTree(baseDir, depth, maxDepth, dirsPerLevel) {
  * @param {Object} options Configuration options.
  * @param {number} options.rules Number of rules.
  * @param {number} options.overrides Number of overrides.
+ * @param {number} options.dirsPerLevel Directories per level.
  * @param {Array} options.plugins Plugin info.
  * @param {Array} options.extends Extended config paths.
  * @param {string[]} options.files List of files for override targeting.
+ * @param {Array} options.syntaxes Custom syntax info.
  * @returns {Object} Stylelint config.
  */
-function generateConfig({ rules, overrides, plugins, extends: extendConfigs, files }) {
+function generateConfig({
+	rules,
+	overrides,
+	dirsPerLevel,
+	plugins,
+	extends: extendConfigs,
+	files,
+	syntaxes,
+}) {
 	const config = {
 		rules: {},
 	};
@@ -172,20 +183,30 @@ function generateConfig({ rules, overrides, plugins, extends: extendConfigs, fil
 		config.extends = extendConfigs;
 	}
 
-	// Add overrides.
+	// Add custom syntax overrides. Each syntax gets its own override for its
+	// file extension.
+	if (syntaxes && syntaxes.length > 0) {
+		if (!config.overrides) {
+			config.overrides = [];
+		}
+
+		for (const syntax of syntaxes) {
+			config.overrides.push({
+				files: [`**/*${syntax.extension}`],
+				customSyntax: syntax.path,
+			});
+		}
+	}
+
+	// Add other overrides.
 	if (overrides > 0 && files.length > 0) {
-		config.overrides = [];
+		if (!config.overrides) {
+			config.overrides = [];
+		}
 
 		// Create overrides targeting different file patterns.
-		const patterns = [
-			'**/*.css',
-			'**/*.scss',
-			'**/components/**/*.css',
-			'**/layouts/**/*.css',
-			'**/pages/**/*.css',
-			'**/features/**/*.css',
-			'**/shared/**/*.css',
-		];
+		const dirPatterns = DIR_NAMES.slice(0, dirsPerLevel).map((dir) => `**/${dir}/**/*.css`);
+		const patterns = ['**/*.css', ...dirPatterns];
 
 		for (let i = 0; i < overrides; i++) {
 			const pattern = patterns[i % patterns.length];
@@ -250,6 +271,14 @@ export async function generateWorkspace(workspacePath, size, options = {}) {
 		sizeConfig.dirsPerLevel,
 	);
 
+	// Generate custom syntaxes.
+	const syntaxDir = join(workspacePath, '.stylelint-syntaxes');
+	const syntaxes = await generateSyntaxes(syntaxDir, sizeConfig.syntaxes);
+
+	// Build list of extensions. .css is always included, plus extensions with
+	// custom syntaxes.
+	const extensions = ['.css', ...syntaxes.map((s) => s.extension)];
+
 	// Generate CSS files.
 	const files = [];
 	const filesPerDir = Math.ceil(sizeConfig.files / directories.length);
@@ -259,7 +288,7 @@ export async function generateWorkspace(workspacePath, size, options = {}) {
 
 		for (let i = 0; i < fileCount && files.length < sizeConfig.files; i++) {
 			const componentName = randomComponentName();
-			const ext = FILE_EXTENSIONS[Math.floor(random() * FILE_EXTENSIONS.length)];
+			const ext = extensions[Math.floor(random() * extensions.length)];
 			const fileName = `${componentName}${ext}`;
 			const filePath = join(dir, fileName);
 			const content = generateCSSContent(componentName);
@@ -287,9 +316,11 @@ export async function generateWorkspace(workspacePath, size, options = {}) {
 	const config = generateConfig({
 		rules: sizeConfig.rules,
 		overrides: sizeConfig.overrides,
+		dirsPerLevel: sizeConfig.dirsPerLevel,
 		plugins,
 		extends: extendConfigs,
 		files,
+		syntaxes,
 	});
 
 	const configPath = join(workspacePath, 'stylelint.config.mjs');
@@ -301,7 +332,9 @@ export default ${JSON.stringify(config, null, 2)};
 
 	log(`    ${pc.green('✓')} Created ${files.length} files in ${directories.length} directories`);
 	log(`    ${pc.green('✓')} Config: ${sizeConfig.rules} rules, ${sizeConfig.overrides} overrides`);
-	log(`    ${pc.green('✓')} Plugins: ${plugins.length}, Extends: ${extendConfigs.length}`);
+	log(
+		`    ${pc.green('✓')} Plugins: ${plugins.length}, Extends: ${extendConfigs.length}, Syntaxes: ${syntaxes.length}`,
+	);
 
 	return {
 		path: workspacePath,
@@ -311,6 +344,7 @@ export default ${JSON.stringify(config, null, 2)};
 		directories,
 		plugins,
 		extendConfigs,
+		syntaxes,
 		configPath,
 	};
 }

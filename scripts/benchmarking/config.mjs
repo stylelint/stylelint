@@ -17,6 +17,7 @@
  * @property {number} overrides Number of config overrides.
  * @property {number} plugins Number of plugins to generate.
  * @property {number} extends Number of extended configs.
+ * @property {number} syntaxes Number of custom syntaxes to generate.
  */
 
 /**
@@ -28,6 +29,7 @@
  * @property {string[]} directories List of generated directories.
  * @property {PluginInfo[]} plugins Generated plugin info.
  * @property {string[]} extendConfigs Extended config paths.
+ * @property {SyntaxInfo[]} syntaxes Generated custom syntax info.
  * @property {string} configPath Path to main stylelint config.
  */
 
@@ -35,6 +37,13 @@
  * @typedef {Object} PluginInfo
  * @property {string} path Path to the plugin file.
  * @property {string} ruleName Plugin rule name.
+ */
+
+/**
+ * @typedef {Object} SyntaxInfo
+ * @property {string} path Path to the syntax file.
+ * @property {string} name Syntax name, e.g. "scss", "less".
+ * @property {string} extension File extension this syntax handles.
  */
 
 /**
@@ -102,6 +111,7 @@ export const WORKSPACE_SIZES = {
 		overrides: 0,
 		plugins: 0,
 		extends: 0,
+		syntaxes: 0,
 	},
 	medium: {
 		name: 'Medium',
@@ -113,6 +123,7 @@ export const WORKSPACE_SIZES = {
 		overrides: 10,
 		plugins: 2,
 		extends: 1,
+		syntaxes: 1,
 	},
 	large: {
 		name: 'Large',
@@ -124,6 +135,7 @@ export const WORKSPACE_SIZES = {
 		overrides: 50,
 		plugins: 5,
 		extends: 2,
+		syntaxes: 2,
 	},
 	xlarge: {
 		name: 'X-Large',
@@ -135,6 +147,7 @@ export const WORKSPACE_SIZES = {
 		overrides: 200,
 		plugins: 8,
 		extends: 3,
+		syntaxes: 3,
 	},
 };
 
