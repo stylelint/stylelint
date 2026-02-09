@@ -66,8 +66,9 @@ export async function generateSyntaxes(syntaxDir, count) {
 	];
 
 	const syntaxes = [];
+	const availableCount = Math.min(count, syntaxDefs.length);
 
-	for (let i = 0; i < Math.min(count, syntaxDefs.length); i++) {
+	for (let i = 0; i < availableCount; i++) {
 		const { name, extension } = syntaxDefs[i];
 		const syntax = await generateSyntax(syntaxDir, name, extension);
 
