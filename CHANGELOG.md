@@ -1,5 +1,17 @@
 # Changelog
 
+## 17.2.0 - 2026-02-10
+
+It fixes 7 bugs, including 5 performance ones that make Stylelint 7x faster and use 3x less memory on larger codebases such as design systems and monorepos. We also restructured our docs to create a [contributor guide](CONTRIBUTING.md). If you'd like to help out and contribute to Stylelint, that's the place to start.
+
+- Fixed: performance of config augmentation and module imports ([#9021](https://github.com/stylelint/stylelint/pull/9021)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of config override matching ([#9023](https://github.com/stylelint/stylelint/pull/9023)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of config resolution ([#9033](https://github.com/stylelint/stylelint/pull/9033)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of rule resolution ([#9022](https://github.com/stylelint/stylelint/pull/9022)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for math functions ([#9011](https://github.com/stylelint/stylelint/pull/9011)) ([@ragini-pandey](https://github.com/ragini-pandey)).
+- Fixed: `no-duplicate-selectors` false negatives for matching escaped selectors ([#8953](https://github.com/stylelint/stylelint/pull/8953)) ([@bjnewman](https://github.com/bjnewman)).
+- Fixed: `no-invalid-position-at-import-rule` false negatives for layers with blocks ([#9026](https://github.com/stylelint/stylelint/pull/9026)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 17.1.1 - 2026-02-03
 
 It fixes 2 bugs.
