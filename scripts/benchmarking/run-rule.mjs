@@ -38,14 +38,18 @@ if (!stylelint.rules[ruleName]) {
 	exit(1);
 }
 
-const CSS_URL = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css';
+const CSS_URLs = [
+	'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css',
+	'https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.2.1/dist-cdn/styles/native.css',
+	'https://cdn.jsdelivr.net/npm/kelpui@1.17.2/css/kelp.css',
+];
 
 // PostCSS and modern hardware is too fast to benchmark with a small source.
 // Duplicating the source CSS N times gives a larger mean while reducing the deviation.
 //
-// 20 was chosen because it gives a mean in the 50-200ms range
+// 5 was chosen because it gives a mean in the 50-200ms range
 // with a deviation that is ±10% of the mean.
-const DUPLICATE_SOURCE_N_TIMES = 20;
+const DUPLICATE_SOURCE_N_TIMES = 5;
 
 let parsedOptions = ruleOptions;
 
@@ -71,13 +75,14 @@ const lintConfig = {
 const lint = (code) => stylelint.lint({ code, config: lintConfig });
 
 // eslint-disable-next-line n/no-unsupported-features/node-builtins -- This script is only for development. We can tolerate it.
-fetch(CSS_URL)
-	.then((response) => response.text())
-	.then((response) => {
+Promise.all(CSS_URLs.map((url) => fetch(url).then((res) => res.text())))
+	.then((responses) => {
+		const source = responses.join('\n\n');
+
 		let css = '';
 
 		for (let i = 0; i < DUPLICATE_SOURCE_N_TIMES; i++) {
-			css += `${response}\n\n`;
+			css += `${source}\n\n`;
 		}
 
 		let firstTime = true;
