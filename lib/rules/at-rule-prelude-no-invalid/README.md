@@ -11,7 +11,7 @@ Disallow invalid preludes for at-rules.
 
 This rule considers preludes for at-rules defined within the CSS specifications, up to and including Editor's Drafts, to be valid.
 
-You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what preludes are valid for an at-rule.
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what preludes are valid for an at-rule, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
@@ -22,8 +22,6 @@ This rule overlaps with:
 - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
 You can either turn off the rules or configure them to ignore the overlaps.
-
-For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 
 Prior art:
 

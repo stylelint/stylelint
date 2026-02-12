@@ -13,13 +13,11 @@ Disallow unknown descriptors for at-rules.
 
 This rule considers descriptors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what descriptors are known for an at-rule.
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what descriptors are known for an at-rule, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
 This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 This rule checks descriptors within at-rules. To check properties, you can use the [`property-no-unknown`](../property-no-unknown/README.md) rule.
-
-For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 
 Prior art:
 
