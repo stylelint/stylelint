@@ -1,6 +1,7 @@
 import type * as PostCSS from 'postcss';
 import type { Options as GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
+import type { Lexer as CSSTreeLexer } from 'css-tree';
 
 type ConfigExtends = string | string[];
 
@@ -295,6 +296,7 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
+		lexer: CSSTreeLexer;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
@@ -369,8 +371,6 @@ declare namespace stylelint {
 		configurationComment?: string | undefined;
 		fix?: boolean | undefined;
 		newline?: string | undefined;
-		/** @internal */
-		lexer?: unknown | undefined;
 	};
 
 	/** @internal */
