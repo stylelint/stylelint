@@ -13,15 +13,15 @@ This rule considers preludes for at-rules defined within the CSS specifications,
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what preludes are valid for an at-rule.
 
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
+> [!WARNING]
+> This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-This rule overlaps with:
-
-- [`media-query-no-invalid`](../media-query-no-invalid/README.md)
-- [`string-no-newline`](../string-no-newline/README.md)
-- [`unit-no-unknown`](../unit-no-unknown/README.md)
-
-You can either turn off the rules or configure them to ignore the overlaps.
+> [!NOTE]
+> When using this rule, we recommend turning off these overlapping rules or configuring them to ignore the overlaps:
+>
+> - [`media-query-no-invalid`](../media-query-no-invalid/README.md)
+> - [`string-no-newline`](../string-no-newline/README.md)
+> - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
 For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 

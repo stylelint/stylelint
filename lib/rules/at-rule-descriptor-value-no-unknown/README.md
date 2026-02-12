@@ -19,15 +19,17 @@ This rule is only appropriate for CSS. You should not turn it on for CSS-like la
 
 This rule checks descriptor values within at-rules. You can use [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md) to disallow unknown values for properties within declarations, and [`at-rule-descriptor-no-unknown`](../at-rule-descriptor-no-unknown/README.md) to disallow unknown descriptors for at-rules.
 
-This rule overlaps with:
+> [!WARNING]
+> This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-- [`color-no-invalid-hex`](../color-no-invalid-hex/README.md)
-- [`function-linear-gradient-no-nonstandard-direction`](../function-linear-gradient-no-nonstandard-direction/README.md)
-- [`function-no-unknown`](../function-no-unknown/README.md)
-- [`string-no-newline`](../string-no-newline/README.md)
-- [`unit-no-unknown`](../unit-no-unknown/README.md)
-
-You can either turn off the rules or configure them to ignore the overlaps.
+> [!NOTE]
+> When using this rule, we recommend turning off these overlapping rules or configuring them to ignore the overlaps:
+>
+> - [`color-no-invalid-hex`](../color-no-invalid-hex/README.md)
+> - [`function-linear-gradient-no-nonstandard-direction`](../function-linear-gradient-no-nonstandard-direction/README.md)
+> - [`function-no-unknown`](../function-no-unknown/README.md)
+> - [`string-no-newline`](../string-no-newline/README.md)
+> - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
 For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 

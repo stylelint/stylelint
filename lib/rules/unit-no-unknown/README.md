@@ -11,15 +11,14 @@ a { width: 100pixels; }
 
 This rule considers units defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-This rule overlaps with:
-
-- [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
-- [`at-rule-prelude-no-invalid`](../at-rule-prelude-no-invalid/README.md)
-- [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
-- [`media-feature-name-value-no-unknown`](../media-feature-name-value-no-unknown/README.md)
-- [`media-query-no-invalid`](../media-query-no-invalid/README.md)
-
-We recommend using these rules for CSS and this rule for CSS-like languages, such as SCSS and Less.
+> [!NOTE]
+> We recommend only using this rule for CSS-like languages, such as SCSS and Less. For CSS, we recommend using these more capable and overlapping rules instead:
+>
+> - [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
+> - [`at-rule-prelude-no-invalid`](../at-rule-prelude-no-invalid/README.md)
+> - [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
+> - [`media-feature-name-value-no-unknown`](../media-feature-name-value-no-unknown/README.md)
+> - [`media-query-no-invalid`](../media-query-no-invalid/README.md)
 
 ## Options
 
