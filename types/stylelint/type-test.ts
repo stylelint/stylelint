@@ -52,12 +52,12 @@ const options: Partial<LinterOptions> = {
 };
 
 stylelint.lint(options).then((x: LinterResult) => {
-	const err: boolean = x.errored;
-	const report: string = x.report;
+	x.errored satisfies boolean;
+	x.report satisfies string;
 	const results: LintResult[] = x.results;
 	const firstResult: LintResult | undefined = results[0];
 	if (firstResult) {
-		const warnings: Warning[] = firstResult.warnings;
+		firstResult.warnings satisfies Warning[];
 	}
 });
 
@@ -87,7 +87,7 @@ stylelint
 	})
 	.then((config) => stylelint.lint({ config }));
 
-const formatter: FormatterType = 'json';
+'json' satisfies FormatterType;
 
 const ruleName = 'sample-rule';
 const messages = stylelint.utils.ruleMessages(ruleName, {
@@ -96,8 +96,8 @@ const messages = stylelint.utils.ruleMessages(ruleName, {
 	withNarrowedParam: (mixinName: string) => `Mixin not allowed: ${mixinName}`,
 });
 const meta: RuleMeta = { url: '...' };
-const problemMessage: string = messages.problem;
-const problemFunc: (...reason: string[]) => string = messages.warning;
+messages.problem satisfies string;
+messages.warning satisfies (...reason: string[]) => string;
 
 const testRule: RuleBase = (option) => {
 	return (root, result) => {
