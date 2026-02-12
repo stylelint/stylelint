@@ -9,7 +9,7 @@ a { top: unknown; }
  * property and value pairs like these */
 ```
 
-This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
+This rule considers values for properties defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property.
 
@@ -121,6 +121,9 @@ a { width: --unknown-value; }
 
 ### `propertiesSyntax`
 
+> [!WARNING]
+> We will remove this option in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+
 ```json
 { "propertiesSyntax": { "property": "syntax" } }
 ```
@@ -151,6 +154,9 @@ a { size: 10px }
 ```
 
 ### `typesSyntax`
+
+> [!WARNING]
+> We will remove this option in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
 
 ```json
 { "typesSyntax": { "type": "syntax" } }
