@@ -125,7 +125,7 @@
     ]
   },
   "dependencies": {
-    "@csstools/css-calc": "^3.0.0",
+    "@csstools/css-calc": "^3.1.0",
     "@csstools/css-parser-algorithms": "^4.0.0",
     "@csstools/css-syntax-patches-for-csstree": "^1.0.26",
     "@csstools/css-tokenizer": "^4.0.0",
