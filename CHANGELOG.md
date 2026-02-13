@@ -1,5 +1,25 @@
 # Changelog
 
+## 17.3.0 - 2026-02-13
+
+- Fixed: `*-list` performance ([#9056](https://github.com/stylelint/stylelint/pull/9056)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `*-notation` performance ([#9044](https://github.com/stylelint/stylelint/pull/9044)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-max-values` performance ([#9057](https://github.com/stylelint/stylelint/pull/9057)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` performance ([#9058](https://github.com/stylelint/stylelint/pull/9058)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for math functions inside of non-math functions ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `calc()` with mixed operations ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` performance ([#9062](https://github.com/stylelint/stylelint/pull/9062)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` reported ranges for multiple math functions ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `length-zero-no-unit` performance ([#9046](https://github.com/stylelint/stylelint/pull/9046)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `named-grid-areas-no-invalid` false positives for mix of tabs and spaces ([#9039](https://github.com/stylelint/stylelint/pull/9039)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `no-unknown-custom-media` performance ([#9059](https://github.com/stylelint/stylelint/pull/9059)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-max-*` performance ([#9042](https://github.com/stylelint/stylelint/pull/9042)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `shorthand-property-no-redundant-values` performance ([#9047](https://github.com/stylelint/stylelint/pull/9047)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `syntax-string-no-invalid` performance ([#9061](https://github.com/stylelint/stylelint/pull/9061)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `time-min-milliseconds` performance ([#9060](https://github.com/stylelint/stylelint/pull/9060)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `value-keyword-case` performance ([#9048](https://github.com/stylelint/stylelint/pull/9048)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: performance of rule sequencing ([#9055](https://github.com/stylelint/stylelint/pull/9055)) ([@jeddy3](https://github.com/jeddy3)).
+
 ## 17.2.0 - 2026-02-10
 
 It fixes 7 bugs, including 5 performance ones that make Stylelint 7x faster and use 3x less memory on larger codebases such as design systems and monorepos. We also restructured our docs to create a [contributor guide](CONTRIBUTING.md). If you'd like to help out and contribute to Stylelint, that's the place to start.
