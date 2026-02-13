@@ -11,7 +11,7 @@ a { top: unknown; }
 
 This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
 
-You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property.
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
 This rule checks property values. You can use [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md) to disallow unknown values for descriptors within at-rules.
 

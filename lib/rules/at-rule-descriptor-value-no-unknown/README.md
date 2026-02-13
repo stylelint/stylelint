@@ -13,7 +13,7 @@ Disallow unknown values for descriptors within at-rules.
 
 This rule considers descriptors and values defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what values are valid for a descriptor of an at-rule.
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what values are known for a descriptor of an at-rule, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
 This rule checks descriptor values within at-rules. You can use [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md) to disallow unknown values for properties within declarations, and [`at-rule-descriptor-no-unknown`](../at-rule-descriptor-no-unknown/README.md) to disallow unknown descriptors for at-rules.
 
@@ -28,8 +28,6 @@ This rule checks descriptor values within at-rules. You can use [`declaration-pr
 > - [`function-no-unknown`](../function-no-unknown/README.md)
 > - [`string-no-newline`](../string-no-newline/README.md)
 > - [`unit-no-unknown`](../unit-no-unknown/README.md)
-
-For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 
 Prior art:
 
