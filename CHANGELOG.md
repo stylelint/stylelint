@@ -2,6 +2,9 @@
 
 ## 17.3.0 - 2026-02-13
 
+It fixes 17 bugs. 3 related to supporting `calc()` in `declaration-property-value-no-unknown`, and 13 performance ones that make Stylelint a further 3x faster when using the rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+- Fixed: performance of rule sequencing ([#9055](https://github.com/stylelint/stylelint/pull/9055)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `*-list` performance ([#9056](https://github.com/stylelint/stylelint/pull/9056)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `*-notation` performance ([#9044](https://github.com/stylelint/stylelint/pull/9044)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `declaration-property-max-values` performance ([#9057](https://github.com/stylelint/stylelint/pull/9057)) ([@jeddy3](https://github.com/jeddy3)).
@@ -18,7 +21,6 @@
 - Fixed: `syntax-string-no-invalid` performance ([#9061](https://github.com/stylelint/stylelint/pull/9061)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `time-min-milliseconds` performance ([#9060](https://github.com/stylelint/stylelint/pull/9060)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `value-keyword-case` performance ([#9048](https://github.com/stylelint/stylelint/pull/9048)) ([@jeddy3](https://github.com/jeddy3)).
-- Fixed: performance of rule sequencing ([#9055](https://github.com/stylelint/stylelint/pull/9055)) ([@jeddy3](https://github.com/jeddy3)).
 
 ## 17.2.0 - 2026-02-10
 
