@@ -145,7 +145,7 @@ function runCliBenchmark(workspace, memoryWorker) {
 		process.execPath,
 		[
 			CLI_PATH,
-			`${workspacePath}/src/**/*.{css,scss,less}`,
+			`${workspacePath}/src/**/*.{css,scss,less,html,vue}`,
 			'--config',
 			workspace.configPath,
 			'--no-cache',
