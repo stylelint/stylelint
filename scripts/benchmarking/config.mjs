@@ -413,9 +413,6 @@ export const AVAILABLE_RULES = [
 	'rule-empty-line-before',
 ];
 
-// File extensions to generate.
-export const FILE_EXTENSIONS = ['.css', '.scss', '.less'];
-
 // Benchmark defaults.
 export const BENCHMARK_ITERATIONS = 10;
 export const BENCHMARK_WARMUP = 2;
