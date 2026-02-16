@@ -357,9 +357,30 @@ function rule(primary, secondary, context) {
 }
 ```
 
-### Benchmark the rule
+### Optimise the rule
 
-You should [benchmark the rule](./benchmarks.md#rule-benchmarking) to ensure its performance is compareable to that of a similar rule.
+Use the `regexes` utility as early as possible to avoid unnecessary work. For example, in the `walk*` call for at-rules names, rule selectors, and declaration properties:
+
+<!-- prettier-ignore -->
+```js
+root.walkAtRules(atRuleRegexes.mediaName, (atRule) => { /* .. */ });
+root.walkRules(mayIncludeRegexes.classSelector, (rule) => { /* .. */ });
+root.walkDecls(propertyRegexes.gridAreaNames, (decl) => { /* .. */ });
+```
+
+And as the first conditional for at-rule preludes (params) and declarations values. For example:
+
+```js
+root.walkAtRules((atRule) => {
+  if (!mayIncludeRegexes.dimension.test(atRule.params)) return;
+});
+
+root.walkDecls((decl) => {
+  if (!mayIncludeRegexes.dimension.test(decl.value)) return;
+});
+```
+
+You can [benchmark the rule](./benchmarks.md#rule-benchmarking) to ensure its performance is compareable to that of a similar rule.
 
 ### Write the README
 
