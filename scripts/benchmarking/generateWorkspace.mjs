@@ -155,18 +155,27 @@ function generateConfig({
 
 	for (const rule of selectedRules) {
 		// Simple rule configuration. Most rules just need true.
-		if (rule.includes('max-') || rule.includes('min-')) {
-			config.rules[rule] = 3;
-		} else if (rule.includes('-notation')) {
-			config.rules[rule] = null; // Disable notation rules to avoid conflicts.
-		} else if (rule.includes('-list')) {
-			config.rules[rule] = null; // Disable list rules.
-		} else if (rule.includes('-quotes')) {
-			config.rules[rule] = 'always';
+
+		if (rule === 'font-family-name-quotes') {
+			config.rules[rule] = 'always-unless-keyword';
 		} else if (rule === 'color-hex-length') {
 			config.rules[rule] = 'short';
+		} else if (rule === 'declaration-property-max-values') {
+			config.rules[rule] = { margin: 2 };
+		} else if (rule === 'selector-max-specificity') {
+			config.rules[rule] = '0,1,0';
 		} else if (rule === 'value-keyword-case' || rule === 'function-name-case') {
 			config.rules[rule] = 'lower';
+		} else if (rule === 'color-hex-alpha' || rule === 'color-named' || rule.includes('-quotes')) {
+			config.rules[rule] = 'never';
+		} else if (rule.includes('-before')) {
+			config.rules[rule] = 'always';
+		} else if (rule.includes('max-') || rule.includes('min-')) {
+			config.rules[rule] = 3;
+		} else if (rule.includes('-list')) {
+			config.rules[rule] = null; // Disable list rules.
+		} else if (rule.includes('-notation')) {
+			config.rules[rule] = null; // Disable notation rules to avoid conflicts.
 		} else {
 			config.rules[rule] = true;
 		}
@@ -226,7 +235,7 @@ function generateConfig({
 				// Toggle the rule or change its value.
 				if (config.rules[rule] === true) {
 					overrideRules[rule] = null; // Disable in override.
-				} else if (config.rules[rule] === null) {
+				} else if (rule.includes('no-') && config.rules[rule] === null) {
 					overrideRules[rule] = true; // Enable in override.
 				}
 			}
