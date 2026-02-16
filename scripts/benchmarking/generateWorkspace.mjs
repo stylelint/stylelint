@@ -42,7 +42,7 @@ function createSeededRandom(seed) {
 const DEFAULT_SEED = 0x6c696e74; // "lint" in hex.
 
 /** Directory names used for workspace structure. */
-const DIR_NAMES = ['components', 'layouts', 'pages', 'features', 'shared', 'utils', 'styles'];
+const DIR_NAMES = ['components', 'features', 'layouts', 'pages', 'shared', 'styles', 'utils'];
 
 /** Seeded random number generator. */
 const random = createSeededRandom(DEFAULT_SEED);
@@ -53,28 +53,28 @@ const random = createSeededRandom(DEFAULT_SEED);
  * @returns {string}
  */
 function randomComponentName() {
-	const prefixes = ['app', 'ui', 'core', 'common', 'shared', 'feature', 'page', 'layout', 'widget'];
+	const prefixes = ['app', 'common', 'core', 'feature', 'layout', 'page', 'shared', 'ui', 'widget'];
 	const suffixes = [
-		'button',
-		'card',
-		'modal',
-		'form',
-		'list',
-		'table',
-		'nav',
-		'header',
-		'footer',
-		'sidebar',
-		'menu',
-		'panel',
-		'container',
-		'wrapper',
-		'section',
-		'hero',
-		'banner',
 		'alert',
 		'badge',
+		'banner',
+		'button',
+		'card',
+		'container',
+		'footer',
+		'form',
+		'header',
+		'hero',
+		'list',
+		'menu',
+		'modal',
+		'nav',
+		'panel',
+		'section',
+		'sidebar',
+		'table',
 		'tag',
+		'wrapper',
 	];
 	const prefix = prefixes[Math.floor(random() * prefixes.length)];
 	const suffix = suffixes[Math.floor(random() * suffixes.length)];
