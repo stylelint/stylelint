@@ -153,144 +153,158 @@ export const WORKSPACE_SIZES = {
 
 // CSS content templates for generating realistic files.
 export const CSS_TEMPLATES = [
-	// Simple component styles.
+	// Modern scoped component styles with nesting
 	`/* Component: {{name}} */
-.{{name}} {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-}
+@layer components {
+  @scope (.{{name}}) to (.content) {
+    :scope {
+      --color-fill-vivid: var(--color-primary-fill-vivid);
+      --height: var(--size-xl);
+      --width: 0.8;
 
-.{{name}}__header {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 0.5rem;
-}
+      accent-color: var(--blue);
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      color-scheme: light dark;
+      display: block flex;
+      flex-direction: column;
+      margin: 0 auto;
+      padding: 1rem;
+    }
 
-.{{name}}__content {
-  flex: 1;
-  padding: 1rem 0;
-}
+    header {
+      color: light-dark(oklch(50% 0.12 250deg), oklch(70% 0.12 250deg));
+      font-size: 1.25rem;
+      font-weight: 650;
+      margin-bottom: 0.5rem;
 
-.{{name}}__footer {
-  border-top: 1px solid #e0e0e0;
-  padding-top: 0.5rem;
-  text-align: right;
+      h2 {
+        letter-spacing: calc(progress(1em, 1rem, 3rem) * -0.04em);
+        line-height: calc(var(--length-6-8) + 2ex);
+      }
+    }
+
+    .content {
+      flex: 1;
+      padding: 1rem 0;
+    }
+
+    footer {
+      border-top: 1px solid #e0e0e0;
+      padding-top: 0.5rem;
+      text-align: right;
+    }
+  }
 }
 `,
-	// Button styles.
+	// Button styles - nested CSS Modules
 	`/* Button: {{name}} */
 .btn-{{name}} {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.5;
   border-radius: 0.25rem;
   cursor: pointer;
+  display: inline flex;
+  font-size: 0.875rem;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
   transition: all 0.15s ease-in-out;
-}
 
-.btn-{{name}}:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
 
-.btn-{{name}}:active {
-  transform: translateY(0);
-}
+  &:active {
+    transform: translateY(0);
+  }
 
-.btn-{{name}}:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
-.btn-{{name}}--primary {
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-}
+  &.primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+  }
 
-.btn-{{name}}--secondary {
-  background-color: transparent;
-  color: #007bff;
-  border: 1px solid #007bff;
+  &.secondary {
+    background-color: transparent;
+    border: 1px solid #007bff;
+    color: #007bff;
+  }
 }
 `,
-	// Form styles.
+	// Form styles - mix of nested CSS Modules and types
 	`/* Form: {{name}} */
 .form-{{name}} {
-  max-width: 400px;
   margin: 0 auto;
-}
+  max-inline-size: 400px;
 
-.form-{{name}} .form-group {
-  margin-bottom: 1rem;
-}
+  .form-group {
+    margin-bottom: 1rem;
 
-.form-{{name}} label {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-weight: 500;
-  color: #495057;
-}
+    label {
+      color: #495057;
+      display: block flow;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
 
-.form-{{name}} input,
-.form-{{name}} textarea,
-.form-{{name}} select {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-}
+    input,
+    textarea,
+    select {
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      color: #495057;
+      font-size: 1rem;
+      line-height: 1.5;
+      padding: 0.5rem 0.75rem;
+      width: 100%;
 
-.form-{{name}} input:focus,
-.form-{{name}} textarea:focus,
-.form-{{name}} select:focus {
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      &:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+        outline: 0;
+      }
+    }
+  }
 }
 `,
-	// Grid layout.
+	// Grid layout - unnested CSS modules
+	// repetition of classes across files
 	`/* Grid: {{name}} */
-.grid-{{name}} {
+.root {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
 }
 
-.grid-{{name}}__item {
+.item {
   background: #f8f9fa;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.grid-{{name}}__item:hover {
+.item:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
-  .grid-{{name}} {
+  .root {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 }
 `,
-	// Navigation styles.
+	// Navigation styles - Unnested BEM
 	`/* Nav: {{name}} */
 .nav-{{name}} {
   display: flex;
