@@ -11,7 +11,11 @@ import { join } from 'node:path';
 import pc from 'picocolors';
 
 import { AVAILABLE_RULES, CSS_TEMPLATES, WORKSPACE_SIZES } from './config.mjs';
-import { generateExtendedConfig, generatePlugins, generateSyntaxes } from './generatePlugins.mjs';
+import {
+	generateExtendedConfig,
+	generatePlugins,
+	generateSyntaxes,
+} from './generateExtensions.mjs';
 
 /**
  * Seeded pseudo-random number generator, using the mulberry32 algorithm.
