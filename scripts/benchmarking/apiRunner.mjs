@@ -11,7 +11,7 @@ process.send({ type: 'start' });
 const startTime = performance.now();
 
 const result = await stylelint.lint({
-	files: `${workspacePath}/src/**/*.{css,scss,less}`,
+	files: `${workspacePath}/src/**/*.{css,scss,less,html,vue}`,
 	configFile: configPath,
 	cache: false,
 });

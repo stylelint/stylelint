@@ -11,7 +11,11 @@ import { join } from 'node:path';
 import pc from 'picocolors';
 
 import { AVAILABLE_RULES, CSS_TEMPLATES, WORKSPACE_SIZES } from './config.mjs';
-import { generateExtendedConfig, generatePlugins, generateSyntaxes } from './generatePlugins.mjs';
+import {
+	generateExtendedConfig,
+	generatePlugins,
+	generateSyntaxes,
+} from './generateExtensions.mjs';
 
 /**
  * Seeded pseudo-random number generator, using the mulberry32 algorithm.
@@ -38,7 +42,7 @@ function createSeededRandom(seed) {
 const DEFAULT_SEED = 0x6c696e74; // "lint" in hex.
 
 /** Directory names used for workspace structure. */
-const DIR_NAMES = ['components', 'layouts', 'pages', 'features', 'shared', 'utils', 'styles'];
+const DIR_NAMES = ['components', 'features', 'layouts', 'pages', 'shared', 'styles', 'utils'];
 
 /** Seeded random number generator. */
 const random = createSeededRandom(DEFAULT_SEED);
@@ -49,28 +53,28 @@ const random = createSeededRandom(DEFAULT_SEED);
  * @returns {string}
  */
 function randomComponentName() {
-	const prefixes = ['app', 'ui', 'core', 'common', 'shared', 'feature', 'page', 'layout', 'widget'];
+	const prefixes = ['app', 'common', 'core', 'feature', 'layout', 'page', 'shared', 'ui', 'widget'];
 	const suffixes = [
-		'button',
-		'card',
-		'modal',
-		'form',
-		'list',
-		'table',
-		'nav',
-		'header',
-		'footer',
-		'sidebar',
-		'menu',
-		'panel',
-		'container',
-		'wrapper',
-		'section',
-		'hero',
-		'banner',
 		'alert',
 		'badge',
+		'banner',
+		'button',
+		'card',
+		'container',
+		'footer',
+		'form',
+		'header',
+		'hero',
+		'list',
+		'menu',
+		'modal',
+		'nav',
+		'panel',
+		'section',
+		'sidebar',
+		'table',
 		'tag',
+		'wrapper',
 	];
 	const prefix = prefixes[Math.floor(random() * prefixes.length)];
 	const suffix = suffixes[Math.floor(random() * suffixes.length)];
@@ -151,18 +155,27 @@ function generateConfig({
 
 	for (const rule of selectedRules) {
 		// Simple rule configuration. Most rules just need true.
-		if (rule.includes('max-') || rule.includes('min-')) {
-			config.rules[rule] = 3;
-		} else if (rule.includes('-notation')) {
-			config.rules[rule] = null; // Disable notation rules to avoid conflicts.
-		} else if (rule.includes('-list')) {
-			config.rules[rule] = null; // Disable list rules.
-		} else if (rule.includes('-quotes')) {
-			config.rules[rule] = 'always';
+
+		if (rule === 'font-family-name-quotes') {
+			config.rules[rule] = 'always-unless-keyword';
 		} else if (rule === 'color-hex-length') {
 			config.rules[rule] = 'short';
+		} else if (rule === 'declaration-property-max-values') {
+			config.rules[rule] = { margin: 2 };
+		} else if (rule === 'selector-max-specificity') {
+			config.rules[rule] = '0,1,0';
 		} else if (rule === 'value-keyword-case' || rule === 'function-name-case') {
 			config.rules[rule] = 'lower';
+		} else if (rule === 'color-hex-alpha' || rule === 'color-named' || rule.includes('-quotes')) {
+			config.rules[rule] = 'never';
+		} else if (rule.includes('-before')) {
+			config.rules[rule] = 'always';
+		} else if (rule.includes('max-') || rule.includes('min-')) {
+			config.rules[rule] = 3;
+		} else if (rule.includes('-list')) {
+			config.rules[rule] = null; // Disable list rules.
+		} else if (rule.includes('-notation')) {
+			config.rules[rule] = null; // Disable notation rules to avoid conflicts.
 		} else {
 			config.rules[rule] = true;
 		}
@@ -222,7 +235,7 @@ function generateConfig({
 				// Toggle the rule or change its value.
 				if (config.rules[rule] === true) {
 					overrideRules[rule] = null; // Disable in override.
-				} else if (config.rules[rule] === null) {
+				} else if (rule.includes('no-') && config.rules[rule] === null) {
 					overrideRules[rule] = true; // Enable in override.
 				}
 			}

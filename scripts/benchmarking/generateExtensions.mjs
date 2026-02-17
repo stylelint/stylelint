@@ -157,13 +157,13 @@ export async function generateExtendedConfig(configDir, index, ruleCount) {
 	// Add some rules from the available rules list.
 	const availableRules = [
 		'color-hex-length',
-		'length-zero-no-unit',
-		'shorthand-property-no-redundant-values',
 		'declaration-block-single-line-max-declarations',
-		'number-max-precision',
-		'value-keyword-case',
 		'function-name-case',
+		'length-zero-no-unit',
+		'number-max-precision',
 		'selector-pseudo-element-colon-notation',
+		'shorthand-property-no-redundant-values',
+		'value-keyword-case',
 	];
 
 	for (let i = 0; i < Math.min(ruleCount, availableRules.length); i++) {
