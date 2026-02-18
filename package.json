@@ -171,7 +171,6 @@
     "@jest/globals": "^30.2.0",
     "@stylelint/prettier-config": "^4.0.0",
     "@stylelint/remark-preset": "^5.1.1",
-    "@types/balanced-match": "^3.0.2",
     "@types/css-tree": "^2.3.11",
     "@types/debug": "^4.1.12",
     "@types/file-entry-cache": "^5.0.4",
