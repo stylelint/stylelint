@@ -132,7 +132,7 @@
     "@csstools/media-query-list-parser": "^5.0.0",
     "@csstools/selector-resolve-nested": "^4.0.0",
     "@csstools/selector-specificity": "^6.0.0",
-    "balanced-match": "^4.0.2",
+    "balanced-match": "^4.0.3",
     "colord": "^2.9.3",
     "cosmiconfig": "^9.0.0",
     "css-functions-list": "^3.3.3",
