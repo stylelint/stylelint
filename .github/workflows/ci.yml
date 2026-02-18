@@ -20,7 +20,7 @@ jobs:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@ce9130c0ded2a1f42fdcb64a0f1f64dd20959795 # 0.5.1
+    uses: stylelint/.github/.github/workflows/call-test.yml@60889da59f384526b8185d2aa85b35620aa6bcc0 # 0.6.0
     with:
       node-version: '["20", "22", "24"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
