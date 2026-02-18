@@ -135,7 +135,7 @@
     "balanced-match": "^3.0.1",
     "colord": "^2.9.3",
     "cosmiconfig": "^9.0.0",
-    "css-functions-list": "^3.2.3",
+    "css-functions-list": "^3.3.3",
     "css-tree": "^3.1.0",
     "debug": "^4.4.3",
     "fast-glob": "^3.3.3",
