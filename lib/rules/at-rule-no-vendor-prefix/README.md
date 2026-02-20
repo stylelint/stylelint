@@ -70,7 +70,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@-moz-document url("https://stylelint.io/") {}
+@-webkit-keyframes {}
 ```
 
 <!-- prettier-ignore -->
