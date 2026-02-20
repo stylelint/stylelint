@@ -61,7 +61,7 @@ Given:
 {
   "at-rule-no-vendor-prefix": [
     true,
-    { "ignoreAtRules": ["-moz-document", "/-viewport/i"] }
+    { "ignoreAtRules": ["-webkit-keyframes", "/-viewport/i"] }
   ]
 }
 ```
