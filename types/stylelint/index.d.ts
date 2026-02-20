@@ -494,7 +494,11 @@ declare namespace stylelint {
 			{ ignoreAtRules: OneOrMany<StringOrRegex> },
 			RejectedMessage<[atRule: string]>
 		>;
-		'at-rule-no-vendor-prefix': CoreRule<true, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreAtRules: OneOrMany<StringOrRegex> },
+			RejectedMessage<[property: string]>
+		>;
 		'at-rule-prelude-no-invalid': CoreRule<
 			true,
 			{ ignoreAtRules: OneOrMany<StringOrRegex> },
