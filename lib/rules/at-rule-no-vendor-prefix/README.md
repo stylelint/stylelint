@@ -46,3 +46,34 @@ The following patterns are _not_ considered problems:
 ```css
 @viewport { orientation: landscape; }
 ```
+
+## Optional secondary options
+
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at", "rules", "/regex/"] }
+```
+
+Given:
+
+```json
+{
+  "at-rule-no-vendor-prefix": [
+    true,
+    { "ignoreAtRules": ["-moz-document", "/-viewport/i"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@-moz-document url("https://stylelint.io/") {}
+```
+
+<!-- prettier-ignore -->
+```css
+@-webkit-viewport { orientation: landscape; }
+```
