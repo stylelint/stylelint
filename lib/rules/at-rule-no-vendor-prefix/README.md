@@ -75,5 +75,5 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@-webkit-viewport { orientation: landscape; }
+@-ms-viewport {}
 ```
