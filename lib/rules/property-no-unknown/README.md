@@ -9,7 +9,7 @@ a { height: 100%; }
  * This property */
 ```
 
-This rule considers properties defined in the [CSS Specifications and browser specific properties](https://github.com/betit/known-css-properties#source) to be known.
+This rule considers at-rules defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 This rule ignores:
 
