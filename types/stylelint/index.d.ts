@@ -770,7 +770,10 @@ declare namespace stylelint {
 			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> },
 			RejectedMessage<[name: string]>
 		>;
-		'media-feature-name-no-vendor-prefix': CoreRule<true>;
+		'media-feature-name-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> }
+		>;
 		'media-feature-name-unit-allowed-list': CoreRule<
 			Record<string, OneOrMany<string>>,
 			{},
