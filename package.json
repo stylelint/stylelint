@@ -148,7 +148,6 @@
     "import-meta-resolve": "^4.2.0",
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
-    "known-css-properties": "^0.37.0",
     "mathml-tag-names": "^4.0.0",
     "meow": "^14.0.0",
     "micromatch": "^4.0.8",
