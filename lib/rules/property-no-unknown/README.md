@@ -15,10 +15,8 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 This rule ignores:
 
-- variables (`$sass`, `@less`, `--custom-property`)
-- vendor-prefixed properties (e.g., `-moz-align-self`, `-webkit-align-self`)
-
-Use option `checkPrefixed` described below to turn on checking of vendor-prefixed properties.
+- variables, e.g., `$sass`, `@less`, `--custom-property`
+- vendor-prefixed properties, e.g., `-moz-overflow-scrolling` (unless `checkPrefixed` is set to `true`)
 
 ## Options
 
@@ -195,21 +193,7 @@ a {
 }
 ```
 
-<!-- prettier-ignore -->
-```css
-a {
-  -moz-box-flex: 0;
-}
-```
-
 The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-a {
-  -moz-align-self: center;
-}
-```
 
 <!-- prettier-ignore -->
 ```css
