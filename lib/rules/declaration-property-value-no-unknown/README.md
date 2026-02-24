@@ -122,24 +122,23 @@ a { width: --unknown-value; }
 ### `propertiesSyntax`
 
 > [!WARNING]
-> This option is **deprecated** and we will remove it in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+> We've **deprecated** this option and will remove it in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+>
+> For example:
 >
 > ```diff json
-> -{
-> -  "declaration-property-value-no-unknown": [
-> -    true,
-> -    { "propertiesSyntax": { "size": "<length-percentage>" } }
-> -  ]
-> -}
 > +{
 > +  "languageOptions": {
 > +    "syntax": {
 > +      "properties": { "size": "<length-percentage>" }
 > +    }
 > +  },
-> +  "rules": {
-> +    "declaration-property-value-no-unknown": true
-> +  }
+>   "rules": {
+>     "declaration-property-value-no-unknown": [
+>       true,
+> -     { "propertiesSyntax": { "size": "<length-percentage>" } }
+>     ]
+>   }
 > +}
 > ```
 
@@ -175,18 +174,11 @@ a { size: 10px }
 ### `typesSyntax`
 
 > [!WARNING]
-> This option is **deprecated** and we will remove it in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+> We've **deprecated** this option and will remove it in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+>
+> For example:
 >
 > ```diff json
-> -{
-> -  "declaration-property-value-no-unknown": [
-> -    true,
-> -    {
-> -      "propertiesSyntax": { "top": "| <--foo()>" },
-> -      "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
-> -    }
-> -  ]
-> -}
 > +{
 > +  "languageOptions": {
 > +    "syntax": {
@@ -194,9 +186,15 @@ a { size: 10px }
 > +      "types": { "--foo()": "--foo( <length-percentage> )" }
 > +    }
 > +  },
-> +  "rules": {
-> +    "declaration-property-value-no-unknown": true
-> +  }
+>   "rules": {
+>     "declaration-property-value-no-unknown": [
+>       true,
+>       {
+> -       "propertiesSyntax": { "top": "| <--foo()>" },
+> -       "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
+>       }
+>     ]
+>   }
 > +}
 > ```
 
