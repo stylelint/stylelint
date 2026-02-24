@@ -127,7 +127,7 @@ a { width: --unknown-value; }
 > For example:
 >
 > ```diff json
-> +{
+> {
 > +  "languageOptions": {
 > +    "syntax": {
 > +      "properties": { "size": "<length-percentage>" }
@@ -139,7 +139,7 @@ a { width: --unknown-value; }
 > -     { "propertiesSyntax": { "size": "<length-percentage>" } }
 >     ]
 >   }
-> +}
+> }
 > ```
 
 ```json
@@ -179,7 +179,7 @@ a { size: 10px }
 > For example:
 >
 > ```diff json
-> +{
+> {
 > +  "languageOptions": {
 > +    "syntax": {
 > +      "properties": { "top": "| <--foo()>" },
@@ -189,13 +189,13 @@ a { size: 10px }
 >   "rules": {
 >     "declaration-property-value-no-unknown": [
 >       true,
->       {
+> -     {
 > -       "propertiesSyntax": { "top": "| <--foo()>" },
 > -       "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
->       }
+> -     }
 >     ]
 >   }
-> +}
+> }
 > ```
 
 ```json
