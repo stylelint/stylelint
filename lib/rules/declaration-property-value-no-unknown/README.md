@@ -122,7 +122,7 @@ a { width: --unknown-value; }
 ### `propertiesSyntax`
 
 > [!WARNING]
-> We've **deprecated** this option and will remove it in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
 >
 > For example:
 >
@@ -174,7 +174,7 @@ a { size: 10px }
 ### `typesSyntax`
 
 > [!WARNING]
-> We've **deprecated** this option and will remove it in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
 >
 > For example:
 >
