@@ -1,5 +1,16 @@
 # Changelog
 
+## 17.4.0 - 2026-02-25
+
+- Added: `ignoreAtRules: []` to `at-rule-no-vendor-prefix` ([#9096](https://github.com/stylelint/stylelint/pull/9096)) ([@theacrat](https://github.com/theacrat)).
+- Added: `ignoreMediaFeatureNames: []` to `media-feature-name-no-vendor-prefix` ([#9097](https://github.com/stylelint/stylelint/pull/9097)) ([@theacrat](https://github.com/theacrat)).
+- Fixed: `*-empty-line-before` performance ([#9092](https://github.com/stylelint/stylelint/pull/9092)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` performance ([#9090](https://github.com/stylelint/stylelint/pull/9090)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `no-irregular-whitespace` performance ([#9091](https://github.com/stylelint/stylelint/pull/9091)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false negatives for at-rule descriptors ([#9109](https://github.com/stylelint/stylelint/pull/9109)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false positives for `corner-shape` ([#9099](https://github.com/stylelint/stylelint/pull/9099)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: performance of selector cloning rules ([#9089](https://github.com/stylelint/stylelint/pull/9089)) ([@jeddy3](https://github.com/jeddy3)).
+
 ## 17.3.0 - 2026-02-13
 
 It fixes 17 bugs. 3 related to supporting `calc()` in `declaration-property-value-no-unknown`, and 13 performance ones that make Stylelint a further 3x faster when using the rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
