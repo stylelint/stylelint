@@ -10,6 +10,7 @@
 - Fixed: `no-irregular-whitespace` performance ([#9091](https://github.com/stylelint/stylelint/pull/9091)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `property-no-unknown` false negatives for at-rule descriptors ([#9109](https://github.com/stylelint/stylelint/pull/9109)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `property-no-unknown` false positives for `corner-shape` ([#9099](https://github.com/stylelint/stylelint/pull/9099)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false positives for double-slashed properties ([#9099](https://github.com/stylelint/stylelint/pull/9099)) ([@jeddy3](https://github.com/jeddy3)).
 
 ## 17.3.0 - 2026-02-13
 
