@@ -51,3 +51,34 @@ The following patterns are _not_ considered problems:
 ```css
 @media (max-resolution: 900dpi) {}
 ```
+
+## Optional secondary options
+
+### `ignoreMediaFeatureNames`
+
+```json
+{ "ignoreMediaFeatureNames": ["array", "of", "feature", "names", "/regex/"] }
+```
+
+Given:
+
+```json
+{
+  "media-feature-name-no-vendor-prefix": [
+    true,
+    { "ignoreProperties": ["-webkit-min-device-pixel-ratio", "/^-o/"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@media (-webkit-min-device-pixel-ratio: 1) {}
+```
+
+<!-- prettier-ignore -->
+```css
+@media (-o-device-pixel-ratio > 1) {}
+```
