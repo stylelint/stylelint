@@ -52,7 +52,7 @@ You can write code to:
 
 ### Format code
 
-We use [Prettier](https://prettier.io/) (with [a Husky and lint-staged precommit](https://prettier.io/docs/en/precommit.html)) to format your code automatically.
+We use [Prettier](https://prettier.io/) (with [a lint-staged precommit](https://github.com/lint-staged/lint-staged#readme)) to format your code automatically.
 
 Alternatively, you can:
 
