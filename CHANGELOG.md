@@ -2,6 +2,8 @@
 
 ## 17.4.0 - 2026-02-25
 
+It adds 2 options to the rules and fixes 7 bugs.
+
 - Added: `ignoreAtRules: []` to `at-rule-no-vendor-prefix` ([#9096](https://github.com/stylelint/stylelint/pull/9096)) ([@theacrat](https://github.com/theacrat)).
 - Added: `ignoreMediaFeatureNames: []` to `media-feature-name-no-vendor-prefix` ([#9097](https://github.com/stylelint/stylelint/pull/9097)) ([@theacrat](https://github.com/theacrat)).
 - Fixed: performance of selector cloning rules ([#9089](https://github.com/stylelint/stylelint/pull/9089)) ([@jeddy3](https://github.com/jeddy3)).
