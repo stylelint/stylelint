@@ -786,7 +786,9 @@ declare namespace stylelint {
 		>;
 		'media-feature-name-value-no-unknown': CoreRule<
 			true,
-			{},
+			{
+				ignoreMediaFeatureNameValues: Record<string, OneOrMany<string | RegExp>>;
+			},
 			RejectedMessage<[name: string, value: string]>
 		>;
 		'media-feature-range-notation': NotationRule<
