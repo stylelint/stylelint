@@ -39,6 +39,7 @@ You should use:
 - `{}` for empty rules, rather than `{ }`
 - trailing semicolons within declaration blocks
 - _foo_, _bar_, _baz_ and _qux_ for names, e.g. `.foo`, `#bar`, `--baz` and `/* qux */`
+- dashed-idents for custom things especially in `ignore*` options, e.g. `ignoreUnits: ["--foo"]`
 
 By default, you should use the:
 
