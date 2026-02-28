@@ -1,5 +1,5 @@
 import type * as PostCSS from 'postcss';
-import type { Options as GlobbyOptions } from 'globby';
+import type { GlobOptions as GlobbyOptions } from 'tinyglobby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 import type { Lexer as CSSTreeLexer } from 'css-tree';
 
