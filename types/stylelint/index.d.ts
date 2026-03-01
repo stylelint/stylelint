@@ -494,7 +494,11 @@ declare namespace stylelint {
 			{ ignoreAtRules: OneOrMany<StringOrRegex> },
 			RejectedMessage<[atRule: string]>
 		>;
-		'at-rule-no-vendor-prefix': CoreRule<true, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreAtRules: OneOrMany<StringOrRegex> },
+			RejectedMessage<[property: string]>
+		>;
 		'at-rule-prelude-no-invalid': CoreRule<
 			true,
 			{ ignoreAtRules: OneOrMany<StringOrRegex> },
@@ -766,7 +770,10 @@ declare namespace stylelint {
 			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> },
 			RejectedMessage<[name: string]>
 		>;
-		'media-feature-name-no-vendor-prefix': CoreRule<true>;
+		'media-feature-name-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> }
+		>;
 		'media-feature-name-unit-allowed-list': CoreRule<
 			Record<string, OneOrMany<string>>,
 			{},
