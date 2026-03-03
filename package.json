@@ -60,7 +60,7 @@
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
-    "prepare": "git config core.hooksPath .githooks || true",
+    "prepare": "git config set --local core.hooksPath .githooks || true",
     "postprepare": "patch-package",
     "pretest": "npm run lint",
     "test": "npm-run-all --sequential test-jest test-node",
