@@ -39,6 +39,7 @@ You should use:
 - `{}` for empty rules, rather than `{ }`
 - trailing semicolons within declaration blocks
 - _foo_, _bar_, _baz_ and _qux_ for names, e.g. `.foo`, `#bar`, `--baz` and `/* qux */`
+- dashed-idents for custom things especially in `ignore*` options, e.g. `ignoreUnits: ["--foo"]`
 
 By default, you should use the:
 
@@ -437,9 +438,9 @@ The final step is to add references to the new rule in the following places:
 You should:
 
 1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
-2. Add new unit tests to test the option.
+2. Add the fewest tests, following [our conventions](#write-tests), to test the option.
 3. Change the rule's validation to allow for the new option.
-4. Add (as little as possible) logic to the rule to make the tests pass.
+4. Add (as little as possible) logic to the rule, following [our conventions](#write-the-rule), to make the tests pass.
 5. Add documentation about the new option.
 6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts).
 
@@ -448,8 +449,8 @@ You should:
 You should:
 
 1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
-2. Write failing unit tests that exemplify the bug.
-3. Fiddle with the rule until those new tests pass.
+2. Add the fewest failing tests, following [our conventions](#write-tests), that exemplify the bug.
+3. Add (as little as possible) logic to the rule, following [our conventions](#write-the-rule), to make the tests pass.
 
 ## Deprecate a rule
 
