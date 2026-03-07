@@ -52,7 +52,7 @@ You can write code to:
 
 ### Format code
 
-We use [Prettier](https://prettier.io/) (with [a Husky and lint-staged precommit](https://prettier.io/docs/en/precommit.html)) to format your code automatically.
+We use [Prettier](https://prettier.io/) (with [a lint-staged precommit](https://github.com/lint-staged/lint-staged#readme)) to format your code automatically.
 
 Alternatively, you can:
 
@@ -63,7 +63,19 @@ Alternatively, you can:
 
 When you have something to share, it's time to [open a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
-We'll review your pull request and give you feedback. Please don't force-push after the review has started to help us keep track of changes. Once it's ready, we'll squash the commits and merge it.
+We'll review your pull request and give you feedback.
+
+You should:
+
+- give your pull request the same title as the corresponding issue because it becomes the commit message when we squash and merge
+- [apply any suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request#applying-suggested-changes) (either individually or as a batch), rather than push your own commits, so that GitHub automatically resolves the corresponding note
+
+And please don't:
+
+- force-push after the review has started to help us keep track of changes
+- request a review from an individual member, as any member can review the pull request when they have time
+
+Once it's ready, we'll squash the commits and merge it.
 
 ## Financial contributions
 
