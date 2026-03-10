@@ -161,7 +161,8 @@
     "supports-hyperlinks": "^4.4.0",
     "svg-tags": "^1.0.0",
     "table": "^6.9.0",
-    "write-file-atomic": "^7.0.0"
+    "write-file-atomic": "^7.0.0",
+    "@types/css-tree": "^2.3.11"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
@@ -169,7 +170,6 @@
     "@jest/globals": "^30.2.0",
     "@stylelint/prettier-config": "^4.0.0",
     "@stylelint/remark-preset": "^5.1.1",
-    "@types/css-tree": "^2.3.11",
     "@types/debug": "^4.1.12",
     "@types/global-modules": "^2.0.2",
     "@types/globjoin": "^0.1.2",
