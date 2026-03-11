@@ -11,11 +11,13 @@ Disallow unknown values for media features.
 
 This rule considers values for media features defined within the CSS specifications to be known.
 
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
+> [!WARNING]
+> This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-It sometimes overlaps with:
-
-- [`unit-no-unknown`](../unit-no-unknown/README.md)
+> [!NOTE]
+> When using this rule, we recommend turning off these overlapping rules or configuring them to ignore the overlaps:
+>
+> - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
 If duplicate problems are flagged, you can turn off the corresponding rule.
 

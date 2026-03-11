@@ -4,7 +4,13 @@ import stylelintJestConfig from 'eslint-config-stylelint/jest';
 
 export default [
 	{
-		ignores: ['.coverage/**', 'tmp/**'],
+		ignores: [
+			'.coverage/**',
+			'tmp/**',
+			'**/.pnp.*',
+			'**/.yarn/**',
+			'scripts/benchmarking/.workspaces/**',
+		],
 	},
 	...stylelintConfig,
 	...stylelintJestConfig,
@@ -28,6 +34,12 @@ export default [
 			'jest/expect-expect': [
 				'error',
 				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
+			],
+
+			// TODO: Remove this config after dropping the Node.js 20 support, since newer versions support them officially.
+			'n/no-unsupported-features/node-builtins': [
+				'error',
+				{ ignores: ['import.meta.dirname', 'import.meta.filename'] },
 			],
 		},
 	},

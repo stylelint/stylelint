@@ -15,12 +15,12 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/call-lint.yml@ce9130c0ded2a1f42fdcb64a0f1f64dd20959795 # 0.5.1
+    uses: stylelint/.github/.github/workflows/call-lint.yml@60889da59f384526b8185d2aa85b35620aa6bcc0 # 0.6.0
     permissions:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@ce9130c0ded2a1f42fdcb64a0f1f64dd20959795 # 0.5.1
+    uses: stylelint/.github/.github/workflows/call-test.yml@60889da59f384526b8185d2aa85b35620aa6bcc0 # 0.6.0
     with:
       node-version: '["20", "22", "24"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
@@ -60,8 +60,18 @@ jobs:
           files: ./.coverage/lcov.info
           fail_ci_if_error: true
 
+      # This test is only enabled when the relevant environment variable is set,
+      # so it is run here, separately from the main test matrix.
+      - name: Run test for Yarn PnP
+        run: |
+          npm install --global corepack
+          npm run test-node
+        env:
+          STYLELINT_TEST_YARN_PNP: 'true'
+          YARN_ENABLE_HARDENED_MODE: 0 # https://yarnpkg.com/features/security#hardened-mode
+
   spellcheck:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     timeout-minutes: 30
     steps:
       - name: Checkout

@@ -46,3 +46,34 @@ The following patterns are _not_ considered problems:
 ```css
 @viewport { orientation: landscape; }
 ```
+
+## Optional secondary options
+
+### `ignoreAtRules`
+
+```json
+{ "ignoreAtRules": ["array", "of", "at", "rules", "/regex/"] }
+```
+
+Given:
+
+```json
+{
+  "at-rule-no-vendor-prefix": [
+    true,
+    { "ignoreAtRules": ["-webkit-keyframes", "/-viewport/i"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@-webkit-keyframes {}
+```
+
+<!-- prettier-ignore -->
+```css
+@-ms-viewport {}
+```

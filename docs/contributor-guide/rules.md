@@ -39,6 +39,7 @@ You should use:
 - `{}` for empty rules, rather than `{ }`
 - trailing semicolons within declaration blocks
 - _foo_, _bar_, _baz_ and _qux_ for names, e.g. `.foo`, `#bar`, `--baz` and `/* qux */`
+- dashed-idents for custom things especially in `ignore*` options, e.g. `ignoreUnits: ["--foo"]`
 
 By default, you should use the:
 
@@ -287,7 +288,7 @@ const meta = {
 };
 ```
 
-Pass `fix` callback to the [`report` utility](./plugins.md#stylelintutilsreport):
+Pass `fix` callback to the [`report` utility](../developer-guide/plugins.md#stylelintutilsreport):
 
 ```diff js
 function rule(primary, secondary) {
@@ -357,6 +358,31 @@ function rule(primary, secondary, context) {
 }
 ```
 
+### Optimise the rule
+
+Use the `regexes` utility as early as possible to avoid unnecessary work. For example, in the `walk*` call for at-rules names, rule selectors, and declaration properties:
+
+<!-- prettier-ignore -->
+```js
+root.walkAtRules(atRuleRegexes.mediaName, (atRule) => { /* .. */ });
+root.walkRules(mayIncludeRegexes.classSelector, (rule) => { /* .. */ });
+root.walkDecls(propertyRegexes.gridAreaNames, (decl) => { /* .. */ });
+```
+
+And as the first conditional for at-rule preludes (params) and declarations values. For example:
+
+```js
+root.walkAtRules((atRule) => {
+  if (!mayIncludeRegexes.dimension.test(atRule.params)) return;
+});
+
+root.walkDecls((decl) => {
+  if (!mayIncludeRegexes.dimension.test(decl.value)) return;
+});
+```
+
+You can [benchmark the rule](./benchmarks.md#rule-benchmarking) to ensure its performance is compareable to that of a similar rule.
+
 ### Write the README
 
 Each rule is accompanied by a README in the following format:
@@ -412,9 +438,9 @@ The final step is to add references to the new rule in the following places:
 You should:
 
 1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
-2. Add new unit tests to test the option.
+2. Add the fewest tests, following [our conventions](#write-tests), to test the option.
 3. Change the rule's validation to allow for the new option.
-4. Add (as little as possible) logic to the rule to make the tests pass.
+4. Add (as little as possible) logic to the rule, following [our conventions](#write-the-rule), to make the tests pass.
 5. Add documentation about the new option.
 6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts).
 
@@ -423,8 +449,8 @@ You should:
 You should:
 
 1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
-2. Write failing unit tests that exemplify the bug.
-3. Fiddle with the rule until those new tests pass.
+2. Add the fewest failing tests, following [our conventions](#write-tests), that exemplify the bug.
+3. Add (as little as possible) logic to the rule, following [our conventions](#write-the-rule), to make the tests pass.
 
 ## Deprecate a rule
 
@@ -446,45 +472,3 @@ result.warn(
   }
 );
 ```
-
-## Improve the performance of a rule
-
-You can run a benchmark on any given rule with any valid config using:
-
-```shell
-npm run benchmark-rule -- ruleName ruleOptions [config]
-```
-
-If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
-
-```shell
-npm run benchmark-rule -- value-keyword-case lower
-```
-
-```shell
-npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
-```
-
-If the `config` argument is specified, the same procedure would apply:
-
-```shell
-npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'
-```
-
-The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.
-
-It will end up printing some simple stats like this:
-
-```shell
-Warnings: 1441
-Mean: 74.17598357142856 ms
-Deviation: 16.63969674310928 ms
-```
-
-When writing new rules or refactoring existing rules, use these measurements to determine the efficiency of your code.
-
-A Stylelint rule can repeat its core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
-
-**Improving the performance of a rule is a great way to contribute if you want a quick little project.** Try picking a rule and seeing if there's anything you can do to speed it up.
-
-Make sure you include benchmark measurements in your pull request!

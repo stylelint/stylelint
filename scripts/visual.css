@@ -1,9 +1,0 @@
-@import url("foo.css");
-
-.foo {
-  color:#4f;
-}
-.foo.bar {
-  top: 10px;
-  --CustomProperty: 1;
-}

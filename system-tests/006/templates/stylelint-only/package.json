@@ -1,0 +1,9 @@
+{
+  "name": "stylelint-test-yarn-pnp-stylelint-only",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "stylelint": "file:../stylelint.tgz"
+  },
+  "packageManager": "yarn@4.12.0"
+}
