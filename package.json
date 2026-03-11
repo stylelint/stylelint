@@ -133,7 +133,7 @@
     "@csstools/selector-resolve-nested": "^4.0.0",
     "@csstools/selector-specificity": "^6.0.0",
     "colord": "^2.9.3",
-    "cosmiconfig": "^9.0.0",
+    "cosmiconfig": "^9.0.1",
     "css-functions-list": "^3.3.3",
     "css-tree": "^3.1.0",
     "debug": "^4.4.3",
