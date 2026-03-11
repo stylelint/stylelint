@@ -77,7 +77,7 @@ And please don't:
 
 - force-push after the review has started to help us keep track of changes
 - request a review from an individual member, as any member can review the pull request when they have time
-- use a LLM to answer review comments, as it's not respectful of the reviewer's time
+- - use a LLM to answer review comments unless purely to translate from your own language, as it's not respectful of the reviewer's time
 
 Once it's ready, we'll squash the commits and merge it.
 
