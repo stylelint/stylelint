@@ -10,6 +10,7 @@
 		"allowUnreachableCode": false,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitReturns": false,
+		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noUncheckedIndexedAccess": true,
 		"resolveJsonModule": true,

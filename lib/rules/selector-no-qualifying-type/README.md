@@ -13,7 +13,8 @@ A type selector is "qualifying" when it is compounded with (chained to) another 
 
 This rule resolves nested selectors according the [CSS Nesting specification](https://drafts.csswg.org/css-nesting/).
 
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
+> [!WARNING]
+> This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 ## Options
 

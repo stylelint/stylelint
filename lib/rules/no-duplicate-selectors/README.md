@@ -28,7 +28,8 @@ This rule resolves nested selectors according to the [CSS Nesting specification]
 a, b { & c {} } /* with nesting */
 ```
 
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
+> [!WARNING]
+> This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
 ## Options
 

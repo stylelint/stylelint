@@ -1,5 +1,53 @@
 # Changelog
 
+## 17.4.0 - 2026-02-25
+
+It adds 2 options to the rules and fixes 7 bugs.
+
+- Added: `ignoreAtRules: []` to `at-rule-no-vendor-prefix` ([#9096](https://github.com/stylelint/stylelint/pull/9096)) ([@theacrat](https://github.com/theacrat)).
+- Added: `ignoreMediaFeatureNames: []` to `media-feature-name-no-vendor-prefix` ([#9097](https://github.com/stylelint/stylelint/pull/9097)) ([@theacrat](https://github.com/theacrat)).
+- Fixed: performance of selector cloning rules ([#9089](https://github.com/stylelint/stylelint/pull/9089)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `*-empty-line-before` performance ([#9092](https://github.com/stylelint/stylelint/pull/9092)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` performance ([#9090](https://github.com/stylelint/stylelint/pull/9090)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `no-irregular-whitespace` performance ([#9091](https://github.com/stylelint/stylelint/pull/9091)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false negatives for at-rule descriptors ([#9109](https://github.com/stylelint/stylelint/pull/9109)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false positives for `corner-shape` ([#9099](https://github.com/stylelint/stylelint/pull/9099)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false positives for double-slashed properties ([#9099](https://github.com/stylelint/stylelint/pull/9099)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 17.3.0 - 2026-02-13
+
+It fixes 17 bugs. 3 related to supporting `calc()` in `declaration-property-value-no-unknown`, and 13 performance ones that make Stylelint a further 3x faster when using the rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+- Fixed: performance of rule sequencing ([#9055](https://github.com/stylelint/stylelint/pull/9055)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `*-list` performance ([#9056](https://github.com/stylelint/stylelint/pull/9056)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `*-notation` performance ([#9044](https://github.com/stylelint/stylelint/pull/9044)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-max-values` performance ([#9057](https://github.com/stylelint/stylelint/pull/9057)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` performance ([#9058](https://github.com/stylelint/stylelint/pull/9058)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for math functions inside of non-math functions ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `calc()` with mixed operations ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` performance ([#9062](https://github.com/stylelint/stylelint/pull/9062)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` reported ranges for multiple math functions ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `length-zero-no-unit` performance ([#9046](https://github.com/stylelint/stylelint/pull/9046)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `named-grid-areas-no-invalid` false positives for mix of tabs and spaces ([#9039](https://github.com/stylelint/stylelint/pull/9039)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `no-unknown-custom-media` performance ([#9059](https://github.com/stylelint/stylelint/pull/9059)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-max-*` performance ([#9042](https://github.com/stylelint/stylelint/pull/9042)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `shorthand-property-no-redundant-values` performance ([#9047](https://github.com/stylelint/stylelint/pull/9047)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `syntax-string-no-invalid` performance ([#9061](https://github.com/stylelint/stylelint/pull/9061)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `time-min-milliseconds` performance ([#9060](https://github.com/stylelint/stylelint/pull/9060)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `value-keyword-case` performance ([#9048](https://github.com/stylelint/stylelint/pull/9048)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 17.2.0 - 2026-02-10
+
+It fixes 7 bugs, including 5 performance ones that make Stylelint 7x faster and use 3x less memory on larger codebases such as design systems and monorepos. We also restructured our docs to create a [contributor guide](CONTRIBUTING.md). If you'd like to help out and contribute to Stylelint, that's the place to start.
+
+- Fixed: performance of config augmentation and module imports ([#9021](https://github.com/stylelint/stylelint/pull/9021)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of config override matching ([#9023](https://github.com/stylelint/stylelint/pull/9023)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of config resolution ([#9033](https://github.com/stylelint/stylelint/pull/9033)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of rule resolution ([#9022](https://github.com/stylelint/stylelint/pull/9022)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for math functions ([#9011](https://github.com/stylelint/stylelint/pull/9011)) ([@ragini-pandey](https://github.com/ragini-pandey)).
+- Fixed: `no-duplicate-selectors` false negatives for matching escaped selectors ([#8953](https://github.com/stylelint/stylelint/pull/8953)) ([@bjnewman](https://github.com/bjnewman)).
+- Fixed: `no-invalid-position-at-import-rule` false negatives for layers with blocks ([#9026](https://github.com/stylelint/stylelint/pull/9026)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 17.1.1 - 2026-02-03
 
 It fixes 2 bugs.

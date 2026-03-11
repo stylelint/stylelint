@@ -295,6 +295,10 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
+
+		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
+		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
+		lexer: unknown;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
@@ -369,8 +373,6 @@ declare namespace stylelint {
 		configurationComment?: string | undefined;
 		fix?: boolean | undefined;
 		newline?: string | undefined;
-		/** @internal */
-		lexer?: unknown | undefined;
 	};
 
 	/** @internal */
@@ -494,7 +496,11 @@ declare namespace stylelint {
 			{ ignoreAtRules: OneOrMany<StringOrRegex> },
 			RejectedMessage<[atRule: string]>
 		>;
-		'at-rule-no-vendor-prefix': CoreRule<true, {}, RejectedMessage<[atRule: string]>>;
+		'at-rule-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreAtRules: OneOrMany<StringOrRegex> },
+			RejectedMessage<[property: string]>
+		>;
 		'at-rule-prelude-no-invalid': CoreRule<
 			true,
 			{ ignoreAtRules: OneOrMany<StringOrRegex> },
@@ -655,6 +661,7 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[property: string, value: string]> & {
 				rejectedParseError: (property: string, value: string) => string;
+				rejectedMath: (property: string, expression: string) => string;
 			}
 		>;
 		'font-family-name-quotes': CoreRule<
@@ -765,7 +772,10 @@ declare namespace stylelint {
 			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> },
 			RejectedMessage<[name: string]>
 		>;
-		'media-feature-name-no-vendor-prefix': CoreRule<true>;
+		'media-feature-name-no-vendor-prefix': CoreRule<
+			true,
+			{ ignoreMediaFeatureNames: OneOrMany<StringOrRegex> }
+		>;
 		'media-feature-name-unit-allowed-list': CoreRule<
 			Record<string, OneOrMany<string>>,
 			{},
@@ -1485,9 +1495,21 @@ declare namespace stylelint {
 	export type InternalApi = {
 		_options: LinterOptions & { cwd: string };
 		_extendExplorer: ReturnType<typeof cosmiconfig>;
+		_configExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
+		_augmentedConfigCache: Map<string, CosmiconfigResult>;
 		_postcssResultCache: Map<string, PostCSS.Result>;
+		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
+	};
+
+	/**
+	 * Pre-compiled override matcher for efficient reuse.
+	 * @internal
+	 */
+	export type CompiledOverride = {
+		configOverrides: Omit<ConfigOverride, 'files'>;
+		matches: (filePath: string) => boolean;
 	};
 
 	/** @internal */
