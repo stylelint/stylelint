@@ -72,9 +72,8 @@ The following patterns are _not_ considered problems:
 }
 ```
 
-Ignore the specified media feature name and value pairs. Keys in the object indicate media feature names.
-
-`media-feature-name` must be a valid media feature name.
+Ignore the specified media feature name and value pairs. Keys in the object indicate media feature names. You can
+specify a regex for a media feature name, such as `{ "/^color/": [] }`.
 
 Given:
 
@@ -84,7 +83,7 @@ Given:
     true,
     {
       "ignoreMediaFeatureNameValues": {
-        "color": ["/^my-/", "custom"]
+        "/^color/": ["--foo", "/^--bar/"]
       }
     }
   ]
@@ -95,10 +94,10 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (color: my-feature) {}
+@media (color: --foo) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (color: custom) {}
+@media (color-gamut: --bar-baz) {}
 ```
