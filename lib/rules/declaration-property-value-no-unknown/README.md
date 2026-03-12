@@ -122,7 +122,25 @@ a { width: --unknown-value; }
 ### `propertiesSyntax`
 
 > [!WARNING]
-> We will remove this option in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+>
+> For example:
+>
+> ```diff json
+> {
+> +  "languageOptions": {
+> +    "syntax": {
+> +      "properties": { "size": "<length-percentage>" }
+> +    }
+> +  },
+>   "rules": {
+>     "declaration-property-value-no-unknown": [
+>       true,
+> -     { "propertiesSyntax": { "size": "<length-percentage>" } }
+>     ]
+>   }
+> }
+> ```
 
 ```json
 { "propertiesSyntax": { "property": "syntax" } }
@@ -156,7 +174,29 @@ a { size: 10px }
 ### `typesSyntax`
 
 > [!WARNING]
-> We will remove this option in the next major release. Use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+>
+> For example:
+>
+> ```diff json
+> {
+> +  "languageOptions": {
+> +    "syntax": {
+> +      "properties": { "top": "| <--foo()>" },
+> +      "types": { "--foo()": "--foo( <length-percentage> )" }
+> +    }
+> +  },
+>   "rules": {
+>     "declaration-property-value-no-unknown": [
+>       true,
+> -     {
+> -       "propertiesSyntax": { "top": "| <--foo()>" },
+> -       "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
+> -     }
+>     ]
+>   }
+> }
+> ```
 
 ```json
 { "typesSyntax": { "type": "syntax" } }
