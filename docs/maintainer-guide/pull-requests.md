@@ -17,7 +17,7 @@ You should not use any:
 - other labels
 - milestones
 
-You can use the `pr: low-quality` label to trigger an automated comment and closing process.
+You can use the `pr: low quality` label to trigger an automated comment and closing process.
 
 ## Titles
 
