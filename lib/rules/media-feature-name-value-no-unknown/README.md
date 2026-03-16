@@ -72,8 +72,7 @@ The following patterns are _not_ considered problems:
 }
 ```
 
-Ignore the specified media feature name and value pairs. Keys in the object indicate media feature names. You can
-specify a regex for a media feature name, such as `{ "/^color/": [] }`.
+Ignore the specified media feature name and value pairs. You can specify a regex for a media feature name, such as `{ "/^color/": [] }`.
 
 Given:
 
