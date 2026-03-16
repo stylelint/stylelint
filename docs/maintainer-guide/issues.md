@@ -53,7 +53,7 @@ You can:
 
 ## Hiding comments
 
-You can hide comments that are off-topic, unhelpful or low-quality so that the discussion remains easy to read.
+You can [hide comments](https://docs.github.com/en/communities/moderating-comments-and-conversations/managing-disruptive-comments) that are off-topic, unhelpful or low-quality so that the discussion remains easy to read.
 
 ## Saved replies
 
