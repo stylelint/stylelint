@@ -52,6 +52,8 @@ You can write code to:
 
 If you plan to use a LLM to help you write the code, you can generate a local [instructions file](https://agents.md/) by pointing it at the codebase, especially the `docs` directory, and then [locally git ignoring](https://docs.github.com/en/get-started/git-basics/ignoring-files#excluding-local-files-without-creating-a-gitignore-file) the file.
 
+You should not use a LLM to fix issues labeled "[good first issue](https://github.com/stylelint/stylelint/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22)" as these intended to be learning opportunities for new contributors.
+
 ### Format code
 
 We use [Prettier](https://prettier.io/) (with [a lint-staged precommit](https://github.com/lint-staged/lint-staged#readme)) to format your code automatically.
