@@ -51,6 +51,10 @@ You can:
 - assign yourself to an issue, but not other people without their permission
 - unassign others after asking if they are still working on an issue
 
+## Hiding comments
+
+You can [hide comments](https://docs.github.com/en/communities/moderating-comments-and-conversations/managing-disruptive-comments) that are off-topic, unhelpful or low-quality so that the discussion remains easy to read.
+
 ## Saved replies
 
 You should use [saved replies](https://help.github.com/en/github/writing-on-github/working-with-saved-replies).
