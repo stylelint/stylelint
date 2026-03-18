@@ -62,7 +62,7 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-#### `ignoreMediaFeatureNameValues`
+### `ignoreMediaFeatureNameValues`
 
 ```json
 {
