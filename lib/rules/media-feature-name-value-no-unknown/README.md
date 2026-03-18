@@ -60,7 +60,7 @@ The following patterns are _not_ considered problems:
 @media (width: 10px) { top: 1px; }
 ```
 
-### Optional secondary options
+## Optional secondary options
 
 #### `ignoreMediaFeatureNameValues`
 
