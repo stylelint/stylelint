@@ -2,14 +2,16 @@
 
 ## 17.5.0 - 2026-03-19
 
+It deprecates two rule options, adds 1 rule option and fixes 8 bugs. We've also released [`2.1.0`](https://github.com/stylelint/vscode-stylelint/releases/tag/2.1.0) of [our VS Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), which adds 8 new requested features, and our [first release](https://www.npmjs.com/package/@stylelint/language-server) of the Stylelint Language Server. 
+
 - Deprecated: `*syntax` options from `declaration-property-value-no-unknown` ([#9102](https://github.com/stylelint/stylelint/pull/9102)) ([@ragini-pandey](https://github.com/ragini-pandey)).
 - Added: `ignoreMediaFeatureNameValues: {}` to `media-feature-name-value-no-unknown` ([#8976](https://github.com/stylelint/stylelint/pull/8976)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `node_modules` not ignored when using `codeFilename` in Node.js API ([#9130](https://github.com/stylelint/stylelint/pull/9130)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `Error TS7016` for imported `css-tree` types ([#9133](https://github.com/stylelint/stylelint/pull/9133)) ([@ragini-pandey](https://github.com/ragini-pandey)).
 - Fixed: `declaration-property-value-keyword-no-deprecated` false positives for function arguments ([#9116](https://github.com/stylelint/stylelint/pull/9116)) ([@ragini-pandey](https://github.com/ragini-pandey)).
 - Fixed: `declaration-property-value-no-unknown` false positives for `calc-size()` containing `size` keyword ([#9105](https://github.com/stylelint/stylelint/pull/9105)) ([@hriztam](https://github.com/hriztam)).
-- Fixed: `Error TS7016` for imported `css-tree` types ([#9133](https://github.com/stylelint/stylelint/pull/9133)) ([@ragini-pandey](https://github.com/ragini-pandey)).
 - Fixed: `no-descending-specificity` & `no-duplicate-selectors` false negatives for equivalent compound selectors ([#8977](https://github.com/stylelint/stylelint/pull/8977)) ([@kovsu](https://github.com/kovsu)).
 - Fixed: `no-invalid-position-declaration` false positives for `@mixin` and `@scope` ([#9120](https://github.com/stylelint/stylelint/pull/9120)) ([@ragini-pandey](https://github.com/ragini-pandey)).
-- Fixed: `node_modules` not ignored when using `codeFilename` in Node.js API ([#9130](https://github.com/stylelint/stylelint/pull/9130)) ([@adalinesimonian](https://github.com/adalinesimonian)).
 - Fixed: `property-no-unknown` false negatives for `types` ([#9117](https://github.com/stylelint/stylelint/pull/9117)) ([@Mouvedia](https://github.com/Mouvedia)).
 
 ## 17.4.0 - 2026-02-25
