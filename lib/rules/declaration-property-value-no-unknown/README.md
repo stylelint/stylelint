@@ -128,11 +128,11 @@ a { width: --unknown-value; }
 >
 > ```diff json
 > {
-> +  "languageOptions": {
-> +    "syntax": {
-> +      "properties": { "size": "<length-percentage>" }
-> +    }
-> +  },
+> + "languageOptions": {
+> +   "syntax": {
+> +     "properties": { "size": "<length-percentage>" }
+> +   }
+> + },
 >   "rules": {
 >     "declaration-property-value-no-unknown": [
 >       true,
