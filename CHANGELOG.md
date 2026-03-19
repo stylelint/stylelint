@@ -2,7 +2,7 @@
 
 ## 17.5.0 - 2026-03-19
 
-It deprecates two rule options, adds 1 rule option and fixes 8 bugs. We've also released [`2.1.0`](https://github.com/stylelint/vscode-stylelint/releases/tag/2.1.0) of [our VS Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), which adds 8 new requested features, and our [first release](https://www.npmjs.com/package/@stylelint/language-server) of the Stylelint Language Server.
+It deprecates two rule options, adds 1 rule option and fixes 7 bugs. We've also released [`2.1.0`](https://github.com/stylelint/vscode-stylelint/releases/tag/2.1.0) of [our VS Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), which adds 8 new requested features, and our [first release](https://www.npmjs.com/package/@stylelint/language-server) of the Stylelint Language Server.
 
 - Deprecated: `*syntax` options from `declaration-property-value-no-unknown` ([#9102](https://github.com/stylelint/stylelint/pull/9102)) ([@ragini-pandey](https://github.com/ragini-pandey)).
 - Added: `ignoreMediaFeatureNameValues: {}` to `media-feature-name-value-no-unknown` ([#8976](https://github.com/stylelint/stylelint/pull/8976)) ([@kovsu](https://github.com/kovsu)).
