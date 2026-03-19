@@ -180,12 +180,12 @@ a { size: 10px }
 >
 > ```diff json
 > {
-> +  "languageOptions": {
-> +    "syntax": {
-> +      "properties": { "top": "| <--foo()>" },
-> +      "types": { "--foo()": "--foo( <length-percentage> )" }
-> +    }
-> +  },
+> + "languageOptions": {
+> +   "syntax": {
+> +     "properties": { "top": "| <--foo()>" },
+> +     "types": { "--foo()": "--foo( <length-percentage> )" }
+> +   }
+> + },
 >   "rules": {
 >     "declaration-property-value-no-unknown": [
 >       true,
