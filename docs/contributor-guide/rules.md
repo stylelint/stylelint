@@ -332,6 +332,30 @@ function rule(primary, secondary) {
 }
 ```
 
+### Add `semantics` support
+
+Depending on the rule, it may need to check the roots of the files specified in the [`semantics`](../user-guide/configure.md#semantics) configuration property.
+
+For example:
+
+```diff js
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
+    if (!validOptions) return;
+
++   const semanticRoots = result.stylelint.semanticRoots ?? [];
+
++   for (const semanticRoot of semanticRoots) {
++     semanticRoot.walkAtRules(/* collect names */);
++   }
+
+    /* .. */
+  };
+}
+```
+
 ### Context
 
 `context` is an object that could have the following properties:

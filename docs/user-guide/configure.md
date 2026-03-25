@@ -479,6 +479,35 @@ The following patterns are _not_ considered problems:
 a { top: --foo(10px); }
 ```
 
+## `semantics`
+
+> [!WARNING]
+> This is an experimental feature. The API may change in the future.
+
+You can specify files that provide additional semantic information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
+
+```json
+{
+  "semantics": [
+    { "files": ["tokens.css"] },
+    { "files": ["scss-tokens/**/*.scss"], "customSyntax": "postcss-scss" }
+  ]
+}
+```
+
+The value of the `semantics` property is an array of objects. Each object:
+
+- must contain a `files` property, which is an array of glob patterns specifying which files to parse
+- may contain a [`customSyntax`](#customsyntax) property
+
+You can also use `semantics` inside [`overrides`](#overrides) to scope semantic files to specific file patterns.
+
+The following rules are configured via the `semantics` property:
+
+- [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)
+- [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)
+- [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)
+
 ## `extends`
 
 You can extend an existing configuration (whether your own or a third-party one). Configurations can bundle plugins, custom syntaxes, options, and configure rules. They can also extend other configurations.
