@@ -180,7 +180,7 @@
     "@types/postcss-safe-parser": "^5.0.4",
     "@types/svg-tags": "^1.0.2",
     "@types/write-file-atomic": "^4.0.3",
-    "@vscode/windows-process-tree": "^0.6.3",
+    "@vscode/windows-process-tree": "^0.7.0",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
