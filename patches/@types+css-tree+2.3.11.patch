@@ -1,12 +1,13 @@
 diff --git a/node_modules/@types/css-tree/index.d.ts b/node_modules/@types/css-tree/index.d.ts
-index c005ef3..e951c5b 100644
+index c005ef3..2303dbb 100644
 --- a/node_modules/@types/css-tree/index.d.ts
 +++ b/node_modules/@types/css-tree/index.d.ts
-@@ -906,12 +906,18 @@ export class Lexer {
+@@ -906,13 +906,21 @@ export class Lexer {
      matchProperty(propertyName: string, value: CssNode | string): LexerMatchResult;
      matchType(typeName: string, value: CssNode | string): LexerMatchResult;
      match(syntax: DSNode | string, value: CssNode | string): LexerMatchResult;
 +    getProperty(propertyName: string, fallbackBasename?: boolean): object | null;
++    units: Record<string, string[]>;
  }
  
  export const lexer: Lexer;
@@ -21,4 +22,6 @@ index c005ef3..e951c5b 100644
 +        }> | undefined;
      properties?: Record<string, string> | undefined;
      types?: Record<string, string> | undefined;
++    units?: Record<string, string[]> | undefined;
      cssWideKeywords?: Array<string> | undefined;
+ }): { lexer: Lexer };
