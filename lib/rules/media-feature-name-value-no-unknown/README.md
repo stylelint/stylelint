@@ -59,3 +59,44 @@ The following patterns are _not_ considered problems:
 ```css
 @media (width: 10px) { top: 1px; }
 ```
+
+## Optional secondary options
+
+### `ignoreMediaFeatureNameValues`
+
+```json
+{
+  "ignoreMediaFeatureNameValues": {
+    "media-feature-name": ["array", "of", "values", "/regex/"]
+  }
+}
+```
+
+Ignore the specified media feature name and value pairs. You can specify a regex for a media feature name, such as `{ "/^color/": [] }`.
+
+Given:
+
+```json
+{
+  "media-feature-name-value-no-unknown": [
+    true,
+    {
+      "ignoreMediaFeatureNameValues": {
+        "/^color/": ["--foo", "/^--bar/"]
+      }
+    }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@media (color: --foo) {}
+```
+
+<!-- prettier-ignore -->
+```css
+@media (color-gamut: --bar-baz) {}
+```
