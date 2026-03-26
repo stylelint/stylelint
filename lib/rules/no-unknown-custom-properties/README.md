@@ -13,7 +13,7 @@ a { color: var(--foo, var(--bar)); }
  *                        And this one */
 ```
 
-This rule considers custom properties defined within the same source or within the files specified in the [`semantics`](../../../docs/user-guide/configure.md#semantics) configuration property to be known.
+This rule considers custom properties defined within the same source or within the files specified in the [`semanticFiles`](../../../docs/user-guide/configure.md#semanticfiles) configuration property to be known.
 
 ## Options
 

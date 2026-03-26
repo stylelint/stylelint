@@ -86,7 +86,7 @@ declare namespace stylelint {
 		severity?: Severity;
 	};
 
-	type ConfigSemantics = {
+	type ConfigSemanticFilesEntry = {
 		files: string | string[];
 		customSyntax?: CustomSyntax;
 	};
@@ -220,13 +220,13 @@ declare namespace stylelint {
 		 */
 		processors?: ConfigProcessors;
 		/**
-		 * An array of objects to specify what files to get semantic information from
+		 * An array of globs or objects to specify what files to get semantic information from
 		 *
 		 * @experimental
 		 *
-		 * @see [semantics](https://stylelint.io/user-guide/configure#semantics)
+		 * @see [semanticFiles](https://stylelint.io/user-guide/configure#semanticfiles)
 		 */
-		semantics?: ConfigSemantics[];
+		semanticFiles?: (string | ConfigSemanticFilesEntry)[];
 		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;

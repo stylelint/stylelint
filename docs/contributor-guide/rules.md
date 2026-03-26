@@ -332,9 +332,9 @@ function rule(primary, secondary) {
 }
 ```
 
-### Add `semantics` support
+### Add `semanticFiles` support
 
-Depending on the rule, it may need to check the roots of the files specified in the [`semantics`](../user-guide/configure.md#semantics) configuration property.
+Depending on the rule, it may need to check the roots of the files specified in the [`semanticFiles`](../user-guide/configure.md#semanticfiles) configuration property.
 
 For example:
 

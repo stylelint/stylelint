@@ -479,30 +479,40 @@ The following patterns are _not_ considered problems:
 a { top: --foo(10px); }
 ```
 
-## `semantics`
+## `semanticFiles`
 
 > [!WARNING]
 > This is an experimental feature. The API may change in the future.
 
 You can specify files that provide additional semantic information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
 
+For CSS files, you can use an array of glob strings:
+
 ```json
 {
-  "semantics": [
-    { "files": ["tokens.css"] },
+  "semanticFiles": ["tokens.css"]
+}
+```
+
+For non-CSS files, you should use an object form with a [`customSyntax`](#customsyntax) property:
+
+```json
+{
+  "semanticFiles": [
+    "tokens.css",
     { "files": ["scss-tokens/**/*.scss"], "customSyntax": "postcss-scss" }
   ]
 }
 ```
 
-The value of the `semantics` property is an array of objects. Each object:
+Each entry in the `semanticFiles` array can be:
 
-- must contain a `files` property, which is an array of glob patterns specifying which files to parse
-- may contain a [`customSyntax`](#customsyntax) property
+- a string glob pattern specifying which files to parse
+- an object that must contain a `files` property (an array of glob patterns) and may contain a [`customSyntax`](#customsyntax) property
 
-You can also use `semantics` inside [`overrides`](#overrides) to scope semantic files to specific file patterns.
+You can also use `semanticFiles` inside [`overrides`](#overrides) to scope semantic files to specific file patterns.
 
-The following rules are configured via the `semantics` property:
+The following rules are configured via the `semanticFiles` property:
 
 - [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)
 - [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)

@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: experimental `semantics` to configuration object
+Added: experimental `semanticFiles` to configuration object
