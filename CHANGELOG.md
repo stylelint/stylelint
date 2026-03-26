@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.6.0 - 2026-03-26
+
+- Added: support for extending units to `languageOptions` ([#9166](https://github.com/stylelint/stylelint/pull/9166)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `custom-property-no-missing-var-function` false positives for `timeline-scope` and `animation-timeline` ([#9164](https://github.com/stylelint/stylelint/pull/9164)) ([@splincode](https://github.com/splincode)).
+- Fixed: missing `ruleMetadata` when linting multiple files with overrides ([#9154](https://github.com/stylelint/stylelint/pull/9154)) ([@kovsu](https://github.com/kovsu)).
+
 ## 17.5.0 - 2026-03-19
 
 It deprecates two rule options, adds 1 rule option and fixes 7 bugs. We've also released [`2.1.0`](https://github.com/stylelint/vscode-stylelint/releases/tag/2.1.0) of [our VS Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), which adds 8 new requested features, and our [first release](https://www.npmjs.com/package/@stylelint/language-server) of the Stylelint Language Server.
