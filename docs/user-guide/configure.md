@@ -299,7 +299,7 @@ a[data-auto="1"] {}
 
 ## `languageOptions`
 
-You can customize the syntax to define or extend the syntax for at-rules, properties, types, and CSS-wide keywords.
+You can customize the syntax to define or extend the syntax for at-rules, CSS-wide keywords, properties, types, and units.
 
 ### `syntax`
 
@@ -309,6 +309,7 @@ You can extend or modify the default CSS syntax to customize the following aspec
 - `cssWideKeywords`: Extend the list of CSS-wide keywords with custom values
 - `properties`: Customize the syntax of specific properties
 - `types`: Extend or modify type definitions used in property values
+- `units`: Extend unit categories with custom units
 
 ```json
 {
@@ -326,7 +327,8 @@ You can extend or modify the default CSS syntax to customize the following aspec
       },
       "cssWideKeywords": ["my-global-value"],
       "properties": { "top": "| <--foo()>" },
-      "types": { "--foo()": "--foo( <length-percentage> )" }
+      "types": { "--foo()": "--foo( <length-percentage> )" },
+      "units": { "length": ["--foo"] }
     }
   },
   "rules": {
@@ -346,6 +348,7 @@ The following rules are configured via the `languageOptions` property:
 - [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
 - [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
 - [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)
+- [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md)
 
 #### `AtRules`
 
@@ -477,6 +480,35 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a { top: --foo(10px); }
+```
+
+#### `units`
+
+You can extend unit categories (`angle`, `decibel`, `flex`, `frequency`, `length`, `resolution`, `semitones`, and `time`) with custom units.
+For example, to add a custom `--foo` unit to the `length` category:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "units": { "length": ["--foo"] }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: 10--bar; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: 10--foo; }
 ```
 
 ## `semanticFiles`

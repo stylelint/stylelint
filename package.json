@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "17.5.0",
+  "version": "17.6.0",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -146,7 +146,6 @@
     "html-tags": "^5.1.0",
     "ignore": "^7.0.5",
     "import-meta-resolve": "^4.2.0",
-    "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
     "mathml-tag-names": "^4.0.0",
     "meow": "^14.1.0",
@@ -173,7 +172,6 @@
     "@types/debug": "^4.1.12",
     "@types/global-modules": "^2.0.2",
     "@types/globjoin": "^0.1.2",
-    "@types/imurmurhash": "^0.1.4",
     "@types/micromatch": "^4.0.10",
     "@types/normalize-path": "^3.0.2",
     "@types/postcss-less": "^4.0.7",
