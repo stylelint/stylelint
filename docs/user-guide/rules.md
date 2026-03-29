@@ -219,6 +219,14 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | [`function-url-scheme-disallowed-list`](../../lib/rules/function-url-scheme-disallowed-list/README.md)<br/>Specify a list of disallowed URL schemes. | | |
 <!-- prettier-ignore-end -->
 
+#### Layout mappings
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Enforce either physical or logical layout mappings in CSS. | | 🔧 |
+<!-- prettier-ignore-end -->
+
 #### Length
 
 <!-- prettier-ignore-start -->
