@@ -1,39 +1,23 @@
 # property-layout-mappings
 
-Enforce either physical or flow-relative layout mappings in CSS.
+Specify flow-relative or physical layout mappings for properties.
 
 <!-- prettier-ignore -->
 ```css
-a { margin-left: 10px; }
+a { margin-left: 0; }
 /** ↑
  * This property */
 ```
 
-The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when the primary option is `"flow-relative"` and `languageOptions.directionality` is configured.
+Physical layout properties like `margin-left` are tied to the physical dimensions of the screen. Flow-relative properties like `margin-inline-start` adapt to different writing modes and text directions, making them useful for internationalization. They are also consistent with other layout concepts like flexbox and grid, which already use flow-relative logic.
 
-## Language Options
-
-This rule supports the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#languageoptions) configuration to enable safe autofixing for flow-relative properties.
-
-```json
-{
-  "languageOptions": {
-    "directionality": {
-      "block": "top-to-bottom",
-      "inline": "left-to-right"
-    }
-  },
-  "rules": {
-    "property-layout-mappings": "flow-relative"
-  }
-}
-```
-
-**Note**: Without `languageOptions.directionality` configuration, the rule will report problems but not autofix them to prevent unintended layout changes.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when both the primary option is `"flow-relative"` and the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#directionality) configuration property is configured.
 
 ## Options
 
 ### `"flow-relative"`
+
+Layout mappings for properties _must always_ be flow-relative.
 
 Given:
 
@@ -47,27 +31,29 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { margin-left: 10px; }
+a { margin-left: 0; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { width: 200px; }
+a { width: 0; }
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { margin-inline-start: 10px; }
+a { margin-inline-start: 0; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { inline-size: 200px; }
+a { inline-size: 0; }
 ```
 
 ### `"physical"`
+
+Layout mappings for properties _must always_ be physical.
 
 Given:
 
@@ -81,34 +67,34 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { margin-inline-start: 10px; }
+a { margin-inline-start: 0; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { inline-size: 200px; }
+a { inline-size: 0; }
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { margin-left: 10px; }
+a { margin-left: 0; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { width: 200px; }
+a { width: 0; }
 ```
 
 ## Optional secondary options
 
-### `exceptProperties`
+### `ignoreProperties`
 
-Reverse the primary option for matching properties.
+Ignore the specified properties.
 
 ```json
-{ "exceptProperties": ["array", "of", "properties", "/regex/"] }
+{ "ignoreProperties": ["array", "of", "properties", "/regex/"] }
 ```
 
 Given:
@@ -117,7 +103,7 @@ Given:
 {
   "property-layout-mappings": [
     "flow-relative",
-    { "exceptProperties": ["margin-left", "width"] }
+    { "ignoreProperties": ["/^margin/", "width"] }
   ]
 }
 ```
@@ -126,32 +112,10 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { margin-left: 10px; }
+a { margin-left: 0; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { width: 200px; }
+a { width: 0; }
 ```
-
-### `dir`
-
-```json
-{ "dir": "ltr" | "rtl" | "auto" }
-```
-
-Specify the writing direction context. This option helps provide better warnings about logical property usage but does not change the rule's behavior.
-
-- `"ltr"` (default) - Left-to-right writing direction
-- `"rtl"` - Right-to-left writing direction
-- `"auto"` - Direction determined by content
-
-Given:
-
-```json
-{
-  "property-layout-mappings": ["flow-relative", { "dir": "rtl" }]
-}
-```
-
-This provides context that the code will be used in a right-to-left writing environment.

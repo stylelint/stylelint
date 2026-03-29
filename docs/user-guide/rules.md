@@ -219,14 +219,6 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | [`function-url-scheme-disallowed-list`](../../lib/rules/function-url-scheme-disallowed-list/README.md)<br/>Specify a list of disallowed URL schemes. | | |
 <!-- prettier-ignore-end -->
 
-#### Layout mappings
-
-<!-- prettier-ignore-start -->
-| | | |
-| :-- | :-: | :-: |
-| [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Enforce either physical or logical layout mappings in CSS. | | 🔧 |
-<!-- prettier-ignore-end -->
-
 #### Length
 
 <!-- prettier-ignore-start -->
@@ -326,6 +318,16 @@ Enforce or disallow empty lines before constructs with these `empty-line-before`
 | [`custom-property-empty-line-before`](../../lib/rules/custom-property-empty-line-before/README.md)<br/>Require or disallow an empty line before custom properties. | ✅ | 🔧 |
 | [`declaration-empty-line-before`](../../lib/rules/declaration-empty-line-before/README.md)<br/>Require or disallow an empty line before declarations. | ✅ | 🔧 |
 | [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md)<br/>Require or disallow an empty line before rules. | ✅ | 🔧 |
+<!-- prettier-ignore-end -->
+
+### Layout mappings
+
+Specify flow-relative or physical layout mappings with these `layout-mappings` rules.
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for properties. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Max & min
