@@ -169,7 +169,7 @@
     "@stylelint/prettier-config": "^4.0.0",
     "@stylelint/remark-preset": "^5.1.1",
     "@types/css-tree": "^2.3.11",
-    "@types/debug": "^4.1.12",
+    "@types/debug": "^4.1.13",
     "@types/global-modules": "^2.0.2",
     "@types/globjoin": "^0.1.2",
     "@types/micromatch": "^4.0.10",
@@ -201,7 +201,7 @@
     "prettier": "^3.8.1",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "engines": {
     "node": ">=20.19.0"
