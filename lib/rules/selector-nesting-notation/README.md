@@ -28,21 +28,14 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
+  b {}
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
   > b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  + b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  ~ b {}
 }
 ```
 
@@ -51,35 +44,14 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
+  & b {}
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
   & > b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  & + b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  & ~ b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  &:hover {}
 }
 ```
 
@@ -109,20 +81,6 @@ a {
 }
 ```
 
-<!-- prettier-ignore -->
-```css
-a {
-  & + b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  & ~ b {}
-}
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -142,27 +100,6 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  + b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  ~ b {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
   &:hover {}
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  &.class {}
 }
 ```
