@@ -54,12 +54,12 @@ Or you can limit the number of ID selectors using the [`selector-max-id`](../../
 }
 ```
 
-Or you can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`semanticFiles`](configure.md#semanticfiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
+Or you can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
 
 ```diff json
 {
   "extends": ["stylelint-config-standard"],
-+ "semanticFiles": [
++ "referenceFiles": [
 +   "tokens.css"
 + ],
 + "rules": {

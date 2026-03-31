@@ -86,7 +86,7 @@ declare namespace stylelint {
 		severity?: Severity;
 	};
 
-	type ConfigSemanticFilesEntry = {
+	type ConfigReferenceFilesEntry = {
 		files: string | string[];
 		customSyntax?: CustomSyntax;
 	};
@@ -221,13 +221,13 @@ declare namespace stylelint {
 		 */
 		processors?: ConfigProcessors;
 		/**
-		 * An array of globs or objects to specify what files to get semantic information from
+		 * An array of globs or objects to specify what files to get reference information from
 		 *
 		 * @experimental
 		 *
-		 * @see [semanticFiles](https://stylelint.io/user-guide/configure#semanticfiles)
+		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
 		 */
-		semanticFiles?: (string | ConfigSemanticFilesEntry)[];
+		referenceFiles?: (string | ConfigReferenceFilesEntry)[];
 		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
@@ -309,7 +309,7 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
-		semanticRoots: PostCSS.Root[];
+		referenceRoots: PostCSS.Root[];
 
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.

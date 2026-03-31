@@ -511,18 +511,18 @@ The following patterns are _not_ considered problems:
 a { top: 10--foo; }
 ```
 
-## `semanticFiles`
+## `referenceFiles`
 
 > [!WARNING]
 > This is an experimental feature. The API may change in the future.
 
-You can specify files that provide additional semantic information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
+You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
 
 For CSS files, you can use an array of glob strings:
 
 ```json
 {
-  "semanticFiles": ["tokens.css"]
+  "referenceFiles": ["tokens.css"]
 }
 ```
 
@@ -530,21 +530,21 @@ For non-CSS files, you should use an object form with a [`customSyntax`](#custom
 
 ```json
 {
-  "semanticFiles": [
+  "referenceFiles": [
     "tokens.css",
     { "files": ["scss-tokens/**/*.scss"], "customSyntax": "postcss-scss" }
   ]
 }
 ```
 
-Each entry in the `semanticFiles` array can be:
+Each entry in the `referenceFiles` array can be:
 
 - a string glob pattern specifying which files to parse
 - an object that must contain a `files` property (an array of glob patterns) and may contain a [`customSyntax`](#customsyntax) property
 
-You can also use `semanticFiles` inside [`overrides`](#overrides) to scope semantic files to specific file patterns.
+You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
 
-The following rules are configured via the `semanticFiles` property:
+The following rules are configured via the `referenceFiles` property:
 
 - [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)
 - [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)

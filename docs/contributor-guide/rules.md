@@ -332,9 +332,9 @@ function rule(primary, secondary) {
 }
 ```
 
-### Add `semanticFiles` support
+### Add `referenceFiles` support
 
-Depending on the rule, it may need to check the roots of the files specified in the [`semanticFiles`](../user-guide/configure.md#semanticfiles) configuration property.
+Depending on the rule, it may need to check the roots of the files specified in the [`referenceFiles`](../user-guide/configure.md#referencefiles) configuration property.
 
 For example:
 
@@ -345,10 +345,10 @@ function rule(primary, secondary) {
 
     if (!validOptions) return;
 
-+   const semanticRoots = result.stylelint.semanticRoots ?? [];
++   const referenceRoots = result.stylelint.referenceRoots ?? [];
 
-+   for (const semanticRoot of semanticRoots) {
-+     semanticRoot.walkAtRules(/* collect names */);
++   for (const referenceRoot of referenceRoots) {
++     referenceRoot.walkAtRules(/* collect names */);
 +   }
 
     /* .. */
