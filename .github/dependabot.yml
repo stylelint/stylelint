@@ -39,3 +39,4 @@ updates:
       - 'pr: dependencies'
     cooldown:
       default-days: 7
+      exclude: ['stylelint/.github/*']
