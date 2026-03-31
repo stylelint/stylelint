@@ -99,6 +99,7 @@ declare namespace stylelint {
 			cssWideKeywords?: string[];
 			properties?: Record<string, string>;
 			types?: Record<string, string>;
+			units?: Record<string, string[]>;
 		};
 	};
 

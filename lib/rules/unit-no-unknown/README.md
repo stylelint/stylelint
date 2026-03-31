@@ -11,6 +11,8 @@ a { width: 100pixels; }
 
 This rule considers units defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
+You can use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend the known units.
+
 > [!NOTE]
 > We recommend only using this rule for CSS-like languages, such as SCSS and Less. For CSS, we recommend using these more capable and overlapping rules instead:
 >

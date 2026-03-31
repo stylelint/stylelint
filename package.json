@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "17.5.0",
+  "version": "17.6.0",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -127,7 +127,7 @@
   "dependencies": {
     "@csstools/css-calc": "^3.1.1",
     "@csstools/css-parser-algorithms": "^4.0.0",
-    "@csstools/css-syntax-patches-for-csstree": "^1.0.29",
+    "@csstools/css-syntax-patches-for-csstree": "^1.1.1",
     "@csstools/css-tokenizer": "^4.0.0",
     "@csstools/media-query-list-parser": "^5.0.0",
     "@csstools/selector-resolve-nested": "^4.0.0",
@@ -146,7 +146,6 @@
     "html-tags": "^5.1.0",
     "ignore": "^7.0.5",
     "import-meta-resolve": "^4.2.0",
-    "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
     "mathml-tag-names": "^4.0.0",
     "meow": "^14.1.0",
@@ -161,7 +160,7 @@
     "supports-hyperlinks": "^4.4.0",
     "svg-tags": "^1.0.0",
     "table": "^6.9.0",
-    "write-file-atomic": "^7.0.0"
+    "write-file-atomic": "^7.0.1"
   },
   "devDependencies": {
     "@changesets/cli": "^2.30.0",
@@ -170,27 +169,26 @@
     "@stylelint/prettier-config": "^4.0.0",
     "@stylelint/remark-preset": "^5.1.1",
     "@types/css-tree": "^2.3.11",
-    "@types/debug": "^4.1.12",
+    "@types/debug": "^4.1.13",
     "@types/global-modules": "^2.0.2",
     "@types/globjoin": "^0.1.2",
-    "@types/imurmurhash": "^0.1.4",
     "@types/micromatch": "^4.0.10",
     "@types/normalize-path": "^3.0.2",
     "@types/postcss-less": "^4.0.7",
     "@types/postcss-safe-parser": "^5.0.4",
     "@types/svg-tags": "^1.0.2",
     "@types/write-file-atomic": "^4.0.3",
-    "@vscode/windows-process-tree": "^0.6.3",
+    "@vscode/windows-process-tree": "^0.7.0",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "eslint-config-stylelint": "^27.0.0",
     "eslint-plugin-jest": "^29.12.2",
     "jest": "^30.3.0",
     "jest-preset-stylelint": "^9.1.0",
     "jest-watch-typeahead": "^3.0.1",
-    "lint-staged": "^16.3.3",
+    "lint-staged": "^16.4.0",
     "lz-string": "^1.5.0",
     "npm-run-all": "^4.1.5",
     "patch-package": "^8.0.1",
@@ -203,7 +201,7 @@
     "prettier": "^3.8.1",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "engines": {
     "node": ">=20.19.0"
