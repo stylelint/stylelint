@@ -1,6 +1,6 @@
-# selector-nesting-notation
+# relative-selector-nesting-notation
 
-Specify explicit or implicit notation for nesting selectors.
+Specify explicit or implicit nesting notation for relative selectors.
 
 <!-- prettier-ignore -->
 ```css
@@ -21,7 +21,7 @@ Relative selectors _must always_ use explicit nesting selector notation.
 
 ```json
 {
-  "selector-nesting-notation": "explicit"
+  "relative-selector-nesting-notation": "explicit"
 }
 ```
 
@@ -63,7 +63,7 @@ Relative selectors _must always_ use implicit nesting selector notation.
 
 ```json
 {
-  "selector-nesting-notation": "implicit"
+  "relative-selector-nesting-notation": "implicit"
 }
 ```
 

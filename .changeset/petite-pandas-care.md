@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `selector-nesting-notation` rule
+Added: `relative-selector-nesting-notation` rule

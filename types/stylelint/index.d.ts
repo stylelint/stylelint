@@ -881,6 +881,11 @@ declare namespace stylelint {
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
 			RejectedMessage<[property: string]>
 		>;
+		'relative-selector-nesting-notation': CoreRule<
+			'explicit' | 'implicit',
+			{},
+			ExpectedMessage<[primary: string]>
+		>;
 		'rule-empty-line-before': CoreRule<
 			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
 			{
@@ -958,11 +963,6 @@ declare namespace stylelint {
 		}>;
 		'selector-max-universal': MaxRule<{ ignoreAfterCombinators: OneOrMany<string> }>;
 		'selector-nested-pattern': PatternRule<{ splitList: boolean }>;
-		'selector-nesting-notation': CoreRule<
-			'explicit' | 'implicit',
-			{},
-			ExpectedMessage<[primary: string]>
-		>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
