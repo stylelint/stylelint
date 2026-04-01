@@ -214,9 +214,14 @@ declare namespace stylelint {
 		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
 		 */
 		processors?: ConfigProcessors;
-		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
+		/**
+		 * Language options to extend the syntax.
+		 *
+		 * @see [languageOptions](https://stylelint.io/user-guide/configure#languageoptions)
+		 */
+		languageOptions?: LanguageOptions;
 		/**
 		 * If true, Stylelint does not throw an error when the glob pattern matches no files.
 		 *
@@ -241,6 +246,7 @@ declare namespace stylelint {
 		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
 		 */
 		fix?: boolean;
+		/** @internal */
 		computeEditInfo?: boolean;
 		/**
 		 * Force enable/disable the validation of the rules' options
