@@ -212,6 +212,8 @@ declare namespace stylelint {
 		 * @see [customSyntax](https://stylelint.io/user-guide/configure#customsyntax)
 		 */
 		customSyntax?: CustomSyntax;
+		/** @internal */
+		_resolvedCustomSyntax?: PostCSS.Syntax;
 		/**
 		 * Functions that allow to hook into Stylelint's pipeline
 		 *
@@ -230,6 +232,8 @@ declare namespace stylelint {
 		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
 		 */
 		referenceFiles?: (string | ConfigReferenceFilesEntry)[];
+		/** @internal */
+		_resolvedReferenceFiles?: Array<{ files: string[]; customSyntax?: PostCSS.Syntax }>;
 		/**
 		 * Language options to extend the syntax.
 		 *
@@ -1098,7 +1102,7 @@ declare namespace stylelint {
 		code?: string;
 		codeFilename?: string;
 		filePath?: string;
-		customSyntax?: CustomSyntax;
+		customSyntax?: PostCSS.Syntax;
 	};
 
 	/** @internal */
