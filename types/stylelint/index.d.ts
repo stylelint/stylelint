@@ -132,7 +132,6 @@ declare namespace stylelint {
 		 * @see [ignoreFiles](https://stylelint.io/user-guide/configure/#ignorefiles)
 		 */
 		ignoreFiles?: ConfigIgnoreFiles;
-		ignorePatterns?: string;
 		/**
 		 * An object containing the configured rules
 		 *
