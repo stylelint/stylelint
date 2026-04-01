@@ -126,7 +126,8 @@ declare namespace stylelint {
 		 * @see [plugins](https://stylelint.io/user-guide/configure/#plugins)
 		 */
 		plugins?: ConfigPlugins;
-		pluginFunctions?: {
+		/** @internal */
+		_pluginFunctions?: {
 			[pluginName: string]: Rule;
 		};
 		/**
@@ -137,7 +138,6 @@ declare namespace stylelint {
 		 * @see [ignoreFiles](https://stylelint.io/user-guide/configure/#ignorefiles)
 		 */
 		ignoreFiles?: ConfigIgnoreFiles;
-		ignorePatterns?: string;
 		/**
 		 * An object containing the configured rules
 		 *
@@ -220,7 +220,9 @@ declare namespace stylelint {
 		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
 		 */
 		processors?: ConfigProcessors;
-		/**
+		/** @internal */
+		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
+    /**
 		 * An array of globs or objects to specify what files to get reference information from
 		 *
 		 * @experimental
@@ -228,9 +230,12 @@ declare namespace stylelint {
 		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
 		 */
 		referenceFiles?: (string | ConfigReferenceFilesEntry)[];
+		/**
+		 * Language options to extend the syntax.
+		 *
+		 * @see [languageOptions](https://stylelint.io/user-guide/configure#languageoptions)
+		 */
 		languageOptions?: LanguageOptions;
-		/** @internal */
-		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
 		/**
 		 * If true, Stylelint does not throw an error when the glob pattern matches no files.
 		 *
@@ -255,6 +260,7 @@ declare namespace stylelint {
 		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
 		 */
 		fix?: boolean;
+		/** @internal */
 		computeEditInfo?: boolean;
 		/**
 		 * Force enable/disable the validation of the rules' options
