@@ -345,7 +345,7 @@ function rule(primary, secondary) {
 
     if (!validOptions) return;
 
-+   const referenceRoots = result.stylelint.referenceRoots ?? [];
++   const referenceRoots = result.stylelint.referenceRoots;
 
 +   for (const referenceRoot of referenceRoots) {
 +     referenceRoot.walkAtRules(/* collect names */);
