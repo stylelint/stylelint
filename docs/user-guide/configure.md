@@ -518,11 +518,11 @@ a { top: 10--foo; }
 
 You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
 
-For CSS files, you can use an array of glob strings:
+For example:
 
 ```json
 {
-  "referenceFiles": ["tokens.css"]
+  "referenceFiles": "tokens/*.css"
 }
 ```
 
@@ -530,17 +530,33 @@ For non-CSS files, you should use an object form with a [`customSyntax`](#custom
 
 ```json
 {
+  "referenceFiles": {
+    "files": "scss-tokens/*.scss",
+    "customSyntax": "postcss-scss"
+  }
+}
+```
+
+You can also use an array to specify multiple entries:
+
+```json
+{
   "referenceFiles": [
     "tokens.css",
-    { "files": ["scss-tokens/**/*.scss"], "customSyntax": "postcss-scss" }
+    {
+      "files": ["scss-tokens/*.scss", "vendor/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
   ]
 }
 ```
 
-Each entry in the `referenceFiles` array can be:
+Each entry can be:
 
-- a string glob pattern specifying which files to parse
-- an object that must contain a `files` property (an array of glob patterns) and may contain a [`customSyntax`](#customsyntax) property
+- a string or array of glob patterns specifying which files to parse
+- an object that
+  - must contain a `files` property (a string or an array of glob patterns)
+  - may contain a [`customSyntax`](#customsyntax) property
 
 You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
 

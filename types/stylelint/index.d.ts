@@ -91,6 +91,11 @@ declare namespace stylelint {
 		customSyntax?: CustomSyntax;
 	};
 
+	type ConfigReferenceFiles =
+		| string
+		| ConfigReferenceFilesEntry
+		| (string | ConfigReferenceFilesEntry)[];
+
 	type LanguageOptions = {
 		syntax?: {
 			atRules?: Record<
@@ -231,7 +236,7 @@ declare namespace stylelint {
 		 *
 		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
 		 */
-		referenceFiles?: (string | ConfigReferenceFilesEntry)[];
+		referenceFiles?: ConfigReferenceFiles;
 		/** @internal */
 		_resolvedReferenceFiles?: Array<{ files: string[]; customSyntax?: PostCSS.Syntax }>;
 		/**
