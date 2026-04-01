@@ -121,7 +121,8 @@ declare namespace stylelint {
 		 * @see [plugins](https://stylelint.io/user-guide/configure/#plugins)
 		 */
 		plugins?: ConfigPlugins;
-		pluginFunctions?: {
+		/** @internal */
+		_pluginFunctions?: {
 			[pluginName: string]: Rule;
 		};
 		/**
