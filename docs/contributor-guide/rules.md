@@ -265,15 +265,20 @@ There is one caveat here: If your rule accepts a primary option array, it cannot
 
 ### Add problem messages
 
-Add problem messages in form of:
+Add problem messages that lead with:
 
-- "Expected \[something\] \[in some context\]"
-- "Unexpected \[something\] \[in some context\]"
+- "Expected" (or "Expected no") when the fix is unambiguous
+- a descriptive adjective when the fix is ambiguous, e.g. "Unknown", "Invalid", "Disallowed", and "Too \[adjective\]" for limits
 
 If the rule has autofix use:
 
-- 'Expected "\[unfixed\]" to be "\[fixed\]"' for short strings
-- 'Expected "\[primary\]" ... notation' for long strings
+- `Expected "${unfixed}" to be "${fixed}"` for short strings
+- `Expected "${primary}" ...` for long strings
+
+You should use:
+
+- parentheses to qualify the immediately preceding term, e.g. `property (or descriptor)` or `&:hover (a:hover)`
+- commas for supplementary context, e.g. `, at line 5` or `, maximum 5`
 
 ### Add autofix
 

@@ -27,7 +27,7 @@ const {
 const ruleName = "foo-org/selector-no-foo";
 
 const messages = ruleMessages(ruleName, {
-  rejected: (selector) => `Unexpected "foo" within selector "${selector}"`
+  rejected: (selector) => `Disallowed "foo" within selector "${selector}"`
 });
 
 const meta = {
@@ -85,7 +85,7 @@ The usage would be:
 $ echo '.foo {}' | stylelint --stdin-filename=test.css
 
 test.css
- 1:1  ✖  Unexpected "foo" within selector ".foo"  foo-org/selector-no-foo
+ 1:1  ✖  Disallowed "foo" within selector ".foo"  foo-org/selector-no-foo
 
 1 problem (1 error, 0 warnings)
 ```
@@ -207,7 +207,7 @@ it("warns", async () => {
 
   const [{ text, line, column }] = warnings;
 
-  expect(text).toBe('Unexpected "foo" within selector ".foo"');
+  expect(text).toBe('Disallowed "foo" within selector ".foo"');
   expect(line).toBe(1);
   expect(column).toBe(1);
 });

@@ -177,7 +177,7 @@ export default {
             case "font-style":
               return `Use "class: 'italic'" instead`;
             default:
-              return `Unexpected value "${value}" for property "${property}"`;
+              return `Disallowed value "${value}" for property "${property}"`;
           }
         }
       }
