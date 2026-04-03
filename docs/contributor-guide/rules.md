@@ -272,13 +272,13 @@ Add problem messages that lead with:
 
 If the rule has autofix use:
 
-- `Expected "${unfixed}" to be "${fixed}"` for short strings
-- `Expected "${primary}" ...` for long strings
+- 'Expected "\[unfixed\]" to be "\[fixed\]"' for short strings
+- 'Expected "\[primary\]" ... notation' for long strings
 
 You should use:
 
-- parentheses to qualify the immediately preceding term, e.g. `property (or descriptor)` or `&:hover (a:hover)`
-- commas for supplementary context, e.g. `, at line 5` or `, maximum 5`
+- parentheses to qualify the immediately preceding term, e.g. "property (or descriptor)" or '"&:hover" ("a:hover")'
+- commas for supplementary context, e.g. ", at line 5" or ", maximum 2"
 
 ### Add autofix
 
