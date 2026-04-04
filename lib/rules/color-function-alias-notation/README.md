@@ -82,3 +82,34 @@ a { color: rgba(0 0 0) }
 ```css
 a { color: hsla(270 60% 50% / 15%) }
 ```
+
+## Optional secondary options
+
+### `except: ["with-alpha-component"]`
+
+Reverse the primary option for color functions that include an alpha component.
+
+For example, with the following configuration:
+
+```json
+{
+  "color-function-alias-notation": [
+    "without-alpha",
+    { "except": ["with-alpha-component"] }
+  ]
+}
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: rgb(0 0 0 / 50%) }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: rgba(0 0 0 / 50%) }
+```
