@@ -277,8 +277,8 @@ If the rule has autofix use:
 
 You should use:
 
-- parentheses to qualify the immediately preceding term, e.g. `property (or descriptor)` or `"&:hover" ("a:hover")`
-- commas for supplementary context, e.g. `, at line 5` or `, maximum 2`
+- parentheses to qualify the immediately preceding term, e.g. `"&:hover" ("a:hover")`
+- commas for supplementary context, e.g. `, at line 5`
 
 ### Add autofix
 
