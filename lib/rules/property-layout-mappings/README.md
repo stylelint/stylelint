@@ -19,6 +19,22 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 
 Layout mappings for properties _must always_ be flow-relative.
 
+> [!NOTE]
+> If you want this rule to automatically fix problems, you must configure the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#directionality) configuration property.
+>
+> For example, for Latin-based languages such as English:
+>
+> ```json
+> {
+>   "languageOptions": {
+>     "directionality": {
+>       "block": "top-to-bottom",
+>       "inline": "left-to-right"
+>     }
+>   }
+> }
+> ```
+
 Given:
 
 ```json
