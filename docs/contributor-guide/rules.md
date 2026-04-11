@@ -270,7 +270,7 @@ Add problem messages that lead with:
 - `Expected` (or `Expected no`) when the fix is unambiguous
 - a descriptive adjective when the fix is ambiguous, e.g. `Unknown`, `Invalid`, `Disallowed`, and `Too [adjective]` for limits
 
-If the rule has autofix use:
+If the rule has autofix, use:
 
 - `Expected "[unfixed]" to be "[fixed]"` for short strings
 - `Expected "[primary]" ... notation` for long strings
