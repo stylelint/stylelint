@@ -280,6 +280,16 @@ You should use:
 - parentheses to qualify the immediately preceding term, e.g. `"&:hover" ("a:hover")`
 - commas for supplementary context, e.g. `, at line 5`
 
+For example:
+
+- `Expected "20" to be "20deg"`
+- `Expected no empty line before declaration`
+- `Expected modern color-function notation`
+- `Unknown unit "pxl"`
+- `Invalid syntax string "<colorr>"`
+- `Disallowed qualifying type selector "a" in "&.foo" ("a.foo")`
+- `Too many combinators in "a ~ b", maximum 0 `
+
 ### Add autofix
 
 Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](https://postcss.org/api/).
