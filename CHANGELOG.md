@@ -1,5 +1,14 @@
 # Changelog
 
+## 17.7.0 - 2026-04-12
+
+It fixes 4 bugs, including clearer problem messages by removing filler words and leading with the problem. We've also released `1.0.0` of [create-stylelint](https://github.com/stylelint/create-stylelint) to help with first-time Stylelint setup.
+
+- Fixed: clarity of problem messages ([#9199](https://github.com/stylelint/stylelint/pull/9199)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `--print-config` CLI flag to hide internal properties ([#9194](https://github.com/stylelint/stylelint/pull/9194)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `function-url-quotes` false positives when URLs have modifiers ([#8702](https://github.com/stylelint/stylelint/pull/8702)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `selector-no-qualifying-type` false positives for `:has()` ([#9182](https://github.com/stylelint/stylelint/pull/9182)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 17.6.0 - 2026-03-26
 
 It adds support for extending units in `languageOptions`, which then apply to rules like `declaration-property-value-no-unknown`, and fixes 2 bugs.
