@@ -19,7 +19,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
           "line": 79,
           "rule": "color-named",
           "severity": "error",
-          "text": "Unexpected named color "white" (color-named)",
+          "text": "Disallowed named color "white" (color-named)",
         },
         {
           "column": 1,
@@ -28,7 +28,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
           "line": 118,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
+          "text": "Disallowed qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
         },
         {
           "column": 3,
@@ -37,7 +37,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
           "line": 123,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
+          "text": "Disallowed qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
         },
       ],
     },
@@ -60,7 +60,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
           "line": 79,
           "rule": "color-named",
           "severity": "error",
-          "text": "Unexpected named color "white" (color-named)",
+          "text": "Disallowed named color "white" (color-named)",
           "url": undefined,
         },
         {
@@ -71,7 +71,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
           "line": 118,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
+          "text": "Disallowed qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
           "url": undefined,
         },
         {
@@ -82,7 +82,7 @@ exports[`fs - invalid twbs buttons and their config 1`] = `
           "line": 123,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
+          "text": "Disallowed qualifying type selector "a" in "a.btn-block" (selector-no-qualifying-type)",
           "url": undefined,
         },
       ],
