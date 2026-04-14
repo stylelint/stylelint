@@ -101,6 +101,10 @@ declare namespace stylelint {
 			types?: Record<string, string>;
 			units?: Record<string, string[]>;
 		};
+		directionality?: {
+			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
+			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
+		};
 	};
 
 	/**
@@ -121,7 +125,8 @@ declare namespace stylelint {
 		 * @see [plugins](https://stylelint.io/user-guide/configure/#plugins)
 		 */
 		plugins?: ConfigPlugins;
-		pluginFunctions?: {
+		/** @internal */
+		_pluginFunctions?: {
 			[pluginName: string]: Rule;
 		};
 		/**
@@ -132,7 +137,6 @@ declare namespace stylelint {
 		 * @see [ignoreFiles](https://stylelint.io/user-guide/configure/#ignorefiles)
 		 */
 		ignoreFiles?: ConfigIgnoreFiles;
-		ignorePatterns?: string;
 		/**
 		 * An object containing the configured rules
 		 *
@@ -221,9 +225,14 @@ declare namespace stylelint {
 		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
 		 */
 		processors?: ConfigProcessors;
-		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
+		/**
+		 * Language options to extend the syntax.
+		 *
+		 * @see [languageOptions](https://stylelint.io/user-guide/configure#languageoptions)
+		 */
+		languageOptions?: LanguageOptions;
 		/**
 		 * If true, Stylelint does not throw an error when the glob pattern matches no files.
 		 *
@@ -248,6 +257,7 @@ declare namespace stylelint {
 		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
 		 */
 		fix?: boolean;
+		/** @internal */
 		computeEditInfo?: boolean;
 		/**
 		 * Force enable/disable the validation of the rules' options
@@ -865,6 +875,12 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[property: string]>
 		>;
+		'property-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{ ignoreProperties: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, property: string]>
+		>;
 		'property-no-deprecated': CoreRule<
 			true,
 			{
@@ -886,6 +902,11 @@ declare namespace stylelint {
 			true,
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
 			RejectedMessage<[property: string]>
+		>;
+		'relative-selector-nesting-notation': CoreRule<
+			'explicit' | 'implicit',
+			{},
+			ExpectedMessage<[primary: string]>
 		>;
 		'rule-empty-line-before': CoreRule<
 			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
@@ -964,6 +985,11 @@ declare namespace stylelint {
 		}>;
 		'selector-max-universal': MaxRule<{ ignoreAfterCombinators: OneOrMany<string> }>;
 		'selector-nested-pattern': PatternRule<{ splitList: boolean }>;
+		'selector-no-deprecated': CoreRule<
+			true,
+			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			AutofixMessage & RejectedMessage<[selector: string]>
+		>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },

@@ -175,7 +175,7 @@ exports[`CLI --help 1`] = `
 
     --suppress [<rule>]
       Suppress problems and record them in a file. If no rule is specified,
-      all problems are suppressed. Otherwise, only problems with the given 
+      all problems are suppressed. Otherwise, only problems with the given
       rules are suppressed, e.g., "--suppress rule1 --suppress rule2".
       See also "--suppress-location".
 
