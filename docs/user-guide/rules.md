@@ -320,6 +320,16 @@ Enforce or disallow empty lines before constructs with these `empty-line-before`
 | [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md)<br/>Require or disallow an empty line before rules. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
 
+### Layout mappings
+
+Specify flow-relative or physical layout mappings with these `layout-mappings` rules.
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for properties. | | 🔧 |
+<!-- prettier-ignore-end -->
+
 ### Max & min
 
 Apply limits with these `max` and `min` rules.

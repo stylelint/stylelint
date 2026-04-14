@@ -101,6 +101,10 @@ declare namespace stylelint {
 			types?: Record<string, string>;
 			units?: Record<string, string[]>;
 		};
+		directionality?: {
+			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
+			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
+		};
 	};
 
 	/**
@@ -864,6 +868,12 @@ declare namespace stylelint {
 			OneOrMany<StringOrRegex>,
 			{},
 			RejectedMessage<[property: string]>
+		>;
+		'property-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{ ignoreProperties: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, property: string]>
 		>;
 		'property-no-deprecated': CoreRule<
 			true,
