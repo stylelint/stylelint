@@ -13,6 +13,12 @@ Physical layout properties like `margin-left` are tied to the physical dimension
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when both the primary option is `"flow-relative"` and the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#directionality) configuration property is configured.
 
+Prior art:
+
+- [stylelint-plugin-logical-css](https://www.npmjs.com/package/stylelint-plugin-logical-css)
+- [stylelint-use-logical](https://www.npmjs.com/package/stylelint-use-logical)
+- [stylelint-use-logical-spec](https://www.npmjs.com/package/stylelint-use-logical-spec)
+
 ## Options
 
 ### `"flow-relative"`
