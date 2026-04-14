@@ -22,7 +22,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 | [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
 | [`media-type-no-deprecated`](../../lib/rules/media-type-no-deprecated/README.md)<br/>Disallow deprecated media types. | ✅ | |
 | [`property-no-deprecated`](../../lib/rules/property-no-deprecated/README.md)<br/>Disallow deprecated properties. | ✅ | 🔧 |
-| [`selector-no-deprecated`](../../lib/rules/selector-no-deprecated/README.md)<br/>Disallow deprecated selectors. | ✅ | 🔧 |
+| [`selector-no-deprecated`](../../lib/rules/selector-no-deprecated/README.md)<br/>Disallow deprecated selectors. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
