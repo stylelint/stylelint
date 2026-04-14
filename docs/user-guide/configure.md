@@ -943,3 +943,20 @@ Options are:
 You'll find more formatters in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#formatters) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-formatter).
 
 [More info](options.md#formatter).
+
+## `maxWarnings`
+
+Set a limit to the number of warnings accepted.
+
+For example:
+
+```json
+{
+  "maxWarnings": 0
+}
+```
+
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
+
+[More info](options.md#maxwarnings).
