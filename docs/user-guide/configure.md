@@ -177,7 +177,7 @@ export default {
             case "font-style":
               return `Use "class: 'italic'" instead`;
             default:
-              return `Unexpected value "${value}" for property "${property}"`;
+              return `Disallowed value "${value}" for property "${property}"`;
           }
         }
       }
@@ -299,7 +299,7 @@ a[data-auto="1"] {}
 
 ## `languageOptions`
 
-You can customize the syntax to define or extend the syntax for at-rules, CSS-wide keywords, properties, types, and units.
+You can customize the syntax and specify the directionality.
 
 ### `syntax`
 
@@ -511,6 +511,7 @@ The following patterns are _not_ considered problems:
 a { top: 10--foo; }
 ```
 
+<<<<<<< add-semantic
 ## `referenceFiles`
 
 > [!WARNING]
@@ -565,6 +566,39 @@ The following rules are configured via the `referenceFiles` property:
 - [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)
 - [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)
 - [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)
+=======
+### `directionality`
+
+Specify the direction of the block and inline axes. This is used by rules to provide direction-aware problem messages and autofixes.
+
+You must specify both `block` and `inline`, and they must be on perpendicular axes:
+
+- `top-to-bottom`
+- `bottom-to-top`
+- `left-to-right`
+- `right-to-left`
+
+For example, to configure for latin languages:
+
+```json
+{
+  "languageOptions": {
+    "directionality": {
+      "block": "top-to-bottom",
+      "inline": "left-to-right"
+    }
+  }
+}
+```
+
+So that `margin-left` maps to `margin-inline-start`, and `margin-bottom` maps to `margin-block-end`.
+
+For a right-to-left language, set `"inline": "right-to-left"`. The mapping changes: `margin-left` now maps to `margin-inline-end` instead.
+
+The following rules are configured via the `directionality` property:
+
+- [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)
+>>>>>>> main
 
 ## `extends`
 

@@ -265,15 +265,30 @@ There is one caveat here: If your rule accepts a primary option array, it cannot
 
 ### Add problem messages
 
-Add problem messages in form of:
+Add problem messages that lead with:
 
-- "Expected \[something\] \[in some context\]"
-- "Unexpected \[something\] \[in some context\]"
+- `Expected` (or `Expected no`) when the fix is unambiguous
+- a descriptive adjective when the fix is ambiguous, e.g. `Unknown`, `Invalid`, `Disallowed`, and `Too [adjective]` for limits
 
-If the rule has autofix use:
+If the rule has autofix, use:
 
-- 'Expected "\[unfixed\]" to be "\[fixed\]"' for short strings
-- 'Expected "\[primary\]" ... notation' for long strings
+- `Expected "[unfixed]" to be "[fixed]"` for short strings
+- `Expected "[primary]" ... notation` for long strings
+
+You should use:
+
+- parentheses to qualify the immediately preceding term, e.g. `"&:hover" ("a:hover")`
+- commas for supplementary context, e.g. `, at line 5`
+
+For example:
+
+- `Expected "20" to be "20deg"`
+- `Expected no empty line before declaration`
+- `Expected modern color-function notation`
+- `Unknown unit "pxl"`
+- `Invalid syntax string "<colorr>"`
+- `Disallowed qualifying type selector "a" in "&.foo" ("a.foo")`
+- `Too many combinators in "a ~ b", maximum 0 `
 
 ### Add autofix
 

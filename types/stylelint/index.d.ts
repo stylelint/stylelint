@@ -111,6 +111,10 @@ declare namespace stylelint {
 			types?: Record<string, string>;
 			units?: Record<string, string[]>;
 		};
+		directionality?: {
+			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
+			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
+		};
 	};
 
 	/**
@@ -888,6 +892,12 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[property: string]>
 		>;
+		'property-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{ ignoreProperties: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, property: string]>
+		>;
 		'property-no-deprecated': CoreRule<
 			true,
 			{
@@ -909,6 +919,11 @@ declare namespace stylelint {
 			true,
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
 			RejectedMessage<[property: string]>
+		>;
+		'relative-selector-nesting-notation': CoreRule<
+			'explicit' | 'implicit',
+			{},
+			ExpectedMessage<[primary: string]>
 		>;
 		'rule-empty-line-before': CoreRule<
 			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
@@ -987,6 +1002,11 @@ declare namespace stylelint {
 		}>;
 		'selector-max-universal': MaxRule<{ ignoreAfterCombinators: OneOrMany<string> }>;
 		'selector-nested-pattern': PatternRule<{ splitList: boolean }>;
+		'selector-no-deprecated': CoreRule<
+			true,
+			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			AutofixMessage & RejectedMessage<[selector: string]>
+		>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
