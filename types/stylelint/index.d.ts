@@ -191,7 +191,7 @@ declare namespace stylelint {
 		/**
 		 * Set a limit to the number of warnings accepted.
 		 *
-		 * @see [maxWarnings](https://stylelint.io/user-guide/options#maxwarnings)
+		 * @see [maxWarnings](https://stylelint.io/user-guide/configure#maxwarnings)
 		 */
 		maxWarnings?: number;
 		/**
