@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.8.0 - 2026-04-15
+
+- Added: `languageOptions.directionality` configuration property ([#8687](https://github.com/stylelint/stylelint/pull/8687)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `property-layout-mappings` rule ([#8687](https://github.com/stylelint/stylelint/pull/8687)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `relative-selector-nesting-notation` rule ([#8730](https://github.com/stylelint/stylelint/pull/8730)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `selector-no-deprecated` rule ([#8694](https://github.com/stylelint/stylelint/pull/8694)) ([@immitsu](https://github.com/immitsu)).
+
 ## 17.7.0 - 2026-04-12
 
 It fixes 4 bugs, including clearer problem messages by removing filler words and leading with the problem. We've also released `1.0.0` of [create-stylelint](https://github.com/stylelint/create-stylelint) to help with first-time Stylelint setup.
