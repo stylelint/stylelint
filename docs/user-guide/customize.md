@@ -54,6 +54,22 @@ Or you can limit the number of ID selectors using the [`selector-max-id`](../../
 }
 ```
 
+Or you can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
+
+```diff json
+{
+  "extends": ["stylelint-config-standard"],
++ "referenceFiles": [
++   "tokens.css"
++ ],
++ "rules": {
++   "no-unknown-animations": true,
++   "no-unknown-custom-properties": true,
++   "no-unknown-custom-media": true
++ }
+}
+```
+
 These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS under control.
 
 ## Custom rules

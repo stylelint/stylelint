@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "17.7.0",
+  "version": "17.8.0",
   "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
@@ -152,7 +152,7 @@
     "micromatch": "^4.0.8",
     "normalize-path": "^3.0.0",
     "picocolors": "^1.1.1",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.9",
     "postcss-safe-parser": "^7.0.1",
     "postcss-selector-parser": "^7.1.1",
     "postcss-value-parser": "^4.2.0",
@@ -182,7 +182,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.0",
     "eslint-config-stylelint": "^27.0.0",
     "eslint-plugin-jest": "^29.15.1",
     "jest": "^30.3.0",
