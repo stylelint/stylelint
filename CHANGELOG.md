@@ -2,6 +2,8 @@
 
 ## 17.8.0 - 2026-04-15
 
+It adds 3 new rules and 1 configuration property.
+
 - Added: `languageOptions.directionality` configuration property ([#8687](https://github.com/stylelint/stylelint/pull/8687)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
 - Added: `property-layout-mappings` rule ([#8687](https://github.com/stylelint/stylelint/pull/8687)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
 - Added: `relative-selector-nesting-notation` rule ([#8730](https://github.com/stylelint/stylelint/pull/8730)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
