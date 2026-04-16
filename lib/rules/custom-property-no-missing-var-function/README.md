@@ -15,6 +15,8 @@ This rule has the following limitations:
 - It only reports custom properties that are defined within the same source.
 - It does not check properties that can contain author-defined identifiers, e.g. `transition-property`.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the custom property.
+
 ## Options
 
 ### `true`

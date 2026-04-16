@@ -19,6 +19,8 @@ It works well with other rules that validate feature names and values:
 > [!WARNING]
 > This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the media query and the reason it is invalid.
+
 ## Options
 
 ### `true`

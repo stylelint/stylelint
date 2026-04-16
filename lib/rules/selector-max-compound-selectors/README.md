@@ -17,6 +17,8 @@ Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#groupin
 > [!NOTE]
 > In versions prior to `17.0.0`, this rule would evaluate functional pseudo-classes separately, such as `:not()` and `:is()`, and resolve nested selectors (in a nonstandard way) before counting.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the selector and the configured maximum.
+
 ## Options
 
 ### `number`

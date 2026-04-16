@@ -9,6 +9,8 @@ Specify a list of disallowed attribute operators.
  * This operator */
 ```
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed attribute operator.
+
 ## Options
 
 ### `Array<string>`

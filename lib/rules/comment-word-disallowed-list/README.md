@@ -12,6 +12,8 @@ Specify a list of disallowed words within comments.
 > [!WARNING]
 > Comments within _selector and value lists_ are currently ignored.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed word.
+
 ## Options
 
 ### `Array<string>`

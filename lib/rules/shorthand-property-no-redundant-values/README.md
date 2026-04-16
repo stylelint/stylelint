@@ -30,6 +30,8 @@ This rule checks the following shorthand properties:
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the redundant value and its condensed form.
+
 ## Options
 
 ### `true`

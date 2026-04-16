@@ -92,6 +92,8 @@ Flexbox-related properties can be ignored using `ignoreShorthands: ["/flex/"]` (
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
+This rule supports up to 2 [message arguments](../../../docs/user-guide/configure.md#message): the shorthand property, or the redundant longhand property and its shorthand.
+
 ## Options
 
 ### `true`

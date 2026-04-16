@@ -18,6 +18,8 @@ For a named grid area to be valid, all strings must define:
 
 And all named grid areas that spans multiple grid cells must form a single filled-in rectangle.
 
+This rule supports up to 1 [message argument](../../../docs/user-guide/configure.md#message): the grid-area name.
+
 ## Options
 
 ### `true`

@@ -13,6 +13,8 @@ This rule checks that there is a single whitespace or a newline plus indentation
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the operator.
+
 ## Options
 
 ### `true`

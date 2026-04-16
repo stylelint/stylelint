@@ -9,6 +9,8 @@ Specify a list of disallowed selectors.
  * This is selector */
 ```
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed selector.
+
 ## Options
 
 ### `Array<string>`

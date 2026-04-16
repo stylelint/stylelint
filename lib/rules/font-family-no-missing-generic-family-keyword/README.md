@@ -16,6 +16,8 @@ The generic font family can be:
 
 This rule checks the `font` and `font-family` properties.
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

@@ -11,6 +11,8 @@ Disallow duplicate selectors within keyframe blocks.
 
 This rule is case-insensitive.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the duplicate selector.
+
 ## Options
 
 ### `true`
