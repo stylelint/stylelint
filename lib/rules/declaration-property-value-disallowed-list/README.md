@@ -109,3 +109,23 @@ a { animation-timing-function: linear; }
 ```css
 a { -webkit-animation-timing-function: linear; }
 ```
+
+## Message arguments
+
+This rule supports the following message arguments:
+
+- `property`: the disallowed property name
+- `value`: the disallowed value
+
+For example:
+```js
+[
+  {
+    "font-weight": ["normal", "bold"],
+    "font-style": ["italic", "oblique"]
+  },
+  {
+    message: (property, value) => `Unexpected value "${value}" for property "${property}"`
+  }
+]
+```
