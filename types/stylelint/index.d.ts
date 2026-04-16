@@ -203,6 +203,12 @@ declare namespace stylelint {
 		 */
 		reportUnscopedDisables?: DisableSettings;
 		/**
+		 * Set a limit to the number of warnings accepted.
+		 *
+		 * @see [maxWarnings](https://stylelint.io/user-guide/configure#maxwarnings)
+		 */
+		maxWarnings?: number;
+		/**
 		 * A string to set what configuration comments like 'stylelint-disable' start with.
 		 * Сan be useful when using multiple instances of Stylelint with different configurations.
 		 *
