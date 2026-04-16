@@ -13,6 +13,8 @@ This rule considers pseudo-element selectors defined in the CSS Specifications, 
 
 This rule ignores vendor-prefixed pseudo-element selectors.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown pseudo-element.
+
 ## Options
 
 ### `true`

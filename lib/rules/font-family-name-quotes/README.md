@@ -15,6 +15,8 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the font family name.
+
 ## Options
 
 _Please read the following to understand these options_:

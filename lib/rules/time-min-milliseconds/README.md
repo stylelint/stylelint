@@ -11,6 +11,8 @@ a { animation: slip-n-slide 150ms linear; }
 
 This rule checks positive numbers in `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`, and those times as they manifest in the `transition` and `animation` shorthands.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured minimum.
+
 ## Options
 
 ### `number`

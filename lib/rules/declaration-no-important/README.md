@@ -11,6 +11,8 @@ a { color: pink !important; }
 
 If you always want `!important` in your declarations, e.g. if you're writing [user styles](https://userstyles.org/), you can _safely_ add them using [`postcss-safe-important`](https://github.com/crimx/postcss-safe-important).
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

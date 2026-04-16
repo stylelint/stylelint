@@ -21,6 +21,8 @@ a {
 > - [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
 > - [`media-query-no-invalid`](../media-query-no-invalid/README.md)
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

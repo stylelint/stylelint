@@ -28,6 +28,8 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the display value and its expected notation.
+
 ## Options
 
 ### `"full"`

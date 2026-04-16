@@ -13,6 +13,8 @@ This rule ignores [`<custom-idents>`](https://developer.mozilla.org/en/docs/Web/
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the keyword and its expected case.
+
 ## Options
 
 ### `"lower"`

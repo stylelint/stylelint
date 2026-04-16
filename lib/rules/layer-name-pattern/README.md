@@ -9,6 +9,8 @@ Specify a pattern for layer names.
  * This layer name */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the layer name and the configured pattern.
+
 ## Options
 
 ### `string`

@@ -15,6 +15,8 @@ Syntax strings are used for the `syntax` descriptor value of the `@property` at-
 
 You can check [§5.1 “Supported Names” of the CSS Properties & Values API](https://drafts.css-houdini.org/css-properties-values-api/#supported-names) for a list of valid syntax component names.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the invalid syntax string.
+
 ## Options
 
 ### `true`
