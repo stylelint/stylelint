@@ -218,6 +218,7 @@ footer a:link, footer a:visited {
   "errored": true,
   "report": [
     {
+      "autofixed": true,
       "deprecations": [],
       "errored": true,
       "invalidOptionWarnings": [],
@@ -239,6 +240,7 @@ footer a:link, footer a:visited {
   "reportedDisables": [],
   "results": [
     {
+      "autofixed": true,
       "deprecations": [],
       "errored": true,
       "ignored": undefined,
