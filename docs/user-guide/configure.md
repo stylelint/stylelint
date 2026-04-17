@@ -177,7 +177,7 @@ export default {
             case "font-style":
               return `Use "class: 'italic'" instead`;
             default:
-              return `Unexpected value "${value}" for property "${property}"`;
+              return `Disallowed value "${value}" for property "${property}"`;
           }
         }
       }
@@ -299,7 +299,7 @@ a[data-auto="1"] {}
 
 ## `languageOptions`
 
-You can customize the syntax to define or extend the syntax for at-rules, properties, types, and CSS-wide keywords.
+You can customize the syntax and specify the directionality.
 
 ### `syntax`
 
@@ -309,6 +309,7 @@ You can extend or modify the default CSS syntax to customize the following aspec
 - `cssWideKeywords`: Extend the list of CSS-wide keywords with custom values
 - `properties`: Customize the syntax of specific properties
 - `types`: Extend or modify type definitions used in property values
+- `units`: Extend unit categories with custom units
 
 ```json
 {
@@ -326,7 +327,8 @@ You can extend or modify the default CSS syntax to customize the following aspec
       },
       "cssWideKeywords": ["my-global-value"],
       "properties": { "top": "| <--foo()>" },
-      "types": { "--foo()": "--foo( <length-percentage> )" }
+      "types": { "--foo()": "--foo( <length-percentage> )" },
+      "units": { "length": ["--foo"] }
     }
   },
   "rules": {
@@ -346,6 +348,7 @@ The following rules are configured via the `languageOptions` property:
 - [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
 - [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
 - [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)
+- [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md)
 
 #### `AtRules`
 
@@ -478,6 +481,122 @@ The following patterns are _not_ considered problems:
 ```css
 a { top: --foo(10px); }
 ```
+
+#### `units`
+
+You can extend unit categories (`angle`, `decibel`, `flex`, `frequency`, `length`, `resolution`, `semitones`, and `time`) with custom units.
+For example, to add a custom `--foo` unit to the `length` category:
+
+```json
+{
+  "languageOptions": {
+    "syntax": {
+      "units": { "length": ["--foo"] }
+    }
+  }
+}
+```
+
+When `declaration-property-value-no-unknown` is enabled, the following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: 10--bar; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: 10--foo; }
+```
+
+### `directionality`
+
+Specify the direction of the block and inline axes. This is used by rules to provide direction-aware problem messages and autofixes.
+
+You must specify both `block` and `inline`, and they must be on perpendicular axes:
+
+- `top-to-bottom`
+- `bottom-to-top`
+- `left-to-right`
+- `right-to-left`
+
+For example, to configure for latin languages:
+
+```json
+{
+  "languageOptions": {
+    "directionality": {
+      "block": "top-to-bottom",
+      "inline": "left-to-right"
+    }
+  }
+}
+```
+
+So that `margin-left` maps to `margin-inline-start`, and `margin-bottom` maps to `margin-block-end`.
+
+For a right-to-left language, set `"inline": "right-to-left"`. The mapping changes: `margin-left` now maps to `margin-inline-end` instead.
+
+The following rules are configured via the `directionality` property:
+
+- [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)
+
+## `referenceFiles`
+
+> [!WARNING]
+> This is an experimental feature. The API may change in the future.
+
+You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
+
+For example:
+
+```json
+{
+  "referenceFiles": "tokens/*.css"
+}
+```
+
+For non-CSS files, you should use an object form with a [`customSyntax`](#customsyntax) property:
+
+```json
+{
+  "referenceFiles": {
+    "files": "scss-tokens/*.scss",
+    "customSyntax": "postcss-scss"
+  }
+}
+```
+
+You can also use an array to specify multiple entries:
+
+```json
+{
+  "referenceFiles": [
+    "tokens.css",
+    {
+      "files": ["scss-tokens/*.scss", "vendor/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ]
+}
+```
+
+Each entry can be:
+
+- a string or array of glob patterns specifying which files to parse
+- an object that
+  - must contain a `files` property (a string or an array of glob patterns)
+  - may contain a [`customSyntax`](#customsyntax) property
+
+You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
+
+The following rules are configured via the `referenceFiles` property:
+
+- [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)
+- [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)
+- [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)
 
 ## `extends`
 
@@ -911,3 +1030,20 @@ Options are:
 You'll find more formatters in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#formatters) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-formatter).
 
 [More info](options.md#formatter).
+
+## `maxWarnings`
+
+Set a limit to the number of warnings accepted.
+
+For example:
+
+```json
+{
+  "maxWarnings": 0
+}
+```
+
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
+
+[More info](options.md#maxwarnings).

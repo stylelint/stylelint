@@ -17,6 +17,8 @@ You should not use any:
 - other labels
 - milestones
 
+You can use the `pr: low quality` label to trigger an automated comment and closing process.
+
 ## Titles
 
 You should follow the conventions for issue titles. If a pull request has a corresponding issue, their titles should match.

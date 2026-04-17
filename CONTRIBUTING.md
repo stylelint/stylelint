@@ -50,6 +50,10 @@ You can write code to:
 - [fix a bug in a rule](docs/contributor-guide/rules.md#fix-a-bug-in-a-rule)
 - [improve the performance of a rule](docs/contributor-guide/benchmarks.md#rule-benchmarking)
 
+If you plan to use a LLM to help you write the code, you can generate a local [instructions file](https://agents.md/) by pointing it at the codebase, especially the `docs` directory, and then [locally git ignoring](https://docs.github.com/en/get-started/git-basics/ignoring-files#excluding-local-files-without-creating-a-gitignore-file) the file.
+
+You should not use a LLM to fix issues labeled "[good first issue](https://github.com/stylelint/stylelint/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22)" as these intended to be learning opportunities for new contributors.
+
 ### Format code
 
 We use [Prettier](https://prettier.io/) (with [a lint-staged precommit](https://github.com/lint-staged/lint-staged#readme)) to format your code automatically.
@@ -67,6 +71,7 @@ We'll review your pull request and give you feedback.
 
 You should:
 
+- take responsibility for the code contributed, especially if you [used a LLM to help you](https://simonwillison.net/guides/agentic-engineering-patterns/anti-patterns/) write it, to minimise maintenance and review burden
 - give your pull request the same title as the corresponding issue because it becomes the commit message when we squash and merge
 - [apply any suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request#applying-suggested-changes) (either individually or as a batch), rather than push your own commits, so that GitHub automatically resolves the corresponding note
 
@@ -74,6 +79,7 @@ And please don't:
 
 - force-push after the review has started to help us keep track of changes
 - request a review from an individual member, as any member can review the pull request when they have time
+- use a LLM to answer review comments unless purely to translate from your own language, as it's not respectful of the reviewer's time
 
 Once it's ready, we'll squash the commits and merge it.
 

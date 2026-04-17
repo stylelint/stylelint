@@ -1,7 +1,6 @@
 import type * as PostCSS from 'postcss';
 import type { Options as GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
-import type { Lexer as CSSTreeLexer } from 'css-tree';
 
 type ConfigExtends = string | string[];
 
@@ -87,6 +86,16 @@ declare namespace stylelint {
 		severity?: Severity;
 	};
 
+	type ConfigReferenceFilesEntry = {
+		files: string | string[];
+		customSyntax?: CustomSyntax;
+	};
+
+	type ConfigReferenceFiles =
+		| string
+		| ConfigReferenceFilesEntry
+		| (string | ConfigReferenceFilesEntry)[];
+
 	type LanguageOptions = {
 		syntax?: {
 			atRules?: Record<
@@ -100,6 +109,11 @@ declare namespace stylelint {
 			cssWideKeywords?: string[];
 			properties?: Record<string, string>;
 			types?: Record<string, string>;
+			units?: Record<string, string[]>;
+		};
+		directionality?: {
+			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
+			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
 		};
 	};
 
@@ -121,7 +135,8 @@ declare namespace stylelint {
 		 * @see [plugins](https://stylelint.io/user-guide/configure/#plugins)
 		 */
 		plugins?: ConfigPlugins;
-		pluginFunctions?: {
+		/** @internal */
+		_pluginFunctions?: {
 			[pluginName: string]: Rule;
 		};
 		/**
@@ -132,7 +147,6 @@ declare namespace stylelint {
 		 * @see [ignoreFiles](https://stylelint.io/user-guide/configure/#ignorefiles)
 		 */
 		ignoreFiles?: ConfigIgnoreFiles;
-		ignorePatterns?: string;
 		/**
 		 * An object containing the configured rules
 		 *
@@ -189,6 +203,12 @@ declare namespace stylelint {
 		 */
 		reportUnscopedDisables?: DisableSettings;
 		/**
+		 * Set a limit to the number of warnings accepted.
+		 *
+		 * @see [maxWarnings](https://stylelint.io/user-guide/configure#maxwarnings)
+		 */
+		maxWarnings?: number;
+		/**
 		 * A string to set what configuration comments like 'stylelint-disable' start with.
 		 * Сan be useful when using multiple instances of Stylelint with different configurations.
 		 *
@@ -207,6 +227,8 @@ declare namespace stylelint {
 		 * @see [customSyntax](https://stylelint.io/user-guide/configure#customsyntax)
 		 */
 		customSyntax?: CustomSyntax;
+		/** @internal */
+		_resolvedCustomSyntax?: PostCSS.Syntax;
 		/**
 		 * Functions that allow to hook into Stylelint's pipeline
 		 *
@@ -215,9 +237,24 @@ declare namespace stylelint {
 		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
 		 */
 		processors?: ConfigProcessors;
-		languageOptions?: LanguageOptions;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
+		/**
+		 * An array of globs or objects to specify what files to get reference information from
+		 *
+		 * @experimental
+		 *
+		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
+		 */
+		referenceFiles?: ConfigReferenceFiles;
+		/** @internal */
+		_resolvedReferenceFiles?: Array<{ files: string[]; customSyntax?: PostCSS.Syntax }>;
+		/**
+		 * Language options to extend the syntax.
+		 *
+		 * @see [languageOptions](https://stylelint.io/user-guide/configure#languageoptions)
+		 */
+		languageOptions?: LanguageOptions;
 		/**
 		 * If true, Stylelint does not throw an error when the glob pattern matches no files.
 		 *
@@ -242,6 +279,7 @@ declare namespace stylelint {
 		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
 		 */
 		fix?: boolean;
+		/** @internal */
 		computeEditInfo?: boolean;
 		/**
 		 * Force enable/disable the validation of the rules' options
@@ -296,7 +334,11 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
-		lexer: CSSTreeLexer;
+		referenceRoots: PostCSS.Root[];
+
+		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
+		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
+		lexer: unknown;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
@@ -786,7 +828,9 @@ declare namespace stylelint {
 		>;
 		'media-feature-name-value-no-unknown': CoreRule<
 			true,
-			{},
+			{
+				ignoreMediaFeatureNameValues: Record<string, OneOrMany<string | RegExp>>;
+			},
 			RejectedMessage<[name: string, value: string]>
 		>;
 		'media-feature-range-notation': NotationRule<
@@ -854,6 +898,12 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[property: string]>
 		>;
+		'property-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{ ignoreProperties: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, property: string]>
+		>;
 		'property-no-deprecated': CoreRule<
 			true,
 			{
@@ -875,6 +925,11 @@ declare namespace stylelint {
 			true,
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
 			RejectedMessage<[property: string]>
+		>;
+		'relative-selector-nesting-notation': CoreRule<
+			'explicit' | 'implicit',
+			{},
+			ExpectedMessage<[primary: string]>
 		>;
 		'rule-empty-line-before': CoreRule<
 			'always' | 'never' | 'always-multi-line' | 'never-multi-line',
@@ -953,6 +1008,11 @@ declare namespace stylelint {
 		}>;
 		'selector-max-universal': MaxRule<{ ignoreAfterCombinators: OneOrMany<string> }>;
 		'selector-nested-pattern': PatternRule<{ splitList: boolean }>;
+		'selector-no-deprecated': CoreRule<
+			true,
+			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			AutofixMessage & RejectedMessage<[selector: string]>
+		>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
@@ -1073,7 +1133,7 @@ declare namespace stylelint {
 		code?: string;
 		codeFilename?: string;
 		filePath?: string;
-		customSyntax?: CustomSyntax;
+		customSyntax?: PostCSS.Syntax;
 	};
 
 	/** @internal */
