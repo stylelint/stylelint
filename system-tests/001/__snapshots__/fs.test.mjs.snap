@@ -17,6 +17,7 @@ exports[`fs - valid sanitize.css and their config 1`] = `
   "reportedDisables": [],
   "results": [
     {
+      "autofixed": undefined,
       "deprecations": [],
       "errored": false,
       "ignored": undefined,

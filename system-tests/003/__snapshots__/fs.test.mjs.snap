@@ -6,6 +6,7 @@ exports[`fs - zen garden CSS with standard config 1`] = `
   "errored": true,
   "report": [
     {
+      "autofixed": true,
       "deprecations": [],
       "errored": true,
       "invalidOptionWarnings": [],
@@ -27,6 +28,7 @@ exports[`fs - zen garden CSS with standard config 1`] = `
   "reportedDisables": [],
   "results": [
     {
+      "autofixed": true,
       "deprecations": [],
       "errored": true,
       "ignored": undefined,
