@@ -1,6 +1,6 @@
 {
 	"extends": ["./config-relative-plugin"],
-	"plugins": ["./plugin-warn-about-bar.cjs"],
+	"plugins": ["./plugin-warn-about-bar.mjs"],
 	"rules": {
 		"plugin/warn-about-bar": "always"
 	}

@@ -1,5 +1,168 @@
 # Changelog
 
+## 17.8.0 - 2026-04-15
+
+It adds 3 new rules and 1 configuration property.
+
+- Added: `languageOptions.directionality` configuration property ([#8687](https://github.com/stylelint/stylelint/pull/8687)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `property-layout-mappings` rule ([#8687](https://github.com/stylelint/stylelint/pull/8687)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `relative-selector-nesting-notation` rule ([#8730](https://github.com/stylelint/stylelint/pull/8730)) ([@sw1tch3roo](https://github.com/sw1tch3roo)).
+- Added: `selector-no-deprecated` rule ([#8694](https://github.com/stylelint/stylelint/pull/8694)) ([@immitsu](https://github.com/immitsu)).
+
+## 17.7.0 - 2026-04-12
+
+It fixes 4 bugs, including clearer problem messages by removing filler words and leading with the problem. We've also released `1.0.0` of [create-stylelint](https://github.com/stylelint/create-stylelint) to help with first-time Stylelint setup.
+
+- Fixed: clarity of problem messages ([#9199](https://github.com/stylelint/stylelint/pull/9199)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `--print-config` CLI flag to hide internal properties ([#9194](https://github.com/stylelint/stylelint/pull/9194)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `function-url-quotes` false positives when URLs have modifiers ([#8702](https://github.com/stylelint/stylelint/pull/8702)) ([@immitsu](https://github.com/immitsu)).
+- Fixed: `selector-no-qualifying-type` false positives for `:has()` ([#9182](https://github.com/stylelint/stylelint/pull/9182)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 17.6.0 - 2026-03-26
+
+It adds support for extending units in `languageOptions`, which then apply to rules like `declaration-property-value-no-unknown`, and fixes 2 bugs.
+
+- Added: support for extending units to `languageOptions` ([#9166](https://github.com/stylelint/stylelint/pull/9166)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: missing `ruleMetadata` when linting multiple files with overrides ([#9154](https://github.com/stylelint/stylelint/pull/9154)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `custom-property-no-missing-var-function` false positives for `timeline-scope` and `animation-timeline` ([#9164](https://github.com/stylelint/stylelint/pull/9164)) ([@splincode](https://github.com/splincode)).
+
+## 17.5.0 - 2026-03-19
+
+It deprecates two rule options, adds 1 rule option and fixes 7 bugs. We've also released [`2.1.0`](https://github.com/stylelint/vscode-stylelint/releases/tag/2.1.0) of [our VS Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), which adds 8 new requested features, and our [first release](https://www.npmjs.com/package/@stylelint/language-server) of the Stylelint Language Server.
+
+- Deprecated: `*syntax` options from `declaration-property-value-no-unknown` ([#9102](https://github.com/stylelint/stylelint/pull/9102)) ([@ragini-pandey](https://github.com/ragini-pandey)).
+- Added: `ignoreMediaFeatureNameValues: {}` to `media-feature-name-value-no-unknown` ([#8976](https://github.com/stylelint/stylelint/pull/8976)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `node_modules` not ignored when using `codeFilename` in Node.js API ([#9130](https://github.com/stylelint/stylelint/pull/9130)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `Error TS7016` for imported `css-tree` types ([#9133](https://github.com/stylelint/stylelint/pull/9133)) ([@ragini-pandey](https://github.com/ragini-pandey)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` false positives for function arguments ([#9116](https://github.com/stylelint/stylelint/pull/9116)) ([@ragini-pandey](https://github.com/ragini-pandey)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `calc-size()` containing `size` keyword ([#9105](https://github.com/stylelint/stylelint/pull/9105)) ([@hriztam](https://github.com/hriztam)).
+- Fixed: `no-descending-specificity` & `no-duplicate-selectors` false negatives for equivalent compound selectors ([#8977](https://github.com/stylelint/stylelint/pull/8977)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `no-invalid-position-declaration` false positives for `@mixin` and `@scope` ([#9120](https://github.com/stylelint/stylelint/pull/9120)) ([@ragini-pandey](https://github.com/ragini-pandey)).
+- Fixed: `property-no-unknown` false negatives for `types` ([#9117](https://github.com/stylelint/stylelint/pull/9117)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 17.4.0 - 2026-02-25
+
+It adds 2 options to the rules and fixes 7 bugs.
+
+- Added: `ignoreAtRules: []` to `at-rule-no-vendor-prefix` ([#9096](https://github.com/stylelint/stylelint/pull/9096)) ([@theacrat](https://github.com/theacrat)).
+- Added: `ignoreMediaFeatureNames: []` to `media-feature-name-no-vendor-prefix` ([#9097](https://github.com/stylelint/stylelint/pull/9097)) ([@theacrat](https://github.com/theacrat)).
+- Fixed: performance of selector cloning rules ([#9089](https://github.com/stylelint/stylelint/pull/9089)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `*-empty-line-before` performance ([#9092](https://github.com/stylelint/stylelint/pull/9092)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` performance ([#9090](https://github.com/stylelint/stylelint/pull/9090)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `no-irregular-whitespace` performance ([#9091](https://github.com/stylelint/stylelint/pull/9091)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false negatives for at-rule descriptors ([#9109](https://github.com/stylelint/stylelint/pull/9109)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false positives for `corner-shape` ([#9099](https://github.com/stylelint/stylelint/pull/9099)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-unknown` false positives for double-slashed properties ([#9099](https://github.com/stylelint/stylelint/pull/9099)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 17.3.0 - 2026-02-13
+
+It fixes 17 bugs. 3 related to supporting `calc()` in `declaration-property-value-no-unknown`, and 13 performance ones that make Stylelint a further 3x faster when using the rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard).
+
+- Fixed: performance of rule sequencing ([#9055](https://github.com/stylelint/stylelint/pull/9055)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `*-list` performance ([#9056](https://github.com/stylelint/stylelint/pull/9056)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `*-notation` performance ([#9044](https://github.com/stylelint/stylelint/pull/9044)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-max-values` performance ([#9057](https://github.com/stylelint/stylelint/pull/9057)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-keyword-no-deprecated` performance ([#9058](https://github.com/stylelint/stylelint/pull/9058)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for math functions inside of non-math functions ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `calc()` with mixed operations ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` performance ([#9062](https://github.com/stylelint/stylelint/pull/9062)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` reported ranges for multiple math functions ([#9064](https://github.com/stylelint/stylelint/pull/9064)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `length-zero-no-unit` performance ([#9046](https://github.com/stylelint/stylelint/pull/9046)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `named-grid-areas-no-invalid` false positives for mix of tabs and spaces ([#9039](https://github.com/stylelint/stylelint/pull/9039)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `no-unknown-custom-media` performance ([#9059](https://github.com/stylelint/stylelint/pull/9059)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-max-*` performance ([#9042](https://github.com/stylelint/stylelint/pull/9042)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `shorthand-property-no-redundant-values` performance ([#9047](https://github.com/stylelint/stylelint/pull/9047)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `syntax-string-no-invalid` performance ([#9061](https://github.com/stylelint/stylelint/pull/9061)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `time-min-milliseconds` performance ([#9060](https://github.com/stylelint/stylelint/pull/9060)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `value-keyword-case` performance ([#9048](https://github.com/stylelint/stylelint/pull/9048)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 17.2.0 - 2026-02-10
+
+It fixes 7 bugs, including 5 performance ones that make Stylelint 7x faster and use 3x less memory on larger codebases such as design systems and monorepos. We also restructured our docs to create a [contributor guide](CONTRIBUTING.md). If you'd like to help out and contribute to Stylelint, that's the place to start.
+
+- Fixed: performance of config augmentation and module imports ([#9021](https://github.com/stylelint/stylelint/pull/9021)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of config override matching ([#9023](https://github.com/stylelint/stylelint/pull/9023)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of config resolution ([#9033](https://github.com/stylelint/stylelint/pull/9033)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: performance of rule resolution ([#9022](https://github.com/stylelint/stylelint/pull/9022)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for math functions ([#9011](https://github.com/stylelint/stylelint/pull/9011)) ([@ragini-pandey](https://github.com/ragini-pandey)).
+- Fixed: `no-duplicate-selectors` false negatives for matching escaped selectors ([#8953](https://github.com/stylelint/stylelint/pull/8953)) ([@bjnewman](https://github.com/bjnewman)).
+- Fixed: `no-invalid-position-at-import-rule` false negatives for layers with blocks ([#9026](https://github.com/stylelint/stylelint/pull/9026)) ([@romainmenke](https://github.com/romainmenke)).
+
+## 17.1.1 - 2026-02-03
+
+It fixes 2 bugs.
+
+- Fixed: resolution of configs, plugins, processors, and custom syntaxes in Yarn PnP environments ([#9010](https://github.com/stylelint/stylelint/pull/9010)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: `lightness-notation` autofix for decimals ([#9009](https://github.com/stylelint/stylelint/pull/9009)) ([@IlyaSemenov](https://github.com/IlyaSemenov)).
+
+## 17.1.0 - 2026-01-30
+
+It fixes 5 bugs and adds the `display-notation` rule. Before we turn it on in our [standard config](https://www.npmjs.com/package/stylelint-config-standard), we'd like to [hear the community's thoughts](https://github.com/stylelint/stylelint-config-standard/issues/387) on which options to use.
+
+- Added: `display-notation` rule ([#8981](https://github.com/stylelint/stylelint/pull/8981)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `GlobbyOptions` TypeScript errors ([#8992](https://github.com/stylelint/stylelint/pull/8992)) ([@zalishchuk](https://github.com/zalishchuk)).
+- Fixed: `hue-degree-notation` false negatives and positives for relative colors ([#8985](https://github.com/stylelint/stylelint/pull/8985)) ([@jamesnw](https://github.com/jamesnw)).
+- Fixed: `lightness-notation` false negatives for relative colors ([#8987](https://github.com/stylelint/stylelint/pull/8987)) ([@jamesnw](https://github.com/jamesnw)).
+- Fixed: `selector-type-no-unknown` false positives for `geolocation` and `usermedia` ([#9004](https://github.com/stylelint/stylelint/pull/9004)) ([@Mouvedia](https://github.com/Mouvedia)).
+- Fixed: `selector-type-no-unknown` false positives for `rb`, `rtc` and `menuitem` ([#8972](https://github.com/stylelint/stylelint/pull/8972)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 17.0.0 - 2026-01-15
+
+It contains 14 breaking changes, which we've detailed in the [migrating to `17.0.0` guide](docs/migration-guide/to-17.md). Additionally, it adds 3 options to the rules and fixes 9 bugs. We've also released compatible versions of our [shared config](https://www.npmjs.com/package/stylelint-config-standard), [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), [Node.js Rule Tester](https://www.npmjs.com/package/stylelint-test-rule-node) and [Jest preset](https://www.npmjs.com/package/jest-preset-stylelint).
+
+- Removed: CommonJS Node.js API ([#8859](https://github.com/stylelint/stylelint/pull/8859)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `output` property in the Node.js API returned resolved object ([#8878](https://github.com/stylelint/stylelint/pull/8878)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: support for Node.js less than 20.19.0 ([#8867](https://github.com/stylelint/stylelint/pull/8867)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: GitHub formatter ([#8888](https://github.com/stylelint/stylelint/pull/8888)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `resolveNestedSelectors` option from `selector-class-pattern` ([#8931](https://github.com/stylelint/stylelint/pull/8931)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `checkContextFunctionalPseudoClasses` option from `selector-max-id` ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: default `fix` mode to `strict` ([#8889](https://github.com/stylelint/stylelint/pull/8889)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `report` to be consistent and predictable in how it handles the provided position arguments ([#8217](https://github.com/stylelint/stylelint/pull/8217)) ([@romainmenke](https://github.com/romainmenke)).
+- Changed: `selector-max-*` syntax rules for standard CSS nesting and modern functional pseudo-classes ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `*-specificity` semantic rules for standard CSS nesting ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `no-duplicate-selectors` and `selector-no-qualifying-type` for standard CSS nesting ([#8913](https://github.com/stylelint/stylelint/pull/8913)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `*-list` rules to have consistent behaviour for vendor prefixes and case ([#8912](https://github.com/stylelint/stylelint/pull/8912)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `*-no-vendor-prefix` rules to have consistent behaviour for their `ignore*: []` secondary options ([#8924](https://github.com/stylelint/stylelint/pull/8924)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `declaration-property-max-values` rule to have consistent behaviour for vendor prefixes ([#8926](https://github.com/stylelint/stylelint/pull/8926)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `except: ["after-block"]` to `custom-property-empty-line-before` ([#8921](https://github.com/stylelint/stylelint/pull/8921)) ([@kovsu](https://github.com/kovsu)).
+- Added: `except: ["after-block"]` to `declaration-empty-line-before` ([#8910](https://github.com/stylelint/stylelint/pull/8910)) ([@kovsu](https://github.com/kovsu)).
+- Added: `ignoreSelectors: []` to `no-duplicate-selectors` ([#8883](https://github.com/stylelint/stylelint/pull/8883)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: Windows drive letter casing inconsistencies when matching patterns against file paths ([#8941](https://github.com/stylelint/stylelint/pull/8941)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Fixed: CLI help to include TypeScript config files ([#8908](https://github.com/stylelint/stylelint/pull/8908)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `at-rule-descriptor-no-unknown` false positives for declarations within feature-value-blocks ([#8868](https://github.com/stylelint/stylelint/pull/8868)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` false negatives for short and long combinations ([#8892](https://github.com/stylelint/stylelint/pull/8892)) ([@nathannewyen](https://github.com/nathannewyen)).
+- Fixed: `media-feature-name-no-unknown` false positives for namespaced dollar variables and range context queries ([#8890](https://github.com/stylelint/stylelint/pull/8890)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `nesting-selector-no-missing-scoping-root` false positives for CSS-in-JS ([#8905](https://github.com/stylelint/stylelint/pull/8905)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `no-invalid-position-declaration` false negatives for embedded blocks ([#8907](https://github.com/stylelint/stylelint/pull/8907)) ([@kovsu](https://github.com/kovsu)).
+- Fixed: `selector-no-qualifying-type` false negatives for `:is/where()` ([#8940](https://github.com/stylelint/stylelint/pull/8940)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for MathML 4 tags ([#8874](https://github.com/stylelint/stylelint/pull/8874)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 16.26.1 - 2025-11-28
+
+It fixes numerous false positive bugs, including many in the `declaration-property-value-no-unknown` rule for the latest CSS specifications.
+
+- Fixed: `*-no-unknown` false positives for latest specs by integrating `@csstools/css-syntax-patches-for-csstree` ([#8850](https://github.com/stylelint/stylelint/pull/8850)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `at-rule-no-unknown` false positives for `@function` ([#8851](https://github.com/stylelint/stylelint/pull/8851)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false positives for `attr()`, `if()` and custom functions ([#8853](https://github.com/stylelint/stylelint/pull/8853)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-url-quotes` false positives when URLs require quoting ([#8804](https://github.com/stylelint/stylelint/pull/8804)) ([@taearls](https://github.com/taearls)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::scroll-button()` ([#8856](https://github.com/stylelint/stylelint/pull/8856)) ([@Mouvedia](https://github.com/Mouvedia)).
+
+## 16.26.0 - 2025-11-21
+
+It adds 1 feature and fixes 2 bugs.
+
+- Added: support for `customSyntax` with function export ([#8834](https://github.com/stylelint/stylelint/pull/8834)) ([@silverwind](https://github.com/silverwind)).
+- Fixed: `custom-property-no-missing-var-function` false positives for style query in `if()` function ([#8813](https://github.com/stylelint/stylelint/pull/8813)) ([@sajdakabir](https://github.com/sajdakabir)).
+- Fixed: `media-feature-range-notation` false positives for multiple queries and `except: exact-value` ([#8832](https://github.com/stylelint/stylelint/pull/8832)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 16.25.0 - 2025-10-03
+
+It adds 3 new features, including experimental support for bulk suppressions. It's also our first [immutable release](https://github.blog/changelog/2025-08-26-releases-now-support-immutability-in-public-preview/), with the package published to npm using [trusted publishing](https://github.blog/changelog/2025-07-31-npm-trusted-publishing-with-oidc-is-generally-available/) and our dependencies updated on a [cool down](https://github.blog/changelog/2025-07-01-dependabot-supports-configuration-of-a-minimum-package-age/) for improved supply chain security.
+
+- Added: support for bulk suppressions ([#8564](https://github.com/stylelint/stylelint/pull/8564)) ([@ryo-manba](https://github.com/ryo-manba)).
+- Added: `ignoreAtRules: []` to `no-invalid-position-declaration` ([#8781](https://github.com/stylelint/stylelint/pull/8781)) ([@jrmlt](https://github.com/jrmlt)).
+- Added: rule name to custom messages ([#8774](https://github.com/stylelint/stylelint/pull/8774)) ([@jhae-de](https://github.com/jhae-de)).
+
 ## 16.24.0 - 2025-09-07
 
 It adds 1 new rule, adds 1 option to a rule and fixes 2 bugs.

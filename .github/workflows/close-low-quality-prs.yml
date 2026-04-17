@@ -1,0 +1,54 @@
+name: Close low-quality PRs
+
+on:
+  pull_request_target:
+    types: [labeled]
+  schedule:
+    - cron: '0 0 * * *' # Every day at 00:00 UTC
+  workflow_dispatch:
+
+jobs:
+  comment:
+    runs-on: ubuntu-slim
+    if: >-
+      github.repository == 'stylelint/stylelint' &&
+      github.event_name == 'pull_request_target' &&
+      github.event.label.name == 'pr: low quality'
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Comment on low-quality PR
+        run: gh pr comment "${PR_URL}" --body "${pr_comment}"
+        env:
+          GH_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          pr_comment: |-
+            Thank you for your contribution. However, this pull request does not appear to follow our [contributing guide](https://stylelint.io/CONTRIBUTING). Please review it and update your pull request.
+
+            This pull request will automatically close if there is no activity within 2 days.
+
+  close:
+    runs-on: ubuntu-slim
+    if: >-
+      github.repository == 'stylelint/stylelint' &&
+      github.event_name != 'pull_request_target'
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Close stale low-quality PRs
+        run: |
+          two_days_ago=$(date --date '2 days ago' '+%Y-%m-%d')
+
+          # For the search syntax, see https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests
+          old_pr_urls=$(gh pr list \
+            --search "is:open updated:<${two_days_ago} label:\"pr: low quality\"" \
+            --json 'url' \
+            --jq '.[] | .url')
+
+          for url in ${old_pr_urls}; do
+            gh pr close "${url}"
+          done
+        env:
+          GH_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

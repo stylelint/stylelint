@@ -9,11 +9,14 @@ updates:
       - 'pr: dependencies'
     versioning-strategy: increase
     groups:
-      csstools-parser:
-        patterns: ['@csstools/*']
-        exclude-patterns: ['@csstools/selector-specificity'] # unrelated to other parser packages
       changesets:
         patterns: ['@changesets/*']
+      csstools-parser:
+        patterns: ['@csstools/*']
+        exclude-patterns:
+          ['@csstools/selector-specificity', '@csstools/css-syntax-patches-for-csstree']
+      csstree:
+        patterns: ['css-tree', '@csstools/css-syntax-patches-for-csstree']
       eslint:
         patterns: ['eslint', 'eslint-*']
       jest:
@@ -24,9 +27,6 @@ updates:
         patterns: ['@stylelint/*']
       typescript:
         patterns: ['typescript', '@types/*']
-    ignore:
-      - dependency-name: 'eslint'
-        update-types: ['version-update:semver-major']
     cooldown:
       default-days: 7
 
@@ -39,3 +39,4 @@ updates:
       - 'pr: dependencies'
     cooldown:
       default-days: 7
+      exclude: ['stylelint/.github/*']

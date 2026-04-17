@@ -51,6 +51,10 @@ You can:
 - assign yourself to an issue, but not other people without their permission
 - unassign others after asking if they are still working on an issue
 
+## Hiding comments
+
+You can [hide comments](https://docs.github.com/en/communities/moderating-comments-and-conversations/managing-disruptive-comments) that are off-topic, unhelpful or low-quality so that the discussion remains easy to read.
+
 ## Saved replies
 
 You should use [saved replies](https://help.github.com/en/github/writing-on-github/working-with-saved-replies).
@@ -78,7 +82,7 @@ That fixes a bug in a rule:
 ```markdown
 I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
-There are [steps on how to fix a bug in a rule](https://stylelint.io/developer-guide/rules#fix-a-bug-in-a-rule) in the Developer guide.
+There are [steps on how to fix a bug in a rule](https://stylelint.io/contributor-guide/rules#fix-a-bug-in-a-rule) in the Contributor guide.
 ```
 
 That adds a new option to a rule:
@@ -86,7 +90,7 @@ That adds a new option to a rule:
 ```markdown
 I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
-There are [steps on how to add a new option](https://stylelint.io/developer-guide/rules#add-an-option-to-a-rule) in the Developer guide.
+There are [steps on how to add a new option](https://stylelint.io/contributor-guide/rules#add-an-option-to-a-rule) in the Contributor guide.
 ```
 
 That adds a new rule:
@@ -94,7 +98,7 @@ That adds a new rule:
 ```markdown
 I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
 
-There are [steps on how to add a new rule](https://stylelint.io/developer-guide/rules#add-a-rule) in the Developer guide.
+There are [steps on how to add a new rule](https://stylelint.io/contributor-guide/rules#add-a-rule) in the Contributor guide.
 ```
 
 That is another type of improvement:

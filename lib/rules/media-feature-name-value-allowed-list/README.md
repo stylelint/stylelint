@@ -14,7 +14,7 @@ Specify a list of allowed media feature name and value pairs.
 ### `Object<string, Array<string>>`
 
 ```json
-{ "unprefixed-media-feature-name": ["array", "of", "values", "/regex/"] }
+{ "media-feature-name": ["array", "of", "values", "/regex/"] }
 ```
 
 You can specify a regex for a media feature name, such as `{ "/width$/": [] }`.

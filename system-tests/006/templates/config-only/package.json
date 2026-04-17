@@ -1,0 +1,9 @@
+{
+  "name": "stylelint-test-yarn-pnp-config-only",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "stylelint-config-standard": "40.0.0"
+  },
+  "packageManager": "yarn@4.12.0"
+}

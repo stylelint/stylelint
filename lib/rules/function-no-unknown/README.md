@@ -13,12 +13,11 @@ This rule considers functions defined in the CSS Specifications to be known.
 
 This rule ignores double-dashed custom functions, e.g. `--custom-function()`.
 
-This rule overlaps with:
-
-- [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
-- [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
-
-We recommend using these rules for CSS and this rule for CSS-like languages, such as SCSS and Less.
+> [!NOTE]
+> We recommend only using this rule for CSS-like languages, such as SCSS and Less. For CSS, we recommend using these more capable and overlapping rules instead:
+>
+> - [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
+> - [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
 
 ## Options
 

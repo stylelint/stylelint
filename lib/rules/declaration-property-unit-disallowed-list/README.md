@@ -14,7 +14,7 @@ a { width: 100px; }
 ### `Object<string, Array<string>>`
 
 ```json
-{ "unprefixed-property-name": ["array", "of", "units"] }
+{ "property-name": ["array", "of", "units"] }
 ```
 
 You can specify a regex for a property name, such as `{ "/^animation/": [] }`.
@@ -25,7 +25,7 @@ Given:
 {
   "declaration-property-unit-disallowed-list": {
     "font-size": ["em", "px"],
-    "/^animation/": ["s"]
+    "/^(-webkit-)?animation/": ["s"]
   }
 }
 ```

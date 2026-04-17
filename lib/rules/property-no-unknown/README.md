@@ -9,16 +9,14 @@ a { height: 100%; }
  * This property */
 ```
 
-This rule considers properties defined in the [CSS Specifications and browser specific properties](https://github.com/betit/known-css-properties#source) to be known.
+This rule considers at-rules defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
+
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what properties are known, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
 This rule ignores:
 
-- variables (`$sass`, `@less`, `--custom-property`)
-- vendor-prefixed properties (e.g., `-moz-align-self`, `-webkit-align-self`)
-
-Use option `checkPrefixed` described below to turn on checking of vendor-prefixed properties.
-
-For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
+- variables, e.g., `$sass`, `@less`, `--custom-property`
+- vendor-prefixed properties, e.g., `-moz-overflow-scrolling` (unless `checkPrefixed` is set to `true`)
 
 ## Options
 
@@ -195,21 +193,7 @@ a {
 }
 ```
 
-<!-- prettier-ignore -->
-```css
-a {
-  -moz-box-flex: 0;
-}
-```
-
 The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-a {
-  -moz-align-self: center;
-}
-```
 
 <!-- prettier-ignore -->
 ```css

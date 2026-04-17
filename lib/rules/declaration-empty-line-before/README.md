@@ -121,6 +121,40 @@ a {
 { "except": ["array", "of", "options"] }
 ```
 
+#### `"after-block"`
+
+Reverse the primary option for declarations that follow a block.
+
+Given:
+
+```json
+{
+  "declaration-empty-line-before": ["never", { "except": ["after-block"] }]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css 
+a {
+  a {}
+  
+  color: red;
+  top: 5px;
+}
+```
+
+<!-- prettier-ignore -->
+```css 
+a {
+  @media all {}
+  
+  color: red;
+  top: 5px;
+}
+```
+
 #### `"after-comment"`
 
 Reverse the primary option for declarations that follow a comment.

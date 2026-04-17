@@ -1,0 +1,13 @@
+name: Release PR
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release-pr:
+    uses: stylelint/.github/.github/workflows/call-release-pr.yml@56c5d6e7e35009b7748db7558eac5377ec88f446 # 0.6.1
+    with:
+      new-version-command: npm run changeset
+    permissions:
+      contents: write
+      pull-requests: write

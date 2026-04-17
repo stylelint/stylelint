@@ -22,6 +22,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 | [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
 | [`media-type-no-deprecated`](../../lib/rules/media-type-no-deprecated/README.md)<br/>Disallow deprecated media types. | ✅ | |
 | [`property-no-deprecated`](../../lib/rules/property-no-deprecated/README.md)<br/>Disallow deprecated properties. | ✅ | 🔧 |
+| [`selector-no-deprecated`](../../lib/rules/selector-no-deprecated/README.md)<br/>Disallow deprecated selectors. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
@@ -320,6 +321,16 @@ Enforce or disallow empty lines before constructs with these `empty-line-before`
 | [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md)<br/>Require or disallow an empty line before rules. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
 
+### Layout mappings
+
+Specify flow-relative or physical layout mappings with these `layout-mappings` rules.
+
+<!-- prettier-ignore-start -->
+| | | |
+| :-- | :-: | :-: |
+| [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for properties. | | 🔧 |
+<!-- prettier-ignore-end -->
+
 ### Max & min
 
 Apply limits with these `max` and `min` rules.
@@ -354,12 +365,14 @@ Enforce one representation of things that have multiple with these `notation` (s
 | [`color-function-alias-notation`](../../lib/rules/color-function-alias-notation/README.md)<br/>Specify alias notation for color-functions. | ✅ | 🔧 |
 | [`color-function-notation`](../../lib/rules/color-function-notation/README.md)<br/>Specify modern or legacy notation for color-functions. | ✅ | 🔧 |
 | [`color-hex-length`](../../lib/rules/color-hex-length/README.md)<br/>Specify short or long notation for hex colors. | ✅ | 🔧 |
+| [`display-notation`](../../lib/rules/display-notation/README.md)<br/>Specify short or full notation for the `display` property. | | 🔧 |
 | [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md)<br/>Specify numeric or named notation for font weights. | | 🔧 |
 | [`hue-degree-notation`](../../lib/rules/hue-degree-notation/README.md)<br/>Specify number or angle notation for degree hues. | ✅ | 🔧 |
 | [`import-notation`](../../lib/rules/import-notation/README.md)<br/>Specify string or URL notation for `@import` rules. | ✅ | 🔧 |
 | [`keyframe-selector-notation`](../../lib/rules/keyframe-selector-notation/README.md)<br/>Specify keyword or percentage notation for keyframe selectors. | ✅ | 🔧 |
 | [`lightness-notation`](../../lib/rules/lightness-notation/README.md)<br/>Specify number or percentage notation for lightness. | ✅ | 🔧 |
 | [`media-feature-range-notation`](../../lib/rules/media-feature-range-notation/README.md)<br/>Specify context or prefix notation for media feature ranges. | ✅ | 🔧 |
+| [`relative-selector-nesting-notation`](../../lib/rules/relative-selector-nesting-notation/README.md)<br/>Specify explicit or implicit nesting notation for relative selectors. | | 🔧 |
 | [`selector-not-notation`](../../lib/rules/selector-not-notation/README.md)<br/>Specify simple or complex notation for `:not()` pseudo-class selectors. | ✅ | 🔧 |
 | [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md)<br/>Specify single or double colon notation for applicable pseudo-element selectors. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->

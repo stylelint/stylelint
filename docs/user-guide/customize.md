@@ -54,6 +54,22 @@ Or you can limit the number of ID selectors using the [`selector-max-id`](../../
 }
 ```
 
+Or you can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
+
+```diff json
+{
+  "extends": ["stylelint-config-standard"],
++ "referenceFiles": [
++   "tokens.css"
++ ],
++ "rules": {
++   "no-unknown-animations": true,
++   "no-unknown-custom-properties": true,
++   "no-unknown-custom-media": true
++ }
+}
+```
+
 These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS under control.
 
 ## Custom rules
@@ -102,7 +118,7 @@ Or you can use the [order plugin](https://www.npmjs.com/package/stylelint-order)
 }
 ```
 
-Custom rules do all sorts; from enforcing [strict BEM conventions](https://www.npmjs.com/package/stylelint-selector-bem-pattern) to [strict scales for numeric values](https://www.npmjs.com/package/stylelint-scales). You'll find more shared configs and plugins of custom rules listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme).
+Custom rules do all sorts; from [helping you use Baseline effectively](https://www.npmjs.com/package/stylelint-plugin-use-baseline) to [strict scales for numeric values](https://www.npmjs.com/package/stylelint-scales). You'll find more shared configs and plugins of custom rules listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme).
 
 You can also [write your own custom rules within a plugin](../developer-guide/plugins.md). This is particularly useful if you have specific needs or conventions you want to enforce.
 

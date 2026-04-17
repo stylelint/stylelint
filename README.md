@@ -40,7 +40,7 @@ And **enforce conventions**, for example:
 
 We recommend using a pretty printer like Prettier alongside Stylelint. Linters and pretty printers are complementary tools that work together to help you write consistent and error-free code.
 
-## Example output
+### Example output
 
 ![Example](example.png)
 
@@ -58,15 +58,19 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Options](docs/user-guide/options.md)
   - [Errors & warnings](docs/user-guide/errors.md)
 - Developer guide
-  - [Writing rules](docs/developer-guide/rules.md)
   - [Writing plugins](docs/developer-guide/plugins.md)
   - [Writing custom syntaxes](docs/developer-guide/syntaxes.md)
   - [Writing custom formatters](docs/developer-guide/formatters.md)
-  - [Writing system tests](docs/developer-guide/system-tests.md)
 - Migration guide
+  - [Migrating to 17.0.0](docs/migration-guide/to-17.md)
   - [Migrating to 16.0.0](docs/migration-guide/to-16.md)
   - [Migrating to 15.0.0](docs/migration-guide/to-15.md)
   - [Migrating to 14.0.0](docs/migration-guide/to-14.md)
+- Contributor guide
+  - [Contributing](CONTRIBUTING.md)
+  - [Writing rules](docs/contributor-guide/rules.md)
+  - [Writing system tests](docs/contributor-guide/system-tests.md)
+  - [Benchmarking](docs/contributor-guide/benchmarks.md)
 - Maintainer guide
   - [Managing issues](docs/maintainer-guide/issues.md)
   - [Managing pull requests](docs/maintainer-guide/pull-requests.md)
@@ -75,6 +79,8 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Vision](docs/about/vision.md)
   - [Governance](docs/about/governance.md)
   - [Semantic versioning](docs/about/semantic-versioning.md)
+  - [Support](SUPPORT.md)
+- [Changelog](CHANGELOG.md)
 
 ## Contributors
 
@@ -100,7 +106,7 @@ And thank you to all our Open Collective backers, GitHub sponsors and one-off do
 
 #### Website hosting
 
-[![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com)
+[![Deploys by Netlify](https://www.netlify.com/assets/badges/netlify-badge-dark.svg)](https://www.netlify.com)
 
 ## License
 

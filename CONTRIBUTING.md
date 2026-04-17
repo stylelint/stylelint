@@ -5,10 +5,9 @@ Thank you for wanting to contribute.
 To help out, you can:
 
 - get involved in any open [issue](https://github.com/stylelint/stylelint/issues) or [pull request](https://github.com/stylelint/stylelint/pulls)
-- create, enhance and debug rules using [our guide](docs/developer-guide/rules.md)
+- create, enhance and debug rules using [our guide](docs/contributor-guide/rules.md)
 - improve the [documentation](docs/)
-- add [new tests](https://github.com/stylelint/stylelint/issues?q=is%3Aopen+is%3Aissue+label%3A%22type%3A+tests%22) to _absolutely anything_
-- improve the [performance of rules](docs/developer-guide/rules.md#improve-the-performance-of-a-rule)
+- [benchmark](docs/contributor-guide/benchmarks.md) and improve performance
 - open [new issues](https://github.com/stylelint/stylelint/issues/new/choose) about your ideas for making Stylelint better
 
 Not only will you help Stylelint thrive, but you may learn a thing or two — about CSS, PostCSS, Node.js, unit testing, open-source software, and more. We want to encourage contributions! If you want to participate but couldn't, please [give us feedback](https://github.com/stylelint/stylelint/issues/new) about what we could do better.
@@ -23,15 +22,16 @@ To start coding, you'll need the:
 Then:
 
 1. [Fork and clone](https://guides.github.com/activities/forking/) the Stylelint repository.
-2. Install all the dependencies with `npm install`.
+2. Install all the dependencies with `npm ci`.
+3. Patch packages with `npx patch-package`.
 
 ### Run tests
 
-Next, you'll want to run the tests using `npm test`.
+Next, you'll want to run the tests using `npm test`. This runs all 25,000+ unit tests and also linting.
 
-However, this runs all 25,000+ unit tests and also linting.
+You can use the interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development).
 
-You can use the interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development). For example, to run the tests for just the `unit-allowed-list` and `unit-disallowed-list` rules:
+For example, to run the tests for just the `unit-allowed-list` and `unit-disallowed-list` rules:
 
 1. Run `npm run watch` to start the interactive testing prompt.
 2. Press `p` to filter by a filename regex pattern.
@@ -45,14 +45,18 @@ With the interactive testing prompt running, you can write code confident that t
 
 You can write code to:
 
-- [add a rule](docs/developer-guide/rules.md#add-a-rule)
-- [add an option to a rule](docs/developer-guide/rules.md#add-an-option-to-a-rule)
-- [fix a bug in a rule](docs/developer-guide/rules.md#fix-a-bug-in-a-rule)
-- [improve the performance of a rule](docs/developer-guide/rules.md#improve-the-performance-of-a-rule)
+- [add a rule](docs/contributor-guide/rules.md#add-a-rule)
+- [add an option to a rule](docs/contributor-guide/rules.md#add-an-option-to-a-rule)
+- [fix a bug in a rule](docs/contributor-guide/rules.md#fix-a-bug-in-a-rule)
+- [improve the performance of a rule](docs/contributor-guide/benchmarks.md#rule-benchmarking)
+
+If you plan to use a LLM to help you write the code, you can generate a local [instructions file](https://agents.md/) by pointing it at the codebase, especially the `docs` directory, and then [locally git ignoring](https://docs.github.com/en/get-started/git-basics/ignoring-files#excluding-local-files-without-creating-a-gitignore-file) the file.
+
+You should not use a LLM to fix issues labeled "[good first issue](https://github.com/stylelint/stylelint/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22)" as these intended to be learning opportunities for new contributors.
 
 ### Format code
 
-We use [Prettier](https://prettier.io/) (with [a Husky and lint-staged precommit](https://prettier.io/docs/en/precommit.html)) to format your code automatically.
+We use [Prettier](https://prettier.io/) (with [a lint-staged precommit](https://github.com/lint-staged/lint-staged#readme)) to format your code automatically.
 
 Alternatively, you can:
 
@@ -63,7 +67,21 @@ Alternatively, you can:
 
 When you have something to share, it's time to [open a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
-After we review and merge your pull request, we'll invite you to become a maintainer of the Stylelint organization. You'll then be able to help manage issues, pull requests and releases. You'll also be able to work on the Stylelint repository rather than your fork.
+We'll review your pull request and give you feedback.
+
+You should:
+
+- take responsibility for the code contributed, especially if you [used a LLM to help you](https://simonwillison.net/guides/agentic-engineering-patterns/anti-patterns/) write it, to minimise maintenance and review burden
+- give your pull request the same title as the corresponding issue because it becomes the commit message when we squash and merge
+- [apply any suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request#applying-suggested-changes) (either individually or as a batch), rather than push your own commits, so that GitHub automatically resolves the corresponding note
+
+And please don't:
+
+- force-push after the review has started to help us keep track of changes
+- request a review from an individual member, as any member can review the pull request when they have time
+- use a LLM to answer review comments unless purely to translate from your own language, as it's not respectful of the reviewer's time
+
+Once it's ready, we'll squash the commits and merge it.
 
 ## Financial contributions
 

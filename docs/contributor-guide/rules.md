@@ -1,0 +1,513 @@
+# Writing rules
+
+Please help us create, enhance, and debug our rules!
+
+## Add a rule
+
+You should get yourself ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
+
+### Define the rule
+
+A rule must be:
+
+- for standard CSS syntax only
+- generally useful; not tied to idiosyncratic patterns
+
+And have a:
+
+- unambiguous finished state
+- singular purpose
+
+Its name is split into two parts:
+
+- the [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to, e.g. `at-rule`
+- what the rule is checking, e.g. `disallowed-list`
+
+Unless it applies to the whole source, then there is no first part.
+
+### Write tests
+
+You should add test cases for all patterns that are:
+
+- considered problems
+- _not_ considered problems
+
+You should use:
+
+- realistic CSS, avoiding the use of ellipses
+- the minimum amount of valid CSS possible, e.g. use an empty rule if targeting selectors and avoid optional names
+- `{}` for empty rules, rather than `{ }`
+- trailing semicolons within declaration blocks
+- _foo_, _bar_, _baz_ and _qux_ for names, e.g. `.foo`, `#bar`, `--baz` and `/* qux */`
+- dashed-idents for custom things especially in `ignore*` options, e.g. `ignoreUnits: ["--foo"]`
+
+By default, you should use the:
+
+- `a` selector
+- `color` property
+- `red` value
+- `@media` at-rule name
+- `all` media type
+- `width > 10em` container query
+- `example.com` URL
+
+You should also:
+
+- vary column and line positions across your tests
+- include at least one test that has 2 warnings
+- test non-standard syntax in the `isStandardSyntax*` utilities, not in the rule itself
+
+#### Commonly overlooked edge-cases
+
+You should ask yourself how does your rule handle:
+
+- variables (e.g. `var(--custom-property)`)?
+- CSS-wide keywords (e.g. `initial`)?
+- CSS strings (e.g. `content: "anything goes";`)?
+- CSS comments (e.g. `/* anything goes */`)?
+- empty functions (e.g. `var()`)?
+- `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
+- vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
+- case sensitivity (e.g. `@KEYFRAMES name {}`)?
+- a pseudo-class _combined_ with a pseudo-element (e.g. `a:hover::before`)?
+- nesting (e.g. do you resolve `& a {}`, or check it as is?)?
+- whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
+
+### Write the rule
+
+When writing the rule, you should:
+
+- make the rule strict by default
+- add secondary `ignore` options to make the rule more permissive
+- not include code specific to language extensions like SCSS
+
+You should make use of the:
+
+- PostCSS API
+- construct-specific parsers
+- utility functions
+
+#### PostCSS API
+
+Use the [PostCSS API](https://postcss.org/api/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
+
+When using array methods on nodes, e.g. `find`, `some`, `filter` etc, you should explicitly check the `type` property of the node before attempting to access other properties. For example:
+
+```js
+const hasProperty = nodes.find(
+  ({ type, prop }) => type === "decl" && prop === propertyName
+);
+```
+
+Use `node.raws` instead of `node.raw()` when accessing raw strings from the [PostCSS AST](https://astexplorer.net/#/gist/ef718daf3e03f1d200b03dc5a550ec60/c8cbe9c6809a85894cebf3fb66de46215c377f1a).
+
+#### Construct-specific parsers
+
+Depending on the rule, we also recommend using:
+
+- [postcss-value-parser](https://www.npmjs.com/package/postcss-value-parser)
+- [postcss-selector-parser](https://www.npmjs.com/package/postcss-selector-parser)
+- [@csstools/css-parser-algorithms](https://www.npmjs.com/package/@csstools/css-parser-algorithms)
+- [@csstools/css-tokenizer](https://www.npmjs.com/package/@csstools/css-tokenizer)
+- [@csstools/media-query-list-parser](https://www.npmjs.com/package/@csstools/media-query-list-parser)
+- [css-tree](https://www.npmjs.com/package/css-tree)
+
+There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
+
+#### Utility functions
+
+Stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/main/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
+
+Always use the:
+
+- `validateOptions()` utility to warn users about invalid options
+- `isStandardSyntax*()` utilities before checking a node or string to ignore non-standard syntax
+- `is*` type guard utilities to check a node's type
+- `report()` utility to report lint problems
+
+##### Location arguments for `report()`
+
+When using `report()`, you can specify the location of a problem in various ways:
+
+- only `node` - implicitly span the entire range of the given node
+- `word` - the first instance of a word in the serialized given node
+- `index` and `endIndex` offsets - an index range within the given node
+- `start` and `end` positions - a [range](https://postcss.org/api/#range) within the given node
+
+Each approach has pros and cons concerning:
+
+- convenience - ease of use
+- narrowness - how well a location matches the issue
+- correctness - chance of bugs or incorrect locations
+- performance - the cost of calculating the location
+
+For example, using only `node` or `word` is often convenient, but comes at the expense of narrowness and correctness.
+
+In the following example of using `word`, the location is the selector within the rule:
+
+```js
+root.walkRules((ruleNode) => {
+  const { selector } = ruleNode;
+
+  report({
+    result,
+    ruleName,
+    message: messages.rejected(),
+    node: ruleNode,
+    word: selector
+  });
+});
+```
+
+Using `word` is the slowest approach to finding a location within a node, especially on nodes with many children, e.g. at-rules.
+
+When using offsets and positions, you can use the `nodeFieldIndices` utilities, e.g. `declarationValueIndex()`, to get the index of part of a node. These utilities account for the `raw` fields in the PostCSS AST.
+
+In the following example of using `index`, `endIndex` and the `declarationValueIndex()` utility, the location spans the value of the declaration:
+
+```js
+root.walkDecls((declNode) => {
+  const { prop, value } = declNode;
+
+  const index = declarationValueIndex(decl);
+  const endIndex = index + value.length;
+
+  report({
+    result,
+    ruleName,
+    message: messages.rejected(),
+    node: declNode,
+    index,
+    endIndex
+  });
+});
+```
+
+This approach also works well when using construct-specific parsers:
+
+```js
+root.walkDecls((declNode) => {
+  const { prop, value: declValue } = declNode;
+
+  valueParser(declValue).walk(({ value, sourceIndex }) => {
+    const index = declarationValueIndex(decl) + sourceIndex;
+    const endIndex = index + value.length;
+
+    report({
+      result,
+      ruleName,
+      message: messages.rejected(),
+      node: declNode,
+      index,
+      endIndex
+    });
+  });
+});
+```
+
+### Add options
+
+Each rule can accept a primary and an optional secondary option.
+
+Only add an option to a rule if it addresses a _requested_ use case to avoid polluting the tool with unused features.
+
+#### Primary
+
+Every rule _must have_ a primary option. For example, in:
+
+- `"font-weight-notation": "numeric"`, the primary option is `"numeric"`
+- `"selector-max-type": [2, { "ignoreTypes": ["custom"] }]`, the primary option is `2`
+
+Rules are named to encourage explicit primary options. For example, `font-weight-notation: "numeric"|"named-where-possible"` rather than `font-weight-numeric: "always"|"never"`. As `font-weight-named: "never"` _implies_ always numeric, whereas `font-weight-notation: "numeric"` makes it _explicit_.
+
+#### Secondary
+
+Some rules require extra flexibility to address edge cases. These can use an optional secondary options object. For example, in:
+
+- `"font-weight-notation": "numeric"` there is no secondary options object
+- `"selector-max-type": [2, { "ignore": ["descendant] }]`, the secondary options object is `{ "ignore": ["descendant] }`
+
+The most typical secondary options are `"ignore": []` and `"except": []`.
+
+##### Keyword `"ignore"` and `"except"`
+
+The `"ignore"` and `"except"` options accept an array of predefined keyword options, e.g. `["relative", "first-nested", "descendant"]`:
+
+- `"ignore"` skips-over a particular pattern
+- `"except"` inverts the primary option for a particular pattern
+
+##### User-defined `"ignore*"`
+
+Some rules accept a _user-defined_ list of things to ignore. This takes the form of `"ignore<Things>": []`, e.g. `"ignoreAtRules": []`.
+
+The `ignore*` options let users ignore non-standard syntax at the _configuration level_. For example, the:
+
+- `:global` and `:local` pseudo-classes introduced in CSS Modules
+- `@debug` and `@extend` at-rules introduced in SCSS
+
+Methodologies and language extensions come and go quickly, and this approach ensures our codebase does not become littered with code for obsolete things.
+
+If your rule can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For example:
+
+```js
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+  };
+}
+
+rule.primaryOptionArray = true;
+
+module.exports = rule;
+```
+
+There is one caveat here: If your rule accepts a primary option array, it cannot also accept a primary option object. Whenever possible, if you want your rule to accept a primary option array, you should make an array the only possibility, instead of allowing for various data structures.
+
+### Add problem messages
+
+Add problem messages that lead with:
+
+- `Expected` (or `Expected no`) when the fix is unambiguous
+- a descriptive adjective when the fix is ambiguous, e.g. `Unknown`, `Invalid`, `Disallowed`, and `Too [adjective]` for limits
+
+If the rule has autofix, use:
+
+- `Expected "[unfixed]" to be "[fixed]"` for short strings
+- `Expected "[primary]" ... notation` for long strings
+
+You should use:
+
+- parentheses to qualify the immediately preceding term, e.g. `"&:hover" ("a:hover")`
+- commas for supplementary context, e.g. `, at line 5`
+
+For example:
+
+- `Expected "20" to be "20deg"`
+- `Expected no empty line before declaration`
+- `Expected modern color-function notation`
+- `Unknown unit "pxl"`
+- `Invalid syntax string "<colorr>"`
+- `Disallowed qualifying type selector "a" in "&.foo" ("a.foo")`
+- `Too many combinators in "a ~ b", maximum 0 `
+
+### Add autofix
+
+Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](https://postcss.org/api/).
+
+Set `meta.fixable = true` to the rule:
+
+```diff js
+const meta = {
+  url: /* .. */,
++ fixable: true,
+};
+```
+
+Pass `fix` callback to the [`report` utility](../developer-guide/plugins.md#stylelintutilsreport):
+
+```diff js
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
++   const fix = () => { /* put your mutations here */ };
+
+    report({
+      result,
+      ruleName,
+      message,
+      node,
++     fix
+    });
+  };
+}
+```
+
+### Add `languageOptions` support
+
+Depending on the rule, it may need to support the [`languageOptions`](../user-guide/configure.md#languageoptions) configuration property.
+
+For example:
+
+```diff js
+import { basicKeywords } from '../../reference/keywords.mjs';
+
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
+    if (!validOptions) return;
+
++   const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
+
++   const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
+
+    /* .. */
+  };
+}
+```
+
+### Add `referenceFiles` support
+
+Depending on the rule, it may need to check the roots of the files specified in the [`referenceFiles`](../user-guide/configure.md#referencefiles) configuration property.
+
+For example:
+
+```diff js
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
+    if (!validOptions) return;
+
++   const referenceRoots = result.stylelint.referenceRoots;
+
++   for (const referenceRoot of referenceRoots) {
++     referenceRoot.walkAtRules(/* collect names */);
++   }
+
+    /* .. */
+  };
+}
+```
+
+### Context
+
+`context` is an object that could have the following properties:
+
+- `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
+- `fix`(boolean): If `true`, your rule can apply autofixes.
+- `newline`(string): Line-ending used in current linted file.
+
+> [!WARNING]
+> The convention of restricting the appliance of fixes based on the `context.fix` property is deprecated in favour of recommending the `fix` callback which properly handles [configuration comments](../user-guide/ignore-code.md#parts-of-a-file).
+
+If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
+
+```js
+function rule(primary, secondary, context) {
+  return (root, result) => {
+    if (context.fix) {
+      // Apply fixes using PostCSS API
+      return; // Return and don't report a problem
+    }
+
+    report(/* .. */);
+  };
+}
+```
+
+### Optimise the rule
+
+Use the `regexes` utility as early as possible to avoid unnecessary work. For example, in the `walk*` call for at-rules names, rule selectors, and declaration properties:
+
+<!-- prettier-ignore -->
+```js
+root.walkAtRules(atRuleRegexes.mediaName, (atRule) => { /* .. */ });
+root.walkRules(mayIncludeRegexes.classSelector, (rule) => { /* .. */ });
+root.walkDecls(propertyRegexes.gridAreaNames, (decl) => { /* .. */ });
+```
+
+And as the first conditional for at-rule preludes (params) and declarations values. For example:
+
+```js
+root.walkAtRules((atRule) => {
+  if (!mayIncludeRegexes.dimension.test(atRule.params)) return;
+});
+
+root.walkDecls((decl) => {
+  if (!mayIncludeRegexes.dimension.test(decl.value)) return;
+});
+```
+
+You can [benchmark the rule](./benchmarks.md#rule-benchmarking) to ensure its performance is compareable to that of a similar rule.
+
+### Write the README
+
+Each rule is accompanied by a README in the following format:
+
+1. Rule name.
+2. Single-line description.
+3. Prototypical code example.
+4. Expanded description (if necessary).
+5. Options.
+6. Example patterns that are considered problems (for each option value).
+7. Example patterns that are _not_ considered problems (for each option value).
+8. Optional options (if applicable).
+
+The single-line description is in the form of:
+
+- "Disallow ..." for `no` rules
+- "Limit ..." for `max` rules
+- "Require ..." for rules that accept `"always"` and `"never"` options
+- "Specify ..." for everything else
+
+You should:
+
+- pick examples from the tests
+- only use standard CSS syntax in examples and options
+- add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
+- use `<!-- prettier-ignore -->` before `css` code fences
+- use "this rule" to refer to the rule, e.g. "This rule ignores ..."
+- include a bulleted list of prior art in the expanded description
+- align the arrows within the prototypical code example with the beginning of the highlighted construct
+- align the text within the prototypical code example as far to the left as possible
+
+For example:
+
+<!-- prettier-ignore -->
+```css
+ @media screen and (min-width: 768px) {}
+/**                 ↑          ↑
+  *       These names and values */
+```
+
+Look at the READMEs of other rules to glean more conventional patterns.
+
+### Wire up the rule
+
+The final step is to add references to the new rule in the following places:
+
+- [The rules `index.mjs` file](../../lib/rules/index.mjs)
+- [The list of rules](../user-guide/rules.md)
+- [The type definition of rules](../../types/stylelint/index.d.ts)
+
+## Add an option to a rule
+
+You should:
+
+1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
+2. Add the fewest tests, following [our conventions](#write-tests), to test the option.
+3. Change the rule's validation to allow for the new option.
+4. Add (as little as possible) logic to the rule, following [our conventions](#write-the-rule), to make the tests pass.
+5. Add documentation about the new option.
+6. Add the option to the [type definition of the rule](../../types/stylelint/index.d.ts).
+
+## Fix a bug in a rule
+
+You should:
+
+1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
+2. Add the fewest failing tests, following [our conventions](#write-tests), that exemplify the bug.
+3. Add (as little as possible) logic to the rule, following [our conventions](#write-the-rule), to make the tests pass.
+
+## Deprecate a rule
+
+Deprecating rules doesn't happen very often. When you do, you must:
+
+1. Add the appropriate metadata to mark the rule as deprecated like so: `rule.meta = { deprecated: true }`.
+2. Set the `stylelintType` to `'deprecation'`.
+3. Optionally set `stylelintReference` to a link that points to a specific version of the rule's document so that it always remains accessible.
+
+For example:
+
+```js
+result.warn(
+  `"your-namespace/old-rule" has been deprecated and will be removed in 7.0. Use "your-namespace/new-rule" instead.`,
+  {
+    stylelintType: "deprecation",
+    stylelintReference:
+      "https://github.com/your-org/your-stylelint-plugin/blob/v6.3.0/src/rules/old-rule/README.md"
+  }
+);
+```

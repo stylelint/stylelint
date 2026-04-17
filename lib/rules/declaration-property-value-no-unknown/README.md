@@ -9,23 +9,23 @@ a { top: unknown; }
  * property and value pairs like these */
 ```
 
-This rule considers values for properties defined within the CSS specifications to be known. You can use the `propertiesSyntax` and `typesSyntax` secondary options to extend the syntax.
+This rule considers values for properties defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property.
-
-This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
 This rule checks property values. You can use [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md) to disallow unknown values for descriptors within at-rules.
 
-This rule overlaps with:
+> [!WARNING]
+> This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
-- [`color-no-invalid-hex`](../color-no-invalid-hex/README.md)
-- [`function-linear-gradient-no-nonstandard-direction`](../function-linear-gradient-no-nonstandard-direction/README.md)
-- [`function-no-unknown`](../function-no-unknown/README.md)
-- [`string-no-newline`](../string-no-newline/README.md)
-- [`unit-no-unknown`](../unit-no-unknown/README.md)
-
-You can either turn off the rules or configure them to ignore the overlaps.
+> [!NOTE]
+> When using this rule, we recommend turning off these overlapping rules or configuring them to ignore the overlaps:
+>
+> - [`color-no-invalid-hex`](../color-no-invalid-hex/README.md)
+> - [`function-linear-gradient-no-nonstandard-direction`](../function-linear-gradient-no-nonstandard-direction/README.md)
+> - [`function-no-unknown`](../function-no-unknown/README.md)
+> - [`string-no-newline`](../string-no-newline/README.md)
+> - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
 Prior art:
 
@@ -121,6 +121,27 @@ a { width: --unknown-value; }
 
 ### `propertiesSyntax`
 
+> [!WARNING]
+> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+>
+> For example:
+>
+> ```diff json
+> {
+> + "languageOptions": {
+> +   "syntax": {
+> +     "properties": { "size": "<length-percentage>" }
+> +   }
+> + },
+>   "rules": {
+>     "declaration-property-value-no-unknown": [
+>       true,
+> -     { "propertiesSyntax": { "size": "<length-percentage>" } }
+>     ]
+>   }
+> }
+> ```
+
 ```json
 { "propertiesSyntax": { "property": "syntax" } }
 ```
@@ -151,6 +172,31 @@ a { size: 10px }
 ```
 
 ### `typesSyntax`
+
+> [!WARNING]
+> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
+>
+> For example:
+>
+> ```diff json
+> {
+> + "languageOptions": {
+> +   "syntax": {
+> +     "properties": { "top": "| <--foo()>" },
+> +     "types": { "--foo()": "--foo( <length-percentage> )" }
+> +   }
+> + },
+>   "rules": {
+>     "declaration-property-value-no-unknown": [
+>       true,
+> -     {
+> -       "propertiesSyntax": { "top": "| <--foo()>" },
+> -       "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
+> -     }
+>     ]
+>   }
+> }
+> ```
 
 ```json
 { "typesSyntax": { "type": "syntax" } }

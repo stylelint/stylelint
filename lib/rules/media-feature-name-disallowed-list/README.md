@@ -14,7 +14,7 @@ Specify a list of disallowed media feature names.
 ### `Array<string>`
 
 ```json
-["array", "of", "unprefixed", "media-features", "/regex/"]
+["array", "of", "media-features", "/regex/"]
 ```
 
 Given:

@@ -71,7 +71,7 @@ Given:
 {
   "value-no-vendor-prefix": [
     true,
-    { "ignoreValues": ["grab", "max-content", "/^-moz-all$/"] }
+    { "ignoreValues": ["-webkit-grab", "/^-moz-all$/"] }
   ]
 }
 ```
@@ -85,15 +85,5 @@ a { cursor: -webkit-grab; }
 
 <!-- prettier-ignore -->
 ```css
-a { max-width: -moz-max-content; }
-```
-
-<!-- prettier-ignore -->
-```css
 a { -moz-user-select: -moz-all; }
 ```
-
-> [!WARNING]
-> An _exact_ match comparison will be performed for non-regex strings in the next major version.
-> If you want to keep the legacy behavior, please consider using a regex instead.
-> E.g. `[/^(-webkit-|-moz-)?max-content$/]`.

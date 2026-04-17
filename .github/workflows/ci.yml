@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
+
+env:
+  FORCE_COLOR: 2
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    uses: stylelint/.github/.github/workflows/call-lint.yml@56c5d6e7e35009b7748db7558eac5377ec88f446 # 0.6.1
+    permissions:
+      contents: read
+
+  test:
+    uses: stylelint/.github/.github/workflows/call-test.yml@56c5d6e7e35009b7748db7558eac5377ec88f446 # 0.6.1
+    with:
+      node-version: '["20", "22", "24"]'
+      os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
+      exclude: '[{"node-version": "24", "os": "ubuntu-latest"}]' # for coverage
+    permissions:
+      contents: read
+
+  test-coverage:
+    name: Test on Node.js 24 and ubuntu-latest with coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install latest npm
+        run: npm install --global npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test with coverage
+        run: npm run test-coverage
+        env:
+          # https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes
+          NODE_OPTIONS: '--max-old-space-size=4096'
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
+        with:
+          files: ./.coverage/lcov.info
+          fail_ci_if_error: true
+
+      # This test is only enabled when the relevant environment variable is set,
+      # so it is run here, separately from the main test matrix.
+      - name: Run test for Yarn PnP
+        run: |
+          npm install --global corepack
+          npm run test-node
+        env:
+          STYLELINT_TEST_YARN_PNP: 'true'
+          YARN_ENABLE_HARDENED_MODE: 0 # https://yarnpkg.com/features/security#hardened-mode
+
+  spellcheck:
+    runs-on: ubuntu-slim
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install codespell
+        run: pip install codespell
+
+      - name: Spellcheck
+        # Ignore a CI failure because there are false positives.
+        run: codespell || echo 'Fix misspells via "codespell" on your console, or ignore false positives.'

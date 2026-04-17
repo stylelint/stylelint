@@ -1,5 +1,5 @@
 {
-	"plugins": ["../plugin-warn-about-foo.cjs"],
+	"plugins": ["../plugin-warn-about-foo.mjs"],
 	"rules": {
 		"plugin/warn-about-foo": "always"
 	},

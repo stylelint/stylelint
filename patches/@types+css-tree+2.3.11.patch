@@ -1,0 +1,27 @@
+diff --git a/node_modules/@types/css-tree/index.d.ts b/node_modules/@types/css-tree/index.d.ts
+index c005ef3..2303dbb 100644
+--- a/node_modules/@types/css-tree/index.d.ts
++++ b/node_modules/@types/css-tree/index.d.ts
+@@ -906,13 +906,21 @@ export class Lexer {
+     matchProperty(propertyName: string, value: CssNode | string): LexerMatchResult;
+     matchType(typeName: string, value: CssNode | string): LexerMatchResult;
+     match(syntax: DSNode | string, value: CssNode | string): LexerMatchResult;
++    getProperty(propertyName: string, fallbackBasename?: boolean): object | null;
++    units: Record<string, string[]>;
+ }
+ 
+ export const lexer: Lexer;
+ 
+ export function fork(extension: {
+-    atrules?: Record<string, string> | undefined;
++    atrules?: Record<
++        string, {
++            comment?: string | undefined;
++            prelude?: string | undefined;
++            descriptors?: Record<string, string> | undefined;
++        }> | undefined;
+     properties?: Record<string, string> | undefined;
+     types?: Record<string, string> | undefined;
++    units?: Record<string, string[]> | undefined;
+     cssWideKeywords?: Array<string> | undefined;
+ }): { lexer: Lexer };

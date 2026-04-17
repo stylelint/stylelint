@@ -14,14 +14,14 @@ a { transform: scale(1); }
 ### `Array<string>`
 
 ```json
-["array", "of", "unprefixed", "functions", "/regex/"]
+["array", "of", "functions", "/regex/"]
 ```
 
 Given:
 
 ```json
 {
-  "function-disallowed-list": ["scale", "rgba", "/linear-gradient/"]
+  "function-disallowed-list": ["scale", "rgba", "/^(-moz-)?linear-gradient$/"]
 }
 ```
 

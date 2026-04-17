@@ -38,15 +38,12 @@ Automatically fix, where possible, problems reported by rules.
 
 Options are:
 
-- `"lax"` (default) - uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix as much as possible, even when there are syntax errors
-- `"strict"` - uses [PostCSS Parser](https://postcss.org/api/#postcss-parser) and only fixes problems when there are no syntax errors
-
-> [!TIP]
-> If you don't care about strictness now, we recommend using `--fix` without any option because `"strict"` may become the default in the future.
+- `"strict"` (default) - uses [PostCSS Parser](https://postcss.org/api/#postcss-parser) and only fixes problems when there are no syntax errors
+- `"lax"` - uses [postcss-safe-parser](https://www.npmjs.com/package/postcss-safe-parser) to fix as much as possible, even when there are syntax errors
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
-When a rule relies on the deprecated [`context`](../developer-guide/rules.md#context)`.fix` and a source contains:
+When a rule relies on the deprecated [`context`](../contributor-guide/rules.md#context)`.fix` and a source contains:
 
 - a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
 - an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule

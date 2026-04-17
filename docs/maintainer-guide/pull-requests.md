@@ -3,7 +3,7 @@
 You should:
 
 - use [GitHub reviews](https://help.github.com/articles/about-pull-request-reviews/)
-- review against the [Developer guide criteria](../developer-guide/rules.md)
+- review against the [Contributor guide criteria](../contributor-guide/rules.md)
 - resolve conflicts by [rebasing](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
 
 ## Labels and milestones
@@ -16,6 +16,8 @@ You should not use any:
 
 - other labels
 - milestones
+
+You can use the `pr: low quality` label to trigger an automated comment and closing process.
 
 ## Titles
 

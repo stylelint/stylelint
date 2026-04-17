@@ -2,7 +2,7 @@
 
 Plugins are custom rules and sets of custom rules. They might support a particular methodology or toolset, apply to non-standard constructs and features, or be for specific use cases.
 
-We recommend your custom rules adhere to our [rule conventions](rules.md) for:
+We recommend your custom rules adhere to [our built-in rule conventions](../contributor-guide/rules.md) for:
 
 - names
 - options
@@ -27,7 +27,7 @@ const {
 const ruleName = "foo-org/selector-no-foo";
 
 const messages = ruleMessages(ruleName, {
-  rejected: (selector) => `Unexpected "foo" within selector "${selector}"`
+  rejected: (selector) => `Disallowed "foo" within selector "${selector}"`
 });
 
 const meta = {
@@ -85,7 +85,7 @@ The usage would be:
 $ echo '.foo {}' | stylelint --stdin-filename=test.css
 
 test.css
- 1:1  ✖  Unexpected "foo" within selector ".foo"  foo-org/selector-no-foo
+ 1:1  ✖  Disallowed "foo" within selector ".foo"  foo-org/selector-no-foo
 
 1 problem (1 error, 0 warnings)
 ```
@@ -99,7 +99,7 @@ For your plugin rule to work with the [standard configuration format](../user-gu
 - the primary option
 - optionally, a secondary options object
 
-If your plugin rule supports [autofixing](rules.md#add-autofix), then `meta.fixable` should be set to `true`.
+If your plugin rule supports [autofixing](../contributor-guide/rules.md#add-autofix), then `meta.fixable` should be set to `true`.
 
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://postcss.org/docs/writing-a-postcss-plugin). It takes 2 arguments:
 
@@ -207,7 +207,7 @@ it("warns", async () => {
 
   const [{ text, line, column }] = warnings;
 
-  expect(text).toBe('Unexpected "foo" within selector ".foo"');
+  expect(text).toBe('Disallowed "foo" within selector ".foo"');
   expect(line).toBe(1);
   expect(column).toBe(1);
 });
@@ -263,7 +263,7 @@ It accepts an options object and a callback that is invoked with warnings from t
 - `ruleSettings`: settings for the rule you are invoking
 - `root`: the root node to run this rule against
 - `result?`: the PostCSS result for resolving and invoking custom rules
-- `context?`: the [context](rules.md#context) for the rule you are invoking
+- `context?`: the [context](../contributor-guide/rules.md#context) for the rule you are invoking
 
 Use the warning to create a _new_ warning _from your plugin rule_ that you report with [`stylelint.utils.report()`](#stylelintutilsreport).
 
@@ -340,7 +340,7 @@ createPlugin(ruleName, (primary) => {
 
 ## Allow primary option arrays
 
-If your plugin can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For more information, check out the ["Working on rules"](rules.md) doc.
+If your plugin can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For more information, check out the ["Working on rules"](../contributor-guide/rules.md) doc.
 
 ## Peer dependencies
 
