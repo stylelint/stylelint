@@ -86,6 +86,16 @@ declare namespace stylelint {
 		severity?: Severity;
 	};
 
+	type ConfigReferenceFilesEntry = {
+		files: string | string[];
+		customSyntax?: CustomSyntax;
+	};
+
+	type ConfigReferenceFiles =
+		| string
+		| ConfigReferenceFilesEntry
+		| (string | ConfigReferenceFilesEntry)[];
+
 	type LanguageOptions = {
 		syntax?: {
 			atRules?: Record<
@@ -193,6 +203,12 @@ declare namespace stylelint {
 		 */
 		reportUnscopedDisables?: DisableSettings;
 		/**
+		 * Set a limit to the number of warnings accepted.
+		 *
+		 * @see [maxWarnings](https://stylelint.io/user-guide/configure#maxwarnings)
+		 */
+		maxWarnings?: number;
+		/**
 		 * A string to set what configuration comments like 'stylelint-disable' start with.
 		 * Сan be useful when using multiple instances of Stylelint with different configurations.
 		 *
@@ -211,6 +227,8 @@ declare namespace stylelint {
 		 * @see [customSyntax](https://stylelint.io/user-guide/configure#customsyntax)
 		 */
 		customSyntax?: CustomSyntax;
+		/** @internal */
+		_resolvedCustomSyntax?: PostCSS.Syntax;
 		/**
 		 * Functions that allow to hook into Stylelint's pipeline
 		 *
@@ -221,6 +239,16 @@ declare namespace stylelint {
 		processors?: ConfigProcessors;
 		/** @internal */
 		_processorFunctions?: Map<string, ReturnType<Processor>['postprocess']>;
+		/**
+		 * An array of globs or objects to specify what files to get reference information from
+		 *
+		 * @experimental
+		 *
+		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
+		 */
+		referenceFiles?: ConfigReferenceFiles;
+		/** @internal */
+		_resolvedReferenceFiles?: Array<{ files: string[]; customSyntax?: PostCSS.Syntax }>;
 		/**
 		 * Language options to extend the syntax.
 		 *
@@ -306,6 +334,7 @@ declare namespace stylelint {
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
+		referenceRoots: PostCSS.Root[];
 
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
@@ -1104,7 +1133,7 @@ declare namespace stylelint {
 		code?: string;
 		codeFilename?: string;
 		filePath?: string;
-		customSyntax?: CustomSyntax;
+		customSyntax?: PostCSS.Syntax;
 	};
 
 	/** @internal */

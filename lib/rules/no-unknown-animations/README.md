@@ -13,7 +13,7 @@ a { animation: fancy-slide 2s linear; }
  *           And this one */
 ```
 
-This rule considers the identifiers of `@keyframes` rules defined within the same source to be known.
+This rule considers the identifiers of `@keyframes` rules defined within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property to be known.
 
 ## Options
 

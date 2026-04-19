@@ -543,6 +543,61 @@ The following rules are configured via the `directionality` property:
 
 - [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)
 
+## `referenceFiles`
+
+> [!WARNING]
+> This is an experimental feature. The API may change in the future.
+
+You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
+
+For example:
+
+```json
+{
+  "referenceFiles": "tokens/*.css"
+}
+```
+
+For non-CSS files, you should use an object form with a [`customSyntax`](#customsyntax) property:
+
+```json
+{
+  "referenceFiles": {
+    "files": "scss-tokens/*.scss",
+    "customSyntax": "postcss-scss"
+  }
+}
+```
+
+You can also use an array to specify multiple entries:
+
+```json
+{
+  "referenceFiles": [
+    "tokens.css",
+    {
+      "files": ["scss-tokens/*.scss", "vendor/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ]
+}
+```
+
+Each entry can be:
+
+- a string or array of glob patterns specifying which files to parse
+- an object that
+  - must contain a `files` property (a string or an array of glob patterns)
+  - may contain a [`customSyntax`](#customsyntax) property
+
+You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
+
+The following rules are configured via the `referenceFiles` property:
+
+- [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)
+- [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)
+- [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)
+
 ## `extends`
 
 You can extend an existing configuration (whether your own or a third-party one). Configurations can bundle plugins, custom syntaxes, options, and configure rules. They can also extend other configurations.
@@ -975,3 +1030,20 @@ Options are:
 You'll find more formatters in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#formatters) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-formatter).
 
 [More info](options.md#formatter).
+
+## `maxWarnings`
+
+Set a limit to the number of warnings accepted.
+
+For example:
+
+```json
+{
+  "maxWarnings": 0
+}
+```
+
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
+
+[More info](options.md#maxwarnings).

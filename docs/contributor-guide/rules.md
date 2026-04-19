@@ -347,6 +347,30 @@ function rule(primary, secondary) {
 }
 ```
 
+### Add `referenceFiles` support
+
+Depending on the rule, it may need to check the roots of the files specified in the [`referenceFiles`](../user-guide/configure.md#referencefiles) configuration property.
+
+For example:
+
+```diff js
+function rule(primary, secondary) {
+  return (root, result) => {
+    /* .. */
+
+    if (!validOptions) return;
+
++   const referenceRoots = result.stylelint.referenceRoots;
+
++   for (const referenceRoot of referenceRoots) {
++     referenceRoot.walkAtRules(/* collect names */);
++   }
+
+    /* .. */
+  };
+}
+```
+
 ### Context
 
 `context` is an object that could have the following properties:
