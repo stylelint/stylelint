@@ -1140,12 +1140,19 @@ declare namespace stylelint {
 	export type GetLintSourceOptions = GetPostcssOptions & {
 		existingPostcssResult?: PostCSS.Result;
 		cache?: boolean;
+		abortSignal?: AbortSignal;
 	};
 
 	/**
 	 * Linter options.
 	 */
 	export type LinterOptions = {
+		/**
+		 * An `AbortSignal` to cancel the linting process. If the signal is
+		 * aborted, the linting process will be stopped and the signal's
+		 * `reason` will be thrown as an error.
+		 */
+		abortSignal?: AbortSignal;
 		files?: OneOrMany<string>;
 		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
