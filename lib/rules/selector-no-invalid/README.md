@@ -5,7 +5,7 @@ Disallow invalid selectors.
 <!-- prettier-ignore -->
 ```css
 a ) b {}
-/*↑
+/* ↑
  * Selectors like this */
 ```
 
