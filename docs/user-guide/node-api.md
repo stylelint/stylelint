@@ -12,6 +12,9 @@ In addition to the [standard options](options.md), the Node API accepts:
 
 ### `abortSignal`
 
+> [!WARNING]
+> This option is **experimental**, and might change in a future release.
+
 An [`AbortSignal`](https://nodejs.org/api/globals.html#class-abortsignal) to cancel the lint operation. When the signal is aborted, `stylelint.lint()` will reject with the signal's reason.
 
 This is useful for long-running consumers like language servers that need to cancel in-flight linting when a document changes.
