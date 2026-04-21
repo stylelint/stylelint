@@ -1121,6 +1121,15 @@ declare namespace stylelint {
 			},
 			AutofixMessage
 		>;
+		'value-keyword-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignoreKeywords: OneOrMany<StringOrRegex>;
+			},
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, keyword: string]>
+		>;
 		'value-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreValues: OneOrMany<StringOrRegex> },
