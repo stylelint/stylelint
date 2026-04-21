@@ -330,6 +330,7 @@ Specify flow-relative or physical layout mappings with these `layout-mappings` r
 | :-- | :-: | :-: |
 | [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for properties. | | 🔧 |
 | [`unit-layout-mappings`](../../lib/rules/unit-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for units. | | 🔧 |
+| [`value-keyword-layout-mappings`](../../lib/rules/value-keyword-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for value keywords. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Max & min
