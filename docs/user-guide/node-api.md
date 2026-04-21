@@ -10,6 +10,31 @@ const result = await stylelint.lint(options);
 
 In addition to the [standard options](options.md), the Node API accepts:
 
+### `abortSignal`
+
+> [!WARNING]
+> This option is **experimental**, and might change in a future release.
+
+An [`AbortSignal`](https://nodejs.org/api/globals.html#class-abortsignal) to cancel the lint operation. When the signal is aborted, `stylelint.lint()` will reject with the signal's reason.
+
+This is useful for long-running consumers like language servers that need to cancel in-flight linting when a document changes.
+
+```js
+const controller = new AbortController();
+
+const resultPromise = stylelint.lint({
+  code: "a {}",
+  config: myConfig,
+  abortSignal: controller.signal
+});
+
+// Cancel the lint if needed.
+controller.abort();
+```
+
+> [!WARNING]
+> Aborting a lint operation that has [`fix`](options.md#fix) enabled with [`files`](node-api.md#files) may leave a workspace in a partially-fixed state, as some files may have already been written before cancellation.
+
 ### `config`
 
 A [configuration object](./configure.md).
