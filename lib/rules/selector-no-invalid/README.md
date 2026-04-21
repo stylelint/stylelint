@@ -14,6 +14,8 @@ This rule considers selectors defined within the CSS specifications, up to and i
 > [!WARNING]
 > This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the selector and the reason it is invalid.
+
 ## Options
 
 ### `true`
