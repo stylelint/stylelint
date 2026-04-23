@@ -9,6 +9,8 @@ Specify a pattern for ID selectors.
  * These ID selectors */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the selector and the configured pattern.
+
 ## Options
 
 ### `string`

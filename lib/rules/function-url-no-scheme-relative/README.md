@@ -13,6 +13,8 @@ A [scheme-relative url](https://url.spec.whatwg.org/#syntax-url-scheme-relative)
 
 This rule ignores url arguments that are variables (`$sass`, `@less`, `--custom-property`).
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

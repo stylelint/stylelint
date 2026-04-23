@@ -9,6 +9,8 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the disallowed value.
+
 ## Options
 
 ### `Object<string, Array<string>>`

@@ -19,6 +19,8 @@ This rule ignores double-dashed custom functions, e.g. `--custom-function()`.
 > - [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
 > - [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown function.
+
 ## Options
 
 ### `true`

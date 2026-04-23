@@ -11,6 +11,8 @@ Specify a list of disallowed at-rules.
 
 This rule ignores the `@charset` rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed at-rule.
+
 ## Options
 
 ### `Array<string>`

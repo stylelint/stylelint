@@ -22,6 +22,8 @@ A common mistake (matching outdated non-standard syntax) is to use just a side-o
 > - [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
 > - [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

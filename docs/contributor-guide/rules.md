@@ -449,7 +449,15 @@ You should:
 - add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
 - use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
+- summarise the rule's message arguments
 - include a bulleted list of prior art in the expanded description
+
+Look at the READMEs of other rules to glean more conventional patterns.
+
+#### Prototypical code example
+
+You should:
+
 - align the arrows within the prototypical code example with the beginning of the highlighted construct
 - align the text within the prototypical code example as far to the left as possible
 
@@ -462,7 +470,22 @@ For example:
   *       These names and values */
 ```
 
-Look at the READMEs of other rules to glean more conventional patterns.
+#### Message arguments
+
+You should state how many message arguments the rule exposes and what each contains.
+
+For:
+
+- fixed shapes use `This rule supports N [message argument(s)](…#message): <slot 1> and <slot 2>.`
+- diverging shapes use `This rule supports [up to] N [message arguments](…#message): <shape 1>, or <shape 2>.`, using "up to N" when argument counts differ
+- no arguments use `This rule doesn't have any [message arguments](…#message).`
+
+Describe each slot in user-facing terms, e.g. `the disallowed property`.
+
+Use:
+
+- `the configured X` when the slot holds the raw configuration value (e.g. `primary`)
+- `its expected X`, `its condensed form` or similar when the slot holds the fix (e.g. `#ffffff` → `#fff`).
 
 ### Wire up the rule
 

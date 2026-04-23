@@ -20,6 +20,8 @@ Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#groupin
 > [!WARNING]
 > This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
+This rule supports 3 [message arguments](../../../docs/user-guide/configure.md#message): the selector, the configured maximum specificity, and the selector's resolved form.
+
 ## Options
 
 ### `string`

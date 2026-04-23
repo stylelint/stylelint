@@ -13,6 +13,8 @@ The keyword `from` is equivalent to the value `0%`. The keyword `to` is equivale
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the selector and its expected notation.
+
 ## Options
 
 ### `"keyword"`

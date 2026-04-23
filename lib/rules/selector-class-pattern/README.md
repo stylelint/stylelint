@@ -13,6 +13,8 @@ This rule ignores non-outputting Less mixin definitions and called Less mixins.
 
 Escaped selectors (e.g. `.u-size-11\/12\@sm`) are parsed as escaped twice (e.g. `.u-size-11\\/12\\@sm`). Your RegExp should account for that.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the selector and the configured pattern.
+
 ## Options
 
 ### `string`

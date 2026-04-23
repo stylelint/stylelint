@@ -16,6 +16,8 @@ Any number of asterisks are allowed at the beginning or end of the comment. So `
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `"always"`
