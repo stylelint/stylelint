@@ -27,6 +27,7 @@ exports[`no-fs - errored state for reportNeedlessDisables 1`] = `
   "reportedDisables": [],
   "results": [
     {
+      "autofixed": undefined,
       "deprecations": [],
       "errored": true,
       "ignored": undefined,
@@ -73,6 +74,7 @@ exports[`no-fs - no errored state 1`] = `
   "reportedDisables": [],
   "results": [
     {
+      "autofixed": undefined,
       "deprecations": [],
       "errored": false,
       "ignored": undefined,

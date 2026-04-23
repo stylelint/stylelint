@@ -133,7 +133,8 @@ An object containing the maximum number of warnings and the amount found, e.g. `
       "text": "Invalid option X for rule Y"
     }
   ],
-  "ignored": false // This is `true` if the file's path matches a provided ignore pattern
+  "ignored": false, // This is `true` if the file's path matches a provided ignore pattern
+  "autofixed": false // This is `true` if the `fix` option changed the source, and `undefined` if `fix` was not used
 }
 ```
 

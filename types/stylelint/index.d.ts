@@ -331,6 +331,7 @@ declare namespace stylelint {
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
+		autofixed?: boolean;
 		stylelintError?: boolean;
 		stylelintWarning?: boolean;
 		config?: Config;
@@ -1298,6 +1299,10 @@ declare namespace stylelint {
 		errored?: boolean;
 		warnings: Warning[];
 		ignored?: boolean;
+		/**
+		 * If the fix option is used, this property tells whether the code was changed by autofix.
+		 */
+		autofixed?: boolean;
 		/**
 		 * Internal use only. Do not use or rely on this property. It may
 		 * change at any time.
