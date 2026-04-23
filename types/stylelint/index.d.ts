@@ -1103,6 +1103,12 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[unit: string]>
 		>;
+		'unit-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{ ignoreUnits: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, unit: string]>
+		>;
 		'unit-no-unknown': CoreRule<
 			true,
 			{

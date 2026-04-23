@@ -329,6 +329,7 @@ Specify flow-relative or physical layout mappings with these `layout-mappings` r
 | | | |
 | :-- | :-: | :-: |
 | [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for properties. | | 🔧 |
+| [`unit-layout-mappings`](../../lib/rules/unit-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for units. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Max & min
