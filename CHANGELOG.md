@@ -2,9 +2,11 @@
 
 ## 17.9.0 - 2026-04-23
 
-- Added: `maxWarnings` to configuration object ([#9181](https://github.com/stylelint/stylelint/pull/9181)) ([@mrginglymus](https://github.com/mrginglymus)).
-- Added: experimental `abortSignal` option to Node.js API for cancellation support ([#9213](https://github.com/stylelint/stylelint/pull/9213)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+It adds 3 new features. Adding the `referenceFiles` property to your configuration object makes the `no-unknown-animations`, `no-unknown-custom-media` and `no-unknown-custom-properties` rules more useful.
+
 - Added: experimental `referenceFiles` to configuration object ([#9179](https://github.com/stylelint/stylelint/pull/9179)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: experimental `abortSignal` option to Node.js API for cancellation support ([#9213](https://github.com/stylelint/stylelint/pull/9213)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Added: `maxWarnings` to configuration object ([#9181](https://github.com/stylelint/stylelint/pull/9181)) ([@mrginglymus](https://github.com/mrginglymus)).
 
 ## 17.8.0 - 2026-04-15
 
