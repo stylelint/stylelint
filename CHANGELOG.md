@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.9.1 - 2026-04-27
+
+- Fixed: `ConfigurationError` regression for custom syntaxes ([#9245](https://github.com/stylelint/stylelint/pull/9245)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-no-deprecated` autofix for `page-break-*: always` ([#9214](https://github.com/stylelint/stylelint/pull/9214)) ([@rkdfx](https://github.com/rkdfx)).
+- Fixed: `selector-no-deprecated` false positives for `::part()` ([#9227](https://github.com/stylelint/stylelint/pull/9227)) ([@SaekiTominaga](https://github.com/SaekiTominaga)).
+- Fixed: MD5 hash algorithm to SHA256 for caching ([#9241](https://github.com/stylelint/stylelint/pull/9241)) ([@rkdfx](https://github.com/rkdfx)).
+
 ## 17.9.0 - 2026-04-23
 
 It adds 3 new features. Adding the `referenceFiles` property to your configuration object makes the `no-unknown-animations`, `no-unknown-custom-media` and `no-unknown-custom-properties` rules more useful.
