@@ -1013,6 +1013,7 @@ declare namespace stylelint {
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
 			AutofixMessage & RejectedMessage<[selector: string]>
 		>;
+		'selector-no-invalid': CoreRule<true, {}, RejectedMessage<[selector: string, reason: string]>>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
