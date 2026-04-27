@@ -15,6 +15,8 @@ Because `min-` and `max-` both equate to range comparisons that include the valu
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured notation.
+
 ## Options
 
 ### `"context"`

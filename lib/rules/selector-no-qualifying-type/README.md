@@ -16,6 +16,8 @@ This rule resolves nested selectors according the [CSS Nesting specification](ht
 > [!WARNING]
 > This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the selector and the qualifying type.
+
 ## Options
 
 ### `true`

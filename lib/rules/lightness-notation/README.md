@@ -13,6 +13,8 @@ This rule supports `oklch`, `oklab`, `lch` and `lab` functions.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the lightness value and its expected notation.
+
 ## Options
 
 ### `"percentage"`

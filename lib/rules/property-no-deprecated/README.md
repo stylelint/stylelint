@@ -19,6 +19,8 @@ This rule flags properties that were removed or deprecated after being in the CS
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
+This rule supports up to 2 [message arguments](../../../docs/user-guide/configure.md#message): the deprecated property, or the property and its replacement.
+
 Prior art:
 
 - [@isnotdefined/no-obsolete](https://www.npmjs.com/package/@isnotdefined/stylelint-plugin)

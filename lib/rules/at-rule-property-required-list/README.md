@@ -9,6 +9,8 @@ Specify a list of required properties (or descriptors) for an at-rule.
  *  At-rule and required descriptor names */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the at-rule and the required property.
+
 ## Options
 
 ### `Array<string>`

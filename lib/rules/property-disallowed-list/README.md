@@ -11,6 +11,8 @@ a { text-rendering: optimizeLegibility; }
 
 This rule ignores preprocessor variables (e.g. `$sass`, `@less`).
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed property.
+
 ## Options
 
 ### `Array<string>`

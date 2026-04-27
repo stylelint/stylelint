@@ -15,6 +15,8 @@ Disallow unknown custom media queries.
 
 This rule considers custom media queries defined within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property to be known.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown custom media name.
+
 ## Options
 
 ### `true`
