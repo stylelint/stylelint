@@ -27,6 +27,8 @@ This rule checks property values. You can use [`at-rule-descriptor-value-no-unkn
 > - [`string-no-newline`](../string-no-newline/README.md)
 > - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the unknown value.
+
 Prior art:
 
 - [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)

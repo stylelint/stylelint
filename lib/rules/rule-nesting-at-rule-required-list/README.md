@@ -9,6 +9,8 @@ a { color: red; }
  * This rule */
 ```
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message) per configured at-rule pattern.
+
 ## Options
 
 ### `Array<string | RegExp>`

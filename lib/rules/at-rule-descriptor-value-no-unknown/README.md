@@ -29,6 +29,8 @@ This rule checks descriptor values within at-rules. You can use [`declaration-pr
 > - [`string-no-newline`](../string-no-newline/README.md)
 > - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the descriptor and the unknown value.
+
 Prior art:
 
 - [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)

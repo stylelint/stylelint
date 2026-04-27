@@ -9,6 +9,8 @@ a { color: pink; top: 0; }
  * The number of these declarations */
 ```
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured maximum.
+
 ## Options
 
 ### `number`

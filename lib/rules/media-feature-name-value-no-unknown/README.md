@@ -21,6 +21,8 @@ This rule considers values for media features defined within the CSS specificati
 
 If duplicate problems are flagged, you can turn off the corresponding rule.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the media feature name and the unknown value.
+
 ## Options
 
 ### `true`
