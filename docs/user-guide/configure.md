@@ -589,6 +589,28 @@ Each entry can be:
 - an object that
   - must contain a `files` property (a string or an array of glob patterns)
   - may contain a [`customSyntax`](#customsyntax) property
+- an object that
+  - must contain an `entrypoints` property (a string or an array of file paths)
+  - must contain a `resolver` property (a function that returns a PostCSS plugin)
+  - may contain a [`customSyntax`](#customsyntax) property
+
+CSS depends on order, with many features being "last one wins". Globs match files in filesystem order, which may differ from the actual order of imports. For order-sensitive cases, use the `entrypoints` and `resolver` form to load reference files in dependency order via a PostCSS plugin like [`postcss-import`](https://github.com/postcss/postcss-import):
+
+```js
+import postcssImport from "postcss-import";
+
+export default {
+  referenceFiles: {
+    entrypoints: ["src/main.css"],
+    resolver: (entrypoint) => postcssImport()
+  },
+  rules: {
+    "no-unknown-custom-properties": true
+  }
+};
+```
+
+The `resolver` is a function that receives an `entrypoint` path and returns a PostCSS plugin (or array of plugins). The plugin is responsible for inlining dependencies into a single root. This lets the resolver be configured per entrypoint, which is useful when the same files are used in multiple bundles.
 
 You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
 

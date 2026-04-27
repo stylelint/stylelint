@@ -91,10 +91,21 @@ declare namespace stylelint {
 		customSyntax?: CustomSyntax;
 	};
 
+	type ConfigReferenceFilesResolver = (
+		entrypoint: string,
+	) => PostCSS.AcceptedPlugin | PostCSS.AcceptedPlugin[];
+
+	type ConfigReferenceFilesResolverEntry = {
+		entrypoints: string | string[];
+		resolver: ConfigReferenceFilesResolver;
+		customSyntax?: CustomSyntax;
+	};
+
 	type ConfigReferenceFiles =
 		| string
 		| ConfigReferenceFilesEntry
-		| (string | ConfigReferenceFilesEntry)[];
+		| ConfigReferenceFilesResolverEntry
+		| (string | ConfigReferenceFilesEntry | ConfigReferenceFilesResolverEntry)[];
 
 	type LanguageOptions = {
 		syntax?: {
@@ -248,7 +259,14 @@ declare namespace stylelint {
 		 */
 		referenceFiles?: ConfigReferenceFiles;
 		/** @internal */
-		_resolvedReferenceFiles?: Array<{ files: string[]; customSyntax?: PostCSS.Syntax }>;
+		_resolvedReferenceFiles?: Array<
+			| { files: string[]; customSyntax?: PostCSS.Syntax }
+			| {
+					entrypoints: string[];
+					resolver: ConfigReferenceFilesResolver;
+					customSyntax?: PostCSS.Syntax;
+			  }
+		>;
 		/**
 		 * Language options to extend the syntax.
 		 *
