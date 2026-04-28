@@ -89,6 +89,7 @@ declare namespace stylelint {
 	type ConfigReferenceFilesEntry = {
 		files: string | string[];
 		customSyntax?: CustomSyntax;
+		loader?: Loader;
 	};
 
 	type ConfigReferenceFiles =
@@ -248,7 +249,11 @@ declare namespace stylelint {
 		 */
 		referenceFiles?: ConfigReferenceFiles;
 		/** @internal */
-		_resolvedReferenceFiles?: Array<{ files: string[]; customSyntax?: PostCSS.Syntax }>;
+		_resolvedReferenceFiles?: Array<{
+			files: string[];
+			customSyntax?: PostCSS.Syntax;
+			loader?: PostCSS.Plugin | PostCSS.PluginCreator<any>;
+		}>;
 		/**
 		 * Language options to extend the syntax.
 		 *
@@ -375,6 +380,9 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type CustomSyntax = string | PostCSS.Syntax;
+
+	/** @internal */
+	export type Loader = string | PostCSS.Plugin | PostCSS.PluginCreator<any>;
 
 	/**
 	 * WARNING: This is an experimental feature. The API may change in the future.
