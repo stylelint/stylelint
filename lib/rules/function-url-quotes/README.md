@@ -11,6 +11,8 @@ a { background: url("x.jpg") }
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the URL function name.
+
 ## Options
 
 ### `"always"`

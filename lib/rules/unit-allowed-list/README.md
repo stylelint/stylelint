@@ -9,6 +9,8 @@ a { width: 100px; }
  *  These units */
 ```
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed unit.
+
 ## Options
 
 ### `Array<string>`

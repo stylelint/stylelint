@@ -14,6 +14,8 @@ This rule ignores SCSS-like comments.
 > [!WARNING]
 > Comments within _selector and value lists_ are currently ignored.
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

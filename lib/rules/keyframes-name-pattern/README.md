@@ -9,6 +9,8 @@ Specify a pattern for keyframe names.
  * The pattern of this */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the keyframes name and the configured pattern.
+
 ## Options
 
 ### `string`

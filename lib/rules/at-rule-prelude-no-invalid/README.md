@@ -23,6 +23,8 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 > - [`string-no-newline`](../string-no-newline/README.md)
 > - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the at-rule and the invalid prelude.
+
 Prior art:
 
 - [stylelint-csstree-validator](https://www.npmjs.com/package/stylelint-csstree-validator)

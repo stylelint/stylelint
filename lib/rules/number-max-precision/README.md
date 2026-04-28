@@ -9,6 +9,8 @@ a { top: 3.245634px; }
  * This decimal place */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the number and its rounded equivalent.
+
 ## Options
 
 ### `number`
