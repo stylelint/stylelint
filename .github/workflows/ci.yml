@@ -70,6 +70,10 @@ jobs:
           STYLELINT_TEST_YARN_PNP: 'true'
           YARN_ENABLE_HARDENED_MODE: 0 # https://yarnpkg.com/features/security#hardened-mode
 
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@add-dependency-review # TODO: Change to a published version
+
   spellcheck:
     runs-on: ubuntu-slim
     timeout-minutes: 30
