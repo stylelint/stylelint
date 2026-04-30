@@ -63,6 +63,11 @@ a { margin-left: 0; }
 a { width: 0; }
 ```
 
+<!-- prettier-ignore -->
+```css
+a { transition: margin-left 0 ease; }
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -73,6 +78,11 @@ a { margin-inline-start: 0; }
 <!-- prettier-ignore -->
 ```css
 a { inline-size: 0; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transition: margin-inline-start 0 ease; }
 ```
 
 ### `"physical"`
@@ -99,6 +109,11 @@ a { margin-inline-start: 0; }
 a { inline-size: 0; }
 ```
 
+<!-- prettier-ignore -->
+```css
+a { transition: margin-inline-start 0 ease; }
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -109,6 +124,11 @@ a { margin-left: 0; }
 <!-- prettier-ignore -->
 ```css
 a { width: 0; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transition: margin-left 0 ease; }
 ```
 
 ## Optional secondary options
@@ -142,4 +162,9 @@ a { margin-left: 0; }
 <!-- prettier-ignore -->
 ```css
 a { width: 0; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transition: margin-left 0 ease; }
 ```
