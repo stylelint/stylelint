@@ -11,6 +11,8 @@ Require or disallow quotes for attribute values.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the attribute value.
+
 ## Options
 
 ### `"always"`

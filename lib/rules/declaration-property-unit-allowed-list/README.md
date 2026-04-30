@@ -9,6 +9,8 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the disallowed unit.
+
 ## Options
 
 ### `Object<string, Array<string>>`

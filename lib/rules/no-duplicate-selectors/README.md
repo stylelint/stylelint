@@ -31,6 +31,8 @@ a, b { & c {} } /* with nesting */
 > [!WARNING]
 > This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the duplicate selector and the line where it first appeared.
+
 ## Options
 
 ### `true`

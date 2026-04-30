@@ -11,6 +11,8 @@ a { color: black }
 
 This rule ignores `$sass` and `@less` variable syntaxes.
 
+This rule supports up to 2 [message arguments](../../../docs/user-guide/configure.md#message): the disallowed named color, or a color and its named equivalent.
+
 ## Options
 
 ### `"always-where-possible"`

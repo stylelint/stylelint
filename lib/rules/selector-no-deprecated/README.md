@@ -19,6 +19,8 @@ This rule flags selectors that were removed or deprecated after being in the CSS
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule.
 
+This rule supports up to 2 [message arguments](../../../docs/user-guide/configure.md#message): the deprecated selector, or the selector and its replacement.
+
 ## Options
 
 ### `true`

@@ -2,6 +2,8 @@
 
 Limit the number of values for a list of properties within declarations.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the configured maximum.
+
 ## Options
 
 ### `Object<string, number>`

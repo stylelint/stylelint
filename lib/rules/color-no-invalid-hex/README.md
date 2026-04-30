@@ -17,6 +17,8 @@ Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal charac
 > - [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md)
 > - [`declaration-property-value-no-unknown`](../declaration-property-value-no-unknown/README.md)
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the invalid hex color.
+
 ## Options
 
 ### `true`
