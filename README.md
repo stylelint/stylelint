@@ -106,7 +106,7 @@ And thank you to all our Open Collective backers, GitHub sponsors and one-off do
 
 #### Website hosting
 
-[![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com)
+[![Deploys by Netlify](https://www.netlify.com/assets/badges/netlify-badge-dark.svg)](https://www.netlify.com)
 
 ## License
 

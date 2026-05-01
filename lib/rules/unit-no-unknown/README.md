@@ -22,6 +22,8 @@ You can use the [`languageOptions`](../../../docs/user-guide/configure.md#langua
 > - [`media-feature-name-value-no-unknown`](../media-feature-name-value-no-unknown/README.md)
 > - [`media-query-no-invalid`](../media-query-no-invalid/README.md)
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown unit.
+
 ## Options
 
 ### `true`

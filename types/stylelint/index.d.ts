@@ -96,6 +96,13 @@ declare namespace stylelint {
 		| ConfigReferenceFilesEntry
 		| (string | ConfigReferenceFilesEntry)[];
 
+	/** @internal */
+	export type Directionality =
+		| 'top-to-bottom'
+		| 'bottom-to-top'
+		| 'left-to-right'
+		| 'right-to-left';
+
 	type LanguageOptions = {
 		syntax?: {
 			atRules?: Record<
@@ -112,8 +119,8 @@ declare namespace stylelint {
 			units?: Record<string, string[]>;
 		};
 		directionality?: {
-			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
-			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
+			block?: Directionality;
+			inline?: Directionality;
 		};
 	};
 
@@ -202,6 +209,12 @@ declare namespace stylelint {
 		 * @see [reportUnscopedDisables](https://stylelint.io/user-guide/configure#reportunscopeddisables)
 		 */
 		reportUnscopedDisables?: DisableSettings;
+		/**
+		 * Set a limit to the number of warnings accepted.
+		 *
+		 * @see [maxWarnings](https://stylelint.io/user-guide/configure#maxwarnings)
+		 */
+		maxWarnings?: number;
 		/**
 		 * A string to set what configuration comments like 'stylelint-disable' start with.
 		 * Сan be useful when using multiple instances of Stylelint with different configurations.
@@ -1007,6 +1020,7 @@ declare namespace stylelint {
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
 			AutofixMessage & RejectedMessage<[selector: string]>
 		>;
+		'selector-no-invalid': CoreRule<true, {}, RejectedMessage<[selector: string, reason: string]>>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
@@ -1149,12 +1163,19 @@ declare namespace stylelint {
 	export type GetLintSourceOptions = GetPostcssOptions & {
 		existingPostcssResult?: PostCSS.Result;
 		cache?: boolean;
+		abortSignal?: AbortSignal;
 	};
 
 	/**
 	 * Linter options.
 	 */
 	export type LinterOptions = {
+		/**
+		 * An `AbortSignal` to cancel the linting process. If the signal is
+		 * aborted, the linting process will be stopped and the signal's
+		 * `reason` will be thrown as an error.
+		 */
+		abortSignal?: AbortSignal;
 		files?: OneOrMany<string>;
 		globbyOptions?: GlobbyOptions;
 		cache?: boolean;

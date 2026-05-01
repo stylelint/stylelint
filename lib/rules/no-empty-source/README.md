@@ -9,6 +9,8 @@ Disallow empty sources.
 
 A source containing only whitespace, e.g., spaces, tabs, or newlines, is considered empty.
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

@@ -93,6 +93,8 @@ This is a correct error because the `a:hover` on line 1 has a higher specificity
 
 This may lead to confusion because both rules contain different declarations and there isn't any conflict between either. However, the linter only evaluates selectors, and therefore correctly reports the error about descending specificity.
 
+This rule supports 5 [message arguments](../../../docs/user-guide/configure.md#message): the selector, the prior selector, its line number, and the resolved form of each.
+
 ## Options
 
 ### `true`

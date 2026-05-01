@@ -13,6 +13,8 @@ This rule considers at-rules defined in the CSS Specifications, up to and includ
 
 For customizing syntax, see the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) section.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown at-rule.
+
 ## Options
 
 ### `true`

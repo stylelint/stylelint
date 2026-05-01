@@ -28,6 +28,8 @@ Currently, the recommended media types are:
 
 The deprecated media types were removed because they were either never widely implemented or their use cases are now better handled by media features rather than broad device categories.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the deprecated media type.
+
 ## Options
 
 ### `true`

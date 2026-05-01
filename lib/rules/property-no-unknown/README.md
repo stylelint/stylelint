@@ -18,6 +18,8 @@ This rule ignores:
 - variables, e.g., `$sass`, `@less`, `--custom-property`
 - vendor-prefixed properties, e.g., `-moz-overflow-scrolling` (unless `checkPrefixed` is set to `true`)
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown property.
+
 ## Options
 
 ### `true`
