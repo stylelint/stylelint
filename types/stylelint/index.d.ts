@@ -96,6 +96,13 @@ declare namespace stylelint {
 		| ConfigReferenceFilesEntry
 		| (string | ConfigReferenceFilesEntry)[];
 
+	/** @internal */
+	export type Directionality =
+		| 'top-to-bottom'
+		| 'bottom-to-top'
+		| 'left-to-right'
+		| 'right-to-left';
+
 	type LanguageOptions = {
 		syntax?: {
 			atRules?: Record<
@@ -112,8 +119,8 @@ declare namespace stylelint {
 			units?: Record<string, string[]>;
 		};
 		directionality?: {
-			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
-			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
+			block?: Directionality;
+			inline?: Directionality;
 		};
 	};
 
