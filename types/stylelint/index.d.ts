@@ -97,6 +97,13 @@ declare namespace stylelint {
 		| ConfigReferenceFilesEntry
 		| (string | ConfigReferenceFilesEntry)[];
 
+	/** @internal */
+	export type Directionality =
+		| 'top-to-bottom'
+		| 'bottom-to-top'
+		| 'left-to-right'
+		| 'right-to-left';
+
 	type LanguageOptions = {
 		syntax?: {
 			atRules?: Record<
@@ -113,8 +120,8 @@ declare namespace stylelint {
 			units?: Record<string, string[]>;
 		};
 		directionality?: {
-			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
-			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
+			block?: Directionality;
+			inline?: Directionality;
 		};
 	};
 
@@ -1112,6 +1119,12 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[unit: string]>
 		>;
+		'unit-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{ ignoreUnits: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, unit: string]>
+		>;
 		'unit-no-unknown': CoreRule<
 			true,
 			{
@@ -1129,6 +1142,15 @@ declare namespace stylelint {
 				camelCaseSvgKeywords: boolean;
 			},
 			AutofixMessage
+		>;
+		'value-keyword-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignoreKeywords: OneOrMany<StringOrRegex>;
+			},
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, keyword: string]>
 		>;
 		'value-no-vendor-prefix': CoreRule<
 			true,
