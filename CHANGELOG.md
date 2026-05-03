@@ -1,5 +1,15 @@
 # Changelog
 
+## 17.10.0 - 2026-05-03
+
+- Added: `selector-no-invalid` rule ([#9232](https://github.com/stylelint/stylelint/pull/9232)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `unit-layout-mappings` rule ([#9229](https://github.com/stylelint/stylelint/pull/9229)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `value-keyword-layout-mappings` rule ([#9233](https://github.com/stylelint/stylelint/pull/9233)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-layout-mappings` false negatives for property names in declaration values ([#9222](https://github.com/stylelint/stylelint/pull/9222)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-layout-mappings` false positives for `@page` properties ([#9223](https://github.com/stylelint/stylelint/pull/9223)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for nested `webkit-scrollbar` part ([#9259](https://github.com/stylelint/stylelint/pull/9259)) ([@rkdfx](https://github.com/rkdfx)).
+- Fixed: inconsistent error messages when module is not found ([#9260](https://github.com/stylelint/stylelint/pull/9260)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 17.9.1 - 2026-04-27
 
 It fixes 4 bugs. We also documented the `messageArgs` each rule provides to the `message` configuration property.
