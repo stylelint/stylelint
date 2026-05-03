@@ -311,6 +311,8 @@ You can extend or modify the default CSS syntax to customize the following aspec
 - `types`: Extend or modify type definitions used in property values
 - `units`: Extend unit categories with custom units
 
+This is used by rules, such as [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md) and [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md), when checking for unknown or invalid things.
+
 ```json
 {
   "languageOptions": {
@@ -339,16 +341,6 @@ You can extend or modify the default CSS syntax to customize the following aspec
   }
 }
 ```
-
-The following rules are configured via the `languageOptions` property:
-
-- [`at-rule-descriptor-no-unknown`](../../lib/rules/at-rule-descriptor-no-unknown/README.md)
-- [`at-rule-descriptor-value-no-unknown`](../../lib/rules/at-rule-descriptor-value-no-unknown/README.md)
-- [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md)
-- [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)
-- [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md)
-- [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md)
-- [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md)
 
 #### `AtRules`
 
@@ -513,7 +505,7 @@ a { top: 10--foo; }
 
 ### `directionality`
 
-Specify the direction of the block and inline axes. This is used by rules to provide direction-aware problem messages and autofixes.
+Specify the direction of the block and inline axes. This is used by rules, such as [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md), to provide direction-aware problem messages and autofixes.
 
 You must specify both `block` and `inline`, and they must be on perpendicular axes:
 
@@ -539,16 +531,12 @@ So that `margin-left` maps to `margin-inline-start`, and `margin-bottom` maps to
 
 For a right-to-left language, set `"inline": "right-to-left"`. The mapping changes: `margin-left` now maps to `margin-inline-end` instead.
 
-The following rules are configured via the `directionality` property:
-
-- [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)
-
 ## `referenceFiles`
 
 > [!WARNING]
 > This is an experimental feature. The API may change in the future.
 
-You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things.
+You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things like [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md).
 
 For example:
 
@@ -603,12 +591,6 @@ Each entry can be:
   - may contain a `loader` property (a PostCSS plugin to bundle CSS)
 
 You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
-
-The following rules are configured via the `referenceFiles` property:
-
-- [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md)
-- [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md)
-- [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md)
 
 ## `extends`
 
