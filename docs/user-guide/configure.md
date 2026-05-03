@@ -546,6 +546,17 @@ For example:
 }
 ```
 
+For CSS bundles, you can specify a PostCSS plugin with the `loader` property:
+
+```json
+{
+  "referenceFiles": {
+    "files": "entrypoint.css",
+    "loader": "postcss-import"
+  }
+}
+```
+
 For non-CSS files, you should use an object form with a [`customSyntax`](#customsyntax) property:
 
 ```json
@@ -577,6 +588,7 @@ Each entry can be:
 - an object that
   - must contain a `files` property (a string or an array of glob patterns)
   - may contain a [`customSyntax`](#customsyntax) property
+  - may contain a `loader` property (a PostCSS plugin to bundle CSS)
 
 You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
 
