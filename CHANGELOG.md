@@ -1,5 +1,34 @@
 # Changelog
 
+## 17.10.0 - 2026-05-03
+
+It adds 3 rules and fixes 4 bugs. You can use the `*-layout-mappings` rules to enforce logical or physical properties, units and keywords.
+
+- Added: `selector-no-invalid` rule ([#9232](https://github.com/stylelint/stylelint/pull/9232)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `unit-layout-mappings` rule ([#9229](https://github.com/stylelint/stylelint/pull/9229)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `value-keyword-layout-mappings` rule ([#9233](https://github.com/stylelint/stylelint/pull/9233)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: inconsistent error messages when module is not found ([#9260](https://github.com/stylelint/stylelint/pull/9260)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `property-layout-mappings` false negatives for property names in declaration values ([#9222](https://github.com/stylelint/stylelint/pull/9222)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `property-layout-mappings` false positives for `@page` properties ([#9223](https://github.com/stylelint/stylelint/pull/9223)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for nested `webkit-scrollbar` part ([#9259](https://github.com/stylelint/stylelint/pull/9259)) ([@rkdfx](https://github.com/rkdfx)).
+
+## 17.9.1 - 2026-04-27
+
+It fixes 4 bugs. We also documented the `messageArgs` each rule provides to the `message` configuration property.
+
+- Fixed: `ConfigurationError` regression for custom syntaxes ([#9245](https://github.com/stylelint/stylelint/pull/9245)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: MD5 hash algorithm to SHA256 for caching ([#9241](https://github.com/stylelint/stylelint/pull/9241)) ([@rkdfx](https://github.com/rkdfx)).
+- Fixed: `property-no-deprecated` autofix for `page-break-*: always` ([#9214](https://github.com/stylelint/stylelint/pull/9214)) ([@rkdfx](https://github.com/rkdfx)).
+- Fixed: `selector-no-deprecated` false positives for `::part()` ([#9227](https://github.com/stylelint/stylelint/pull/9227)) ([@SaekiTominaga](https://github.com/SaekiTominaga)).
+
+## 17.9.0 - 2026-04-23
+
+It adds 3 new features. Adding the `referenceFiles` property to your configuration object makes the `no-unknown-animations`, `no-unknown-custom-media` and `no-unknown-custom-properties` rules more useful.
+
+- Added: experimental `referenceFiles` to configuration object ([#9179](https://github.com/stylelint/stylelint/pull/9179)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: experimental `abortSignal` option to Node.js API for cancellation support ([#9213](https://github.com/stylelint/stylelint/pull/9213)) ([@adalinesimonian](https://github.com/adalinesimonian)).
+- Added: `maxWarnings` to configuration object ([#9181](https://github.com/stylelint/stylelint/pull/9181)) ([@mrginglymus](https://github.com/mrginglymus)).
+
 ## 17.8.0 - 2026-04-15
 
 It adds 3 new rules and 1 configuration property.

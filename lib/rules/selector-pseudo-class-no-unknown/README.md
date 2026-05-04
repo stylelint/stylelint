@@ -13,6 +13,8 @@ This rule considers pseudo-class selectors defined in the CSS Specifications, up
 
 This rule ignores vendor-prefixed pseudo-class selectors.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown pseudo-class.
+
 ## Options
 
 ### `true`

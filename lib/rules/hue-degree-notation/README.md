@@ -13,6 +13,8 @@ Because hues are so often given in degrees, a hue can also be given as a number,
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the hue and its expected notation.
+
 ## Options
 
 ### `"angle"`

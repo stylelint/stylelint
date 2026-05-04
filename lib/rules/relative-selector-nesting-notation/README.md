@@ -13,6 +13,8 @@ When a relative selector starts with a combinator (like ` `, `>`, `+`, `~`), you
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured notation.
+
 ## Options
 
 ### `"explicit"`

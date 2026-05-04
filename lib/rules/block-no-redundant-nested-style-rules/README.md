@@ -9,6 +9,8 @@ a { & { color: red; } }
  * This nested style rule */
 ```
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

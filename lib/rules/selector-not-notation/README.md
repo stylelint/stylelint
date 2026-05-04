@@ -30,6 +30,8 @@ a:not(.foo):not(.bar) {}
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) option can automatically fix most of the problems reported by this rule.
 
+This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured notation.
+
 ## Options
 
 ### `"simple"`

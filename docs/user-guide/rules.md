@@ -78,6 +78,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
 | [`no-invalid-position-declaration`](../../lib/rules/no-invalid-position-declaration/README.md)<br/>Disallow invalid position declarations. | ✅ | |
+| [`selector-no-invalid`](../../lib/rules/selector-no-invalid/README.md)<br/>Disallow invalid selectors. | | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
 | [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
 <!-- prettier-ignore-end -->
@@ -329,6 +330,8 @@ Specify flow-relative or physical layout mappings with these `layout-mappings` r
 | | | |
 | :-- | :-: | :-: |
 | [`property-layout-mappings`](../../lib/rules/property-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for properties. | | 🔧 |
+| [`unit-layout-mappings`](../../lib/rules/unit-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for units. | | 🔧 |
+| [`value-keyword-layout-mappings`](../../lib/rules/value-keyword-layout-mappings/README.md)<br/>Specify flow-relative or physical layout mappings for value keywords. | | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Max & min

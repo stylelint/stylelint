@@ -89,12 +89,20 @@ declare namespace stylelint {
 	type ConfigReferenceFilesEntry = {
 		files: string | string[];
 		customSyntax?: CustomSyntax;
+		loader?: Loader;
 	};
 
 	type ConfigReferenceFiles =
 		| string
 		| ConfigReferenceFilesEntry
 		| (string | ConfigReferenceFilesEntry)[];
+
+	/** @internal */
+	export type Directionality =
+		| 'top-to-bottom'
+		| 'bottom-to-top'
+		| 'left-to-right'
+		| 'right-to-left';
 
 	type LanguageOptions = {
 		syntax?: {
@@ -112,8 +120,8 @@ declare namespace stylelint {
 			units?: Record<string, string[]>;
 		};
 		directionality?: {
-			block?: 'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
-			inline?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top';
+			block?: Directionality;
+			inline?: Directionality;
 		};
 	};
 
@@ -248,7 +256,11 @@ declare namespace stylelint {
 		 */
 		referenceFiles?: ConfigReferenceFiles;
 		/** @internal */
-		_resolvedReferenceFiles?: Array<{ files: string[]; customSyntax?: PostCSS.Syntax }>;
+		_resolvedReferenceFiles?: Array<{
+			files: string[];
+			customSyntax?: PostCSS.Syntax;
+			loader?: PostCSS.Plugin | PostCSS.PluginCreator<any>;
+		}>;
 		/**
 		 * Language options to extend the syntax.
 		 *
@@ -376,6 +388,9 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type CustomSyntax = string | PostCSS.Syntax;
+
+	/** @internal */
+	export type Loader = string | PostCSS.Plugin | PostCSS.PluginCreator<any>;
 
 	/**
 	 * WARNING: This is an experimental feature. The API may change in the future.
@@ -1014,6 +1029,7 @@ declare namespace stylelint {
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
 			AutofixMessage & RejectedMessage<[selector: string]>
 		>;
+		'selector-no-invalid': CoreRule<true, {}, RejectedMessage<[selector: string, reason: string]>>;
 		'selector-no-qualifying-type': CoreRule<
 			true,
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
@@ -1104,6 +1120,12 @@ declare namespace stylelint {
 			},
 			RejectedMessage<[unit: string]>
 		>;
+		'unit-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{ ignoreUnits: OneOrMany<StringOrRegex> },
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, unit: string]>
+		>;
 		'unit-no-unknown': CoreRule<
 			true,
 			{
@@ -1121,6 +1143,15 @@ declare namespace stylelint {
 				camelCaseSvgKeywords: boolean;
 			},
 			AutofixMessage
+		>;
+		'value-keyword-layout-mappings': CoreRule<
+			'flow-relative' | 'physical',
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignoreKeywords: OneOrMany<StringOrRegex>;
+			},
+			ExpectedMessage<[unfixed: string, fixed: string]> &
+				RejectedMessage<[type: string, keyword: string]>
 		>;
 		'value-no-vendor-prefix': CoreRule<
 			true,

@@ -9,6 +9,8 @@ Disallow empty blocks.
  * Blocks like this */
 ```
 
+This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
+
 ## Options
 
 ### `true`

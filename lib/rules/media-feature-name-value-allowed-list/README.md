@@ -9,6 +9,8 @@ Specify a list of allowed media feature name and value pairs.
  *    These features and values */
 ```
 
+This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the media feature name and the disallowed value.
+
 ## Options
 
 ### `Object<string, Array<string>>`
