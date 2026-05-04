@@ -69,6 +69,7 @@ export default {
 	reportedDisables: [],
 	results: [
 		{
+			autofixed: undefined,
 			deprecations: [],
 			errored: true,
 			ignored: undefined,
