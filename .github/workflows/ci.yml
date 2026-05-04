@@ -83,3 +83,9 @@ jobs:
       - name: Spellcheck
         # Ignore a CI failure because there are false positives.
         run: codespell || echo 'Fix misspells via "codespell" on your console, or ignore false positives.'
+
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@61e84671c2d4d7af47353e7f5289a2df81bd681d # 0.7.0
+    permissions:
+      contents: read
