@@ -37,6 +37,9 @@ updates:
     open-pull-requests-limit: 5
     labels:
       - 'pr: dependencies'
+    groups:
+      stylelint-actions:
+        patterns: ['stylelint/.github/*']
     cooldown:
       default-days: 7
       exclude: ['stylelint/.github/*']
