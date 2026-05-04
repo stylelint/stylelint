@@ -3,7 +3,6 @@ export default {
 	errored: true,
 	report: [
 		{
-			autofixed: false,
 			deprecations: [],
 			errored: true,
 			invalidOptionWarnings: [],
@@ -70,7 +69,7 @@ export default {
 	reportedDisables: [],
 	results: [
 		{
-			autofixed: false,
+			autofixed: undefined,
 			deprecations: [],
 			errored: true,
 			ignored: undefined,

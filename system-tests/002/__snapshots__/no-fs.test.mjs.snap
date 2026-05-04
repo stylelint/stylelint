@@ -6,7 +6,6 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
   "errored": true,
   "report": [
     {
-      "autofixed": false,
       "deprecations": [],
       "errored": true,
       "invalidOptionWarnings": [],
@@ -46,7 +45,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
   "reportedDisables": [],
   "results": [
     {
-      "autofixed": false,
+      "autofixed": undefined,
       "deprecations": [],
       "errored": true,
       "ignored": undefined,
