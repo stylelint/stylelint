@@ -23,7 +23,11 @@ Then:
 
 1. [Fork and clone](https://guides.github.com/activities/forking/) the Stylelint repository.
 2. Install all the dependencies with `npm ci`.
-3. Patch packages with `npx patch-package`.
+3. Set up with `npm run prepare`.
+
+> [!TIP]
+> Stylelint's `.npmrc` is hardened against supply-chain risk. Consider the same for your `~/.npmrc`.
+> See [npm Security Best Practices](https://github.com/lirantal/npm-security-best-practices).
 
 ### Run tests
 
