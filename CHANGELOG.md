@@ -2,8 +2,10 @@
 
 ## 17.11.0 - 2026-05-05
 
-- Added: `autofixed` to the result object ([#8771](https://github.com/stylelint/stylelint/pull/8771)) ([@Rob--W](https://github.com/Rob--W)).
+It adds 2 features, including a `loader` property to `referenceFiles: {}` for when the order of appearance in the reference styles matters.
+
 - Added: `loader` to experimental `referenceFiles: {}` ([#9251](https://github.com/stylelint/stylelint/pull/9251)) ([@romainmenke](https://github.com/romainmenke)).
+- Added: `autofixed` to the result object ([#8771](https://github.com/stylelint/stylelint/pull/8771)) ([@Rob--W](https://github.com/Rob--W)).
 
 ## 17.10.0 - 2026-05-03
 
