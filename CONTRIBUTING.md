@@ -26,8 +26,7 @@ Then:
 3. Set up with `npm run prepare`.
 
 > [!TIP]
-> Stylelint's `.npmrc` is hardened against supply-chain risk. Consider the same for your `~/.npmrc`.
-> See [npm Security Best Practices](https://github.com/lirantal/npm-security-best-practices).
+> Stylelint's `.npmrc` is hardened against supply-chain risk. You should consider [doing the same](https://github.com/lirantal/npm-security-best-practices) for your `~/.npmrc`.
 
 ### Run tests
 
