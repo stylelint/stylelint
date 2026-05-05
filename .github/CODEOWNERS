@@ -5,3 +5,6 @@
 
 # Require approvals by the owners team when updating dependencies or package metadata.
 package.json @stylelint/owners
+
+# Require approvals by the owners team when updating npm configuration.
+.npmrc @stylelint/owners
