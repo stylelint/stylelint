@@ -54,7 +54,7 @@
     "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md && npm install --ignore-scripts",
     "format": "prettier . --write --cache",
     "generate-example-output": "node scripts/generate-example-output/run.mjs",
-    "lint": "npm-run-all --parallel --continue-on-error lint:*",
+    "lint": "patch-package && npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check --cache",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
