@@ -144,7 +144,6 @@
     "html-tags": "^5.1.0",
     "ignore": "^7.0.5",
     "import-meta-resolve": "^4.2.0",
-    "is-plain-object": "^5.0.0",
     "mathml-tag-names": "^4.0.0",
     "meow": "^14.1.0",
     "micromatch": "^4.0.8",
