@@ -15,12 +15,12 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/call-lint.yml@61e84671c2d4d7af47353e7f5289a2df81bd681d # 0.7.0
+    uses: stylelint/.github/.github/workflows/call-lint.yml@38848ee8badc3888f246692cc371d519616d74e2 # 0.9.0
     permissions:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@61e84671c2d4d7af47353e7f5289a2df81bd681d # 0.7.0
+    uses: stylelint/.github/.github/workflows/call-test.yml@38848ee8badc3888f246692cc371d519616d74e2 # 0.9.0
     with:
       node-version: '["20", "22", "24", "26"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
@@ -86,6 +86,6 @@ jobs:
 
   dependency-review:
     if: github.event_name == 'pull_request'
-    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@61e84671c2d4d7af47353e7f5289a2df81bd681d # 0.7.0
+    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@38848ee8badc3888f246692cc371d519616d74e2 # 0.9.0
     permissions:
       contents: read
