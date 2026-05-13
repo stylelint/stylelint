@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fix test failure inside paths containing dot directories
+Fixed: `node_modules` ignore for `codeFilename` paths containing a dot-prefixed directory
