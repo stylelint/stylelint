@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.11.1 - 2026-05-14
+
+It fixes 2 bugs.
+
+- Fixed: `node_modules` ignore for `codeFilename` paths containing a dot-prefixed directory ([#9282](https://github.com/stylelint/stylelint/pull/9282)) ([@tuhtah](https://github.com/tuhtah)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` range for contiguous redundant longhand properties ([#9273](https://github.com/stylelint/stylelint/pull/9273)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+
 ## 17.11.0 - 2026-05-05
 
 It adds 2 features, including a `loader` property to `referenceFiles: {}` for when the order of appearance in the reference styles matters.
