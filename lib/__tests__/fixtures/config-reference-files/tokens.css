@@ -11,9 +11,3 @@
 }
 
 @custom-media --qux (width > 10em);
-
-@property --foo {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #c0ffee;
-}
