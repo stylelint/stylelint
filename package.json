@@ -162,7 +162,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.31.0",
     "@changesets/get-github-info": "^0.8.0",
-    "@jest/globals": "^30.3.0",
+    "@jest/globals": "^30.4.1",
     "@stylelint/prettier-config": "^4.0.0",
     "@stylelint/remark-preset": "^5.1.1",
     "@types/css-tree": "^2.3.11",
@@ -182,7 +182,7 @@
     "eslint": "^10.3.0",
     "eslint-config-stylelint": "^27.0.0",
     "eslint-plugin-jest": "^29.15.2",
-    "jest": "^30.3.0",
+    "jest": "^30.4.2",
     "jest-preset-stylelint": "^9.1.0",
     "jest-watch-typeahead": "^3.0.1",
     "lint-staged": "^16.4.0",
