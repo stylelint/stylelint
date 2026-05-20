@@ -1,5 +1,13 @@
 # Changelog
 
+## 17.12.0 - 2026-05-20
+
+It fixes 3 bugs, including a false negative one.
+
+- Fixed: `block-no-empty` reported range when using comments ([#9294](https://github.com/stylelint/stylelint/pull/9294)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for custom properties defined in reference files ([#9292](https://github.com/stylelint/stylelint/pull/9292)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `value-keyword-layout-mappings` false positives for `caption-side` ([#9293](https://github.com/stylelint/stylelint/pull/9293)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 17.11.1 - 2026-05-14
 
 It fixes 2 bugs.
