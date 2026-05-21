@@ -84,7 +84,9 @@
     "collectCoverage": false,
     "collectCoverageFrom": [
       "lib/**/*.{js,mjs}",
-      "!lib/**/{__tests__,testUtils}/**/*.{js,mjs}"
+      "!lib/**/{__tests__,testUtils}/**/*.{js,mjs}",
+      ".changeset/*.mjs",
+      "!.changeset/*.test.mjs"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageProvider": "v8",
