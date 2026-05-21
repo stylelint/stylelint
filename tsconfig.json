@@ -18,5 +18,5 @@
 		"skipLibCheck": false
 	},
 	"include": ["lib/**/*.mjs", "types/**/*.ts", "rollup.config.*", ".changeset/*.mjs"],
-	"exclude": ["**/__tests__/**"]
+	"exclude": ["**/__tests__/**", "**/*.test.mjs"]
 }

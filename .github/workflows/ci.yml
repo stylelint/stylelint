@@ -70,6 +70,12 @@ jobs:
           STYLELINT_TEST_YARN_PNP: 'true'
           YARN_ENABLE_HARDENED_MODE: 0 # https://yarnpkg.com/features/security#hardened-mode
 
+      - name: Verify changeset
+        run: |
+          npm run changeset
+          npm run lint:md
+          git checkout -- CHANGELOG.md
+
   spellcheck:
     runs-on: ubuntu-slim
     timeout-minutes: 30
