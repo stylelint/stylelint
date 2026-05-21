@@ -2,7 +2,6 @@ import { getInfo } from '@changesets/get-github-info';
 
 /** @import { ChangelogFunctions } from '@changesets/types' */
 
-/** @type {Map<string, string[]>} */
 const TYPE_TO_PREFIXES = new Map([
 	['major', ['Removed', 'Changed']],
 	['minor', ['Added', 'Deprecated', 'Fixed']], // Possible: Fixed & false-negatives
