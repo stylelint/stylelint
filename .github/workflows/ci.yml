@@ -58,7 +58,7 @@ jobs:
         uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
         with:
           files: ./.coverage/lcov.info
-          fail_ci_if_error: false
+          fail_ci_if_error: true
 
       # This test is only enabled when the relevant environment variable is set,
       # so it is run here, separately from the main test matrix.
