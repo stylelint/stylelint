@@ -19,14 +19,14 @@ export default {
 
 		const summary = changeset.summary.trim();
 		const match = SUMMARY_PATTERN.exec(summary);
+		const prefix = match?.groups?.prefix;
 
-		if (!match) {
+		if (!match || !prefix) {
 			throw new Error(
 				`Invalid changeset summary: ${JSON.stringify(summary)}, expected: "<${PREFIXES}>: <description>"`,
 			);
 		}
 
-		const prefix = match.groups?.prefix ?? '';
 		const allowedPrefixes = TYPE_TO_PREFIXES.get(type);
 
 		if (allowedPrefixes && !allowedPrefixes.includes(prefix)) {
