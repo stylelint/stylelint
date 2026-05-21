@@ -17,6 +17,6 @@
 		"esModuleInterop": true,
 		"skipLibCheck": false
 	},
-	"include": ["lib/**/*.mjs", "types/**/*.ts", "rollup.config.*", ".changeset/*.mjs"],
+	"include": ["lib/**/*.mjs", "types/**/*.ts", ".changeset/*.mjs"],
 	"exclude": ["**/__tests__/**", "**/*.test.mjs"]
 }
