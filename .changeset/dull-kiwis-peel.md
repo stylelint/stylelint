@@ -1,5 +1,0 @@
----
-"stylelint": patch
----
-
-foo bar
