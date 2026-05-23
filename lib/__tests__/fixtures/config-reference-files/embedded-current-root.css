@@ -1,0 +1,7 @@
+@property --embedded-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: red;
+}
+
+a { --embedded-color: 1px; }

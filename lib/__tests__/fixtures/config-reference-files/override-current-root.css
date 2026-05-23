@@ -1,0 +1,5 @@
+@property --embedded-color {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 1px;
+}
