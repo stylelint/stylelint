@@ -1601,6 +1601,7 @@ declare namespace stylelint {
 		_augmentedConfigCache: Map<string, CosmiconfigResult>;
 		_postcssResultCache: Map<string, PostCSS.Result>;
 		_compiledOverridesCache: Map<string, CompiledOverride[]>;
+		_referenceRootsCache: Map<string, Promise<PostCSS.Root[]>>;
 		_fileCache: FileCache;
 	};
 
