@@ -18,13 +18,13 @@ jobs:
       pull-requests: write
     steps:
       - name: Comment on low-quality PR
-        run: gh pr comment "${PR_URL}" --body "${pr_comment}"
+        run: gh pr comment "${PR_URL}" --body "${PR_COMMENT}"
         env:
           GH_REPO: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
-          pr_comment: |-
-            Thank you for your contribution. However, this pull request does not appear to follow our [contributing guide](https://stylelint.io/CONTRIBUTING). Please review it and update your pull request.
+          PR_COMMENT: |-
+            @${{ github.event.pull_request.user.login }} Thank you for your contribution. However, this pull request does not appear to follow our [contributing guide](https://stylelint.io/CONTRIBUTING). Please review it and update your pull request.
 
             This pull request will automatically close if there is no activity within 2 days.
 
