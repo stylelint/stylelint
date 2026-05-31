@@ -51,7 +51,7 @@
   "scripts": {
     "benchmark": "node scripts/benchmarking/run-system.mjs",
     "benchmark-rule": "node scripts/benchmarking/run-rule.mjs",
-    "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md && npm install --ignore-scripts",
+    "changeset": "changeset version && node .changeset/rewrite-changelog.mjs CHANGELOG.md",
     "format": "prettier . --write --cache",
     "generate-example-output": "node scripts/generate-example-output/run.mjs",
     "lint": "patch-package && npm-run-all --parallel --continue-on-error lint:*",
@@ -84,7 +84,8 @@
     "collectCoverage": false,
     "collectCoverageFrom": [
       "lib/**/*.{js,mjs}",
-      "!lib/**/{__tests__,testUtils}/**/*.{js,mjs}"
+      "!lib/**/{__tests__,testUtils}/**/*.{js,mjs}",
+      ".changeset/changelog-stylelint.mjs"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageProvider": "v8",
@@ -103,7 +104,8 @@
     "preset": "jest-preset-stylelint",
     "roots": [
       "lib",
-      "system-tests"
+      "system-tests",
+      ".changeset"
     ],
     "setupFiles": [
       "<rootDir>/jest.setup.mjs"
