@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `selector-max-type` false positives with nested selectors
+Fixed: `selector-max-type` false positives for nested selectors
