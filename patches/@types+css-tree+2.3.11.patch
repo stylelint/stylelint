@@ -2,16 +2,23 @@ diff --git a/node_modules/@types/css-tree/index.d.ts b/node_modules/@types/css-t
 index c005ef3..2303dbb 100644
 --- a/node_modules/@types/css-tree/index.d.ts
 +++ b/node_modules/@types/css-tree/index.d.ts
-@@ -906,13 +906,21 @@ export class Lexer {
+@@ -600,5 +600,6 @@ export type WalkOptions =
+     | WalkOptionsVisit<MediaFeature>
+     | WalkOptionsVisit<MediaQuery>
+     | WalkOptionsVisit<MediaQueryList>
++    | WalkOptionsVisit<NestingSelector>
+     | WalkOptionsVisit<Nth>
+     | WalkOptionsVisit<NumberNode>
+@@ -906,13 +907,21 @@ export class Lexer {
      matchProperty(propertyName: string, value: CssNode | string): LexerMatchResult;
      matchType(typeName: string, value: CssNode | string): LexerMatchResult;
      match(syntax: DSNode | string, value: CssNode | string): LexerMatchResult;
 +    getProperty(propertyName: string, fallbackBasename?: boolean): object | null;
 +    units: Record<string, string[]>;
  }
- 
+
  export const lexer: Lexer;
- 
+
  export function fork(extension: {
 -    atrules?: Record<string, string> | undefined;
 +    atrules?: Record<
