@@ -75,6 +75,8 @@ jobs:
           npm run changeset
           npm run lint:md
           git checkout -- CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }} # required by Changeset
 
   spellcheck:
     runs-on: ubuntu-slim
