@@ -71,6 +71,8 @@ jobs:
           YARN_ENABLE_HARDENED_MODE: 0 # https://yarnpkg.com/features/security#hardened-mode
 
       - name: Verify changeset
+        # Skip fork PRs due to GitHub token permissions.
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         run: |
           npm run changeset
           npm run lint:md
