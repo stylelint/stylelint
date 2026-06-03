@@ -74,6 +74,7 @@ We'll review your pull request and give you feedback.
 
 You should:
 
+- use and complete our pull request template
 - take responsibility for the code contributed, especially if you [used a LLM to help you](https://simonwillison.net/guides/agentic-engineering-patterns/anti-patterns/) write it, to minimise maintenance and review burden
 - give your pull request the same title as the corresponding issue because it becomes the commit message when we squash and merge
 - [apply any suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request#applying-suggested-changes) (either individually or as a batch), rather than push your own commits, so that GitHub automatically resolves the corresponding note
