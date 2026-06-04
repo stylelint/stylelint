@@ -1,0 +1,7 @@
+@import url("./embedded-current.css");
+
+@property --token {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: red;
+}

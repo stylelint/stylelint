@@ -1,0 +1,7 @@
+@property --token {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 1px;
+}
+
+a { --token: 1px; }
