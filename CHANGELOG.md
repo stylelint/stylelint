@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.13.0 - 2026-06-06
+
+- Fixed: `declaration-block-no-duplicate-properties` false negatives for interleaved non-consecutive duplicates with `ignore: ["consecutive-duplicates(-*)"]` ([#9324](https://github.com/stylelint/stylelint/pull/9324)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+- Fixed: `selector-max-type` false positives for nested selectors ([#9319](https://github.com/stylelint/stylelint/pull/9319)) ([@romainmenke](https://github.com/romainmenke)).
+- Fixed: `selector-type-no-unknown` false positives for `install` ([#9308](https://github.com/stylelint/stylelint/pull/9308)) ([@Mouvedia](https://github.com/Mouvedia)).
+
 ## 17.12.0 - 2026-05-20
 
 It fixes 3 bugs, including a false negative one.
