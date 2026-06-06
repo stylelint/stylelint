@@ -1681,6 +1681,11 @@ declare namespace stylelint {
 			longhandSubPropertiesOfShorthandProperties: LonghandSubPropertiesOfShorthandProperties;
 		};
 	};
+
+	// Project-specific utility types
+
+	/** @internal */
+	export type Maybe<T> = T | null | undefined;
 }
 
 declare const stylelint: stylelint.PublicApi & {
