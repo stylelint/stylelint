@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { argv, exit } from 'node:process';
 
-import Benchmark from 'benchmark';
+import { Bench } from 'tinybench';
 import picocolors from 'picocolors';
 
 import stylelint from '../../lib/index.mjs';
@@ -75,58 +75,31 @@ const lintConfig = {
 const lint = (code) => stylelint.lint({ code, config: lintConfig });
 
 // eslint-disable-next-line n/no-unsupported-features/node-builtins -- This script is only for development. We can tolerate it.
-Promise.all(CSS_URLs.map((url) => fetch(url).then((res) => res.text())))
-	.then((responses) => {
-		const source = responses.join('\n\n');
+const responses = await Promise.all(CSS_URLs.map((url) => fetch(url).then((res) => res.text())));
+const source = responses.join('\n\n');
+const css = `${source}\n\n`.repeat(DUPLICATE_SOURCE_N_TIMES);
 
-		let css = '';
+const { results } = await lint(css);
 
-		for (let i = 0; i < DUPLICATE_SOURCE_N_TIMES; i++) {
-			css += `${source}\n\n`;
-		}
+results.forEach(({ parseErrors, invalidOptionWarnings, warnings }) => {
+	parseErrors.forEach(({ text }) => {
+		console.error(bold(red(`>> ${text}`)));
+	});
+	invalidOptionWarnings.forEach(({ text }) => {
+		console.warn(bold(yellow(`>> ${text}`)));
+	});
+	console.log(`${bold('Warnings')}: ${warnings.length}`);
+});
 
-		let firstTime = true;
-		let lazyResult;
+const TASK_NAME = 'rule test';
+const bench = new Bench({ name: ruleName, throws: true });
 
-		const bench = new Benchmark('rule test', {
-			defer: true,
-			setup: () => {
-				lazyResult = lint(css);
-			},
-			onCycle: () => {
-				lazyResult = lint(css);
-			},
-			fn: (deferred) => {
-				lazyResult
-					.then((result) => {
-						if (firstTime) {
-							firstTime = false;
-							result.results.forEach(({ parseErrors, invalidOptionWarnings, warnings }) => {
-								parseErrors.forEach(({ text }) => {
-									console.error(bold(red(`>> ${text}`)));
-								});
-								invalidOptionWarnings.forEach(({ text }) => {
-									console.warn(bold(yellow(`>> ${text}`)));
-								});
-								console.log(`${bold('Warnings')}: ${warnings.length}`);
-							});
-						}
+bench.add(TASK_NAME, () => lint(css));
 
-						deferred.resolve();
-					})
-					.catch((err) => {
-						console.error(err.stack);
-						deferred.resolve();
-					});
-			},
-		});
+await bench.run();
 
-		bench.on('complete', () => {
-			console.log(`${bold('Mean')}: ${bench.stats.mean * 1000} ms`);
-			console.log(`${bold('Deviation')}: ${bench.stats.deviation * 1000} ms`);
-		});
+const { mean, sd } = bench.getTask(TASK_NAME).result.latency;
 
-		bench.run();
-	})
-	.catch((error) => console.error('error:', error));
+console.log(`${bold('Mean')}: ${mean} ms`);
+console.log(`${bold('Deviation')}: ${sd} ms`);
 /* eslint-enable no-console */
