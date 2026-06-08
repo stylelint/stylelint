@@ -79,20 +79,26 @@ const responses = await Promise.all(CSS_URLs.map((url) => fetch(url).then((res) 
 const source = responses.join('\n\n');
 const css = `${source}\n\n`.repeat(DUPLICATE_SOURCE_N_TIMES);
 
-const { results } = await lint(css);
-
-results.forEach(({ parseErrors, invalidOptionWarnings, warnings }) => {
-	parseErrors.forEach(({ text }) => {
-		console.error(bold(red(`>> ${text}`)));
-	});
-	invalidOptionWarnings.forEach(({ text }) => {
-		console.warn(bold(yellow(`>> ${text}`)));
-	});
-	console.log(`${bold('Warnings')}: ${warnings.length}`);
-});
-
 const TASK_NAME = 'rule test';
-const bench = new Bench({ name: ruleName, throws: true });
+const bench = new Bench({
+	name: ruleName,
+	throws: true,
+	setup: async (_task, mode) => {
+		if (mode !== 'run') return;
+
+		const { results } = await lint(css);
+
+		results.forEach(({ parseErrors, invalidOptionWarnings, warnings }) => {
+			parseErrors.forEach(({ text }) => {
+				console.error(bold(red(`>> ${text}`)));
+			});
+			invalidOptionWarnings.forEach(({ text }) => {
+				console.warn(bold(yellow(`>> ${text}`)));
+			});
+			console.log(`${bold('Warnings')}: ${warnings.length}`);
+		});
+	},
+});
 
 bench.add(TASK_NAME, () => lint(css));
 
