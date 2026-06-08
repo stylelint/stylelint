@@ -178,7 +178,6 @@
     "@types/svg-tags": "^1.0.2",
     "@types/write-file-atomic": "^4.0.3",
     "@vscode/windows-process-tree": "^0.7.0",
-    "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
     "eslint": "^10.4.0",
@@ -200,6 +199,7 @@
     "prettier": "^3.8.3",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
+    "tinybench": "^6.0.2",
     "typescript": "^6.0.3"
   },
   "engines": {
