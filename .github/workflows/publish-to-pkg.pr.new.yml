@@ -31,8 +31,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const fs = require('fs');
-            const output = JSON.parse(fs.readFileSync('output.json', 'utf8'));
+                  fs = require('fs');
+                  output = JSON.parse(fs.readFileSync('output.json', 'utf8'));
             output.number = context.issue.number;
             output.event_name = context.eventName;
             output.ref = context.ref;
