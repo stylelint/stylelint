@@ -5,8 +5,8 @@
 /** @typedef {import('./config.mjs').WorkspaceInfo} WorkspaceInfo */
 /** @typedef {import('./config.mjs').PluginInfo} PluginInfo */
 
+import { extname, join } from 'node:path';
 import { mkdir, rm, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
 
 import pc from 'picocolors';
 
@@ -217,13 +217,28 @@ function generateConfig({
 			config.overrides = [];
 		}
 
-		// Create overrides targeting different file patterns.
-		const dirPatterns = DIR_NAMES.slice(0, dirsPerLevel).map((dir) => `**/${dir}/**/*.css`);
-		const patterns = ['**/*.css', ...dirPatterns];
+		// Create overrides targeting different file patterns: directory-scoped
+		// patterns for every extension present in the workspace.
+		const directories = DIR_NAMES.slice(0, dirsPerLevel);
+		const extensions = [...new Set(files.map((file) => extname(file).slice(1)))];
+		const patterns = [
+			'**/*.css',
+			...directories.flatMap((directory) =>
+				extensions.map((extension) => `**/${directory}/**/*.${extension}`),
+			),
+		];
+
+		/** @type {Map<string, Record<string, unknown>>} */
+		const overrideRulesByPattern = new Map();
 
 		for (let i = 0; i < overrides; i++) {
 			const pattern = patterns[i % patterns.length];
-			const overrideRules = {};
+			let overrideRules = overrideRulesByPattern.get(pattern);
+
+			if (!overrideRules) {
+				overrideRules = {};
+				overrideRulesByPattern.set(pattern, overrideRules);
+			}
 
 			// Add a few rules to each override.
 			const overrideRuleCount = Math.min(3, selectedRules.length);
@@ -239,7 +254,9 @@ function generateConfig({
 					overrideRules[rule] = true; // Enable in override.
 				}
 			}
+		}
 
+		for (const [pattern, overrideRules] of overrideRulesByPattern) {
 			config.overrides.push({
 				files: [pattern],
 				rules: overrideRules,
@@ -344,7 +361,9 @@ export default ${JSON.stringify(config, null, 2)};
 	await writeFile(configPath, configContent);
 
 	log(`    ${pc.green('✓')} Created ${files.length} files in ${directories.length} directories`);
-	log(`    ${pc.green('✓')} Config: ${sizeConfig.rules} rules, ${sizeConfig.overrides} overrides`);
+	log(
+		`    ${pc.green('✓')} Config: ${sizeConfig.rules} rules, ${config.overrides?.length ?? 0} overrides`,
+	);
 	log(
 		`    ${pc.green('✓')} Plugins: ${plugins.length}, Extends: ${extendConfigs.length}, Syntaxes: ${syntaxes.length}`,
 	);
