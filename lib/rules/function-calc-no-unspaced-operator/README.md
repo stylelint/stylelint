@@ -42,11 +42,6 @@ a { top: calc(1px+ 2px); }
 a { transform: rotate(atan(-2+1)); }
 ```
 
-<!-- prettier-ignore -->
-```css
-a { top: calc(1px*2px+3px); }
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
