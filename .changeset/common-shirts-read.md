@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: performance of loading `table` dependency
+Fixed: performance by dynamically importing `TIMING` only on use
