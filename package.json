@@ -156,7 +156,7 @@
     "postcss-selector-parser": "^7.1.4",
     "postcss-value-parser": "^4.2.0",
     "string-width": "^8.2.1",
-    "supports-hyperlinks": "^4.4.0",
+    "supports-hyperlinks": "^4.5.0",
     "svg-tags": "^1.0.0",
     "table": "^6.9.0",
     "write-file-atomic": "^7.0.1"
