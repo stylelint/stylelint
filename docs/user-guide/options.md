@@ -225,17 +225,81 @@ CLI flags: `--report-invalid-scope-disables, --risd`
 
 Report [configuration comments][1] that don't match rules that are specified in the configuration object.
 
+For example, with this configuration:
+
+```json
+{
+  "rules": {
+    "block-no-empty": true
+  }
+}
+```
+
+The following pattern is reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable comment-no-empty */
+```
+
+The following pattern is _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+```
+
 ## `reportNeedlessDisables`
 
 CLI flags: `--report-needless-disables, --rd`
 
 Report [configuration comments][1] that don't actually match any lints that need to be disabled.
 
+For example, with this configuration:
+
+```json
+{
+  "rules": {
+    "block-no-empty": true
+  }
+}
+```
+
+The following pattern is reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+a { color: red; }
+```
+
+The following pattern is _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+a {}
+```
+
 ## `reportUnscopedDisables`
 
 CLI flags: `--report-unscoped-disables, --rud`
 
 Report [configuration comments][1] that aren't scoped to one or more rules.
+
+The following pattern is reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable */
+```
+
+The following pattern is _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+```
 
 ## `validate`
 
