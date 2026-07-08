@@ -274,9 +274,7 @@ const {
   utils: { checkAgainstRule, report }
 } = stylelint;
 
-const allowableAtRules = [
-  /* .. */
-];
+const allowableAtRules = [/* .. */];
 
 const ruleName = "your-own/at-rule-no-unknown";
 

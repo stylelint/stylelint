@@ -31,9 +31,7 @@ const postcss = require("postcss");
 const code = fs.readFileSync("input.less", "utf8");
 
 postcss([
-  require("stylelint")({
-    /* your options */
-  }),
+  require("stylelint")({/* your options */}),
   require("postcss-reporter")({ clearReportedMessages: true })
 ])
   .process(code, {
@@ -60,11 +58,7 @@ const css = fs.readFileSync("lib/app.css", "utf8");
 
 postcss([
   require("postcss-import")({
-    plugins: [
-      require("stylelint")({
-        /* your options */
-      })
-    ]
+    plugins: [require("stylelint")({/* your options */})]
   }),
   require("postcss-preset-env"),
   require("postcss-reporter")({ clearReportedMessages: true })
