@@ -62,9 +62,7 @@ const css = fs.readFileSync("lib/app.css", "utf8");
 
 postcss([
   atImport({
-    plugins: [
-      stylelint({/* your options */})
-    ]
+    plugins: [stylelint({/* your options */})]
   }),
   reporter({ clearReportedMessages: true })
 ])
