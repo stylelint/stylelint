@@ -15,12 +15,12 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/call-lint.yml@6ac761787832e417273f7bb071ec8cf35abcc3d6 # 1.0.0
+    uses: stylelint/.github/.github/workflows/call-lint.yml@de22fededfbe64a953912f8306e71923d7a503d3 # 1.0.1
     permissions:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@6ac761787832e417273f7bb071ec8cf35abcc3d6 # 1.0.0
+    uses: stylelint/.github/.github/workflows/call-test.yml@de22fededfbe64a953912f8306e71923d7a503d3 # 1.0.1
     with:
       node-version: '["20", "22", "24", "26"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
@@ -42,8 +42,13 @@ jobs:
           node-version: '24'
           cache: npm
 
-      - name: Install latest npm
-        run: npm install --global npm
+      # TODO: Bump to `npm@latest`. Yarn PnP system tests fail with npm v12.0.0 for some reason:
+      #
+      #   TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+      #       at packStylelint (file:///home/runner/work/stylelint/stylelint/system-tests/006/yarn-pnp.test.mjs:87:25)
+      #
+      - name: Install npm 11
+        run: npm install --global npm@11
 
       - name: Install dependencies
         run: npm ci
@@ -96,6 +101,6 @@ jobs:
 
   dependency-review:
     if: github.event_name == 'pull_request'
-    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@6ac761787832e417273f7bb071ec8cf35abcc3d6 # 1.0.0
+    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@de22fededfbe64a953912f8306e71923d7a503d3 # 1.0.1
     permissions:
       contents: read
