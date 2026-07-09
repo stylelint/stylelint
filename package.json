@@ -151,7 +151,7 @@
     "micromatch": "^4.0.8",
     "normalize-path": "^3.0.0",
     "picocolors": "^1.1.1",
-    "postcss": "^8.5.15",
+    "postcss": "^8.5.16",
     "postcss-safe-parser": "^7.0.1",
     "postcss-selector-parser": "^7.1.4",
     "postcss-value-parser": "^4.2.0",
