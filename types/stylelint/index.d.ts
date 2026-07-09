@@ -69,16 +69,11 @@ declare namespace stylelint {
 	 * A Stylelint plugin.
 	 */
 	export type Plugin =
-		| { default?: { ruleName: string; rule: Rule } }
-		| { ruleName: string; rule: Rule };
+		{ default?: { ruleName: string; rule: Rule } } | { ruleName: string; rule: Rule };
 
 	/** @internal */
 	export type ConfigRuleSettings<T, O extends Object> =
-		| null
-		| undefined
-		| NonNullable<T>
-		| [NonNullable<T>]
-		| [NonNullable<T>, O];
+		null | undefined | NonNullable<T> | [NonNullable<T>] | [NonNullable<T>, O];
 
 	/** @internal */
 	export type DisableOptions = {
@@ -93,16 +88,11 @@ declare namespace stylelint {
 	};
 
 	type ConfigReferenceFiles =
-		| string
-		| ConfigReferenceFilesEntry
-		| (string | ConfigReferenceFilesEntry)[];
+		string | ConfigReferenceFilesEntry | (string | ConfigReferenceFilesEntry)[];
 
 	/** @internal */
 	export type Directionality =
-		| 'top-to-bottom'
-		| 'bottom-to-top'
-		| 'left-to-right'
-		| 'right-to-left';
+		'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
 
 	type LanguageOptions = {
 		syntax?: {
@@ -308,8 +298,7 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type CosmiconfigResult =
-		| (ReturnType<CosmiconfigTransformSync> & { config: Config })
-		| null;
+		(ReturnType<CosmiconfigTransformSync> & { config: Config }) | null;
 
 	/** @internal */
 	export type DisabledRange = {
@@ -413,9 +402,7 @@ declare namespace stylelint {
 	export type RuleOptions = {
 		actual: unknown;
 		possible?:
-			| RuleOptionsPossibleFunc
-			| RuleOptionsPossible[]
-			| Record<string, RuleOptionsPossible[]>;
+			RuleOptionsPossibleFunc | RuleOptionsPossible[] | Record<string, RuleOptionsPossible[]>;
 		optional?: boolean;
 	};
 
