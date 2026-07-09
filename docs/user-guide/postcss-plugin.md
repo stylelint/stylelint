@@ -33,9 +33,7 @@ import stylelint from "stylelint";
 const code = fs.readFileSync("input.scss", "utf8");
 
 postcss([
-  stylelint({
-    /* your options */
-  }),
+  stylelint({/* your options */}),
   reporter({ clearReportedMessages: true })
 ])
   .process(code, {
@@ -65,9 +63,7 @@ const css = fs.readFileSync("lib/app.css", "utf8");
 postcss([
   atImport({
     plugins: [
-      stylelint({
-        /* your options */
-      })
+      stylelint({/* your options */})
     ]
   }),
   reporter({ clearReportedMessages: true })
