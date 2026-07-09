@@ -1,5 +1,13 @@
 # Changelog
 
+## 17.14.0 - 2026-06-25
+
+It fixes 3 bugs, including a false negative one.
+
+- Fixed: performance of getting module paths ([#9354](https://github.com/stylelint/stylelint/pull/9354)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: performance by dynamically importing `TIMING` only on use ([#9356](https://github.com/stylelint/stylelint/pull/9356)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-calc-no-unspaced-operator` false negatives for unspaced `+` and `-` operators following a `*` or `/` operator ([#9357](https://github.com/stylelint/stylelint/pull/9357)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+
 ## 17.13.0 - 2026-06-06
 
 It fixes 3 bugs, including a false negative one.

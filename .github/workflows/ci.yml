@@ -15,12 +15,12 @@ permissions:
 
 jobs:
   lint:
-    uses: stylelint/.github/.github/workflows/call-lint.yml@6ac761787832e417273f7bb071ec8cf35abcc3d6 # 1.0.0
+    uses: stylelint/.github/.github/workflows/call-lint.yml@de22fededfbe64a953912f8306e71923d7a503d3 # 1.0.1
     permissions:
       contents: read
 
   test:
-    uses: stylelint/.github/.github/workflows/call-test.yml@6ac761787832e417273f7bb071ec8cf35abcc3d6 # 1.0.0
+    uses: stylelint/.github/.github/workflows/call-test.yml@de22fededfbe64a953912f8306e71923d7a503d3 # 1.0.1
     with:
       node-version: '["20", "22", "24", "26"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
@@ -34,7 +34,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set up Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
@@ -42,8 +42,13 @@ jobs:
           node-version: '24'
           cache: npm
 
-      - name: Install latest npm
-        run: npm install --global npm
+      # TODO: Bump to `npm@latest`. Yarn PnP system tests fail with npm v12.0.0 for some reason:
+      #
+      #   TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+      #       at packStylelint (file:///home/runner/work/stylelint/stylelint/system-tests/006/yarn-pnp.test.mjs:87:25)
+      #
+      - name: Install npm 11
+        run: npm install --global npm@11
 
       - name: Install dependencies
         run: npm ci
@@ -85,7 +90,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Install codespell
         run: pip install codespell
@@ -96,6 +101,6 @@ jobs:
 
   dependency-review:
     if: github.event_name == 'pull_request'
-    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@6ac761787832e417273f7bb071ec8cf35abcc3d6 # 1.0.0
+    uses: stylelint/.github/.github/workflows/call-dependency-review.yml@de22fededfbe64a953912f8306e71923d7a503d3 # 1.0.1
     permissions:
       contents: read

@@ -20,54 +20,51 @@ You'll also need to use a reporter. _The Stylelint plugin registers warnings via
 
 ### Example A
 
-A separate lint task that uses the plugin via the PostCSS JS API to lint Less using [`postcss-less`](https://github.com/shellscape/postcss-less).
+A separate lint task that uses the plugin via the PostCSS JS API to lint SCSS using [`postcss-scss`](https://github.com/postcss/postcss-scss).
 
 ```js
-const fs = require("fs");
-const less = require("postcss-less");
-const postcss = require("postcss");
+import fs from "node:fs";
+import postcss from "postcss";
+import scss from "postcss-scss";
+import reporter from "postcss-reporter";
+import stylelint from "stylelint";
 
 // Code to be processed
-const code = fs.readFileSync("input.less", "utf8");
+const code = fs.readFileSync("input.scss", "utf8");
 
 postcss([
-  require("stylelint")({
-    /* your options */
-  }),
-  require("postcss-reporter")({ clearReportedMessages: true })
+  stylelint({/* your options */}),
+  reporter({ clearReportedMessages: true })
 ])
   .process(code, {
-    from: "input.less",
-    syntax: less
+    from: "input.scss",
+    syntax: scss
   })
   .then(() => {})
   .catch((err) => console.error(err.stack));
 ```
 
-The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
+The same pattern can be used to lint other syntaxes, such as [SugarSS](https://github.com/postcss/sugarss).
 
 ### Example B
 
 A combined lint and build task where the plugin is used via the PostCSS JS API, but within [`postcss-import`](https://github.com/postcss/postcss-import) (using its `plugins` option) so that the source files are linted before any transformations.
 
 ```js
-const fs = require("fs");
-const postcss = require("postcss");
-const stylelint = require("stylelint");
+import fs from "node:fs";
+import postcss from "postcss";
+import atImport from "postcss-import";
+import reporter from "postcss-reporter";
+import stylelint from "stylelint";
 
 // CSS to be processed
 const css = fs.readFileSync("lib/app.css", "utf8");
 
 postcss([
-  require("postcss-import")({
-    plugins: [
-      require("stylelint")({
-        /* your options */
-      })
-    ]
+  atImport({
+    plugins: [stylelint({/* your options */})]
   }),
-  require("postcss-preset-env"),
-  require("postcss-reporter")({ clearReportedMessages: true })
+  reporter({ clearReportedMessages: true })
 ])
   .process(css, {
     from: "lib/app.css",
@@ -75,10 +72,6 @@ postcss([
   })
   .then((result) => {
     fs.writeFileSync("app.css", result.css);
-
-    if (result.map) {
-      fs.writeFileSync("app.css.map", result.map);
-    }
   })
   .catch((err) => console.error(err.stack));
 ```
