@@ -70,20 +70,21 @@ Alternatively, you can:
 
 When you have something to share, it's time to [open a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
-We'll review your pull request and give you feedback.
+Please take responsibility for any code or words written, especially if you [used a LLM to help you](https://simonwillison.net/guides/agentic-engineering-patterns/anti-patterns/). In return, we'll review your pull request and give you feedback.
+
+> [!IMPORTANT]
+> Don't use a LLM to fill in templates or respond to review comments, unless it's purely to translate from your own language. It's not respectful of the reviewer's time.
 
 You should:
 
 - use and complete our pull request template
-- take responsibility for the code contributed, especially if you [used a LLM to help you](https://simonwillison.net/guides/agentic-engineering-patterns/anti-patterns/) write it, to minimise maintenance and review burden
 - give your pull request the same title as the corresponding issue because it becomes the commit message when we squash and merge
-- [apply any suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request#applying-suggested-changes) (either individually or as a batch), rather than push your own commits, so that GitHub automatically resolves the corresponding note
+- [apply any suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request#applying-suggested-changes) (either individually or as a batch), rather than push your own commits, so that GitHub automatically resolves the corresponding note and assigns attibution
 
-And please don't:
+And should not:
 
 - force-push after the review has started to help us keep track of changes
 - request a review from an individual member, as any member can review the pull request when they have time
-- use a LLM to answer review comments unless purely to translate from your own language, as it's not respectful of the reviewer's time
 
 Once it's ready, we'll squash the commits and merge it.
 
