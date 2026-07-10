@@ -31,7 +31,7 @@ jobs:
             - have read the guide
             - can converse in English
 
-            You're welcome to use an LLM to translate from your own language, but not use it to fill in templates or respond to review comments.
+            You're welcome to use an LLM to translate from your own language, but don't use one to fill in templates or respond to review comments.
 
             This pull request will automatically close if there is no activity within 2 days.
 
