@@ -83,8 +83,20 @@ async function copyTemplateFiles(fixtureType) {
  * @returns {Promise<string>} Path to the created tarball
  */
 async function packStylelint() {
-	const { stdout } = await execAsync('npm pack --json', { cwd: rootDir });
-	const [{ filename }] = JSON.parse(stdout);
+	const { stdout: npmVersion } = await execAsync('npm --version', { cwd: rootDir });
+	const { stdout: npmPack } = await execAsync('npm pack --json', { cwd: rootDir });
+	const pack = JSON.parse(npmPack);
+
+	let filename;
+
+	if (npmVersion.startsWith('12')) {
+		filename = pack.stylelint.filename;
+	} else {
+		filename = pack[0].filename;
+		console.warn(
+			`WARNING: The old npm v${npmVersion.trim()} is running. Remove this workaround in the future. (${import.meta.filename})`,
+		);
+	}
 
 	return path.join(rootDir, filename);
 }
