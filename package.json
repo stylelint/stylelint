@@ -177,7 +177,7 @@
     "@types/postcss-safe-parser": "^5.0.4",
     "@types/svg-tags": "^1.0.2",
     "@types/write-file-atomic": "^4.0.3",
-    "@vscode/windows-process-tree": "^0.7.0",
+    "@vscode/windows-process-tree": "^0.8.0",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
     "eslint": "^10.6.0",
