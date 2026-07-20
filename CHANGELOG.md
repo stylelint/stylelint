@@ -3,7 +3,7 @@
 ## 17.14.1 - 2026-07-20
 
 - Fixed: `declaration-block-no-redundant-longhand-properties` autofix producing invalid `background` shorthand when `background-size` is present ([#9364](https://github.com/stylelint/stylelint/pull/9364)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
-- Fixed: `quiet` option suppresses `report*` warning reports. ([#9387](https://github.com/stylelint/stylelint/pull/9387)) ([@ychampion](https://github.com/ychampion)).
+- Fixed: `quiet` option suppresses `report*` warning reports ([#9387](https://github.com/stylelint/stylelint/pull/9387)) ([@ychampion](https://github.com/ychampion)).
 - Fixed: `rule-empty-line-before` false positives for shared-line comments with `except: ["after-single-line-comment"]` ([#9394](https://github.com/stylelint/stylelint/pull/9394)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
 - Fixed: reported range of unknown rules ([#9385](https://github.com/stylelint/stylelint/pull/9385)) ([@ybiquitous](https://github.com/ybiquitous)).
 
@@ -356,13 +356,13 @@ It adds support for computing `EditInfo` to 22 more rules and reverts a change t
 - Added: `at-rule-no-vendor-prefix` support for computing `EditInfo` ([#8427](https://github.com/stylelint/stylelint/pull/8427)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `color-function-notation` support for computing `EditInfo` ([#8437](https://github.com/stylelint/stylelint/pull/8437)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `declaration-empty-line-before` support for computing `EditInfo` ([#8443](https://github.com/stylelint/stylelint/pull/8443)) ([@pamelalozano16](https://github.com/pamelalozano16)).
-- Added: `declaration-property-value-keyword-no-deprecated` support for computing `EditInfo`. ([#8439](https://github.com/stylelint/stylelint/pull/8439)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `declaration-property-value-keyword-no-deprecated` support for computing `EditInfo` ([#8439](https://github.com/stylelint/stylelint/pull/8439)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `font-family-name-quotes` support for computing `EditInfo` ([#8419](https://github.com/stylelint/stylelint/pull/8419)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `font-weight-notation` support for computing `EditInfo` ([#8420](https://github.com/stylelint/stylelint/pull/8420)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `function-calc-no-unspaced-operator` support for computing `EditInfo` ([#8440](https://github.com/stylelint/stylelint/pull/8440)) ([@pamelalozano16](https://github.com/pamelalozano16)).
-- Added: `function-name-case` support for support for computing `EditInfo`." ([#8442](https://github.com/stylelint/stylelint/pull/8442)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `function-name-case` support for computing `EditInfo` ([#8442](https://github.com/stylelint/stylelint/pull/8442)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `hue-degree-notation` support for computing `EditInfo` ([#8444](https://github.com/stylelint/stylelint/pull/8444)) ([@pamelalozano16](https://github.com/pamelalozano16)).
-- Added: `import-notation` support for computing `EditInfo`. ([#8445](https://github.com/stylelint/stylelint/pull/8445)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `import-notation` support for computing `EditInfo` ([#8445](https://github.com/stylelint/stylelint/pull/8445)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `keyframe-selector-notation` support for computing `EditInfo` ([#8457](https://github.com/stylelint/stylelint/pull/8457)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `length-zero-no-unit` support for computing `EditInfo` ([#8459](https://github.com/stylelint/stylelint/pull/8459)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `lightness-notation` support for computing `EditInfo` ([#8458](https://github.com/stylelint/stylelint/pull/8458)) ([@pamelalozano16](https://github.com/pamelalozano16)).
@@ -695,7 +695,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Added: `lightness-notation` rule ([#7366](https://github.com/stylelint/stylelint/pull/7366)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Added: `ignore: ["keyframe-selectors"]` to `selector-disallowed-list` ([#7417](https://github.com/stylelint/stylelint/pull/7417)) ([@mattxwang](https://github.com/mattxwang)).
 - Fixed: `selector-pseudo-class-no-unknown` false positive for `:popover-open` ([#7425](https://github.com/stylelint/stylelint/pull/7425)) ([@mattxwang](https://github.com/mattxwang)).
-- Fixed: `declaration-property-value-no-unknown` and other false positives for multiline SCSS interpolation. ([#7406](https://github.com/stylelint/stylelint/pull/7406)) ([@FloEdelmann](https://github.com/FloEdelmann)).
+- Fixed: `declaration-property-value-no-unknown` and other false positives for multiline SCSS interpolation ([#7406](https://github.com/stylelint/stylelint/pull/7406)) ([@FloEdelmann](https://github.com/FloEdelmann)).
 - Fixed: `function-url-quotes` false positives for SCSS variable and `@` character ([#7416](https://github.com/stylelint/stylelint/pull/7416)) ([@mattxwang](https://github.com/mattxwang)).
 
 ## 16.0.2 - 2023-12-11
