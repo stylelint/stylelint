@@ -17,7 +17,7 @@ export default {
 
 		if (!repo) throw new Error('"repo" option is required');
 
-		const summary = changeset.summary.trim();
+		const summary = changeset.summary.trim().replace(/\.+$/, ''); // strip trailing periods if any
 		const match = SUMMARY_PATTERN.exec(summary);
 		const prefix = match?.groups?.prefix;
 

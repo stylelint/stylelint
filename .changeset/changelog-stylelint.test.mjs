@@ -37,6 +37,18 @@ describe('getReleaseLine', () => {
 		);
 	});
 
+	test('strips a trailing period from the summary to avoid a doubled period', async () => {
+		const line = await changelog.getReleaseLine(
+			{ summary: 'Fixed: something.', commit: 'abc1234' },
+			'patch',
+			options,
+		);
+
+		expect(line).toBe(
+			`- Fixed: something ([#42](https://github.com/${REPO}/pull/42)) ([@octocat](https://github.com/octocat)).`,
+		);
+	});
+
 	test('omits suffix when no commit', async () => {
 		const line = await changelog.getReleaseLine({ summary: 'Added: thing' }, 'minor', options);
 
