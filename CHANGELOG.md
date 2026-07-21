@@ -2,10 +2,12 @@
 
 ## 17.14.1 - 2026-07-20
 
-- Fixed: `declaration-block-no-redundant-longhand-properties` autofix producing invalid `background` shorthand when `background-size` is present ([#9364](https://github.com/stylelint/stylelint/pull/9364)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+It fixes 4 bugs.
+
 - Fixed: `quiet` option suppresses `report*` warning reports ([#9387](https://github.com/stylelint/stylelint/pull/9387)) ([@ychampion](https://github.com/ychampion)).
-- Fixed: `rule-empty-line-before` false positives for shared-line comments with `except: ["after-single-line-comment"]` ([#9394](https://github.com/stylelint/stylelint/pull/9394)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
 - Fixed: reported range of unknown rules ([#9385](https://github.com/stylelint/stylelint/pull/9385)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix producing invalid `background` shorthand when `background-size` is present ([#9364](https://github.com/stylelint/stylelint/pull/9364)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+- Fixed: `rule-empty-line-before` false positives for shared-line comments with `except: ["after-single-line-comment"]` ([#9394](https://github.com/stylelint/stylelint/pull/9394)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
 
 ## 17.14.0 - 2026-06-25
 
