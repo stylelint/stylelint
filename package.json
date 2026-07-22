@@ -180,7 +180,7 @@
     "@vscode/windows-process-tree": "^0.8.0",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.3.1",
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "eslint-config-stylelint": "^27.0.0",
     "eslint-plugin-jest": "^29.15.4",
     "jest": "^30.4.2",
