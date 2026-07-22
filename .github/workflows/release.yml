@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    uses: stylelint/.github/.github/workflows/call-release.yml@de22fededfbe64a953912f8306e71923d7a503d3 # 1.0.1
+    uses: stylelint/.github/.github/workflows/call-release.yml@ab7979355590956aa96d306dedfda6b2d42c4982 # 1.1.0
     permissions:
       contents: write
       id-token: write
