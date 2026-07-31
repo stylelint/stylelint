@@ -1187,6 +1187,15 @@ declare namespace stylelint {
 		 * current working directory.
 		 */
 		cwd?: string;
+		/**
+		 * The number of worker threads used to lint files in parallel, or
+		 * `'auto'` to size the pool based on the available CPU cores and the
+		 * number of files. By default, files are linted in the main thread.
+		 *
+		 * Only applies when linting `files`; it is ignored when linting
+		 * `code`. Cannot be combined with `cache` yet.
+		 */
+		concurrency?: number | 'auto';
 		ignoreDisables?: boolean;
 		ignorePath?: OneOrMany<string>;
 		ignorePattern?: string[];
