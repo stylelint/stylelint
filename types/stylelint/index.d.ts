@@ -274,6 +274,16 @@ declare namespace stylelint {
 		 */
 		cache?: boolean;
 		/**
+		 * The number of worker threads used to lint files in parallel, or
+		 * `'auto'` to size the pool based on the available CPU cores and the
+		 * number of files. By default, files are linted in the main thread.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @see [concurrency](https://stylelint.io/user-guide/configure#concurrency)
+		 */
+		concurrency?: number | 'auto';
+		/**
 		 * If true, automatically fix, where possible, problems reported by rules.
 		 *
 		 * Should not be overridden on a per-file basis
@@ -1193,7 +1203,8 @@ declare namespace stylelint {
 		 * number of files. By default, files are linted in the main thread.
 		 *
 		 * Only applies when linting `files`; it is ignored when linting
-		 * `code`. Cannot be combined with `cache` yet.
+		 * `code`. With `cache` enabled, only the files that changed are linted
+		 * in workers.
 		 */
 		concurrency?: number | 'auto';
 		ignoreDisables?: boolean;
