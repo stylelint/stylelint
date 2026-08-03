@@ -12,6 +12,9 @@ To help out, you can:
 
 Not only will you help Stylelint thrive, but you may learn a thing or two — about CSS, PostCSS, Node.js, unit testing, open-source software, and more. We want to encourage contributions! If you want to participate but couldn't, please [give us feedback](https://github.com/stylelint/stylelint/issues/new) about what we could do better.
 
+> [!IMPORTANT]
+> Create pull requests for issues opened by others only if the issue is labeled `status: ready to implement`.
+
 ## Code contributions
 
 To start coding, you'll need the:
