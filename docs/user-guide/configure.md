@@ -977,6 +977,25 @@ For example:
 
 [More info](options.md#cache).
 
+## `concurrency`
+
+Lint files in parallel using [worker threads](https://nodejs.org/api/worker_threads.html). The value is either a positive integer setting the number of workers, or `"auto"`, which sizes the worker pool based on the available CPU cores and the number of files.
+
+For example:
+
+```json
+{
+  "concurrency": "auto"
+}
+```
+
+The [CLI flag](options.md#concurrency) takes precedence over this property.
+
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
+
+[More info](options.md#concurrency).
+
 ## `fix`
 
 Automatically fix, where possible, problems reported by rules.
