@@ -162,7 +162,7 @@
     "write-file-atomic": "^7.0.1"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.31.0",
+    "@changesets/cli": "^2.31.1",
     "@changesets/get-github-info": "^0.8.0",
     "@jest/globals": "^30.4.1",
     "@stylelint/prettier-config": "^4.0.0",
