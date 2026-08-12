@@ -167,7 +167,7 @@
     "@jest/globals": "^30.4.1",
     "@stylelint/prettier-config": "^4.0.0",
     "@stylelint/remark-preset": "^5.1.1",
-    "@types/css-tree": "^2.3.11",
+    "@types/css-tree": "^3.2.0",
     "@types/debug": "^4.1.13",
     "@types/global-modules": "^2.0.2",
     "@types/globjoin": "^0.1.2",
@@ -200,7 +200,7 @@
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
     "tinybench": "^6.0.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "engines": {
     "node": ">=20.19.0"
