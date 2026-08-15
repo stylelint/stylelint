@@ -27,8 +27,6 @@ updates:
         patterns: ['@stylelint/*']
       typescript:
         patterns: ['typescript', '@types/*']
-    cooldown:
-      default-days: 7
 
   - package-ecosystem: github-actions
     directory: '/'
@@ -41,5 +39,4 @@ updates:
       stylelint-actions:
         patterns: ['stylelint/.github/*']
     cooldown:
-      default-days: 7
       exclude: ['stylelint/.github/*']
