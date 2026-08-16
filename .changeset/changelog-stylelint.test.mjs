@@ -4,9 +4,9 @@
 
 import { jest } from '@jest/globals';
 
-const getInfo = jest.fn();
+const getCommitInfo = jest.fn();
 
-jest.unstable_mockModule('@changesets/get-github-info', () => ({ getInfo }));
+jest.unstable_mockModule('@changesets/get-github-info', () => ({ getCommitInfo }));
 
 const { default: changelog } = await import('./changelog-stylelint.mjs');
 
@@ -14,12 +14,13 @@ const REPO = 'stylelint/stylelint-test';
 const options = { repo: REPO };
 
 beforeEach(() => {
-	getInfo.mockReset();
-	getInfo.mockResolvedValue({
-		links: {
-			commit: `[\`abc1234\`](https://github.com/${REPO}/commit/abc1234)`,
-			pull: `[#42](https://github.com/${REPO}/pull/42)`,
-			user: '[@octocat](https://github.com/octocat)',
+	getCommitInfo.mockReset();
+	getCommitInfo.mockResolvedValue({
+		pull: {
+			markdownLink: `[#42](https://github.com/${REPO}/pull/42)`,
+		},
+		author: {
+			markdownLink: '[@octocat](https://github.com/octocat)',
 		},
 	});
 });
@@ -53,7 +54,19 @@ describe('getReleaseLine', () => {
 		const line = await changelog.getReleaseLine({ summary: 'Added: thing' }, 'minor', options);
 
 		expect(line).toBe('- Added: thing.');
-		expect(getInfo).not.toHaveBeenCalled();
+		expect(getCommitInfo).not.toHaveBeenCalled();
+	});
+
+	test('omits suffix when fetched commit info holds empty attributes', async () => {
+		getCommitInfo.mockResolvedValue({ pull: {}, author: {} });
+
+		const line = await changelog.getReleaseLine(
+			{ summary: 'Added: thing', commit: 'abc1234' },
+			'minor',
+			options,
+		);
+
+		expect(line).toBe('- Added: thing.');
 	});
 
 	test('accepts a valid prefix', async () => {
@@ -100,9 +113,11 @@ describe('getReleaseLine', () => {
 		);
 	});
 
-	test('throws without repo option', async () => {
-		await expect(changelog.getReleaseLine({ summary: 'Fixed: x' }, 'patch', {})).rejects.toThrow(
-			'"repo" option is required',
-		);
+	test('throws with an invalid "repo" option', async () => {
+		const changeset = { summary: 'Fixed: x' };
+		const msg = '"repo" option is required and must be a string';
+
+		await expect(changelog.getReleaseLine(changeset, 'patch', {})).rejects.toThrow(msg);
+		await expect(changelog.getReleaseLine(changeset, 'patch', { repo: 0 })).rejects.toThrow(msg);
 	});
 });
