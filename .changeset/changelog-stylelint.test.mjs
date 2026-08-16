@@ -57,6 +57,18 @@ describe('getReleaseLine', () => {
 		expect(getCommitInfo).not.toHaveBeenCalled();
 	});
 
+	test('omits suffix when fetched commit info holds empty attributes', async () => {
+		getCommitInfo.mockResolvedValue({ pull: {}, author: {} });
+
+		const line = await changelog.getReleaseLine(
+			{ summary: 'Added: thing', commit: 'abc1234' },
+			'minor',
+			options,
+		);
+
+		expect(line).toBe('- Added: thing.');
+	});
+
 	test('accepts a valid prefix', async () => {
 		const line = await changelog.getReleaseLine({ summary: 'Fixed: thing' }, 'patch', options);
 
