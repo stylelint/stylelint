@@ -1,4 +1,4 @@
-import { getInfo } from '@changesets/get-github-info';
+import { getCommitInfo } from '@changesets/get-github-info';
 
 /** @import { ChangelogFunctions } from '@changesets/types' */
 
@@ -15,7 +15,9 @@ export default {
 	async getReleaseLine(changeset, type, options) {
 		const repo = options?.repo;
 
-		if (!repo) throw new Error('"repo" option is required');
+		if (!repo || typeof repo !== 'string') {
+			throw new Error('"repo" option is required and must be a string');
+		}
 
 		const summary = changeset.summary.trim().replace(/\.+$/, ''); // strip trailing periods if any
 		const match = SUMMARY_PATTERN.exec(summary);
@@ -36,13 +38,21 @@ export default {
 		}
 
 		const { commit } = changeset;
-		const { links } = commit ? await getInfo({ repo, commit }) : { links: { pull: '', user: '' } };
-		const { pull, user } = links;
+		const links = { pull: '', author: '' };
 
-		/** @type {(s: string | null) => string} */
+		if (commit) {
+			const commitInfo = await getCommitInfo({ repo, commit });
+
+			if (commitInfo) {
+				links.pull = commitInfo.pull?.markdownLink ?? '';
+				links.author = commitInfo.author?.markdownLink ?? '';
+			}
+		}
+
+		/** @type {(s: string) => string} */
 		const link = (s) => (s ? ` (${s})` : '');
 
-		return `- ${summary}${link(pull)}${link(user)}.`;
+		return `- ${summary}${link(links.pull)}${link(links.author)}.`;
 	},
 
 	async getDependencyReleaseLine() {
