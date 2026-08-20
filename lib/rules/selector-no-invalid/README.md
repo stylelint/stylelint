@@ -48,6 +48,26 @@ a ) b {}
 :dir(foo) {}
 ```
 
+<!-- prettier-ignore -->
+```css
+:not(::before) {}
+```
+
+<!-- prettier-ignore -->
+```css
+::slotted(a .foo) {}
+```
+
+<!-- prettier-ignore -->
+```css
+a::after .foo {}
+```
+
+<!-- prettier-ignore -->
+```css
+::after::before {}
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -68,4 +88,14 @@ a b {}
 <!-- prettier-ignore -->
 ```css
 :dir(ltr) {}
+```
+
+<!-- prettier-ignore -->
+```css
+:host(.foo) {}
+```
+
+<!-- prettier-ignore -->
+```css
+::before::marker {}
 ```
