@@ -46,7 +46,7 @@ You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.m
 }
 ```
 
-Or you can enforce the `oklch()` color notation using the [`color-named`](../../lib/rules/color-named/README.md), [`color-no-hex`](../../lib/rules/color-no-hex/README.md),[`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md) rules:
+Or you can enforce the `oklch()` color notation using the [`color-named`](../../lib/rules/color-named/README.md), [`color-no-hex`](../../lib/rules/color-no-hex/README.md), and [`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md) rules:
 
 ```diff json
 {
