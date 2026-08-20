@@ -15,7 +15,7 @@ This rule flags selectors that:
 
 - pair a pseudo-class with elements it never matches, e.g. `label:enabled`
 - pair pseudo-classes that never match the same element, e.g. `:any-link:checked`
-- pseudo-class pseudo-elements with tree-structural pseudo-classes, e.g. `::before:first-child`
+- combine a pseudo-element with tree-structural pseudo-classes, e.g. `::before:first-child`
 - contain pseudo-elements within `:is()` or `:where()`, which cannot represent them, e.g. `:is(::before)`
 - contain the nesting selector (`&`) where it cannot represent its pseudo-element ancestor rules
 - select around the shadow host in ways its tree does not allow, e.g. `a :host` and `::slotted(:host)`
