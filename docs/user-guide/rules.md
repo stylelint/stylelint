@@ -133,6 +133,7 @@ Disallow unmatchable things with these `no-unmatchable` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md)<br/>Disallow unmatchable An+B selectors. | ✅ | |
+| [`selector-no-unmatchable`](../../lib/rules/selector-no-unmatchable/README.md)<br/>Disallow unmatchable selectors. | | |
 <!-- prettier-ignore-end -->
 
 ### Unknown
