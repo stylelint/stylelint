@@ -83,6 +83,7 @@ The option:
 - produces the same results and output as linting in the main thread, in the same order
 - only applies when linting files; it is ignored when linting `code` via the Node.js API or stdin
 - requires options that can be passed to worker threads when using the Node.js API, e.g. a `config` object must not contain functions such as inline plugins; use `configFile` for such configurations
+- fails with a regular error when a worker runs out of memory, rather than crashing the process; each worker gets the same memory limit as the main thread
 - combines with the [`cache`](#cache) option: only the files that changed are linted in workers, and a warm-cache run with few changed files stays in the main thread
 
 ## `customSyntax`
