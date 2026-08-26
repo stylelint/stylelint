@@ -155,7 +155,7 @@
     "postcss-safe-parser": "^7.0.1",
     "postcss-selector-parser": "^7.1.5",
     "postcss-value-parser": "^4.2.0",
-    "string-width": "^8.2.1",
+    "string-width": "^8.2.2",
     "supports-hyperlinks": "^4.5.0",
     "svg-tags": "^1.0.0",
     "table": "^6.9.0",
