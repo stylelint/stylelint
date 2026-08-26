@@ -1022,6 +1022,11 @@ declare namespace stylelint {
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
 			RejectedMessage<[selector: string, type: string]>
 		>;
+		'selector-no-unmatchable': CoreRule<
+			true,
+			{},
+			RejectedMessage<[selector: string, resolvedSelector: string, reason: string]>
+		>;
 		'selector-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
