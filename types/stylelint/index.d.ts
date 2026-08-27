@@ -569,10 +569,18 @@ declare namespace stylelint {
 		'color-hex-length': CoreRule<'short' | 'long', {}, AutofixMessage>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> },
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignore: OneOrMany<'inside-function'>;
+				ignoreFunctions: OneOrMany<StringOrRegex>;
+			},
 			AutofixMessage & RejectedMessage<[keyword: string]>
 		>;
-		'color-no-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
+		'color-no-hex': CoreRule<
+			true,
+			{ ignoreFunctions: OneOrMany<StringOrRegex> },
+			RejectedMessage<[hex: string]>
+		>;
 		'color-no-invalid-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
 		'comment-empty-line-before': CoreRule<
 			'always' | 'never',
