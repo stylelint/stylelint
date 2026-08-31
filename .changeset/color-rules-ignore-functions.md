@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `ignoreFunctions` secondary option to `color-named` and `color-no-hex` rules
+Added: `ignoreFunctions: []` to `color-named` and `color-no-hex`
