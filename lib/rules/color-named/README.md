@@ -172,7 +172,7 @@ a {
 { "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
 ```
 
-Ignore named colors within the specified functions. This is a more targeted alternative to the `ignore: ["inside-function"]` option, which ignores colors inside all functions.
+Ignore named colors within the specified functions.
 
 Given:
 
@@ -191,7 +191,7 @@ a { color: var(--foo, red); }
 
 <!-- prettier-ignore -->
 ```css
-a { color: --bar(red); }
+a { color: --foo(red); }
 ```
 
 ### `ignoreProperties`

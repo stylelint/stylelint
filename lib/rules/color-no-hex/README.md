@@ -94,5 +94,5 @@ a { color: var(--foo, #fff); }
 
 <!-- prettier-ignore -->
 ```css
-a { color: --bar(#fff); }
+a { color: --foo(#fff); }
 ```
