@@ -1,5 +1,16 @@
 # Changelog
 
+## 17.15.0 - 2026-09-04
+
+It adds 1 new rule and 2 new rule options, and fixes 4 bugs.
+
+- Added: `selector-no-unmatchable` rule ([#9451](https://github.com/stylelint/stylelint/pull/9451)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `ignoreFunctions: []` to `color-named` and `color-no-hex` ([#9463](https://github.com/stylelint/stylelint/pull/9463)) ([@jsmitty12](https://github.com/jsmitty12)).
+- Fixed: `custom-property-no-missing-var-function` false positives for anchor positioning ([#9466](https://github.com/stylelint/stylelint/pull/9466)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `font` shorthand ([#9402](https://github.com/stylelint/stylelint/pull/9402)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+- Fixed: `declaration-property-max-values` false positives for interpolated inline expressions ([#9437](https://github.com/stylelint/stylelint/pull/9437)) ([@alexchen-sys](https://github.com/alexchen-sys)).
+- Fixed: `selector-no-invalid` false negatives for pseudo-elements, combinators and nested `:has()` ([#9452](https://github.com/stylelint/stylelint/pull/9452)) ([@jeddy3](https://github.com/jeddy3)).
+
 ## 17.14.1 - 2026-07-20
 
 It fixes 4 bugs.
