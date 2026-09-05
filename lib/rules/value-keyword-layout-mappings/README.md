@@ -68,11 +68,6 @@ a { text-align: right; }
 a { resize: horizontal; }
 ```
 
-<!-- prettier-ignore -->
-```css
-a { caption-side: top; }
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -88,11 +83,6 @@ a { text-align: end; }
 <!-- prettier-ignore -->
 ```css
 a { resize: inline; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { caption-side: block-start; }
 ```
 
 ### `"physical"`
@@ -124,11 +114,6 @@ a { text-align: start; }
 a { resize: inline; }
 ```
 
-<!-- prettier-ignore -->
-```css
-a { caption-side: block-start; }
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -144,11 +129,6 @@ a { text-align: right; }
 <!-- prettier-ignore -->
 ```css
 a { resize: horizontal; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { caption-side: top; }
 ```
 
 ## Optional secondary options
@@ -167,7 +147,7 @@ Given:
 {
   "value-keyword-layout-mappings": [
     "flow-relative",
-    { "ignoreProperties": ["text-align", "/^caption-/"] }
+    { "ignoreProperties": ["text-align", "/^offset-/"] }
   ]
 }
 ```
@@ -181,7 +161,7 @@ a { text-align: left; }
 
 <!-- prettier-ignore -->
 ```css
-a { caption-side: top; }
+a { offset-anchor: top left; }
 ```
 
 ### `ignoreKeywords`
