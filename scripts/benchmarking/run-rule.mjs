@@ -103,7 +103,6 @@ async function readSource(source) {
 		return readFile(source, 'utf8');
 	}
 
-	// eslint-disable-next-line n/no-unsupported-features/node-builtins -- This script is only for development. We can tolerate it.
 	const response = await fetch(source);
 
 	if (!response.ok) {
