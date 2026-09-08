@@ -156,18 +156,18 @@ When `TIMING` is set to `all` or a positive integer (`n >= 1`), it displays the 
 
 ```console
 $ TIMING=10 stylelint "**/*.css"
- # | Rule                                               | Time (ms) | Relative
---:|:---------------------------------------------------|----------:|--------:
- 1 | no-descending-specificity                          |     1.154 |    19.3%
- 2 | no-duplicate-selectors                             |     0.357 |     6.0%
- 3 | length-zero-no-unit                                |     0.300 |     5.0%
- 4 | selector-type-no-unknown                           |     0.265 |     4.4%
- 5 | alpha-value-notation                               |     0.251 |     4.2%
- 6 | declaration-block-no-redundant-longhand-properties |     0.217 |     3.6%
- 7 | selector-class-pattern                             |     0.187 |     3.1%
- 8 | value-keyword-case                                 |     0.151 |     2.5%
- 9 | declaration-block-no-duplicate-custom-properties   |     0.146 |     2.4%
-10 | declaration-empty-line-before                      |     0.140 |     2.3%
+|  # | Rule                                               | Time (ms) | Relative |
+|---:|:---------------------------------------------------|----------:|---------:|
+|  1 | no-descending-specificity                          |     1.154 |    19.3% |
+|  2 | no-duplicate-selectors                             |     0.357 |     6.0% |
+|  3 | length-zero-no-unit                                |     0.300 |     5.0% |
+|  4 | selector-type-no-unknown                           |     0.265 |     4.4% |
+|  5 | alpha-value-notation                               |     0.251 |     4.2% |
+|  6 | declaration-block-no-redundant-longhand-properties |     0.217 |     3.6% |
+|  7 | selector-class-pattern                             |     0.187 |     3.1% |
+|  8 | value-keyword-case                                 |     0.151 |     2.5% |
+|  9 | declaration-block-no-duplicate-custom-properties   |     0.146 |     2.4% |
+| 10 | declaration-empty-line-before                      |     0.140 |     2.3% |
 ```
 
 You can adjust the number of results by setting a different value for `TIMING`.
