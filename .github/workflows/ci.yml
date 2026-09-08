@@ -22,14 +22,14 @@ jobs:
   test:
     uses: stylelint/.github/.github/workflows/call-test.yml@ab7979355590956aa96d306dedfda6b2d42c4982 # 1.1.0
     with:
-      node-version: '["20", "22", "24", "26"]'
+      node-version: '["22", "24", "26"]'
       os: '["ubuntu-latest", "windows-latest", "macos-latest"]'
-      exclude: '[{"node-version": "24", "os": "ubuntu-latest"}]' # for coverage
+      exclude: '[{"node-version": "26", "os": "ubuntu-latest"}]' # for coverage
     permissions:
       contents: read
 
   test-coverage:
-    name: Test on Node.js 24 and ubuntu-latest with coverage
+    name: Test on Node.js 26 and ubuntu-latest with coverage
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -39,7 +39,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: '24'
+          node-version: '26'
           cache: npm
 
       - name: Install latest npm

@@ -23,7 +23,6 @@ import { promisify } from 'node:util';
 
 import { fileURLToPath } from 'node:url';
 
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
 import { before, describe, test } from 'node:test';
 
 const execAsync = promisify(childProcess.exec);
