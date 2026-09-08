@@ -707,8 +707,6 @@ declare namespace stylelint {
 			true,
 			{
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
-				propertiesSyntax: Record<string, string>;
-				typesSyntax: Record<string, string>;
 			},
 			RejectedMessage<[property: string, value: string]> & {
 				rejectedParseError: (property: string, value: string) => string;
