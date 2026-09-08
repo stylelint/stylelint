@@ -1,5 +1,4 @@
 import type * as PostCSS from 'postcss';
-import type { Options as GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
 type ConfigExtends = string | string[];
@@ -1174,6 +1173,17 @@ declare namespace stylelint {
 	};
 
 	/**
+	 * Options for matching `files`.
+	 */
+	export type GlobOptions = {
+		/**
+		 * Whether to match files and directories whose names begin with a dot.
+		 * Defaults to `false`.
+		 */
+		dot?: boolean;
+	};
+
+	/**
 	 * Linter options.
 	 */
 	export type LinterOptions = {
@@ -1184,7 +1194,7 @@ declare namespace stylelint {
 		 */
 		abortSignal?: AbortSignal;
 		files?: OneOrMany<string>;
-		globbyOptions?: GlobbyOptions;
+		globOptions?: GlobOptions;
 		cache?: boolean;
 		cacheLocation?: string;
 		cacheStrategy?: string;
