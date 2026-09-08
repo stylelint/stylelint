@@ -134,7 +134,6 @@
     "@csstools/selector-specificity": "^6.0.0",
     "colord": "^2.10.0",
     "cosmiconfig": "^9.0.2",
-    "css-functions-list": "^3.3.3",
     "css-tree": "^3.2.1",
     "debug": "^4.4.3",
     "fast-glob": "^3.3.3",
