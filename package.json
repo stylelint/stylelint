@@ -64,7 +64,7 @@
     "test": "run-s test-jest test-node",
     "test-coverage": "npm run test-jest --ignore-scripts -- --coverage",
     "test-jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test-node": "node --test lib/__tests__/require.test.cjs system-tests/005/commonjs.test.cjs system-tests/006/yarn-pnp.test.mjs",
+    "test-node": "node --test lib/__tests__/require.test.cjs system-tests/005/commonjs.test.cjs system-tests/006/yarn-pnp.test.mjs system-tests/007/typescript.test.mjs",
     "test-only": "npm run test-jest --ignore-scripts",
     "watch": "npm run test-jest --ignore-scripts -- --watch"
   },
@@ -116,7 +116,8 @@
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/system-tests/006/"
+      "/system-tests/006/",
+      "/system-tests/007/"
     ],
     "testRegex": ".*\\.test\\.mjs$|rules/.*/__tests__/.*\\.mjs$",
     "watchPlugins": [
@@ -133,7 +134,7 @@
     "@csstools/selector-resolve-nested": "^4.0.1",
     "@csstools/selector-specificity": "^6.0.0",
     "colord": "^2.10.0",
-    "cosmiconfig": "^9.0.2",
+    "cosmiconfig": "^10.0.1",
     "css-functions-list": "^3.3.3",
     "css-tree": "^3.2.1",
     "debug": "^4.4.3",
@@ -154,7 +155,7 @@
     "postcss-selector-parser": "^7.1.6",
     "postcss-value-parser": "^4.2.0",
     "supports-hyperlinks": "^4.5.0",
-    "write-file-atomic": "^7.0.1"
+    "write-file-atomic": "^8.0.0"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.2",
@@ -186,7 +187,7 @@
     "patch-package": "^8.0.1",
     "pidusage": "^4.0.1",
     "postcss-html": "^2.0.0",
-    "postcss-import": "^16.2.0",
+    "postcss-import": "^17.0.0",
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.9",
@@ -197,6 +198,6 @@
     "typescript": "^7.0.2"
   },
   "engines": {
-    "node": "^22.18.0 || ^24.3.0 || >=26.0.0"
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   }
 }
