@@ -708,10 +708,7 @@ declare namespace stylelint {
 			{
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 			},
-			RejectedMessage<[property: string, value: string]> & {
-				rejectedParseError: (property: string, value: string) => string;
-				rejectedMath: (property: string, expression: string) => string;
-			}
+			RejectedMessage<[property: string, value: string]>
 		>;
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
@@ -1151,6 +1148,7 @@ declare namespace stylelint {
 			ExpectedMessage<[unfixed: string, fixed: string]> &
 				RejectedMessage<[type: string, keyword: string]>
 		>;
+		'value-no-invalid': CoreRule<true, {}, RejectedMessage<[value: string, reason: string]>>;
 		'value-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreValues: OneOrMany<StringOrRegex> },
