@@ -140,7 +140,7 @@
     "fastest-levenshtein": "^1.0.16",
     "file-entry-cache": "^11.1.5",
     "global-modules": "^2.0.0",
-    "ignore": "^7.0.6",
+    "ignore": "^7.0.8",
     "import-meta-resolve": "^4.2.0",
     "meow": "^14.1.0",
     "normalize-path": "^3.0.0",
@@ -150,9 +150,7 @@
     "postcss-safe-parser": "^7.1.0",
     "postcss-selector-parser": "^7.1.6",
     "postcss-value-parser": "^4.2.0",
-    "string-width": "^8.2.2",
     "supports-hyperlinks": "^4.5.0",
-    "table": "^6.9.0",
     "tinyglobby": "^0.2.17",
     "write-file-atomic": "^7.0.1"
   },
@@ -179,7 +177,7 @@
     "jest": "^30.5.1",
     "jest-preset-stylelint": "^9.2.0",
     "jest-watch-typeahead": "^3.0.1",
-    "lint-staged": "^17.3.0",
+    "lint-staged": "^17.5.0",
     "lz-string": "^1.5.0",
     "npm-run-all2": "^9.0.3",
     "patch-package": "^8.0.1",
@@ -192,7 +190,7 @@
     "prettier": "^3.9.6",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
-    "tinybench": "^6.1.3",
+    "tinybench": "^6.1.6",
     "typescript": "^7.0.2"
   },
   "engines": {
