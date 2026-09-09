@@ -43,11 +43,6 @@ Options are:
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
-When a rule relies on the deprecated [`context`](../contributor-guide/rules.md#context)`.fix` and a source contains:
-
-- a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
-- an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
-
 ## `computeEditInfo`
 
 CLI flag: `--compute-edit-info, --cei`
@@ -340,7 +335,7 @@ Ignore deprecation warnings.
 > For Node.js 20.11.0+, you can disable individual deprecation warnings using the Node.js [`--disable-warning`](https://nodejs.org/api/cli.html#--disable-warningcode-or-type) mechanism, e.g.:
 >
 > ```shell
-> NODE_OPTIONS='--disable-warning=stylelint:005' stylelint "**/*.css"
+> NODE_OPTIONS='--disable-warning=stylelint:006' stylelint "**/*.css"
 > ```
 
 [1]: ../user-guide/ignore-code.md#parts-of-a-file
