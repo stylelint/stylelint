@@ -8,8 +8,8 @@ exports[`CLI --help 1`] = `
 
   Input: Files(s), glob(s), or nothing to use stdin.
 
-    If an input argument is wrapped in quotation marks, it will be passed to
-    globby for cross-platform glob support. "node_modules" are always ignored.
+    If an input argument is wrapped in quotation marks, Stylelint will expand
+    it as a glob for cross-platform support. "node_modules" are always ignored.
     You can also pass no input and use stdin, instead.
 
   Options:
@@ -185,9 +185,9 @@ exports[`CLI --help 1`] = `
       directory is specified, a suppressions file will be created inside the specified
       folder, with the name "stylelint-suppressions.json".
 
-    --globby-options, --go <json>
+    --glob-options, --go <json>
 
-      Options in JSON format passed to globby.
+      Options in JSON format used to match the input globs. Only "dot" is supported.
 
     --version, -v
 
