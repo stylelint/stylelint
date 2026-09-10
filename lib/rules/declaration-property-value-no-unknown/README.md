@@ -17,6 +17,8 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 This rule checks property values. You can use [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md) to disallow unknown values for descriptors within at-rules.
 
+This rule checks whether a value is known to its property. You can use [`value-no-invalid`](../value-no-invalid/README.md) to disallow values that are invalid regardless of their property.
+
 > [!WARNING]
 > This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
