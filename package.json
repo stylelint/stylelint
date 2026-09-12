@@ -145,7 +145,6 @@
     "globjoin": "^0.1.4",
     "ignore": "^7.0.8",
     "import-meta-resolve": "^4.2.0",
-    "meow": "^14.1.0",
     "micromatch": "^4.0.8",
     "normalize-path": "^3.0.0",
     "picocolors": "^1.1.1",
