@@ -51,7 +51,7 @@ exports[`CLI --help 1`] = `
       A pattern of files to ignore (in addition to those in ".stylelintignore").
       Multiple can be set.
 
-    --fix [<mode>]
+    --fix[=<mode>]
 
       Automatically fix problems of certain rules. The modes are as follows:
 
@@ -173,10 +173,11 @@ exports[`CLI --help 1`] = `
 
       When a glob pattern matches no files, the process will exit without throwing an error.
 
-    --suppress [<rule>]
+    --suppress[=<rule>]
+
       Suppress problems and record them in a file. If no rule is specified,
       all problems are suppressed. Otherwise, only problems with the given
-      rules are suppressed, e.g., "--suppress rule1 --suppress rule2".
+      rules are suppressed, e.g., "--suppress=rule1 --suppress=rule2".
       See also "--suppress-location".
 
     --suppress-location <path>
