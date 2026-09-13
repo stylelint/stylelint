@@ -54,7 +54,7 @@ a {}
 
 <!-- prettier-ignore -->
 ```css
-@charset 'utf-8';
+@charset "utf-8";
 @import 'foo.css';
 ```
 

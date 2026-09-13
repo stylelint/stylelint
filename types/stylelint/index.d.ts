@@ -488,6 +488,7 @@ declare namespace stylelint {
 			{ ignoreAnnotations: OneOrMany<StringOrRegex> },
 			RejectedMessage<[annotation: string]>
 		>;
+		'at-charset-rule-no-invalid': CoreRule<true, {}, RejectedMessage<[reason: string]>>;
 		'at-rule-allowed-list': CoreRule<
 			OneOrMany<StringOrRegex>,
 			{},
