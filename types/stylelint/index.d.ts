@@ -338,6 +338,13 @@ declare namespace stylelint {
 		config?: Config;
 		referenceRoots: PostCSS.Root[];
 
+		/**
+		 * Whether the source began with a byte order mark when it was read.
+		 * PostCSS strips the mark from `Input.css` and keeps it as `Input.hasBOM`,
+		 * which a fix may change; this records how the file stood.
+		 */
+		hasBOM?: boolean;
+
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
 		lexer: unknown;
