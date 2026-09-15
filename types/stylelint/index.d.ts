@@ -339,11 +339,10 @@ declare namespace stylelint {
 		referenceRoots: PostCSS.Root[];
 
 		/**
-		 * Whether the source began with a byte order mark when it was read.
-		 * PostCSS strips the mark from `Input.css` and keeps it as `Input.hasBOM`,
-		 * which a fix may change; this records how the file stood.
+		 * The code the root was parsed from, exactly as it was read.
+		 * Absent when linting an existing PostCSS result.
 		 */
-		hasBOM?: boolean;
+		source?: string;
 
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
@@ -1603,7 +1602,7 @@ declare namespace stylelint {
 		_configExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
 		_augmentedConfigCache: Map<string, CosmiconfigResult>;
-		_postcssResultCache: Map<string, PostCSS.Result>;
+		_postcssResultCache: Map<string, { result: PostCSS.Result; source: string }>;
 		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
 	};
