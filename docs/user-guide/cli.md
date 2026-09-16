@@ -72,7 +72,7 @@ Compute edit information for fixable problems. [More info](options.md#computeedi
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
-### `--globbyOptions, --go`
+### `--globby-options, --go`
 
 Options in JSON format passed to [globby](https://github.com/sindresorhus/globby). [More info](options.md#globbyoptions).
 
@@ -134,7 +134,7 @@ Accept stdin input even if it is empty.
 
 ### `--suppress`
 
-Suppress problems that have the severity of `error` and record them in a file. [More info](suppressions.md#--suppress-rule).
+Suppress problems that have the severity of `error` and record them in a file. [More info](suppressions.md#--suppressrule).
 
 ### `--suppress-location`
 
