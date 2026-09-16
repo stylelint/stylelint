@@ -338,6 +338,12 @@ declare namespace stylelint {
 		config?: Config;
 		referenceRoots: PostCSS.Root[];
 
+		/**
+		 * The code the root was parsed from, exactly as it was read.
+		 * Absent when linting an existing PostCSS result.
+		 */
+		code?: string;
+
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
 		lexer: unknown;
@@ -1596,7 +1602,7 @@ declare namespace stylelint {
 		_configExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
 		_augmentedConfigCache: Map<string, CosmiconfigResult>;
-		_postcssResultCache: Map<string, PostCSS.Result>;
+		_postcssResultCache: Map<string, { result: PostCSS.Result; code: string }>;
 		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
 	};
