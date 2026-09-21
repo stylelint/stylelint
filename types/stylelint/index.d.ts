@@ -340,7 +340,7 @@ declare namespace stylelint {
 
 		/**
 		 * The code the root was parsed from, exactly as it was read.
-		 * Absent when linting an existing PostCSS result.
+		 * Unlike `root.source.input.css` (PostCSS API), any byte order mark is kept.
 		 */
 		code?: string;
 
