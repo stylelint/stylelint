@@ -9,9 +9,14 @@ a { transform: unknown(1); }
  * Functions like this */
 ```
 
-This rule considers functions defined in the CSS Specifications to be known.
+This rule considers functions defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-This rule ignores double-dashed custom functions, e.g. `--custom-function()`.
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what functions are known, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
+
+This rule ignores:
+
+- double-dashed custom functions, e.g., `--custom-function()`
+- vendor-prefixed functions, e.g., `-webkit-calc()`
 
 > [!NOTE]
 > We recommend only using this rule for CSS-like languages, such as SCSS and Less. For CSS, we recommend using these more capable and overlapping rules instead:
