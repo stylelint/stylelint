@@ -24,7 +24,7 @@ Use `stylelint --help` to print the CLI documentation.
 
 The CLI accepts:
 
-### `--allow-empty-input, --aei`
+### `--allow-empty-input`
 
 The process exits without throwing an error when glob pattern matches no files. [More info](options.md#allowemptyinput).
 
@@ -48,7 +48,7 @@ Force enabling/disabling of color.
 
 Absolute path to the directory that relative paths defining "extends", "plugins", and "customSyntax" are _relative to_. Only necessary if these values are relative paths. [More info](options.md#configbasedir).
 
-### `--config, -c`
+### `--config`
 
 Path to a JSON, YAML, or JS file that contains your [configuration object](./configure.md). [More info](options.md#configfile).
 
@@ -56,7 +56,7 @@ Path to a JSON, YAML, or JS file that contains your [configuration object](./con
 
 Specify a custom syntax to use on your code. [More info](options.md#customsyntax).
 
-### `--disable-default-ignores, --di`
+### `--disable-default-ignores`
 
 Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`. [More info](options.md#disabledefaultignores).
 
@@ -64,35 +64,35 @@ Disable the default ignores. Stylelint will not automatically ignore the content
 
 Automatically fix, where possible, problems reported by rules. [More info](options.md#fix).
 
-### `--compute-edit-info, --cei`
+### `--compute-edit-info`
 
 Compute edit information for fixable problems. [More info](options.md#computeeditinfo).
 
-### `--formatter, -f` | `--custom-formatter`
+### `--formatter` | `--custom-formatter`
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
-### `--globby-options, --go`
+### `--globby-options`
 
 Options in JSON format passed to [globby](https://github.com/sindresorhus/globby). [More info](options.md#globbyoptions).
 
-### `--ignore-disables, --id`
+### `--ignore-disables`
 
 Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. [More info](options.md#ignoredisables).
 
-### `--ignore-path, -i`
+### `--ignore-path`
 
 Path to a file containing patterns that describe files to ignore. The path can be absolute or relative to `process.cwd()`. You can repeat the option to provide multiple paths. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorepath).
 
-### `--ignore-pattern, --ip`
+### `--ignore-pattern`
 
 Pattern of files to ignore (in addition to those in `.stylelintignore`).
 
-### `--max-warnings, --mw`
+### `--max-warnings`
 
 Set a limit to the number of warnings accepted. [More info](options.md#maxwarnings).
 
-### `--output-file, -o`
+### `--output-file`
 
 Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to `process.stderr`.
 
@@ -100,7 +100,7 @@ Path of file to write a report. Stylelint outputs the report to the specified `f
 
 Print the configuration for the given input path. Globs are unsupported.
 
-### `--quiet, -q`
+### `--quiet`
 
 Only register problems for rules with an "error"-level severity (ignore "warning"-level). [More info](options.md#quiet).
 
@@ -108,19 +108,19 @@ Only register problems for rules with an "error"-level severity (ignore "warning
 
 Ignore deprecation warnings. [More info](options.md#quietdeprecationwarnings).
 
-### `--report-descriptionless-disables, --rdd`
+### `--report-descriptionless-disables`
 
 Produce a report of the `stylelint-disable` comments without a description. [More info](options.md#reportdescriptionlessdisables).
 
-### `--report-invalid-scope-disables, --risd`
+### `--report-invalid-scope-disables`
 
 Produce a report of the `stylelint-disable` comments that used for rules that don't exist within the configuration object. [More info](options.md#reportinvalidscopedisables).
 
-### `--report-needless-disables, --rd`
+### `--report-needless-disables`
 
 Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportneedlessdisables).
 
-### `--report-unscoped-disables, --rud`
+### `--report-unscoped-disables`
 
 Produce a report of the configuration comments that are not scoped to one or more rules. [More info](options.md#reportunscopeddisables).
 
@@ -144,7 +144,7 @@ Path to a file or directory for the suppressions location. [More info](suppressi
 
 Force enable/disable the validation of the rules' options. [More info](options.md#validate).
 
-### `--version, -v`
+### `--version`
 
 Show the currently installed version of Stylelint.
 

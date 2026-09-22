@@ -14,7 +14,7 @@ exports[`CLI --help 1`] = `
 
   Options:
 
-    --config, -c <path_or_module>
+    -c <path_or_module>, --config=<path_or_module>
 
       A path to a specific configuration file (JSON, YAML, CommonJS, or ES module),
       or a module name in "node_modules" that points to one. If no argument is
@@ -29,7 +29,7 @@ exports[`CLI --help 1`] = `
       The search will begin in the working directory and move up the directory
       tree until a configuration file is found.
 
-    --config-basedir <path>
+    --config-basedir=<path>
 
       An absolute path to the directory that relative paths defining "extends",
       "plugins", and "customSyntax" are *relative to*. Only necessary if these
@@ -39,14 +39,14 @@ exports[`CLI --help 1`] = `
 
       Print the configuration for the given input file path. Globs are unsupported.
 
-    --ignore-path, -i <path>
+    -i <path>, --ignore-path=<path>
 
       A path to a file containing patterns that describe files to ignore. The
       path can be absolute or relative to "process.cwd()". You can repeat the
       option to provide multiple paths. By default, Stylelint looks for
       ".stylelintignore" in "process.cwd()". Multiple can be set.
 
-    --ignore-pattern, --ip <pattern>
+    --ignore-pattern=<pattern>, --ip=<pattern>
 
       A pattern of files to ignore (in addition to those in ".stylelintignore").
       Multiple can be set.
@@ -62,7 +62,7 @@ exports[`CLI --help 1`] = `
 
       Compute edit information for fixable problems.
 
-    --custom-syntax <name_or_path>
+    --custom-syntax=<name_or_path>
 
       A module name or path to a JS file exporting a PostCSS-compatible syntax.
 
@@ -70,7 +70,7 @@ exports[`CLI --help 1`] = `
 
       Accept stdin input even if it is empty.
 
-    --stdin-filename <name>
+    --stdin-filename=<name>
 
       A filename to assign stdin input.
 
@@ -89,7 +89,7 @@ exports[`CLI --help 1`] = `
       stored in "./.stylelintcache". To adjust this, use "--cache-location".
       Cache is disabled by default.
 
-    --cache-location <path>
+    --cache-location=<path>
 
       A path to a file or directory to be used for the cache location. If a
       directory is specified, a cache file will be created inside the specified
@@ -99,7 +99,7 @@ exports[`CLI --help 1`] = `
       on *nix systems or "\\" on Windows. Otherwise the path will be assumed to
       be a file.
 
-    --cache-strategy <strategy>
+    --cache-strategy=<strategy>
 
       A strategy for the cache to use for detecting changed files. Either one of:
 
@@ -111,7 +111,7 @@ exports[`CLI --help 1`] = `
       happen during git operations like "git clone" because git does not track file
       modification time.
 
-    --formatter, -f <formatter>
+    -f <formatter>, --formatter=<formatter>
 
       An output formatter. The variants are as follows:
 
@@ -122,11 +122,11 @@ exports[`CLI --help 1`] = `
         unix         C compiler-like format
         verbose      extend "string" to include a file list and a tally
 
-    --custom-formatter <path_or_module>
+    --custom-formatter=<path_or_module>
 
       A path to a JS file or module name exporting a custom formatting function.
 
-    --quiet, -q
+    -q, --quiet
 
       Only register problems for rules with an "error"-level severity (ignore
       "warning"-level).
@@ -159,13 +159,13 @@ exports[`CLI --help 1`] = `
       Report "stylelint-disable" comments without a description. The process will
       exit with code 2 if descriptionless disables are found.
 
-    --max-warnings, --mw <number>
+    --max-warnings=<number>, --mw=<number>
 
       The number of warnings above which the process will exit with code 2.
       Useful when setting "defaultSeverity" to "warning" and expecting the process
       to fail on warnings (e.g. CI build).
 
-    --output-file, -o <path>
+    -o <path>, --output-file=<path>
 
       A file path to write a report.
 
@@ -180,21 +180,21 @@ exports[`CLI --help 1`] = `
       rules are suppressed, e.g., "--suppress=rule1 --suppress=rule2".
       See also "--suppress-location".
 
-    --suppress-location <path>
+    --suppress-location=<path>
 
       A path to a file or directory to be used for the suppressions file location. If a
       directory is specified, a suppressions file will be created inside the specified
       folder, with the name "stylelint-suppressions.json".
 
-    --globby-options, --go <json>
+    --globby-options=<json>, --go=<json>
 
       Options in JSON format passed to globby.
 
-    --version, -v
+    -v, --version
 
       Show the version.
 
-    --help, -h
+    -h, --help
 
       Show the help.
 "
