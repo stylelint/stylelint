@@ -69,6 +69,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`at-charset-rule-no-invalid`](../../lib/rules/at-charset-rule-no-invalid/README.md)<br/>Disallow invalid `@charset` rules. | | |
 | [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)<br/>Disallow invalid preludes for at-rules. | ✅ | |
 | [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | | |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅ | 🔧 |
