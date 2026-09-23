@@ -126,10 +126,10 @@
     ]
   },
   "dependencies": {
-    "@csstools/css-calc": "^3.3.0",
+    "@csstools/css-calc": "^3.4.0",
     "@csstools/css-parser-algorithms": "^4.0.0",
     "@csstools/css-syntax-patches-for-csstree": "^1.1.13",
-    "@csstools/css-tokenizer": "^4.0.0",
+    "@csstools/css-tokenizer": "^4.0.1",
     "@csstools/media-query-list-parser": "^5.0.0",
     "@csstools/selector-resolve-nested": "^4.0.1",
     "@csstools/selector-specificity": "^6.0.0",
