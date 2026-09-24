@@ -72,7 +72,7 @@ Compute edit information for fixable problems. [More info](options.md#computeedi
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
-### `--globby-options, --go`
+### `--globbyOptions, --go`
 
 Options in JSON format for matching the input globs, e.g. `'{"dot":true}'`. [More info](options.md#globbyoptions).
 
