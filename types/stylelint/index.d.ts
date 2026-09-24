@@ -1172,14 +1172,38 @@ declare namespace stylelint {
 	};
 
 	/**
-	 * Options for matching `files`.
+	 * Options for matching `files`, a subset of globby's options.
 	 */
-	export type GlobOptions = {
+	export type GlobbyOptions = {
+		/**
+		 * Whether to expand braces, e.g. `{a,b}`.
+		 * Defaults to `true`.
+		 */
+		braceExpansion?: boolean;
+		/**
+		 * Whether to match case-sensitively.
+		 * Defaults to `true`.
+		 */
+		caseSensitiveMatch?: boolean;
 		/**
 		 * Whether to match files and directories whose names begin with a dot.
 		 * Defaults to `false`.
 		 */
 		dot?: boolean;
+		/**
+		 * Whether to support extglobs, e.g. `+(a|b)`.
+		 * Defaults to `true`.
+		 */
+		extglob?: boolean;
+		/**
+		 * Whether to traverse symbolic links to directories.
+		 * Defaults to `true`.
+		 */
+		followSymbolicLinks?: boolean;
+		/**
+		 * Globs of files to exclude, relative to `cwd`.
+		 */
+		ignore?: OneOrMany<string>;
 	};
 
 	/**
@@ -1193,7 +1217,7 @@ declare namespace stylelint {
 		 */
 		abortSignal?: AbortSignal;
 		files?: OneOrMany<string>;
-		globOptions?: GlobOptions;
+		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
 		cacheLocation?: string;
 		cacheStrategy?: string;

@@ -160,11 +160,11 @@ CLI flags: `--disable-default-ignores, --di`
 
 Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`.
 
-## `globOptions`
+## `globbyOptions`
 
-CLI flags: `--glob-options, --go`
+CLI flags: `--globby-options, --go`
 
-Options for matching the `files` globs. Only `dot` is supported. [More info](node-api.md#globoptions).
+Options for matching the `files` globs, a subset of globby's options. [More info](node-api.md#globbyoptions).
 
 ## `ignorePath`
 

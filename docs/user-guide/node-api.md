@@ -57,9 +57,18 @@ Relative globs are considered relative to `cwd`.
 
 Though both `files` and `code` are "optional", you _must_ have one and _cannot_ have both.
 
-### `globOptions`
+### `globbyOptions`
 
-The options used to match `files`. Only the `dot` option is supported: set it to `true` to match files and directories whose names begin with a dot. Stylelint throws a configuration error for any other option.
+The options used to match `files`. Stylelint supports a subset of globby's options:
+
+- `braceExpansion`: expand braces, e.g. `{a,b}`. Defaults to `true`.
+- `caseSensitiveMatch`: match case-sensitively. Defaults to `true`.
+- `dot`: match files and directories whose names begin with a dot. Defaults to `false`.
+- `extglob`: support extglobs, e.g. `+(a|b)`. Defaults to `true`.
+- `followSymbolicLinks`: traverse symbolic links to directories. Defaults to `true`.
+- `ignore`: a glob, or array of globs, of files to exclude. Relative globs are considered relative to `cwd`.
+
+Stylelint throws a configuration error for any other option.
 
 ## The returned promise
 

@@ -185,9 +185,11 @@ exports[`CLI --help 1`] = `
       directory is specified, a suppressions file will be created inside the specified
       folder, with the name "stylelint-suppressions.json".
 
-    --glob-options, --go <json>
+    --globby-options, --go <json>
 
-      Options in JSON format used to match the input globs. Only "dot" is supported.
+      Options in JSON format used to match the input globs. Supported options are
+      "braceExpansion", "caseSensitiveMatch", "dot", "extglob", "followSymbolicLinks"
+      and "ignore".
 
     --version, -v
 

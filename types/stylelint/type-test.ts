@@ -30,7 +30,7 @@ const options: Partial<LinterOptions> = {
 	code: 'div { color: red }',
 	files: ['**/**.scss'],
 	formatter: 'json',
-	globOptions: {
+	globbyOptions: {
 		dot: true,
 	},
 	cache: true,
