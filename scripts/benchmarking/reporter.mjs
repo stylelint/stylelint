@@ -1,6 +1,6 @@
 /* eslint-disable prefer-template */
 
-import pc from 'picocolors';
+import { styleText } from 'node:util';
 
 /**
  * Format bytes to human readable string.
@@ -49,7 +49,7 @@ export const WIDTH = {
  * @returns {string}
  */
 function line(length = WIDTH.default) {
-	return pc.dim('─'.repeat(length));
+	return styleText('dim', '─'.repeat(length));
 }
 
 /**
@@ -59,7 +59,7 @@ function line(length = WIDTH.default) {
  * @returns {string}
  */
 function doubleLine(length = WIDTH.default) {
-	return pc.dim('═'.repeat(length));
+	return styleText('dim', '═'.repeat(length));
 }
 
 /**
@@ -70,7 +70,9 @@ function doubleLine(length = WIDTH.default) {
  * @returns {string}
  */
 export function header(title, width = WIDTH.default) {
-	return [doubleLine(width), pc.bold(`  ${title.toUpperCase()}`), doubleLine(width)].join('\n');
+	return [doubleLine(width), styleText('bold', `  ${title.toUpperCase()}`), doubleLine(width)].join(
+		'\n',
+	);
 }
 
 /**
@@ -84,7 +86,7 @@ export function header(title, width = WIDTH.default) {
 export function sectionHeader(title, width = WIDTH.narrow, options = {}) {
 	const indent = options.indent ? '  ' : '';
 
-	return [pc.bold(`${indent}${title.toUpperCase()}`), indent + line(width)].join('\n');
+	return [styleText('bold', `${indent}${title.toUpperCase()}`), indent + line(width)].join('\n');
 }
 
 /**
@@ -129,7 +131,8 @@ export function generateReport(allResults) {
 	if (modes.length === 1) {
 		lines.push(
 			'  ' +
-				pc.dim(
+				styleText(
+					'dim',
 					pad('Size', 10) +
 						pad('Files', 8) +
 						pad('Rules', 8) +
@@ -162,7 +165,8 @@ export function generateReport(allResults) {
 	} else {
 		lines.push(
 			'  ' +
-				pc.dim(
+				styleText(
+					'dim',
 					pad('Size', 10) +
 						pad('Files', 8) +
 						pad('API time', 12) +
@@ -218,10 +222,12 @@ export function generateReport(allResults) {
 			const trimmed = timing.trimmedMean;
 			const cv = timing.cv;
 
-			lines.push(`  ${pc.bold(config.name)} ${pc.dim(`(${config.description})`)}:`);
+			lines.push(
+				`  ${styleText('bold', config.name)} ${styleText('dim', `(${config.description})`)}:`,
+			);
 			lines.push(`    Timing (${result.iterations} iterations, 2 warmup):`);
 			lines.push(
-				`      Trimmed mean: ${pc.cyan(formatTime(trimmed))}  ${pc.dim(`(±${cv.toFixed(1)}% CV)`)}`,
+				`      Trimmed mean: ${styleText('cyan', formatTime(trimmed))}  ${styleText('dim', `(±${cv.toFixed(1)}% CV)`)}`,
 			);
 			lines.push(
 				`      Range: ${formatTime(timing.min)} - ${formatTime(timing.max)}  Median: ${formatTime(timing.median)}`,
@@ -301,7 +307,8 @@ export function generateComparisonReport(baseline, current) {
 
 		lines.push(
 			'  ' +
-				pc.dim(
+				styleText(
+					'dim',
 					pad('Size', 10) +
 						pad('Baseline', 12) +
 						pad('Current', 12) +
@@ -328,30 +335,30 @@ export function generateComparisonReport(baseline, current) {
 			const changePercent = ((diff / baseTime) * 100).toFixed(1);
 
 			let status;
-			let statusColor;
+			let statusFormat;
 
 			if (diff < -baseTime * threshold) {
 				status = '✓ Faster';
-				statusColor = pc.green;
+				statusFormat = 'green';
 			} else if (diff > baseTime * threshold) {
 				status = '✗ Slower';
-				statusColor = pc.red;
+				statusFormat = 'red';
 			} else {
 				status = '≈ Same';
-				statusColor = pc.dim;
+				statusFormat = 'dim';
 			}
 
 			const diffPrefix = diff >= 0 ? '+' : '';
-			const changeColor = diff < 0 ? pc.green : diff > 0 ? pc.red : pc.dim;
+			const changeFormat = diff < 0 ? 'green' : diff > 0 ? 'red' : 'dim';
 
 			lines.push(
 				'  ' +
 					pad(currentResults[size].workspaceConfig.name, 10) +
 					pad(formatTime(baseTime), 12) +
 					pad(formatTime(currTime), 12) +
-					changeColor(pad(diffPrefix + formatTime(Math.abs(diff)), 12)) +
-					changeColor(pad(diffPrefix + changePercent + '%', 10)) +
-					statusColor(pad(status, 10)),
+					styleText(changeFormat, pad(diffPrefix + formatTime(Math.abs(diff)), 12)) +
+					styleText(changeFormat, pad(diffPrefix + changePercent + '%', 10)) +
+					styleText(statusFormat, pad(status, 10)),
 			);
 		}
 

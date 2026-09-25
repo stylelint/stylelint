@@ -7,8 +7,7 @@
 
 import { extname, join } from 'node:path';
 import { mkdir, rm, writeFile } from 'node:fs/promises';
-
-import pc from 'picocolors';
+import { styleText } from 'node:util';
 
 import { AVAILABLE_RULES, CSS_TEMPLATES, WORKSPACE_SIZES } from './config.mjs';
 import {
@@ -283,7 +282,7 @@ export async function generateWorkspace(workspacePath, size, options = {}) {
 		throw new Error(`Unknown workspace size: ${size}`);
 	}
 
-	log(`  Generating ${pc.cyan(sizeConfig.name)} workspace...`);
+	log(`  Generating ${styleText('cyan', sizeConfig.name)} workspace...`);
 
 	// Clean and create workspace directory.
 	await rm(workspacePath, { recursive: true, force: true });
@@ -360,12 +359,14 @@ export default ${JSON.stringify(config, null, 2)};
 
 	await writeFile(configPath, configContent);
 
-	log(`    ${pc.green('✓')} Created ${files.length} files in ${directories.length} directories`);
 	log(
-		`    ${pc.green('✓')} Config: ${sizeConfig.rules} rules, ${config.overrides?.length ?? 0} overrides`,
+		`    ${styleText('green', '✓')} Created ${files.length} files in ${directories.length} directories`,
 	);
 	log(
-		`    ${pc.green('✓')} Plugins: ${plugins.length}, Extends: ${extendConfigs.length}, Syntaxes: ${syntaxes.length}`,
+		`    ${styleText('green', '✓')} Config: ${sizeConfig.rules} rules, ${config.overrides?.length ?? 0} overrides`,
+	);
+	log(
+		`    ${styleText('green', '✓')} Plugins: ${plugins.length}, Extends: ${extendConfigs.length}, Syntaxes: ${syntaxes.length}`,
 	);
 
 	return {
