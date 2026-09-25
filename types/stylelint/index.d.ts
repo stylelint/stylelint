@@ -1248,6 +1248,11 @@ declare namespace stylelint {
 		/** @internal */
 		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
+		/**
+		 * Whether the formatter uses color. When not set, the built-in
+		 * formatters detect whether the terminal supports color.
+		 */
+		color?: boolean;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
 		computeEditInfo?: boolean;
@@ -1409,6 +1414,10 @@ declare namespace stylelint {
 			maxWarnings: number;
 			foundWarnings: number;
 		};
+		/**
+		 * The `color` option, present when it was set.
+		 */
+		color?: boolean;
 		reportedDisables: DisableOptionsReport;
 		descriptionlessDisables?: DisableOptionsReport;
 		needlessDisables?: DisableOptionsReport;

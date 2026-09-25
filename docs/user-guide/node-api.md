@@ -107,6 +107,10 @@ An array containing all the Stylelint result objects (the objects that formatter
 
 An object containing the maximum number of warnings and the amount found, e.g. `{ maxWarnings: 0, foundWarnings: 12 }`.
 
+### `color`
+
+The value of the [`color`](options.md#color) option, if it was set.
+
 ## Result object
 
 ```jsonc
