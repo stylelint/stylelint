@@ -69,6 +69,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
+| [`at-charset-rule-no-invalid`](../../lib/rules/at-charset-rule-no-invalid/README.md)<br/>Disallow invalid `@charset` rules. | | |
 | [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)<br/>Disallow invalid preludes for at-rules. | ✅ | |
 | [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | | |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅ | 🔧 |
@@ -81,6 +82,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`selector-no-invalid`](../../lib/rules/selector-no-invalid/README.md)<br/>Disallow invalid selectors. | | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
 | [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
+| [`value-no-invalid`](../../lib/rules/value-no-invalid/README.md)<br/>Disallow invalid values. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Irregular

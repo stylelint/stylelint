@@ -337,6 +337,12 @@ declare namespace stylelint {
 		config?: Config;
 		referenceRoots: PostCSS.Root[];
 
+		/**
+		 * The code the root was parsed from, exactly as it was read.
+		 * Unlike `root.source.input.css` (PostCSS API), any byte order mark is kept.
+		 */
+		code?: string;
+
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
 		lexer: unknown;
@@ -487,6 +493,7 @@ declare namespace stylelint {
 			{ ignoreAnnotations: OneOrMany<StringOrRegex> },
 			RejectedMessage<[annotation: string]>
 		>;
+		'at-charset-rule-no-invalid': CoreRule<true, {}, RejectedMessage<[reason: string]>>;
 		'at-rule-allowed-list': CoreRule<
 			OneOrMany<StringOrRegex>,
 			{},
@@ -706,10 +713,7 @@ declare namespace stylelint {
 			{
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 			},
-			RejectedMessage<[property: string, value: string]> & {
-				rejectedParseError: (property: string, value: string) => string;
-				rejectedMath: (property: string, expression: string) => string;
-			}
+			RejectedMessage<[property: string, value: string]>
 		>;
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
@@ -1149,6 +1153,7 @@ declare namespace stylelint {
 			ExpectedMessage<[unfixed: string, fixed: string]> &
 				RejectedMessage<[type: string, keyword: string]>
 		>;
+		'value-no-invalid': CoreRule<true, {}, RejectedMessage<[value: string, reason: string]>>;
 		'value-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreValues: OneOrMany<StringOrRegex> },
@@ -1630,7 +1635,7 @@ declare namespace stylelint {
 		_configExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
 		_augmentedConfigCache: Map<string, CosmiconfigResult>;
-		_postcssResultCache: Map<string, PostCSS.Result>;
+		_postcssResultCache: Map<string, { result: PostCSS.Result; code: string }>;
 		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
 	};
