@@ -1,7 +1,7 @@
 import type * as PostCSS from 'postcss';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
-type ConfigExtends = string | string[];
+type ConfigExtends = string | stylelint.Config | (string | stylelint.Config)[];
 
 type ConfigPlugins = string | stylelint.Plugin | (string | stylelint.Plugin)[];
 
@@ -120,7 +120,8 @@ declare namespace stylelint {
 	export type Config = {
 		/**
 		 * Allows to extend an existing configuration. Configurations can bundle plugins, custom syntaxes,
-		 * options, and configure rules. They can also extend other configurations
+		 * options, and configure rules. They can also extend other configurations.
+		 * Each item is either a "locater" of a configuration or a configuration object itself
 		 *
 		 * @see [extends](https://stylelint.io/user-guide/configure/#extends)
 		 */

@@ -51,6 +51,18 @@ const options: Partial<LinterOptions> = {
 	},
 };
 
+const sharedConfig: stylelint.Config = {
+	rules: {
+		'block-no-empty': true,
+	},
+};
+
+const extendingConfig: stylelint.Config = {
+	extends: ['stylelint-config-standard', sharedConfig],
+};
+
+stylelint.lint({ config: extendingConfig });
+
 stylelint.lint(options).then((x: LinterResult) => {
 	x.errored satisfies boolean;
 	x.report satisfies string;
