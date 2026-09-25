@@ -1,6 +1,6 @@
 {
-  "name": "stylelint",
-  "version": "14.5.3",
+  "name": "@getbento/stylelint",
+  "version": "14.5.4",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css-in-js",
@@ -15,7 +15,7 @@
     "sugarss"
   ],
   "homepage": "https://stylelint.io",
-  "repository": "stylelint/stylelint",
+  "repository": "https://github.com/getbento/stylelint",
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/stylelint"
@@ -115,12 +115,10 @@
     "css-functions-list": "^3.0.1",
     "debug": "^4.3.3",
     "execall": "^2.0.0",
-    "fast-glob": "^3.2.11",
     "fastest-levenshtein": "^1.0.12",
     "file-entry-cache": "^6.0.1",
     "get-stdin": "^8.0.0",
     "global-modules": "^2.0.0",
-    "globby": "^11.1.0",
     "globjoin": "^0.1.4",
     "html-tags": "^3.1.0",
     "ignore": "^5.2.0",
@@ -130,10 +128,10 @@
     "known-css-properties": "^0.24.0",
     "mathml-tag-names": "^2.1.3",
     "meow": "^9.0.0",
-    "micromatch": "^4.0.4",
     "normalize-path": "^3.0.0",
     "normalize-selector": "^0.2.0",
     "picocolors": "^1.0.0",
+    "picomatch": "^4.0.3",
     "postcss": "^8.4.7",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
@@ -148,6 +146,7 @@
     "supports-hyperlinks": "^2.2.0",
     "svg-tags": "^1.0.0",
     "table": "^6.8.0",
+    "tinyglobby": "^0.2.15",
     "v8-compile-cache": "^2.3.0",
     "write-file-atomic": "^4.0.1"
   },
@@ -160,8 +159,8 @@
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
     "@types/imurmurhash": "^0.1.1",
-    "@types/micromatch": "^4.0.2",
     "@types/normalize-path": "^3.0.0",
+    "@types/picomatch": "^4.0.2",
     "@types/postcss-less": "^4.0.2",
     "@types/postcss-safe-parser": "^5.0.1",
     "@types/style-search": "^0.1.3",
@@ -193,5 +192,8 @@
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "publishConfig": {
+    "@getbento:registry": "https://npm.pkg.github.com"
   }
 }

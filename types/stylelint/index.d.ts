@@ -1,6 +1,6 @@
 declare module 'stylelint' {
 	import type * as PostCSS from 'postcss';
-	import type { GlobbyOptions } from 'globby';
+	import type { GlobOptions as GlobbyOptions } from 'tinyglobby';
 	import type { cosmiconfig } from 'cosmiconfig';
 
 	namespace stylelint {
