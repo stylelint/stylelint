@@ -10,7 +10,7 @@ You can use some of these options in the [configuration object](./configure.md).
 
 ## `allowEmptyInput`
 
-CLI flag: `--allow-empty-input, --aei`
+CLI flag: `--allow-empty-input`
 
 Stylelint does not throw an error when glob pattern matches no files.
 
@@ -45,7 +45,7 @@ When using the Node.js API, the autofixed code is available as the value of the 
 
 ## `computeEditInfo`
 
-CLI flag: `--compute-edit-info, --cei`
+CLI flag: `--compute-edit-info`
 
 Compute edit information for autofixable rules.
 
@@ -143,7 +143,7 @@ The "content" strategy can be useful in cases where the modification time of you
 
 ## `maxWarnings`
 
-CLI flags: `--max-warnings, --mw`
+CLI flag: `--max-warnings`
 
 Set a limit to the number of warnings accepted.
 
@@ -156,25 +156,25 @@ If the number of warnings exceeds this value, the:
 
 ## `disableDefaultIgnores`
 
-CLI flags: `--disable-default-ignores, --di`
+CLI flag: `--disable-default-ignores`
 
 Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`.
 
 ## `globbyOptions`
 
-CLI flags: `--globby-options, --go`
+CLI flag: `--globby-options`
 
 Options passed to [globby](https://github.com/sindresorhus/globby). [More info](node-api.md#globbyoptions).
 
 ## `ignorePath`
 
-CLI flags: `--ignore-path, -i`
+CLI flag: `--ignore-path, -i`
 
 Path to a file containing patterns that describe files to ignore. The path can be absolute or relative to `process.cwd()`. You can repeat the option to provide multiple paths. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`.
 
 ## `ignoreDisables`
 
-CLI flags: `--ignore-disables, --id`
+CLI flag: `--ignore-disables`
 
 Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
 
@@ -182,7 +182,7 @@ You can use this option to see what your linting results would be like without t
 
 ## `reportDescriptionlessDisables`
 
-CLI flags: `--report-descriptionless-disables, --rdd`
+CLI flag: `--report-descriptionless-disables`
 
 Report [configuration comments][1] without a description.
 
@@ -216,7 +216,7 @@ a {}
 
 ## `reportInvalidScopeDisables`
 
-CLI flags: `--report-invalid-scope-disables, --risd`
+CLI flag: `--report-invalid-scope-disables`
 
 Report [configuration comments][1] that don't match rules that are specified in the configuration object.
 
@@ -246,7 +246,7 @@ The following pattern is _not_ reported:
 
 ## `reportNeedlessDisables`
 
-CLI flags: `--report-needless-disables, --rd`
+CLI flag: `--report-needless-disables`
 
 Report [configuration comments][1] that don't actually match any lints that need to be disabled.
 
@@ -278,7 +278,7 @@ a {}
 
 ## `reportUnscopedDisables`
 
-CLI flags: `--report-unscoped-disables, --rud`
+CLI flag: `--report-unscoped-disables`
 
 Report [configuration comments][1] that aren't scoped to one or more rules.
 
