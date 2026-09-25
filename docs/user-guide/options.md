@@ -164,7 +164,7 @@ Disable the default ignores. Stylelint will not automatically ignore the content
 
 CLI flag: `--globby-options`
 
-Options passed to [globby](https://github.com/sindresorhus/globby). [More info](node-api.md#globbyoptions).
+Options for matching the `files` globs, a subset of globby's options. [More info](node-api.md#globbyoptions).
 
 ## `ignorePath`
 

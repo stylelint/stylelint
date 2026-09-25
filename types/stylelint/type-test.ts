@@ -31,7 +31,7 @@ const options: Partial<LinterOptions> = {
 	files: ['**/**.scss'],
 	formatter: 'json',
 	globbyOptions: {
-		cwd: './',
+		dot: true,
 	},
 	cache: true,
 	cacheLocation: './stylelint.cache.json',
