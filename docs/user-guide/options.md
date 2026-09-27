@@ -111,7 +111,7 @@ CLI flags: `--color, --no-color`
 
 Force enabling/disabling of color in the formatted results.
 
-When not set, the built-in formatters use color if the terminal supports it, honoring the `NO_COLOR`, `FORCE_COLOR` and `CI` environment variables.
+When not set, the built-in formatters use color if Node.js's built-in [`styleText`](https://nodejs.org/api/util.html#utilstyletextformat-text-options) detects that the terminal supports it. `styleText` honors the `FORCE_COLOR`, `NO_COLOR` and `NODE_DISABLE_COLORS` environment variables.
 
 ## `cache`
 
