@@ -105,6 +105,14 @@ Options are:
 
 The `formatter` Node.js API option can also accept a function or a `Promise` function, whereas the `--custom-formatter` CLI flag accepts a path (either a filesystem path or a dependency) to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
 
+## `color`
+
+CLI flags: `--color, --no-color`
+
+Force enabling/disabling of color in the formatted results.
+
+When not set, the built-in formatters use color if [`node:util.styleText`](https://nodejs.org/api/util.html#utilstyletextformat-text-options) detects that the terminal supports it. `node:util.styleText` honors the `FORCE_COLOR`, `NO_COLOR` and `NODE_DISABLE_COLORS` environment variables.
+
 ## `cache`
 
 CLI flag: `--cache`

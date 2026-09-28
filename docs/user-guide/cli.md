@@ -42,7 +42,7 @@ Store the results of processed files so that Stylelint only operates on the chan
 
 ### `--color, --no-color`
 
-Force enabling/disabling of color.
+Force enabling/disabling of color. [More info](options.md#color).
 
 ### `--config-basedir`
 
