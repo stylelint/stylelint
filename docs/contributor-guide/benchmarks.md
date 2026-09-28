@@ -171,5 +171,3 @@ And simulates the following workspace sizes:
 | medium | 100   | 25    | 10        | 2       | 1               | Moderately-sized product or component library |
 | large  | 500   | 50    | 25        | 5       | 3               | Enterprise app or design system               |
 | xlarge | 1000  | 80    | 50        | 8       | 10              | Huge, sprawling monorepo                      |
-
-Reference files are design-token stylesheets that define the custom properties the generated files use. They live in `src/` and count towards the files, so they are linted as well as listed in the config's [`referenceFiles`](../user-guide/configure.md#referencefiles) property.

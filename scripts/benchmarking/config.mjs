@@ -349,10 +349,7 @@ export const CSS_TEMPLATES = [
 `,
 ];
 
-// Design-token stylesheet template for generating reference files. It defines
-// the custom properties that the CSS templates use, plus `@keyframes`,
-// `@custom-media` and `@property` rules for the `no-unknown-*` and
-// `declaration-property-value-no-unknown` rules to look up in reference roots.
+// Design-token stylesheet template for generating reference files.
 export const REFERENCE_FILE_TEMPLATE = `/* Tokens: {{name}} */
 :root {
   --blue: oklch(60% 0.15 250deg);
