@@ -18,6 +18,7 @@
  * @property {number} plugins Number of plugins to generate.
  * @property {number} extends Number of extended configs.
  * @property {number} syntaxes Number of custom syntaxes to generate.
+ * @property {number} referenceFiles Number of reference files to generate
  */
 
 /**
@@ -30,6 +31,7 @@
  * @property {PluginInfo[]} plugins Generated plugin info.
  * @property {string[]} extendConfigs Extended config paths.
  * @property {SyntaxInfo[]} syntaxes Generated custom syntax info.
+ * @property {string[]} referenceFiles Generated reference file paths.
  * @property {string} configPath Path to main stylelint config.
  */
 
@@ -112,6 +114,7 @@ export const WORKSPACE_SIZES = {
 		plugins: 0,
 		extends: 0,
 		syntaxes: 0,
+		referenceFiles: 0,
 	},
 	medium: {
 		name: 'Medium',
@@ -124,6 +127,7 @@ export const WORKSPACE_SIZES = {
 		plugins: 2,
 		extends: 1,
 		syntaxes: 1,
+		referenceFiles: 1,
 	},
 	large: {
 		name: 'Large',
@@ -136,6 +140,7 @@ export const WORKSPACE_SIZES = {
 		plugins: 5,
 		extends: 2,
 		syntaxes: 2,
+		referenceFiles: 3,
 	},
 	xlarge: {
 		name: 'X-Large',
@@ -148,6 +153,7 @@ export const WORKSPACE_SIZES = {
 		plugins: 8,
 		extends: 3,
 		syntaxes: 3,
+		referenceFiles: 10,
 	},
 };
 
@@ -343,6 +349,55 @@ export const CSS_TEMPLATES = [
 `,
 ];
 
+// Design-token stylesheet template for generating reference files. It defines
+// the custom properties that the CSS templates use, plus `@keyframes`,
+// `@custom-media` and `@property` rules for the `no-unknown-*` and
+// `declaration-property-value-no-unknown` rules to look up in reference roots.
+export const REFERENCE_FILE_TEMPLATE = `/* Tokens: {{name}} */
+:root {
+  --blue: oklch(60% 0.15 250deg);
+  --color-primary-fill-vivid: light-dark(oklch(50% 0.2 250deg), oklch(70% 0.2 250deg));
+  --length-6-8: 1.5rem;
+  --size-xl: 3rem;
+  --{{name}}-duration: 150ms;
+  --{{name}}-font-body: system-ui, sans-serif;
+  --{{name}}-radius: 0.25rem;
+  --{{name}}-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  --{{name}}-space-1: 0.25rem;
+  --{{name}}-space-2: 0.5rem;
+  --{{name}}-space-3: 1rem;
+}
+
+@property --{{name}}-progress {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@custom-media --{{name}}-narrow (width < 768px);
+@custom-media --{{name}}-wide (width >= 1200px);
+
+@keyframes {{name}}-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes {{name}}-slide-up {
+  from {
+    transform: translateY(1rem);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+`;
+
 // Available rules for config generation.
 export const AVAILABLE_RULES = [
 	'alpha-value-notation',
@@ -368,6 +423,7 @@ export const AVAILABLE_RULES = [
 	'declaration-property-max-values',
 	'declaration-property-unit-allowed-list',
 	'declaration-property-value-disallowed-list',
+	'declaration-property-value-no-unknown',
 	'font-family-name-quotes',
 	'font-family-no-duplicate-names',
 	'function-calc-no-unspaced-operator',
@@ -391,6 +447,9 @@ export const AVAILABLE_RULES = [
 	'no-duplicate-selectors',
 	'no-empty-source',
 	'no-invalid-double-slash-comments',
+	'no-unknown-animations',
+	'no-unknown-custom-media',
+	'no-unknown-custom-properties',
 	'number-max-precision',
 	'property-disallowed-list',
 	'property-no-unknown',

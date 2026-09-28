@@ -165,9 +165,11 @@ The tool:
 
 And simulates the following workspace sizes:
 
-| Size   | Files | Rules | Overrides | Plugins | Simulates                                     |
-| ------ | ----- | ----- | --------- | ------- | --------------------------------------------- |
-| small  | 20    | 10    | 0         | 0       | Personal site or small library                |
-| medium | 100   | 25    | 10        | 2       | Moderately-sized product or component library |
-| large  | 500   | 50    | 50        | 5       | Enterprise app or design system               |
-| xlarge | 1000  | 80    | 200       | 8       | Huge, sprawling monorepo                      |
+| Size   | Files | Rules | Overrides | Plugins | Reference files | Simulates                                     |
+| ------ | ----- | ----- | --------- | ------- | --------------- | --------------------------------------------- |
+| small  | 20    | 10    | 0         | 0       | 0               | Personal site or small library                |
+| medium | 100   | 25    | 10        | 2       | 1               | Moderately-sized product or component library |
+| large  | 500   | 50    | 25        | 5       | 3               | Enterprise app or design system               |
+| xlarge | 1000  | 80    | 50        | 8       | 10              | Huge, sprawling monorepo                      |
+
+Reference files are design-token stylesheets that define the custom properties the generated files use. They live in `src/` and count towards the files, so they are linted as well as listed in the config's [`referenceFiles`](../user-guide/configure.md#referencefiles) property.

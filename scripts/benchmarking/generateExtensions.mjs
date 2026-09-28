@@ -1,6 +1,8 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
+import { REFERENCE_FILE_TEMPLATE } from './config.mjs';
+
 /**
  * @typedef {Object} SyntaxInfo
  * @property {string} path Path to the syntax file.
@@ -198,4 +200,47 @@ export default {
 	await writeFile(configPath, configContent);
 
 	return configPath;
+}
+
+/**
+ * Generate a reference file, a design-token stylesheet, from
+ * `REFERENCE_FILE_TEMPLATE`.
+ *
+ * @param {string} referenceFilesDir Directory to write the reference file to.
+ * @param {number} index Reference file index for unique naming.
+ * @param {string} extension File extension, e.g. ".css", ".scss".
+ * @returns {Promise<string>} Path to the generated reference file.
+ */
+export async function generateReferenceFile(referenceFilesDir, index, extension) {
+	const name = `tokens-${index}`;
+	const referenceFileContent = REFERENCE_FILE_TEMPLATE.replace(/\{\{name\}\}/g, name);
+
+	await mkdir(referenceFilesDir, { recursive: true });
+	const referenceFilePath = join(referenceFilesDir, `${name}${extension}`);
+
+	await writeFile(referenceFilePath, referenceFileContent);
+
+	return referenceFilePath;
+}
+
+/**
+ * Generate multiple reference files, cycling through the extensions so that
+ * the config exercises both the glob and the `customSyntax` entry forms.
+ *
+ * @param {string} referenceFilesDir Directory to write reference files to.
+ * @param {number} count Number of reference files to generate.
+ * @param {string[]} extensions File extensions to cycle through.
+ * @returns {Promise<string[]>} Paths to the generated reference files.
+ */
+export async function generateReferenceFiles(referenceFilesDir, count, extensions) {
+	const referenceFiles = [];
+
+	for (let i = 0; i < count; i++) {
+		const extension = extensions[i % extensions.length];
+		const referenceFile = await generateReferenceFile(referenceFilesDir, i, extension);
+
+		referenceFiles.push(referenceFile);
+	}
+
+	return referenceFiles;
 }
