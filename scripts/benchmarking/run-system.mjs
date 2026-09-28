@@ -1,11 +1,9 @@
 /* eslint-disable no-console, n/no-process-exit */
 
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { parseArgs, styleText } from 'node:util';
 import { join } from 'node:path';
-import { parseArgs } from 'node:util';
 import process from 'node:process';
-
-import pc from 'picocolors';
 
 import {
 	BENCHMARK_ITERATIONS,
@@ -138,10 +136,10 @@ async function main() {
 			const savedData = await readFile(args.show, 'utf-8');
 			const saved = JSON.parse(savedData);
 
-			log(`  File: ${pc.cyan(args.show)}`);
+			log(`  File: ${styleText('cyan', args.show)}`);
 
 			if (saved.timestamp) {
-				log(`  Recorded: ${pc.dim(saved.timestamp)}`);
+				log(`  Recorded: ${styleText('dim', saved.timestamp)}`);
 			}
 
 			log(generateReport(saved.detailed));
@@ -150,7 +148,7 @@ async function main() {
 			process.exit(1);
 		}
 
-		log(pc.green('Done!'));
+		log(styleText('green', 'Done!'));
 		log('');
 		process.exit(0);
 	}
@@ -168,8 +166,8 @@ async function main() {
 			const currentData = await readFile(args.compareTo, 'utf-8');
 			const current = JSON.parse(currentData);
 
-			log(`  Baseline: ${pc.cyan(args.compare)}`);
-			log(`  Current:  ${pc.cyan(args.compareTo)}`);
+			log(`  Baseline: ${styleText('cyan', args.compare)}`);
+			log(`  Current:  ${styleText('cyan', args.compareTo)}`);
 
 			log(generateComparisonReport(baseline, current.detailed));
 		} catch (error) {
@@ -177,7 +175,7 @@ async function main() {
 			process.exit(1);
 		}
 
-		log(pc.green('Done!'));
+		log(styleText('green', 'Done!'));
 		log('');
 		process.exit(0);
 	}
@@ -225,7 +223,7 @@ async function main() {
 				sizeConfig: WORKSPACE_SIZES[size],
 				configPath,
 			};
-			log(`  ${pc.green('✓')} ${WORKSPACE_SIZES[size].name} workspace ready`);
+			log(`  ${styleText('green', '✓')} ${WORKSPACE_SIZES[size].name} workspace ready`);
 		}
 
 		log('');
@@ -234,14 +232,14 @@ async function main() {
 	// Run benchmarks.
 	if (!args.generateOnly) {
 		log(sectionHeader('Running Benchmarks'));
-		log(`  Modes: ${pc.cyan(args.modes.map((m) => m.toUpperCase()).join(', '))}`);
+		log(`  Modes: ${styleText('cyan', args.modes.map((m) => m.toUpperCase()).join(', '))}`);
 		log(`  Warmup: ${args.warmup}, Iterations: ${args.iterations}`);
 
 		const allResults = {};
 
 		for (const mode of args.modes) {
 			log('');
-			log(`  ${pc.cyan(mode.toUpperCase())} mode...`);
+			log(`  ${styleText('cyan', mode.toUpperCase())} mode...`);
 
 			const results = await runAllBenchmarks(workspaces, {
 				iterations: args.iterations,
@@ -267,7 +265,7 @@ async function main() {
 			const jsonReport = generateJsonReport(allResults);
 
 			await writeFile(args.save, `${JSON.stringify(jsonReport, null, 2)}\n`);
-			log(`${pc.green('✓')} Results saved to: ${pc.cyan(args.save)}`);
+			log(`${styleText('green', '✓')} Results saved to: ${styleText('cyan', args.save)}`);
 		}
 
 		// Compare against baseline if requested.
@@ -283,7 +281,7 @@ async function main() {
 		}
 	}
 
-	log(pc.green('Done!'));
+	log(styleText('green', 'Done!'));
 	log('');
 
 	// Native modules from workers may keep handles open, force exit to ensure
