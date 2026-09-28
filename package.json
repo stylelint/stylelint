@@ -146,7 +146,6 @@
     "postcss-safe-parser": "^7.1.0",
     "postcss-selector-parser": "^7.1.6",
     "postcss-value-parser": "^4.2.0",
-    "supports-hyperlinks": "^4.5.0",
     "tinyglobby": "^0.2.17",
     "write-file-atomic": "^8.0.0"
   },
