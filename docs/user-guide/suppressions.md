@@ -5,11 +5,11 @@
 
 Turning on a rule with the severity of `error` can be difficult when an established codebase already contains many problems that can't be auto-fixed. You can suppress those legacy problems so the rule is enforced only for new code, and then clear the backlog at your own pace.
 
-## `--suppress [<rule>]`
+## `--suppress[=<rule>]`
 
 Suppress problems that have the severity of `error` and record them in a file.
 
-If no rule is specified, all problems are suppressed. Otherwise, only problems with the given rules are suppressed, e.g., `--suppress rule1 --suppress rule2`.
+If no rule is specified, all problems are suppressed. Otherwise, only problems with the given rules are suppressed, e.g., `--suppress=rule1 --suppress=rule2`.
 
 Subsequent runs without the `--suppress` flag will not report these problems, unless there are more problems for the same rule in the same file.
 

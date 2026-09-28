@@ -2,7 +2,7 @@
 
 Stylelint expects a configuration object.
 
-Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` file that exports one. You can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) options to short-circuit the search.
+Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` file that exports one. You can use the [`--config`](cli.md#--config) or [`configFile`](options.md#configfile) options to short-circuit the search.
 
 The style of export depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js, e.g., `"type": "module"` in your `package.json` file. You can use the `stylelint.config.mjs` or `stylelint.config.cjs` filename to be explicit.
 

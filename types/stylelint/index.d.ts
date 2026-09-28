@@ -1,5 +1,4 @@
 import type * as PostCSS from 'postcss';
-import type { Options as GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
 type ConfigExtends = string | string[];
@@ -1178,6 +1177,41 @@ declare namespace stylelint {
 	};
 
 	/**
+	 * Options for matching `files`, a subset of globby's options.
+	 */
+	export type GlobbyOptions = {
+		/**
+		 * Whether to expand braces, e.g. `{a,b}`.
+		 * Defaults to `true`.
+		 */
+		braceExpansion?: boolean;
+		/**
+		 * Whether to match case-sensitively.
+		 * Defaults to `true`.
+		 */
+		caseSensitiveMatch?: boolean;
+		/**
+		 * Whether to match files and directories whose names begin with a dot.
+		 * Defaults to `false`.
+		 */
+		dot?: boolean;
+		/**
+		 * Whether to support extglobs, e.g. `+(a|b)`.
+		 * Defaults to `true`.
+		 */
+		extglob?: boolean;
+		/**
+		 * Whether to traverse symbolic links to directories.
+		 * Defaults to `true`.
+		 */
+		followSymbolicLinks?: boolean;
+		/**
+		 * Globs of files to exclude, relative to `cwd`.
+		 */
+		ignore?: OneOrMany<string>;
+	};
+
+	/**
 	 * Linter options.
 	 */
 	export type LinterOptions = {
@@ -1214,6 +1248,11 @@ declare namespace stylelint {
 		/** @internal */
 		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
+		/**
+		 * Whether the formatter uses color. When not set, the built-in
+		 * formatters detect whether the terminal supports color.
+		 */
+		color?: boolean;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
 		computeEditInfo?: boolean;
@@ -1375,6 +1414,10 @@ declare namespace stylelint {
 			maxWarnings: number;
 			foundWarnings: number;
 		};
+		/**
+		 * The `color` option, present when it was set.
+		 */
+		color?: boolean;
 		reportedDisables: DisableOptionsReport;
 		descriptionlessDisables?: DisableOptionsReport;
 		needlessDisables?: DisableOptionsReport;
