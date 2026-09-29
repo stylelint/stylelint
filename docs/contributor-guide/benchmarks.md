@@ -166,8 +166,8 @@ The tool:
 And simulates the following workspace sizes:
 
 | Size   | Files | Rules | Overrides | Plugins | Reference files | Simulates                                     |
-| ------ | ----- | ----- | --------- | ------- | --------------- | --------------------------------------------- |
-| small  | 20    | 10    | 0         | 0       | 0               | Personal site or small library                |
-| medium | 100   | 25    | 10        | 2       | 1               | Moderately-sized product or component library |
-| large  | 500   | 50    | 25        | 5       | 3               | Enterprise app or design system               |
-| xlarge | 1000  | 80    | 50        | 8       | 10              | Huge, sprawling monorepo                      |
+| ------ | ----: | ----: | --------: | ------: | --------------: | --------------------------------------------- |
+| small  |    20 |    10 |         0 |       0 |               0 | Personal site or small library                |
+| medium |   100 |    25 |        10 |       2 |               1 | Moderately-sized product or component library |
+| large  |   500 |    50 |        25 |       5 |               3 | Enterprise app or design system               |
+| xlarge |  1000 |    80 |        50 |       8 |              10 | Huge, sprawling monorepo                      |
