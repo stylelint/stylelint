@@ -22,7 +22,7 @@ Disallow deprecated things with these `no-deprecated` rules.
 | [`declaration-property-value-keyword-no-deprecated`](../../lib/rules/declaration-property-value-keyword-no-deprecated/README.md)<br/>Disallow deprecated keywords for properties within declarations. | ✅ | 🔧 |
 | [`media-type-no-deprecated`](../../lib/rules/media-type-no-deprecated/README.md)<br/>Disallow deprecated media types. | ✅ | |
 | [`property-no-deprecated`](../../lib/rules/property-no-deprecated/README.md)<br/>Disallow deprecated properties. | ✅ | 🔧 |
-| [`selector-no-deprecated`](../../lib/rules/selector-no-deprecated/README.md)<br/>Disallow deprecated selectors. | | 🔧 |
+| [`selector-no-deprecated`](../../lib/rules/selector-no-deprecated/README.md)<br/>Disallow deprecated selectors. | ✅ | 🔧 |
 <!-- prettier-ignore-end -->
 
 ### Descending
@@ -69,7 +69,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`at-charset-rule-no-invalid`](../../lib/rules/at-charset-rule-no-invalid/README.md)<br/>Disallow invalid `@charset` rules. | | |
+| [`at-charset-rule-no-invalid`](../../lib/rules/at-charset-rule-no-invalid/README.md)<br/>Disallow invalid `@charset` rules. | ✅ | |
 | [`at-rule-prelude-no-invalid`](../../lib/rules/at-rule-prelude-no-invalid/README.md)<br/>Disallow invalid preludes for at-rules. | ✅ | |
 | [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)<br/>Disallow invalid hex colors. | | |
 | [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md)<br/>Disallow invalid unspaced operator within `calc` functions. | ✅ | 🔧 |
@@ -79,7 +79,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)<br/>Disallow invalid double-slash comments. | ✅ | |
 | [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md)<br/>Disallow invalid position `@import` rules. | ✅ | |
 | [`no-invalid-position-declaration`](../../lib/rules/no-invalid-position-declaration/README.md)<br/>Disallow invalid position declarations. | ✅ | |
-| [`selector-no-invalid`](../../lib/rules/selector-no-invalid/README.md)<br/>Disallow invalid selectors. | | |
+| [`selector-no-invalid`](../../lib/rules/selector-no-invalid/README.md)<br/>Disallow invalid selectors. | ✅ | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
 | [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
 | [`value-no-invalid`](../../lib/rules/value-no-invalid/README.md)<br/>Disallow invalid values. | ✅ | |
@@ -135,7 +135,7 @@ Disallow unmatchable things with these `no-unmatchable` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md)<br/>Disallow unmatchable An+B selectors. | ✅ | |
-| [`selector-no-unmatchable`](../../lib/rules/selector-no-unmatchable/README.md)<br/>Disallow unmatchable selectors. | | |
+| [`selector-no-unmatchable`](../../lib/rules/selector-no-unmatchable/README.md)<br/>Disallow unmatchable selectors. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Unknown
