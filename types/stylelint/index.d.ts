@@ -678,6 +678,11 @@ declare namespace stylelint {
 			}
 		>;
 		'declaration-no-important': CoreRule<true>;
+		'declaration-property-custom-property-allowed-list': CoreRule<
+			Record<string, OneOrMany<StringOrRegex>>,
+			{},
+			RejectedMessage<[property: string, customProperty: string]>
+		>;
 		'declaration-property-max-values': CoreRule<
 			Record<string, number>,
 			{},

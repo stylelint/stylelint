@@ -206,6 +206,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | | | |
 | :-- | :-: | :-: |
 | [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md)<br/>Disallow `!important` within declarations. | | |
+| [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md)<br/>Specify a list of allowed property and custom property pairs within declarations. | | |
 | [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list/README.md)<br/>Specify a list of allowed property and unit pairs within declarations. | | |
 | [`declaration-property-unit-disallowed-list`](../../lib/rules/declaration-property-unit-disallowed-list/README.md)<br/>Specify a list of disallowed property and unit pairs within declarations. | | |
 | [`declaration-property-value-allowed-list`](../../lib/rules/declaration-property-value-allowed-list/README.md)<br/>Specify a list of allowed property and value pairs within declarations. | | |
