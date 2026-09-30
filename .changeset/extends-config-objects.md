@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: `Config` type to accept configuration objects in `extends`
+Fixed: `Config['extends']` type for configuration objects
