@@ -229,8 +229,6 @@ declare namespace stylelint {
 		/**
 		 * Functions that allow to hook into Stylelint's pipeline
 		 *
-		 * @experimental
-		 *
 		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
 		 */
 		processors?: ConfigProcessors;
@@ -387,7 +385,7 @@ declare namespace stylelint {
 	export type Loader = string | PostCSS.Plugin | PostCSS.PluginCreator<any>;
 
 	/**
-	 * WARNING: This is an experimental feature. The API may change in the future.
+	 * A processor.
 	 */
 	export type Processor = () => {
 		name: string;

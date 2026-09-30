@@ -720,13 +720,11 @@ Overrides have higher precedence than regular configurations. Multiple overrides
 
 ## `processors`
 
-> [!WARNING]
-> This is an experimental feature. The API may change in the future.
->
-> This `processors` property was [removed in 15.0.0](../migration-guide/to-15.md#removed-processors-configuration-property), but has revived for post-processing. Note that this is different from the previous behavior.
+> [!NOTE]
+> This `processors` property was [removed in 15.0.0](../migration-guide/to-15.md#removed-processors-configuration-property), but was revived for post-processing. Note that this is different from the previous behavior.
 
 Processors are functions that hook into Stylelint's pipeline.
-Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
+A processor returns an object with two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
 
 For example, you can use a processor to remap the result location. Below processor expands the warning location for 'color-no-hex' rule to the entire CSS declaration. A warning for a hex color in a rule like `a { color: #111; }` would originally point to the hex color itself (e.g., line 1, columns 12-16). After processing, the warning will encompass the entire declaration (e.g., line 1, columns 5-16).
 
