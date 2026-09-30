@@ -1,14 +1,11 @@
 /* eslint-disable no-console */
 import { argv, exit } from 'node:process';
-import { parseArgs } from 'node:util';
+import { parseArgs, styleText } from 'node:util';
 import { readFile } from 'node:fs/promises';
 
 import { Bench } from 'tinybench';
-import picocolors from 'picocolors';
 
 import stylelint from '../../lib/index.mjs';
-
-const { bold, red, yellow } = picocolors;
 
 const DEFAULT_SOURCES = [
 	'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css',
@@ -148,14 +145,16 @@ let contents;
 try {
 	contents = await Promise.all(sources.map(readSource));
 } catch (error) {
-	console.error(bold(red(`Failed to read source: ${error.message}`)));
+	console.error(styleText(['bold', 'red'], `Failed to read source: ${error.message}`));
 	exit(1);
 }
 
 const source = contents.join('\n\n');
 const css = `${source}\n\n`.repeat(DUPLICATE_SOURCE_N_TIMES);
 
-console.log(`${bold('Sources')}: ${sources.join(', ')} (×${DUPLICATE_SOURCE_N_TIMES})`);
+console.log(
+	`${styleText('bold', 'Sources')}: ${sources.join(', ')} (×${DUPLICATE_SOURCE_N_TIMES})`,
+);
 
 const TASK_NAME = 'rule test';
 const bench = new Bench({
@@ -168,12 +167,12 @@ const bench = new Bench({
 
 		results.forEach(({ parseErrors, invalidOptionWarnings, warnings }) => {
 			parseErrors.forEach(({ text }) => {
-				console.error(bold(red(`>> ${text}`)));
+				console.error(styleText(['bold', 'red'], `>> ${text}`));
 			});
 			invalidOptionWarnings.forEach(({ text }) => {
-				console.warn(bold(yellow(`>> ${text}`)));
+				console.warn(styleText(['bold', 'yellow'], `>> ${text}`));
 			});
-			console.log(`${bold('Warnings')}: ${warnings.length}`);
+			console.log(`${styleText('bold', 'Warnings')}: ${warnings.length}`);
 		});
 	},
 });
@@ -184,6 +183,6 @@ await bench.run();
 
 const { mean, sd } = bench.getTask(TASK_NAME).result.latency;
 
-console.log(`${bold('Mean')}: ${mean} ms`);
-console.log(`${bold('Deviation')}: ${sd} ms`);
+console.log(`${styleText('bold', 'Mean')}: ${mean} ms`);
+console.log(`${styleText('bold', 'Deviation')}: ${sd} ms`);
 /* eslint-enable no-console */
