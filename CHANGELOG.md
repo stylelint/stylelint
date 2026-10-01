@@ -1,5 +1,10 @@
 # Changelog
 
+## 17.16.0 - 2026-10-01
+
+- Fixed: `property-layout-mappings` and `unit-layout-mappings` false negatives for uppercase property names and units ([#9485](https://github.com/stylelint/stylelint/pull/9485)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+- Fixed: `value-keyword-layout-mappings` false positives for `caption-side` ([#9483](https://github.com/stylelint/stylelint/pull/9483)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+
 ## 17.15.0 - 2026-09-04
 
 It adds 1 new rule and 2 new rule options, and fixes 4 bugs.
