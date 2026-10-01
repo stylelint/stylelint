@@ -625,7 +625,7 @@ For example, with `stylelint-config-standard`, then layer `myExtendableConfig` o
 }
 ```
 
-The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d. It can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
+The value of `"extends"` is a configuration object, a "locater", or an array of either. A "locater" is ultimately `require()`d. It can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
 
 - the name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
