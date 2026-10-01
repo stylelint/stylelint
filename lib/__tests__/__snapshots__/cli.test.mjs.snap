@@ -66,6 +66,13 @@ exports[`CLI --help 1`] = `
 
       A module name or path to a JS file exporting a PostCSS-compatible syntax.
 
+    --concurrency <count>
+
+      Lint files in parallel using worker threads. The count is either a
+      positive integer or "auto", which sizes the worker pool based on the
+      available CPU cores and the number of files. By default, files are
+      linted in the main thread.
+
     --stdin
 
       Accept stdin input even if it is empty.
