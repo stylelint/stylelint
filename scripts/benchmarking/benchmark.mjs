@@ -6,10 +6,11 @@
 /** @typedef {import('./config.mjs').RawResult} RawResult */
 
 import { fork, spawn } from 'node:child_process';
-import { Worker } from 'node:worker_threads';
 import { join } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import process from 'node:process';
+
+import { PEAK_MEMORY_FD } from './config.mjs';
 
 /**
  * The result for a single benchmark iteration, before aggregation. Either
@@ -25,45 +26,28 @@ import process from 'node:process';
  * @property {number} [duration]
  */
 
-const MEMORY_WORKER_PATH = join(import.meta.dirname, 'memoryWorker.mjs');
+const PRELOAD_EXEC_ARGV = ['--import', import.meta.resolve('./peakMemoryPreload.mjs')];
+// Index PEAK_MEMORY_FD is the pipe the preload writes the child's peak memory to.
+const CHILD_STDIO = ['ignore', 'pipe', 'pipe', 'pipe'];
 const API_RUNNER_PATH = join(import.meta.dirname, 'apiRunner.mjs');
 const CLI_PATH = join(import.meta.dirname, '../..', 'bin', 'stylelint.mjs');
 const PRODUCTION_ENV = { ...process.env, NODE_ENV: 'production' };
 
 /**
- * Get peak memory usage from the memory worker. If the worker doesn't respond
- * within a reasonable time, returns 0 to avoid hanging the benchmark.
- *
- * @param {Worker} memoryWorker
- */
-function getMemoryResult(memoryWorker) {
-	return new Promise((resolve) => {
-		const timeout = setTimeout(() => resolve(0), 5000);
-
-		memoryWorker.once('message', (msg) => {
-			clearTimeout(timeout);
-			resolve(msg.type === 'result' ? msg.peakMemory : 0);
-		});
-		memoryWorker.postMessage({ type: 'stop' });
-	});
-}
-
-/**
  * Run a child process and track its duration and memory usage.
  *
  * @param {import('child_process').ChildProcess} child
- * @param {Worker} memoryWorker
  * @param {() => ParsedResult | null} parseResults
  * @param {string} name
  * @returns {Promise<RawResult>}
  */
-function runChildProcess(child, memoryWorker, parseResults, name) {
+function runChildProcess(child, parseResults, name) {
 	return new Promise((resolve, reject) => {
 		let stderr = '';
+		let peakMemoryOutput = '';
 		let startTime = 0;
 
 		child.on('spawn', () => {
-			memoryWorker.postMessage({ type: 'start', pid: child.pid });
 			startTime = performance.now();
 		});
 
@@ -71,23 +55,23 @@ function runChildProcess(child, memoryWorker, parseResults, name) {
 			stderr += data.toString();
 		});
 
-		child.on('error', (err) => {
-			memoryWorker.postMessage({ type: 'stop' });
-			reject(err);
+		child.stdio[PEAK_MEMORY_FD]?.on('data', (data) => {
+			peakMemoryOutput += data.toString();
 		});
 
-		child.on('close', async (code) => {
+		child.on('error', reject);
+
+		child.on('close', (code) => {
 			const elapsed = performance.now() - startTime;
 			const results = parseResults();
 
 			if (!results) {
-				memoryWorker.postMessage({ type: 'stop' });
 				reject(new Error(`${name} exited with code ${code}: ${stderr}`));
 
 				return;
 			}
 
-			const peakMemory = await getMemoryResult(memoryWorker);
+			const peakMemory = Number(peakMemoryOutput);
 
 			resolve({
 				duration: results.duration ?? elapsed,
@@ -104,15 +88,15 @@ function runChildProcess(child, memoryWorker, parseResults, name) {
  * Run the benchmark against the Stylelint API in a child process.
  *
  * @param {WorkspaceInfo} workspace Workspace info.
- * @param {Worker} memoryWorker Worker to track memory usage.
  * @returns {Promise<RawResult>} Aggregated benchmark results.
  */
-function runApiBenchmark(workspace, memoryWorker) {
+function runApiBenchmark(workspace) {
 	const workspacePath = workspace.path.replace(/\\/g, '/');
 	let lintResult = null;
 
 	const child = fork(API_RUNNER_PATH, [workspacePath, workspace.configPath], {
-		stdio: ['ignore', 'pipe', 'pipe', 'ipc'],
+		execArgv: PRELOAD_EXEC_ARGV,
+		stdio: [...CHILD_STDIO, 'ipc'],
 		env: PRODUCTION_ENV,
 	});
 
@@ -126,17 +110,16 @@ function runApiBenchmark(workspace, memoryWorker) {
 		}
 	});
 
-	return runChildProcess(child, memoryWorker, () => lintResult, 'API runner');
+	return runChildProcess(child, () => lintResult, 'API runner');
 }
 
 /**
  * Run the benchmark against the Stylelint CLI in a child process.
  *
  * @param {WorkspaceInfo} workspace Workspace info.
- * @param {Worker} memoryWorker Worker to track memory usage.
  * @returns {Promise<RawResult>} Aggregated benchmark results.
  */
-function runCliBenchmark(workspace, memoryWorker) {
+function runCliBenchmark(workspace) {
 	const workspacePath = workspace.path.replace(/\\/g, '/');
 	let stdout = '';
 	let stderr = '';
@@ -144,6 +127,7 @@ function runCliBenchmark(workspace, memoryWorker) {
 	const child = spawn(
 		process.execPath,
 		[
+			...PRELOAD_EXEC_ARGV,
 			CLI_PATH,
 			`${workspacePath}/src/**/*.{css,scss,less,html,vue}`,
 			'--config',
@@ -152,7 +136,7 @@ function runCliBenchmark(workspace, memoryWorker) {
 			'--formatter',
 			'json',
 		],
-		{ stdio: ['ignore', 'pipe', 'pipe'], env: PRODUCTION_ENV },
+		{ stdio: CHILD_STDIO, env: PRODUCTION_ENV },
 	);
 
 	child.stdout.on('data', (data) => {
@@ -165,7 +149,6 @@ function runCliBenchmark(workspace, memoryWorker) {
 
 	return runChildProcess(
 		child,
-		memoryWorker,
 		() => {
 			try {
 				const results = JSON.parse(stderr || stdout);
@@ -245,21 +228,17 @@ function calculateStats(results, workspace, iterations) {
  *
  * @param {WorkspaceInfo} workspace Info about the workspace to benchmark.
  * @param {BenchmarkOptions} options Benchmark options.
- * @param {Worker} memoryWorker Worker to track memory usage.
  * @returns {Promise<BenchmarkResult>}
  */
-export async function runBenchmark(workspace, { iterations, warmup, mode, logger }, memoryWorker) {
-	// Warmup iterations, which are discarded.
-	const run =
-		mode === 'api'
-			? () => runApiBenchmark(workspace, memoryWorker)
-			: () => runCliBenchmark(workspace, memoryWorker);
+export async function runBenchmark(workspace, { iterations, warmup, mode, logger }) {
+	const run = mode === 'api' ? runApiBenchmark : runCliBenchmark;
 
+	// Warmup iterations, which are discarded.
 	if (warmup > 0) {
 		logger(`  Warmup: ${warmup} iterations...`);
 
 		for (let i = 0; i < warmup; i++) {
-			await run();
+			await run(workspace);
 		}
 	}
 
@@ -268,7 +247,7 @@ export async function runBenchmark(workspace, { iterations, warmup, mode, logger
 	const results = [];
 
 	for (let i = 0; i < iterations; i++) {
-		const result = await run();
+		const result = await run(workspace);
 
 		results.push(result);
 		logger(`    Iteration ${i + 1}: ${result.duration.toFixed(2)}ms`);
@@ -285,16 +264,11 @@ export async function runBenchmark(workspace, { iterations, warmup, mode, logger
  * @returns {Promise<Record<WorkspaceSize, BenchmarkResult>>} Map of size to benchmark results.
  */
 export async function runAllBenchmarks(workspaces, options) {
-	const memoryWorker = new Worker(MEMORY_WORKER_PATH);
 	const results = {};
 
-	try {
-		for (const [size, workspace] of Object.entries(workspaces)) {
-			options.logger?.(`\nBenchmarking ${workspace.sizeConfig.name} workspace...`);
-			results[size] = await runBenchmark(workspace, options, memoryWorker);
-		}
-	} finally {
-		await memoryWorker.terminate();
+	for (const [size, workspace] of Object.entries(workspaces)) {
+		options.logger?.(`\nBenchmarking ${workspace.sizeConfig.name} workspace...`);
+		results[size] = await runBenchmark(workspace, options);
 	}
 
 	return results;

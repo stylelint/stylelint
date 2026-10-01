@@ -283,10 +283,6 @@ async function main() {
 
 	log(styleText('green', 'Done!'));
 	log('');
-
-	// Native modules from workers may keep handles open, force exit to ensure
-	// the process doesn't hang after completion.
-	process.exit(0);
 }
 
 main().catch((error) => {
