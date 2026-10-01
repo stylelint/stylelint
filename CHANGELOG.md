@@ -2,6 +2,8 @@
 
 ## 17.16.0 - 2026-10-01
 
+It fixes 2 bugs in the `layout-mappings` rules. This will likely be the last `17.x` release, as we prepare for `18.0.0`.
+
 - Fixed: `property-layout-mappings` and `unit-layout-mappings` false negatives for uppercase property names and units ([#9485](https://github.com/stylelint/stylelint/pull/9485)) ([@giaBaoJS](https://github.com/giaBaoJS)).
 - Fixed: `value-keyword-layout-mappings` false positives for `caption-side` ([#9483](https://github.com/stylelint/stylelint/pull/9483)) ([@giaBaoJS](https://github.com/giaBaoJS)).
 
