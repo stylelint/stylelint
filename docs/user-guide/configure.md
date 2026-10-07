@@ -614,22 +614,22 @@ For example, to extend the [stylelint-config-standard](https://github.com/stylel
 
 You can extend an array of existing configurations, with each item in the array taking precedence over the previous item (so the second item overrides rules in the first, the third item overrides rules in the first and the second, and so on, the last item overrides everything else).
 
-For example, with `stylelint-config-standard`, then layer `myExtendableConfig` on top of that, and then override the `alpha-value-notation` rule:
+For example, with `stylelint-config-standard`, then layer `myExtendableConfig.js` on top of that, and then override the `alpha-value-notation` rule:
 
 ```json
 {
-  "extends": ["stylelint-config-standard", "./myExtendableConfig"],
+  "extends": ["stylelint-config-standard", "./myExtendableConfig.js"],
   "rules": {
     "alpha-value-notation": "number"
   }
 }
 ```
 
-The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d. It can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
+The value of `extends` is a "locater" (or an array of "locaters") that is resolved like an [`import` specifier](https://nodejs.org/api/esm.html#import-specifiers), so a path must include its filename and [extension](https://nodejs.org/api/esm.html#mandatory-file-extensions). That means a "locater" can be:
 
 - the name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
-- a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
+- a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB.js"`, we'll look for `configB.js` relative to configA).
 
 You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#configs) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-config).
 
