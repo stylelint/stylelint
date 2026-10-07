@@ -625,7 +625,7 @@ For example, with `stylelint-config-standard`, then layer `myExtendableConfig.js
 }
 ```
 
-The value of `"extends"` is a "locater" (or an array of "locaters") that is resolved like an [`import` specifier](https://nodejs.org/api/esm.html#import-specifiers), so a path must include its filename and [extension](https://nodejs.org/api/esm.html#mandatory-file-extensions). That means a "locater" can be:
+The value of `extends` is a "locater" (or an array of "locaters") that is resolved like an [`import` specifier](https://nodejs.org/api/esm.html#import-specifiers), so a path must include its filename and [extension](https://nodejs.org/api/esm.html#mandatory-file-extensions). That means a "locater" can be:
 
 - the name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
