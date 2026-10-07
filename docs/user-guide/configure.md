@@ -614,7 +614,7 @@ For example, to extend the [stylelint-config-standard](https://github.com/stylel
 
 You can extend an array of existing configurations, with each item in the array taking precedence over the previous item (so the second item overrides rules in the first, the third item overrides rules in the first and the second, and so on, the last item overrides everything else).
 
-For example, with `stylelint-config-standard`, then layer `myExtendableConfig` on top of that, and then override the `alpha-value-notation` rule:
+For example, with `stylelint-config-standard`, then layer `myExtendableConfig.js` on top of that, and then override the `alpha-value-notation` rule:
 
 ```json
 {
