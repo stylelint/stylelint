@@ -662,11 +662,6 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[shorthand: string, property: string]>
 		>;
-		'declaration-block-single-line-max-declarations': CoreRule<
-			number,
-			{},
-			ExpectedMessage<[maximum: number]>
-		>;
 		'declaration-empty-line-before': CoreRule<
 			'always' | 'never',
 			{

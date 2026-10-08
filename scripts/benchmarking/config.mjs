@@ -414,7 +414,6 @@ export const AVAILABLE_RULES = [
 	'custom-property-empty-line-before',
 	'declaration-block-no-duplicate-properties',
 	'declaration-block-no-shorthand-property-overrides',
-	'declaration-block-single-line-max-declarations',
 	'declaration-empty-line-before',
 	'declaration-no-important',
 	'declaration-property-max-values',

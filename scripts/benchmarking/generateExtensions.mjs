@@ -159,7 +159,6 @@ export async function generateExtendedConfig(configDir, index, ruleCount) {
 	// Add some rules from the available rules list.
 	const availableRules = [
 		'color-hex-length',
-		'declaration-block-single-line-max-declarations',
 		'function-name-case',
 		'length-zero-no-unit',
 		'number-max-precision',
@@ -173,8 +172,6 @@ export async function generateExtendedConfig(configDir, index, ruleCount) {
 
 		if (rule === 'color-hex-length') {
 			rules[rule] = 'short';
-		} else if (rule === 'declaration-block-single-line-max-declarations') {
-			rules[rule] = 1;
 		} else if (rule === 'number-max-precision') {
 			rules[rule] = 4;
 		} else if (rule === 'value-keyword-case') {
