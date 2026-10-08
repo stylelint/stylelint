@@ -13,6 +13,7 @@ import { AVAILABLE_RULES, CSS_TEMPLATES, WORKSPACE_SIZES } from './config.mjs';
 import {
 	generateExtendedConfig,
 	generatePlugins,
+	generateReferenceFiles,
 	generateSyntaxes,
 } from './generateExtensions.mjs';
 
@@ -42,6 +43,9 @@ const DEFAULT_SEED = 0x6c696e74; // "lint" in hex.
 
 /** Directory names used for workspace structure. */
 const DIR_NAMES = ['components', 'features', 'layouts', 'pages', 'shared', 'styles', 'utils'];
+
+/** Directory for reference files, relative to the workspace root. */
+const REFERENCE_FILES_DIR = 'src/tokens';
 
 /** Seeded random number generator. */
 const random = createSeededRandom(DEFAULT_SEED);
@@ -134,6 +138,7 @@ async function generateDirectoryTree(baseDir, depth, maxDepth, dirsPerLevel) {
  * @param {Array} options.extends Extended config paths.
  * @param {string[]} options.files List of files for override targeting.
  * @param {Array} options.syntaxes Custom syntax info.
+ * @param {string[]} options.referenceFiles Reference file paths.
  * @returns {Object} Stylelint config.
  */
 function generateConfig({
@@ -144,6 +149,7 @@ function generateConfig({
 	extends: extendConfigs,
 	files,
 	syntaxes,
+	referenceFiles,
 }) {
 	const config = {
 		rules: {},
@@ -193,6 +199,19 @@ function generateConfig({
 	// Add extends.
 	if (extendConfigs && extendConfigs.length > 0) {
 		config.extends = extendConfigs;
+	}
+
+	// Add reference files, one entry per extension. Extensions with a custom
+	// syntax use the object form to name that syntax.
+	if (referenceFiles.length > 0) {
+		const extensions = [...new Set(referenceFiles.map(extname))];
+
+		config.referenceFiles = extensions.map((extension) => {
+			const pattern = `${REFERENCE_FILES_DIR}/*${extension}`;
+			const syntax = syntaxes.find((candidate) => candidate.extension === extension);
+
+			return syntax ? { files: pattern, customSyntax: syntax.path } : pattern;
+		});
 	}
 
 	// Add custom syntax overrides. Each syntax gets its own override for its
@@ -308,8 +327,17 @@ export async function generateWorkspace(workspacePath, size, options = {}) {
 	// custom syntaxes.
 	const extensions = ['.css', ...syntaxes.map((s) => s.extension)];
 
+	// Generate reference files. They live in src/ and count towards the file
+	// total, so they are linted as well as referenced.
+	const referenceFilesDir = join(workspacePath, REFERENCE_FILES_DIR);
+	const referenceFiles = await generateReferenceFiles(
+		referenceFilesDir,
+		sizeConfig.referenceFiles,
+		extensions,
+	);
+
 	// Generate CSS files.
-	const files = [];
+	const files = [...referenceFiles];
 	const filesPerDir = Math.ceil(sizeConfig.files / directories.length);
 
 	for (const dir of directories) {
@@ -350,6 +378,7 @@ export async function generateWorkspace(workspacePath, size, options = {}) {
 		extends: extendConfigs,
 		files,
 		syntaxes,
+		referenceFiles,
 	});
 
 	const configPath = join(workspacePath, 'stylelint.config.mjs');
@@ -366,7 +395,7 @@ export default ${JSON.stringify(config, null, 2)};
 		`    ${styleText('green', '✓')} Config: ${sizeConfig.rules} rules, ${config.overrides?.length ?? 0} overrides`,
 	);
 	log(
-		`    ${styleText('green', '✓')} Plugins: ${plugins.length}, Extends: ${extendConfigs.length}, Syntaxes: ${syntaxes.length}`,
+		`    ${styleText('green', '✓')} Plugins: ${plugins.length}, Extends: ${extendConfigs.length}, Syntaxes: ${syntaxes.length}, Reference files: ${referenceFiles.length}`,
 	);
 
 	return {
@@ -378,6 +407,7 @@ export default ${JSON.stringify(config, null, 2)};
 		plugins,
 		extendConfigs,
 		syntaxes,
+		referenceFiles,
 		configPath,
 	};
 }
