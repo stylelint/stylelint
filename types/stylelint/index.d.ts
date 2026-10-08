@@ -230,8 +230,6 @@ declare namespace stylelint {
 		/**
 		 * Functions that allow to hook into Stylelint's pipeline
 		 *
-		 * @experimental
-		 *
 		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
 		 */
 		processors?: ConfigProcessors;
@@ -388,7 +386,7 @@ declare namespace stylelint {
 	export type Loader = string | PostCSS.Plugin | PostCSS.PluginCreator<any>;
 
 	/**
-	 * WARNING: This is an experimental feature. The API may change in the future.
+	 * A processor.
 	 */
 	export type Processor = () => {
 		name: string;
@@ -679,6 +677,11 @@ declare namespace stylelint {
 			}
 		>;
 		'declaration-no-important': CoreRule<true>;
+		'declaration-property-custom-property-allowed-list': CoreRule<
+			Record<string, OneOrMany<StringOrRegex>>,
+			{},
+			RejectedMessage<[property: string, customProperty: string]>
+		>;
 		'declaration-property-max-values': CoreRule<
 			Record<string, number>,
 			{},
@@ -714,7 +717,7 @@ declare namespace stylelint {
 			{
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 			},
-			RejectedMessage<[property: string, value: string]>
+			RejectedMessage<[property: string, value: string, varFunctions: string[]]>
 		>;
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
