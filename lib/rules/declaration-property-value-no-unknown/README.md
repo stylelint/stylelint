@@ -11,7 +11,10 @@ a { top: unknown; }
 
 This rule considers values for properties defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-This rule checks the values of custom properties defined using `@property` within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property.
+For custom properties declared or defined within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property, this rule checks the values of:
+
+- declarations that contain `var()`, by substituting each declared value of the custom property
+- custom properties defined using `@property`
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what value syntax is known for a property, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
@@ -31,7 +34,7 @@ This rule checks whether a value is known to its property. You can use [`value-n
 > - [`string-no-newline`](../string-no-newline/README.md)
 > - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
-This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the unknown value.
+This rule supports up to 3 [message arguments](../../../docs/user-guide/configure.md#message): the property name, the unknown value, and the `var()` functions it was substituted for.
 
 Prior art:
 
@@ -59,6 +62,11 @@ a { top: red; }
 a { top: unknown; }
 ```
 
+<!-- prettier-ignore -->
+```css
+a { --foo: red; top: var(--foo); }
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -69,6 +77,11 @@ a { top: 0; }
 <!-- prettier-ignore -->
 ```css
 a { top: var(--foo); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { --foo: 0; top: var(--foo); }
 ```
 
 ## Optional secondary options
