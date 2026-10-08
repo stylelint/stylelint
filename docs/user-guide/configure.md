@@ -586,9 +586,9 @@ Each entry can be:
 
 - a string or array of glob patterns specifying which files to parse
 - an object that
- - must contain a `files` property (a string or an array of glob patterns)
- - may contain a [`customSyntax`](#customsyntax) property
- - may contain a `loader` property (a PostCSS plugin to bundle CSS)
+  - must contain a `files` property (a string or an array of glob patterns)
+  - may contain a [`customSyntax`](#customsyntax) property
+  - may contain a `loader` property (a PostCSS plugin to bundle CSS)
 
 You can also use `referenceFiles` inside [`overrides`](#overrides) to scope reference files to specific file patterns.
 
@@ -999,23 +999,18 @@ Specify the formatter to format your results.
 Options are:
 
 - The name of a provided formatter.
-
   ```json
   {
     "formatter": "string"
   }
   ```
-
 - A path to a custom formatter function.
-
   ```json
   {
     "formatter": "path/to/customformatter.js"
   }
   ```
-
 - A formatter function.
-
   ```js
   export default {
     formatter: () => {
