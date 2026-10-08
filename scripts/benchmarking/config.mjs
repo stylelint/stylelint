@@ -489,3 +489,6 @@ export const BENCHMARK_WARMUP = 2;
 
 /** @type {BenchmarkMode[]} */
 export const DEFAULT_MODES = ['api', 'cli'];
+
+// The fd the preload writes a child's peak memory to; benchmark.mjs opens it as a pipe.
+export const PEAK_MEMORY_FD = 3;
