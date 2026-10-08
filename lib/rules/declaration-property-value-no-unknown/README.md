@@ -34,7 +34,7 @@ This rule checks whether a value is known to its property. You can use [`value-n
 > - [`string-no-newline`](../string-no-newline/README.md)
 > - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
-This rule supports up to 3 [message arguments](../../../docs/user-guide/configure.md#message): the property name, the unknown value, and the `var()` function it was substituted for.
+This rule supports up to 3 [message arguments](../../../docs/user-guide/configure.md#message): the property name, the unknown value, and the `var()` functions it was substituted for.
 
 Prior art:
 
