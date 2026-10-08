@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 import { argv, exit } from 'node:process';
 import { parseArgs, styleText } from 'node:util';
+import { performance } from 'node:perf_hooks';
 import { readFile } from 'node:fs/promises';
-
-import { Bench } from 'tinybench';
 
 import stylelint from '../../lib/index.mjs';
 
@@ -12,6 +11,9 @@ const DEFAULT_SOURCES = [
 	'https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.2.1/dist-cdn/styles/native.css',
 	'https://cdn.jsdelivr.net/npm/kelpui@1.17.2/css/kelp.css',
 ];
+
+const MEASURED_ITERATIONS = 50;
+const WARMUP_ITERATIONS = 5;
 
 function printHelp() {
 	const script = 'node benchmark-rule.mjs';
@@ -156,33 +158,41 @@ console.log(
 	`${styleText('bold', 'Sources')}: ${sources.join(', ')} (×${DUPLICATE_SOURCE_N_TIMES})`,
 );
 
-const TASK_NAME = 'rule test';
-const bench = new Bench({
-	name: ruleName,
-	throws: true,
-	setup: async (_task, mode) => {
-		if (mode !== 'run') return;
+async function printLintResults() {
+	const { results } = await lint(css);
 
-		const { results } = await lint(css);
+	for (const { parseErrors, invalidOptionWarnings, warnings } of results) {
+		for (const { text } of parseErrors) {
+			console.error(styleText(['bold', 'red'], `>> ${text}`));
+		}
 
-		results.forEach(({ parseErrors, invalidOptionWarnings, warnings }) => {
-			parseErrors.forEach(({ text }) => {
-				console.error(styleText(['bold', 'red'], `>> ${text}`));
-			});
-			invalidOptionWarnings.forEach(({ text }) => {
-				console.warn(styleText(['bold', 'yellow'], `>> ${text}`));
-			});
-			console.log(`${styleText('bold', 'Warnings')}: ${warnings.length}`);
-		});
-	},
-});
+		for (const { text } of invalidOptionWarnings) {
+			console.warn(styleText(['bold', 'yellow'], `>> ${text}`));
+		}
 
-bench.add(TASK_NAME, () => lint(css));
+		console.log(`${styleText('bold', 'Warnings')}: ${warnings.length}`);
+	}
+}
 
-await bench.run();
+await printLintResults();
 
-const { mean, sd } = bench.getTask(TASK_NAME).result.latency;
+for (let i = 0; i < WARMUP_ITERATIONS; i++) {
+	await lint(css);
+}
+
+const durations = [];
+
+for (let i = 0; i < MEASURED_ITERATIONS; i++) {
+	const startTime = performance.now();
+
+	await lint(css);
+	durations.push(performance.now() - startTime);
+}
+
+const average = (values) => values.reduce((sum, value) => sum + value, 0) / values.length;
+const mean = average(durations);
+const stdDev = Math.sqrt(average(durations.map((duration) => (duration - mean) ** 2)));
 
 console.log(`${styleText('bold', 'Mean')}: ${mean} ms`);
-console.log(`${styleText('bold', 'Deviation')}: ${sd} ms`);
+console.log(`${styleText('bold', 'Deviation')}: ${stdDev} ms`);
 /* eslint-enable no-console */

@@ -177,7 +177,6 @@
     "prettier": "^3.9.9",
     "remark-cli": "^12.0.1",
     "sugarss": "^5.0.1",
-    "tinybench": "^6.2.0",
     "typescript": "^7.0.2"
   },
   "engines": {
