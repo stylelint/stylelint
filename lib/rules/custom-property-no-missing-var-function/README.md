@@ -13,7 +13,9 @@ Disallow missing `var` function for custom properties.
 This rule has the following limitations:
 
 - It only reports custom properties that are defined within the same source.
-- It does not check properties that can contain author-defined identifiers, e.g. `transition-property`.
+- It does not check properties that accept a `<custom-ident>` or `<dashed-ident>` as their whole value, e.g. `transition-property`.
+
+You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what properties accept them, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the custom property.
 
