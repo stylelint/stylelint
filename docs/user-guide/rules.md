@@ -345,7 +345,6 @@ Apply limits with these `max` and `min` rules.
 <!-- prettier-ignore-start -->
 | | | |
 | :-- | :-: | :-: |
-| [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md)<br/>Limit the number of declarations within a single-line declaration block. | ✅ | |
 | [`declaration-property-max-values`](../../lib/rules/declaration-property-max-values/README.md)<br/>Limit the number of values for a list of properties within declarations. | | |
 | [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md)<br/>Limit the depth of nesting. | | |
 | [`number-max-precision`](../../lib/rules/number-max-precision/README.md)<br/>Limit the number of decimal places allowed in numbers. | ✅ | |
