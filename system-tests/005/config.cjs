@@ -28,7 +28,6 @@ module.exports = {
 		'declaration-block-no-duplicate-properties': true,
 		'declaration-block-no-redundant-longhand-properties': true,
 		'declaration-block-no-shorthand-property-overrides': true,
-		'declaration-block-single-line-max-declarations': 1,
 		'declaration-empty-line-before': 'always',
 		'declaration-no-important': true,
 		'declaration-property-max-values': { border: 1 },
