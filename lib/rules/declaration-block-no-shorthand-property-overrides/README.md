@@ -11,7 +11,7 @@ a { background-repeat: repeat; background: green; }
 
 In almost every case, this is just an authorial oversight. For more about this behavior, see [MDN's documentation of shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
 
-This rule also flags physical shorthands, like `padding`, that override [flow-relative properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values), like `padding-inline`. Such a shorthand sets every physical side or axis, so it overrides the flow-relative properties regardless of the writing mode.
+This rule flags physical shorthands, like `padding`, that override [flow-relative properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values), such as `padding-inline.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the shorthand property and the overridden longhand declaration.
 
