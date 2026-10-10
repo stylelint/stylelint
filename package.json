@@ -154,6 +154,7 @@
     "@stylelint/prettier-config": "^4.0.0",
     "@stylelint/remark-preset": "^5.1.1",
     "@types/css-tree": "^3.2.0",
+    "@types/node": "^22.20.5",
     "@types/picomatch": "^4.0.3",
     "@types/postcss-less": "^4.0.7",
     "@types/postcss-safe-parser": "^5.0.4",
