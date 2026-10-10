@@ -712,7 +712,7 @@ declare namespace stylelint {
 			{
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
 			},
-			RejectedMessage<[property: string, value: string, varFunctions: string[]]>
+			RejectedMessage<[property: string, value: string, varFunctions: string[], syntax: string]>
 		>;
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
