@@ -1511,6 +1511,7 @@ declare namespace stylelint {
 		| 'border-width'
 		| 'column-rule'
 		| 'columns'
+		| 'contain-intrinsic-size'
 		| 'flex'
 		| 'flex-flow'
 		| 'font'
