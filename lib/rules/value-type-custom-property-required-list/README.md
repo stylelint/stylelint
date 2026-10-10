@@ -9,7 +9,7 @@ a { border: 1px solid red; }
  * These <length> and <color> values */
 ```
 
-For custom properties declared or defined within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property, this rule substitutes their declared values for the `var()`s in a value to find the types of the parts beside them. It ignores the declarations of custom properties, values that contain unknown custom properties, and the fallbacks of `var()`.
+For custom properties defined within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property, this rule substitutes their declared values for the `var()`s in a value to find the types of the parts beside them. It ignores the declarations of custom properties, values that contain unknown custom properties, and the fallbacks of `var()`.
 
 The types are those of the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/), without their angle brackets, e.g. `color`, `length` and `time`. You can use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend them.
 
