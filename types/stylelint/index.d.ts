@@ -1158,6 +1158,11 @@ declare namespace stylelint {
 			{ ignoreValues: OneOrMany<StringOrRegex> },
 			RejectedMessage<[value: string]>
 		>;
+		'value-type-custom-property-required-list': CoreRule<
+			OneOrMany<string>,
+			{ ignoreProperties: Record<string, OneOrMany<StringOrRegex>> },
+			ExpectedMessage<[value: string, type: string]>
+		>;
 	};
 
 	/** @internal */

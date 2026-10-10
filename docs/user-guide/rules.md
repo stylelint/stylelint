@@ -298,6 +298,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 | | | |
 | :-- | :-: | :-: |
 | [`value-no-vendor-prefix`](../../lib/rules/value-no-vendor-prefix/README.md)<br/>Disallow vendor prefixes for values. | ✅ | 🔧 |
+| [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md)<br/>Specify a list of value types that require custom properties. | | |
 <!-- prettier-ignore-end -->
 
 ### Case
