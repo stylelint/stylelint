@@ -349,22 +349,20 @@ function rule(primary, secondary) {
 
 ### Add `referenceFiles` support
 
-Depending on the rule, it may need to check the roots of the files specified in the [`referenceFiles`](../user-guide/configure.md#referencefiles) configuration property.
+Depending on the rule, it may need to check the roots of the files specified in the [`referenceFiles`](../user-guide/configure.md#referencefiles) configuration property. These roots are shared across linted files, so don't mutate them, and collect from them once with `memoizeForReferenceRoots()`.
 
 For example:
 
 ```diff js
++ const getDeclaredNamesOfRoots = memoizeForReferenceRoots(getDeclaredNames);
+
 function rule(primary, secondary) {
   return (root, result) => {
     /* .. */
 
     if (!validOptions) return;
 
-+   const referenceRoots = result.stylelint.referenceRoots;
-
-+   for (const referenceRoot of referenceRoots) {
-+     referenceRoot.walkAtRules(/* collect names */);
-+   }
++   const declaredNames = getDeclaredNamesOfRoots(root, result.stylelint.referenceRoots);
 
     /* .. */
   };
