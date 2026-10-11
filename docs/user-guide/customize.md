@@ -1,6 +1,12 @@
 # Customizing
 
-The [standard config](https://www.npmjs.com/package/stylelint-config-standard) turns on about half of the [built-in rules](rules.md). Stylelint is capable of so much more. We recommend using the [standard config](https://www.npmjs.com/package/stylelint-config-standard) as a foundation and building on top of it.
+Stylelint is capable of so much more than what the [standard config](https://www.npmjs.com/package/stylelint-config-standard) turns on. We recommend using it as a foundation and building on top of it.
+
+## Built-in rules
+
+The standard config turns on most of the [built-in rules](rules.md) that avoid errors, but fewer than half of those that enforce conventions, as conventions are typically specific to you and your project.
+
+### Avoid errors
 
 You can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
 
@@ -18,12 +24,58 @@ You can catch unknown identifiers across files, such as animation names, custom 
 }
 ```
 
+### Enforce conventions
+
+You can enforce the use of custom properties. For example, if your `tokens.css` contains:
+
+```css
+:root {
+  --color-text: oklch(20% 0 0);
+  --spacing-m: 1rem;
+  --radii-m: 2px;
+}
+```
+
+And you want to:
+
+- require custom properties for `<color>` and `<length>` values, except `0`, `transparent` and `currentcolor`
+- allow only `--spacing-*` custom properties in `margin` and `padding` properties
+- allow only `--radii-*` custom properties in `border-radius`
+
+You can combine the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md) and [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md) rules:
+
+```diff json
+{
+  "extends": ["stylelint-config-standard"],
+  "referenceFiles": ["tokens.css"],
+  "rules": {
++   "declaration-property-custom-property-allowed-list": {
++     "/^(margin|padding)/": ["/^--spacing-/"],
++     "border-radius": ["/^--radii-/"]
++   },
++   "value-type-custom-property-required-list": [
++     ["color", "length"],
++     { "ignoreProperties": { "/.+/": ["0", "transparent", "currentcolor"] } }
++   ]
+  }
+}
+```
+
+Given:
+
+```css
+a {
+  border-radius: var(--spacing-m);
+  margin: 1rem;
+}
+```
+
+`--spacing-m` is flagged by [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md), and `1rem` by [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md).
+
 Many of the other rules allow you to:
 
 - ensure even more consistency by [disallowing things](rules.md#allowed-disallowed--required)
 - manage complexity in your code by [setting limits](rules.md#max--min)
-
-These conventions are typically specific to you and your project.
 
 For example, if you only want to allow:
 
