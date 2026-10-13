@@ -1009,7 +1009,7 @@ declare namespace stylelint {
 		'selector-max-pseudo-class': MaxRule;
 		'selector-max-specificity': CoreRule<
 			string,
-			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			{},
 			ExpectedMessage<[selector: string, specificity: string, selector: string]>
 		>;
 		'selector-max-type': MaxRule<{
