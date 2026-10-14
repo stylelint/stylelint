@@ -12,9 +12,9 @@ You should balance your _curly braces_, typically of _declaration blocks_.
 
 For example:
 
-```diff css
-- a { color: red;
-+ a { color: red; }
+```diff
+-a { color: red;
++a { color: red; }
 ```
 
 ### Unclosed bracket
@@ -23,9 +23,9 @@ You should balance your _square brackets_, typically of _attribute selectors_ an
 
 For example:
 
-```diff css
-- a[foo { grid: [bar; }
-+ a[foo] { grid: [bar]; }
+```diff
+-a[foo { grid: [bar; }
++a[foo] { grid: [bar]; }
 ```
 
 ### Unclosed string
@@ -34,9 +34,9 @@ You should balance your _quotation marks_.
 
 For example:
 
-```diff css
-- a { content: " }
-+ a { content: "" }
+```diff
+-a { content: " }
++a { content: "" }
 ```
 
 ### Unknown word
@@ -50,13 +50,13 @@ You should:
 
 For example:
 
-```diff css
-a {
-- margin top: 1px
-- color red
-+ margin-top: 1px;
-+ color: red
-}
+```diff
+ a {
+-  margin top: 1px
+-  color red
++  margin-top: 1px;
++  color: red
+ }
 ```
 
 ## Parse error

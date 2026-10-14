@@ -297,30 +297,30 @@ Depending on the rule, it might be possible to automatically fix the rule's prob
 Set `meta.fixable = true` to the rule:
 
 ```diff js
-const meta = {
-  url: /* .. */,
-+ fixable: true,
-};
+ const meta = {
+   url: "https://example.com/my/stylelint/rule",
++  fixable: true,
+ };
 ```
 
 Pass `fix` callback to the [`report` utility](../developer-guide/plugins.md#stylelintutilsreport):
 
 ```diff js
-function rule(primary, secondary) {
-  return (root, result) => {
-    /* .. */
+ function rule(primary, secondary) {
+   return (root, result) => {
+     /* .. */
 
-+   const fix = () => { /* put your mutations here */ };
++    const fix = () => { /* put your mutations here */ };
 
-    report({
-      result,
-      ruleName,
-      message,
-      node,
-+     fix
-    });
-  };
-}
+     report({
+       result,
+       ruleName,
+       message,
+       node,
++      fix
+     });
+   };
+ }
 ```
 
 ### Add `languageOptions` support
@@ -330,21 +330,21 @@ Depending on the rule, it may need to support the [`languageOptions`](../user-gu
 For example:
 
 ```diff js
-import { basicKeywords } from '../../reference/keywords.mjs';
+ import { basicKeywords } from '../../reference/keywords.mjs';
 
-function rule(primary, secondary) {
-  return (root, result) => {
-    /* .. */
+ function rule(primary, secondary) {
+   return (root, result) => {
+     /* .. */
 
-    if (!validOptions) return;
+     if (!validOptions) return;
 
-+   const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
++    const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
 
-+   const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
++    const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
 
-    /* .. */
-  };
-}
+     /* .. */
+   };
+ }
 ```
 
 ### Add `referenceFiles` support
@@ -354,21 +354,21 @@ Depending on the rule, it may need to check the roots of the files specified in 
 For example:
 
 ```diff js
-function rule(primary, secondary) {
-  return (root, result) => {
-    /* .. */
+ function rule(primary, secondary) {
+   return (root, result) => {
+     /* .. */
 
-    if (!validOptions) return;
+     if (!validOptions) return;
 
-+   const referenceRoots = result.stylelint.referenceRoots;
++    const referenceRoots = result.stylelint.referenceRoots;
 
-+   for (const referenceRoot of referenceRoots) {
-+     referenceRoot.walkAtRules(/* collect names */);
-+   }
++    for (const referenceRoot of referenceRoots) {
++      referenceRoot.walkAtRules(/* collect names */);
++    }
 
-    /* .. */
-  };
-}
+     /* .. */
+   };
+ }
 ```
 
 ### Context
