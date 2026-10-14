@@ -397,11 +397,11 @@ We sometimes introduce deprecation warnings that impact plugin authors. You can 
 For example, to quiet the deprecation warnings that mention your rule:
 
 ```diff js
-const ruleName = "plugin/foo-bar-qux";
+ const ruleName = "plugin/foo-bar-qux";
 
-+ const original = process.emitWarning;
-+ process.emitWarning = function emitWarning(warning, type, code, ctor) {
-+   const options = arguments[1];
++const original = process.emitWarning;
++process.emitWarning = function emitWarning(warning, type, code, ctor) {
++  const options = arguments[1];
 +
 +  if (
 +    options &&
@@ -414,7 +414,7 @@ const ruleName = "plugin/foo-bar-qux";
 +  }
 +
 +  original.apply(process, arguments);
-+ };
++};
 ```
 
 > [!WARNING]

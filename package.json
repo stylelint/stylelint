@@ -76,7 +76,8 @@
   "remarkConfig": {
     "plugins": [
       "@stylelint/remark-preset",
-      "./scripts/remark-plugins/lint-link-to-rule.mjs"
+      "./scripts/remark-plugins/lint-link-to-rule.mjs",
+      "./scripts/remark-plugins/lint-code-block.mjs"
     ]
   },
   "jest": {

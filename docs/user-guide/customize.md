@@ -1,29 +1,82 @@
 # Customizing
 
-The [standard config](https://www.npmjs.com/package/stylelint-config-standard) turns on about half of the [built-in rules](rules.md). Stylelint is capable of so much more. We recommend using the [standard config](https://www.npmjs.com/package/stylelint-config-standard) as a foundation and building on top of it.
+Stylelint is capable of so much more than what the [standard config](https://www.npmjs.com/package/stylelint-config-standard) turns on. We recommend using it as a foundation and building on top of it.
+
+## Built-in rules
+
+The standard config turns on most of the [built-in rules](rules.md) that avoid errors, but fewer than half of those that enforce conventions, as conventions are typically specific to you and your project.
+
+### Avoid errors
 
 You can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
 
 ```diff json
-{
-  "extends": ["stylelint-config-standard"],
-+ "referenceFiles": [
-+   "tokens.css"
-+ ],
-+ "rules": {
-+   "no-unknown-animations": true,
-+   "no-unknown-custom-properties": true,
-+   "no-unknown-custom-media": true
-+ }
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "referenceFiles": [
++    "tokens.css"
++  ],
++  "rules": {
++    "no-unknown-animations": true,
++    "no-unknown-custom-properties": true,
++    "no-unknown-custom-media": true
++  }
+ }
+```
+
+### Enforce conventions
+
+You can enforce the use of custom properties. For example, if your `tokens.css` contains:
+
+```css
+:root {
+  --color-text: oklch(20% 0 0);
+  --spacing-m: 1rem;
+  --radii-m: 2px;
 }
 ```
+
+And you want to:
+
+- require custom properties for `<color>` and `<length>` values, except `0`, `transparent` and `currentcolor`
+- allow only `--spacing-*` custom properties in `margin` and `padding` properties
+- allow only `--radii-*` custom properties in `border-radius`
+
+You can combine the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md) and [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md) rules:
+
+```diff json
+ {
+   "extends": ["stylelint-config-standard"],
+   "referenceFiles": ["tokens.css"],
+   "rules": {
++    "declaration-property-custom-property-allowed-list": {
++      "/^(margin|padding)/": ["/^--spacing-/"],
++      "border-radius": ["/^--radii-/"]
++    },
++    "value-type-custom-property-required-list": [
++      ["color", "length"],
++      { "ignoreProperties": { "/.+/": ["0", "transparent", "currentcolor"] } }
++    ]
+   }
+ }
+```
+
+Given:
+
+```css
+a {
+  border-radius: var(--spacing-m);
+  margin: 1rem;
+}
+```
+
+`--spacing-m` is flagged by [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md), and `1rem` by [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md).
 
 Many of the other rules allow you to:
 
 - ensure even more consistency by [disallowing things](rules.md#allowed-disallowed--required)
 - manage complexity in your code by [setting limits](rules.md#max--min)
-
-These conventions are typically specific to you and your project.
 
 For example, if you only want to allow:
 
@@ -34,40 +87,43 @@ For example, if you only want to allow:
 You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md) and [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list/README.md) rules:
 
 ```diff json
-{
-  "extends": ["stylelint-config-standard"],
-+ "rules": {
-+   "declaration-property-unit-allowed-list": {
-+     "/^border/": ["px"],
-+     "/^padding|^gap/": ["rem"]
-+   },
-+   "unit-allowed-list": ["%", "deg", "px", "rem", "ms"]
-+ }
-}
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "rules": {
++    "declaration-property-unit-allowed-list": {
++      "/^border/": ["px"],
++      "/^padding|^gap/": ["rem"]
++    },
++    "unit-allowed-list": ["%", "deg", "px", "rem", "ms"]
++  }
+ }
 ```
 
 Or you can enforce the `oklch()` color notation using the [`color-named`](../../lib/rules/color-named/README.md), [`color-no-hex`](../../lib/rules/color-no-hex/README.md), and [`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md) rules:
 
 ```diff json
-{
-  "extends": ["stylelint-config-standard"],
-+ "rules": {
-+   "color-named": "never",
-+   "color-no-hex": true,
-+   "function-disallowed-list": ["rgb", "hsl", "hwb", "lch"]
-+ }
-}
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "rules": {
++    "color-named": "never",
++    "color-no-hex": true,
++    "function-disallowed-list": ["rgb", "hsl", "hwb", "lch"]
++  }
+ }
 ```
 
 Or you can limit the number of ID selectors using the [`selector-max-id`](../../lib/rules/selector-max-id/README.md) rule:
 
 ```diff json
-{
-  "extends": ["stylelint-config-standard"],
-+ "rules": {
-+   "selector-max-id": 0
-+ }
-}
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "rules": {
++    "selector-max-id": 0
++  }
+ }
 ```
 
 These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS under control.
@@ -81,41 +137,42 @@ Custom rules are typically written by communities to support methodologies, tool
 You can add custom rules to your config by extending a shared config that includes them or by using a plugin directly. For example, you can order your properties into groups by extending the [recess order config](https://www.npmjs.com/package/stylelint-config-recess-order):
 
 ```diff json
-{
-  "extends": [
--   "stylelint-config-standard"
-+   "stylelint-config-standard",
-+   "stylelint-config-recess-order"
-  ]
-}
+ {
+   "extends": [
+-    "stylelint-config-standard"
++    "stylelint-config-standard",
++    "stylelint-config-recess-order"
+   ]
+ }
 ```
 
 Or alphabetize them by extending the [alphabetical order config](https://www.npmjs.com/package/stylelint-config-alphabetical-order):
 
 ```diff json
-{
-  "extends": [
--   "stylelint-config-standard"
-+   "stylelint-config-standard",
-+   "stylelint-config-alphabetical-order"
-  ]
-}
+ {
+   "extends": [
+-    "stylelint-config-standard"
++    "stylelint-config-standard",
++    "stylelint-config-alphabetical-order"
+   ]
+ }
 ```
 
 Or you can use the [order plugin](https://www.npmjs.com/package/stylelint-order) directly if, for example, you want to specify your own order:
 
 ```diff json
-{
-  "extends": ["stylelint-config-standard"],
-+ "plugins": ["stylelint-order"],
-+ "rules": {
-+   "order/properties-order": [
-+     "transform",
-+     "top",
-+     "color"
-+   ]
-+ }
-}
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "plugins": ["stylelint-order"],
++  "rules": {
++    "order/properties-order": [
++      "transform",
++      "top",
++      "color"
++    ]
++  }
+ }
 ```
 
 Custom rules do all sorts; from [helping you use Baseline effectively](https://www.npmjs.com/package/stylelint-plugin-use-baseline) to [strict scales for numeric values](https://www.npmjs.com/package/stylelint-scales). You'll find more shared configs and plugins of custom rules listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme).
@@ -129,12 +186,13 @@ We recommend you craft a config that strictly enforces your conventions and then
 You can use the [`report*`](./configure.md#report) properties in your config to ensure your comments aren't useless and descriptionless:
 
 ```diff json
-{
-  "extends": ["stylelint-config-standard"],
-+ "reportDescriptionlessDisables": true,
-+ "reportInvalidScopeDisables": true,
-+ "reportNeedlessDisables": true
-}
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "reportDescriptionlessDisables": true,
++  "reportInvalidScopeDisables": true,
++  "reportNeedlessDisables": true
+ }
 ```
 
 Each of these properties is configurable if you need to add exceptions to them.
