@@ -31,20 +31,4 @@ export default [
 			],
 		},
 	},
-	{
-		files: ['lib/**/*.mjs'],
-		rules: {
-			'no-restricted-imports': [
-				'error',
-				{
-					patterns: [
-						{
-							regex: '^css-tree(?!/dist/csstree\\.esm$)',
-							message: "Import 'css-tree/dist/csstree.esm'",
-						},
-					],
-				},
-			],
-		},
-	},
 ];

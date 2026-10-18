@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: import performance by lazily loading `css-tree` from its bundle
+Fixed: import performance by lazily loading `css-tree`
