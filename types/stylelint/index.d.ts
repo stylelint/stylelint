@@ -27,6 +27,10 @@ type PropertyNamesOfType<T, U> = {
 	[K in keyof T]-?: T[K] extends U ? K : never;
 }[keyof T];
 
+type ReferenceRootsCache = {
+	getRoots(entries?: stylelint.Config['_resolvedReferenceFiles']): Promise<PostCSS.Root[]>;
+};
+
 type FileCache = {
 	calcHashOfConfig: (config: stylelint.Config) => void;
 	hasFileChanged: (absoluteFilepath: string) => boolean;
@@ -1652,6 +1656,8 @@ declare namespace stylelint {
 		_postcssResultCache: Map<string, { result: PostCSS.Result; code: string }>;
 		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
+		_referenceFilesCache: Map<string, Promise<string[]>>;
+		_referenceRootsCache: ReferenceRootsCache;
 	};
 
 	/**
