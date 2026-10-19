@@ -17,6 +17,8 @@ You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syn
 
 This rule checks property values. You can use [`at-rule-descriptor-value-no-unknown`](../at-rule-descriptor-value-no-unknown/README.md) to disallow unknown values for descriptors within at-rules.
 
+This rule checks whether a value is known to its property. You can use [`value-no-invalid`](../value-no-invalid/README.md) to disallow values that are invalid regardless of their property.
+
 > [!WARNING]
 > This rule is only appropriate for CSS. You should not turn it on for CSS-like languages, such as SCSS or Less.
 
@@ -121,117 +123,4 @@ a { padding: invalid; }
 <!-- prettier-ignore -->
 ```css
 a { width: --unknown-value; }
-```
-
-### `propertiesSyntax`
-
-> [!WARNING]
-> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
->
-> For example:
->
-> ```diff json
-> {
-> + "languageOptions": {
-> +   "syntax": {
-> +     "properties": { "size": "<length-percentage>" }
-> +   }
-> + },
->   "rules": {
->     "declaration-property-value-no-unknown": [
->       true,
-> -     { "propertiesSyntax": { "size": "<length-percentage>" } }
->     ]
->   }
-> }
-> ```
-
-```json
-{ "propertiesSyntax": { "property": "syntax" } }
-```
-
-Extend or alter the properties syntax dictionary. [CSS Value Definition Syntax](https://github.com/csstree/csstree/blob/master/docs/definition-syntax.md) is used to define a value's syntax. If a definition starts with `|` it is added to the [existing definition value](https://csstree.github.io/docs/syntax/) if any.
-
-Given:
-
-```json
-{
-  "declaration-property-value-no-unknown": [
-    true,
-    { "propertiesSyntax": { "size": "<length-percentage>" } }
-  ]
-}
-```
-
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css
-a { size: 0; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { size: 10px }
-```
-
-### `typesSyntax`
-
-> [!WARNING]
-> We've **deprecated** this option and will remove it in the next major release. Use the shared and more performant [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property instead.
->
-> For example:
->
-> ```diff json
-> {
-> + "languageOptions": {
-> +   "syntax": {
-> +     "properties": { "top": "| <--foo()>" },
-> +     "types": { "--foo()": "--foo( <length-percentage> )" }
-> +   }
-> + },
->   "rules": {
->     "declaration-property-value-no-unknown": [
->       true,
-> -     {
-> -       "propertiesSyntax": { "top": "| <--foo()>" },
-> -       "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
-> -     }
->     ]
->   }
-> }
-> ```
-
-```json
-{ "typesSyntax": { "type": "syntax" } }
-```
-
-Extend or alter the types syntax dictionary. [CSS Value Definition Syntax](https://github.com/csstree/csstree/blob/master/docs/definition-syntax.md) is used to define a value's syntax. If a definition starts with `|` it is added to the [existing definition value](https://csstree.github.io/docs/syntax/) if any.
-
-Types are something like a preset which allows you to reuse a definition across other definitions. So, you'll likely want to also use the `propertiesSyntax` option when using this option.
-
-Given:
-
-```json
-{
-  "declaration-property-value-no-unknown": [
-    true,
-    {
-      "propertiesSyntax": { "top": "| <--foo()>" },
-      "typesSyntax": { "--foo()": "--foo( <length-percentage> )" }
-    }
-  ]
-}
-```
-
-The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css
-a { top: --foo(0); }
-```
-
-<!-- prettier-ignore -->
-```css
-a { top: --foo(10px); }
 ```

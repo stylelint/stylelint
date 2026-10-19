@@ -18,7 +18,7 @@ Improving the performance of a rule is a great way to contribute if you want a q
 You can run a benchmark on any given rule with any valid config using:
 
 ```shell
-npm run benchmark-rule -- ruleName ruleOptions [config]
+npm run benchmark-rule -- ruleName ruleOptions [options]
 ```
 
 For example:
@@ -27,11 +27,27 @@ For example:
 npm run benchmark-rule -- value-keyword-case lower
 ```
 
-If the `ruleOptions` or `config` arguments are anything other than a string or a boolean, they must be valid JSON wrapped in quotation marks. For example:
+If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks. For example:
 
 ```shell
-npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]' '{"fix": true}'
+npm run benchmark-rule -- value-keyword-case '["lower", {"camelCaseSvgKeywords": true}]'
 ```
+
+Use `--config` to pass extra lint options as JSON:
+
+```shell
+npm run benchmark-rule -- value-keyword-case lower --config='{"fix": true}'
+```
+
+### Custom sources
+
+By default the script benchmarks against a fixed set of real-world stylesheets. Use the repeatable `--source` option to benchmark against your own CSS instead — either local files or URLs:
+
+```shell
+npm run benchmark-rule -- value-keyword-case lower --source=a.css
+```
+
+This is useful for abnormal CSS, such as a selector with too many combinators, which real-world stylesheets rarely contain.
 
 ### Interpreting results
 
@@ -50,7 +66,7 @@ Compare the results with those of:
 
 ### Implementation details
 
-The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.
+The script loads the source stylesheets (fetching any URLs), concatenates them, repeats the result a fixed number of times to get a stable mean, and runs it through the configured rule.
 
 ## System benchmarking
 

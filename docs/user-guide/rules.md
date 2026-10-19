@@ -81,6 +81,7 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 | [`selector-no-invalid`](../../lib/rules/selector-no-invalid/README.md)<br/>Disallow invalid selectors. | | |
 | [`string-no-newline`](../../lib/rules/string-no-newline/README.md)<br/>Disallow invalid newlines within strings. | ✅ | |
 | [`syntax-string-no-invalid`](../../lib/rules/syntax-string-no-invalid/README.md)<br/>Disallow invalid syntax strings. | ✅ | |
+| [`value-no-invalid`](../../lib/rules/value-no-invalid/README.md)<br/>Disallow invalid values. | ✅ | |
 <!-- prettier-ignore-end -->
 
 ### Irregular
@@ -133,6 +134,7 @@ Disallow unmatchable things with these `no-unmatchable` rules.
 | | | |
 | :-- | :-: | :-: |
 | [`selector-anb-no-unmatchable`](../../lib/rules/selector-anb-no-unmatchable/README.md)<br/>Disallow unmatchable An+B selectors. | ✅ | |
+| [`selector-no-unmatchable`](../../lib/rules/selector-no-unmatchable/README.md)<br/>Disallow unmatchable selectors. | | |
 <!-- prettier-ignore-end -->
 
 ### Unknown

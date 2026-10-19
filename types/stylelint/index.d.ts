@@ -69,16 +69,11 @@ declare namespace stylelint {
 	 * A Stylelint plugin.
 	 */
 	export type Plugin =
-		| { default?: { ruleName: string; rule: Rule } }
-		| { ruleName: string; rule: Rule };
+		{ default?: { ruleName: string; rule: Rule } } | { ruleName: string; rule: Rule };
 
 	/** @internal */
 	export type ConfigRuleSettings<T, O extends Object> =
-		| null
-		| undefined
-		| NonNullable<T>
-		| [NonNullable<T>]
-		| [NonNullable<T>, O];
+		null | undefined | NonNullable<T> | [NonNullable<T>] | [NonNullable<T>, O];
 
 	/** @internal */
 	export type DisableOptions = {
@@ -93,16 +88,11 @@ declare namespace stylelint {
 	};
 
 	type ConfigReferenceFiles =
-		| string
-		| ConfigReferenceFilesEntry
-		| (string | ConfigReferenceFilesEntry)[];
+		string | ConfigReferenceFilesEntry | (string | ConfigReferenceFilesEntry)[];
 
 	/** @internal */
 	export type Directionality =
-		| 'top-to-bottom'
-		| 'bottom-to-top'
-		| 'left-to-right'
-		| 'right-to-left';
+		'top-to-bottom' | 'bottom-to-top' | 'left-to-right' | 'right-to-left';
 
 	type LanguageOptions = {
 		syntax?: {
@@ -308,8 +298,7 @@ declare namespace stylelint {
 
 	/** @internal */
 	export type CosmiconfigResult =
-		| (ReturnType<CosmiconfigTransformSync> & { config: Config })
-		| null;
+		(ReturnType<CosmiconfigTransformSync> & { config: Config }) | null;
 
 	/** @internal */
 	export type DisabledRange = {
@@ -348,6 +337,12 @@ declare namespace stylelint {
 		stylelintWarning?: boolean;
 		config?: Config;
 		referenceRoots: PostCSS.Root[];
+
+		/**
+		 * The code the root was parsed from, exactly as it was read.
+		 * Unlike `root.source.input.css` (PostCSS API), any byte order mark is kept.
+		 */
+		code?: string;
 
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
@@ -413,9 +408,7 @@ declare namespace stylelint {
 	export type RuleOptions = {
 		actual: unknown;
 		possible?:
-			| RuleOptionsPossibleFunc
-			| RuleOptionsPossible[]
-			| Record<string, RuleOptionsPossible[]>;
+			RuleOptionsPossibleFunc | RuleOptionsPossible[] | Record<string, RuleOptionsPossible[]>;
 		optional?: boolean;
 	};
 
@@ -427,7 +420,6 @@ declare namespace stylelint {
 	 */
 	export type RuleContext = {
 		configurationComment?: string | undefined;
-		fix?: boolean | undefined;
 		newline?: string | undefined;
 	};
 
@@ -582,10 +574,18 @@ declare namespace stylelint {
 		'color-hex-length': CoreRule<'short' | 'long', {}, AutofixMessage>;
 		'color-named': CoreRule<
 			'never' | 'always-where-possible',
-			{ ignoreProperties: OneOrMany<StringOrRegex>; ignore: OneOrMany<'inside-function'> },
+			{
+				ignoreProperties: OneOrMany<StringOrRegex>;
+				ignore: OneOrMany<'inside-function'>;
+				ignoreFunctions: OneOrMany<StringOrRegex>;
+			},
 			AutofixMessage & RejectedMessage<[keyword: string]>
 		>;
-		'color-no-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
+		'color-no-hex': CoreRule<
+			true,
+			{ ignoreFunctions: OneOrMany<StringOrRegex> },
+			RejectedMessage<[hex: string]>
+		>;
 		'color-no-invalid-hex': CoreRule<true, {}, RejectedMessage<[hex: string]>>;
 		'comment-empty-line-before': CoreRule<
 			'always' | 'never',
@@ -712,13 +712,8 @@ declare namespace stylelint {
 			true,
 			{
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
-				propertiesSyntax: Record<string, string>;
-				typesSyntax: Record<string, string>;
 			},
-			RejectedMessage<[property: string, value: string]> & {
-				rejectedParseError: (property: string, value: string) => string;
-				rejectedMath: (property: string, expression: string) => string;
-			}
+			RejectedMessage<[property: string, value: string]>
 		>;
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
@@ -1035,6 +1030,11 @@ declare namespace stylelint {
 			{ ignore: OneOrMany<'attribute' | 'class' | 'id'> },
 			RejectedMessage<[selector: string, type: string]>
 		>;
+		'selector-no-unmatchable': CoreRule<
+			true,
+			{},
+			RejectedMessage<[selector: string, resolvedSelector: string, reason: string]>
+		>;
 		'selector-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreSelectors: OneOrMany<StringOrRegex> },
@@ -1153,6 +1153,7 @@ declare namespace stylelint {
 			ExpectedMessage<[unfixed: string, fixed: string]> &
 				RejectedMessage<[type: string, keyword: string]>
 		>;
+		'value-no-invalid': CoreRule<true, {}, RejectedMessage<[value: string, reason: string]>>;
 		'value-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreValues: OneOrMany<StringOrRegex> },
@@ -1599,7 +1600,7 @@ declare namespace stylelint {
 		_configExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
 		_augmentedConfigCache: Map<string, CosmiconfigResult>;
-		_postcssResultCache: Map<string, PostCSS.Result>;
+		_postcssResultCache: Map<string, { result: PostCSS.Result; code: string }>;
 		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
 	};

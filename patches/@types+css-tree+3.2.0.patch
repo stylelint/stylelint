@@ -1,0 +1,16 @@
+diff --git a/node_modules/@types/css-tree/index.d.ts b/node_modules/@types/css-tree/index.d.ts
+index 117788a..49b2e17 100644
+--- a/node_modules/@types/css-tree/index.d.ts
++++ b/node_modules/@types/css-tree/index.d.ts
+@@ -1185,6 +1185,11 @@ export class Lexer {
+     ): SyntaxDescriptor | null;
+     getType(name: string): SyntaxDescriptor | null;
+ 
++    atrules: Record<string, AtruleDescriptor>;
++    properties: Record<string, SyntaxDescriptor>;
++    types: Record<string, SyntaxDescriptor>;
++    units: Record<string, string[]>;
++
+     validate(): LexerValidationResult | null;
+     dump(syntaxAsAst?: boolean, pretty?: boolean): unknown;
+     toString(): string;

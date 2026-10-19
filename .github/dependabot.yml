@@ -27,8 +27,7 @@ updates:
         patterns: ['@stylelint/*']
       typescript:
         patterns: ['typescript', '@types/*']
-    cooldown:
-      default-days: 7
+    target-branch: v18 # TODO: Remove after 18.0.0 is released.
 
   - package-ecosystem: github-actions
     directory: '/'
@@ -41,5 +40,5 @@ updates:
       stylelint-actions:
         patterns: ['stylelint/.github/*']
     cooldown:
-      default-days: 7
       exclude: ['stylelint/.github/*']
+    target-branch: v18 # TODO: Remove after 18.0.0 is released.

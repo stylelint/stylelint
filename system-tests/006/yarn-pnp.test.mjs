@@ -23,7 +23,6 @@ import { promisify } from 'node:util';
 
 import { fileURLToPath } from 'node:url';
 
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
 import { before, describe, test } from 'node:test';
 
 const execAsync = promisify(childProcess.exec);
@@ -83,8 +82,20 @@ async function copyTemplateFiles(fixtureType) {
  * @returns {Promise<string>} Path to the created tarball
  */
 async function packStylelint() {
-	const { stdout } = await execAsync('npm pack --json', { cwd: rootDir });
-	const [{ filename }] = JSON.parse(stdout);
+	const { stdout: npmVersion } = await execAsync('npm --version', { cwd: rootDir });
+	const { stdout: npmPack } = await execAsync('npm pack --json', { cwd: rootDir });
+	const pack = JSON.parse(npmPack);
+
+	let filename;
+
+	if (npmVersion.startsWith('12')) {
+		filename = pack.stylelint.filename;
+	} else {
+		filename = pack[0].filename;
+		console.warn(
+			`WARNING: The old npm v${npmVersion.trim()} is running. Remove this workaround in the future. (${import.meta.filename})`,
+		);
+	}
 
 	return path.join(rootDir, filename);
 }

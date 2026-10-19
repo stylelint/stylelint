@@ -62,6 +62,7 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Writing custom syntaxes](docs/developer-guide/syntaxes.md)
   - [Writing custom formatters](docs/developer-guide/formatters.md)
 - Migration guide
+  - [Migrating to 18.0.0](docs/migration-guide/to-18.md)
   - [Migrating to 17.0.0](docs/migration-guide/to-17.md)
   - [Migrating to 16.0.0](docs/migration-guide/to-16.md)
   - [Migrating to 15.0.0](docs/migration-guide/to-15.md)

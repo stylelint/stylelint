@@ -166,6 +166,34 @@ a {
 }
 ```
 
+### `ignoreFunctions`
+
+```json
+{ "ignoreFunctions": ["array", "of", "functions", "/regex/"] }
+```
+
+Ignore named colors within the specified functions.
+
+Given:
+
+```json
+{
+  "color-named": ["never", { "ignoreFunctions": ["var", "/^--/"] }]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: var(--foo, red); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { color: --foo(red); }
+```
+
 ### `ignoreProperties`
 
 ```json

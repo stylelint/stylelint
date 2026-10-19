@@ -2,14 +2,30 @@
 
 The [standard config](https://www.npmjs.com/package/stylelint-config-standard) turns on about half of the [built-in rules](rules.md). Stylelint is capable of so much more. We recommend using the [standard config](https://www.npmjs.com/package/stylelint-config-standard) as a foundation and building on top of it.
 
-You can use the other half of the [built-in rules](rules.md) to:
+You can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
+
+```diff json
+{
+  "extends": ["stylelint-config-standard"],
++ "referenceFiles": [
++   "tokens.css"
++ ],
++ "rules": {
++   "no-unknown-animations": true,
++   "no-unknown-custom-properties": true,
++   "no-unknown-custom-media": true
++ }
+}
+```
+
+Many of the other rules allow you to:
 
 - ensure even more consistency by [disallowing things](rules.md#allowed-disallowed--required)
 - manage complexity in your code by [setting limits](rules.md#max--min)
 
 These conventions are typically specific to you and your project.
 
-There's a lot you can do. For example, if you only want to allow:
+For example, if you only want to allow:
 
 - `%`, `deg`, `px`, `rem`, `ms` units generally
 - `px` for borders
@@ -30,7 +46,7 @@ You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.m
 }
 ```
 
-Or you can enforce the `hsl()` color notation using the [`color-named`](../../lib/rules/color-named/README.md), [`color-no-hex`](../../lib/rules/color-no-hex/README.md),[`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md) rules:
+Or you can enforce the `oklch()` color notation using the [`color-named`](../../lib/rules/color-named/README.md), [`color-no-hex`](../../lib/rules/color-no-hex/README.md), and [`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md) rules:
 
 ```diff json
 {
@@ -38,7 +54,7 @@ Or you can enforce the `hsl()` color notation using the [`color-named`](../../li
 + "rules": {
 +   "color-named": "never",
 +   "color-no-hex": true,
-+   "function-disallowed-list": ["rgb", "hwb", "lch"]
++   "function-disallowed-list": ["rgb", "hsl", "hwb", "lch"]
 + }
 }
 ```
@@ -50,22 +66,6 @@ Or you can limit the number of ID selectors using the [`selector-max-id`](../../
   "extends": ["stylelint-config-standard"],
 + "rules": {
 +   "selector-max-id": 0
-+ }
-}
-```
-
-Or you can catch unknown identifiers across files, such as animation names, custom properties, or custom media queries, by combining the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md), [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md), and [`no-unknown-custom-media`](../../lib/rules/no-unknown-custom-media/README.md) rules:
-
-```diff json
-{
-  "extends": ["stylelint-config-standard"],
-+ "referenceFiles": [
-+   "tokens.css"
-+ ],
-+ "rules": {
-+   "no-unknown-animations": true,
-+   "no-unknown-custom-properties": true,
-+   "no-unknown-custom-media": true
 + }
 }
 ```

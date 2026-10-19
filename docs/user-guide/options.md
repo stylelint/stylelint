@@ -43,11 +43,6 @@ Options are:
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
-When a rule relies on the deprecated [`context`](../contributor-guide/rules.md#context)`.fix` and a source contains:
-
-- a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
-- an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
-
 ## `computeEditInfo`
 
 CLI flag: `--compute-edit-info, --cei`
@@ -225,17 +220,81 @@ CLI flags: `--report-invalid-scope-disables, --risd`
 
 Report [configuration comments][1] that don't match rules that are specified in the configuration object.
 
+For example, with this configuration:
+
+```json
+{
+  "rules": {
+    "block-no-empty": true
+  }
+}
+```
+
+The following pattern is reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable comment-no-empty */
+```
+
+The following pattern is _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+```
+
 ## `reportNeedlessDisables`
 
 CLI flags: `--report-needless-disables, --rd`
 
 Report [configuration comments][1] that don't actually match any lints that need to be disabled.
 
+For example, with this configuration:
+
+```json
+{
+  "rules": {
+    "block-no-empty": true
+  }
+}
+```
+
+The following pattern is reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+a { color: red; }
+```
+
+The following pattern is _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+a {}
+```
+
 ## `reportUnscopedDisables`
 
 CLI flags: `--report-unscoped-disables, --rud`
 
 Report [configuration comments][1] that aren't scoped to one or more rules.
+
+The following pattern is reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable */
+```
+
+The following pattern is _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable block-no-empty */
+```
 
 ## `validate`
 
@@ -276,7 +335,7 @@ Ignore deprecation warnings.
 > For Node.js 20.11.0+, you can disable individual deprecation warnings using the Node.js [`--disable-warning`](https://nodejs.org/api/cli.html#--disable-warningcode-or-type) mechanism, e.g.:
 >
 > ```shell
-> NODE_OPTIONS='--disable-warning=stylelint:005' stylelint "**/*.css"
+> NODE_OPTIONS='--disable-warning=stylelint:006' stylelint "**/*.css"
 > ```
 
 [1]: ../user-guide/ignore-code.md#parts-of-a-file

@@ -1,5 +1,40 @@
 # Changelog
 
+## 17.16.0 - 2026-10-01
+
+It fixes 2 bugs in the `layout-mappings` rules. This will likely be the last `17.x` release, as we prepare for `18.0.0`.
+
+- Fixed: `property-layout-mappings` and `unit-layout-mappings` false negatives for uppercase property names and units ([#9485](https://github.com/stylelint/stylelint/pull/9485)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+- Fixed: `value-keyword-layout-mappings` false positives for `caption-side` ([#9483](https://github.com/stylelint/stylelint/pull/9483)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+
+## 17.15.0 - 2026-09-04
+
+It adds 1 new rule and 2 new rule options, and fixes 4 bugs.
+
+- Added: `selector-no-unmatchable` rule ([#9451](https://github.com/stylelint/stylelint/pull/9451)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `ignoreFunctions: []` to `color-named` and `color-no-hex` ([#9463](https://github.com/stylelint/stylelint/pull/9463)) ([@jsmitty12](https://github.com/jsmitty12)).
+- Fixed: `custom-property-no-missing-var-function` false positives for anchor positioning ([#9466](https://github.com/stylelint/stylelint/pull/9466)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix for `font` shorthand ([#9402](https://github.com/stylelint/stylelint/pull/9402)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+- Fixed: `declaration-property-max-values` false positives for interpolated inline expressions ([#9437](https://github.com/stylelint/stylelint/pull/9437)) ([@alexchen-sys](https://github.com/alexchen-sys)).
+- Fixed: `selector-no-invalid` false negatives for pseudo-elements, combinators and nested `:has()` ([#9452](https://github.com/stylelint/stylelint/pull/9452)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 17.14.1 - 2026-07-20
+
+It fixes 4 bugs.
+
+- Fixed: `quiet` option suppresses `report*` warning reports ([#9387](https://github.com/stylelint/stylelint/pull/9387)) ([@ychampion](https://github.com/ychampion)).
+- Fixed: reported range of unknown rules ([#9385](https://github.com/stylelint/stylelint/pull/9385)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` autofix producing invalid `background` shorthand when `background-size` is present ([#9364](https://github.com/stylelint/stylelint/pull/9364)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+- Fixed: `rule-empty-line-before` false positives for shared-line comments with `except: ["after-single-line-comment"]` ([#9394](https://github.com/stylelint/stylelint/pull/9394)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+
+## 17.14.0 - 2026-06-25
+
+It fixes 3 bugs, including a false negative one.
+
+- Fixed: performance of getting module paths ([#9354](https://github.com/stylelint/stylelint/pull/9354)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: performance by dynamically importing `TIMING` only on use ([#9356](https://github.com/stylelint/stylelint/pull/9356)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-calc-no-unspaced-operator` false negatives for unspaced `+` and `-` operators following a `*` or `/` operator ([#9357](https://github.com/stylelint/stylelint/pull/9357)) ([@sarathfrancis90](https://github.com/sarathfrancis90)).
+
 ## 17.13.0 - 2026-06-06
 
 It fixes 3 bugs, including a false negative one.
@@ -341,13 +376,13 @@ It adds support for computing `EditInfo` to 22 more rules and reverts a change t
 - Added: `at-rule-no-vendor-prefix` support for computing `EditInfo` ([#8427](https://github.com/stylelint/stylelint/pull/8427)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `color-function-notation` support for computing `EditInfo` ([#8437](https://github.com/stylelint/stylelint/pull/8437)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `declaration-empty-line-before` support for computing `EditInfo` ([#8443](https://github.com/stylelint/stylelint/pull/8443)) ([@pamelalozano16](https://github.com/pamelalozano16)).
-- Added: `declaration-property-value-keyword-no-deprecated` support for computing `EditInfo`. ([#8439](https://github.com/stylelint/stylelint/pull/8439)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `declaration-property-value-keyword-no-deprecated` support for computing `EditInfo` ([#8439](https://github.com/stylelint/stylelint/pull/8439)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `font-family-name-quotes` support for computing `EditInfo` ([#8419](https://github.com/stylelint/stylelint/pull/8419)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `font-weight-notation` support for computing `EditInfo` ([#8420](https://github.com/stylelint/stylelint/pull/8420)) ([@ryo-manba](https://github.com/ryo-manba)).
 - Added: `function-calc-no-unspaced-operator` support for computing `EditInfo` ([#8440](https://github.com/stylelint/stylelint/pull/8440)) ([@pamelalozano16](https://github.com/pamelalozano16)).
-- Added: `function-name-case` support for support for computing `EditInfo`." ([#8442](https://github.com/stylelint/stylelint/pull/8442)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `function-name-case` support for computing `EditInfo` ([#8442](https://github.com/stylelint/stylelint/pull/8442)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `hue-degree-notation` support for computing `EditInfo` ([#8444](https://github.com/stylelint/stylelint/pull/8444)) ([@pamelalozano16](https://github.com/pamelalozano16)).
-- Added: `import-notation` support for computing `EditInfo`. ([#8445](https://github.com/stylelint/stylelint/pull/8445)) ([@pamelalozano16](https://github.com/pamelalozano16)).
+- Added: `import-notation` support for computing `EditInfo` ([#8445](https://github.com/stylelint/stylelint/pull/8445)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `keyframe-selector-notation` support for computing `EditInfo` ([#8457](https://github.com/stylelint/stylelint/pull/8457)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `length-zero-no-unit` support for computing `EditInfo` ([#8459](https://github.com/stylelint/stylelint/pull/8459)) ([@pamelalozano16](https://github.com/pamelalozano16)).
 - Added: `lightness-notation` support for computing `EditInfo` ([#8458](https://github.com/stylelint/stylelint/pull/8458)) ([@pamelalozano16](https://github.com/pamelalozano16)).
@@ -680,7 +715,7 @@ Lastly, we've made a deprecation that may affect some plugins. We've updated our
 - Added: `lightness-notation` rule ([#7366](https://github.com/stylelint/stylelint/pull/7366)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Added: `ignore: ["keyframe-selectors"]` to `selector-disallowed-list` ([#7417](https://github.com/stylelint/stylelint/pull/7417)) ([@mattxwang](https://github.com/mattxwang)).
 - Fixed: `selector-pseudo-class-no-unknown` false positive for `:popover-open` ([#7425](https://github.com/stylelint/stylelint/pull/7425)) ([@mattxwang](https://github.com/mattxwang)).
-- Fixed: `declaration-property-value-no-unknown` and other false positives for multiline SCSS interpolation. ([#7406](https://github.com/stylelint/stylelint/pull/7406)) ([@FloEdelmann](https://github.com/FloEdelmann)).
+- Fixed: `declaration-property-value-no-unknown` and other false positives for multiline SCSS interpolation ([#7406](https://github.com/stylelint/stylelint/pull/7406)) ([@FloEdelmann](https://github.com/FloEdelmann)).
 - Fixed: `function-url-quotes` false positives for SCSS variable and `@` character ([#7416](https://github.com/stylelint/stylelint/pull/7416)) ([@mattxwang](https://github.com/mattxwang)).
 
 ## 16.0.2 - 2023-12-11
