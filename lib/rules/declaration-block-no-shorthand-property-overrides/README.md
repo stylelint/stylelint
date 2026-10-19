@@ -11,6 +11,8 @@ a { background-repeat: repeat; background: green; }
 
 In almost every case, this is just an authorial oversight. For more about this behavior, see [MDN's documentation of shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
 
+This rule flags physical shorthands, like `padding`, that override [flow-relative properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values), such as `padding-inline.
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the shorthand property and the overridden longhand declaration.
 
 ## Options
@@ -29,6 +31,14 @@ The following patterns are considered problems:
 ```css
 a {
   padding-left: 10px;
+  padding: 20px;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  padding-inline: 10px;
   padding: 20px;
 }
 ```
@@ -64,6 +74,11 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a { padding: 10px; padding-left: 20px; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { padding: 10px; padding-inline: 20px; }
 ```
 
 <!-- prettier-ignore -->

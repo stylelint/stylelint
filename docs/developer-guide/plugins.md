@@ -108,6 +108,14 @@ If your plugin rule supports [autofixing](../contributor-guide/rules.md#add-auto
 
 You'll have to [learn about the PostCSS API](https://postcss.org/api/).
 
+To use the same version of PostCSS as Stylelint, e.g. to create nodes or split lists, use `result.stylelint.postcss` rather than importing `postcss` yourself:
+
+```js
+const styleRule = result.stylelint.postcss.rule({ selector: ".foo" });
+```
+
+PostCSS rebuilds nodes that cross different versions.
+
 ### Asynchronous rules
 
 You can write your plugin as an _async function_ to deal with `Promise`.
@@ -397,11 +405,11 @@ We sometimes introduce deprecation warnings that impact plugin authors. You can 
 For example, to quiet the deprecation warnings that mention your rule:
 
 ```diff js
-const ruleName = "plugin/foo-bar-qux";
+ const ruleName = "plugin/foo-bar-qux";
 
-+ const original = process.emitWarning;
-+ process.emitWarning = function emitWarning(warning, type, code, ctor) {
-+   const options = arguments[1];
++const original = process.emitWarning;
++process.emitWarning = function emitWarning(warning, type, code, ctor) {
++  const options = arguments[1];
 +
 +  if (
 +    options &&
@@ -414,7 +422,7 @@ const ruleName = "plugin/foo-bar-qux";
 +  }
 +
 +  original.apply(process, arguments);
-+ };
++};
 ```
 
 > [!WARNING]
