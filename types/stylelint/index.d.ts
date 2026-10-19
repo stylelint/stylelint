@@ -1685,6 +1685,11 @@ declare namespace stylelint {
 	 */
 	export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
 		/**
+		 * The version of Stylelint.
+		 */
+		version: string;
+
+		/**
 		 * Runs Stylelint with the given options and returns a Promise that
 		 * resolves to the results.
 		 *
