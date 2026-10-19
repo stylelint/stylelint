@@ -349,6 +349,11 @@ declare namespace stylelint {
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
 		lexer: unknown;
+
+		/**
+		 * Stylelint's own version that plugins can use
+		 */
+		postcss: PostCSS.Postcss;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
