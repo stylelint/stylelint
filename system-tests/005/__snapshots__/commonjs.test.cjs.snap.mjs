@@ -241,9 +241,6 @@ export default {
 		'declaration-block-no-shorthand-property-overrides': {
 			url: 'https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides',
 		},
-		'declaration-block-single-line-max-declarations': {
-			url: 'https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations',
-		},
 		'declaration-empty-line-before': {
 			fixable: true,
 			url: 'https://stylelint.io/user-guide/rules/declaration-empty-line-before',

@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"module": "nodenext",
 		"target": "es2023",
-		"lib": ["ES2023"],
+		"lib": ["ES2023", "ES2025.Collection"],
 		"checkJs": true,
 		"noEmit": true,
 		"strict": true,

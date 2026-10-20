@@ -8,6 +8,10 @@ updates:
     labels:
       - 'pr: dependencies'
     versioning-strategy: increase
+    ignore:
+      # The `@types/node` major must match the lowest supported Node.js major in `engines.node`.
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
     groups:
       changesets:
         patterns: ['@changesets/*']

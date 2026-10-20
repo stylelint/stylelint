@@ -46,6 +46,7 @@ This rule complains when the following shorthand properties can be used:
 - `border-width`
 - `column-rule`
 - `columns`
+- `contain-intrinsic-size`
 - `flex`
 - `flex-flow`
 - `font`

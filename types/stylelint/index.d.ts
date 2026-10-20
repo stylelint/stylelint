@@ -1,8 +1,7 @@
 import type * as PostCSS from 'postcss';
-import type { Options as GlobbyOptions } from 'globby';
 import type { cosmiconfig, TransformSync as CosmiconfigTransformSync } from 'cosmiconfig';
 
-type ConfigExtends = string | string[];
+type ConfigExtends = string | stylelint.Config | (string | stylelint.Config)[];
 
 type ConfigPlugins = string | stylelint.Plugin | (string | stylelint.Plugin)[];
 
@@ -27,6 +26,10 @@ type DisableSettings = stylelint.ConfigRuleSettings<boolean, stylelint.DisableOp
 type PropertyNamesOfType<T, U> = {
 	[K in keyof T]-?: T[K] extends U ? K : never;
 }[keyof T];
+
+type ReferenceRootsCache = {
+	getRoots(entries?: stylelint.Config['_resolvedReferenceFiles']): Promise<PostCSS.Root[]>;
+};
 
 type FileCache = {
 	calcHashOfConfig: (config: stylelint.Config) => void;
@@ -121,7 +124,8 @@ declare namespace stylelint {
 	export type Config = {
 		/**
 		 * Allows to extend an existing configuration. Configurations can bundle plugins, custom syntaxes,
-		 * options, and configure rules. They can also extend other configurations
+		 * options, and configure rules. They can also extend other configurations.
+		 * Each item is either a "locater" of a configuration or a configuration object itself
 		 *
 		 * @see [extends](https://stylelint.io/user-guide/configure/#extends)
 		 */
@@ -230,8 +234,6 @@ declare namespace stylelint {
 		/**
 		 * Functions that allow to hook into Stylelint's pipeline
 		 *
-		 * @experimental
-		 *
 		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
 		 */
 		processors?: ConfigProcessors;
@@ -338,9 +340,20 @@ declare namespace stylelint {
 		config?: Config;
 		referenceRoots: PostCSS.Root[];
 
+		/**
+		 * The code the root was parsed from, exactly as it was read.
+		 * Unlike `root.source.input.css` (PostCSS API), any byte order mark is kept.
+		 */
+		code?: string;
+
 		// NOTE: The type indeed is `CSSTreeLexer` from `css-tree`, but we don't want
 		// to add `@types/css-tree` as a runtime dependency. Ref #9131.
 		lexer: unknown;
+
+		/**
+		 * Stylelint's own version that plugins can use
+		 */
+		postcss: PostCSS.Postcss;
 	};
 
 	type StylelintWarningType = 'deprecation' | 'invalidOption' | 'parseError';
@@ -382,7 +395,7 @@ declare namespace stylelint {
 	export type Loader = string | PostCSS.Plugin | PostCSS.PluginCreator<any>;
 
 	/**
-	 * WARNING: This is an experimental feature. The API may change in the future.
+	 * A processor.
 	 */
 	export type Processor = () => {
 		name: string;
@@ -414,7 +427,6 @@ declare namespace stylelint {
 	 */
 	export type RuleContext = {
 		configurationComment?: string | undefined;
-		fix?: boolean | undefined;
 		newline?: string | undefined;
 	};
 
@@ -489,6 +501,7 @@ declare namespace stylelint {
 			{ ignoreAnnotations: OneOrMany<StringOrRegex> },
 			RejectedMessage<[annotation: string]>
 		>;
+		'at-charset-rule-no-invalid': CoreRule<true, {}, RejectedMessage<[reason: string]>>;
 		'at-rule-allowed-list': CoreRule<
 			OneOrMany<StringOrRegex>,
 			{},
@@ -658,11 +671,6 @@ declare namespace stylelint {
 			{},
 			RejectedMessage<[shorthand: string, property: string]>
 		>;
-		'declaration-block-single-line-max-declarations': CoreRule<
-			number,
-			{},
-			ExpectedMessage<[maximum: number]>
-		>;
 		'declaration-empty-line-before': CoreRule<
 			'always' | 'never',
 			{
@@ -673,6 +681,11 @@ declare namespace stylelint {
 			}
 		>;
 		'declaration-no-important': CoreRule<true>;
+		'declaration-property-custom-property-allowed-list': CoreRule<
+			Record<string, OneOrMany<StringOrRegex>>,
+			{},
+			RejectedMessage<[property: string, customProperty: string]>
+		>;
 		'declaration-property-max-values': CoreRule<
 			Record<string, number>,
 			{},
@@ -707,13 +720,8 @@ declare namespace stylelint {
 			true,
 			{
 				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
-				propertiesSyntax: Record<string, string>;
-				typesSyntax: Record<string, string>;
 			},
-			RejectedMessage<[property: string, value: string]> & {
-				rejectedParseError: (property: string, value: string) => string;
-				rejectedMath: (property: string, expression: string) => string;
-			}
+			RejectedMessage<[property: string, value: string, varFunctions: string[], syntax: string]>
 		>;
 		'font-family-name-quotes': CoreRule<
 			'always-where-required' | 'always-where-recommended' | 'always-unless-keyword',
@@ -1010,7 +1018,7 @@ declare namespace stylelint {
 		'selector-max-pseudo-class': MaxRule;
 		'selector-max-specificity': CoreRule<
 			string,
-			{ ignoreSelectors: OneOrMany<StringOrRegex> },
+			{},
 			ExpectedMessage<[selector: string, specificity: string, selector: string]>
 		>;
 		'selector-max-type': MaxRule<{
@@ -1153,10 +1161,16 @@ declare namespace stylelint {
 			ExpectedMessage<[unfixed: string, fixed: string]> &
 				RejectedMessage<[type: string, keyword: string]>
 		>;
+		'value-no-invalid': CoreRule<true, {}, RejectedMessage<[value: string, reason: string]>>;
 		'value-no-vendor-prefix': CoreRule<
 			true,
 			{ ignoreValues: OneOrMany<StringOrRegex> },
 			RejectedMessage<[value: string]>
+		>;
+		'value-type-custom-property-required-list': CoreRule<
+			OneOrMany<string>,
+			{ ignoreProperties: Record<string, OneOrMany<StringOrRegex>> },
+			ExpectedMessage<[value: string, type: string]>
 		>;
 	};
 
@@ -1173,6 +1187,41 @@ declare namespace stylelint {
 		existingPostcssResult?: PostCSS.Result;
 		cache?: boolean;
 		abortSignal?: AbortSignal;
+	};
+
+	/**
+	 * Options for matching `files`, a subset of globby's options.
+	 */
+	export type GlobbyOptions = {
+		/**
+		 * Whether to expand braces, e.g. `{a,b}`.
+		 * Defaults to `true`.
+		 */
+		braceExpansion?: boolean;
+		/**
+		 * Whether to match case-sensitively.
+		 * Defaults to `true`.
+		 */
+		caseSensitiveMatch?: boolean;
+		/**
+		 * Whether to match files and directories whose names begin with a dot.
+		 * Defaults to `false`.
+		 */
+		dot?: boolean;
+		/**
+		 * Whether to support extglobs, e.g. `+(a|b)`.
+		 * Defaults to `true`.
+		 */
+		extglob?: boolean;
+		/**
+		 * Whether to traverse symbolic links to directories.
+		 * Defaults to `true`.
+		 */
+		followSymbolicLinks?: boolean;
+		/**
+		 * Globs of files to exclude, relative to `cwd`.
+		 */
+		ignore?: OneOrMany<string>;
 	};
 
 	/**
@@ -1212,6 +1261,11 @@ declare namespace stylelint {
 		/** @internal */
 		_defaultFormatter?: FormatterType;
 		formatter?: FormatterType | Formatter;
+		/**
+		 * Whether the formatter uses color. When not set, the built-in
+		 * formatters detect whether the terminal supports color.
+		 */
+		color?: boolean;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean | FixMode;
 		computeEditInfo?: boolean;
@@ -1373,6 +1427,10 @@ declare namespace stylelint {
 			maxWarnings: number;
 			foundWarnings: number;
 		};
+		/**
+		 * The `color` option, present when it was set.
+		 */
+		color?: boolean;
 		reportedDisables: DisableOptionsReport;
 		descriptionlessDisables?: DisableOptionsReport;
 		needlessDisables?: DisableOptionsReport;
@@ -1467,6 +1525,7 @@ declare namespace stylelint {
 		| 'border-width'
 		| 'column-rule'
 		| 'columns'
+		| 'contain-intrinsic-size'
 		| 'flex'
 		| 'flex-flow'
 		| 'font'
@@ -1599,9 +1658,11 @@ declare namespace stylelint {
 		_configExplorer: ReturnType<typeof cosmiconfig>;
 		_specifiedConfigCache: Map<Config, Map<string, CosmiconfigResult>>;
 		_augmentedConfigCache: Map<string, CosmiconfigResult>;
-		_postcssResultCache: Map<string, PostCSS.Result>;
+		_postcssResultCache: Map<string, { result: PostCSS.Result; code: string }>;
 		_compiledOverridesCache: Map<string, CompiledOverride[]>;
 		_fileCache: FileCache;
+		_referenceFilesCache: Map<string, Promise<string[]>>;
+		_referenceRootsCache: ReferenceRootsCache;
 	};
 
 	/**
@@ -1623,6 +1684,11 @@ declare namespace stylelint {
 	 * The Stylelint public API.
 	 */
 	export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
+		/**
+		 * The version of Stylelint.
+		 */
+		version: string;
+
 		/**
 		 * Runs Stylelint with the given options and returns a Promise that
 		 * resolves to the results.

@@ -23,7 +23,6 @@ import { promisify } from 'node:util';
 
 import { fileURLToPath } from 'node:url';
 
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
 import { before, describe, test } from 'node:test';
 
 const execAsync = promisify(childProcess.exec);
@@ -36,6 +35,10 @@ const rootDir = path.resolve(currentDir, '../..');
 
 // Disabled by default since it requires Yarn on the system.
 const shouldSkipTest = process.env.STYLELINT_TEST_YARN_PNP !== 'true';
+
+// stylelint-config-standard@40.0.0 turns on this rule, which 18.0.0 removed.
+// Drop this once the fixtures pin a release of the config for Stylelint 18.
+const removedRuleNames = new Set(['declaration-block-single-line-max-declarations']);
 
 /** @typedef {'combined' | 'stylelint-only' | 'config-only'} FixtureType */
 
@@ -155,6 +158,15 @@ async function runStylelint(cwd, args) {
 }
 
 /**
+ * Drop the "Unknown rule" warnings for rules that the pinned config still turns on.
+ * @param {object[]} warnings
+ * @returns {object[]}
+ */
+function omitRemovedRuleWarnings(warnings) {
+	return warnings.filter((warning) => !removedRuleNames.has(warning.rule));
+}
+
+/**
  * Set up all fixtures for testing.
  */
 async function setupAllFixtures() {
@@ -186,10 +198,13 @@ describe('Yarn PnP integration', { skip: shouldSkipTest }, () => {
 		assert.equal(results.length, 1, 'Should have one lint result.');
 		assert.equal(results[0].source, path.join(fixtureDir, 'stylesheet.css'));
 		assert.equal(results[0].errored, true, 'Should have errors.');
-		assert.equal(results[0].warnings.length, 1, 'Should have one warning.');
+
+		const warnings = omitRemovedRuleWarnings(results[0].warnings);
+
+		assert.equal(warnings.length, 1, 'Should have one warning.');
 
 		// Check that the rule from stylelint-config-standard was applied.
-		const blockNoEmpty = results[0].warnings.find((w) => w.rule === 'block-no-empty');
+		const blockNoEmpty = warnings.find((w) => w.rule === 'block-no-empty');
 
 		assert.ok(blockNoEmpty, 'Should find block-no-empty warning from stylelint-config-standard');
 	});
@@ -207,10 +222,13 @@ describe('Yarn PnP integration', { skip: shouldSkipTest }, () => {
 		assert.equal(results.length, 1, 'Should have one lint result.');
 		assert.equal(results[0].source, stylesheetPath);
 		assert.equal(results[0].errored, true, 'Should have errors.');
-		assert.equal(results[0].warnings.length, 1, 'Should have one warning.');
+
+		const warnings = omitRemovedRuleWarnings(results[0].warnings);
+
+		assert.equal(warnings.length, 1, 'Should have one warning.');
 
 		// Check that the rule from stylelint-config-standard was applied.
-		const blockNoEmpty = results[0].warnings.find((w) => w.rule === 'block-no-empty');
+		const blockNoEmpty = warnings.find((w) => w.rule === 'block-no-empty');
 
 		assert.ok(blockNoEmpty, 'Should find block-no-empty warning from stylelint-config-standard');
 	});
