@@ -533,9 +533,6 @@ For a right-to-left language, set `"inline": "right-to-left"`. The mapping chang
 
 ## `referenceFiles`
 
-> [!WARNING]
-> This is an experimental feature. The API may change in the future.
-
 You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things like [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md).
 
 For example:
