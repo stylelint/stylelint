@@ -33,21 +33,21 @@ Then:
 
 ### Run tests
 
-Next, you'll want to run the tests using `npm test`. This runs all 25,000+ unit tests and also linting.
+Next, you'll want to run the tests using `npm test`. This runs all 10,000+ unit tests.
 
-You can use the interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development).
+You can run the tests for just a chosen set of files by passing them to the test runner (which you'll want to do during development).
 
 For example, to run the tests for just the `unit-allowed-list` and `unit-disallowed-list` rules:
 
-1. Run `npm run watch` to start the interactive testing prompt.
-2. Press `p` to filter by a filename regex pattern.
-3. Enter `unit-allowed-list|unit-disallowed-list`, i.e. each rule name separated by the pipe symbol (`|`).
+```shell
+node --import ./lib/testUtils/setup.mjs --test lib/rules/unit-allowed-list/__tests__/index.mjs lib/rules/unit-disallowed-list/__tests__/index.mjs
+```
 
-You can find more information about testing on the [Jest website](https://jestjs.io/).
+Add `--watch` to rerun them whenever a file changes. You can find more information about testing in the [Node.js test runner docs](https://nodejs.org/api/test.html).
 
 ### Write code
 
-With the interactive testing prompt running, you can write code confident that things are working as expected.
+With the tests running in watch mode, you can write code confident that things are working as expected.
 
 You can write code to:
 

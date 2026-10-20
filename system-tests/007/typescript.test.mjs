@@ -1,6 +1,3 @@
-// NOTE: This test uses the `node:test` module because Jest's module loader
-// doesn't strip types, so it can't load a TypeScript config.
-
 import assert from 'node:assert/strict';
 import test from 'node:test';
 

@@ -1,11 +1,13 @@
+import { it } from 'node:test';
+
 import stylelint from '../../lib/index.mjs';
 
 import { caseConfigFile, caseFilesForFix, prepForSnapshot } from '../systemTestUtils.mjs';
 
 const CASE_NUMBER = '004';
 
-it('fs - errored state for reportNeedlessDisables', async () => {
-	expect(
+it('fs - errored state for reportNeedlessDisables', { timeout: 10000 }, async (t) => {
+	t.assert.snapshot(
 		prepForSnapshot(
 			await stylelint.lint({
 				files: await caseFilesForFix(CASE_NUMBER),
@@ -13,16 +15,16 @@ it('fs - errored state for reportNeedlessDisables', async () => {
 				reportNeedlessDisables: true,
 			}),
 		),
-	).toMatchSnapshot();
-}, 10000);
+	);
+});
 
-it('fs - no errored state', async () => {
-	expect(
+it('fs - no errored state', { timeout: 10000 }, async (t) => {
+	t.assert.snapshot(
 		prepForSnapshot(
 			await stylelint.lint({
 				files: await caseFilesForFix(CASE_NUMBER),
 				configFile: caseConfigFile(CASE_NUMBER),
 			}),
 		),
-	).toMatchSnapshot();
-}, 10000);
+	);
+});

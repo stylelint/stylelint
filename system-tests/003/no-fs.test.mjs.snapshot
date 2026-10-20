@@ -1,0 +1,171 @@
+exports[`no-fs - zen garden CSS with standard config 1`] = `
+{
+  "cwd": "",
+  "results": [
+    {
+      "source": "/path/to/dummy.css",
+      "deprecations": [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "errored": true,
+      "warnings": [
+        {
+          "line": 102,
+          "column": 25,
+          "endLine": 102,
+          "endColumn": 32,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Missing generic font family (font-family-no-missing-generic-family-keyword)"
+        }
+      ],
+      "autofixed": true
+    }
+  ],
+  "report": [
+    {
+      "source": "/path/to/dummy.css",
+      "deprecations": [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "errored": true,
+      "warnings": [
+        {
+          "line": 102,
+          "column": 25,
+          "endLine": 102,
+          "endColumn": 32,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Missing generic font family (font-family-no-missing-generic-family-keyword)"
+        }
+      ],
+      "autofixed": true
+    }
+  ],
+  "errored": true,
+  "reportedDisables": [],
+  "ruleMetadata": {
+    "at-rule-empty-line-before": {
+      "url": "https://stylelint.io/user-guide/rules/at-rule-empty-line-before",
+      "fixable": true
+    },
+    "at-rule-no-unknown": {
+      "url": "https://stylelint.io/user-guide/rules/at-rule-no-unknown"
+    },
+    "block-no-empty": {
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty"
+    },
+    "color-hex-length": {
+      "url": "https://stylelint.io/user-guide/rules/color-hex-length",
+      "fixable": true
+    },
+    "color-no-invalid-hex": {
+      "url": "https://stylelint.io/user-guide/rules/color-no-invalid-hex"
+    },
+    "comment-empty-line-before": {
+      "url": "https://stylelint.io/user-guide/rules/comment-empty-line-before",
+      "fixable": true
+    },
+    "comment-no-empty": {
+      "url": "https://stylelint.io/user-guide/rules/comment-no-empty"
+    },
+    "comment-whitespace-inside": {
+      "url": "https://stylelint.io/user-guide/rules/comment-whitespace-inside",
+      "fixable": true
+    },
+    "custom-property-empty-line-before": {
+      "url": "https://stylelint.io/user-guide/rules/custom-property-empty-line-before",
+      "fixable": true
+    },
+    "declaration-block-no-duplicate-properties": {
+      "url": "https://stylelint.io/user-guide/rules/declaration-block-no-duplicate-properties",
+      "fixable": true
+    },
+    "declaration-block-no-shorthand-property-overrides": {
+      "url": "https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides"
+    },
+    "declaration-empty-line-before": {
+      "url": "https://stylelint.io/user-guide/rules/declaration-empty-line-before",
+      "fixable": true
+    },
+    "font-family-no-duplicate-names": {
+      "url": "https://stylelint.io/user-guide/rules/font-family-no-duplicate-names"
+    },
+    "font-family-no-missing-generic-family-keyword": {
+      "url": "https://stylelint.io/user-guide/rules/font-family-no-missing-generic-family-keyword"
+    },
+    "function-calc-no-unspaced-operator": {
+      "url": "https://stylelint.io/user-guide/rules/function-calc-no-unspaced-operator",
+      "fixable": true
+    },
+    "function-linear-gradient-no-nonstandard-direction": {
+      "url": "https://stylelint.io/user-guide/rules/function-linear-gradient-no-nonstandard-direction"
+    },
+    "function-name-case": {
+      "url": "https://stylelint.io/user-guide/rules/function-name-case",
+      "fixable": true
+    },
+    "keyframe-declaration-no-important": {
+      "url": "https://stylelint.io/user-guide/rules/keyframe-declaration-no-important"
+    },
+    "length-zero-no-unit": {
+      "url": "https://stylelint.io/user-guide/rules/length-zero-no-unit",
+      "fixable": true
+    },
+    "media-feature-name-no-unknown": {
+      "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-unknown"
+    },
+    "no-descending-specificity": {
+      "url": "https://stylelint.io/user-guide/rules/no-descending-specificity"
+    },
+    "no-duplicate-at-import-rules": {
+      "url": "https://stylelint.io/user-guide/rules/no-duplicate-at-import-rules"
+    },
+    "no-duplicate-selectors": {
+      "url": "https://stylelint.io/user-guide/rules/no-duplicate-selectors"
+    },
+    "no-empty-source": {
+      "url": "https://stylelint.io/user-guide/rules/no-empty-source"
+    },
+    "no-invalid-double-slash-comments": {
+      "url": "https://stylelint.io/user-guide/rules/no-invalid-double-slash-comments"
+    },
+    "property-no-unknown": {
+      "url": "https://stylelint.io/user-guide/rules/property-no-unknown"
+    },
+    "rule-empty-line-before": {
+      "url": "https://stylelint.io/user-guide/rules/rule-empty-line-before",
+      "fixable": true
+    },
+    "selector-pseudo-class-no-unknown": {
+      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown"
+    },
+    "selector-pseudo-element-colon-notation": {
+      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-colon-notation",
+      "fixable": true
+    },
+    "selector-pseudo-element-no-unknown": {
+      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-no-unknown"
+    },
+    "selector-type-case": {
+      "url": "https://stylelint.io/user-guide/rules/selector-type-case",
+      "fixable": true
+    },
+    "selector-type-no-unknown": {
+      "url": "https://stylelint.io/user-guide/rules/selector-type-no-unknown"
+    },
+    "string-no-newline": {
+      "url": "https://stylelint.io/user-guide/rules/string-no-newline"
+    },
+    "unit-no-unknown": {
+      "url": "https://stylelint.io/user-guide/rules/unit-no-unknown"
+    },
+    "value-keyword-case": {
+      "url": "https://stylelint.io/user-guide/rules/value-keyword-case",
+      "fixable": true
+    }
+  },
+  "code": "/* css Zen Garden default style v1.02 */\\n\\n/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */\\n\\n/* This file based on 'Tranquille' by Dave Shea */\\n\\n/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */\\n\\n/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */\\n\\n/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */\\n\\n\\n/* basic elements */\\nhtml {\\n\\tmargin: 0;\\n\\tpadding: 0;\\n\\t}\\n\\nbody {\\n\\tfont: 75% georgia, sans-serif;\\n\\tline-height: 1.88889;\\n\\tcolor: #555753;\\n\\tbackground: #fff url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right;\\n\\tmargin: 0;\\n\\tpadding: 0;\\n\\t}\\n\\np {\\n\\tmargin-top: 0;\\n\\ttext-align: justify;\\n\\t}\\n\\nh3 {\\n\\tfont: italic normal 1.4em georgia, sans-serif;\\n\\tletter-spacing: 1px;\\n\\tmargin-bottom: 0;\\n\\tcolor: #7D775C;\\n\\t}\\n\\na:link {\\n\\tfont-weight: bold;\\n\\ttext-decoration: none;\\n\\tcolor: #B7A5DF;\\n\\t}\\n\\na:visited {\\n\\tfont-weight: bold;\\n\\ttext-decoration: none;\\n\\tcolor: #D4CDDC;\\n\\t}\\n\\na:hover, a:focus, a:active {\\n\\ttext-decoration: underline;\\n\\tcolor: #9685BA;\\n\\t}\\n\\nabbr {\\n\\tborder-bottom: none;\\n\\t}\\n\\n\\n/* specific divs */\\n.page-wrapper {\\n\\tbackground: url(http://csszengarden.com/001/zen-bg.jpg) no-repeat top left;\\n\\tpadding: 0 175px 0 110px;\\n\\tmargin: 0;\\n\\tposition: relative;\\n\\t}\\n\\n.intro {\\n\\tmin-width: 470px;\\n\\twidth: 100%;\\n\\t}\\n\\nheader h1 {\\n\\tbackground: transparent url(http://csszengarden.com/001/h1.gif) no-repeat top left;\\n\\tmargin-top: 10px;\\n\\tdisplay: block;\\n\\twidth: 219px;\\n\\theight: 87px;\\n\\tfloat: left;\\n\\ttext-indent: 100%;\\n\\twhite-space: nowrap;\\n\\toverflow: hidden;\\n\\t}\\n\\nheader h2 {\\n\\tbackground: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left;\\n\\tmargin-top: 58px;\\n\\tmargin-bottom: 40px;\\n\\twidth: 200px;\\n\\theight: 18px;\\n\\tfloat: right;\\n\\ttext-indent: 100%;\\n\\twhite-space: nowrap;\\n\\toverflow: hidden;\\n\\t}\\n\\nheader {\\n\\tpadding-top: 20px;\\n\\theight: 87px;\\n}\\n\\n.summary {\\n\\tclear: both;\\n\\tmargin: 20px 20px 20px 10px;\\n\\twidth: 160px;\\n\\tfloat: left;\\n\\t}\\n\\n.summary p {\\n\\tfont: italic 1.1em/2.2 georgia;\\n\\ttext-align: center;\\n\\t}\\n\\n.preamble {\\n\\tclear: right;\\n\\tpadding: 0 10px 0;\\n\\t}\\n\\n.supporting {\\n\\tpadding-left: 10px;\\n\\tmargin-bottom: 40px;\\n\\t}\\n\\nfooter {\\n\\ttext-align: center;\\n\\t}\\n\\nfooter a:link, footer a:visited {\\n\\tmargin-right: 20px;\\n\\t}\\n\\n.sidebar {\\n\\tmargin-left: 600px;\\n\\tposition: absolute;\\n\\ttop: 0;\\n\\tright: 0;\\n\\t}\\n\\n.sidebar .wrapper {\\n\\tfont: 10px verdana, sans-serif;\\n\\tbackground: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y;\\n\\tpadding: 10px;\\n\\tmargin-top: 150px;\\n\\twidth: 130px;\\n\\t}\\n\\n.sidebar h3.select {\\n\\tbackground: transparent url(http://csszengarden.com/001/h3.gif) no-repeat top left;\\n\\tmargin: 10px 0 5px;\\n\\twidth: 97px;\\n\\theight: 16px;\\n\\ttext-indent: 100%;\\n\\twhite-space: nowrap;\\n\\toverflow: hidden;\\n\\t}\\n\\n.sidebar h3.archives {\\n\\tbackground: transparent url(http://csszengarden.com/001/h5.gif) no-repeat top left;\\n\\tmargin: 25px 0 5px;\\n\\twidth:57px;\\n\\theight: 14px;\\n\\ttext-indent: 100%;\\n\\twhite-space: nowrap;\\n\\toverflow: hidden;\\n\\t}\\n\\n.sidebar h3.resources {\\n\\tbackground: transparent url(http://csszengarden.com/001/h6.gif) no-repeat top left;\\n\\tmargin: 25px 0 5px;\\n\\twidth:63px;\\n\\theight: 10px;\\n\\ttext-indent: 100%;\\n\\twhite-space: nowrap;\\n\\toverflow: hidden;\\n\\t}\\n\\n\\n.sidebar ul {\\n\\tmargin: 0;\\n\\tpadding: 0;\\n\\t}\\n\\n.sidebar li {\\n\\tline-height: 1.3em;\\n\\tbackground: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center;\\n\\tdisplay: block;\\n\\tpadding-top: 5px;\\n\\tmargin-bottom: 5px;\\n\\tlist-style-type: none;\\n\\t}\\n\\n.sidebar li a:link {\\n\\tcolor: #988F5E;\\n\\t}\\n\\n.sidebar li a:visited {\\n\\tcolor: #B3AE94;\\n\\t}\\n\\n\\n.extra1 {\\n\\tbackground: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat;\\n\\tposition: absolute;\\n\\ttop: 40px;\\n\\tright: 0;\\n\\twidth: 148px;\\n\\theight: 110px;\\n\\t}\\n"
+}
+`;

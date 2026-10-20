@@ -1,0 +1,85 @@
+exports[`fs - errored state for reportNeedlessDisables 1`] = `
+{
+  "cwd": "",
+  "results": [
+    {
+      "source": "/path/to/dummy.css",
+      "deprecations": [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "errored": true,
+      "warnings": [
+        {
+          "line": 1,
+          "column": 1,
+          "endLine": 1,
+          "endColumn": 38,
+          "rule": "--report-needless-disables",
+          "severity": "error",
+          "text": "Needless disable for \\"block-no-empty\\""
+        }
+      ]
+    }
+  ],
+  "report": [
+    {
+      "source": "/path/to/dummy.css",
+      "deprecations": [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "errored": true,
+      "warnings": [
+        {
+          "line": 1,
+          "column": 1,
+          "endLine": 1,
+          "endColumn": 38,
+          "rule": "--report-needless-disables",
+          "severity": "error",
+          "text": "Needless disable for \\"block-no-empty\\""
+        }
+      ]
+    }
+  ],
+  "errored": true,
+  "reportedDisables": [],
+  "ruleMetadata": {
+    "block-no-empty": {
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty"
+    }
+  }
+}
+`;
+
+exports[`fs - no errored state 1`] = `
+{
+  "cwd": "",
+  "results": [
+    {
+      "source": "/path/to/dummy.css",
+      "deprecations": [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "errored": false,
+      "warnings": []
+    }
+  ],
+  "report": [
+    {
+      "source": "/path/to/dummy.css",
+      "deprecations": [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "errored": false,
+      "warnings": []
+    }
+  ],
+  "errored": false,
+  "reportedDisables": [],
+  "ruleMetadata": {
+    "block-no-empty": {
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty"
+    }
+  }
+}
+`;

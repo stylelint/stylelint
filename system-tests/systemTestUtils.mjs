@@ -27,7 +27,10 @@ export async function caseCode(caseNumber, ext = 'css') {
 }
 
 export async function caseFilesForFix(caseNumber, ext = 'css') {
-	const tempPath = replaceBackslashes(path.join(os.tmpdir(), `stylesheet-${uniqueId()}.${ext}`));
+	// Each test file runs in its own process, so the counter alone would collide across files.
+	const tempPath = replaceBackslashes(
+		path.join(os.tmpdir(), `stylesheet-${process.pid}-${uniqueId()}.${ext}`),
+	);
 
 	await copyFile(new URL(`./${caseNumber}/stylesheet.${ext}`, import.meta.url), tempPath);
 

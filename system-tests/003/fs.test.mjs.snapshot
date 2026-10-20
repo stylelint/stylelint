@@ -1,175 +1,170 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
-
 exports[`fs - zen garden CSS with standard config 1`] = `
 {
   "cwd": "",
-  "errored": true,
-  "report": [
-    {
-      "autofixed": true,
-      "deprecations": [],
-      "errored": true,
-      "invalidOptionWarnings": [],
-      "parseErrors": [],
-      "source": "/path/to/dummy.css",
-      "warnings": [
-        {
-          "column": 25,
-          "endColumn": 32,
-          "endLine": 102,
-          "line": 102,
-          "rule": "font-family-no-missing-generic-family-keyword",
-          "severity": "error",
-          "text": "Missing generic font family (font-family-no-missing-generic-family-keyword)",
-        },
-      ],
-    },
-  ],
-  "reportedDisables": [],
   "results": [
     {
-      "autofixed": true,
+      "source": "/path/to/dummy.css",
       "deprecations": [],
-      "errored": true,
-      "ignored": undefined,
       "invalidOptionWarnings": [],
       "parseErrors": [],
-      "source": "/path/to/dummy.css",
+      "errored": true,
       "warnings": [
         {
-          "column": 25,
-          "endColumn": 32,
-          "endLine": 102,
-          "fix": undefined,
           "line": 102,
+          "column": 25,
+          "endLine": 102,
+          "endColumn": 32,
           "rule": "font-family-no-missing-generic-family-keyword",
           "severity": "error",
-          "text": "Missing generic font family (font-family-no-missing-generic-family-keyword)",
-          "url": undefined,
-        },
+          "text": "Missing generic font family (font-family-no-missing-generic-family-keyword)"
+        }
       ],
-    },
+      "autofixed": true
+    }
   ],
+  "report": [
+    {
+      "source": "/path/to/dummy.css",
+      "deprecations": [],
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "errored": true,
+      "warnings": [
+        {
+          "line": 102,
+          "column": 25,
+          "endLine": 102,
+          "endColumn": 32,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Missing generic font family (font-family-no-missing-generic-family-keyword)"
+        }
+      ],
+      "autofixed": true
+    }
+  ],
+  "errored": true,
+  "reportedDisables": [],
   "ruleMetadata": {
     "at-rule-empty-line-before": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-empty-line-before",
+      "fixable": true
     },
     "at-rule-no-unknown": {
-      "url": "https://stylelint.io/user-guide/rules/at-rule-no-unknown",
+      "url": "https://stylelint.io/user-guide/rules/at-rule-no-unknown"
     },
     "block-no-empty": {
-      "url": "https://stylelint.io/user-guide/rules/block-no-empty",
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty"
     },
     "color-hex-length": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/color-hex-length",
+      "fixable": true
     },
     "color-no-invalid-hex": {
-      "url": "https://stylelint.io/user-guide/rules/color-no-invalid-hex",
+      "url": "https://stylelint.io/user-guide/rules/color-no-invalid-hex"
     },
     "comment-empty-line-before": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/comment-empty-line-before",
+      "fixable": true
     },
     "comment-no-empty": {
-      "url": "https://stylelint.io/user-guide/rules/comment-no-empty",
+      "url": "https://stylelint.io/user-guide/rules/comment-no-empty"
     },
     "comment-whitespace-inside": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/comment-whitespace-inside",
+      "fixable": true
     },
     "custom-property-empty-line-before": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/custom-property-empty-line-before",
+      "fixable": true
     },
     "declaration-block-no-duplicate-properties": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-no-duplicate-properties",
+      "fixable": true
     },
     "declaration-block-no-shorthand-property-overrides": {
-      "url": "https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides",
+      "url": "https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides"
     },
     "declaration-empty-line-before": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-empty-line-before",
+      "fixable": true
     },
     "font-family-no-duplicate-names": {
-      "url": "https://stylelint.io/user-guide/rules/font-family-no-duplicate-names",
+      "url": "https://stylelint.io/user-guide/rules/font-family-no-duplicate-names"
     },
     "font-family-no-missing-generic-family-keyword": {
-      "url": "https://stylelint.io/user-guide/rules/font-family-no-missing-generic-family-keyword",
+      "url": "https://stylelint.io/user-guide/rules/font-family-no-missing-generic-family-keyword"
     },
     "function-calc-no-unspaced-operator": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-calc-no-unspaced-operator",
+      "fixable": true
     },
     "function-linear-gradient-no-nonstandard-direction": {
-      "url": "https://stylelint.io/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+      "url": "https://stylelint.io/user-guide/rules/function-linear-gradient-no-nonstandard-direction"
     },
     "function-name-case": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-name-case",
+      "fixable": true
     },
     "keyframe-declaration-no-important": {
-      "url": "https://stylelint.io/user-guide/rules/keyframe-declaration-no-important",
+      "url": "https://stylelint.io/user-guide/rules/keyframe-declaration-no-important"
     },
     "length-zero-no-unit": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/length-zero-no-unit",
+      "fixable": true
     },
     "media-feature-name-no-unknown": {
-      "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-unknown",
+      "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-unknown"
     },
     "no-descending-specificity": {
-      "url": "https://stylelint.io/user-guide/rules/no-descending-specificity",
+      "url": "https://stylelint.io/user-guide/rules/no-descending-specificity"
     },
     "no-duplicate-at-import-rules": {
-      "url": "https://stylelint.io/user-guide/rules/no-duplicate-at-import-rules",
+      "url": "https://stylelint.io/user-guide/rules/no-duplicate-at-import-rules"
     },
     "no-duplicate-selectors": {
-      "url": "https://stylelint.io/user-guide/rules/no-duplicate-selectors",
+      "url": "https://stylelint.io/user-guide/rules/no-duplicate-selectors"
     },
     "no-empty-source": {
-      "url": "https://stylelint.io/user-guide/rules/no-empty-source",
+      "url": "https://stylelint.io/user-guide/rules/no-empty-source"
     },
     "no-invalid-double-slash-comments": {
-      "url": "https://stylelint.io/user-guide/rules/no-invalid-double-slash-comments",
+      "url": "https://stylelint.io/user-guide/rules/no-invalid-double-slash-comments"
     },
     "property-no-unknown": {
-      "url": "https://stylelint.io/user-guide/rules/property-no-unknown",
+      "url": "https://stylelint.io/user-guide/rules/property-no-unknown"
     },
     "rule-empty-line-before": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/rule-empty-line-before",
+      "fixable": true
     },
     "selector-pseudo-class-no-unknown": {
-      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown",
+      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown"
     },
     "selector-pseudo-element-colon-notation": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-colon-notation",
+      "fixable": true
     },
     "selector-pseudo-element-no-unknown": {
-      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-no-unknown",
+      "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-no-unknown"
     },
     "selector-type-case": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-type-case",
+      "fixable": true
     },
     "selector-type-no-unknown": {
-      "url": "https://stylelint.io/user-guide/rules/selector-type-no-unknown",
+      "url": "https://stylelint.io/user-guide/rules/selector-type-no-unknown"
     },
     "string-no-newline": {
-      "url": "https://stylelint.io/user-guide/rules/string-no-newline",
+      "url": "https://stylelint.io/user-guide/rules/string-no-newline"
     },
     "unit-no-unknown": {
-      "url": "https://stylelint.io/user-guide/rules/unit-no-unknown",
+      "url": "https://stylelint.io/user-guide/rules/unit-no-unknown"
     },
     "value-keyword-case": {
-      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-keyword-case",
-    },
-  },
+      "fixable": true
+    }
+  }
 }
 `;

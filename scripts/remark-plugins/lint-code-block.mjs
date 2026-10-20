@@ -1,7 +1,7 @@
 /* eslint-disable n/no-extraneous-import */
+import * as babel from 'prettier/plugins/babel';
+import * as typescript from 'prettier/plugins/typescript';
 import { lintRule } from 'unified-lint-rule';
-import { parse as parseJs } from 'espree';
-import { parse as parseTs } from '@babel/parser';
 import postcss from 'postcss';
 import { visit } from 'unist-util-visit';
 /* eslint-enable n/no-extraneous-import */
@@ -17,7 +17,7 @@ const LANGUAGES = Object.freeze({
 
 function isValidJs(source) {
 	try {
-		parseJs(source, { ecmaVersion: 'latest', sourceType: 'module' });
+		babel.parsers.babel.parse(source, {});
 
 		return true;
 	} catch {
@@ -27,7 +27,7 @@ function isValidJs(source) {
 
 function isValidTs(source) {
 	try {
-		parseTs(source, { sourceType: 'module', plugins: ['typescript'] });
+		typescript.parsers.typescript.parse(source, {});
 
 		return true;
 	} catch {

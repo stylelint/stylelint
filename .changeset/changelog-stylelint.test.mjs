@@ -2,11 +2,16 @@
 // .changeset/__tests__/ because @changesets/read treats every subdirectory of
 // .changeset/ as a legacy v1 changeset and fails to read changes.json from it.
 
-import { jest } from '@jest/globals';
+import { beforeEach, describe, test } from 'node:test';
+import assert from 'node:assert/strict';
 
-const getCommitInfo = jest.fn();
+import { getCommitInfo } from './get-github-info.mock.mjs';
+import redirectModule from '../lib/testUtils/redirectModule.mjs';
 
-jest.unstable_mockModule('@changesets/get-github-info', () => ({ getCommitInfo }));
+redirectModule(
+	'@changesets/get-github-info',
+	new URL('./get-github-info.mock.mjs', import.meta.url),
+);
 
 const { default: changelog } = await import('./changelog-stylelint.mjs');
 
@@ -14,15 +19,15 @@ const REPO = 'stylelint/stylelint-test';
 const options = { repo: REPO };
 
 beforeEach(() => {
-	getCommitInfo.mockReset();
-	getCommitInfo.mockResolvedValue({
+	getCommitInfo.mock.resetCalls();
+	getCommitInfo.mock.mockImplementation(async () => ({
 		pull: {
 			markdownLink: `[#42](https://github.com/${REPO}/pull/42)`,
 		},
 		author: {
 			markdownLink: '[@octocat](https://github.com/octocat)',
 		},
-	});
+	}));
 });
 
 describe('getReleaseLine', () => {
@@ -33,7 +38,8 @@ describe('getReleaseLine', () => {
 			options,
 		);
 
-		expect(line).toBe(
+		assert.equal(
+			line,
 			`- Fixed: something ([#42](https://github.com/${REPO}/pull/42)) ([@octocat](https://github.com/octocat)).`,
 		);
 	});
@@ -45,7 +51,8 @@ describe('getReleaseLine', () => {
 			options,
 		);
 
-		expect(line).toBe(
+		assert.equal(
+			line,
 			`- Fixed: something ([#42](https://github.com/${REPO}/pull/42)) ([@octocat](https://github.com/octocat)).`,
 		);
 	});
@@ -53,12 +60,12 @@ describe('getReleaseLine', () => {
 	test('omits suffix when no commit', async () => {
 		const line = await changelog.getReleaseLine({ summary: 'Added: thing' }, 'minor', options);
 
-		expect(line).toBe('- Added: thing.');
-		expect(getCommitInfo).not.toHaveBeenCalled();
+		assert.equal(line, '- Added: thing.');
+		assert.equal(getCommitInfo.mock.callCount(), 0);
 	});
 
 	test('omits suffix when fetched commit info holds empty attributes', async () => {
-		getCommitInfo.mockResolvedValue({ pull: {}, author: {} });
+		getCommitInfo.mock.mockImplementation(async () => ({ pull: {}, author: {} }));
 
 		const line = await changelog.getReleaseLine(
 			{ summary: 'Added: thing', commit: 'abc1234' },
@@ -66,22 +73,24 @@ describe('getReleaseLine', () => {
 			options,
 		);
 
-		expect(line).toBe('- Added: thing.');
+		assert.equal(line, '- Added: thing.');
 	});
 
 	test('accepts a valid prefix', async () => {
 		const line = await changelog.getReleaseLine({ summary: 'Fixed: thing' }, 'patch', options);
 
-		expect(line).toBe('- Fixed: thing.');
+		assert.equal(line, '- Fixed: thing.');
 	});
 
-	test.each(['', 'bogus', 'fixed: lowercase', 'Fixed:no-space'])('rejects %p', async (summary) => {
-		await expect(changelog.getReleaseLine({ summary }, 'patch', options)).rejects.toThrow(
-			`Invalid changeset summary: ${JSON.stringify(summary.trim())}, expected: "<Removed|Changed|Added|Deprecated|Fixed|Security>: <description>"`,
-		);
-	});
+	for (const summary of ['', 'bogus', 'fixed: lowercase', 'Fixed:no-space']) {
+		test(`rejects ${JSON.stringify(summary)}`, async () => {
+			await assert.rejects(changelog.getReleaseLine({ summary }, 'patch', options), {
+				message: `Invalid changeset summary: ${JSON.stringify(summary.trim())}, expected: "<Removed|Changed|Added|Deprecated|Fixed|Security>: <description>"`,
+			});
+		});
+	}
 
-	test.each([
+	const accepted = [
 		['Removed: x', 'major'],
 		['Changed: x', 'major'],
 		['Added: x', 'minor'],
@@ -89,11 +98,15 @@ describe('getReleaseLine', () => {
 		['Fixed: x', 'minor'],
 		['Fixed: x', 'patch'],
 		['Security: x', 'patch'],
-	])('accepts %p for %p bump', async (summary, type) => {
-		await expect(changelog.getReleaseLine({ summary }, type, options)).resolves.toMatch(/^- /);
-	});
+	];
 
-	test.each([
+	for (const [summary, type] of accepted) {
+		test(`accepts ${JSON.stringify(summary)} for ${JSON.stringify(type)} bump`, async () => {
+			assert.match(await changelog.getReleaseLine({ summary }, type, options), /^- /);
+		});
+	}
+
+	const rejected = [
 		['Removed: x', 'minor', 'Added|Deprecated|Fixed'],
 		['Removed: x', 'patch', 'Fixed|Security'],
 		['Changed: x', 'minor', 'Added|Deprecated|Fixed'],
@@ -105,19 +118,25 @@ describe('getReleaseLine', () => {
 		['Fixed: x', 'major', 'Removed|Changed'],
 		['Security: x', 'major', 'Removed|Changed'],
 		['Security: x', 'minor', 'Added|Deprecated|Fixed'],
-	])('rejects %p for %p bump', async (summary, type, allowed) => {
-		const [prefix] = summary.split(':');
+	];
 
-		await expect(changelog.getReleaseLine({ summary }, type, options)).rejects.toThrow(
-			`Invalid changeset: "${prefix}" prefix not allowed for "${type}" bump, expected: "${allowed}"`,
-		);
-	});
+	for (const [summary, type, allowed] of rejected) {
+		test(`rejects ${JSON.stringify(summary)} for ${JSON.stringify(type)} bump`, async () => {
+			const [prefix] = summary.split(':');
+
+			await assert.rejects(changelog.getReleaseLine({ summary }, type, options), {
+				message: `Invalid changeset: "${prefix}" prefix not allowed for "${type}" bump, expected: "${allowed}"`,
+			});
+		});
+	}
 
 	test('throws with an invalid "repo" option', async () => {
 		const changeset = { summary: 'Fixed: x' };
 		const msg = '"repo" option is required and must be a string';
 
-		await expect(changelog.getReleaseLine(changeset, 'patch', {})).rejects.toThrow(msg);
-		await expect(changelog.getReleaseLine(changeset, 'patch', { repo: 0 })).rejects.toThrow(msg);
+		await assert.rejects(changelog.getReleaseLine(changeset, 'patch', {}), { message: msg });
+		await assert.rejects(changelog.getReleaseLine(changeset, 'patch', { repo: 0 }), {
+			message: msg,
+		});
 	});
 });
