@@ -242,8 +242,6 @@ declare namespace stylelint {
 		/**
 		 * An array of globs or objects to specify what files to get reference information from
 		 *
-		 * @experimental
-		 *
 		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
 		 */
 		referenceFiles?: ConfigReferenceFiles;
