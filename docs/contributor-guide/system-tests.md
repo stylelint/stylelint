@@ -16,7 +16,7 @@ The tests use [`node:test` snapshots](https://nodejs.org/api/test.html#snapshot-
 To update the snapshots of a test file, run it with the `--test-update-snapshots` flag:
 
 ```shell
-node --import ./lib/testUtils/setup.mjs --test --test-update-snapshots system-tests/001/fs.test.mjs
+npm test -- --test-update-snapshots system-tests/001/fs.test.mjs
 ```
 
 ## The pattern

@@ -60,11 +60,9 @@
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "prepare": "git config set --local core.hooksPath .githooks || true && patch-package",
-    "pretest": "npm run lint",
-    "test": "node --import ./lib/testUtils/setup.mjs --test --test-reporter=./lib/testUtils/reporter.mjs --test-reporter-destination=stdout \"lib/**/__tests__/**/*.test.?(m|c)js\" \"lib/rules/*/__tests__/index.mjs\" \"system-tests/**/*.test.?(m|c)js\" \".changeset/*.test.mjs\"",
-    "test-coverage": "node -e \"fs.mkdirSync('.coverage', { recursive: true })\" && node --import ./lib/testUtils/setup.mjs --test --experimental-test-coverage --test-coverage-include=\"lib/**/*.mjs\" --test-coverage-include=\".changeset/changelog-stylelint.mjs\" --test-coverage-exclude=\"lib/**/__tests__/**\" --test-coverage-exclude=\"lib/testUtils/**\" --test-coverage-branches=90 --test-coverage-functions=90 --test-coverage-lines=90 --test-reporter=./lib/testUtils/reporter.mjs --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=.coverage/lcov.info \"lib/**/__tests__/**/*.test.?(m|c)js\" \"lib/rules/*/__tests__/index.mjs\" \"system-tests/**/*.test.?(m|c)js\" \".changeset/*.test.mjs\"",
-    "test-only": "npm test --ignore-scripts",
-    "watch": "node --import ./lib/testUtils/setup.mjs --test --watch \"lib/**/__tests__/**/*.test.?(m|c)js\" \"lib/rules/*/__tests__/index.mjs\" \"system-tests/**/*.test.?(m|c)js\" \".changeset/*.test.mjs\""
+    "test": "node scripts/test.mjs",
+    "test-coverage": "node scripts/test.mjs --coverage",
+    "watch": "node scripts/test.mjs --watch"
   },
   "lint-staged": {
     "*.{js,mjs}": "eslint --cache --fix",
