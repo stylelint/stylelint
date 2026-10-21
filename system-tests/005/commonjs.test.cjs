@@ -1,22 +1,17 @@
-// NOTE: This test uses the `node:test` module to avoid the Jest issue
-// that has not supported `require(ESM)` yet.
-// Ref https://github.com/jestjs/jest/issues/15275
-
 const test = require('node:test');
-const assert = require('node:assert/strict');
 const path = require('node:path');
 
 const stylelint = require('../../lib/index.mjs');
 
 test(
 	'CommonJS API and config',
-	async () => {
+	async (t) => {
 		const result = await stylelint.lint({
 			files: [caseFilePath('stylesheet.css')],
 			configFile: caseFilePath('config.cjs'),
 		});
 
-		assert.deepEqual(
+		t.assert.deepStrictEqual(
 			normalizeResult(result),
 			require('./__snapshots__/commonjs.test.cjs.snap.mjs').default,
 		);

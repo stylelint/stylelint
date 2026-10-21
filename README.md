@@ -15,7 +15,7 @@ It's mighty as it:
 - automatically **fixes problems** where possible
 - supports **shareable configs** that you can create or extend
 - can **be customized** to your exact needs
-- has **15k unit tests** making it robust
+- has **10k unit tests** making it robust
 - is **trusted by companies worldwide** like Google and GitHub
 
 And it can be extended to:

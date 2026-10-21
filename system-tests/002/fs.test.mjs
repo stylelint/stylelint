@@ -1,3 +1,5 @@
+import { it } from 'node:test';
+
 import postcssScss from 'postcss-scss';
 
 import stylelint from '../../lib/index.mjs';
@@ -6,8 +8,8 @@ import { caseConfigFile, caseFiles, prepForSnapshot } from '../systemTestUtils.m
 
 const CASE_NUMBER = '002';
 
-it('fs - invalid twbs buttons and their config', async () => {
-	expect(
+it('fs - invalid twbs buttons and their config', { timeout: 10000 }, async (t) => {
+	t.assert.snapshot(
 		prepForSnapshot(
 			await stylelint.lint({
 				files: caseFiles(CASE_NUMBER),
@@ -15,5 +17,5 @@ it('fs - invalid twbs buttons and their config', async () => {
 				customSyntax: postcssScss,
 			}),
 		),
-	).toMatchSnapshot();
-}, 10000);
+	);
+});
