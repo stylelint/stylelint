@@ -3,7 +3,6 @@
 // .changeset/ as a legacy v1 changeset and fails to read changes.json from it.
 
 import { beforeEach, describe, test } from 'node:test';
-import assert from 'node:assert/strict';
 
 import { getCommitInfo } from './get-github-info.mock.mjs';
 import redirectModule from '../lib/testUtils/redirectModule.mjs';
@@ -31,40 +30,40 @@ beforeEach(() => {
 });
 
 describe('getReleaseLine', () => {
-	test('formats valid summary with PR and user when commit present', async () => {
+	test('formats valid summary with PR and user when commit present', async (t) => {
 		const line = await changelog.getReleaseLine(
 			{ summary: 'Fixed: something', commit: 'abc1234' },
 			'patch',
 			options,
 		);
 
-		assert.equal(
+		t.assert.strictEqual(
 			line,
 			`- Fixed: something ([#42](https://github.com/${REPO}/pull/42)) ([@octocat](https://github.com/octocat)).`,
 		);
 	});
 
-	test('strips a trailing period from the summary to avoid a doubled period', async () => {
+	test('strips a trailing period from the summary to avoid a doubled period', async (t) => {
 		const line = await changelog.getReleaseLine(
 			{ summary: 'Fixed: something.', commit: 'abc1234' },
 			'patch',
 			options,
 		);
 
-		assert.equal(
+		t.assert.strictEqual(
 			line,
 			`- Fixed: something ([#42](https://github.com/${REPO}/pull/42)) ([@octocat](https://github.com/octocat)).`,
 		);
 	});
 
-	test('omits suffix when no commit', async () => {
+	test('omits suffix when no commit', async (t) => {
 		const line = await changelog.getReleaseLine({ summary: 'Added: thing' }, 'minor', options);
 
-		assert.equal(line, '- Added: thing.');
-		assert.equal(getCommitInfo.mock.callCount(), 0);
+		t.assert.strictEqual(line, '- Added: thing.');
+		t.assert.strictEqual(getCommitInfo.mock.callCount(), 0);
 	});
 
-	test('omits suffix when fetched commit info holds empty attributes', async () => {
+	test('omits suffix when fetched commit info holds empty attributes', async (t) => {
 		getCommitInfo.mock.mockImplementation(async () => ({ pull: {}, author: {} }));
 
 		const line = await changelog.getReleaseLine(
@@ -73,18 +72,18 @@ describe('getReleaseLine', () => {
 			options,
 		);
 
-		assert.equal(line, '- Added: thing.');
+		t.assert.strictEqual(line, '- Added: thing.');
 	});
 
-	test('accepts a valid prefix', async () => {
+	test('accepts a valid prefix', async (t) => {
 		const line = await changelog.getReleaseLine({ summary: 'Fixed: thing' }, 'patch', options);
 
-		assert.equal(line, '- Fixed: thing.');
+		t.assert.strictEqual(line, '- Fixed: thing.');
 	});
 
 	for (const summary of ['', 'bogus', 'fixed: lowercase', 'Fixed:no-space']) {
-		test(`rejects ${JSON.stringify(summary)}`, async () => {
-			await assert.rejects(changelog.getReleaseLine({ summary }, 'patch', options), {
+		test(`rejects ${JSON.stringify(summary)}`, async (t) => {
+			await t.assert.rejects(changelog.getReleaseLine({ summary }, 'patch', options), {
 				message: `Invalid changeset summary: ${JSON.stringify(summary.trim())}, expected: "<Removed|Changed|Added|Deprecated|Fixed|Security>: <description>"`,
 			});
 		});
@@ -101,8 +100,8 @@ describe('getReleaseLine', () => {
 	];
 
 	for (const [summary, type] of accepted) {
-		test(`accepts ${JSON.stringify(summary)} for ${JSON.stringify(type)} bump`, async () => {
-			assert.match(await changelog.getReleaseLine({ summary }, type, options), /^- /);
+		test(`accepts ${JSON.stringify(summary)} for ${JSON.stringify(type)} bump`, async (t) => {
+			t.assert.match(await changelog.getReleaseLine({ summary }, type, options), /^- /);
 		});
 	}
 
@@ -121,21 +120,21 @@ describe('getReleaseLine', () => {
 	];
 
 	for (const [summary, type, allowed] of rejected) {
-		test(`rejects ${JSON.stringify(summary)} for ${JSON.stringify(type)} bump`, async () => {
+		test(`rejects ${JSON.stringify(summary)} for ${JSON.stringify(type)} bump`, async (t) => {
 			const [prefix] = summary.split(':');
 
-			await assert.rejects(changelog.getReleaseLine({ summary }, type, options), {
+			await t.assert.rejects(changelog.getReleaseLine({ summary }, type, options), {
 				message: `Invalid changeset: "${prefix}" prefix not allowed for "${type}" bump, expected: "${allowed}"`,
 			});
 		});
 	}
 
-	test('throws with an invalid "repo" option', async () => {
+	test('throws with an invalid "repo" option', async (t) => {
 		const changeset = { summary: 'Fixed: x' };
 		const msg = '"repo" option is required and must be a string';
 
-		await assert.rejects(changelog.getReleaseLine(changeset, 'patch', {}), { message: msg });
-		await assert.rejects(changelog.getReleaseLine(changeset, 'patch', { repo: 0 }), {
+		await t.assert.rejects(changelog.getReleaseLine(changeset, 'patch', {}), { message: msg });
+		await t.assert.rejects(changelog.getReleaseLine(changeset, 'patch', { repo: 0 }), {
 			message: msg,
 		});
 	});
