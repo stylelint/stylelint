@@ -15,12 +15,13 @@
 		"noUncheckedIndexedAccess": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
-		"skipLibCheck": false,
-		// `stylelint-test-rule-node` imports `stylelint`
-		"paths": {
-			"stylelint": ["./types/stylelint/index.d.ts"]
-		}
+		"skipLibCheck": false
 	},
 	"include": ["lib/**/*.mjs", "types/**/*.ts", ".changeset/*.mjs"],
-	"exclude": ["**/__tests__/**", "**/*.test.mjs"]
+	"exclude": [
+		"**/__tests__/**",
+		"**/*.test.mjs",
+		"lib/testUtils/testRule.mjs",
+		"lib/testUtils/testRuleConfigs.mjs"
+	]
 }
