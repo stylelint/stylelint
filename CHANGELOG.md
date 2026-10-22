@@ -2,6 +2,8 @@
 
 ## 18.0.0-next.0 - 2026-10-22
 
+This is a prerelease. Help us test the next major version: `npm i -D stylelint@next`. [Migration guide](docs/migration-guide/to-18.md).
+
 - Removed: `*syntax` options from `declaration-property-value-no-unknown` ([#9487](https://github.com/stylelint/stylelint/pull/9487)) ([@jeddy3](https://github.com/jeddy3)).
 - Removed: `context.fix` property ([#9505](https://github.com/stylelint/stylelint/pull/9505)) ([@jeddy3](https://github.com/jeddy3)).
 - Removed: `declaration-block-single-line-max-declarations` rule ([#9565](https://github.com/stylelint/stylelint/pull/9565)) ([@jeddy3](https://github.com/jeddy3)).
