@@ -23,8 +23,6 @@ updates:
         patterns: ['css-tree', '@csstools/css-syntax-patches-for-csstree']
       eslint:
         patterns: ['eslint', 'eslint-*']
-      jest:
-        patterns: ['jest', 'jest-*', '@jest/*']
       postcss:
         patterns: ['postcss', 'postcss-*']
       stylelint:
