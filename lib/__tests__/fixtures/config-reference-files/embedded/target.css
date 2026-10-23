@@ -1,0 +1,8 @@
+:root {
+  --x: 1px;
+}
+
+a {
+  top: var(--x);
+  border: 1px solid var(--x);
+}
