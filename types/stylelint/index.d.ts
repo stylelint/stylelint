@@ -892,6 +892,7 @@ declare namespace stylelint {
 			{ ignoreAtRules: OneOrMany<StringOrRegex> }
 		>;
 		'no-invalid-position-declaration': CoreRule<true, { ignoreAtRules: OneOrMany<StringOrRegex> }>;
+		'no-invalid-position-var-function': CoreRule<true>;
 		'no-irregular-whitespace': CoreRule<true>;
 		'no-unknown-animations': CoreRule<true, {}, RejectedMessage<[name: string]>>;
 		'no-unknown-custom-media': CoreRule<true, {}, RejectedMessage<[name: string]>>;
