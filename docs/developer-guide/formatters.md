@@ -18,6 +18,7 @@ And the second argument (`returnValue`) is an object (type `LinterResult`) with 
 ```jsonc
 {
   "errored": false, // `true` if there were any warnings with "error" severity
+  "color": true, // Present if Stylelint was configured with the `color` option
   "maxWarningsExceeded": {
     // Present if Stylelint was configured with a `maxWarnings` count
     "maxWarnings": 10,

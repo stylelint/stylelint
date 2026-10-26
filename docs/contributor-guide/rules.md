@@ -297,30 +297,30 @@ Depending on the rule, it might be possible to automatically fix the rule's prob
 Set `meta.fixable = true` to the rule:
 
 ```diff js
-const meta = {
-  url: /* .. */,
-+ fixable: true,
-};
+ const meta = {
+   url: "https://example.com/my/stylelint/rule",
++  fixable: true,
+ };
 ```
 
 Pass `fix` callback to the [`report` utility](../developer-guide/plugins.md#stylelintutilsreport):
 
 ```diff js
-function rule(primary, secondary) {
-  return (root, result) => {
-    /* .. */
+ function rule(primary, secondary) {
+   return (root, result) => {
+     /* .. */
 
-+   const fix = () => { /* put your mutations here */ };
++    const fix = () => { /* put your mutations here */ };
 
-    report({
-      result,
-      ruleName,
-      message,
-      node,
-+     fix
-    });
-  };
-}
+     report({
+       result,
+       ruleName,
+       message,
+       node,
++      fix
+     });
+   };
+ }
 ```
 
 ### Add `languageOptions` support
@@ -330,45 +330,43 @@ Depending on the rule, it may need to support the [`languageOptions`](../user-gu
 For example:
 
 ```diff js
-import { basicKeywords } from '../../reference/keywords.mjs';
+ import { basicKeywords } from '../../reference/keywords.mjs';
 
-function rule(primary, secondary) {
-  return (root, result) => {
-    /* .. */
+ function rule(primary, secondary) {
+   return (root, result) => {
+     /* .. */
 
-    if (!validOptions) return;
+     if (!validOptions) return;
 
-+   const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
++    const languageCssWideKeywords = result.stylelint.config?.languageOptions?.syntax?.cssWideKeywords ?? [];
 
-+   const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
++    const cssWideKeywords = new Set([...basicKeywords, ...languageCssWideKeywords]);
 
-    /* .. */
-  };
-}
+     /* .. */
+   };
+ }
 ```
 
 ### Add `referenceFiles` support
 
-Depending on the rule, it may need to check the roots of the files specified in the [`referenceFiles`](../user-guide/configure.md#referencefiles) configuration property.
+Depending on the rule, it may need to check the roots of the files specified in the [`referenceFiles`](../user-guide/configure.md#referencefiles) configuration property. These roots are shared across linted files, so don't mutate them, and collect from them once with `memoizeForReferenceRoots()`.
 
 For example:
 
 ```diff js
-function rule(primary, secondary) {
-  return (root, result) => {
-    /* .. */
++const getDeclaredNamesOfRoots = memoizeForReferenceRoots(getDeclaredNames);
 
-    if (!validOptions) return;
+ function rule(primary, secondary) {
+   return (root, result) => {
+     /* .. */
 
-+   const referenceRoots = result.stylelint.referenceRoots;
+     if (!validOptions) return;
 
-+   for (const referenceRoot of referenceRoots) {
-+     referenceRoot.walkAtRules(/* collect names */);
-+   }
++    const declaredNames = getDeclaredNamesOfRoots(root, result.stylelint.referenceRoots);
 
-    /* .. */
-  };
-}
+     /* .. */
+   };
+ }
 ```
 
 ### Context
@@ -376,26 +374,7 @@ function rule(primary, secondary) {
 `context` is an object that could have the following properties:
 
 - `configurationComment`(string): String that prefixes configuration comments like `/* stylelint-disable */`.
-- `fix`(boolean): If `true`, your rule can apply autofixes.
 - `newline`(string): Line-ending used in current linted file.
-
-> [!WARNING]
-> The convention of restricting the appliance of fixes based on the `context.fix` property is deprecated in favour of recommending the `fix` callback which properly handles [configuration comments](../user-guide/ignore-code.md#parts-of-a-file).
-
-If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
-
-```js
-function rule(primary, secondary, context) {
-  return (root, result) => {
-    if (context.fix) {
-      // Apply fixes using PostCSS API
-      return; // Return and don't report a problem
-    }
-
-    report(/* .. */);
-  };
-}
-```
 
 ### Optimise the rule
 

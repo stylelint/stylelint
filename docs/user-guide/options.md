@@ -10,7 +10,7 @@ You can use some of these options in the [configuration object](./configure.md).
 
 ## `allowEmptyInput`
 
-CLI flag: `--allow-empty-input, --aei`
+CLI flag: `--allow-empty-input`
 
 Stylelint does not throw an error when glob pattern matches no files.
 
@@ -28,7 +28,7 @@ The path should be either absolute or relative to the directory that your proces
 
 CLI flag: `--config-basedir`
 
-Absolute path to the directory that relative paths defining "extends", "plugins", and "customSyntax" are _relative to_. Only necessary if these values are relative paths.
+Absolute path to the directory that relative paths defining `extends`, `plugins`, and `customSyntax` are _relative to_. Only necessary if these values are relative paths.
 
 ## `fix`
 
@@ -43,14 +43,9 @@ Options are:
 
 When using the Node.js API, the autofixed code is available as the value of the `code` property in the returned object.
 
-When a rule relies on the deprecated [`context`](../contributor-guide/rules.md#context)`.fix` and a source contains:
-
-- a scoped disable comment, e.g. `/* stylelint-disable color-named */`, any problems reported by the scoped rule will not be automatically fixed anywhere in the source
-- an unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of the source will not be automatically fixed for that rule
-
 ## `computeEditInfo`
 
-CLI flag: `--compute-edit-info, --cei`
+CLI flag: `--compute-edit-info`
 
 Compute edit information for autofixable rules.
 
@@ -110,6 +105,14 @@ Options are:
 
 The `formatter` Node.js API option can also accept a function or a `Promise` function, whereas the `--custom-formatter` CLI flag accepts a path (either a filesystem path or a dependency) to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
 
+## `color`
+
+CLI flags: `--color, --no-color`
+
+Force enabling/disabling of color in the formatted results.
+
+When not set, the built-in formatters use color if [`node:util.styleText`](https://nodejs.org/api/util.html#utilstyletextformat-text-options) detects that the terminal supports it. `node:util.styleText` honors the `FORCE_COLOR`, `NO_COLOR` and `NODE_DISABLE_COLORS` environment variables.
+
 ## `cache`
 
 CLI flag: `--cache`
@@ -148,7 +151,7 @@ The "content" strategy can be useful in cases where the modification time of you
 
 ## `maxWarnings`
 
-CLI flags: `--max-warnings, --mw`
+CLI flag: `--max-warnings`
 
 Set a limit to the number of warnings accepted.
 
@@ -161,25 +164,25 @@ If the number of warnings exceeds this value, the:
 
 ## `disableDefaultIgnores`
 
-CLI flags: `--disable-default-ignores, --di`
+CLI flag: `--disable-default-ignores`
 
 Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`.
 
 ## `globbyOptions`
 
-CLI flags: `--globby-options, --go`
+CLI flag: `--globby-options`
 
-Options passed to [globby](https://github.com/sindresorhus/globby). [More info](node-api.md#globbyoptions).
+Options for matching the `files` globs, a subset of globby's options. [More info](node-api.md#globbyoptions).
 
 ## `ignorePath`
 
-CLI flags: `--ignore-path, -i`
+CLI flag: `--ignore-path, -i`
 
 Path to a file containing patterns that describe files to ignore. The path can be absolute or relative to `process.cwd()`. You can repeat the option to provide multiple paths. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`.
 
 ## `ignoreDisables`
 
-CLI flags: `--ignore-disables, --id`
+CLI flag: `--ignore-disables`
 
 Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
 
@@ -187,7 +190,7 @@ You can use this option to see what your linting results would be like without t
 
 ## `reportDescriptionlessDisables`
 
-CLI flags: `--report-descriptionless-disables, --rdd`
+CLI flag: `--report-descriptionless-disables`
 
 Report [configuration comments][1] without a description.
 
@@ -221,7 +224,7 @@ a {}
 
 ## `reportInvalidScopeDisables`
 
-CLI flags: `--report-invalid-scope-disables, --risd`
+CLI flag: `--report-invalid-scope-disables`
 
 Report [configuration comments][1] that don't match rules that are specified in the configuration object.
 
@@ -251,7 +254,7 @@ The following pattern is _not_ reported:
 
 ## `reportNeedlessDisables`
 
-CLI flags: `--report-needless-disables, --rd`
+CLI flag: `--report-needless-disables`
 
 Report [configuration comments][1] that don't actually match any lints that need to be disabled.
 
@@ -283,7 +286,7 @@ a {}
 
 ## `reportUnscopedDisables`
 
-CLI flags: `--report-unscoped-disables, --rud`
+CLI flag: `--report-unscoped-disables`
 
 Report [configuration comments][1] that aren't scoped to one or more rules.
 
@@ -340,7 +343,7 @@ Ignore deprecation warnings.
 > For Node.js 20.11.0+, you can disable individual deprecation warnings using the Node.js [`--disable-warning`](https://nodejs.org/api/cli.html#--disable-warningcode-or-type) mechanism, e.g.:
 >
 > ```shell
-> NODE_OPTIONS='--disable-warning=stylelint:005' stylelint "**/*.css"
+> NODE_OPTIONS='--disable-warning=stylelint:006' stylelint "**/*.css"
 > ```
 
 [1]: ../user-guide/ignore-code.md#parts-of-a-file

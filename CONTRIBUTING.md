@@ -33,21 +33,19 @@ Then:
 
 ### Run tests
 
-Next, you'll want to run the tests using `npm test`. This runs all 25,000+ unit tests and also linting.
+Next, you'll want to run the tests using `npm test`. This runs all 10,000+ unit tests with the [Node.js test runner](https://nodejs.org/api/test.html).
 
-You can use the interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development).
+During development, pass the files you're changing to `npm run watch` to run just their tests and rerun them whenever a file changes:
 
-For example, to run the tests for just the `unit-allowed-list` and `unit-disallowed-list` rules:
+```shell
+npm run watch -- lib/rules/unit-allowed-list/__tests__/index.mjs lib/rules/unit-disallowed-list/__tests__/index.mjs
+```
 
-1. Run `npm run watch` to start the interactive testing prompt.
-2. Press `p` to filter by a filename regex pattern.
-3. Enter `unit-allowed-list|unit-disallowed-list`, i.e. each rule name separated by the pipe symbol (`|`).
-
-You can find more information about testing on the [Jest website](https://jestjs.io/).
+Other `node --test` options pass through the same way.
 
 ### Write code
 
-With the interactive testing prompt running, you can write code confident that things are working as expected.
+With the tests running in watch mode, you can write code confident that things are working as expected.
 
 You can write code to:
 
@@ -60,14 +58,14 @@ If you plan to use a LLM to help you write the code, you can generate a local [i
 
 You should not use a LLM to fix issues labeled "[good first issue](https://github.com/stylelint/stylelint/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22)" as these intended to be learning opportunities for new contributors.
 
-### Format code
+### Format and lint code
 
-We use [Prettier](https://prettier.io/) (with [a lint-staged precommit](https://github.com/lint-staged/lint-staged#readme)) to format your code automatically.
+We use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) (with [a lint-staged precommit](https://github.com/lint-staged/lint-staged#readme)) to format and fix your code automatically.
 
-Alternatively, you can:
+You can also run:
 
-- trigger the pretty-printing all the files using `npm run format`
-- use a [Prettier editor integration](https://prettier.io/docs/en/editors.html)
+- `npm run format` to format all the files
+- `npm run lint` to check everything with Prettier, ESLint, remark and `tsc`
 
 ### Open a pull request
 

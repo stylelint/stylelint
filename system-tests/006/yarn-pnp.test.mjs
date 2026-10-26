@@ -23,7 +23,6 @@ import { promisify } from 'node:util';
 
 import { fileURLToPath } from 'node:url';
 
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
 import { before, describe, test } from 'node:test';
 
 const execAsync = promisify(childProcess.exec);
@@ -36,6 +35,10 @@ const rootDir = path.resolve(currentDir, '../..');
 
 // Disabled by default since it requires Yarn on the system.
 const shouldSkipTest = process.env.STYLELINT_TEST_YARN_PNP !== 'true';
+
+// stylelint-config-standard@40.0.0 turns on this rule, which 18.0.0 removed.
+// Drop this once the fixtures pin a release of the config for Stylelint 18.
+const removedRuleNames = new Set(['declaration-block-single-line-max-declarations']);
 
 /** @typedef {'combined' | 'stylelint-only' | 'config-only'} FixtureType */
 
@@ -155,6 +158,15 @@ async function runStylelint(cwd, args) {
 }
 
 /**
+ * Drop the "Unknown rule" warnings for rules that the pinned config still turns on.
+ * @param {object[]} warnings
+ * @returns {object[]}
+ */
+function omitRemovedRuleWarnings(warnings) {
+	return warnings.filter((warning) => !removedRuleNames.has(warning.rule));
+}
+
+/**
  * Set up all fixtures for testing.
  */
 async function setupAllFixtures() {
@@ -178,23 +190,26 @@ describe('Yarn PnP integration', { skip: shouldSkipTest }, () => {
 		await setupAllFixtures();
 	});
 
-	test('lints with stylelint-config-standard in same repo', async () => {
+	test('lints with stylelint-config-standard in same repo', async (t) => {
 		const fixtureDir = path.join(fixturesDir, 'combined');
 
 		const results = await runStylelint(fixtureDir, ['stylesheet.css', '--config', 'config.mjs']);
 
-		assert.equal(results.length, 1, 'Should have one lint result.');
-		assert.equal(results[0].source, path.join(fixtureDir, 'stylesheet.css'));
-		assert.equal(results[0].errored, true, 'Should have errors.');
-		assert.equal(results[0].warnings.length, 1, 'Should have one warning.');
+		t.assert.strictEqual(results.length, 1, 'Should have one lint result.');
+		t.assert.strictEqual(results[0].source, path.join(fixtureDir, 'stylesheet.css'));
+		t.assert.strictEqual(results[0].errored, true, 'Should have errors.');
+
+		const warnings = omitRemovedRuleWarnings(results[0].warnings);
+
+		t.assert.strictEqual(warnings.length, 1, 'Should have one warning.');
 
 		// Check that the rule from stylelint-config-standard was applied.
-		const blockNoEmpty = results[0].warnings.find((w) => w.rule === 'block-no-empty');
+		const blockNoEmpty = warnings.find((w) => w.rule === 'block-no-empty');
 
-		assert.ok(blockNoEmpty, 'Should find block-no-empty warning from stylelint-config-standard');
+		t.assert.ok(blockNoEmpty, 'Should find block-no-empty warning from stylelint-config-standard');
 	});
 
-	test('lints cross-repo with Stylelint from one repo and config from another', async () => {
+	test('lints cross-repo with Stylelint from one repo and config from another', async (t) => {
 		const stylelintDir = path.join(fixturesDir, 'stylelint-only');
 		const configDir = path.join(fixturesDir, 'config-only');
 		const stylesheetPath = path.join(configDir, 'stylesheet.css');
@@ -204,14 +219,17 @@ describe('Yarn PnP integration', { skip: shouldSkipTest }, () => {
 		// config-only repo.
 		const results = await runStylelint(stylelintDir, [stylesheetPath, '--config', configPath]);
 
-		assert.equal(results.length, 1, 'Should have one lint result.');
-		assert.equal(results[0].source, stylesheetPath);
-		assert.equal(results[0].errored, true, 'Should have errors.');
-		assert.equal(results[0].warnings.length, 1, 'Should have one warning.');
+		t.assert.strictEqual(results.length, 1, 'Should have one lint result.');
+		t.assert.strictEqual(results[0].source, stylesheetPath);
+		t.assert.strictEqual(results[0].errored, true, 'Should have errors.');
+
+		const warnings = omitRemovedRuleWarnings(results[0].warnings);
+
+		t.assert.strictEqual(warnings.length, 1, 'Should have one warning.');
 
 		// Check that the rule from stylelint-config-standard was applied.
-		const blockNoEmpty = results[0].warnings.find((w) => w.rule === 'block-no-empty');
+		const blockNoEmpty = warnings.find((w) => w.rule === 'block-no-empty');
 
-		assert.ok(blockNoEmpty, 'Should find block-no-empty warning from stylelint-config-standard');
+		t.assert.ok(blockNoEmpty, 'Should find block-no-empty warning from stylelint-config-standard');
 	});
 });

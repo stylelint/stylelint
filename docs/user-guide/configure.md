@@ -2,7 +2,7 @@
 
 Stylelint expects a configuration object.
 
-Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` file that exports one. You can use the [`--config`](cli.md#--config--c) or [`configFile`](options.md#configfile) options to short-circuit the search.
+Starting from the current working directory, Stylelint searches upwards until it finds a `stylelint.config.js` file that exports one. You can use the [`--config`](cli.md#--config) or [`configFile`](options.md#configfile) options to short-circuit the search.
 
 The style of export depends on your [default module system configuration](https://nodejs.org/api/packages.html#determining-module-system) for Node.js, e.g., `"type": "module"` in your `package.json` file. You can use the `stylelint.config.mjs` or `stylelint.config.cjs` filename to be explicit.
 
@@ -533,9 +533,6 @@ For a right-to-left language, set `"inline": "right-to-left"`. The mapping chang
 
 ## `referenceFiles`
 
-> [!WARNING]
-> This is an experimental feature. The API may change in the future.
-
 You can specify reference files that provide additional information (like animations, custom properties, and custom media queries) that are useful to rules, such as those that check for unknown things like [`no-unknown-custom-properties`](../../lib/rules/no-unknown-custom-properties/README.md).
 
 For example:
@@ -614,22 +611,22 @@ For example, to extend the [stylelint-config-standard](https://github.com/stylel
 
 You can extend an array of existing configurations, with each item in the array taking precedence over the previous item (so the second item overrides rules in the first, the third item overrides rules in the first and the second, and so on, the last item overrides everything else).
 
-For example, with `stylelint-config-standard`, then layer `myExtendableConfig` on top of that, and then override the `alpha-value-notation` rule:
+For example, with `stylelint-config-standard`, then layer `myExtendableConfig.js` on top of that, and then override the `alpha-value-notation` rule:
 
 ```json
 {
-  "extends": ["stylelint-config-standard", "./myExtendableConfig"],
+  "extends": ["stylelint-config-standard", "./myExtendableConfig.js"],
   "rules": {
     "alpha-value-notation": "number"
   }
 }
 ```
 
-The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d. It can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
+The value of `extends` is a configuration object, a "locater", or an array of either. A "locater" is resolved like an [`import` specifier](https://nodejs.org/api/esm.html#import-specifiers), so a path must include its filename and [extension](https://nodejs.org/api/esm.html#mandatory-file-extensions). That means a "locater" can be:
 
 - the name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
-- a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
+- a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB.js"`, we'll look for `configB.js` relative to configA).
 
 You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#configs) and [on the npm registry](https://www.npmjs.com/search?q=keywords:stylelint-config).
 
@@ -720,13 +717,11 @@ Overrides have higher precedence than regular configurations. Multiple overrides
 
 ## `processors`
 
-> [!WARNING]
-> This is an experimental feature. The API may change in the future.
->
-> This `processors` property was [removed in 15.0.0](../migration-guide/to-15.md#removed-processors-configuration-property), but has revived for post-processing. Note that this is different from the previous behavior.
+> [!NOTE]
+> This `processors` property was [removed in 15.0.0](../migration-guide/to-15.md#removed-processors-configuration-property), but was revived for post-processing. Note that this is different from the previous behavior.
 
 Processors are functions that hook into Stylelint's pipeline.
-Currently, processors contains only two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
+A processor returns an object with two properties: a string `name` and a function `postprocess`. `postprocess` runs after all rules have been evaluated. This function receives the `result` object of the linting process and can modify it.
 
 For example, you can use a processor to remap the result location. Below processor expands the warning location for 'color-no-hex' rule to the entire CSS declaration. A warning for a hex color in a rule like `a { color: #111; }` would originally point to the hex color itself (e.g., line 1, columns 12-16). After processing, the warning will encompass the entire declaration (e.g., line 1, columns 5-16).
 

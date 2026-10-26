@@ -1,5 +1,51 @@
 # Changelog
 
+## 18.0.0-next.0 - 2026-10-22
+
+This is a prerelease. Help us test the next major version: `npm i -D stylelint@next`. [Migration guide](docs/migration-guide/to-18.md).
+
+- Removed: `*syntax` options from `declaration-property-value-no-unknown` ([#9487](https://github.com/stylelint/stylelint/pull/9487)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `context.fix` property ([#9505](https://github.com/stylelint/stylelint/pull/9505)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `declaration-block-single-line-max-declarations` rule ([#9565](https://github.com/stylelint/stylelint/pull/9565)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: `ignoreSelectors` option from `selector-max-specificity` ([#9579](https://github.com/stylelint/stylelint/pull/9579)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: resolution of packages from the global `node_modules` directory ([#9534](https://github.com/stylelint/stylelint/pull/9534)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: support for CommonJS-style filename-less and extension-less locator paths ([#9545](https://github.com/stylelint/stylelint/pull/9545)) ([@jeddy3](https://github.com/jeddy3)).
+- Removed: support for end-of-life and older versions of Node.js ([#9486](https://github.com/stylelint/stylelint/pull/9486)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `function-no-unknown` to use the CSSTree Syntax Reference for known functions and to ignore vendor-prefixed functions ([#9574](https://github.com/stylelint/stylelint/pull/9574)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: `globbyOptions` to support only a subset of options ([#9500](https://github.com/stylelint/stylelint/pull/9500)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: color detection to use new `color` option with `node:util.styleText` ([#9529](https://github.com/stylelint/stylelint/pull/9529)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: hyperlink detection ([#9536](https://github.com/stylelint/stylelint/pull/9536)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: the CLI to parse arguments with `node:util.parseArgs` ([#9508](https://github.com/stylelint/stylelint/pull/9508)) ([@jeddy3](https://github.com/jeddy3)).
+- Changed: TypeScript config files to be loaded by Node.js's built-in type stripping ([#9489](https://github.com/stylelint/stylelint/pull/9489)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `at-charset-rule-no-invalid` rule ([#9509](https://github.com/stylelint/stylelint/pull/9509)) ([@firefoxic](https://github.com/firefoxic)).
+- Added: `declaration-property-custom-property-allowed-list` rule ([#9542](https://github.com/stylelint/stylelint/pull/9542)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `languageOptions.syntax` support to `function-no-unknown` ([#9574](https://github.com/stylelint/stylelint/pull/9574)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `result.stylelint.postcss` property for plugins ([#9594](https://github.com/stylelint/stylelint/pull/9594)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `stylelint.version` property ([#9595](https://github.com/stylelint/stylelint/pull/9595)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `value-no-invalid` rule ([#9507](https://github.com/stylelint/stylelint/pull/9507)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: `value-type-custom-property-required-list` rule ([#9572](https://github.com/stylelint/stylelint/pull/9572)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: stable support for `processors` configuration property ([#9543](https://github.com/stylelint/stylelint/pull/9543)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: stable support for `referenceFiles` configuration property ([#9598](https://github.com/stylelint/stylelint/pull/9598)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `--fix` for files where the only change is the removal of a byte order mark ([#9512](https://github.com/stylelint/stylelint/pull/9512)) ([@firefoxic](https://github.com/firefoxic)).
+- Fixed: `Config['extends']` type for configuration objects ([#9526](https://github.com/stylelint/stylelint/pull/9526)) ([@firefoxic](https://github.com/firefoxic)).
+- Fixed: `custom-property-{pattern,no-missing-var-function}` and `*-no-unknown` false positives and negatives for `@property` with a list of names ([#9571](https://github.com/stylelint/stylelint/pull/9571)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `custom-property-no-missing-var-function` false negatives for custom properties defined in `referenceFiles` ([#9570](https://github.com/stylelint/stylelint/pull/9570)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `custom-property-no-missing-var-function` false positives for recently introduced properties ([#9567](https://github.com/stylelint/stylelint/pull/9567)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` false negatives for `contain-intrinsic-size` ([#9550](https://github.com/stylelint/stylelint/pull/9550)) ([@firefoxic](https://github.com/firefoxic)).
+- Fixed: `declaration-block-no-shorthand-property-overrides` false negatives for flow-relative properties overridden by physical shorthands ([#9549](https://github.com/stylelint/stylelint/pull/9549)) ([@firefoxic](https://github.com/firefoxic)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for values containing known custom properties ([#9537](https://github.com/stylelint/stylelint/pull/9537)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown` false negatives for values containing registered custom properties ([#9566](https://github.com/stylelint/stylelint/pull/9566)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `referenceFiles` performance ([#9573](https://github.com/stylelint/stylelint/pull/9573)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: import and cache performance by replacing `file-entry-cache` ([#9593](https://github.com/stylelint/stylelint/pull/9593)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: import performance by lazily loading `css-tree` ([#9580](https://github.com/stylelint/stylelint/pull/9580)) ([@jeddy3](https://github.com/jeddy3)).
+
+## 17.16.0 - 2026-10-01
+
+It fixes 2 bugs in the `layout-mappings` rules. This will likely be the last `17.x` release, as we prepare for `18.0.0`.
+
+- Fixed: `property-layout-mappings` and `unit-layout-mappings` false negatives for uppercase property names and units ([#9485](https://github.com/stylelint/stylelint/pull/9485)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+- Fixed: `value-keyword-layout-mappings` false positives for `caption-side` ([#9483](https://github.com/stylelint/stylelint/pull/9483)) ([@giaBaoJS](https://github.com/giaBaoJS)).
+
 ## 17.15.0 - 2026-09-04
 
 It adds 1 new rule and 2 new rule options, and fixes 4 bugs.

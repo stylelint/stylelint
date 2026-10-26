@@ -1,5 +1,4 @@
 import stylelintConfig from 'eslint-config-stylelint';
-import stylelintJestConfig from 'eslint-config-stylelint/jest';
 
 export default [
 	{
@@ -12,28 +11,19 @@ export default [
 		],
 	},
 	...stylelintConfig,
-	...stylelintJestConfig,
 	{
-		languageOptions: {
-			globals: {
-				testRule: 'readonly',
-				testRuleConfigs: 'readonly',
-			},
-		},
+		files: ['**/__tests__/**', '**/*.test.mjs', 'lib/testUtils/**'],
 		rules: {
-			'jest/no-standalone-expect': [
-				'error',
-				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
-			],
-			'jest/expect-expect': [
-				'error',
-				{ additionalTestBlockFunctions: ['testFn', 'win32OnlyTest'] },
-			],
-
-			// TODO: Remove this config after dropping the Node.js 20 support, since newer versions support them officially.
 			'n/no-unsupported-features/node-builtins': [
 				'error',
-				{ ignores: ['import.meta.dirname', 'import.meta.filename'] },
+				{
+					ignores: [
+						// eslint-plugin-n doesn't know the Node.js 22.17 backport that made it stable.
+						'assert/strict.partialDeepStrictEqual',
+						// Release candidate.
+						'module.registerHooks',
+					],
+				},
 			],
 		},
 	},

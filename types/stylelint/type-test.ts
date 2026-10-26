@@ -30,8 +30,9 @@ const options: Partial<LinterOptions> = {
 	code: 'div { color: red }',
 	files: ['**/**.scss'],
 	formatter: 'json',
+	color: true,
 	globbyOptions: {
-		cwd: './',
+		dot: true,
 	},
 	cache: true,
 	cacheLocation: './stylelint.cache.json',
@@ -50,6 +51,18 @@ const options: Partial<LinterOptions> = {
 		],
 	},
 };
+
+const sharedConfig: stylelint.Config = {
+	rules: {
+		'block-no-empty': true,
+	},
+};
+
+const extendingConfig: stylelint.Config = {
+	extends: ['stylelint-config-standard', sharedConfig],
+};
+
+stylelint.lint({ config: extendingConfig });
 
 stylelint.lint(options).then((x: LinterResult) => {
 	x.errored satisfies boolean;

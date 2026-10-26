@@ -15,7 +15,7 @@ It's mighty as it:
 - automatically **fixes problems** where possible
 - supports **shareable configs** that you can create or extend
 - can **be customized** to your exact needs
-- has **15k unit tests** making it robust
+- has **10k unit tests** making it robust
 - is **trusted by companies worldwide** like Google and GitHub
 
 And it can be extended to:
@@ -62,6 +62,7 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Writing custom syntaxes](docs/developer-guide/syntaxes.md)
   - [Writing custom formatters](docs/developer-guide/formatters.md)
 - Migration guide
+  - [Migrating to 18.0.0](docs/migration-guide/to-18.md)
   - [Migrating to 17.0.0](docs/migration-guide/to-17.md)
   - [Migrating to 16.0.0](docs/migration-guide/to-16.md)
   - [Migrating to 15.0.0](docs/migration-guide/to-15.md)
