@@ -1,0 +1,7 @@
+{
+	"rules": {
+		"block-no-empty": [true, { "ignore": ["invalid"] }],
+		"color-no-invalid-hex": true,
+		"length-zero-no-unit": true
+	}
+}
