@@ -918,7 +918,7 @@ declare namespace stylelint {
 		'property-layout-mappings': CoreRule<
 			'flow-relative' | 'physical',
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
-			ExpectedMessage<[unfixed: string, ...fixed: string[]]> &
+			ExpectedMessage<[actual: string, expected: string, alsoExpected?: string]> &
 				RejectedMessage<[type: string, property: string]>
 		>;
 		'property-no-deprecated': CoreRule<
