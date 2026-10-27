@@ -13,7 +13,7 @@ Physical layout properties like `margin-left` are tied to the physical dimension
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when both the primary option is `"flow-relative"` and the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#directionality) configuration property is configured.
 
-This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the disallowed mapping and the property, or the physical property and its flow-relative equivalent.
+This rule supports up to 3 [message arguments](../../../docs/user-guide/configure.md#message): the disallowed mapping and the property, or the physical property and its flow-relative equivalents.
 
 Prior art:
 
@@ -65,6 +65,11 @@ a { width: 0; }
 
 <!-- prettier-ignore -->
 ```css
+a { margin: 0 1px; }
+```
+
+<!-- prettier-ignore -->
+```css
 a { transition: margin-left 0 ease; }
 ```
 
@@ -78,6 +83,11 @@ a { margin-inline-start: 0; }
 <!-- prettier-ignore -->
 ```css
 a { inline-size: 0; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { margin: 0; }
 ```
 
 <!-- prettier-ignore -->

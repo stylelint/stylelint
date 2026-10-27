@@ -39,7 +39,7 @@ type FileCache = {
 	removeEntry: (absoluteFilepath: string) => void;
 };
 
-type RuleFuncArgs = (string | RegExp | number | boolean | (string | RegExp)[])[];
+type RuleFuncArgs = Array<string | RegExp | number | boolean | Array<string | RegExp> | undefined>;
 
 // Note: With strict function types enabled, function signatures are checked contravariantly.
 // This means that it would not be possible for rule authors to narrow the message function
@@ -918,7 +918,7 @@ declare namespace stylelint {
 		'property-layout-mappings': CoreRule<
 			'flow-relative' | 'physical',
 			{ ignoreProperties: OneOrMany<StringOrRegex> },
-			ExpectedMessage<[unfixed: string, fixed: string]> &
+			ExpectedMessage<[actual: string, expected: string, alsoExpected?: string]> &
 				RejectedMessage<[type: string, property: string]>
 		>;
 		'property-no-deprecated': CoreRule<
