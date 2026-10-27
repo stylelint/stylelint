@@ -11,6 +11,8 @@ a { grid-template-areas:
  *  This named grid area */
 ```
 
+You can use this rule to avoid grids with no named areas. An invalid `grid-template-areas` value [invalidates the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-template-areas#values).
+
 For a named grid area to be valid, all strings must define:
 
 - the same number of cell tokens

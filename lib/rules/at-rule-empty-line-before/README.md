@@ -11,6 +11,8 @@ a {}
  *   This line */
 ```
 
+You can use this rule to enforce a convention. For example, require an empty line before each at-rule for readability.
+
 This rule ignores:
 
 - at-rules that are the very first node in the source

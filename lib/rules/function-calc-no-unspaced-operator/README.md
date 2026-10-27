@@ -9,7 +9,9 @@ a { top: calc(1px + 2px); }
  * The space around this operator */
 ```
 
-This rule checks that there is a single whitespace or a newline plus indentation before the `+` or `-` operator, and a single whitespace or a newline after that operator.
+You can use this rule to avoid declarations that browsers ignore. In `calc()`, `+` and `-` without surrounding whitespace are [parsed as signed numbers](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/calc-sum#description), which invalidates the whole declaration.
+
+This rule requires a single whitespace or a newline plus indentation before the `+` or `-` operator, and a single whitespace or a newline after that operator.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

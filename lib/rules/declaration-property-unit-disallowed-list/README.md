@@ -9,6 +9,11 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
+You can use this rule to enforce a convention. For example, disallow:
+
+- `px` for `font-size`, so that text scales with your users' settings
+- `s` for `/^(transition|animation)/`, so that every duration is in `ms`
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the disallowed unit.
 
 ## Options

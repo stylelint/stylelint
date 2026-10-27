@@ -9,6 +9,8 @@ a { width: 100pixels; }
  *  These units */
 ```
 
+You can use this rule to avoid mistyped units, e.g. `pxx`. Browsers [ignore the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks), as an unknown unit invalidates the value.
+
 This rule considers units defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 You can use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend the known units.

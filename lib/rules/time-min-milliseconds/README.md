@@ -9,6 +9,8 @@ a { animation: slip-n-slide 150ms linear; }
  *                  This time */
 ```
 
+You can use this rule to enforce a convention. For example, require at least `100` milliseconds, as shorter transitions and animations cost work for no visible effect.
+
 This rule checks positive numbers in `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`, and those times as they manifest in the `transition` and `animation` shorthands.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured minimum.

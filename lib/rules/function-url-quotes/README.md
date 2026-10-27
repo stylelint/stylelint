@@ -9,6 +9,13 @@ a { background: url("x.jpg") }
  *             These quotes */
 ```
 
+You can use this rule to enforce a convention. Quotes around a URL are [optional](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/url_function#values) unless it contains parentheses, whitespace or quotes.
+
+Use:
+
+- `"always"` so that any URL works without escaping, including data URLs
+- `"never"` for brevity, as this rule allows the quotes a URL needs
+
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the URL function name.

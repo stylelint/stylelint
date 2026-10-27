@@ -9,6 +9,8 @@ Specify a list of disallowed attribute operators.
  * This operator */
 ```
 
+You can use this rule to enforce a convention. For example, disallow `*=`, which [matches any substring](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors).
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed attribute operator.
 
 ## Options

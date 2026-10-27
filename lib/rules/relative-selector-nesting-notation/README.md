@@ -9,7 +9,12 @@ a { & > b {} }
  * This notation */
 ```
 
-When a relative selector starts with a combinator (like ` `, `>`, `+`, `~`), you can either use an explicit nesting selector (`&`) or rely on implicit nesting behavior. Implicit notation is more concise, but explicit notation can be more readable.
+You can use this rule to enforce a convention. A nested selector that starts with a combinator, e.g. `> b`, is [relative to the parent selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector) whether or not it begins with `&`.
+
+Use:
+
+- `"explicit"` for clarity
+- `"implicit"` for brevity
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

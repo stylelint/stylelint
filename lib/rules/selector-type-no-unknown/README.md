@@ -9,6 +9,8 @@ Disallow unknown type selectors.
  * This type selector */
 ```
 
+You can use this rule to avoid mistyped type selectors, e.g. `buton`. Browsers accept them as valid, but they match nothing.
+
 This rule considers tags defined in the HTML, SVG, and MathML specifications to be known.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the unknown type selector.

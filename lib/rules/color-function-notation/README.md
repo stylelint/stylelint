@@ -9,9 +9,12 @@ Specify modern or legacy notation for color-functions.
  *             This notation */
 ```
 
-Modern color-functions use a comma-free syntax because functions in CSS are used to group/name a syntax chunk. They should work by the same rules that CSS grammar does in general: values are optional and re-orderable when possible, space-separated, and commas are used to separate repetitions only.
+You can use this rule to enforce a convention. `rgb()` and `hsl()` accept a [modern syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb#syntax) and a legacy syntax. The modern syntax follows the rest of CSS, where values are space-separated, the alpha value follows a slash, and commas separate repetitions only, while the legacy syntax separates every argument with commas.
 
-For legacy reasons, `rgb()` and `hsl()` also supports an alternate syntax that separates all of its arguments with commas. Also for legacy reasons, the `rgba()` and `hsla()` functions exist using the same comma-based syntax.
+Use:
+
+- `"modern"` to follow the specification, which keeps the legacy syntax only for compatibility
+- `"legacy"` for older browsers, which accept only the comma-separated syntax
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix some of the problems reported by this rule when the primary option is `"modern"`.
 

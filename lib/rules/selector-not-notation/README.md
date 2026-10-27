@@ -9,12 +9,12 @@ Specify simple or complex notation for `:not()` pseudo-class selectors.
  * This notation */
 ```
 
-In Selectors Level 3, only a single _simple selector_ was allowed as the argument to `:not()`, whereas Selectors Level 4 allows a _selector list_.
+You can use this rule to enforce a convention. In Selectors Level 3, only a single _simple selector_ was allowed as the argument to `:not()`, whereas Selectors Level 4 allows a _selector list_.
 
 Use:
 
 - `"complex"` to author modern Selectors Level 4 CSS
-- `"simple"` for backwards compatibility with older browsers
+- `"simple"` for older browsers, which accept only a single simple selector
 
 > [!NOTE]
 > The notations can have different specificities. For example:
@@ -28,7 +28,7 @@ a:not(.foo, .bar) {}
 a:not(.foo):not(.bar) {}
 ```
 
-The [`fix` option](../../../docs/user-guide/options.md#fix) option can automatically fix most of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured notation.
 

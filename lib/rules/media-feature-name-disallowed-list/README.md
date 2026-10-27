@@ -9,6 +9,11 @@ Specify a list of disallowed media feature names.
  * This media feature name */
 ```
 
+You can use this rule to enforce a convention. For example, disallow:
+
+- `max-width`, so that queries stay mobile-first
+- `/device-/`, as those features [measure the device rather than the viewport](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/device-width)
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed media feature name.
 
 ## Options

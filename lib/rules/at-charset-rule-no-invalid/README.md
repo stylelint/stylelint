@@ -9,9 +9,11 @@ Disallow invalid `@charset` rules.
  * This @charset rule */
 ```
 
+You can use this rule to avoid `@charset` rules that browsers ignore. An invalid rule leaves the encoding to a fallback.
+
 The `@charset` rule is not an at-rule. It's a byte sequence that browsers look for at the very start of a stylesheet, as defined in the [CSS Syntax Level 3](https://drafts.csswg.org/css-syntax/#determine-the-fallback-encoding) specification.
 
-It must be written as `@charset`, followed by a single space, followed by the encoding label in double quotes, followed by a semicolon. Anything else is ignored by browsers, which then fall back to another encoding.
+It must be written as `@charset`, followed by a single space, followed by the encoding label in double quotes, followed by a semicolon.
 
 It must also be the first thing in the stylesheet, and it has no effect when the file starts with a byte order mark, as the mark takes precedence over it.
 

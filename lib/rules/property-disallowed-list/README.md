@@ -9,6 +9,11 @@ a { text-rendering: optimizeLegibility; }
  * This property */
 ```
 
+You can use this rule to enforce a convention. For example, disallow:
+
+- `animation` if you use an animation library
+- `float` in favor of flex and grid
+
 This rule ignores preprocessor variables (e.g. `$sass`, `@less`).
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed property.

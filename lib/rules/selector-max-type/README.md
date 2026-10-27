@@ -9,6 +9,8 @@ Limit the number of type selectors in a selector.
  * This type of selector */
 ```
 
+You can use this rule to enforce a convention. For example, limit component selectors to `0` type selectors, so that the markup can change without breaking them.
+
 Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
 > [!NOTE]

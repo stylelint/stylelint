@@ -9,6 +9,8 @@ Limit the number of universal selectors in a selector.
  * This universal selector */
 ```
 
+You can use this rule to enforce a convention. For example, limit component selectors to `0` universal selectors, as a reset is the only common use of `*`.
+
 Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
 > [!NOTE]

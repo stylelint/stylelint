@@ -9,6 +9,11 @@ Specify a list of disallowed attribute names.
  * This name */
 ```
 
+You can use this rule to enforce a convention. For example, disallow:
+
+- `class` and `id`, so that `.foo` and `#foo` are used instead
+- `/^data-(js|test)/` if your JavaScript and tests own those attributes
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed attribute name.
 
 ## Options

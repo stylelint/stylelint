@@ -9,7 +9,9 @@ a { height: 100%; }
  * This property */
 ```
 
-This rule considers at-rules defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
+You can use this rule to avoid mistyped properties, e.g. `colour`. Browsers [ignore the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+
+This rule considers properties defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what properties are known, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 

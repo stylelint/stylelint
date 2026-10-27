@@ -72,6 +72,7 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Writing rules](docs/contributor-guide/rules.md)
   - [Writing system tests](docs/contributor-guide/system-tests.md)
   - [Benchmarking](docs/contributor-guide/benchmarks.md)
+  - [Glossary](docs/contributor-guide/glossary.md)
 - Maintainer guide
   - [Managing issues](docs/maintainer-guide/issues.md)
   - [Managing pull requests](docs/maintainer-guide/pull-requests.md)

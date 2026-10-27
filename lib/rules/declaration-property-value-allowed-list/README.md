@@ -9,6 +9,11 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
+You can use this rule to enforce a subset of values for a property as a convention. For example, allow only:
+
+- `/^(1|10|100|1000)$/` for `z-index`, so that stacking order follows a scale
+- `400` and `700` for `font-weight`, so that only the weights you load are used
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the disallowed value.
 
 ## Options

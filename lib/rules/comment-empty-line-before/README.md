@@ -11,6 +11,8 @@ a {}
 *        This line */
 ```
 
+You can use this rule to enforce a convention. For example, require an empty line before each comment for readability.
+
 This rule ignores:
 
 - comments that are the very first node in the source

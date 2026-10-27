@@ -9,6 +9,8 @@ Disallow unknown pseudo-element selectors.
  * This pseudo-element selector */
 ```
 
+You can use this rule to avoid mistyped pseudo-elements, e.g. `::befor`. Browsers [ignore the whole rule](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_in_selector_lists), as an unknown pseudo-element invalidates the selector.
+
 This rule considers pseudo-element selectors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 This rule ignores vendor-prefixed pseudo-element selectors.

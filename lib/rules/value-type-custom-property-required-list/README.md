@@ -9,6 +9,11 @@ a { border: 1px solid red; }
  * These <length> and <color> values */
 ```
 
+You can use this rule to enforce a convention. For example, require custom properties for:
+
+- `color`, so that colors come from your palette
+- `length`, so that spacing comes from your scale
+
 For custom properties defined within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property, this rule substitutes their declared values for the `var()`s in a value to find the types of the parts beside them. It ignores the declarations of custom properties, values that contain unknown custom properties, and the fallbacks of `var()`.
 
 The types are those of the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/), without their angle brackets, e.g. `color`, `length` and `time`. You can use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend them.

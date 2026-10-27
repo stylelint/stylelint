@@ -9,7 +9,12 @@ a { margin-left: 0; }
  * This property */
 ```
 
-Physical layout properties like `margin-left` are tied to the physical dimensions of the screen. Flow-relative properties like `margin-inline-start` adapt to different writing modes and text directions, making them useful for internationalization. They are also consistent with other layout concepts like flexbox and grid, which already use flow-relative logic.
+You can use this rule to enforce a convention. Physical properties like `margin-left` are tied to the screen, while flow-relative properties like `margin-inline-start` follow the writing mode.
+
+Use:
+
+- `"flow-relative"` to support right-to-left and vertical [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values)
+- `"physical"` if you support only one writing mode, or for older browsers
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when both the primary option is `"flow-relative"` and the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#directionality) configuration property is configured.
 

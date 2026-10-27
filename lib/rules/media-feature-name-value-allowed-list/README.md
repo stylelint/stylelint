@@ -9,6 +9,8 @@ Specify a list of allowed media feature name and value pairs.
  *    These features and values */
 ```
 
+You can use this rule to enforce a subset of values for a media feature as a convention. For example, allow only `48em` and `64em` for `min-width`, so that every query uses one of your breakpoints.
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the media feature name and the disallowed value.
 
 ## Options

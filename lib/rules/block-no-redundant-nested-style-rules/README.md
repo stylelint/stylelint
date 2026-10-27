@@ -9,6 +9,8 @@ a { & { color: red; } }
  * This nested style rule */
 ```
 
+You can use this rule to enforce a convention. A `& {}` block is redundant, as its declarations [can sit directly](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/At-rules) in the parent rule or nested at-rule.
+
 This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
 
 ## Options

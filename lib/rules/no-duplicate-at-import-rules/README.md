@@ -10,6 +10,8 @@ Disallow duplicate `@import` rules.
  * These are duplicates */
 ```
 
+You can use this rule to avoid importing a stylesheet more than once. Browsers apply it at each position, so a later copy can override the imports between them.
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the duplicate URL.
 
 ## Options

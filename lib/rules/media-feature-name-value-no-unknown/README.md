@@ -9,6 +9,8 @@ Disallow unknown values for media features.
  * feature and value pairs like these */
 ```
 
+You can use this rule to avoid values unknown to their media feature. Browsers [evaluate the query to `unknown`](https://drafts.csswg.org/mediaqueries-5/#error-handling), so its block never applies.
+
 This rule considers values for media features defined within the CSS specifications to be known.
 
 > [!WARNING]
@@ -19,7 +21,7 @@ This rule considers values for media features defined within the CSS specificati
 >
 > - [`unit-no-unknown`](../unit-no-unknown/README.md)
 
-If duplicate problems are flagged, you can turn off the corresponding rule.
+If duplicate problems are reported, you can turn off the corresponding rule.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the media feature name and the unknown value.
 

@@ -9,6 +9,8 @@ a { color: pink; color: orange; }
  * These duplicated properties */
 ```
 
+You can use this rule to avoid declaring a property more than once in one block. Browsers let the later declaration override the earlier one, unless it's a [fallback for older browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors).
+
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.

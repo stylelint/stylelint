@@ -12,7 +12,7 @@ Disallow invalid `!important` within keyframe declarations.
 *   This !important */
 ```
 
-Using `!important` within keyframes declarations is [completely ignored in some browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes#!important_in_a_keyframe).
+You can use this rule to avoid `!important` that has no effect. Some browsers [ignore it completely within keyframe declarations](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes#!important_in_a_keyframe).
 
 This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
 

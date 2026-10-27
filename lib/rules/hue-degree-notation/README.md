@@ -9,7 +9,12 @@ Specify number or angle notation for degree hues.
  *                 This notation */
 ```
 
-Because hues are so often given in degrees, a hue can also be given as a number, which is interpreted as a number of degrees.
+You can use this rule to enforce a convention. A [hue](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hue) can be an angle or a number, which is interpreted as degrees.
+
+Use:
+
+- `"angle"` for clarity
+- `"number"` for brevity
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

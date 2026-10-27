@@ -9,9 +9,9 @@ Disallow invalid media queries.
  * This media query */
 ```
 
-Media queries must be grammatically valid according to the [Media Queries Level 5](https://www.w3.org/TR/mediaqueries-5/) specification.
+You can use this rule to avoid `@media` blocks that never apply. An invalid query is [replaced by `not all`](https://drafts.csswg.org/mediaqueries-5/#error-handling).
 
-It works well with other rules that validate feature names and values:
+It works well with other rules that check feature names and values:
 
 - [`media-feature-name-no-unknown`](../media-feature-name-no-unknown/README.md)
 - [`media-feature-name-value-no-unknown`](../media-feature-name-value-no-unknown/README.md)

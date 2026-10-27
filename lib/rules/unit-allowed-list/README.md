@@ -9,6 +9,8 @@ a { width: 100px; }
  *  These units */
 ```
 
+You can use this rule to enforce a subset of units as a convention. For example, allow only `rem`, `em`, `%`, `ms` and `deg`.
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed unit.
 
 ## Options

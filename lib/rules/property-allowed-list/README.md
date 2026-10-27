@@ -9,6 +9,11 @@ a { color: red; }
  * This property */
 ```
 
+You can use this rule to enforce a subset of properties as a convention. For example, via `overrides`, allow only:
+
+- `/^--/` in a tokens file
+- `/^(margin|padding|font)/` in a reset
+
 This rule ignores preprocessor variables (e.g. `$sass`, `@less`).
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed property.

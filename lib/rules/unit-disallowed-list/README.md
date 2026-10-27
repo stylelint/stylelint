@@ -9,6 +9,12 @@ a { width: 100px; }
  *  These units */
 ```
 
+You can use this rule to enforce a convention. For example, disallow:
+
+- `px` in favor of `rem` and `em`, so that sizes scale with your users' settings
+- `vh` in favor of `svh` or `dvh`, as `100vh` [extends behind a mobile browser's toolbars](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length#default_viewport_units)
+- `s`, so that every duration is in `ms`
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed unit.
 
 ## Options

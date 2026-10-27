@@ -13,7 +13,9 @@ a {
  *      This line */
 ```
 
-This rule only applies to standard property declarations. Use the [`custom-property-empty-line-before`](../custom-property-empty-line-before/README.md) rule for custom property declarations.
+You can use this rule to enforce a convention. For example, require an empty line before the first declaration after custom properties, so that they stand apart.
+
+This rule only checks standard property declarations. Use the [`custom-property-empty-line-before`](../custom-property-empty-line-before/README.md) rule for custom property declarations.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

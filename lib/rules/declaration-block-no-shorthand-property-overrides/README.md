@@ -9,9 +9,9 @@ a { background-repeat: repeat; background: green; }
  * This overrides the longhand property before it */
 ```
 
-In almost every case, this is just an authorial oversight. For more about this behavior, see [MDN's documentation of shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
+You can use this rule to avoid following a longhand with its shorthand. Browsers [reset every longhand a shorthand covers](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Shorthand_properties#omitting_properties), silently undoing the earlier one.
 
-This rule flags physical shorthands, like `padding`, that override [flow-relative properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values), such as `padding-inline.
+This rule reports physical shorthands, like `padding`, that override [flow-relative properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values), such as `padding-inline`.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the shorthand property and the overridden longhand declaration.
 

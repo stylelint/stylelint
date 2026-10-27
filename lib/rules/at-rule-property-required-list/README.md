@@ -9,6 +9,8 @@ Specify a list of required properties (or descriptors) for an at-rule.
  *  At-rule and required descriptor names */
 ```
 
+You can use this rule to enforce a convention. For example, require `font-display` in every `@font-face`, so that [text shows while fonts load](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face/font-display).
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the at-rule and the required property.
 
 ## Options

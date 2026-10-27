@@ -9,6 +9,8 @@ Limit the specificity of selectors.
  * Each of these selectors */
 ```
 
+You can use this rule to enforce a convention. For example, limit specificity to `"0,2,0"`, so that styles stay easy to override.
+
 Visit the [Specificity Calculator](https://specificity.keegan.st) for visual representation of selector specificity.
 
 This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).

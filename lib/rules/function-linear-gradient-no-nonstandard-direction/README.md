@@ -9,12 +9,12 @@ Disallow non-standard direction values for linear gradient functions.
  * This (optional) first argument is the "direction" */
 ```
 
+You can use this rule to avoid gradient directions without `to`, e.g. `linear-gradient(top, red, blue)`. Browsers [ignore the declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient#side-or-corner) and draw no gradient.
+
 A valid and standard direction value is one of the following:
 
 - an angle
 - `to` plus a side-or-corner (`to top`, `to bottom`, `to left`, `to right`; `to top right`, `to right top`, `to bottom left`, etc.)
-
-A common mistake (matching outdated non-standard syntax) is to use just a side-or-corner without the preceding `to`.
 
 > [!NOTE]
 > We recommend only using this rule for CSS-like languages, such as SCSS and Less. For CSS, we recommend using these more capable and overlapping rules instead:

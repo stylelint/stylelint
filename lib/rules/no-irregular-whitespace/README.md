@@ -9,6 +9,8 @@ Disallow irregular whitespaces.
  * Irregular whitespace. Selector would fail to match '.firstClass' */
 ```
 
+You can use this rule to avoid space-like characters, e.g. a no-break space. Browsers [don't treat them as whitespace](https://drafts.csswg.org/css-syntax/#whitespace) and read them as part of the name beside them.
+
 This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
 
 ## Options

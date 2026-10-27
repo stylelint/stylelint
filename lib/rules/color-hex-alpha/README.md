@@ -9,6 +9,8 @@ a { color: #fffa }
  * This alpha channel */
 ```
 
+You can use this rule to enforce a convention. A [hex color](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color) can carry its alpha as a fourth pair of digits, e.g. `#00000080`.
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the hex color.
 
 ## Options

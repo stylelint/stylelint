@@ -2,6 +2,18 @@
 
 Limit the number of values for a list of properties within declarations.
 
+<!-- prettier-ignore -->
+```css
+a { margin: 1px 2px 3px 4px; }
+/**         ↑   ↑   ↑   ↑
+ *          These values */
+```
+
+You can use this rule to enforce a convention. For example, limit:
+
+- `/^(margin|padding)$/` to `2` values, as four-value forms are easy to misread
+- `font-family` to `3` values, so that font stacks stay short
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the configured maximum.
 
 ## Options

@@ -9,6 +9,8 @@ Specify a list of disallowed pseudo-element selectors.
  * This pseudo-element selector */
 ```
 
+You can use this rule to enforce a convention. For example, disallow `/^-webkit-scrollbar/` in favor of [`scrollbar-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color) and [`scrollbar-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-width), to follow the specification.
+
 This rule ignores:
 
 - CSS2 pseudo-elements i.e. those prefixed with a single colon

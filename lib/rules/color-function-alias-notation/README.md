@@ -9,7 +9,12 @@ Specify alias notation for color-functions.
  *             This notation */
 ```
 
-Color functions `rgb()` and `hsl()` have aliases `rgba()` and `hsla()`. Those are exactly equivalent, and [it's preferable](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb) to use the first variant without `a`.
+You can use this rule to enforce a convention. `rgba()` and `hsla()` are [aliases of `rgb()` and `hsl()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb), which accept an alpha value themselves.
+
+Use:
+
+- `"without-alpha"` to follow the specification, which keeps the aliases only for compatibility
+- `"with-alpha"` for older browsers, which accept an alpha value only in `rgba()` and `hsla()`
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

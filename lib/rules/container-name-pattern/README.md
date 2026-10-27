@@ -9,6 +9,8 @@ Specify a pattern for container names.
  * The pattern of this */
 ```
 
+You can use this rule to enforce a convention. For example, require kebab-case names.
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the container name and the configured pattern.
 
 ## Options

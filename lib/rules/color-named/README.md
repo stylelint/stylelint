@@ -9,6 +9,8 @@ a { color: black }
  * This named color */
 ```
 
+You can use this rule to enforce a convention. CSS has a fixed set of [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/named-color), e.g. `black` for `#000`.
+
 This rule ignores `$sass` and `@less` variable syntaxes.
 
 This rule supports up to 2 [message arguments](../../../docs/user-guide/configure.md#message): the disallowed named color, or a color and its named equivalent.
