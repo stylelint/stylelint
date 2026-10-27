@@ -39,7 +39,7 @@ type FileCache = {
 	removeEntry: (absoluteFilepath: string) => void;
 };
 
-type RuleFuncArgs = (string | RegExp | number | boolean | (string | RegExp)[])[];
+type RuleFuncArgs = Array<string | RegExp | number | boolean | Array<string | RegExp> | undefined>;
 
 // Note: With strict function types enabled, function signatures are checked contravariantly.
 // This means that it would not be possible for rule authors to narrow the message function
