@@ -87,7 +87,7 @@
     "colord": "^2.10.0",
     "cosmiconfig": "^10.0.1",
     "css-tree": "^3.2.1",
-    "ignore": "^7.0.12",
+    "ignore": "^7.0.14",
     "import-meta-resolve": "^4.2.0",
     "picomatch": "^4.0.7",
     "postcss": "^8.5.31",
