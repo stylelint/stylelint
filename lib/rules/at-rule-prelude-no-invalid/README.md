@@ -9,7 +9,7 @@ Disallow invalid preludes for at-rules.
  * Preludes like this */
 ```
 
-You can use this rule to avoid at-rules that browsers ignore. An invalid prelude [invalidates the whole block](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#at-rule_errors).
+Use this rule to avoid at-rules that browsers ignore. An invalid prelude [invalidates the whole block](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#at-rule_errors).
 
 This rule considers preludes for at-rules defined within the CSS specifications, up to and including Editor's Drafts, to be valid.
 

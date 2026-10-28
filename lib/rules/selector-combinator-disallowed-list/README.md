@@ -9,7 +9,7 @@ Specify a list of disallowed combinators.
  * This combinator */
 ```
 
-You can use this rule to enforce a convention. For example, disallow:
+Use this rule to enforce a convention. For example, disallow:
 
 - `" "` in favor of `>`, so that styles can't reach deep into the markup
 - `+` and `~` to avoid rules that depend on the order of elements

@@ -9,7 +9,7 @@ a { font-family: serif, serif; }
  * These font family names */
 ```
 
-You can use this rule to avoid listing a font family more than once. Browsers try families in order, so a repeat can never match when the first didn't.
+Use this rule to avoid font family names that can never be chosen. Browsers try families in order, so a repeat can't match when the first didn't.
 
 This rule checks the `font` and `font-family` properties.
 

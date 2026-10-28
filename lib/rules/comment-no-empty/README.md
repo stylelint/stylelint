@@ -9,7 +9,7 @@ Disallow empty comments.
  * Comments like this */
 ```
 
-You can use this rule to avoid leftovers from edits. An empty comment says nothing.
+Use this rule to avoid leftovers from edits. An empty comment says nothing.
 
 This rule ignores SCSS-like comments.
 

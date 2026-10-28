@@ -11,7 +11,7 @@ Disallow invalid syntax strings.
 }
 ```
 
-You can use this rule to avoid custom properties that never register. An invalid syntax string [invalidates the whole `@property` rule](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax).
+Use this rule to avoid custom properties that never register. An invalid syntax string [invalidates the whole `@property` rule](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax).
 
 Syntax strings are used for the `syntax` descriptor value of the `@property` at-rule. This rule reports invalid syntax strings and unsupported type names.
 

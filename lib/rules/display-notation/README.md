@@ -9,9 +9,9 @@ a { display: block; }
  *           This notation */
 ```
 
-You can use this rule to enforce a convention. The `display` property accepts a [multi-keyword syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Multi-keyword_syntax) that names the [outer and inner display types](https://drafts.csswg.org/css-display-3/#the-display-properties) separately, e.g. `inline flex`. Each single keyword maps to [such a pair](https://drafts.csswg.org/css-display-3/#display-value-summary), e.g. `inline-flex` to `inline flex` and `block` to `block flow`.
+Use this rule to enforce a convention. The `display` property accepts a [multi-keyword syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Multi-keyword_syntax) that names the [outer and inner display types](https://drafts.csswg.org/css-display-3/#the-display-properties) separately, e.g. `inline flex`. Each single keyword maps to [such a pair](https://drafts.csswg.org/css-display-3/#display-value-summary), e.g. `inline-flex` to `inline flex` and `block` to `block flow`.
 
-Use:
+Choose:
 
 - `"full"` to compose values from their outer and inner display types, which makes it easier to understand how an element will behave
 - `"short"` for brevity and older browsers, which accept only the single-keyword syntax

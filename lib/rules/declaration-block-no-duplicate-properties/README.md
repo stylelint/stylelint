@@ -9,7 +9,7 @@ a { color: pink; color: orange; }
  * These duplicated properties */
 ```
 
-You can use this rule to avoid declaring a property more than once in one block. Browsers let the later declaration override the earlier one, unless it's a [fallback for older browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors).
+Use this rule to avoid declarations that never apply. Browsers use the last declaration they accept, so an earlier duplicate applies only as a [fallback for older browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors).
 
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 

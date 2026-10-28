@@ -9,7 +9,7 @@ a { background-image: url('http://www.example.com/file.jpg'); }
  *           This URL scheme */
 ```
 
-You can use this rule to enforce a convention. For example, disallow:
+Use this rule to enforce a convention. For example, disallow:
 
 - `http`, as browsers [block those assets on secure pages](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Mixed_content#blockable_content)
 - `data`, which inlines large assets into stylesheets

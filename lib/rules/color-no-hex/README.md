@@ -9,7 +9,7 @@ a { color: #333 }
  * This hex color */
 ```
 
-You can use this rule to enforce a convention. For example, disallow hex colors in favor of `oklch()`, whose channels you can read and compare.
+Use this rule to enforce a convention. For example, disallow hex colors in favor of `oklch()`, whose channels you can read and compare.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed hex color.
 

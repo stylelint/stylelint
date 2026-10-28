@@ -9,7 +9,7 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
-You can use this rule to enforce a convention. For example, disallow:
+Use this rule to enforce a convention. For example, disallow:
 
 - `none` and `0` for `outline`, which [remove the focus indicator](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/outline#accessibility)
 - `0` for `border` in favor of `none`

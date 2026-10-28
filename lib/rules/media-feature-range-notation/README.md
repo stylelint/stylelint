@@ -9,9 +9,9 @@ Specify context or prefix notation for media feature ranges.
  *     These media feature notations */
 ```
 
-You can use this rule to enforce a convention. A range media feature can be written with a `min-` or `max-` prefix, or in the [context notation](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using#targeting_media_features) with a comparison operator.
+Use this rule to enforce a convention. A range media feature can be written with a `min-` or `max-` prefix, or in the [context notation](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using#targeting_media_features) with a comparison operator.
 
-Use:
+Choose:
 
 - `"context"` to write ranges as comparisons, including the exclusive ones that [prefixes can't express](https://drafts.csswg.org/mediaqueries/#mq-min-max)
 - `"prefix"` for older browsers, which don't support the context notation

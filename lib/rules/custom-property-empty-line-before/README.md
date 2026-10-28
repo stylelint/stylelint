@@ -13,7 +13,7 @@ a {
  *                   This line */
 ```
 
-You can use this rule to enforce a convention. For example, require an empty line before the first custom property, so that custom properties stand apart from other declarations.
+Use this rule to enforce a convention. For example, require an empty line before the first custom property, so that custom properties stand apart from other declarations.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

@@ -9,7 +9,7 @@ a { margin: 1px 2px 3px 4px; }
  *          These values */
 ```
 
-You can use this rule to enforce a convention. For example, limit:
+Use this rule to enforce a convention. For example, limit:
 
 - `/^(margin|padding)$/` to `2` values, as four-value forms are easy to misread
 - `font-family` to `3` values, so that font stacks stay short

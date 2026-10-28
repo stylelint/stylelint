@@ -9,7 +9,7 @@ Specify a list of disallowed properties for selectors within rules.
  * Selector and property name */
 ```
 
-You can use this rule to enforce a convention. For example, disallow:
+Use this rule to enforce a convention. For example, disallow:
 
 - `/^margin/` on `/^\.c-/`, so that components don't set their own outer spacing
 - `/^(margin|padding)/` on `/^(h[1-6]|p)$/` to limit element styles to typography

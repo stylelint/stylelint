@@ -9,7 +9,7 @@ a { top: 3.245634px; }
  * This decimal place */
 ```
 
-You can use this rule to enforce a convention. For example, limit numbers to `4` decimal places, as the extra digits rarely change what's rendered.
+Use this rule to enforce a convention. For example, limit numbers to `4` decimal places, as the extra digits rarely change what's rendered.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the number and its rounded equivalent.
 

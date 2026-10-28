@@ -9,7 +9,7 @@ Specify a list of allowed at-rules.
  * At-rules like this */
 ```
 
-You can use this rule to enforce a subset of at-rules as a convention. For example, allow only `media`, `supports`, `font-face` and `keyframes`.
+Use this rule to enforce a subset of at-rules as a convention. For example, allow only `media`, `supports`, `font-face` and `keyframes`.
 
 This rule ignores the `@charset` rule.
 

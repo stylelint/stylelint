@@ -9,7 +9,7 @@ Specify a pattern for comments.
  * The pattern of this */
 ```
 
-You can use this rule to enforce a convention. For example, require `^[A-Z]`, so that comments read as sentences.
+Use this rule to enforce a convention. For example, require `^[A-Z]`, so that comments read as sentences.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the configured pattern.
 

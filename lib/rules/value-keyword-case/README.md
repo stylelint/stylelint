@@ -9,7 +9,7 @@ Specify lowercase or uppercase for keywords values.
  *    These values */
 ```
 
-You can use this rule to enforce a convention, as keywords are [case-insensitive](https://www.w3.org/TR/CSS21/syndata.html#characters). For example, require lowercase, as the specifications write them.
+Use this rule to enforce a convention, as keywords are [case-insensitive](https://www.w3.org/TR/CSS21/syndata.html#characters). For example, require lowercase, as the specifications write them.
 
 This rule ignores [`<custom-idents>`](https://developer.mozilla.org/en/docs/Web/CSS/custom-ident) of known properties. Keyword values which are paired with non-properties (e.g. `$vars` and custom properties), and do not conform to the primary option, can be ignored using the `ignoreKeywords: []` secondary option.
 

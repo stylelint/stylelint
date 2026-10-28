@@ -9,7 +9,7 @@ Specify a list of allowed combinators.
  * This combinator */
 ```
 
-You can use this rule to enforce a subset of combinators as a convention. For example, allow only `>`, so that styles can't reach deep into the markup.
+Use this rule to enforce a subset of combinators as a convention. For example, allow only `>`, so that styles can't reach deep into the markup.
 
 This rule normalizes the whitespace descendant combinator to be a single space.
 

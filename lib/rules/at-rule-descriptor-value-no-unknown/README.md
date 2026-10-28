@@ -11,7 +11,7 @@ Disallow unknown values for descriptors within at-rules.
 }
 ```
 
-You can use this rule to avoid values unknown to their descriptor. Browsers [ignore them](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#grammar_check), so the at-rule behaves as if the descriptor were missing.
+Use this rule to avoid values unknown to their descriptor. Browsers [ignore them](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#grammar_check), so the at-rule behaves as if the descriptor were missing.
 
 This rule considers descriptors and values defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 

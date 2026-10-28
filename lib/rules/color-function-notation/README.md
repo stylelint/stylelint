@@ -9,9 +9,9 @@ Specify modern or legacy notation for color-functions.
  *             This notation */
 ```
 
-You can use this rule to enforce a convention. `rgb()` and `hsl()` accept a [modern syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb#syntax) and a legacy syntax. The modern syntax follows the rest of CSS, where values are space-separated, the alpha value follows a slash, and commas separate repetitions only, while the legacy syntax separates every argument with commas.
+Use this rule to enforce a convention. `rgb()` and `hsl()` accept a [modern syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb#syntax) and a legacy syntax. The modern syntax follows the rest of CSS, where values are space-separated, the alpha value follows a slash, and commas separate repetitions only, while the legacy syntax separates every argument with commas.
 
-Use:
+Choose:
 
 - `"modern"` to follow the specification, which keeps the legacy syntax only for compatibility
 - `"legacy"` for older browsers, which accept only the comma-separated syntax

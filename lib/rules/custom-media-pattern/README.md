@@ -9,7 +9,7 @@ Specify a pattern for custom media query names.
  * The pattern of this */
 ```
 
-You can use this rule to enforce a convention. For example, require kebab-case names.
+Use this rule to enforce a convention. For example, require kebab-case names for consistency with the specifications' examples.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the custom media name and the configured pattern.
 

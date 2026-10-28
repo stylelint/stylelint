@@ -9,9 +9,9 @@ a { margin-left: 0; }
  * This property */
 ```
 
-You can use this rule to enforce a convention. Physical properties like `margin-left` are tied to the screen, while flow-relative properties like `margin-inline-start` follow the writing mode.
+Use this rule to enforce a convention. Physical properties like `margin-left` are tied to the screen, while flow-relative properties like `margin-inline-start` follow the writing mode.
 
-Use:
+Choose:
 
 - `"flow-relative"` to support right-to-left and vertical [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values)
 - `"physical"` if you support only one writing mode, or for older browsers

@@ -9,7 +9,7 @@ Specify a list of allowed pseudo-element selectors.
  * This pseudo-element selector */
 ```
 
-You can use this rule to enforce a subset of pseudo-elements as a convention. For example, allow only `before`, `after`, `placeholder` and `marker`.
+Use this rule to enforce a subset of pseudo-elements as a convention. For example, allow only `before`, `after`, `placeholder` and `marker`.
 
 This rule ignores:
 

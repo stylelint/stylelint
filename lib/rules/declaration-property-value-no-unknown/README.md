@@ -9,7 +9,7 @@ a { top: unknown; }
  * property and value pairs like these */
 ```
 
-You can use this rule to avoid values unknown to their property, e.g. `width: 10`, which lacks a unit. Browsers [ignore the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+Use this rule to avoid values unknown to their property, e.g. `width: 10`, which lacks a unit. Browsers [ignore the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
 
 This rule considers values for properties defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 

@@ -9,7 +9,7 @@ Disallow empty blocks.
  * Blocks like this */
 ```
 
-You can use this rule to avoid leftovers from edits. An empty block does nothing.
+Use this rule to avoid leftovers from edits. An empty block does nothing.
 
 This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
 

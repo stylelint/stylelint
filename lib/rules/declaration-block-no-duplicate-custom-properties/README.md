@@ -9,7 +9,7 @@ a { --custom-property: pink; --custom-property: orange; }
  * These duplicated custom properties */
 ```
 
-You can use this rule to avoid declaring a custom property more than once in one block. Browsers [don't check custom property values when parsing](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#invalid_custom_properties), so the later declaration always overrides the earlier one, which can't act as a fallback.
+Use this rule to avoid declarations that never apply. Browsers [don't check custom property values when parsing](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#invalid_custom_properties), so a repeated custom property always overrides the earlier one, which can't act as a fallback.
 
 This rule is case-sensitive.
 

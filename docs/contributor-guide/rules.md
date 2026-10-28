@@ -452,7 +452,7 @@ For example:
 
 #### Expanded description
 
-To match the rule's group in [the list of rules](../user-guide/rules.md), open with "You can use this rule to":
+To match the rule's group in [the list of rules](../user-guide/rules.md), open with "Use this rule to":
 
 - "avoid…"
 - "enforce a convention."

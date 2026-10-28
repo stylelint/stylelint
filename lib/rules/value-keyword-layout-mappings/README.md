@@ -9,9 +9,9 @@ a { float: left; }
  *         This keyword */
 ```
 
-You can use this rule to enforce a convention. Physical keywords like `left` and `top` are tied to the screen, while flow-relative keywords like `inline-start` and `block-start` follow the writing mode.
+Use this rule to enforce a convention. Physical keywords like `left` and `top` are tied to the screen, while flow-relative keywords like `inline-start` and `block-start` follow the writing mode.
 
-Use:
+Choose:
 
 - `"flow-relative"` to support right-to-left and vertical [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values)
 - `"physical"` if you support only one writing mode, or for older browsers

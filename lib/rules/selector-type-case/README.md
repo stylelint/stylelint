@@ -9,7 +9,7 @@ Specify lowercase or uppercase for type selectors.
  * This is type selector */
 ```
 
-You can use this rule to enforce a convention, as type selectors match HTML elements [regardless of case](https://www.w3.org/TR/CSS21/syndata.html#characters). For example, require lowercase, as HTML writes element names. This rule ignores mixed-case SVG elements, e.g. `foreignObject`, whose case is significant.
+Use this rule to enforce a convention, as type selectors match HTML elements [regardless of case](https://www.w3.org/TR/CSS21/syndata.html#characters). For example, require lowercase, as HTML writes element names. This rule ignores mixed-case SVG elements, e.g. `foreignObject`, whose case is significant.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

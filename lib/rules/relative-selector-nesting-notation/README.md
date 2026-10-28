@@ -9,9 +9,9 @@ a { & > b {} }
  * This notation */
 ```
 
-You can use this rule to enforce a convention. A nested selector that starts with a combinator, e.g. `> b`, is [relative to the parent selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector) whether or not it begins with `&`.
+Use this rule to enforce a convention. A nested selector that starts with a combinator, e.g. `> b`, is [relative to the parent selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector) whether or not it begins with `&`.
 
-Use:
+Choose:
 
 - `"explicit"` for clarity
 - `"implicit"` for brevity

@@ -9,7 +9,7 @@ a { top: calc(1px + 2); }
  * Values like this */
 ```
 
-You can use this rule to avoid declarations that browsers ignore. A value that can't be parsed, e.g. `calc(1px + 2)`, [invalidates the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+Use this rule to avoid declarations that browsers ignore. A value that can't be parsed, e.g. `calc(1px + 2)`, [invalidates the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
 
 This rule considers values defined within the CSS specifications, up to and including Editor's Drafts, to be valid. It reports values that cannot be parsed and math expressions that add or subtract a number to a dimension or percentage.
 

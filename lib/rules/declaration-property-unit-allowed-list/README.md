@@ -9,7 +9,7 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
-You can use this rule to enforce a subset of units for a property as a convention. For example, allow only:
+Use this rule to enforce a subset of units for a property as a convention. For example, allow only:
 
 - `rem` and `em` for `font-size`, so that text scales with your users' settings
 - no units for `line-height`, so that it [scales with each element's font size](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/line-height#prefer_unitless_numbers_for_line-height_values)

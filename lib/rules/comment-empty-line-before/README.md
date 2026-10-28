@@ -11,7 +11,7 @@ a {}
 *        This line */
 ```
 
-You can use this rule to enforce a convention. For example, require an empty line before each comment for readability.
+Use this rule to enforce a convention. For example, require an empty line before each comment for readability.
 
 This rule ignores:
 

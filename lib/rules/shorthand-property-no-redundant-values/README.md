@@ -9,7 +9,7 @@ a { margin: 1px 1px 1px 1px; }
  *           These values */
 ```
 
-You can use this rule to enforce a convention. For example, require `margin: 1px` rather than `margin: 1px 1px 1px 1px`, as a shorthand [repeats the values you omit](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Shorthand_properties#margin_and_padding_properties).
+Use this rule to enforce a convention. For example, require `margin: 1px` rather than `margin: 1px 1px 1px 1px`, as a shorthand [repeats the values you omit](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Shorthand_properties#margin_and_padding_properties).
 
 This rule checks the following shorthand properties:
 

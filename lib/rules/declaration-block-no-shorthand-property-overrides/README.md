@@ -9,7 +9,7 @@ a { background-repeat: repeat; background: green; }
  * This overrides the longhand property before it */
 ```
 
-You can use this rule to avoid following a longhand with its shorthand. Browsers [reset every longhand a shorthand covers](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Shorthand_properties#omitting_properties), silently undoing the earlier one.
+Use this rule to avoid longhands that a later shorthand silently undoes. Browsers [reset every longhand a shorthand covers](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Shorthand_properties#omitting_properties).
 
 This rule reports physical shorthands, like `padding`, that override [flow-relative properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values), such as `padding-inline`.
 

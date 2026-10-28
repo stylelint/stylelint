@@ -9,9 +9,9 @@ Require or disallow quotes for attribute values.
  * These quotes */
 ```
 
-You can use this rule to enforce a convention. Quotes around an attribute value are [required](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors#values) when it contains spaces or special characters, and optional otherwise.
+Use this rule to enforce a convention. Quotes around an attribute value are [required](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors#values) when it contains spaces or special characters, and optional otherwise.
 
-Use:
+Choose:
 
 - `"always"` so that any value works, e.g. `[href="/"]`
 - `"never"` for brevity, as this rule allows the quotes a value needs

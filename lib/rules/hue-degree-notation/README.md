@@ -9,9 +9,9 @@ Specify number or angle notation for degree hues.
  *                 This notation */
 ```
 
-You can use this rule to enforce a convention. A [hue](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hue) can be an angle or a number, which is interpreted as degrees.
+Use this rule to enforce a convention. A [hue](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hue) can be an angle or a number, which is interpreted as degrees.
 
-Use:
+Choose:
 
 - `"angle"` for clarity
 - `"number"` for brevity

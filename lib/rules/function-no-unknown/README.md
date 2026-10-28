@@ -9,7 +9,7 @@ a { transform: unknown(1); }
  * Functions like this */
 ```
 
-You can use this rule to avoid mistyped functions, e.g. `rgbaa()`. Browsers [ignore the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+Use this rule to avoid mistyped functions, e.g. `rgbaa()`. Browsers [ignore the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
 
 This rule considers functions defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 

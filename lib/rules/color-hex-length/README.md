@@ -9,9 +9,9 @@ a { color: #fff }
  * This hex color */
 ```
 
-You can use this rule to enforce a convention. A [hex color](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color) can be shortened when each pair of digits repeats, e.g. `#fff` for `#ffffff`.
+Use this rule to enforce a convention. A [hex color](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color) can be shortened when each pair of digits repeats, e.g. `#fff` for `#ffffff`.
 
-Use:
+Choose:
 
 - `"short"` for brevity
 - `"long"` to match colors copied from design tools

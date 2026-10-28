@@ -9,9 +9,9 @@ Specify keyword or percentage notation for keyframe selectors.
  *               These notations */
 ```
 
-You can use this rule to enforce a convention. In [`@keyframes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes), `from` and `to` are equivalent to `0%` and `100%`.
+Use this rule to enforce a convention. In [`@keyframes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes), `from` and `to` are equivalent to `0%` and `100%`.
 
-Use:
+Choose:
 
 - `"keyword"` for clarity
 - `"percentage"` for consistency with intermediate steps, e.g. `50%`

@@ -9,9 +9,9 @@ a { width: 100vw; }
  *            This unit */
 ```
 
-You can use this rule to enforce a convention. Physical units like `vw` and `vh` are tied to the viewport, while flow-relative units like `vi` and `vb` follow the writing mode.
+Use this rule to enforce a convention. Physical units like `vw` and `vh` are tied to the viewport, while flow-relative units like `vi` and `vb` follow the writing mode.
 
-Use:
+Choose:
 
 - `"flow-relative"` to support right-to-left and vertical [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values)
 - `"physical"` if you support only one writing mode, or for older browsers

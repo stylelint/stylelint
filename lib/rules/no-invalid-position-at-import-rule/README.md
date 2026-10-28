@@ -10,7 +10,7 @@ a {}
   * This @import */
 ```
 
-You can use this rule to avoid stylesheets that never load. An `@import` after other rules, except `@charset` and `@layer`, is [ignored](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@import).
+Use this rule to avoid stylesheets that never load. An `@import` after other rules, except `@charset` and `@layer`, is [ignored](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@import).
 
 This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
 

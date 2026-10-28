@@ -9,7 +9,7 @@ Specify a list of disallowed at-rules.
  * At-rules like this */
 ```
 
-You can use this rule to enforce a convention. For example, disallow:
+Use this rule to enforce a convention. For example, disallow:
 
 - `import` if you use a bundler
 - `keyframes` if you use an animation library

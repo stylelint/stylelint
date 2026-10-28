@@ -9,7 +9,7 @@ Disallow qualifying a selector by type.
  * This type selector is qualifying the class */
 ```
 
-You can use this rule to enforce a convention, as `.card` works on any element and has a lower [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity) than `a.card`.
+Use this rule to enforce a convention, as `.card` works on any element and has a lower [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity) than `a.card`.
 
 A type selector is "qualifying" when it is compounded with (chained to) another selector (e.g. `a.foo`, `a#foo`). This rule does not regulate type selectors that are combined with other selectors via a combinator (e.g. `a > .foo`, `a #foo`).
 

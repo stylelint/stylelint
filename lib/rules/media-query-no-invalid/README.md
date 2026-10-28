@@ -9,7 +9,7 @@ Disallow invalid media queries.
  * This media query */
 ```
 
-You can use this rule to avoid `@media` blocks that never apply. An invalid query is [replaced by `not all`](https://drafts.csswg.org/mediaqueries-5/#error-handling).
+Use this rule to avoid `@media` blocks that never apply. An invalid query is [replaced by `not all`](https://drafts.csswg.org/mediaqueries-5/#error-handling).
 
 It works well with other rules that check feature names and values:
 

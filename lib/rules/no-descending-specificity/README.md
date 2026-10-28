@@ -9,7 +9,7 @@ Disallow selectors of lower specificity from coming after overriding selectors o
  * The order of these selectors represents descending specificity */
 ```
 
-You can use this rule to avoid overriding selectors that come before the ones they override. Browsers apply [specificity before source order](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity), so a later rule can lose to an earlier one.
+Use this rule to avoid overriding selectors that come before the ones they override. Browsers apply [specificity before source order](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity), so a later rule can lose to an earlier one.
 
 > [!NOTE]
 > This rule reports fewer problems than it should. It can't find every overriding selector, but it does report common mistakes.

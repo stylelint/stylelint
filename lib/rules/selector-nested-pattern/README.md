@@ -11,7 +11,7 @@ Specify a pattern for the selectors of rules nested within rules.
  * This nested selector */
 ```
 
-You can use this rule to enforce a convention. For example, require `^&:`, so that only states are nested and descendants get their own rules.
+Use this rule to enforce a convention. For example, require `^&:`, so that only states are nested and descendants get their own rules.
 
 Non-standard selectors (e.g. selectors with Sass or Less interpolation) and selectors of rules nested within at-rules are ignored.
 

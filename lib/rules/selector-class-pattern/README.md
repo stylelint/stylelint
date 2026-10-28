@@ -9,9 +9,9 @@ Specify a pattern for class selectors.
  * These class selectors */
 ```
 
-You can use this rule to enforce a convention. For example, require:
+Use this rule to enforce a convention. For example, require:
 
-- kebab-case names
+- kebab-case names for consistency with the specifications' examples
 - a namespace, e.g. `^foo-`
 
 This rule ignores non-outputting Less mixin definitions and called Less mixins.

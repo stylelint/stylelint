@@ -9,7 +9,7 @@ Limit the number of combinators in a selector.
  * These are combinators */
 ```
 
-You can use this rule to enforce a convention. For example, limit selectors to `1` combinator, so that styles can't reach deep into the markup.
+Use this rule to enforce a convention. For example, limit selectors to `1` combinator, so that styles can't reach deep into the markup.
 
 Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 

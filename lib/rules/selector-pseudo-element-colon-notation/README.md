@@ -9,9 +9,9 @@ Specify single or double colon notation for applicable pseudo-element selectors.
  * This notation */
 ```
 
-You can use this rule to enforce a convention. Pseudo-elements use [two colons](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements#syntax) to tell them apart from pseudo-classes, but browsers also accept one colon for the four from CSS 2: `:before`, `:after`, `:first-line` and `:first-letter`.
+Use this rule to enforce a convention. Pseudo-elements use [two colons](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements#syntax) to tell them apart from pseudo-classes, but browsers also accept one colon for the four from CSS 2: `:before`, `:after`, `:first-line` and `:first-letter`.
 
-Use:
+Choose:
 
 - `"double"` for clarity
 - `"single"` for older browsers, which don't recognize `::`

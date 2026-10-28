@@ -13,7 +13,7 @@ Disallow redundant longhand properties within declaration-block.
  *  These longhand properties */
 ```
 
-You can use this rule to enforce a convention. For example, require the shorthand when every longhand is set:
+Use this rule to enforce a convention. For example, require the shorthand when every longhand is set:
 
 <!-- prettier-ignore -->
 ```css

@@ -9,7 +9,7 @@ Disallow duplicate selectors within keyframe blocks.
  *                     This duplicate selector */
 ```
 
-You can use this rule to avoid using a keyframe selector more than once in one `@keyframes` rule. Browsers let the [later block silently override](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes#resolving_duplicates) the earlier one.
+Use this rule to avoid keyframe declarations that a later block overrides. Browsers let the [later block silently override](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes#resolving_duplicates) the earlier one.
 
 This rule is case-insensitive.
 

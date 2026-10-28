@@ -11,7 +11,7 @@ Disallow unknown descriptors for at-rules.
 }
 ```
 
-You can use this rule to avoid mistyped descriptors. Browsers [ignore unknown descriptors](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#grammar_check), so a `@font-face` with `srcc` instead of `src` loads nothing.
+Use this rule to avoid mistyped descriptors. Browsers [ignore unknown descriptors](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#grammar_check), so a `@font-face` with `srcc` instead of `src` loads nothing.
 
 This rule considers descriptors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 

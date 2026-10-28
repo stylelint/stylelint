@@ -9,9 +9,9 @@ Specify string or URL notation for `@import` rules.
  *      This notation */
 ```
 
-You can use this rule to enforce a convention. [`@import`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@import) accepts a string or a `url()` function, and both load the same file.
+Use this rule to enforce a convention. [`@import`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@import) accepts a string or a `url()` function, and both load the same file.
 
-Use:
+Choose:
 
 - `"url"` to match how other files are referenced, e.g. in `background-image`
 - `"string"` for brevity

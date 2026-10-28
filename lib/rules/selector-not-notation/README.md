@@ -9,9 +9,9 @@ Specify simple or complex notation for `:not()` pseudo-class selectors.
  * This notation */
 ```
 
-You can use this rule to enforce a convention. In Selectors Level 3, only a single _simple selector_ was allowed as the argument to `:not()`, whereas Selectors Level 4 allows a _selector list_.
+Use this rule to enforce a convention. In Selectors Level 3, only a single _simple selector_ was allowed as the argument to `:not()`, whereas Selectors Level 4 allows a _selector list_.
 
-Use:
+Choose:
 
 - `"complex"` to author modern Selectors Level 4 CSS
 - `"simple"` for older browsers, which accept only a single simple selector

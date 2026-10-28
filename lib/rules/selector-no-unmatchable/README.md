@@ -9,7 +9,7 @@ label:enabled {}
  * Selectors like this */
 ```
 
-You can use this rule to avoid selectors that are valid but can never match anything. Browsers never apply their declarations.
+Use this rule to avoid selectors that are valid but can never match anything. Browsers never apply their declarations.
 
 This rule reports selectors that:
 

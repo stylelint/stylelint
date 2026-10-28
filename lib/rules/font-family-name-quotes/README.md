@@ -9,9 +9,9 @@ a { font-family: "Times New Roman", 'Ancient Runes', serif; }
  *               These quotation marks and this one */
 ```
 
-You can use this rule to enforce a convention. The specification [requires](https://drafts.csswg.org/css-fonts-4/#font-family-prop) quotes around a font family name that isn't a valid identifier, e.g. one containing `$`. A name made of several identifiers, such as `Times New Roman`, needs none. It recommends them around a name that contains whitespace, digits or punctuation other than hyphens. Quotes around a [generic family](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/generic-family) keyword such as `sans-serif` or a system font such as `-apple-system` turn it into a font name, so every option disallows them.
+Use this rule to enforce a convention. The specification [requires](https://drafts.csswg.org/css-fonts-4/#font-family-prop) quotes around a font family name that isn't a valid identifier, e.g. one containing `$`. A name made of several identifiers, such as `Times New Roman`, needs none. It recommends them around a name that contains whitespace, digits or punctuation other than hyphens. Quotes around a [generic family](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/generic-family) keyword such as `sans-serif` or a system font such as `-apple-system` turn it into a font name, so every option disallows them.
 
-Use:
+Choose:
 
 - `"always-unless-keyword"` for one simple convention that is always safe
 - `"always-where-required"` for brevity

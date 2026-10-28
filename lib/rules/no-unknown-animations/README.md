@@ -13,7 +13,7 @@ a { animation: fancy-slide 2s linear; }
  *           And this one */
 ```
 
-You can use this rule to avoid animation names that match no `@keyframes` rule. Browsers [don't run the animation](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-name).
+Use this rule to avoid animation names that match no `@keyframes` rule. Browsers [don't run the animation](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-name).
 
 This rule considers the identifiers of `@keyframes` rules defined within the same source or within the files specified in the [`referenceFiles`](../../../docs/user-guide/configure.md#referencefiles) configuration property to be known.
 

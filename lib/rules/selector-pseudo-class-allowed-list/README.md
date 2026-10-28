@@ -9,7 +9,7 @@ Specify a list of allowed pseudo-class selectors.
  * This pseudo-class selector */
 ```
 
-You can use this rule to enforce a subset of pseudo-classes as a convention. For example, allow only `hover`, `focus-visible` and `not`.
+Use this rule to enforce a subset of pseudo-classes as a convention. For example, allow only `hover`, `focus-visible` and `not`.
 
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.
 

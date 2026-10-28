@@ -9,7 +9,7 @@ a { width: calc(5% - 10em); }
  * This function */
 ```
 
-You can use this rule to enforce a convention, as function names are [case-insensitive](https://www.w3.org/TR/CSS21/syndata.html#characters). For example, require lowercase, as the specifications write them.
+Use this rule to enforce a convention, as function names are [case-insensitive](https://www.w3.org/TR/CSS21/syndata.html#characters). For example, require lowercase, as the specifications write them.
 
 Camel case function names, e.g. `translateX`, are accounted for when the `lower` option is used.
 

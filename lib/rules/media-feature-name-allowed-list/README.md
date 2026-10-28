@@ -9,7 +9,7 @@ Specify a list of allowed media feature names.
  * This media feature name */
 ```
 
-You can use this rule to enforce a subset of media features as a convention. For example, allow only `width`, `prefers-reduced-motion` and `prefers-color-scheme` if those are the only features you test.
+Use this rule to enforce a subset of media features as a convention. For example, allow only `width`, `prefers-reduced-motion` and `prefers-color-scheme` if those are the only features you test.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed media feature name.
 

@@ -9,7 +9,7 @@ a { color: black }
  * This named color */
 ```
 
-You can use this rule to enforce a convention. CSS has a fixed set of [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/named-color), e.g. `black` for `#000`.
+Use this rule to enforce a convention. CSS has a fixed set of [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/named-color), e.g. `black` for `#000`. Choose one for consistency.
 
 This rule ignores `$sass` and `@less` variable syntaxes.
 

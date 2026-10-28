@@ -11,7 +11,7 @@ b {}  /* ↑ */
  * This line */
 ```
 
-You can use this rule to enforce a convention. For example, require an empty line before each multi-line rule for readability.
+Use this rule to enforce a convention. For example, require an empty line before each multi-line rule for readability.
 
 This rule ignores rules that are the very first node in a source.
 

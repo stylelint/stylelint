@@ -17,9 +17,9 @@ a { font: italic small-caps 600 16px/3 cursive; }
  *                        Multiple notations are available in @font-face */
 ```
 
-You can use this rule to enforce a convention. `normal` and `bold` are [names for `400` and `700`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-weight#common_weight_name_mapping).
+Use this rule to enforce a convention. `normal` and `bold` are [names for `400` and `700`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-weight#common_weight_name_mapping).
 
-Use:
+Choose:
 
 - `"numeric"` for one scale across every weight, including the fine steps of [variable fonts](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-weight#variable_fonts)
 - `"named-where-possible"` for clarity

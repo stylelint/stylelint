@@ -9,7 +9,7 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
-You can use this rule to enforce a convention. For example, disallow:
+Use this rule to enforce a convention. For example, disallow:
 
 - `px` for `font-size`, so that text scales with your users' settings
 - `s` for `/^(transition|animation)/`, so that every duration is in `ms`

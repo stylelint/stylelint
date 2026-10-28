@@ -9,7 +9,7 @@ a { border: 1px solid red; }
  * These <length> and <color> values */
 ```
 
-You can use this rule to enforce a convention. For example, require custom properties for:
+Use this rule to enforce a convention. For example, require custom properties for:
 
 - `color`, so that colors come from your palette
 - `length`, so that spacing comes from your scale

@@ -9,9 +9,9 @@ Specify number or percentage notation for lightness.
  *                   This notation */
 ```
 
-You can use this rule to enforce a convention. Lightness can be a number or a percentage. In `oklch()` and `oklab()` the [number runs from `0` to `1`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch#values), while in `lch()` and `lab()` it runs from `0` to `100`.
+Use this rule to enforce a convention. Lightness can be a number or a percentage. In `oklch()` and `oklab()` the [number runs from `0` to `1`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch#values), while in `lch()` and `lab()` it runs from `0` to `100`.
 
-Use:
+Choose:
 
 - `"percentage"` for consistency across all four functions
 - `"number"` to match [relative color syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch#defining_relative_color_output_channel_components), where `l` is a number

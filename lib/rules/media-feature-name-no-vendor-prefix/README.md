@@ -9,7 +9,7 @@ Disallow vendor prefixes for media feature names.
  * This prefix */
 ```
 
-You can use this rule to enforce a convention. For example, leave prefixing to Autoprefixer.
+Use this rule to enforce a convention. For example, leave prefixing to a tool such as Autoprefixer, so that your styles only have the prefixes your browsers need.
 
 This rule ignores non-standard vendor-prefixed media feature names that aren't handled by [Autoprefixer](https://github.com/postcss/autoprefixer).
 

@@ -9,7 +9,7 @@ Disallow duplicate selectors.
  * These duplicates */
 ```
 
-You can use this rule to avoid splitting a selector's declarations across two rules, which makes them harder to find.
+Use this rule to avoid splitting a selector's declarations across two rules, which makes them harder to find.
 
 This rule reports two types of duplication:
 

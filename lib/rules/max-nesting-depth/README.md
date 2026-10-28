@@ -9,7 +9,7 @@ a { & > b { top: 0; } }
  * This nesting */
 ```
 
-You can use this rule to enforce a convention. For example, limit nesting to `2` levels, as each level lengthens the resolved selector.
+Use this rule to enforce a convention. For example, limit nesting to `2` levels, so that nested rules stay readable.
 
 This rule works by checking rules' and at-rules' actual "nesting depth" against your specified max. Here's how nesting depths works:
 

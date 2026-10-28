@@ -9,7 +9,7 @@ a { -webkit-transform: scale(1); }
  * This prefix */
 ```
 
-You can use this rule to enforce a convention. For example, leave prefixing to Autoprefixer.
+Use this rule to enforce a convention. For example, leave prefixing to a tool such as Autoprefixer, so that your styles only have the prefixes your browsers need.
 
 This rule ignores non-standard vendor-prefixed properties that aren't handled by [Autoprefixer](https://github.com/postcss/autoprefixer).
 

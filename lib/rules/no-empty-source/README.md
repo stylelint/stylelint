@@ -7,7 +7,7 @@ Disallow empty sources.
 
 ```
 
-You can use this rule to avoid leftovers from edits. An empty source does nothing.
+Use this rule to avoid leftovers from edits. An empty source does nothing.
 
 A source containing only whitespace, e.g., spaces, tabs, or newlines, is considered empty.
 

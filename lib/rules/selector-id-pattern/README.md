@@ -9,7 +9,7 @@ Specify a pattern for ID selectors.
  * These ID selectors */
 ```
 
-You can use this rule to enforce a convention. For example, require kebab-case names.
+Use this rule to enforce a convention. For example, require kebab-case names for consistency with the specifications' examples.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the selector and the configured pattern.
 

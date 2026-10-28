@@ -9,7 +9,7 @@ a { color: red; }
  * This property */
 ```
 
-You can use this rule to enforce a subset of properties as a convention. For example, via `overrides`, allow only:
+Use this rule to enforce a subset of properties as a convention. For example, via `overrides`, allow only:
 
 - `/^--/` in a tokens file
 - `/^(margin|padding|font)/` in a reset

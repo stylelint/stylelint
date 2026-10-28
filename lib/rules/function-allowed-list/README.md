@@ -9,7 +9,7 @@ a { transform: scale(1); }
  * This function */
 ```
 
-You can use this rule to enforce a subset of functions as a convention. For example, allow only `calc`, `clamp` and `color-mix`.
+Use this rule to enforce a subset of functions as a convention. For example, allow only `calc`, `clamp` and `color-mix`.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed function.
 

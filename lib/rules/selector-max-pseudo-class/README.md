@@ -10,7 +10,7 @@ Limit the number of pseudo-classes in a selector.
          1           2 -- this selector contains two pseudo-classes */
 ```
 
-You can use this rule to enforce a convention. For example, limit selectors to `2` pseudo-classes, so that selectors stay readable.
+Use this rule to enforce a convention. For example, limit selectors to `2` pseudo-classes, so that selectors stay readable.
 
 Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 

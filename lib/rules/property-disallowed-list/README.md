@@ -9,7 +9,7 @@ a { text-rendering: optimizeLegibility; }
  * This property */
 ```
 
-You can use this rule to enforce a convention. For example, disallow:
+Use this rule to enforce a convention. For example, disallow:
 
 - `animation` if you use an animation library
 - `float` in favor of flex and grid

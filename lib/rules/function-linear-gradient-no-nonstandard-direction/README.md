@@ -9,7 +9,7 @@ Disallow non-standard direction values for linear gradient functions.
  * This (optional) first argument is the "direction" */
 ```
 
-You can use this rule to avoid gradient directions without `to`, e.g. `linear-gradient(top, red, blue)`. Browsers [ignore the declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient#side-or-corner) and draw no gradient.
+Use this rule to avoid declarations that browsers ignore. A direction without `to`, e.g. `linear-gradient(top, red, blue)`, [invalidates the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient#side-or-corner).
 
 A valid and standard direction value is one of the following:
 
