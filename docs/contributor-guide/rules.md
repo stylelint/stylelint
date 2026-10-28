@@ -8,12 +8,12 @@ You should get yourself ready to [contribute code](../../CONTRIBUTING.md#code-co
 
 ### Define the rule
 
-A rule must be:
+A rule must be for standard CSS syntax only and not tied to:
 
-- for standard CSS syntax only
-- generally useful; not tied to idiosyncratic patterns
+- an idiosyncratic pattern
+- a specific best practice
 
-And have a:
+And must have a:
 
 - unambiguous finished state
 - singular purpose
