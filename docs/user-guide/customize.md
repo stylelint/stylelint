@@ -126,6 +126,38 @@ Or you can limit the number of ID selectors using the [`selector-max-id`](../../
  }
 ```
 
+#### Subsets of files
+
+You can apply rules to a subset of files using the [`overrides`](configure.md#overrides) configuration property.
+
+For example, to disallow:
+
+- class selectors in `tokens.css`
+- type selectors in components
+
+You can use the [`selector-max-class`](../../lib/rules/selector-max-class/README.md) and [`selector-max-type`](../../lib/rules/selector-max-type/README.md) rules:
+
+```diff json
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "overrides": [
++    {
++      "files": ["tokens.css"],
++      "rules": {
++        "selector-max-class": 0
++      }
++    },
++    {
++      "files": ["components/**/*.css"],
++      "rules": {
++        "selector-max-type": 0
++      }
++    }
++  ]
+ }
+```
+
 These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS under control.
 
 ## Custom rules
@@ -181,7 +213,7 @@ You can also [write your own custom rules within a plugin](../developer-guide/pl
 
 ## Strictness
 
-We recommend you craft a config that strictly enforces your conventions and then use [configuration comments](./ignore-code.md) to disable specific rules when needed. You needn't shy away from using them as they are an integral part of Stylelint.
+We recommend you craft a config that strictly enforces your conventions, add [`overrides`](#subsets-of-files) for the ones that apply to only some files, and then use [configuration comments](./ignore-code.md) to disable specific rules when needed.
 
 You can use the [`report*`](./configure.md#report) properties in your config to ensure your comments aren't useless and descriptionless:
 
