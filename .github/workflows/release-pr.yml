@@ -5,7 +5,7 @@ on:
 
 jobs:
   release-pr:
-    uses: stylelint/.github/.github/workflows/call-release-pr.yml@5910d93fe9ed4dfbbd2fba6d456cbc7c91d3106c # 1.3.0
+    uses: stylelint/.github/.github/workflows/call-release-pr.yml@c7bd02a469ce20d1f3a35b7561b99262cba9a683 # 2.0.0
     with:
       new-version-command: 'npm run changeset && npm install --ignore-scripts'
     permissions:
