@@ -9,7 +9,7 @@ Disallow deprecated keywords for properties within declarations.
  * property and value pairs like these */
 ```
 
-Use this rule to avoid deprecated keywords, e.g. the [deprecated system colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/system-color#deprecated_system_color_keywords). Browsers may [remove them](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks) at any time, as some already have.
+Use this rule to avoid keywords that browsers may remove at any time, e.g. the [deprecated system colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/system-color#deprecated_system_color_keywords). Some already have, and a removed keyword [invalidates the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
 
 This rule reports keywords that were removed or deprecated after being in the CSS specifications, including editor drafts, and were subsequently either:
 

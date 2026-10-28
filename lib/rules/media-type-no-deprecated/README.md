@@ -9,7 +9,7 @@ Disallow deprecated media types.
  * Deprecated media type */
 ```
 
-Use this rule to avoid deprecated media types. Browsers accept them as valid but [match nothing](https://drafts.csswg.org/mediaqueries-5/#media-types), so their `@media` blocks never apply. They are:
+Use this rule to avoid `@media` blocks that never apply. Browsers accept deprecated media types as valid but [match nothing](https://drafts.csswg.org/mediaqueries-5/#media-types). They are:
 
 - `aural`
 - `braille`

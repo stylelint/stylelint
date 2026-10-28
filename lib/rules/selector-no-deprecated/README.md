@@ -9,7 +9,7 @@ nobr {}
  * This selector */
 ```
 
-Use this rule to avoid deprecated selectors, e.g. `::shadow`. Browsers may [remove them](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_in_selector_lists) at any time, as some already have.
+Use this rule to avoid selectors that browsers may remove at any time, e.g. `::shadow`. Some already have, and a removed selector [invalidates the whole rule](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_in_selector_lists).
 
 This rule reports selectors that were removed or deprecated after being in the CSS specifications, including Editor Drafts, and were either:
 

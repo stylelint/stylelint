@@ -9,7 +9,7 @@ Disallow deprecated at-rules.
  * At-rules like this */
 ```
 
-Use this rule to avoid deprecated at-rules, e.g. `@nest`. Browsers may [remove them](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#at-rule_errors) at any time, as some already have.
+Use this rule to avoid at-rules that browsers may remove at any time, e.g. `@nest`. Some already have, and a removed at-rule is [ignored along with everything inside](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#at-rule_errors).
 
 This rule reports at-rules that were removed or deprecated after being in the CSS specifications, including editor drafts, and were subsequently either:
 
