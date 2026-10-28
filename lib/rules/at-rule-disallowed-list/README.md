@@ -9,6 +9,11 @@ Specify a list of disallowed at-rules.
  * At-rules like this */
 ```
 
+Use this rule to enforce a convention. For example, disallow:
+
+- `import` if you use a bundler
+- `keyframes` if you use an animation library
+
 This rule ignores the `@charset` rule.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed at-rule.

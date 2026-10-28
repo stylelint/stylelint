@@ -9,6 +9,11 @@ Specify a pattern for class selectors.
  * These class selectors */
 ```
 
+Use this rule to enforce a convention. For example, require:
+
+- kebab-case names for consistency with the specifications' examples
+- a namespace, e.g. `^foo-`
+
 This rule ignores non-outputting Less mixin definitions and called Less mixins.
 
 Escaped selectors (e.g. `.u-size-11\/12\@sm`) are parsed as escaped twice (e.g. `.u-size-11\\/12\\@sm`). Your RegExp should account for that.

@@ -9,6 +9,8 @@ Limit the number of attribute selectors in a selector.
  * This type of selector */
 ```
 
+Use this rule to enforce a convention. For example, limit selectors to `1` attribute, so that selectors stay readable.
+
 Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
 > [!NOTE]

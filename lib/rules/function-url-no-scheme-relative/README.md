@@ -9,7 +9,7 @@ a { background-image: url('//www.example.org/file.jpg'); }
  *  This scheme-relative url */
 ```
 
-A [scheme-relative url](https://url.spec.whatwg.org/#syntax-url-scheme-relative) is a url that begins with `//` followed by a host.
+Use this rule to enforce a convention, as a [scheme-relative URL](https://url.spec.whatwg.org/#syntax-url-scheme-relative) takes its scheme from the page and so fails when the page is opened from disk.
 
 This rule ignores url arguments that are variables (`$sass`, `@less`, `--custom-property`).
 

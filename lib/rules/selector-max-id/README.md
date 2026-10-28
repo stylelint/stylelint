@@ -9,6 +9,8 @@ Limit the number of ID selectors in a selector.
  * This type of selector */
 ```
 
+Use this rule to enforce a convention. For example, limit selectors to `0` IDs, as one ID [outweighs any number of classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity) and makes overriding hard.
+
 Each selector in a [selector list](https://drafts.csswg.org/selectors-4/#grouping) is evaluated separately.
 
 > [!NOTE]

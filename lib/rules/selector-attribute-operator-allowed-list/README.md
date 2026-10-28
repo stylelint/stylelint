@@ -9,6 +9,8 @@ Specify a list of allowed attribute operators.
  * This operator */
 ```
 
+Use this rule to enforce a subset of attribute operators as a convention. For example, allow only `=`, `~=` and `|=` to match whole values.
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed attribute operator.
 
 ## Options

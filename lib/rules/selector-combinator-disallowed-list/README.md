@@ -9,6 +9,11 @@ Specify a list of disallowed combinators.
  * This combinator */
 ```
 
+Use this rule to enforce a convention. For example, disallow:
+
+- `" "` in favor of `>`, so that styles can't reach deep into the markup
+- `+` and `~` to avoid rules that depend on the order of elements
+
 This rule normalizes the whitespace descendant combinator to be a single space.
 
 This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idref-combinators) e.g. `/for/`.

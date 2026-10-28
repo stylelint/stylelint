@@ -9,6 +9,8 @@ Specify percentage or number notation for alpha-values.
  *                         This notation */
 ```
 
+Use this rule to enforce a convention. An [alpha-value](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/alpha-value) can be a number from `0` to `1` or a percentage. Choose one for consistency.
+
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the alpha value and its expected notation.

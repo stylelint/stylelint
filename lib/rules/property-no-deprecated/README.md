@@ -9,7 +9,9 @@ Disallow deprecated properties.
  * Deprecated property */
 ```
 
-This rule flags properties that were removed or deprecated after being in the CSS specifications, including editor drafts, and were either:
+Use this rule to avoid properties that browsers may remove at any time. Some already have, and a removed property [invalidates the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+
+This rule reports properties that were removed or deprecated after being in the CSS specifications, including editor drafts, and were either:
 
 - shipped in a stable version of a browser
 - shipped by a developer channel/edition browser

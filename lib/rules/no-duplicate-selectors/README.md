@@ -9,7 +9,9 @@ Disallow duplicate selectors.
  * These duplicates */
 ```
 
-This rule checks for two types of duplication:
+Use this rule to avoid splitting a selector's declarations across two rules, which makes them harder to find.
+
+This rule reports two types of duplication:
 
 - Duplication of a single selector with a rule's selector list, e.g. `a, b, a {}`.
 - Duplication of a selector list within a stylesheet, e.g. `a, b {} a, b {}`. Duplicates are found even if the selectors come in different orders or have different spacing, e.g. `a d, b > c {} b>c, a d {}`.

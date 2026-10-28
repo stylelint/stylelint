@@ -9,6 +9,8 @@ a { font-family: serif, serif; }
  * These font family names */
 ```
 
+Use this rule to avoid font family names that can never be chosen. Browsers try families in order, so a repeat can't match when the first didn't.
+
 This rule checks the `font` and `font-family` properties.
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.

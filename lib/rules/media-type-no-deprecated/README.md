@@ -9,7 +9,7 @@ Disallow deprecated media types.
  * Deprecated media type */
 ```
 
-Several CSS media types defined in earlier specifications have been deprecated and should no longer be used. According to the CSS [media queries specification](https://drafts.csswg.org/mediaqueries-5/#media-types), the following media types are recognized as valid but match nothing:
+Use this rule to avoid `@media` blocks that never apply. Browsers accept deprecated media types as valid but [match nothing](https://drafts.csswg.org/mediaqueries-5/#media-types). They are:
 
 - `aural`
 - `braille`

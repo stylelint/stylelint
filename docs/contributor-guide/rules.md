@@ -408,7 +408,7 @@ Each rule is accompanied by a README in the following format:
 1. Rule name.
 2. Single-line description.
 3. Prototypical code example.
-4. Expanded description (if necessary).
+4. Expanded description.
 5. Options.
 6. Example patterns that are considered problems (for each option value).
 7. Example patterns that are _not_ considered problems (for each option value).
@@ -428,6 +428,7 @@ You should:
 - add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
 - use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
+- use the terms in the [glossary](glossary.md)
 - summarise the rule's message arguments
 - include a bulleted list of prior art in the expanded description
 
@@ -448,6 +449,15 @@ For example:
 /**                 ↑          ↑
   *       These names and values */
 ```
+
+#### Expanded description
+
+To match the rule's group in [the list of rules](../user-guide/rules.md), open with "Use this rule to":
+
+- "avoid…"
+- "enforce a convention."
+
+Then add the common use cases.
 
 #### Message arguments
 
