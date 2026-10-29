@@ -43,7 +43,7 @@ And you want to:
 
 - require custom properties for `<color>` and `<length>` values, except `0`, `transparent` and `currentcolor`
 - allow only `--spacing-*` custom properties in `margin` and `padding` properties
-- allow only `--radii-*` custom properties in `border-radius`
+- allow only `--radii-*` custom properties in the border radius properties
 
 You can combine the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md) and [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md) rules:
 
@@ -55,7 +55,7 @@ You can combine the [`referenceFiles`](configure.md#referencefiles) configuratio
 +  "rules": {
 +    "declaration-property-custom-property-allowed-list": {
 +      "/^(margin|padding)/": ["/^--spacing-/"],
-+      "border-radius": ["/^--radii-/"]
++      "/radius$/": ["/^--radii-/"]
 +    },
 +    "value-type-custom-property-required-list": [
 +      ["color", "length"],
@@ -70,11 +70,11 @@ Given:
 ```css
 a {
   border-radius: var(--spacing-m);
-  margin: 1rem;
+  color: red;
 }
 ```
 
-`--spacing-m` is flagged by [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md), and `1rem` by [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md).
+`--spacing-m` is reported by [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md) because it isn't a `--radii-*` custom property, and `red` by [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md) because it isn't a custom property.
 
 Many of the other rules allow you to:
 
