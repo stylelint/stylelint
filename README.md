@@ -10,7 +10,7 @@ A mighty CSS linter that helps you avoid errors and enforce conventions.
 
 It's mighty as it:
 
-- has over **100 built-in rules** for modern CSS syntax and features
+- has over **150 built-in rules** for modern CSS syntax and features
 - supports **plugins** so you can create your own custom rules
 - automatically **fixes problems** where possible
 - supports **shareable configs** that you can create or extend
