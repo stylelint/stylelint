@@ -4,7 +4,7 @@ Stylelint is capable of so much more than what the [standard config](https://www
 
 ## Built-in rules
 
-The standard config turns on most of the [built-in rules](rules.md) that avoid errors, but fewer than half of those that enforce conventions, as conventions are typically specific to you and your project.
+The standard config turns on most of the built-in rules that [avoid errors](rules.md#avoid-errors), but fewer than half of those that [enforce conventions](rules.md#enforce-conventions), as conventions are typically specific to you and your project.
 
 ### Avoid errors
 
@@ -27,6 +27,8 @@ You can catch unknown identifiers across files, such as animation names, custom 
 
 ### Enforce conventions
 
+There are no rules for specific best practices, such as requiring relative units for font sizes, as best practices go out of date. Instead, you configure general rules with your own conventions.
+
 You can enforce the use of custom properties. For example, if your `tokens.css` contains:
 
 ```css
@@ -47,9 +49,10 @@ You can combine the [`referenceFiles`](configure.md#referencefiles) configuratio
 
 ```diff json
  {
-   "extends": ["stylelint-config-standard"],
-   "referenceFiles": ["tokens.css"],
-   "rules": {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "referenceFiles": ["tokens.css"],
++  "rules": {
 +    "declaration-property-custom-property-allowed-list": {
 +      "/^(margin|padding)/": ["/^--spacing-/"],
 +      "border-radius": ["/^--radii-/"]
@@ -58,7 +61,7 @@ You can combine the [`referenceFiles`](configure.md#referencefiles) configuratio
 +      ["color", "length"],
 +      { "ignoreProperties": { "/.+/": ["0", "transparent", "currentcolor"] } }
 +    ]
-   }
++  }
  }
 ```
 
@@ -158,7 +161,7 @@ You can use the [`selector-max-class`](../../lib/rules/selector-max-class/README
  }
 ```
 
-These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS under control.
+These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS consistent and under control.
 
 ## Custom rules
 

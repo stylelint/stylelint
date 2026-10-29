@@ -9,6 +9,8 @@ a { background-image: url('http://www.example.com/file.jpg'); }
  *           This URL scheme */
 ```
 
+Use this rule to enforce a subset of URL schemes as a convention. For example, allow only `https` and `data`, as browsers [block `http` assets in `url()` on secure pages](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Mixed_content#blockable_content).
+
 A [URL scheme](https://url.spec.whatwg.org/#syntax-url-scheme) consists of alphanumeric, `+`, `-`, and `.` characters. It can appear at the start of a URL and is followed by `:`.
 
 This rule ignores:

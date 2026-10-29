@@ -9,6 +9,8 @@ Specify a list of disallowed pseudo-class selectors.
  * This pseudo-class selector */
 ```
 
+Use this rule to enforce a convention. For example, disallow `focus` in favor of [`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible), so that focus styles show only when needed.
+
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed pseudo-class.

@@ -9,6 +9,8 @@ a { width: calc(5% - 10em); }
  * This function */
 ```
 
+Use this rule to enforce a convention, as function names are [case-insensitive](https://www.w3.org/TR/CSS21/syndata.html#characters). For example, require lowercase, as the specifications write them.
+
 Camel case function names, e.g. `translateX`, are accounted for when the `lower` option is used.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.

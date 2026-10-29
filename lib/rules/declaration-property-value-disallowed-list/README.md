@@ -9,6 +9,13 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
+Use this rule to enforce a convention. For example, disallow:
+
+- `none` and `0` for `outline`, which [remove the focus indicator](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/outline#accessibility)
+- `0` for `border` in favor of `none`
+- `justify` for `text-align`, which [spaces words unevenly](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-align#accessibility)
+- `/all/` for `/^transition/` to avoid transitioning everything
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the disallowed value.
 
 ## Options

@@ -9,6 +9,11 @@ Specify a list of disallowed words within comments.
  * These three words */
 ```
 
+Use this rule to enforce a convention. For example, disallow:
+
+- `/^TODO:/` and `/^FIXME:/` to avoid merging unfinished work
+- `/^!/`, which minifiers keep in production bundles
+
 > [!WARNING]
 > Comments within _selector and value lists_ are currently ignored.
 

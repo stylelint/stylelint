@@ -9,20 +9,12 @@ a { display: block; }
  *           This notation */
 ```
 
-Modern `display` property values allow you to define both the [outer and inner display type](https://drafts.csswg.org/css-display-3/#the-display-properties) separately (e.g. `inline flex`). While CSS 2 used a single-keyword, precomposed syntax for the `display` property (e.g. `inline-flex`).
+Use this rule to enforce a convention. The `display` property accepts a [multi-keyword syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Multi-keyword_syntax) that names the [outer and inner display types](https://drafts.csswg.org/css-display-3/#the-display-properties) separately, e.g. `inline flex`. Each single keyword maps to [such a pair](https://drafts.csswg.org/css-display-3/#display-value-summary), e.g. `inline-flex` to `inline flex` and `block` to `block flow`.
 
-In the [Display Module Level 3 specification](https://drafts.csswg.org/css-display-3/) the following precomposed values are defined:
+Choose:
 
-- `inline-block`
-- `inline-flex`
-- `inline-grid`
-- `inline-table`
-
-More recent and future inner display types (e.g. `grid-lanes`) can only be combined with the [modern, multi-keyword syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Multi-keyword_syntax).
-
-The full notation explicitly describes the inner and outer display types of elements. This notation makes it easier to understand how an element will behave and to learn about the various display types.
-
-The short notation omits defaults or switches to precomposed values, and doesn't follow the modern principle of value composition.
+- `"full"` to compose values from their outer and inner display types, which makes it easier to understand how an element will behave
+- `"short"` for brevity and older browsers, which accept only the single-keyword syntax
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
 

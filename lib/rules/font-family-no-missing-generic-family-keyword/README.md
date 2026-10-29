@@ -9,6 +9,8 @@ a { font-family: Arial, sans-serif; }
  * An example of generic family name */
 ```
 
+Use this rule to avoid font stacks with nothing to fall back to. Browsers use the generic family when [none of the named fonts is available](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-family).
+
 The generic font family can be:
 
 - placed anywhere in the font family list

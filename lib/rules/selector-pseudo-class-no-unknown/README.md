@@ -9,6 +9,8 @@ Disallow unknown pseudo-class selectors.
  * This pseudo-class selector */
 ```
 
+Use this rule to avoid mistyped pseudo-classes, e.g. `:hovr`. Browsers [ignore the whole rule](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_in_selector_lists), as an unknown pseudo-class invalidates the selector.
+
 This rule considers pseudo-class selectors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 This rule ignores vendor-prefixed pseudo-class selectors.

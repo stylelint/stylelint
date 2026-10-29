@@ -9,6 +9,8 @@ a { top: 0px; }
  * This zero and this type of length unit */
 ```
 
+Use this rule to enforce a convention, as `0` means the same in every unit.
+
 _Lengths_ refer to distance measurements. A length is a _dimension_, which is a _number_ immediately followed by a _unit identifier_. However, for zero lengths the unit identifier is optional. The length units are: `em`, `ex`, `ch`, `vw`, `vh`, `cm`, `mm`, `in`, `pt`, `pc`, `px`, `rem`, `vmin`, and `vmax`.
 
 This rule ignores lengths within math functions (e.g. `calc`).

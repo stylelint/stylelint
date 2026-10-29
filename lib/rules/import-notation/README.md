@@ -9,6 +9,13 @@ Specify string or URL notation for `@import` rules.
  *      This notation */
 ```
 
+Use this rule to enforce a convention. [`@import`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@import) accepts a string or a `url()` function, and both load the same file.
+
+Choose:
+
+- `"url"` to match how other files are referenced, e.g. in `background-image`
+- `"string"` for brevity
+
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the import value and its expected notation.

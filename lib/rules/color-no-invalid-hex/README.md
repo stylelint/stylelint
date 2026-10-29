@@ -9,6 +9,8 @@ a { color: #y3 }
  * This hex color */
 ```
 
+Use this rule to avoid declarations that browsers ignore. An [invalid hex color](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color), e.g. `#ff`, [invalidates the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+
 Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal characters. And their shorthand variants are 3 and 4 characters respectively.
 
 > [!NOTE]

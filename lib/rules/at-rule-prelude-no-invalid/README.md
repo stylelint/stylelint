@@ -9,6 +9,8 @@ Disallow invalid preludes for at-rules.
  * Preludes like this */
 ```
 
+Use this rule to avoid at-rules that browsers ignore. An invalid prelude [invalidates the whole block](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#at-rule_errors).
+
 This rule considers preludes for at-rules defined within the CSS specifications, up to and including Editor's Drafts, to be valid.
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what preludes are valid for an at-rule, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.

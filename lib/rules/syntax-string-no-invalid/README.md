@@ -11,7 +11,9 @@ Disallow invalid syntax strings.
 }
 ```
 
-Syntax strings are used for the `syntax` descriptor value of the `@property` at-rule. This rule checks their grammar and flags unsupported type names.
+Use this rule to avoid custom properties that never register. An invalid syntax string [invalidates the whole `@property` rule](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property/syntax).
+
+Syntax strings are used for the `syntax` descriptor value of the `@property` at-rule. This rule reports invalid syntax strings and unsupported type names.
 
 You can check [§5.1 “Supported Names” of the CSS Properties & Values API](https://drafts.css-houdini.org/css-properties-values-api/#supported-names) for a list of valid syntax component names.
 

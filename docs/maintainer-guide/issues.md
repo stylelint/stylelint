@@ -75,6 +75,12 @@ That is best suited as a plugin:
 Thank you for your suggestion. I think this is best-suited as a [plugin](https://stylelint.io/developer-guide/plugins).
 ```
 
+That is achievable by configuring an existing rule:
+
+```markdown
+Thank you for your suggestion. I think you can achieve this by configuring one of the existing rules that [enforce conventions](https://stylelint.io/user-guide/rules#enforce-conventions). There are examples in the [customizing guide](https://stylelint.io/user-guide/customize#enforce-conventions).
+```
+
 ### Label as ready to implement
 
 That fixes a bug in a rule:

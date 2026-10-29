@@ -9,6 +9,11 @@ a { color: var(--foo); }
  * These properties and these custom properties */
 ```
 
+Use this rule to enforce a subset of custom properties for a property as a convention. For example, allow only:
+
+- `/^--radius-/` for `/radius$/`, so that only radius tokens are used for radii
+- `/^--space-/` for `/^(margin|padding|gap)/`, so that only spacing tokens are used for spacing
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the property name and the disallowed custom property.
 
 ## Options

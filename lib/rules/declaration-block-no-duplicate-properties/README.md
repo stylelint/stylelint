@@ -9,6 +9,8 @@ a { color: pink; color: orange; }
  * These duplicated properties */
 ```
 
+Use this rule to avoid declarations that never apply. Browsers use the last declaration they accept, so an earlier duplicate applies only as a [fallback for older browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors).
+
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.

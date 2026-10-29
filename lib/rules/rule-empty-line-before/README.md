@@ -11,6 +11,8 @@ b {}  /* ↑ */
  * This line */
 ```
 
+Use this rule to enforce a convention. For example, require an empty line before each multi-line rule for readability.
+
 This rule ignores rules that are the very first node in a source.
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
