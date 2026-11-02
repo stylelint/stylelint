@@ -9,6 +9,8 @@ Specify a list of allowed name and unit pairs within media features.
  * This media feature name and these units */
 ```
 
+Use this rule to enforce a subset of units for a media feature as a convention. For example, allow only `em` for `width`, so that breakpoints scale with your users' settings, as relative units in media queries are [based on the initial font size](https://drafts.csswg.org/mediaqueries-5/#units).
+
 This rule supports 2 [message arguments](../../../docs/user-guide/configure.md#message): the disallowed unit and the media feature name.
 
 ## Options

@@ -9,6 +9,8 @@ Disallow duplicate selectors within keyframe blocks.
  *                     This duplicate selector */
 ```
 
+Use this rule to avoid keyframe declarations that a later block overrides. Declarations in blocks at the same offset [cascade together](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes#resolving_duplicates).
+
 This rule is case-insensitive.
 
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the duplicate selector.

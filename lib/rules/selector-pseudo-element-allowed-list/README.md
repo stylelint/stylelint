@@ -9,6 +9,8 @@ Specify a list of allowed pseudo-element selectors.
  * This pseudo-element selector */
 ```
 
+Use this rule to enforce a subset of pseudo-elements as a convention. For example, allow only `before`, `after`, `placeholder` and `marker`.
+
 This rule ignores:
 
 - CSS2 pseudo-elements i.e. those prefixed with a single colon

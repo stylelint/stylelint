@@ -9,9 +9,7 @@ a { margin: 1px 1px 1px 1px; }
  *           These values */
 ```
 
-You can use [shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) to set multiple values at once. For example, you can use the `margin` property to set the `margin-top`, `margin-right`, `margin-bottom`, and `margin-left` properties at once.
-
-For some shorthand properties, e.g. those related to the [edges of a box](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#edges_of_a_box), you can safely omit some values.
+Use this rule to enforce a convention. For example, require `margin: 1px` rather than `margin: 1px 1px 1px 1px`, as a shorthand [repeats the values you omit](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Shorthand_properties#margin_and_padding_properties).
 
 This rule checks the following shorthand properties:
 

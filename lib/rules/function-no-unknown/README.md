@@ -9,6 +9,8 @@ a { transform: unknown(1); }
  * Functions like this */
 ```
 
+Use this rule to avoid mistyped functions, e.g. `rgbaa()`. Browsers [ignore the whole declaration](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+
 This rule considers functions defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what functions are known, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.

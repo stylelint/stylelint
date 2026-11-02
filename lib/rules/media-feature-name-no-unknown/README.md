@@ -9,6 +9,8 @@ Disallow unknown media feature names.
  * This media feature name */
 ```
 
+Use this rule to avoid mistyped media feature names, e.g. `min-widht`. Browsers [evaluate the query to `unknown`](https://drafts.csswg.org/mediaqueries-5/#error-handling), so its block never applies.
+
 This rule considers media feature names defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 This rule ignores vendor-prefixed media feature names.

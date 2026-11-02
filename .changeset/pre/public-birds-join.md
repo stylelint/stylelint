@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: `value-type-custom-property-required-list` rule
+Added: experimental `value-type-custom-property-required-list` rule

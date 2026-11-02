@@ -9,7 +9,12 @@ a { float: left; }
  *         This keyword */
 ```
 
-Physical keywords like `left`, `top` and `horizontal` are tied to the physical dimensions of the screen. Flow-relative keywords like `inline-start`, `block-start` and `inline` adapt to different writing modes and text directions, making them useful for internationalization. They are the keyword-level counterpart to flow-relative properties and units.
+Use this rule to enforce a convention. Physical keywords like `left` and `top` are tied to the screen, while flow-relative keywords like `inline-start` and `block-start` follow the writing mode.
+
+Choose:
+
+- `"flow-relative"` to support right-to-left and vertical [writing modes](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values)
+- `"physical"` if you support only one writing mode, or for older browsers
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix problems reported by this rule when both the primary option is `"flow-relative"` and the [`languageOptions.directionality`](../../../docs/user-guide/configure.md#directionality) configuration property is configured.
 

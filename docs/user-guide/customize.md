@@ -4,7 +4,7 @@ Stylelint is capable of so much more than what the [standard config](https://www
 
 ## Built-in rules
 
-The standard config turns on most of the [built-in rules](rules.md) that avoid errors, but fewer than half of those that enforce conventions, as conventions are typically specific to you and your project.
+The standard config turns on most of the built-in rules that [avoid errors](rules.md#avoid-errors), but fewer than half of those that [enforce conventions](rules.md#enforce-conventions), as conventions are typically specific to you and your project.
 
 ### Avoid errors
 
@@ -27,6 +27,8 @@ You can catch unknown identifiers across files, such as animation names, custom 
 
 ### Enforce conventions
 
+There are no rules for specific best practices, such as requiring relative units for font sizes, as best practices go out of date. Instead, you configure general rules with your own conventions.
+
 You can enforce the use of custom properties. For example, if your `tokens.css` contains:
 
 ```css
@@ -41,24 +43,25 @@ And you want to:
 
 - require custom properties for `<color>` and `<length>` values, except `0`, `transparent` and `currentcolor`
 - allow only `--spacing-*` custom properties in `margin` and `padding` properties
-- allow only `--radii-*` custom properties in `border-radius`
+- allow only `--radii-*` custom properties in the border radius properties
 
 You can combine the [`referenceFiles`](configure.md#referencefiles) configuration property with the [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md) and [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md) rules:
 
 ```diff json
  {
-   "extends": ["stylelint-config-standard"],
-   "referenceFiles": ["tokens.css"],
-   "rules": {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "referenceFiles": ["tokens.css"],
++  "rules": {
 +    "declaration-property-custom-property-allowed-list": {
 +      "/^(margin|padding)/": ["/^--spacing-/"],
-+      "border-radius": ["/^--radii-/"]
++      "/radius$/": ["/^--radii-/"]
 +    },
 +    "value-type-custom-property-required-list": [
 +      ["color", "length"],
-+      { "ignoreProperties": { "/.+/": ["0", "transparent", "currentcolor"] } }
++      { "ignoreValues": ["0", "transparent", "currentcolor"] }
 +    ]
-   }
++  }
  }
 ```
 
@@ -67,11 +70,11 @@ Given:
 ```css
 a {
   border-radius: var(--spacing-m);
-  margin: 1rem;
+  color: red;
 }
 ```
 
-`--spacing-m` is flagged by [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md), and `1rem` by [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md).
+`--spacing-m` is reported by [`declaration-property-custom-property-allowed-list`](../../lib/rules/declaration-property-custom-property-allowed-list/README.md) because it isn't a `--radii-*` custom property, and `red` by [`value-type-custom-property-required-list`](../../lib/rules/value-type-custom-property-required-list/README.md) because it isn't a custom property.
 
 Many of the other rules allow you to:
 
@@ -126,7 +129,39 @@ Or you can limit the number of ID selectors using the [`selector-max-id`](../../
  }
 ```
 
-These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS under control.
+#### Subsets of files
+
+You can apply rules to a subset of files using the [`overrides`](configure.md#overrides) configuration property.
+
+For example, to disallow:
+
+- class selectors in `tokens.css`
+- type selectors in components
+
+You can use the [`selector-max-class`](../../lib/rules/selector-max-class/README.md) and [`selector-max-type`](../../lib/rules/selector-max-type/README.md) rules:
+
+```diff json
+ {
+-  "extends": ["stylelint-config-standard"]
++  "extends": ["stylelint-config-standard"],
++  "overrides": [
++    {
++      "files": ["tokens.css"],
++      "rules": {
++        "selector-max-class": 0
++      }
++    },
++    {
++      "files": ["components/**/*.css"],
++      "rules": {
++        "selector-max-type": 0
++      }
++    }
++  ]
+ }
+```
+
+These are just some of the things you can do with the [built-in rules](rules.md). It's possible to configure them to enforce strict conventions and keep your CSS consistent and under control.
 
 ## Custom rules
 
@@ -181,7 +216,7 @@ You can also [write your own custom rules within a plugin](../developer-guide/pl
 
 ## Strictness
 
-We recommend you craft a config that strictly enforces your conventions and then use [configuration comments](./ignore-code.md) to disable specific rules when needed. You needn't shy away from using them as they are an integral part of Stylelint.
+We recommend you craft a config that strictly enforces your conventions, add [`overrides`](#subsets-of-files) for the ones that apply to only some files, and then use [configuration comments](./ignore-code.md) to disable specific rules when needed.
 
 You can use the [`report*`](./configure.md#report) properties in your config to ensure your comments aren't useless and descriptionless:
 

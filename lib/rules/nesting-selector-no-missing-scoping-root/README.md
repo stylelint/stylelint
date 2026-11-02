@@ -9,7 +9,7 @@ Disallow missing scoping root for nesting selectors.
  * This nesting selector */
 ```
 
-CSS nesting selectors (`&`) represent the parent selector in nested CSS. When used at the top level or within certain at-rules without a scoping root, they can cause unexpected behavior or indicate a mistake in the CSS structure.
+Use this rule to avoid styling the root element by mistake. Browsers [resolve `&` outside a nested rule to the root element](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Nesting_selector#using_outside_nested_rule), as there is no parent to refer to.
 
 This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).
 

@@ -1,15 +1,12 @@
 # Rules
 
-There are over one hundred built-in rules to help you:
+There are over 150 built-in rules to help you [avoid errors](#avoid-errors) and [enforce conventions](#enforce-conventions).
 
-- [avoid errors](#avoid-errors)
-- [enforce conventions](#enforce-conventions)
-
-We turn on most of the rules in our [standard config](https://www.npmjs.com/package/stylelint-config-standard) (✅) and many can be autofixed (🔧).
+Key: ✅ in the [standard config](https://www.npmjs.com/package/stylelint-config-standard), 🔧 can be fixed automatically.
 
 ## Avoid errors
 
-You can avoid errors with these `no` rules.
+These rules help you avoid common and subtle mistakes. For example, browsers silently ignore a misspelled property. The standard config turns on most of them.
 
 ### Deprecated
 
@@ -165,7 +162,7 @@ Disallow unknown things with these `no-unknown` rules.
 
 ## Enforce conventions
 
-You can enforce conventions with these `no` and `list` rules. They are powerful rules for making your code consistent. You'll need to configure most of them to suit your needs.
+These rules help you write consistent code and limit its complexity. The standard config turns on fewer than half of them, as conventions are specific to you and your project. You'll need to [customize](customize.md#enforce-conventions) most of them to suit your needs.
 
 ### Allowed, disallowed & required
 

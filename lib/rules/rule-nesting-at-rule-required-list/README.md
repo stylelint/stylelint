@@ -9,6 +9,8 @@ a { color: red; }
  * This rule */
 ```
 
+Use this rule to enforce a convention. For example, require every rule to be inside a `layer` at-rule, as [unlayered normal declarations always beat layered ones](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer#description).
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message) per configured at-rule pattern.
 
 ## Options

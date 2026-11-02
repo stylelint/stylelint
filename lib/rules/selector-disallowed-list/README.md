@@ -9,6 +9,11 @@ Specify a list of disallowed selectors.
  * This is selector */
 ```
 
+Use this rule to enforce a convention. For example, disallow:
+
+- `/^\.js-/` and `/\[data-testid/` if your tests own those selectors
+- a library's classes, e.g. `/^\.foo-/`, to avoid overriding its internals
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed selector.
 
 ## Options

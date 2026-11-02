@@ -9,6 +9,19 @@ a { font-family: "Times New Roman", 'Ancient Runes', serif; }
  *               These quotation marks and this one */
 ```
 
+Use this rule to enforce a convention. The specification [requires](https://drafts.csswg.org/css-fonts-4/#font-family-prop) quotes around a font family name that isn't a valid identifier, e.g. one containing `$`. A name made of several identifiers, such as `Times New Roman`, needs none. It recommends them around a name that contains whitespace, digits or punctuation other than hyphens. Quotes around a [generic family](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/generic-family) keyword such as `sans-serif` or a system font such as `-apple-system` turn it into a font name, so every option disallows them.
+
+Choose:
+
+- `"always-unless-keyword"` for one simple convention that is always safe
+- `"always-where-required"` for brevity
+- `"always-where-recommended"` to follow the specification's recommendation
+
+For more on these subtleties, read ["Unquoted font family names in CSS"](https://mathiasbynens.be/notes/unquoted-font-family), by Mathias Bynens.
+
+> [!WARNING]
+> This rule does not currently understand escape sequences such as those described by Mathias. If you want to use the font family name "Hawaii 5-0" you will need to wrap it in quotes, instead of escaping it as `Hawaii \35 -0` or `Hawaii\ 5-0`.
+
 This rule checks the `font` and `font-family` properties.
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
@@ -18,18 +31,6 @@ The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fi
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the font family name.
 
 ## Options
-
-_Please read the following to understand these options_:
-
-- The `font` and `font-family` properties accept a short list of special **keywords**: `inherit`, `serif`, `sans-serif`, `cursive`, `fantasy`, `system-ui`, `monospace`, `ui-serif`, `ui-sans-serif`, `ui-monospace`, `ui-rounded`, `emoji`, `math` and `fangsong`. If you wrap these words in quotes, the browser will not interpret them as keywords, but will instead look for a font by that name (e.g. will look for a `"sans-serif"` font) -- which is almost _never_ what you want. Instead, you use these keywords to point to the built-in, generic fallbacks (right?). Therefore, _all of the options below enforce no quotes around these keywords_. (If you actually want to use a font named `"sans-serif"`, turn this rule off.)
-- Quotes are **recommended** [in the spec](https://www.w3.org/TR/CSS2/fonts.html#font-family-prop) with "font family names that contain white space, digits, or punctuation characters other than hyphens".
-- Quotes are **required** around font-family names when they are not [valid CSS identifiers](https://www.w3.org/TR/CSS2/syndata.html#value-def-identifier). For example, a font family name requires quotes around it if it contains `$`, `!` or `/`, but does not require quotes just because it contains spaces or a (non-initial) number or underscore. _You can probably bet that almost every font family name you use **will** be a valid CSS identifier_.
-- Quotes should **never** be used around vendor prefixed system fonts such as `-apple-system` and `BlinkMacSystemFont`.
-
-For more on these subtleties, read ["Unquoted font family names in CSS"](https://mathiasbynens.be/notes/unquoted-font-family), by Mathias Bynens.
-
-> [!WARNING]
-> This rule does not currently understand escape sequences such as those described by Mathias. If you want to use the font family name "Hawaii 5-0" you will need to wrap it in quotes, instead of escaping it as `Hawaii \35 -0` or `Hawaii\ 5-0`.
 
 ### `"always-unless-keyword"`
 

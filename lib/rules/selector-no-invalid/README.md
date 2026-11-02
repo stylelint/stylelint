@@ -9,6 +9,8 @@ a ) b {}
  * Selectors like this */
 ```
 
+Use this rule to avoid rules that browsers ignore. One invalid selector [invalidates the whole selector list](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_in_selector_lists).
+
 This rule considers selectors defined within the CSS specifications, up to and including Editor's Drafts, to be valid.
 
 > [!WARNING]

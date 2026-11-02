@@ -25,6 +25,7 @@ Might break your lint build:
 - a new public API capability is created
 - a new formatter is created
 - a new deprecation is introduced
+- a feature documented as experimental is changed in an incompatible way
 
 ## Major release
 

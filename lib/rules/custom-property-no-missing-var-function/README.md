@@ -10,7 +10,9 @@ Disallow missing `var` function for custom properties.
  *             This custom property */
 ```
 
-This rule does not check properties that accept a `<custom-ident>` or `<dashed-ident>` as their whole value, e.g. `transition-property`.
+Use this rule to avoid declarations that browsers ignore. A custom property without [`var()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var), e.g. `--foo` alone, is a plain identifier that [most properties reject](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/Error_handling#errors_within_css_declaration_blocks).
+
+This rule ignores properties that accept a `<custom-ident>` or `<dashed-ident>` as their whole value, e.g. `transition-property`.
 
 You can filter the [CSSTree Syntax Reference](https://csstree.github.io/docs/syntax/) to find out what properties accept them, and use the [`languageOptions`](../../../docs/user-guide/configure.md#languageoptions) configuration property to extend it.
 

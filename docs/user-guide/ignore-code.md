@@ -97,3 +97,5 @@ stylelint "*.css" --ignore-path .gitignore
 ```
 
 Alternatively, you can add an [`ignoreFiles` property](configure.md#ignorefiles) within your configuration object.
+
+To turn off only specific rules for a subset of files, use the [`overrides`](configure.md#overrides) configuration property instead.

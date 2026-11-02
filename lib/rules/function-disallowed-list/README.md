@@ -9,6 +9,8 @@ a { transform: scale(1); }
  * This function */
 ```
 
+Use this rule to enforce a convention. For example, disallow `rgb` and `hsl` in favor of `oklch`, so that all colors use one color space.
+
 This rule supports 1 [message argument](../../../docs/user-guide/configure.md#message): the disallowed function.
 
 ## Options

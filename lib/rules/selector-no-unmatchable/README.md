@@ -9,9 +9,9 @@ label:enabled {}
  * Selectors like this */
 ```
 
-Unmatchable selectors are valid, but can never match anything.
+Use this rule to avoid selectors that are valid but can never match anything. Browsers never apply their declarations.
 
-This rule flags selectors that:
+This rule reports selectors that:
 
 - pair a pseudo-class with elements it never matches, e.g. `label:enabled`
 - pair pseudo-classes that never match the same element, e.g. `:any-link:checked`

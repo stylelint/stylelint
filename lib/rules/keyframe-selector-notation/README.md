@@ -9,7 +9,13 @@ Specify keyword or percentage notation for keyframe selectors.
  *               These notations */
 ```
 
-The keyword `from` is equivalent to the value `0%`. The keyword `to` is equivalent to the value `100%`.
+Use this rule to enforce a convention. In [`@keyframes`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes), `from` and `to` are equivalent to `0%` and `100%`.
+
+Choose:
+
+- `"keyword"` for clarity
+- `"percentage"` for consistency with intermediate steps, e.g. `50%`
+- `"percentage-unless-within-keyword-only-block"` for both, with `from` and `to` only in two-step animations
 
 The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 

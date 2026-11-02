@@ -9,6 +9,8 @@ color: red;
  * This declaration */
 ```
 
+Use this rule to avoid rules that browsers ignore. A declaration outside a block becomes the [prelude of the next rule](https://drafts.csswg.org/css-syntax/#consume-qualified-rule) and invalidates it.
+
 Declarations can only be positioned within the `<declaration-list>`, `<declaration-rule-list>` and `<block-contents>` productions.
 
 This rule doesn't have any [message arguments](../../../docs/user-guide/configure.md#message).

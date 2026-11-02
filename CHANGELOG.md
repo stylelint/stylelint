@@ -23,7 +23,7 @@ This is a prerelease. Help us test the next major version: `npm i -D stylelint@n
 - Added: `result.stylelint.postcss` property for plugins ([#9594](https://github.com/stylelint/stylelint/pull/9594)) ([@jeddy3](https://github.com/jeddy3)).
 - Added: `stylelint.version` property ([#9595](https://github.com/stylelint/stylelint/pull/9595)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: `value-no-invalid` rule ([#9507](https://github.com/stylelint/stylelint/pull/9507)) ([@jeddy3](https://github.com/jeddy3)).
-- Added: `value-type-custom-property-required-list` rule ([#9572](https://github.com/stylelint/stylelint/pull/9572)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: experimental `value-type-custom-property-required-list` rule ([#9572](https://github.com/stylelint/stylelint/pull/9572)) ([@jeddy3](https://github.com/jeddy3)).
 - Added: stable support for `processors` configuration property ([#9543](https://github.com/stylelint/stylelint/pull/9543)) ([@jeddy3](https://github.com/jeddy3)).
 - Added: stable support for `referenceFiles` configuration property ([#9598](https://github.com/stylelint/stylelint/pull/9598)) ([@jeddy3](https://github.com/jeddy3)).
 - Fixed: `--fix` for files where the only change is the removal of a byte order mark ([#9512](https://github.com/stylelint/stylelint/pull/9512)) ([@firefoxic](https://github.com/firefoxic)).

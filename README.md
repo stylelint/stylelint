@@ -10,7 +10,7 @@ A mighty CSS linter that helps you avoid errors and enforce conventions.
 
 It's mighty as it:
 
-- has over **100 built-in rules** for modern CSS syntax and features
+- has over **150 built-in rules** for modern CSS syntax and features
 - supports **plugins** so you can create your own custom rules
 - automatically **fixes problems** where possible
 - supports **shareable configs** that you can create or extend
@@ -72,6 +72,7 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Writing rules](docs/contributor-guide/rules.md)
   - [Writing system tests](docs/contributor-guide/system-tests.md)
   - [Benchmarking](docs/contributor-guide/benchmarks.md)
+  - [Glossary](docs/contributor-guide/glossary.md)
 - Maintainer guide
   - [Managing issues](docs/maintainer-guide/issues.md)
   - [Managing pull requests](docs/maintainer-guide/pull-requests.md)
