@@ -86,8 +86,14 @@ Given:
 ```json
 {
   "value-type-custom-property-required-list": [
-    ["color", "number"],
-    { "ignoreFunctions": { "number": ["/.+/"], "color": ["color-mix"] } }
+    ["color", "number", "angle", "percentage"],
+    {
+      "ignoreFunctions": {
+        "number": ["/.+/"],
+        "color": ["color-mix"],
+        "/^(angle|percentage)$/": ["/-gradient$/"]
+      }
+    }
   ]
 }
 ```
@@ -102,6 +108,11 @@ a { transform: scale(1.5); }
 <!-- prettier-ignore -->
 ```css
 a { color: color-mix(in srgb, red, blue); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { background: linear-gradient(45deg, var(--foo) 0%, var(--bar) 100%); }
 ```
 
 ### `ignoreProperties`
