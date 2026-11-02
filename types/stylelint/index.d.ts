@@ -1167,7 +1167,11 @@ declare namespace stylelint {
 		>;
 		'value-type-custom-property-required-list': CoreRule<
 			OneOrMany<string>,
-			{ ignoreProperties: Record<string, OneOrMany<StringOrRegex>> },
+			{
+				ignoreValues: OneOrMany<StringOrRegex>;
+				ignoreFunctions: Record<string, OneOrMany<StringOrRegex>>;
+				ignoreProperties: Record<string, OneOrMany<StringOrRegex>>;
+			},
 			ExpectedMessage<[value: string, type: string]>
 		>;
 	};
