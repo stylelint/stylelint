@@ -59,7 +59,7 @@ You can combine the [`referenceFiles`](configure.md#referencefiles) configuratio
 +    },
 +    "value-type-custom-property-required-list": [
 +      ["color", "length"],
-+      { "ignoreProperties": { "/.+/": ["0", "transparent", "currentcolor"] } }
++      { "ignoreValues": ["0", "transparent", "currentcolor"] }
 +    ]
 +  }
  }

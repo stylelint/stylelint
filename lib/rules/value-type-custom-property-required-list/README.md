@@ -9,6 +9,9 @@ a { border: 1px solid red; }
  * These <length> and <color> values */
 ```
 
+> [!WARNING]
+> This rule is **experimental**, as it's our first whose options take value types. To give feedback on them, [open an issue](https://github.com/stylelint/stylelint/issues/new/choose).
+
 Use this rule to enforce a convention. For example, require custom properties for:
 
 - `color`, so that colors come from your palette
@@ -70,32 +73,21 @@ a {
 
 ## Optional secondary options
 
-### `ignoreProperties`
+### `ignoreFunctions`
 
 ```json
-{
-  "ignoreProperties": { "property-name": ["array", "of", "values", "/regex/"] }
-}
+{ "ignoreFunctions": { "type": ["array", "of", "functions", "/regex/"] } }
 ```
 
-Ignore the specified property and value pairs.
-
-Keys in the object indicate property names and values indicate the parts of a value.
-
-You can specify a regex for a property name, such as `{ "/.+/": ["transparent"] }`, and for a value, such as `{ "transform": ["/.+/"] }`.
+Ignore the parts of a type that are within the specified functions.
 
 Given:
 
 ```json
 {
   "value-type-custom-property-required-list": [
-    ["color", "length"],
-    {
-      "ignoreProperties": {
-        "/.+/": ["transparent"],
-        "transform": ["/.+/"]
-      }
-    }
+    ["color", "number"],
+    { "ignoreFunctions": { "number": ["/.+/"], "color": ["color-mix"] } }
   ]
 }
 ```
@@ -104,10 +96,72 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { color: transparent; }
+a { transform: scale(1.5); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { transform: translateX(4px); }
+a { color: color-mix(in srgb, red, blue); }
+```
+
+### `ignoreProperties`
+
+```json
+{ "ignoreProperties": { "type": ["array", "of", "properties", "/regex/"] } }
+```
+
+Ignore the parts of a type in the values of the specified properties.
+
+Given:
+
+```json
+{
+  "value-type-custom-property-required-list": [
+    ["color", "length"],
+    { "ignoreProperties": { "/.+/": ["transform"], "length": ["/^border/"] } }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { transform: translateX(1px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { border-width: 1px; }
+```
+
+### `ignoreValues`
+
+```json
+{ "ignoreValues": ["array", "of", "values", "/regex/"] }
+```
+
+Ignore the specified parts of a value.
+
+Given:
+
+```json
+{
+  "value-type-custom-property-required-list": [
+    ["color", "number"],
+    { "ignoreValues": ["0", "transparent"] }
+  ]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { flex: 0; }
+```
+
+<!-- prettier-ignore -->
+```css
+a { color: transparent; }
 ```
