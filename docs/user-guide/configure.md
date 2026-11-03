@@ -554,6 +554,8 @@ For CSS bundles, you can specify a PostCSS plugin with the `loader` property:
 }
 ```
 
+Rules use the bundle's source order, including for the linted file when the bundle includes it.
+
 For non-CSS files, you should use an object form with a [`customSyntax`](#customsyntax) property:
 
 ```json
