@@ -103,7 +103,7 @@
     "@stylelint/prettier-config": "^4.1.0",
     "@stylelint/remark-preset": "^5.1.2",
     "@types/css-tree": "^3.2.0",
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "@types/picomatch": "^4.0.3",
     "@types/postcss-less": "^4.0.7",
     "@types/postcss-safe-parser": "^5.0.4",
