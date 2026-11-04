@@ -36,6 +36,8 @@ CLI flag: `--fix`
 
 Automatically fix, where possible, problems reported by rules.
 
+Rules run again on the fixed code, up to 10 times, until nothing more is fixed.
+
 Options are:
 
 - `"strict"` (default) - uses [PostCSS Parser](https://postcss.org/api/#postcss-parser) and only fixes problems when there are no syntax errors
