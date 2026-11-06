@@ -10,9 +10,9 @@ exports[`fs - zen garden CSS with standard config 1`] = `
       "errored": true,
       "warnings": [
         {
-          "line": 102,
+          "line": 113,
           "column": 25,
-          "endLine": 102,
+          "endLine": 113,
           "endColumn": 32,
           "rule": "font-family-no-missing-generic-family-keyword",
           "severity": "error",
@@ -31,9 +31,9 @@ exports[`fs - zen garden CSS with standard config 1`] = `
       "errored": true,
       "warnings": [
         {
-          "line": 102,
+          "line": 113,
           "column": 25,
-          "endLine": 102,
+          "endLine": 113,
           "endColumn": 32,
           "rule": "font-family-no-missing-generic-family-keyword",
           "severity": "error",

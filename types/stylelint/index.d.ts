@@ -339,8 +339,8 @@ declare namespace stylelint {
 		referenceRoots: PostCSS.Root[];
 
 		/**
-		 * The code the root was parsed from, exactly as it was read.
-		 * Unlike `root.source.input.css` (PostCSS API), any byte order mark is kept.
+		 * The code as read, before any fix, with any byte order mark kept,
+		 * unlike `root.source.input.css` (PostCSS API).
 		 */
 		code?: string;
 
