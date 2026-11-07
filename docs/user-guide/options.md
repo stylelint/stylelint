@@ -36,7 +36,7 @@ CLI flag: `--fix`
 
 Automatically fix, where possible, problems reported by rules.
 
-Rules run again on the fixed code, up to 10 times, until nothing more is fixed.
+The rules run in passes over the fixed code, up to 10 times, until a pass leaves the code unchanged. The [PostCSS plugin](postcss-plugin.md) runs one pass.
 
 Options are:
 
