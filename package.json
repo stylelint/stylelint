@@ -101,7 +101,7 @@
     "@changesets/cli": "^3.0.3",
     "@changesets/get-github-info": "^1.0.1",
     "@stylelint/prettier-config": "^4.1.0",
-    "@stylelint/remark-preset": "^5.1.2",
+    "@stylelint/remark-preset": "^6.0.0",
     "@types/css-tree": "^3.2.0",
     "@types/node": "^26.6.6",
     "@types/picomatch": "^4.0.3",
