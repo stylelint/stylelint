@@ -10,6 +10,7 @@ The words we use, and the words we don't. For CSS terms, use the names in the sp
 | report                                          | How a rule raises a problem.                                                                        | complain, flag                                          |
 | problem                                         | What a rule reports, at the configured [`severity`](../user-guide/configure.md#severity).           | finding, issue, violation, warning                      |
 | fix, autofix                                    | The change a rule makes with the [`fix`](../user-guide/options.md#fix) option. Autofix is the noun. | auto-correct, repair                                    |
+| pass                                            | Every rule applied to the code once.                                                                | iteration, loop, round                                  |
 | message argument                                | What a rule passes to the [`message`](../user-guide/configure.md#message) option.                   | parameter, variable                                     |
 | primary option, secondary option                | A rule's required first option, and the optional object after it.                                   | flag, setting                                           |
 | notation                                        | One of several equivalent forms.                                                                    | format, style                                           |
