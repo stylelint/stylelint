@@ -1,5 +1,23 @@
 # Changelog
 
+## 18.1.0 - 2026-11-20
+
+- Fixed: `at-rule-no-deprecated` autofix removing comments ([#9658](https://github.com/stylelint/stylelint/pull/9658)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `custom-property-empty-line-before` and `declaration-empty-line-before` false positives and negatives after fix ([#9649](https://github.com/stylelint/stylelint/pull/9649)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `declaration-property-value-no-unknown`, `property-no-unknown` and `value-type-custom-property-required-list` false negatives for rules nested within non-nesting at-rules ([#9630](https://github.com/stylelint/stylelint/pull/9630)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `fix` configuration property not writing the fixed code to files ([#9662](https://github.com/stylelint/stylelint/pull/9662)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `fix` introducing new problems in the CLI and Node.js API by running the rules in multiple passes ([#9637](https://github.com/stylelint/stylelint/pull/9637)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `font-family-name-quotes` autofix removing comments ([#9648](https://github.com/stylelint/stylelint/pull/9648)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `function-url-quotes` autofix for empty `url()` ([#9646](https://github.com/stylelint/stylelint/pull/9646)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `import-notation` autofix removing comments ([#9644](https://github.com/stylelint/stylelint/pull/9644)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `media-feature-name-no-vendor-prefix` false positives for names repeated inside the at-rule's block ([#9643](https://github.com/stylelint/stylelint/pull/9643)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `relative-selector-nesting-notation` autofix removing comments ([#9659](https://github.com/stylelint/stylelint/pull/9659)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-class-pattern`, `selector-max-type` and `selector-type-{case,no-unknown}` false negatives for selector lists containing `from` or `to` outside `@keyframes` ([#9669](https://github.com/stylelint/stylelint/pull/9669)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `selector-not-notation` autofix for empty selectors ([#9660](https://github.com/stylelint/stylelint/pull/9660)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `shorthand-property-no-redundant-values` autofix removing comments ([#9647](https://github.com/stylelint/stylelint/pull/9647)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: `value-no-vendor-prefix` autofix removing comments ([#9645](https://github.com/stylelint/stylelint/pull/9645)) ([@jeddy3](https://github.com/jeddy3)).
+- Fixed: false positives and negatives after `fix` for comments within values, selectors and at-rule preludes ([#9640](https://github.com/stylelint/stylelint/pull/9640)) ([@romainmenke](https://github.com/romainmenke)).
+
 ## 18.0.0 - 2026-11-03
 
 It contains 13 breaking changes, which we've detailed in the [migrating to `18.0.0` guide](docs/migration-guide/to-18.md). It also adds 4 new rules and fixes 16 bugs.
