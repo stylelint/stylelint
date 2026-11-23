@@ -52,6 +52,7 @@ We recommend using a pretty printer like Prettier alongside Stylelint. Linters a
   - [Configuring](docs/user-guide/configure.md)
   - [Rules](docs/user-guide/rules.md)
   - [Ignoring code](docs/user-guide/ignore-code.md)
+  - [Bulk suppressions](docs/user-guide/suppressions.md)
   - [CLI](docs/user-guide/cli.md)
   - [Node.js API](docs/user-guide/node-api.md)
   - [PostCSS plugin](docs/user-guide/postcss-plugin.md)
