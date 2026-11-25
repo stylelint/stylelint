@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: performance regression when linting many file paths
+Fixed: performance regression for file paths in many directories
