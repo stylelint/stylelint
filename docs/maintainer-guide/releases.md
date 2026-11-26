@@ -23,7 +23,7 @@
    2. Click **Run workflow**.
    3. Check and merge a pull request created by the action.
    4. Confirm the deployment of the update to [stylelint.io](https://stylelint.io).
-8. Check that [stylelint.io/demo](https://stylelint.io/demo) installs the latest Stylelint and config versions.
+8. Check that [stylelint.io/demo](https://stylelint.io/demo/) installs the latest Stylelint and config versions.
 
 ## New release issue template
 
