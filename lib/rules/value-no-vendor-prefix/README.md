@@ -58,7 +58,7 @@ a { max-width: max-content; }
 
 <!-- prettier-ignore -->
 ```css
-a { background: linear-gradient(bottom, #000, #fff); }
+a { background: linear-gradient(to top, #000, #fff); }
 ```
 
 ## Optional secondary options

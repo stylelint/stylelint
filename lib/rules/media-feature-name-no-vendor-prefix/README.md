@@ -36,7 +36,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (min--mox-device-pixel-ratio: 1) {}
+@media (min--moz-device-pixel-ratio: 1) {}
 ```
 
 <!-- prettier-ignore -->
@@ -70,7 +70,7 @@ Given:
 {
   "media-feature-name-no-vendor-prefix": [
     true,
-    { "ignoreProperties": ["-webkit-min-device-pixel-ratio", "/^-o/"] }
+    { "ignoreMediaFeatureNames": ["-webkit-min-device-pixel-ratio", "/^-o/"] }
   ]
 }
 ```
@@ -84,5 +84,5 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (-o-device-pixel-ratio > 1) {}
+@media (-o-device-pixel-ratio: 1/1) {}
 ```

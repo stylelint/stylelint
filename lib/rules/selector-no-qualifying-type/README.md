@@ -63,7 +63,7 @@ a:is(#foo, #bar) {
 <!-- prettier-ignore -->
 ```css
 a {
-  #foo {
+  &#foo {
     margin: 0
   }
 }

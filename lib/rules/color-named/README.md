@@ -38,12 +38,12 @@ a { color: #000; }
 
 <!-- prettier-ignore -->
 ```css
-a { color: #f000; }
+a { color: #000f; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { color: #ff000000; }
+a { color: #000000ff; }
 ```
 
 <!-- prettier-ignore -->
@@ -58,7 +58,7 @@ a { color: rgb(0%, 0%, 0%); }
 
 <!-- prettier-ignore -->
 ```css
-a { color: rgba(0, 0, 0, 0); }
+a { color: rgba(0, 0, 0, 1); }
 ```
 
 <!-- prettier-ignore -->
@@ -68,7 +68,7 @@ a { color: hsl(0, 0%, 0%); }
 
 <!-- prettier-ignore -->
 ```css
-a { color: hwb(0, 0%, 100%); }
+a { color: hwb(0 0% 100%); }
 ```
 
 <!-- prettier-ignore -->

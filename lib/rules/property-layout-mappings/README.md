@@ -75,7 +75,7 @@ a { margin: 0 1px; }
 
 <!-- prettier-ignore -->
 ```css
-a { transition: margin-left 0 ease; }
+a { transition: margin-left 0s ease; }
 ```
 
 The following patterns are _not_ considered problems:
@@ -97,7 +97,7 @@ a { margin: 0; }
 
 <!-- prettier-ignore -->
 ```css
-a { transition: margin-inline-start 0 ease; }
+a { transition: margin-inline-start 0s ease; }
 ```
 
 ### `"physical"`
@@ -126,7 +126,7 @@ a { inline-size: 0; }
 
 <!-- prettier-ignore -->
 ```css
-a { transition: margin-inline-start 0 ease; }
+a { transition: margin-inline-start 0s ease; }
 ```
 
 The following patterns are _not_ considered problems:
@@ -143,7 +143,7 @@ a { width: 0; }
 
 <!-- prettier-ignore -->
 ```css
-a { transition: margin-left 0 ease; }
+a { transition: margin-left 0s ease; }
 ```
 
 ## Optional secondary options
@@ -181,5 +181,5 @@ a { width: 0; }
 
 <!-- prettier-ignore -->
 ```css
-a { transition: margin-left 0 ease; }
+a { transition: margin-left 0s ease; }
 ```

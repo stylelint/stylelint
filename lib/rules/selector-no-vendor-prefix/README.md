@@ -48,7 +48,7 @@ input::placeholder {}
 
 <!-- prettier-ignore -->
 ```css
-:full-screen a {}
+:fullscreen a {}
 ```
 
 ## Optional secondary options

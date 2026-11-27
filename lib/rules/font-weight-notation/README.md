@@ -68,7 +68,7 @@ a { font-weight: 700; }
 
 <!-- prettier-ignore -->
 ```css
-a { font: italic 400 20px; }
+a { font: italic 400 20px sans-serif; }
 ```
 
 <!-- prettier-ignore -->
