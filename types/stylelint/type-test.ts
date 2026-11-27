@@ -36,6 +36,7 @@ const options: Partial<LinterOptions> = {
 	},
 	cache: true,
 	cacheLocation: './stylelint.cache.json',
+	concurrency: 'auto',
 	ignoreDisables: true,
 	reportDescriptionlessDisables: true,
 	reportInvalidScopeDisables: true,
@@ -63,6 +64,8 @@ const extendingConfig: stylelint.Config = {
 };
 
 stylelint.lint({ config: extendingConfig });
+
+stylelint.lint({ concurrency: 4, config: { ...extendingConfig, concurrency: 'auto' } });
 
 stylelint.lint(options).then((x: LinterResult) => {
 	x.errored satisfies boolean;
