@@ -974,6 +974,26 @@ For example:
 
 [More info](options.md#cache).
 
+## `concurrency`
+
+> [!WARNING]
+> This option is **experimental**, and might change significantly.
+
+Lint files in parallel using [worker threads](https://nodejs.org/api/worker_threads.html). The value is either a positive integer setting the number of workers, or `"auto"`, which sizes the worker pool based on the number of files and the available CPU cores.
+
+For example:
+
+```json
+{
+  "concurrency": "auto"
+}
+```
+
+> [!NOTE]
+> This config option should not be overridden on a per-file basis.
+
+[More info](options.md#concurrency).
+
 ## `fix`
 
 Automatically fix, where possible, problems reported by rules.

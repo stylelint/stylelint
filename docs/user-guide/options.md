@@ -61,6 +61,30 @@ The edit information will not be computed when:
 
 See [Node.js API Warning details](./node-api.md#edit-info).
 
+## `concurrency`
+
+CLI flag: `--concurrency`
+
+> [!WARNING]
+> This option is **experimental**, and might change significantly.
+
+Lint files in parallel using [worker threads](https://nodejs.org/api/worker_threads.html). The value is either a positive integer setting the number of workers, or `"auto"`. By default, files are linted in the main thread.
+
+For example:
+
+```shell
+stylelint "**/*.css" --concurrency auto
+```
+
+With `"auto"`, there's a worker for every 50 files, up to half the available CPU cores, and few files are linted in the main thread because starting workers would cost more than it saves.
+
+The option:
+
+- returns the same results as linting in the main thread
+- only applies to `files`, not to `code` or stdin
+- requires options that can be passed to worker threads, e.g. use [`configFile`](#configfile) instead of a `config` object containing functions such as inline plugins
+- combines with the [`cache`](#cache) option, linting only the changed files in workers
+
 ## `customSyntax`
 
 CLI flag: `--custom-syntax`

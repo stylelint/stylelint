@@ -274,6 +274,16 @@ declare namespace stylelint {
 		 */
 		cache?: boolean;
 		/**
+		 * The number of worker threads to lint files in parallel, or `'auto'` to size
+		 * the pool by the number of files and the available CPU cores.
+		 *
+		 * Should not be overridden on a per-file basis
+		 *
+		 * @experimental
+		 * @see [concurrency](https://stylelint.io/user-guide/configure#concurrency)
+		 */
+		concurrency?: number | 'auto';
+		/**
 		 * If true, automatically fix, where possible, problems reported by rules.
 		 *
 		 * Should not be overridden on a per-file basis
@@ -1243,6 +1253,13 @@ declare namespace stylelint {
 		cacheStrategy?: string;
 		code?: string;
 		codeFilename?: string;
+		/**
+		 * The number of worker threads to lint `files` in parallel, or `'auto'`
+		 * to size the pool by the number of files and the available CPU cores.
+		 *
+		 * @experimental
+		 */
+		concurrency?: number | 'auto';
 		config?: Config;
 		configFile?: string;
 		configBasedir?: string;

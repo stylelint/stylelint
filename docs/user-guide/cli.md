@@ -44,6 +44,10 @@ Store the results of processed files so that Stylelint only operates on the chan
 
 Force enabling/disabling of color. [More info](options.md#color).
 
+### `--concurrency`
+
+Lint files in parallel using worker threads (experimental). The value is either a positive integer or "auto". [More info](options.md#concurrency).
+
 ### `--config-basedir`
 
 Absolute path to the directory that relative paths defining `extends`, `plugins`, and `customSyntax` are _relative to_. [More info](options.md#configbasedir).
