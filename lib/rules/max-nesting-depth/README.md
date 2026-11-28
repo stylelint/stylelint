@@ -151,6 +151,7 @@ a {
 ```css
 a {
   @nest > b { /* 1 */
+    color: pink;
     .foo { color: pink; } /* 2 */
   }
 }
@@ -264,8 +265,8 @@ a {
 ```css
 a {
   b { /* 1 */
-    &:nest {
-      &:nest-lvl2 {  /* ignored */
+    &:focus {
+      &:focus-visible {  /* ignored */
         top: 0;
       }
     }
@@ -287,8 +288,8 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  &:nest {  /* ignored */
-    &:nest-lvl2 {  /* ignored */
+  &:focus {  /* ignored */
+    &:focus-visible {  /* ignored */
       top: 0;
       b { /* 1 */
         bottom: 0;
@@ -376,7 +377,7 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  @import print {       /* 1 */
+  @supports (top: 0) {  /* 1 */
     b { top: 0; }       /* 2 */
   }
 }
@@ -403,7 +404,7 @@ Given:
 
 ```json
 {
-  "max-nesting-depth": [1, { "ignorePseudoClasses": ["hover", "^focus-"] }]
+  "max-nesting-depth": [1, { "ignorePseudoClasses": ["hover", "/^focus-/"] }]
 }
 ```
 
@@ -423,8 +424,8 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  &:hover, &:active { /* ignored */
-    b {              /* 1 */
+  &:hover, &:focus-visible { /* ignored */
+    b {                     /* 1 */
       top: 0;
     }
   }

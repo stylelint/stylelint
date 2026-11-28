@@ -87,10 +87,10 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-font-family: monospace, monospace
+a { font-family: monospace, monospace; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-font-family: "My Font Family", "My Font Family", monospace
+a { font-family: "My Font Family", "My Font Family", monospace; }
 ```

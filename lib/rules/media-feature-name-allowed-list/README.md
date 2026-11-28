@@ -43,12 +43,12 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (min-width < 50em) {}
+@media (width < 50em) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (10em < min-width < 50em) {}
+@media (10em < width < 50em) {}
 ```
 
 The following patterns are _not_ considered problems:
@@ -61,11 +61,6 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 @media (my-width: 50em) {}
-```
-
-<!-- prettier-ignore -->
-```css
-@media (max-width > 50em) {}
 ```
 
 <!-- prettier-ignore -->

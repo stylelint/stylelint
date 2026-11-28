@@ -39,29 +39,29 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (color: red) { top: 1px; }
+@media (color: red) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (width: 10) { top: 1px; }
+@media (width: 10) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (width: auto) { top: 1px; }
+@media (width: auto) {}
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (color: 8) { top: 1px; }
+@media (color: 8) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (width: 10px) { top: 1px; }
+@media (width: 10px) {}
 ```
 
 ## Optional secondary options

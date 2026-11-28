@@ -187,6 +187,7 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
+
   bottom: 5px; /* comment */
   top: 5px;
 }
@@ -206,6 +207,7 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
+
   bottom: 5px; /* comment */
 
   top: 5px;

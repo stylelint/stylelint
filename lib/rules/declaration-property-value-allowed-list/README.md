@@ -38,7 +38,7 @@ Given:
 {
   "declaration-property-value-allowed-list": {
     "/^(-webkit-)?transform$/": ["/scale/"],
-    "whitespace": ["nowrap"],
+    "white-space": ["nowrap"],
     "/color/": ["/^green/"]
   }
 }
@@ -48,17 +48,17 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { whitespace: pre; }
+a { white-space: pre; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { transform: translate(1, 1); }
+a { transform: translate(1px, 1px); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { -webkit-transform: translate(1, 1); }
+a { -webkit-transform: translate(1px, 1px); }
 ```
 
 <!-- prettier-ignore -->
@@ -75,7 +75,7 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { whitespace: nowrap; }
+a { white-space: nowrap; }
 ```
 
 <!-- prettier-ignore -->

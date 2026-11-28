@@ -47,7 +47,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { @apply foo; }
+a { @nest .foo & {} }
 ```
 
 The following patterns are _not_ considered problems:
@@ -74,7 +74,7 @@ Given:
 
 ```json
 {
-  "at-rule-no-deprecated": [true, { "ignoreAtRules": ["/^view/", "apply"] }]
+  "at-rule-no-deprecated": [true, { "ignoreAtRules": ["/^view/", "nest"] }]
 }
 ```
 
@@ -87,5 +87,5 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { @apply foo; }
+a { @nest .foo & {} }
 ```

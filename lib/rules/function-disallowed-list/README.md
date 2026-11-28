@@ -47,8 +47,8 @@ a {
 ```css
 a {
   background:
-    red,
-    -moz-linear-gradient(45deg, blue, red);
+    -moz-linear-gradient(45deg, blue, red),
+    red;
 }
 ```
 

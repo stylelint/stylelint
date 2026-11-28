@@ -49,11 +49,6 @@ The following patterns are considered problems:
 @media screen and (min-resolution: 2dpi) {}
 ```
 
-<!-- prettier-ignore -->
-```css
-@media screen and (min-width > 1000px) {}
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -79,9 +74,4 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 @media screen and (resolution: 10dpcm) {}
-```
-
-<!-- prettier-ignore -->
-```css
-@media screen and (768px < min-width) {}
 ```

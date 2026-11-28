@@ -33,7 +33,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { transform: rotate(1); }
+a { transform: rotate(1deg); }
 ```
 
 <!-- prettier-ignore -->
@@ -47,8 +47,8 @@ a {
 ```css
 a {
   background:
-    red,
-    -webkit-radial-gradient(red, green, blue);
+    -webkit-radial-gradient(red, green, blue),
+    red;
 }
 ```
 
@@ -75,8 +75,8 @@ a {
 ```css
 a {
   background:
-    red,
-    -moz-linear-gradient(45deg, blue, red);
+    -moz-linear-gradient(45deg, blue, red),
+    red;
 }
 ```
 
