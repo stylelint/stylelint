@@ -3,7 +3,11 @@
 The Stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
-const result = await stylelint.lint(options);
+import stylelint from "stylelint";
+
+const result = await stylelint.lint({
+  // options...
+});
 ```
 
 ## Options
