@@ -164,69 +164,69 @@ declare namespace stylelint {
 		/**
 		 * A string to specify the name of a formatter or a path to a custom formatter function
 		 *
-		 * @see [formatter](https://stylelint.io/user-guide/configure#formatter)
+		 * @see [formatter](https://stylelint.io/user-guide/configure/#formatter)
 		 */
 		formatter?: FormatterType | Formatter;
 		/**
 		 * A string to set the default severity level for all rules that do not have a severity
 		 * specified in their secondary options
 		 *
-		 * @see [defaultSeverity](https://stylelint.io/user-guide/configure#defaultseverity)
+		 * @see [defaultSeverity](https://stylelint.io/user-guide/configure/#defaultseverity)
 		 */
 		defaultSeverity?: Severity;
 		/**
 		 * A boolean value indicating if 'stylelint-disable' comments will be ignored
 		 *
-		 * @see [ignoreDisables](https://stylelint.io/user-guide/configure#ignoredisables)
+		 * @see [ignoreDisables](https://stylelint.io/user-guide/configure/#ignoredisables)
 		 */
 		ignoreDisables?: boolean;
 		/**
 		 * Report configuration comments that don't match any lints that need to be disabled
 		 *
-		 * @see [reportNeedlessDisables](https://stylelint.io/user-guide/configure#reportneedlessdisables)
+		 * @see [reportNeedlessDisables](https://stylelint.io/user-guide/configure/#reportneedlessdisables)
 		 */
 		reportNeedlessDisables?: DisableSettings;
 		/**
 		 * Report configuration comments that don't match rules that are specified in the configuration object
 		 *
-		 * @see [reportInvalidScopeDisables](https://stylelint.io/user-guide/configure#reportinvalidscopedisables)
+		 * @see [reportInvalidScopeDisables](https://stylelint.io/user-guide/configure/#reportinvalidscopedisables)
 		 */
 		reportInvalidScopeDisables?: DisableSettings;
 		/**
 		 * Report configuration comments without a description
 		 *
-		 * @see [reportDescriptionlessDisables](https://stylelint.io/user-guide/configure#reportdescriptionlessdisables)
+		 * @see [reportDescriptionlessDisables](https://stylelint.io/user-guide/configure/#reportdescriptionlessdisables)
 		 */
 		reportDescriptionlessDisables?: DisableSettings;
 		/**
 		 * Report configuration comments that are not scoped to at least one rule
 		 *
-		 * @see [reportUnscopedDisables](https://stylelint.io/user-guide/configure#reportunscopeddisables)
+		 * @see [reportUnscopedDisables](https://stylelint.io/user-guide/configure/#reportunscopeddisables)
 		 */
 		reportUnscopedDisables?: DisableSettings;
 		/**
 		 * Set a limit to the number of warnings accepted.
 		 *
-		 * @see [maxWarnings](https://stylelint.io/user-guide/configure#maxwarnings)
+		 * @see [maxWarnings](https://stylelint.io/user-guide/configure/#maxwarnings)
 		 */
 		maxWarnings?: number;
 		/**
 		 * A string to set what configuration comments like 'stylelint-disable' start with.
 		 * Сan be useful when using multiple instances of Stylelint with different configurations.
 		 *
-		 * @see [configurationComment](https://stylelint.io/user-guide/configure#configurationcomment)
+		 * @see [configurationComment](https://stylelint.io/user-guide/configure/#configurationcomment)
 		 */
 		configurationComment?: string;
 		/**
 		 * An array of objects to specify what subset of files to apply a configuration to
 		 *
-		 * @see [overrides](https://stylelint.io/user-guide/configure#overrides)
+		 * @see [overrides](https://stylelint.io/user-guide/configure/#overrides)
 		 */
 		overrides?: ConfigOverride[];
 		/**
 		 * Allows to specify a custom syntax to use in code
 		 *
-		 * @see [customSyntax](https://stylelint.io/user-guide/configure#customsyntax)
+		 * @see [customSyntax](https://stylelint.io/user-guide/configure/#customsyntax)
 		 */
 		customSyntax?: CustomSyntax;
 		/** @internal */
@@ -234,7 +234,7 @@ declare namespace stylelint {
 		/**
 		 * Functions that allow to hook into Stylelint's pipeline
 		 *
-		 * @see [processors](https://stylelint.io/user-guide/configure#processors)
+		 * @see [processors](https://stylelint.io/user-guide/configure/#processors)
 		 */
 		processors?: ConfigProcessors;
 		/** @internal */
@@ -242,7 +242,7 @@ declare namespace stylelint {
 		/**
 		 * An array of globs or objects to specify what files to get reference information from
 		 *
-		 * @see [referenceFiles](https://stylelint.io/user-guide/configure#referencefiles)
+		 * @see [referenceFiles](https://stylelint.io/user-guide/configure/#referencefiles)
 		 */
 		referenceFiles?: ConfigReferenceFiles;
 		/** @internal */
@@ -254,7 +254,7 @@ declare namespace stylelint {
 		/**
 		 * Language options to extend the syntax.
 		 *
-		 * @see [languageOptions](https://stylelint.io/user-guide/configure#languageoptions)
+		 * @see [languageOptions](https://stylelint.io/user-guide/configure/#languageoptions)
 		 */
 		languageOptions?: LanguageOptions;
 		/**
@@ -262,7 +262,7 @@ declare namespace stylelint {
 		 *
 		 * Should not be overridden on a per-file basis
 		 *
-		 * @see [allowEmptyInput](https://stylelint.io/user-guide/configure#allowemptyinput)
+		 * @see [allowEmptyInput](https://stylelint.io/user-guide/configure/#allowemptyinput)
 		 */
 		allowEmptyInput?: boolean;
 		/**
@@ -270,7 +270,7 @@ declare namespace stylelint {
 		 *
 		 * Should not be overridden on a per-file basis
 		 *
-		 * @see [cache](https://stylelint.io/user-guide/configure#cache)
+		 * @see [cache](https://stylelint.io/user-guide/configure/#cache)
 		 */
 		cache?: boolean;
 		/**
@@ -278,7 +278,7 @@ declare namespace stylelint {
 		 *
 		 * Should not be overridden on a per-file basis
 		 *
-		 * @see [fix](https://stylelint.io/user-guide/configure#fix)
+		 * @see [fix](https://stylelint.io/user-guide/configure/#fix)
 		 */
 		fix?: boolean;
 		/** @internal */

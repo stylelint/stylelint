@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
           PR_COMMENT: |-
-            @${{ github.event.pull_request.user.login }} Thank you for your pull request. However, it does not follow our [contributing guide](https://stylelint.io/CONTRIBUTING).
+            @${{ github.event.pull_request.user.login }} Thank you for your pull request. However, it does not follow our [contributing guide](https://stylelint.io/contributing/).
 
             Please confirm that you:
 

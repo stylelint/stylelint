@@ -26,7 +26,7 @@ And the second argument (`returnValue`) is an object (type `LinterResult`) with 
   },
   "ruleMetadata": {
     "block-no-empty": {
-      "url": "https://stylelint.io/user-guide/rules/block-no-empty"
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty/"
     }
     // other rules...
   }

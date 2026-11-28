@@ -45,7 +45,7 @@ exports[`fs - errored state for reportNeedlessDisables 1`] = `
   "reportedDisables": [],
   "ruleMetadata": {
     "block-no-empty": {
-      "url": "https://stylelint.io/user-guide/rules/block-no-empty"
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty/"
     }
   }
 }
@@ -78,7 +78,7 @@ exports[`fs - no errored state 1`] = `
   "reportedDisables": [],
   "ruleMetadata": {
     "block-no-empty": {
-      "url": "https://stylelint.io/user-guide/rules/block-no-empty"
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty/"
     }
   }
 }

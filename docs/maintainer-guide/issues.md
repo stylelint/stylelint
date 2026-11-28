@@ -72,13 +72,13 @@ Please help us help you by [recreating the issue](https://github.com/stylelint/s
 That is best suited as a plugin:
 
 ```markdown
-Thank you for your suggestion. I think this is best-suited as a [plugin](https://stylelint.io/developer-guide/plugins).
+Thank you for your suggestion. I think this is best-suited as a [plugin](https://stylelint.io/developer-guide/plugins/).
 ```
 
 That is achievable by configuring an existing rule:
 
 ```markdown
-Thank you for your suggestion. I think you can achieve this by configuring one of the existing rules that [enforce conventions](https://stylelint.io/user-guide/rules#enforce-conventions). There are examples in the [customizing guide](https://stylelint.io/user-guide/customize#enforce-conventions).
+Thank you for your suggestion. I think you can achieve this by configuring one of the existing rules that [enforce conventions](https://stylelint.io/user-guide/rules/#enforce-conventions). There are examples in the [customizing guide](https://stylelint.io/user-guide/customize/#enforce-conventions).
 ```
 
 ### Label as ready to implement
@@ -86,29 +86,29 @@ Thank you for your suggestion. I think you can achieve this by configuring one o
 That fixes a bug in a rule:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing/) if you have time.
 
-There are [steps on how to fix a bug in a rule](https://stylelint.io/contributor-guide/rules#fix-a-bug-in-a-rule) in the Contributor guide.
+There are [steps on how to fix a bug in a rule](https://stylelint.io/contributor-guide/rules/#fix-a-bug-in-a-rule) in the Contributor guide.
 ```
 
 That adds a new option to a rule:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing/) if you have time.
 
-There are [steps on how to add a new option](https://stylelint.io/contributor-guide/rules#add-an-option-to-a-rule) in the Contributor guide.
+There are [steps on how to add a new option](https://stylelint.io/contributor-guide/rules/#add-an-option-to-a-rule) in the Contributor guide.
 ```
 
 That adds a new rule:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing/) if you have time.
 
-There are [steps on how to add a new rule](https://stylelint.io/contributor-guide/rules#add-a-rule) in the Contributor guide.
+There are [steps on how to add a new rule](https://stylelint.io/contributor-guide/rules/#add-a-rule) in the Contributor guide.
 ```
 
 That is another type of improvement:
 
 ```markdown
-I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing) if you have time.
+I've labeled the issue as ready to implement. Please consider [contributing](https://stylelint.io/contributing/) if you have time.
 ```
